@@ -12,7 +12,7 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f7957b;
+    public ArrayList<String> f7782b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class a {
             }
         }
         this.a = -1;
-        this.f7957b = new ArrayList<>();
+        this.f7782b = new ArrayList<>();
     }
 }

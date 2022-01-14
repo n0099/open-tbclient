@@ -15,10 +15,10 @@ public class i extends c.b.a.a.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f27752h;
+    public c f26919h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f27753i;
+    public b f26920i;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -33,10 +33,10 @@ public class i extends c.b.a.a.c {
         public w<Class<?>, d0> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27754b;
+        public int f26921b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27755c;
+        public int f26922c;
 
         public b(i iVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class i extends c.b.a.a.c {
                 }
             }
             this.a = new w<>();
-            this.f27754b = i2;
-            this.f27755c = i3;
+            this.f26921b = i2;
+            this.f26922c = i3;
         }
 
         public void a(Object obj) {
@@ -79,7 +79,7 @@ public class i extends c.b.a.a.c {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
                 d0 c2 = this.a.c(cls);
                 if (c2 == null) {
-                    c2 = new d0(cls, this.f27754b, this.f27755c);
+                    c2 = new d0(cls, this.f26921b, this.f26922c);
                     this.a.i(cls, c2);
                 }
                 return c2.e();
@@ -94,7 +94,7 @@ public class i extends c.b.a.a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ i f27756d;
+        public final /* synthetic */ i f26923d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(i iVar, int i2, int i3) {
@@ -115,7 +115,7 @@ public class i extends c.b.a.a.c {
                     return;
                 }
             }
-            this.f27756d = iVar;
+            this.f26923d = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,7 +124,7 @@ public class i extends c.b.a.a.c {
         public d d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d(this.f27756d, null) : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d(this.f26923d, null) : (d) invokeV.objValue;
         }
     }
 
@@ -134,7 +134,7 @@ public class i extends c.b.a.a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ i f27757j;
+        public final /* synthetic */ i f26924j;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class i extends c.b.a.a.c {
                     return;
                 }
             }
-            this.f27757j = iVar;
+            this.f26924j = iVar;
         }
 
         @Override // c.b.a.a.d
@@ -161,7 +161,7 @@ public class i extends c.b.a.a.c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
                 c.b.a.a.a i2 = super.i(cls);
                 if (i2 != null) {
-                    this.f27757j.f27753i.a(i2);
+                    this.f26924j.f26920i.a(i2);
                 }
                 return i2;
             }
@@ -174,9 +174,9 @@ public class i extends c.b.a.a.c {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 j();
                 this.a.d();
-                this.f27725b.d();
-                this.f27726c = false;
-                this.f27727d = false;
+                this.f26892b.d();
+                this.f26893c = false;
+                this.f26894d = false;
             }
         }
 
@@ -208,14 +208,14 @@ public class i extends c.b.a.a.c {
     public <T extends c.b.a.a.a> T h(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (T) this.f27753i.b(cls) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (T) this.f26920i.b(cls) : (T) invokeL.objValue;
     }
 
     @Override // c.b.a.a.c
     public c.b.a.a.d i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27752h.e() : (c.b.a.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26919h.e() : (c.b.a.a.d) invokeV.objValue;
     }
 
     @Override // c.b.a.a.c
@@ -224,7 +224,7 @@ public class i extends c.b.a.a.c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             super.n(dVar);
             if (dVar instanceof d) {
-                this.f27752h.c((d) dVar);
+                this.f26919h.c((d) dVar);
             }
         }
     }
@@ -244,7 +244,7 @@ public class i extends c.b.a.a.c {
                 return;
             }
         }
-        this.f27752h = new c(this, i2, i3);
-        this.f27753i = new b(this, i4, i5);
+        this.f26919h = new c(this, i2, i3);
+        this.f26920i = new b(this, i4, i5);
     }
 }

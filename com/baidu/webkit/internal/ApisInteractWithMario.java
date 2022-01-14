@@ -189,7 +189,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f54823b;
+                        public final /* synthetic */ String f52738b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -207,14 +207,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                 }
                             }
                             this.a = str;
-                            this.f54823b = str2;
+                            this.f52738b = str2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setCrashKeyValue(this.a, this.f54823b);
+                                ApisInteractWithMario.setCrashKeyValue(this.a, this.f52738b);
                             }
                         }
                     });

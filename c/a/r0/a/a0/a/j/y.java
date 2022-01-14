@@ -34,7 +34,7 @@ public class y extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.a) <= 0) {
             return;
         }
-        bVar.f5182i.setTextSize(i2);
+        bVar.f5074i.setTextSize(i2);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

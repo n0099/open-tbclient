@@ -12,25 +12,25 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8636b;
+    public String f8450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f8637c;
+    public List<String> f8451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f8638d;
+    public j f8452d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8639e;
+    public long f8453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d> f8640f;
+    public List<d> f8454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8641g;
+    public String f8455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f8642h;
+    public byte[] f8456h;
 
     public c() {
         Interceptable interceptable = $ic;

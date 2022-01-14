@@ -17,22 +17,22 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f1448b;
+    public static final int[] f1437b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f1449c;
+    public static int f1438c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f1450d;
+    public static int f1439d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f1451e;
+    public static int f1440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f1452f;
+    public static c f1441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static byte[] f1453g;
+    public static byte[] f1442g;
     public transient /* synthetic */ FieldHolder $fh;
     public AudioRecord a;
 
@@ -49,11 +49,11 @@ public class c {
                 return;
             }
         }
-        f1448b = new int[]{1, 0, 5, 7, 6};
-        f1449c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-        f1450d = 2048;
-        f1451e = 24;
-        f1453g = new byte[0];
+        f1437b = new int[]{1, 0, 5, 7, 6};
+        f1438c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
+        f1439d = 2048;
+        f1440e = 24;
+        f1442g = new byte[0];
     }
 
     public c(int i2) {
@@ -72,13 +72,13 @@ public class c {
                 return;
             }
         }
-        int minBufferSize = AudioRecord.getMinBufferSize(f1449c, 16, 2);
-        int i5 = f1450d;
-        int i6 = f1451e * i5;
+        int minBufferSize = AudioRecord.getMinBufferSize(f1438c, 16, 2);
+        int i5 = f1439d;
+        int i6 = f1440e * i5;
         i6 = i6 < minBufferSize ? ((minBufferSize / i5) + 1) * i5 * 2 : i6;
         if (i2 != -100) {
             try {
-                AudioRecord audioRecord = new AudioRecord(i2, f1449c, 16, 2, i6);
+                AudioRecord audioRecord = new AudioRecord(i2, f1438c, 16, 2, i6);
                 this.a = audioRecord;
                 if (audioRecord.getState() != 1) {
                     this.a = null;
@@ -91,9 +91,9 @@ public class c {
             }
         }
         if (this.a == null) {
-            for (int i7 : f1448b) {
+            for (int i7 : f1437b) {
                 try {
-                    AudioRecord audioRecord2 = new AudioRecord(i7, f1449c, 16, 2, i6);
+                    AudioRecord audioRecord2 = new AudioRecord(i7, f1438c, 16, 2, i6);
                     this.a = audioRecord2;
                     if (audioRecord2.getState() != 1) {
                         this.a = null;
@@ -127,10 +127,10 @@ public class c {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
             return;
         }
-        synchronized (f1453g) {
+        synchronized (f1442g) {
             g();
-            if (f1452f == this) {
-                f1452f = null;
+            if (f1441f == this) {
+                f1441f = null;
             }
         }
     }
@@ -138,16 +138,16 @@ public class c {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (f1453g) {
-                if (f1452f == this) {
+            synchronized (f1442g) {
+                if (f1441f == this) {
                     return;
                 }
-                if (f1452f != null) {
-                    f1452f.g();
-                    f1452f = null;
+                if (f1441f != null) {
+                    f1441f.g();
+                    f1441f = null;
                 }
                 f();
-                f1452f = this;
+                f1441f = this;
             }
         }
     }

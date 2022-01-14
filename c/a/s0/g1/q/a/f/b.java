@@ -54,7 +54,7 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.a.f13029i.f13009b.a(d.y.parse(this.a.u.o()));
+                    this.a.f12712i.f12693b.a(d.y.parse(this.a.u.o()));
                 } catch (ParseException e2) {
                     e2.printStackTrace();
                 }
@@ -80,17 +80,17 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
                 return;
             }
         }
-        this.f13029i = aVar;
+        this.f12712i = aVar;
         y(aVar.A);
     }
 
     public void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13029i.a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12712i.a == null) {
             return;
         }
         try {
-            this.f13029i.a.a(d.y.parse(this.u.o()), this.q);
+            this.f12712i.a.a(d.y.parse(this.u.o()), this.q);
         } catch (ParseException e2) {
             e2.printStackTrace();
         }
@@ -100,8 +100,8 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d dVar = this.u;
-            c.a.s0.g1.q.a.c.a aVar = this.f13029i;
-            dVar.E(aVar.f13013f, aVar.f13014g);
+            c.a.s0.g1.q.a.c.a aVar = this.f12712i;
+            dVar.E(aVar.f12697f, aVar.f12698g);
             x();
         }
     }
@@ -109,8 +109,8 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.u.I(this.f13029i.f13015h);
-            this.u.x(this.f13029i.f13016i);
+            this.u.I(this.f12712i.f12699h);
+            this.u.x(this.f12712i.f12700i);
         }
     }
 
@@ -124,7 +124,7 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Calendar calendar = Calendar.getInstance();
-            Calendar calendar2 = this.f13029i.f13012e;
+            Calendar calendar2 = this.f12712i.f12696e;
             if (calendar2 == null) {
                 calendar.setTimeInMillis(System.currentTimeMillis());
                 i2 = calendar.get(1);
@@ -135,11 +135,11 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
                 i7 = calendar.get(13);
             } else {
                 i2 = calendar2.get(1);
-                i3 = this.f13029i.f13012e.get(2);
-                i4 = this.f13029i.f13012e.get(5);
-                i5 = this.f13029i.f13012e.get(11);
-                i6 = this.f13029i.f13012e.get(12);
-                i7 = this.f13029i.f13012e.get(13);
+                i3 = this.f12712i.f12696e.get(2);
+                i4 = this.f12712i.f12696e.get(5);
+                i5 = this.f12712i.f12696e.get(11);
+                i6 = this.f12712i.f12696e.get(12);
+                i7 = this.f12712i.f12696e.get(13);
             }
             int i8 = i5;
             int i9 = i4;
@@ -153,7 +153,7 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13029i.R : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12712i.R : invokeV.booleanValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -170,25 +170,25 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.s0.g1.q.a.c.a aVar = this.f13029i;
-            if (aVar.f13013f != null && aVar.f13014g != null) {
-                Calendar calendar = aVar.f13012e;
-                if (calendar == null || calendar.getTimeInMillis() < this.f13029i.f13013f.getTimeInMillis() || this.f13029i.f13012e.getTimeInMillis() > this.f13029i.f13014g.getTimeInMillis()) {
-                    c.a.s0.g1.q.a.c.a aVar2 = this.f13029i;
-                    aVar2.f13012e = aVar2.f13013f;
+            c.a.s0.g1.q.a.c.a aVar = this.f12712i;
+            if (aVar.f12697f != null && aVar.f12698g != null) {
+                Calendar calendar = aVar.f12696e;
+                if (calendar == null || calendar.getTimeInMillis() < this.f12712i.f12697f.getTimeInMillis() || this.f12712i.f12696e.getTimeInMillis() > this.f12712i.f12698g.getTimeInMillis()) {
+                    c.a.s0.g1.q.a.c.a aVar2 = this.f12712i;
+                    aVar2.f12696e = aVar2.f12697f;
                     return;
                 }
                 return;
             }
-            c.a.s0.g1.q.a.c.a aVar3 = this.f13029i;
-            Calendar calendar2 = aVar3.f13013f;
+            c.a.s0.g1.q.a.c.a aVar3 = this.f12712i;
+            Calendar calendar2 = aVar3.f12697f;
             if (calendar2 != null) {
-                aVar3.f13012e = calendar2;
+                aVar3.f12696e = calendar2;
                 return;
             }
-            Calendar calendar3 = aVar3.f13014g;
+            Calendar calendar3 = aVar3.f12698g;
             if (calendar3 != null) {
-                aVar3.f13012e = calendar3;
+                aVar3.f12696e = calendar3;
             }
         }
     }
@@ -199,9 +199,9 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
             r();
             n();
             m();
-            c.a.s0.g1.q.a.d.a aVar = this.f13029i.f13010c;
+            c.a.s0.g1.q.a.d.a aVar = this.f12712i.f12694c;
             if (aVar == null) {
-                LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.f13026f);
+                LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.f12709f);
                 TextView textView = (TextView) i(R.id.tvTitle);
                 RelativeLayout relativeLayout = (RelativeLayout) i(R.id.rv_topbar);
                 Button button = (Button) i(R.id.btnSubmit);
@@ -210,21 +210,21 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
                 button2.setTag(QueryResponse.Options.CANCEL);
                 button.setOnClickListener(this);
                 button2.setOnClickListener(this);
-                button.setText(TextUtils.isEmpty(this.f13029i.B) ? context.getResources().getString(R.string.pickerview_submit) : this.f13029i.B);
-                button2.setText(TextUtils.isEmpty(this.f13029i.C) ? context.getResources().getString(R.string.pickerview_cancel) : this.f13029i.C);
-                textView.setText(TextUtils.isEmpty(this.f13029i.D) ? "" : this.f13029i.D);
-                button.setTextColor(this.f13029i.E);
-                button2.setTextColor(this.f13029i.F);
-                textView.setTextColor(this.f13029i.G);
-                relativeLayout.setBackgroundColor(this.f13029i.I);
-                button.setTextSize(this.f13029i.J);
-                button2.setTextSize(this.f13029i.J);
-                textView.setTextSize(this.f13029i.K);
+                button.setText(TextUtils.isEmpty(this.f12712i.B) ? context.getResources().getString(R.string.pickerview_submit) : this.f12712i.B);
+                button2.setText(TextUtils.isEmpty(this.f12712i.C) ? context.getResources().getString(R.string.pickerview_cancel) : this.f12712i.C);
+                textView.setText(TextUtils.isEmpty(this.f12712i.D) ? "" : this.f12712i.D);
+                button.setTextColor(this.f12712i.E);
+                button2.setTextColor(this.f12712i.F);
+                textView.setTextColor(this.f12712i.G);
+                relativeLayout.setBackgroundColor(this.f12712i.I);
+                button.setTextSize(this.f12712i.J);
+                button2.setTextSize(this.f12712i.J);
+                textView.setTextSize(this.f12712i.K);
             } else {
-                aVar.a(LayoutInflater.from(context).inflate(this.f13029i.x, this.f13026f));
+                aVar.a(LayoutInflater.from(context).inflate(this.f12712i.x, this.f12709f));
             }
             LinearLayout linearLayout = (LinearLayout) i(R.id.timepicker);
-            linearLayout.setBackgroundColor(this.f13029i.H);
+            linearLayout.setBackgroundColor(this.f12712i.H);
             z(linearLayout);
         }
     }
@@ -233,29 +233,29 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linearLayout) == null) {
-            c.a.s0.g1.q.a.c.a aVar = this.f13029i;
-            d dVar = new d(linearLayout, aVar.f13011d, aVar.z, aVar.L);
+            c.a.s0.g1.q.a.c.a aVar = this.f12712i;
+            d dVar = new d(linearLayout, aVar.f12695d, aVar.z, aVar.L);
             this.u = dVar;
-            if (this.f13029i.f13009b != null) {
+            if (this.f12712i.f12693b != null) {
                 dVar.G(new a(this));
             }
-            this.u.C(this.f13029i.f13018k);
-            c.a.s0.g1.q.a.c.a aVar2 = this.f13029i;
-            int i3 = aVar2.f13015h;
-            if (i3 != 0 && (i2 = aVar2.f13016i) != 0 && i3 <= i2) {
+            this.u.C(this.f12712i.k);
+            c.a.s0.g1.q.a.c.a aVar2 = this.f12712i;
+            int i3 = aVar2.f12699h;
+            if (i3 != 0 && (i2 = aVar2.f12700i) != 0 && i3 <= i2) {
                 C();
             }
-            c.a.s0.g1.q.a.c.a aVar3 = this.f13029i;
-            Calendar calendar = aVar3.f13013f;
-            if (calendar != null && aVar3.f13014g != null) {
-                if (calendar.getTimeInMillis() <= this.f13029i.f13014g.getTimeInMillis()) {
+            c.a.s0.g1.q.a.c.a aVar3 = this.f12712i;
+            Calendar calendar = aVar3.f12697f;
+            if (calendar != null && aVar3.f12698g != null) {
+                if (calendar.getTimeInMillis() <= this.f12712i.f12698g.getTimeInMillis()) {
                     B();
                 } else {
                     throw new IllegalArgumentException("startDate can't be later than endDate");
                 }
             } else {
-                c.a.s0.g1.q.a.c.a aVar4 = this.f13029i;
-                Calendar calendar2 = aVar4.f13013f;
+                c.a.s0.g1.q.a.c.a aVar4 = this.f12712i;
+                Calendar calendar2 = aVar4.f12697f;
                 if (calendar2 != null) {
                     if (calendar2.get(1) >= 1900) {
                         B();
@@ -263,7 +263,7 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
                         throw new IllegalArgumentException("The startDate can not as early as 1900");
                     }
                 } else {
-                    Calendar calendar3 = aVar4.f13014g;
+                    Calendar calendar3 = aVar4.f12698g;
                     if (calendar3 != null) {
                         if (calendar3.get(1) <= 2100) {
                             B();
@@ -277,19 +277,19 @@ public class b extends c.a.s0.g1.q.a.f.a implements View.OnClickListener {
             }
             D();
             d dVar2 = this.u;
-            c.a.s0.g1.q.a.c.a aVar5 = this.f13029i;
+            c.a.s0.g1.q.a.c.a aVar5 = this.f12712i;
             dVar2.y(aVar5.l, aVar5.m, aVar5.n, aVar5.o, aVar5.p, aVar5.q);
             d dVar3 = this.u;
-            c.a.s0.g1.q.a.c.a aVar6 = this.f13029i;
+            c.a.s0.g1.q.a.c.a aVar6 = this.f12712i;
             dVar3.N(aVar6.r, aVar6.s, aVar6.t, aVar6.u, aVar6.v, aVar6.w);
-            t(this.f13029i.S);
-            this.u.s(this.f13029i.f13017j);
-            this.u.u(this.f13029i.O);
-            this.u.w(this.f13029i.U);
-            this.u.A(this.f13029i.Q);
-            this.u.M(this.f13029i.M);
-            this.u.K(this.f13029i.N);
-            this.u.p(this.f13029i.T);
+            t(this.f12712i.S);
+            this.u.s(this.f12712i.f12701j);
+            this.u.u(this.f12712i.O);
+            this.u.w(this.f12712i.U);
+            this.u.A(this.f12712i.Q);
+            this.u.M(this.f12712i.M);
+            this.u.K(this.f12712i.N);
+            this.u.p(this.f12712i.T);
         }
     }
 }

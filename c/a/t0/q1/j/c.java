@@ -44,10 +44,10 @@ public class c extends c.a.d.n.e.a<c.a.t0.q1.l.c, HotRankListNormaItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.q1.l.c f22044e;
+        public final /* synthetic */ c.a.t0.q1.l.c f21444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22045f;
+        public final /* synthetic */ c f21445f;
 
         public a(c cVar, c.a.t0.q1.l.c cVar2) {
             Interceptable interceptable = $ic;
@@ -64,18 +64,18 @@ public class c extends c.a.d.n.e.a<c.a.t0.q1.l.c, HotRankListNormaItemHolder> {
                     return;
                 }
             }
-            this.f22045f = cVar;
-            this.f22044e = cVar2;
+            this.f21445f = cVar;
+            this.f21444e = cVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f22045f.n != null) {
-                    String h2 = this.f22044e.h();
+                if (this.f21445f.n != null) {
+                    String h2 = this.f21444e.h();
                     if (!StringUtils.isNull(h2)) {
-                        UrlManager.getInstance().dealOneLink(this.f22045f.n, new String[]{h2});
+                        UrlManager.getInstance().dealOneLink(this.f21445f.n, new String[]{h2});
                     }
                 }
                 TiebaStatic.log("c10820");
@@ -89,10 +89,10 @@ public class c extends c.a.d.n.e.a<c.a.t0.q1.l.c, HotRankListNormaItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.q1.l.c f22046e;
+        public final /* synthetic */ c.a.t0.q1.l.c f21446e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22047f;
+        public final /* synthetic */ c f21447f;
 
         public b(c cVar, c.a.t0.q1.l.c cVar2) {
             Interceptable interceptable = $ic;
@@ -109,16 +109,16 @@ public class c extends c.a.d.n.e.a<c.a.t0.q1.l.c, HotRankListNormaItemHolder> {
                     return;
                 }
             }
-            this.f22047f = cVar;
-            this.f22046e = cVar2;
+            this.f21447f = cVar;
+            this.f21446e = cVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f22046e.d()), this.f22046e.g(), "5")));
-                TiebaStatic.log(new StatisticItem("c11237").param("obj_id", String.valueOf(this.f22046e.d())).param("obj_locate", this.f22047f.o));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f21446e.d()), this.f21446e.g(), "5")));
+                TiebaStatic.log(new StatisticItem("c11237").param("obj_id", String.valueOf(this.f21446e.d())).param("obj_locate", this.f21447f.o));
             }
         }
     }
@@ -162,7 +162,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.q1.l.c, HotRankListNormaItemHolder> {
             hotRankListNormaItemHolder.topicRanking.setText("");
             SkinManager.setBackgroundResource(hotRankListNormaItemHolder.topicRanking, c.a.t0.q1.d.icon_grade_shaitu1);
             hotRankListNormaItemHolder.tipInfoItem.setVisibility(0);
-            hotRankListNormaItemHolder.tipTitle.setText(f0(StringUtils.isNull(cVar.e()) ? this.f3299e.getResources().getString(c.a.t0.q1.h.hot_topic_hot_list) : cVar.e(), StringUtils.isNull(cVar.k()) ? this.f3299e.getResources().getString(c.a.t0.q1.h.hot_topic_update_time) : cVar.k()));
+            hotRankListNormaItemHolder.tipTitle.setText(f0(StringUtils.isNull(cVar.e()) ? this.f3258e.getResources().getString(c.a.t0.q1.h.hot_topic_hot_list) : cVar.e(), StringUtils.isNull(cVar.k()) ? this.f3258e.getResources().getString(c.a.t0.q1.h.hot_topic_update_time) : cVar.k()));
             hotRankListNormaItemHolder.dividerLineTop.setVisibility(0);
             SkinManager.setBackgroundResource(hotRankListNormaItemHolder.tipRuleContainer, c.a.t0.q1.d.hot_topic_ranklist_bg);
             hotRankListNormaItemHolder.tipRuleContainer.setOnClickListener(new a(this, cVar));
@@ -228,7 +228,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.q1.l.c, HotRankListNormaItemHolder> {
     public HotRankListNormaItemHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotRankListNormaItemHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.q1.f.hot_topic_ranklist_normal_item, viewGroup, false)) : (HotRankListNormaItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotRankListNormaItemHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.q1.f.hot_topic_ranklist_normal_item, viewGroup, false)) : (HotRankListNormaItemHolder) invokeL.objValue;
     }
 
     public View e0(int i2, View view, ViewGroup viewGroup, c.a.t0.q1.l.c cVar, HotRankListNormaItemHolder hotRankListNormaItemHolder) {

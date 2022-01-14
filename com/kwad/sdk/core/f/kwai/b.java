@@ -12,15 +12,15 @@ public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f58027b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f55831b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f58028c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.b.1
+    public ServiceConnection f55832c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.b.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "onServiceConnected");
-                b.this.f58027b.put(iBinder);
+                b.this.f55831b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -42,18 +42,18 @@ public class b {
         try {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            if (this.a.bindService(intent, this.f58028c, 1)) {
+            if (this.a.bindService(intent, this.f55832c, 1)) {
                 try {
-                    b.a aVar = new b.a(this.f58027b.take());
+                    b.a aVar = new b.a(this.f55831b.take());
                     str = aVar.a();
                     boolean b2 = aVar.b();
                     com.kwad.sdk.core.d.a.c("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
                     context = this.a;
-                    serviceConnection = this.f58028c;
+                    serviceConnection = this.f55832c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f58028c;
+                    serviceConnection = this.f55832c;
                 }
                 context.unbindService(serviceConnection);
             }

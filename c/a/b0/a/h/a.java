@@ -24,34 +24,32 @@ public class a {
     public h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1546b;
+    public String f1531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<i> f1547c;
+    public List<i> f1532c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<i> f1548d;
+    public List<i> f1533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f1549e;
+    public c f1534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f1550f;
+    public c f1535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i f1551g;
+    public i f1536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i.c f1552h;
+    public i.c f1537h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f1553i;
+    public Context f1538i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Boolean f1554j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f1555k;
+    public Boolean f1539j;
+    public boolean k;
     public i.c l;
 
     /* renamed from: c.a.b0.a.h.a$a  reason: collision with other inner class name */
@@ -85,10 +83,10 @@ public class a {
         public void a(i iVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, iVar, str) == null) {
-                this.a.f1548d.remove(iVar);
-                this.a.f1547c.add(iVar);
-                if (iVar == this.a.f1551g) {
-                    this.a.a.i(a.m, this.a.f1551g.m());
+                this.a.f1533d.remove(iVar);
+                this.a.f1532c.add(iVar);
+                if (iVar == this.a.f1536g) {
+                    this.a.a.i(a.m, this.a.f1536g.m());
                 }
                 if (this.a.q()) {
                     this.a.r();
@@ -115,9 +113,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{iVar, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
                 super.c(iVar, j2, j3, i2);
-                int k2 = this.a.k();
-                if (this.a.f1552h != null) {
-                    this.a.f1552h.c(this.a, 0L, 100L, k2);
+                int k = this.a.k();
+                if (this.a.f1537h != null) {
+                    this.a.f1537h.c(this.a, 0L, 100L, k);
                 }
             }
         }
@@ -189,13 +187,13 @@ public class a {
                 i("isLoaded " + q + StringUtil.ARRAY_ELEMENT_SEPARATOR + iVar.o() + " to " + iVar.m());
             }
             if (iVar.q()) {
-                this.f1547c.add(iVar);
+                this.f1532c.add(iVar);
                 return;
             }
-            if (this.f1548d == null) {
-                this.f1548d = new ArrayList();
+            if (this.f1533d == null) {
+                this.f1533d = new ArrayList();
             }
-            this.f1548d.add(iVar);
+            this.f1533d.add(iVar);
         }
     }
 
@@ -203,15 +201,15 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<i> list = this.f1548d;
+            List<i> list = this.f1533d;
             float f2 = 100.0f;
             if (list != null && list.size() != 0) {
-                float size = 100.0f / (this.f1547c.size() + this.f1548d.size());
+                float size = 100.0f / (this.f1532c.size() + this.f1533d.size());
                 float f3 = 0.0f;
-                for (int i2 = 0; i2 < this.f1548d.size(); i2++) {
-                    f3 += (this.f1548d.get(i2).n() / 100.0f) * size;
+                for (int i2 = 0; i2 < this.f1533d.size(); i2++) {
+                    f3 += (this.f1533d.get(i2).n() / 100.0f) * size;
                 }
-                f2 = (this.f1547c.size() * size) + f3;
+                f2 = (this.f1532c.size() * size) + f3;
             }
             return (int) f2;
         }
@@ -221,33 +219,33 @@ public class a {
     public File l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1550f.f1563g : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1535f.f1547g : (File) invokeV.objValue;
     }
 
     public File m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1549e.f1563g : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1534e.f1547g : (File) invokeV.objValue;
     }
 
     public boolean n(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            Boolean bool = this.f1554j;
+            Boolean bool = this.f1539j;
             if (bool != null && bool.booleanValue()) {
-                return this.f1554j.booleanValue();
+                return this.f1539j.booleanValue();
             }
-            this.f1554j = Boolean.FALSE;
+            this.f1539j = Boolean.FALSE;
             long currentTimeMillis = System.currentTimeMillis();
             boolean k0 = c.a.b0.a.a.k0();
             if (p()) {
                 i("ARControllerProxy.loadSoFile " + k0);
             }
             if (!k0) {
-                return this.f1554j.booleanValue();
+                return this.f1539j.booleanValue();
             }
-            File file = this.f1550f.f1563g;
+            File file = this.f1535f.f1547g;
             if (p()) {
                 i("setResConfig " + file);
             }
@@ -258,7 +256,7 @@ public class a {
                 i("initRecource costMS: " + (System.currentTimeMillis() - currentTimeMillis));
             }
             Boolean bool2 = Boolean.TRUE;
-            this.f1554j = bool2;
+            this.f1539j = bool2;
             return bool2.booleanValue();
         }
         return invokeL.booleanValue;
@@ -267,27 +265,27 @@ public class a {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f1547c.clear();
-            List<i> list = this.f1548d;
+            this.f1532c.clear();
+            List<i> list = this.f1533d;
             if (list != null) {
                 list.clear();
             }
             if ("live".equals(c.a.b0.a.b.e())) {
-                this.f1549e = c.i();
-                this.f1550f = c.g();
+                this.f1534e = c.i();
+                this.f1535f = c.g();
             }
             if (BdUploadHandler.MEDIA_SOURCE_KEY.equals(c.a.b0.a.b.e())) {
-                this.f1549e = c.h();
-                this.f1550f = c.f();
+                this.f1534e = c.h();
+                this.f1535f = c.f();
             }
             if ("tieba".equals(c.a.b0.a.b.e())) {
-                this.f1549e = c.i();
-                this.f1550f = c.f();
+                this.f1534e = c.i();
+                this.f1535f = c.f();
             }
-            c.a.b0.a.h.b bVar = new c.a.b0.a.h.b(this.f1550f);
-            this.f1551g = bVar;
+            c.a.b0.a.h.b bVar = new c.a.b0.a.h.b(this.f1535f);
+            this.f1536g = bVar;
             h(bVar);
-            h(new c.a.b0.a.h.b(this.f1549e));
+            h(new c.a.b0.a.h.b(this.f1534e));
         }
     }
 
@@ -301,7 +299,7 @@ public class a {
         InterceptResult invokeV;
         List<i> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1547c.size() > 0 && ((list = this.f1548d) == null || list.size() == 0) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1532c.size() > 0 && ((list = this.f1533d) == null || list.size() == 0) : invokeV.booleanValue;
     }
 
     public void r() {
@@ -310,27 +308,27 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             synchronized (this) {
-                this.f1555k = false;
+                this.k = false;
             }
-            boolean n = n(this.f1553i);
+            boolean n = n(this.f1538i);
             String str = null;
-            if (!n && (cVar = this.f1552h) != null) {
+            if (!n && (cVar = this.f1537h) != null) {
                 cVar.b(null, null);
                 return;
             }
-            this.a.n(this.f1546b);
+            this.a.n(this.f1531b);
             this.a.f();
             if (p()) {
                 i("all onCompleted " + n);
             }
-            if (this.f1552h == null || !n) {
+            if (this.f1537h == null || !n) {
                 return;
             }
-            c cVar2 = this.f1550f;
-            if (cVar2 != null && (file = cVar2.f1563g) != null) {
+            c cVar2 = this.f1535f;
+            if (cVar2 != null && (file = cVar2.f1547g) != null) {
                 str = file.getAbsolutePath();
             }
-            this.f1552h.a(this, str);
+            this.f1537h.a(this, str);
         }
     }
 
@@ -341,7 +339,7 @@ public class a {
                 i("all onFailed .");
             }
             synchronized (this) {
-                this.f1555k = false;
+                this.k = false;
             }
         }
     }
@@ -349,10 +347,10 @@ public class a {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f1546b = this.a.e(m);
-            List<i> list = this.f1548d;
+            this.f1531b = this.a.e(m);
+            List<i> list = this.f1533d;
             if (list != null && list.size() > 0) {
-                for (i iVar : this.f1548d) {
+                for (i iVar : this.f1533d) {
                     iVar.l(this.l);
                 }
                 return;
@@ -364,16 +362,16 @@ public class a {
     public void u(Context context, i.c<a> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, cVar) == null) {
-            this.f1553i = context;
-            this.f1552h = cVar;
+            this.f1538i = context;
+            this.f1537h = cVar;
             synchronized (this) {
-                if (this.f1555k) {
+                if (this.k) {
                     if (p()) {
                         i("start return, isLoading true");
                     }
                     return;
                 }
-                this.f1555k = true;
+                this.k = true;
                 o();
                 t();
             }
@@ -393,8 +391,8 @@ public class a {
                 return;
             }
         }
-        this.f1547c = new ArrayList();
-        this.f1548d = null;
+        this.f1532c = new ArrayList();
+        this.f1533d = null;
         this.l = new C0032a(this);
         h hVar = new h(d.d().g());
         this.a = hVar;

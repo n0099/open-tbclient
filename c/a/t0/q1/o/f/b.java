@@ -25,19 +25,19 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<p> f22258e;
+    public List<p> f21647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f22259f;
+    public Context f21648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22260g;
+    public int f21649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22261h;
+    public int f21650h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f22262i;
+    public final int f21651i;
 
     public b(Context context, int i2) {
         Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f22258e = new ArrayList();
-        this.f22260g = 0;
-        this.f22261h = 0;
-        this.f22259f = context;
-        this.f22260g = context.getResources().getDimensionPixelSize(c.a.t0.q1.c.fontsize28);
-        this.f22261h = context.getResources().getDimensionPixelSize(c.a.t0.q1.c.ds16);
-        this.f22262i = i2;
+        this.f21647e = new ArrayList();
+        this.f21649g = 0;
+        this.f21650h = 0;
+        this.f21648f = context;
+        this.f21649g = context.getResources().getDimensionPixelSize(c.a.t0.q1.c.fontsize28);
+        this.f21650h = context.getResources().getDimensionPixelSize(c.a.t0.q1.c.ds16);
+        this.f21651i = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -70,10 +70,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f22258e.size()) {
+            if (i2 < 0 || i2 >= this.f21647e.size()) {
                 return null;
             }
-            return this.f22258e.get(i2);
+            return this.f21647e.get(i2);
         }
         return (p) invokeI.objValue;
     }
@@ -81,9 +81,9 @@ public class b extends BaseAdapter {
     public void b(List<p> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f22258e.clear();
+            this.f21647e.clear();
             if (list != null && list.size() > 0) {
-                this.f22258e.addAll(list);
+                this.f21647e.addAll(list);
             }
             notifyDataSetChanged();
         }
@@ -93,7 +93,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22258e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21647e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -115,19 +115,19 @@ public class b extends BaseAdapter {
             if (view instanceof TextView) {
                 textView = (TextView) view;
             } else {
-                textView = new TextView(this.f22259f);
+                textView = new TextView(this.f21648f);
                 textView.setGravity(17);
-                textView.setTextSize(0, this.f22260g);
-                int i3 = this.f22261h;
+                textView.setTextSize(0, this.f21649g);
+                int i3 = this.f21650h;
                 textView.setPadding(0, i3, 0, i3);
             }
-            p pVar = (p) ListUtils.getItem(this.f22258e, i2);
+            p pVar = (p) ListUtils.getItem(this.f21647e, i2);
             if (pVar == null) {
                 return null;
             }
-            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(pVar.f22189e, 8, (String) null));
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(pVar.f21581e, 8, (String) null));
             SkinManager.setViewTextColor(textView, c.a.t0.q1.b.CAM_X0106, 1);
-            if (i2 == this.f22262i) {
+            if (i2 == this.f21651i) {
                 SkinManager.setBackgroundResource(textView, d.btn_label_white_s);
             } else if (1 != TbadkCoreApplication.getInst().getSkinType() && 4 != TbadkCoreApplication.getInst().getSkinType()) {
                 textView.setBackgroundResource(d.topic_btn_more_item);

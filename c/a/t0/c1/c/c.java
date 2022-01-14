@@ -18,13 +18,13 @@ public class c {
     public SearchForum a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SearchForum> f15742b;
+    public List<SearchForum> f15344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<n> f15743c;
+    public ArrayList<n> f15345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15744d;
+    public String f15346d;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class c {
                 return;
             }
         }
-        this.f15744d = str;
+        this.f15346d = str;
     }
 
     public ArrayList<n> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15743c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15345c : (ArrayList) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -56,23 +56,23 @@ public class c {
             return;
         }
         this.a = dataRes.exact_match;
-        this.f15742b = dataRes.fuzzy_match;
-        this.f15743c = new ArrayList<>();
-        b bVar = new b(this.f15744d);
+        this.f15344b = dataRes.fuzzy_match;
+        this.f15345c = new ArrayList<>();
+        b bVar = new b(this.f15346d);
         SearchForum searchForum = this.a;
         if (searchForum != null) {
             bVar.w(searchForum);
-            this.f15743c.add(bVar);
+            this.f15345c.add(bVar);
         }
-        List<SearchForum> list = this.f15742b;
+        List<SearchForum> list = this.f15344b;
         if (list == null) {
             return;
         }
         for (SearchForum searchForum2 : list) {
             if (searchForum2 != null) {
-                b bVar2 = new b(this.f15744d);
+                b bVar2 = new b(this.f15346d);
                 bVar2.w(searchForum2);
-                this.f15743c.add(bVar2);
+                this.f15345c.add(bVar2);
             }
         }
     }

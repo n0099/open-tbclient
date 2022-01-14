@@ -20,10 +20,10 @@ public class ImageModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f42450e;
+    public a f40963e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42451f;
+    public String f40964f;
 
     /* loaded from: classes11.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -32,7 +32,7 @@ public class ImageModel extends BdBaseModel {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImageModel f42452b;
+        public final /* synthetic */ ImageModel f40965b;
 
         public a(ImageModel imageModel, String str) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class ImageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f42452b = imageModel;
+            this.f40965b = imageModel;
             this.a = null;
             this.a = str;
         }
@@ -74,9 +74,9 @@ public class ImageModel extends BdBaseModel {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f42452b.f42450e = null;
-                if (this.f42452b.mLoadDataCallBack != null) {
-                    this.f42452b.mLoadDataCallBack.c(null);
+                this.f40965b.f40963e = null;
+                if (this.f40965b.mLoadDataCallBack != null) {
+                    this.f40965b.mLoadDataCallBack.c(null);
                 }
                 super.cancel(true);
             }
@@ -96,9 +96,9 @@ public class ImageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
-                this.f42452b.f42450e = null;
-                if (this.f42452b.mLoadDataCallBack != null) {
-                    this.f42452b.mLoadDataCallBack.c(bitmap);
+                this.f40965b.f40963e = null;
+                if (this.f40965b.mLoadDataCallBack != null) {
+                    this.f40965b.mLoadDataCallBack.c(bitmap);
                 }
             }
         }
@@ -122,15 +122,15 @@ public class ImageModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42450e = null;
-        this.f42451f = null;
+        this.f40963e = null;
+        this.f40964f = null;
     }
 
     public boolean B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f42451f = str;
+            this.f40964f = str;
             return loadData();
         }
         return invokeL.booleanValue;
@@ -141,7 +141,7 @@ public class ImageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f42450e;
+            a aVar = this.f40963e;
             if (aVar != null) {
                 aVar.cancel();
                 return true;
@@ -156,12 +156,12 @@ public class ImageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a aVar = this.f42450e;
+            a aVar = this.f40963e;
             if (aVar != null) {
                 aVar.cancel();
             }
-            a aVar2 = new a(this, this.f42451f);
-            this.f42450e = aVar2;
+            a aVar2 = new a(this, this.f40964f);
+            this.f40963e = aVar2;
             aVar2.execute(new Object[0]);
             return true;
         }

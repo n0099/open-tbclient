@@ -15,7 +15,7 @@ public class e extends c.o.a.f.a {
     public final MethodCall a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f31234b;
+    public final a f30259b;
 
     /* loaded from: classes9.dex */
     public class a implements g {
@@ -74,7 +74,7 @@ public class e extends c.o.a.f.a {
             }
         }
         this.a = methodCall;
-        this.f31234b = new a(this, result);
+        this.f30259b = new a(this, result);
     }
 
     @Override // c.o.a.f.f
@@ -88,6 +88,6 @@ public class e extends c.o.a.f.a {
     public g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31234b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30259b : (g) invokeV.objValue;
     }
 }

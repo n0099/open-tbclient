@@ -11,7 +11,7 @@ public class g {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3474b;
+    public long f3426b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class g {
             }
         }
         this.a = -1L;
-        this.f3474b = -1L;
+        this.f3426b = -1L;
     }
 }

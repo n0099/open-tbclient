@@ -20,53 +20,51 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f61725d = "";
+    public static String f59386d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f61726e = "";
+    public static String f59387e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f61727f = "";
+    public static String f59388f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f61728g;
+    public static volatile a f59389g;
     public c a;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Context f61734k;
+    public Context k;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61731h = true;
+    public boolean f59392h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61732i = false;
+    public boolean f59393i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f61733j = false;
+    public volatile boolean f59394j = false;
     public final List<Pair<b, d>> l = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<InterfaceC2164a> f61729b = new ArrayList();
+    public final List<InterfaceC2181a> f59390b = new ArrayList();
     public final ServiceConnection m = new ServiceConnection() { // from class: com.ss.android.downloadlib.a.b.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            synchronized (a.this.f61730c) {
+            synchronized (a.this.f59391c) {
                 a.this.a(false);
                 a.this.a = c.a.a(iBinder);
                 a.this.c();
-                for (InterfaceC2164a interfaceC2164a : a.this.f61729b) {
-                    interfaceC2164a.a();
+                for (InterfaceC2181a interfaceC2181a : a.this.f59390b) {
+                    interfaceC2181a.a();
                 }
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            synchronized (a.this.f61730c) {
+            synchronized (a.this.f59391c) {
                 a.this.a(false);
                 a.this.a = null;
-                for (InterfaceC2164a interfaceC2164a : a.this.f61729b) {
-                    interfaceC2164a.b();
+                for (InterfaceC2181a interfaceC2181a : a.this.f59390b) {
+                    interfaceC2181a.b();
                 }
             }
         }
@@ -74,33 +72,33 @@ public class a {
     public String n = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f61730c = new Object();
+    public final Object f59391c = new Object();
 
     /* renamed from: com.ss.android.downloadlib.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2164a {
+    public interface InterfaceC2181a {
         void a();
 
         void b();
     }
 
     public static a a() {
-        if (f61728g == null) {
+        if (f59389g == null) {
             synchronized (a.class) {
-                if (f61728g == null) {
-                    f61728g = new a();
+                if (f59389g == null) {
+                    f59389g = new a();
                 }
             }
         }
-        return f61728g;
+        return f59389g;
     }
 
     public void b() {
         if (this.a != null) {
-            this.f61734k.unbindService(this.m);
+            this.k.unbindService(this.m);
             this.a = null;
         }
-        this.f61729b.clear();
+        this.f59390b.clear();
         this.l.clear();
     }
 
@@ -116,34 +114,34 @@ public class a {
     }
 
     public boolean d() {
-        return this.f61733j;
+        return this.f59394j;
     }
 
     public boolean a(Context context, boolean z) {
-        if (TextUtils.isEmpty(f61725d)) {
+        if (TextUtils.isEmpty(f59386d)) {
             JSONObject i2 = j.i();
             String optString = i2.optString("s");
-            f61725d = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("q"), optString);
-            f61726e = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString(x.o), optString);
-            f61727f = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("w"), optString);
+            f59386d = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("q"), optString);
+            f59387e = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString(x.o), optString);
+            f59388f = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("w"), optString);
         }
-        this.f61732i = z;
+        this.f59393i = z;
         if (context != null) {
-            this.f61734k = context.getApplicationContext();
-            if (TextUtils.isEmpty(f61727f)) {
-                f61727f = this.f61734k.getPackageName();
+            this.k = context.getApplicationContext();
+            if (TextUtils.isEmpty(f59388f)) {
+                f59388f = this.k.getPackageName();
             }
             if (this.a != null || d()) {
                 return true;
             }
-            return this.f61734k.bindService(a(context), this.m, 33);
+            return this.k.bindService(a(context), this.m, 33);
         }
         return true;
     }
 
     public Intent a(Context context) {
         Intent intent = new Intent();
-        intent.setAction(f61725d);
+        intent.setAction(f59386d);
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
         if (queryIntentServices == null || queryIntentServices.size() != 1) {
             return null;
@@ -152,7 +150,7 @@ public class a {
             ServiceInfo serviceInfo = resolveInfo.serviceInfo;
             String str = serviceInfo.packageName;
             String str2 = serviceInfo.name;
-            if (f61726e.equals(str)) {
+            if (f59387e.equals(str)) {
                 ComponentName componentName = new ComponentName(str, str2);
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
@@ -163,10 +161,10 @@ public class a {
     }
 
     public void a(b bVar, d dVar) {
-        synchronized (this.f61730c) {
-            bVar.f61738e = f61727f;
-            if (TextUtils.isEmpty(bVar.f61739f)) {
-                bVar.f61739f = this.n;
+        synchronized (this.f59391c) {
+            bVar.f59398e = f59388f;
+            if (TextUtils.isEmpty(bVar.f59399f)) {
+                bVar.f59399f = this.n;
             }
             if (this.a != null) {
                 try {
@@ -174,13 +172,13 @@ public class a {
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
-            } else if (d() || a(this.f61734k, this.f61732i)) {
+            } else if (d() || a(this.k, this.f59393i)) {
                 this.l.add(Pair.create(bVar, dVar));
             }
         }
     }
 
     public void a(boolean z) {
-        this.f61733j = z;
+        this.f59394j = z;
     }
 }

@@ -25,13 +25,13 @@ public class CHToolGroup extends BaseItemLayout {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLayout f53257b;
+    public FlowLayout f51210b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f53258c;
+    public NetImageView f51211c;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BaseItemView> f53259e;
+    public List<BaseItemView> f51212e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHToolGroup(Context context) {
@@ -52,14 +52,14 @@ public class CHToolGroup extends BaseItemLayout {
             }
         }
         this.a = 4;
-        this.f53259e = new ArrayList();
+        this.f51212e = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53259e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51212e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -67,8 +67,8 @@ public class CHToolGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tools_layout"), this);
-            this.f53257b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
-            this.f53258c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
+            this.f51210b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
+            this.f51211c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
         }
     }
 
@@ -90,18 +90,18 @@ public class CHToolGroup extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             int length = dataItemArr.length <= 4 ? dataItemArr.length : 4;
-            this.f53257b.setHorizontalChildNum(length);
-            this.f53257b.setHorizontalSpacing(0);
-            this.f53257b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
+            this.f51210b.setHorizontalChildNum(length);
+            this.f51210b.setHorizontalSpacing(0);
+            this.f51210b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
             for (int i2 = 0; i2 < length; i2++) {
                 if (dataItemArr[i2] != null) {
                     CHToolItem cHToolItem = new CHToolItem(getContext());
                     cHToolItem.setData(dataItemArr[i2], getWalletInterface());
-                    this.f53257b.addView(cHToolItem);
-                    this.f53259e.add(cHToolItem);
+                    this.f51210b.addView(cHToolItem);
+                    this.f51212e.add(cHToolItem);
                 }
             }
-            NetImageView netImageView = this.f53258c;
+            NetImageView netImageView = this.f51211c;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
         }
     }
@@ -126,6 +126,6 @@ public class CHToolGroup extends BaseItemLayout {
             }
         }
         this.a = 4;
-        this.f53259e = new ArrayList();
+        this.f51212e = new ArrayList();
     }
 }

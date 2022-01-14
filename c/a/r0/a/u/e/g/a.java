@@ -26,24 +26,24 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f9278f;
+    public View f9076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9279g;
+    public int f9077g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f9280h;
+    public ViewTreeObserver.OnGlobalLayoutListener f9078h;
 
     /* renamed from: c.a.r0.a.u.e.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class ViewTreeObserver$OnGlobalLayoutListenerC0566a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class ViewTreeObserver$OnGlobalLayoutListenerC0575a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9281e;
+        public final /* synthetic */ a f9079e;
 
-        public ViewTreeObserver$OnGlobalLayoutListenerC0566a(a aVar) {
+        public ViewTreeObserver$OnGlobalLayoutListenerC0575a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9281e = aVar;
+            this.f9079e = aVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -66,13 +66,13 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f9281e.f9278f.getWindowVisibleDisplayFrame(rect);
+                this.f9079e.f9076f.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (this.f9281e.f9279g == height) {
+                if (this.f9079e.f9077g == height) {
                     return;
                 }
-                if (this.f9281e.f9279g - height <= 180) {
-                    if (height - this.f9281e.f9279g > 180) {
+                if (this.f9079e.f9077g - height <= 180) {
+                    if (height - this.f9079e.f9077g > 180) {
                         HashMap hashMap = new HashMap();
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -82,7 +82,7 @@ public class a extends d {
                         }
                         hashMap.put("data", jSONObject.toString());
                         f.U().u(new c("keyboardHeightChange", hashMap));
-                        this.f9281e.f9279g = height;
+                        this.f9079e.f9077g = height;
                         return;
                     }
                     return;
@@ -90,13 +90,13 @@ public class a extends d {
                 HashMap hashMap2 = new HashMap();
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("height", n0.P(this.f9281e.f9279g - height));
+                    jSONObject2.put("height", n0.P(this.f9079e.f9077g - height));
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
                 hashMap2.put("data", jSONObject2.toString());
                 f.U().u(new c("keyboardHeightChange", hashMap2));
-                this.f9281e.f9279g = height;
+                this.f9079e.f9077g = height;
             }
         }
     }
@@ -129,13 +129,13 @@ public class a extends d {
                 c.a.r0.a.e0.d.c("SoftKeyboardApi", "activity is null");
                 return;
             }
-            this.f9278f = activity.getWindow().getDecorView();
+            this.f9076f = activity.getWindow().getDecorView();
             Rect rect = new Rect();
-            this.f9278f.getWindowVisibleDisplayFrame(rect);
-            this.f9279g = rect.height();
-            if (this.f9280h == null) {
-                this.f9280h = new ViewTreeObserver$OnGlobalLayoutListenerC0566a(this);
-                this.f9278f.getViewTreeObserver().addOnGlobalLayoutListener(this.f9280h);
+            this.f9076f.getWindowVisibleDisplayFrame(rect);
+            this.f9077g = rect.height();
+            if (this.f9078h == null) {
+                this.f9078h = new ViewTreeObserver$OnGlobalLayoutListenerC0575a(this);
+                this.f9076f.getViewTreeObserver().addOnGlobalLayoutListener(this.f9078h);
             }
         }
     }
@@ -143,11 +143,11 @@ public class a extends d {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f9280h != null) {
-                this.f9278f.getViewTreeObserver().removeOnGlobalLayoutListener(this.f9280h);
+            if (this.f9078h != null) {
+                this.f9076f.getViewTreeObserver().removeOnGlobalLayoutListener(this.f9078h);
             }
-            this.f9280h = null;
-            this.f9279g = 0;
+            this.f9078h = null;
+            this.f9077g = 0;
         }
     }
 

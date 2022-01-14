@@ -17,7 +17,7 @@ public class g extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5666b;
+    public static final boolean f5542b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, Object> a;
 
@@ -34,7 +34,7 @@ public class g extends f {
                 return;
             }
         }
-        f5666b = c.a.r0.a.k.a;
+        f5542b = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,7 +84,7 @@ public class g extends f {
             try {
                 return (Boolean) f(str, bool);
             } catch (ClassCastException e2) {
-                if (f5666b) {
+                if (f5542b) {
                     e2.printStackTrace();
                 }
                 return bool;
@@ -100,7 +100,7 @@ public class g extends f {
             try {
                 return (Integer) f(str, num);
             } catch (ClassCastException e2) {
-                if (f5666b) {
+                if (f5542b) {
                     e2.printStackTrace();
                 }
                 return num;
@@ -116,7 +116,7 @@ public class g extends f {
             try {
                 return (String) f(str, str2);
             } catch (ClassCastException e2) {
-                if (f5666b) {
+                if (f5542b) {
                     e2.printStackTrace();
                 }
                 return str2;
@@ -136,7 +136,7 @@ public class g extends f {
                 try {
                     return (V) this.a.get(str);
                 } catch (Exception e2) {
-                    if (f5666b) {
+                    if (f5542b) {
                         e2.printStackTrace();
                         return v;
                     }

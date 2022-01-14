@@ -16,11 +16,11 @@ public class k extends BaseCardInfo implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f25316f;
+    public static BdUniqueId f24607f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f25317e;
+    public List<c> f24608e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class k extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        f25316f = BdUniqueId.gen();
+        f24607f = BdUniqueId.gen();
     }
 
     public k() {
@@ -55,20 +55,20 @@ public class k extends BaseCardInfo implements c.a.d.n.e.n {
     public List<c> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25317e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24608e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f25316f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f24607f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f25317e = list;
+            this.f24608e = list;
         }
     }
 }

@@ -269,7 +269,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
     }
 
     private final void helpClose(Closed<?> closed) {
-        Object m2110constructorimpl$default = InlineList.m2110constructorimpl$default(null, 1, null);
+        Object m2122constructorimpl$default = InlineList.m2122constructorimpl$default(null, 1, null);
         while (true) {
             LockFreeLinkedListNode prevNode = closed.getPrevNode();
             if (!(prevNode instanceof Receive)) {
@@ -281,14 +281,14 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             } else if (!receive.remove()) {
                 receive.helpRemove();
             } else {
-                m2110constructorimpl$default = InlineList.m2115plusimpl(m2110constructorimpl$default, receive);
+                m2122constructorimpl$default = InlineList.m2127plusimpl(m2122constructorimpl$default, receive);
             }
         }
-        if (m2110constructorimpl$default != null) {
-            if (!(m2110constructorimpl$default instanceof ArrayList)) {
-                ((Receive) m2110constructorimpl$default).resumeReceiveClosed(closed);
-            } else if (m2110constructorimpl$default != null) {
-                ArrayList arrayList = (ArrayList) m2110constructorimpl$default;
+        if (m2122constructorimpl$default != null) {
+            if (!(m2122constructorimpl$default instanceof ArrayList)) {
+                ((Receive) m2122constructorimpl$default).resumeReceiveClosed(closed);
+            } else if (m2122constructorimpl$default != null) {
+                ArrayList arrayList = (ArrayList) m2122constructorimpl$default;
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
                     ((Receive) arrayList.get(size)).resumeReceiveClosed(closed);
                 }
@@ -309,7 +309,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         helpClose(closed);
         Throwable sendException = closed.getSendException();
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(sendException)));
+        continuation.resumeWith(Result.m714constructorimpl(ResultKt.createFailure(sendException)));
     }
 
     private final void invokeOnCloseHandler(Throwable th) {
@@ -623,7 +623,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             if (offerInternal == AbstractChannelKt.OFFER_SUCCESS) {
                 Unit unit = Unit.INSTANCE;
                 Result.Companion companion = Result.Companion;
-                orCreateCancellableContinuation.resumeWith(Result.m702constructorimpl(unit));
+                orCreateCancellableContinuation.resumeWith(Result.m714constructorimpl(unit));
                 break;
             } else if (offerInternal != AbstractChannelKt.OFFER_FAILED) {
                 if (offerInternal instanceof Closed) {

@@ -30,27 +30,27 @@ public class c extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8235e;
+    public static final boolean f8053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f8236f;
+    public static int f8054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f8237g;
+    public static int f8055g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f8238h;
+    public static int f8056h;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f8239b;
+    public final String f8057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f8240c;
+    public final String f8058c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a<Long> f8241d;
+    public final c.a<Long> f8059d;
 
     /* loaded from: classes.dex */
     public class a implements c.a<Long> {
@@ -99,10 +99,10 @@ public class c extends f {
                 return;
             }
         }
-        f8235e = k.a;
-        f8236f = 1024;
-        f8237g = -1;
-        f8238h = 1;
+        f8053e = k.a;
+        f8054f = 1024;
+        f8055g = -1;
+        f8056h = 1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,10 +123,10 @@ public class c extends f {
                 return;
             }
         }
-        this.f8241d = new a(this);
-        this.f8239b = b.t(eVar);
-        this.f8240c = "aiapp_" + this.f8239b;
-        c.a.r0.a.u2.d.f9668h.b(this.f8241d);
+        this.f8059d = new a(this);
+        this.f8057b = b.t(eVar);
+        this.f8058c = "aiapp_" + this.f8057b;
+        c.a.r0.a.u2.d.f9459h.b(this.f8059d);
     }
 
     public static boolean b(@NonNull String str) {
@@ -164,7 +164,7 @@ public class c extends f {
             }
             c.a.r0.w.d.k(b.x(e.f0()));
             c.a.r0.w.d.k(b.v(e.f0()));
-            c.a.r0.a.u2.d.f9668h.update();
+            c.a.r0.a.u2.d.f9459h.update();
         }
     }
 
@@ -172,9 +172,9 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (f8235e) {
+            if (f8053e) {
                 File file = g().getFile();
-                String str = this.f8239b + " exists = " + file.exists() + " isFile = " + file.isFile() + " path = " + file.getPath() + " size = " + file.length();
+                String str = this.f8057b + " exists = " + file.exists() + " isFile = " + file.isFile() + " path = " + file.getPath() + " size = " + file.length();
             }
             return g().c();
         }
@@ -188,8 +188,8 @@ public class c extends f {
             if (!TextUtils.isEmpty(str) && !str.endsWith(File.separator)) {
                 int lastIndexOf = str.lastIndexOf(File.separator);
                 int length = str.length();
-                if (lastIndexOf != f8237g && length > lastIndexOf) {
-                    return str.substring(lastIndexOf + f8238h, length);
+                if (lastIndexOf != f8055g && length > lastIndexOf) {
+                    return str.substring(lastIndexOf + f8056h, length);
                 }
             }
             return null;
@@ -202,7 +202,7 @@ public class c extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.a == null) {
-                this.a = new g(this.f8240c, false);
+                this.a = new g(this.f8058c, false);
             }
             return this.a;
         }
@@ -245,7 +245,7 @@ public class c extends f {
             if (file == null || !file.exists()) {
                 return null;
             }
-            if (f8235e) {
+            if (f8053e) {
                 String str = "——> getSavedFileList: " + file.getAbsolutePath();
             }
             c.a.r0.a.o2.a aVar = new c.a.r0.a.o2.a();
@@ -276,7 +276,7 @@ public class c extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (f8235e) {
+            if (f8053e) {
                 String str2 = "——> getSavedFileList:  dir " + str;
             }
             File file = new File(str);
@@ -358,7 +358,7 @@ public class c extends f {
                     try {
                         str = new FileOutputStream(l);
                         try {
-                            byte[] bArr = new byte[f8236f];
+                            byte[] bArr = new byte[f8054f];
                             while (true) {
                                 int read = fileInputStream2.read(bArr);
                                 if (read == -1) {
@@ -375,7 +375,7 @@ public class c extends f {
                             fileInputStream = fileInputStream2;
                             obj2 = str;
                             str = obj2;
-                            if (f8235e) {
+                            if (f8053e) {
                                 e.printStackTrace();
                                 str = obj2;
                             }
@@ -388,7 +388,7 @@ public class c extends f {
                             fileInputStream = fileInputStream2;
                             obj = str;
                             str = obj;
-                            if (f8235e) {
+                            if (f8053e) {
                                 e.printStackTrace();
                                 str = obj;
                             }

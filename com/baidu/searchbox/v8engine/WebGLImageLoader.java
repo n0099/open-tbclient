@@ -26,7 +26,7 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_URL = "asset://";
@@ -39,7 +39,7 @@ public class WebGLImageLoader {
     public static BitmapReferenceMap sReferenceMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

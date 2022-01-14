@@ -27,17 +27,17 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f5384b;
+    public static int f5271b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0262a extends ResponseCallback<CommonSyncServerData> {
+    public static class C0271a extends ResponseCallback<CommonSyncServerData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.b0.c.a a;
 
-        public C0262a(c.a.r0.a.b0.c.a aVar) {
+        public C0271a(c.a.r0.a.b0.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class a {
                     JSONObject jSONObject = new JSONObject(string);
                     int optInt = jSONObject.optInt("errno");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == a.f5384b && optJSONObject != null) {
+                    if (optInt == a.f5271b && optJSONObject != null) {
                         return CommonSyncServerData.parseFromJson(optJSONObject);
                     }
                 }
@@ -116,7 +116,7 @@ public class a {
             }
         }
         a = k.a;
-        f5384b = 0;
+        f5271b = 0;
     }
 
     public static void b(c.a.r0.a.b0.c.a aVar) {
@@ -129,7 +129,7 @@ public class a {
                 }
                 return;
             }
-            c.a.r0.p.e.a.g().getRequest().cookieManager(c.a.r0.a.c1.a.q().a()).url(c.a.r0.a.c1.a.m().processUrl(b.a())).build().executeAsync(new C0262a(aVar));
+            c.a.r0.p.e.a.g().getRequest().cookieManager(c.a.r0.a.c1.a.q().a()).url(c.a.r0.a.c1.a.m().processUrl(b.a())).build().executeAsync(new C0271a(aVar));
         }
     }
 

@@ -6,18 +6,18 @@ import java.util.Map;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f57831b;
+    public static volatile c f55640b;
     public Map<String, String> a = new HashMap();
 
     public static c a() {
-        if (f57831b == null) {
+        if (f55640b == null) {
             synchronized (c.class) {
-                if (f57831b == null) {
-                    f57831b = new c();
+                if (f55640b == null) {
+                    f55640b = new c();
                 }
             }
         }
-        return f57831b;
+        return f55640b;
     }
 
     public synchronized void a(String str, String str2) {

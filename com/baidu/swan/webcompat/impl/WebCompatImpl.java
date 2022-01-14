@@ -37,19 +37,19 @@ public final class WebCompatImpl implements a {
     public final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Lazy f41450b;
+    public final Lazy f40041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Lazy f41451c;
+    public final Lazy f40042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Lazy f41452d;
+    public final Lazy f40043d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Lazy f41453e;
+    public final Lazy f40044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lazy f41454f;
+    public final Lazy f40045f;
 
     static {
         InterceptResult invokeClinit;
@@ -80,11 +80,11 @@ public final class WebCompatImpl implements a {
             }
         }
         this.a = LazyKt__LazyJVMKt.lazy(WebCompatImpl$internalFilePathInfo$2.INSTANCE);
-        this.f41450b = LazyKt__LazyJVMKt.lazy(WebCompatImpl$externalFilePathInfo$2.INSTANCE);
-        this.f41451c = LazyKt__LazyJVMKt.lazy(WebCompatImpl$localAssetDomain$2.INSTANCE);
-        this.f41452d = LazyKt__LazyJVMKt.lazy(new WebCompatImpl$internalStorageFilesPathHandler$2(this));
-        this.f41453e = LazyKt__LazyJVMKt.lazy(new WebCompatImpl$externalStorageFilesPathHandler$2(this));
-        this.f41454f = LazyKt__LazyJVMKt.lazy(new WebCompatImpl$localAssetLoader$2(this));
+        this.f40041b = LazyKt__LazyJVMKt.lazy(WebCompatImpl$externalFilePathInfo$2.INSTANCE);
+        this.f40042c = LazyKt__LazyJVMKt.lazy(WebCompatImpl$localAssetDomain$2.INSTANCE);
+        this.f40043d = LazyKt__LazyJVMKt.lazy(new WebCompatImpl$internalStorageFilesPathHandler$2(this));
+        this.f40044e = LazyKt__LazyJVMKt.lazy(new WebCompatImpl$externalStorageFilesPathHandler$2(this));
+        this.f40045f = LazyKt__LazyJVMKt.lazy(new WebCompatImpl$localAssetLoader$2(this));
     }
 
     @Override // c.a.r0.z.b.a
@@ -102,8 +102,8 @@ public final class WebCompatImpl implements a {
                 String b3 = l().b();
                 Intrinsics.checkNotNullExpressionValue(b3, "internalFilePathInfo.filesUrl");
                 invoke2 = webCompatImpl$getWebCompatUrl$1.invoke2(b3, "internal_files");
-            } else if (StringsKt__StringsJVMKt.startsWith(url, c.f35136g, true)) {
-                invoke2 = webCompatImpl$getWebCompatUrl$1.invoke2(c.f35136g, "internal_files");
+            } else if (StringsKt__StringsJVMKt.startsWith(url, c.f34001g, true)) {
+                invoke2 = webCompatImpl$getWebCompatUrl$1.invoke2(c.f34001g, "internal_files");
             } else if (StringsKt__StringsJVMKt.startsWith(url, "file:///android_asset/", true)) {
                 invoke2 = webCompatImpl$getWebCompatUrl$1.invoke2("file:///android_asset/", AssetUriLoader.ASSET_PATH_SEGMENT);
             } else if (StringsKt__StringsJVMKt.startsWith(url, "file:///android_res/", true)) {
@@ -151,13 +151,13 @@ public final class WebCompatImpl implements a {
     public final FilePathInfo j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (FilePathInfo) this.f41450b.getValue() : (FilePathInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (FilePathInfo) this.f40041b.getValue() : (FilePathInfo) invokeV.objValue;
     }
 
     public final b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (b) this.f41453e.getValue() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (b) this.f40044e.getValue() : (b) invokeV.objValue;
     }
 
     public final FilePathInfo l() {
@@ -169,19 +169,19 @@ public final class WebCompatImpl implements a {
     public final WebViewAssetLoader.InternalStoragePathHandler m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (WebViewAssetLoader.InternalStoragePathHandler) this.f41452d.getValue() : (WebViewAssetLoader.InternalStoragePathHandler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (WebViewAssetLoader.InternalStoragePathHandler) this.f40043d.getValue() : (WebViewAssetLoader.InternalStoragePathHandler) invokeV.objValue;
     }
 
     public final String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (String) this.f41451c.getValue() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (String) this.f40042c.getValue() : (String) invokeV.objValue;
     }
 
     public final WebViewAssetLoader o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (WebViewAssetLoader) this.f41454f.getValue() : (WebViewAssetLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (WebViewAssetLoader) this.f40045f.getValue() : (WebViewAssetLoader) invokeV.objValue;
     }
 
     public final boolean p(String str) {

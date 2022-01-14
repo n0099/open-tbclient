@@ -10,11 +10,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.s0.h.b.b.a;
-import c.a.s0.s.i0.f;
-import c.a.s0.s.i0.g;
+import c.a.s0.s.j0.f;
+import c.a.s0.s.j0.g;
 import c.a.t0.d1.c1;
 import c.a.t0.d1.d1;
-import c.a.t0.d1.d3.e;
+import c.a.t0.d1.e3.e;
 import c.a.t0.d1.f1;
 import c.a.t0.d1.g1;
 import c.a.t0.d1.i1;
@@ -52,39 +52,39 @@ public final class VoiceRoomListFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f45574e;
+    public a f43910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f45575f;
+    public g f43911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Lazy f45576g;
+    public final Lazy f43912g;
 
     /* loaded from: classes12.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final C1900a f45578e;
+        public static final C1916a f43914e;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final NavigationBar f45579b;
+        public final NavigationBar f43915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final BdSwipeRefreshLayout f45580c;
+        public final BdSwipeRefreshLayout f43916c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final RecyclerView f45581d;
+        public final RecyclerView f43917d;
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public static final class C1900a {
+        public static final class C1916a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1900a() {
+            public C1916a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 }
             }
 
-            public /* synthetic */ C1900a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C1916a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
@@ -132,7 +132,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     return;
                 }
             }
-            f45578e = new C1900a(null);
+            f43914e = new C1916a(null);
         }
 
         public a(View root, NavigationBar navBar, BdSwipeRefreshLayout refreshLayout, RecyclerView voiceRoomList) {
@@ -155,27 +155,27 @@ public final class VoiceRoomListFragment extends BaseFragment {
             Intrinsics.checkNotNullParameter(refreshLayout, "refreshLayout");
             Intrinsics.checkNotNullParameter(voiceRoomList, "voiceRoomList");
             this.a = root;
-            this.f45579b = navBar;
-            this.f45580c = refreshLayout;
-            this.f45581d = voiceRoomList;
+            this.f43915b = navBar;
+            this.f43916c = refreshLayout;
+            this.f43917d = voiceRoomList;
         }
 
         public final NavigationBar a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45579b : (NavigationBar) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43915b : (NavigationBar) invokeV.objValue;
         }
 
         public final BdSwipeRefreshLayout b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45580c : (BdSwipeRefreshLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43916c : (BdSwipeRefreshLayout) invokeV.objValue;
         }
 
         public final RecyclerView c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45581d : (RecyclerView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43917d : (RecyclerView) invokeV.objValue;
         }
 
         public boolean equals(Object obj) {
@@ -187,7 +187,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 }
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f45579b, aVar.f45579b) && Intrinsics.areEqual(this.f45580c, aVar.f45580c) && Intrinsics.areEqual(this.f45581d, aVar.f45581d);
+                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f43915b, aVar.f43915b) && Intrinsics.areEqual(this.f43916c, aVar.f43916c) && Intrinsics.areEqual(this.f43917d, aVar.f43917d);
                 }
                 return false;
             }
@@ -197,14 +197,14 @@ public final class VoiceRoomListFragment extends BaseFragment {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((((this.a.hashCode() * 31) + this.f45579b.hashCode()) * 31) + this.f45580c.hashCode()) * 31) + this.f45581d.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((((this.a.hashCode() * 31) + this.f43915b.hashCode()) * 31) + this.f43916c.hashCode()) * 31) + this.f43917d.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return "Binding(root=" + this.a + ", navBar=" + this.f45579b + ", refreshLayout=" + this.f45580c + ", voiceRoomList=" + this.f45581d + ')';
+                return "Binding(root=" + this.a + ", navBar=" + this.f43915b + ", refreshLayout=" + this.f43916c + ", voiceRoomList=" + this.f43917d + ')';
             }
             return (String) invokeV.objValue;
         }
@@ -223,7 +223,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 return;
             }
         }
-        this.f45576g = FragmentViewModelLazyKt.createViewModelLazy(this, Reflection.getOrCreateKotlinClass(VoiceRoomListViewModel.class), new VoiceRoomListFragment$special$$inlined$viewModels$default$2(new VoiceRoomListFragment$special$$inlined$viewModels$default$1(this)), null);
+        this.f43912g = FragmentViewModelLazyKt.createViewModelLazy(this, Reflection.getOrCreateKotlinClass(VoiceRoomListViewModel.class), new VoiceRoomListFragment$special$$inlined$viewModels$default$2(new VoiceRoomListFragment$special$$inlined$viewModels$default$1(this)), null);
     }
 
     public static final void j(VoiceRoomListFragment this$0, boolean z) {
@@ -237,7 +237,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
     public final VoiceRoomListViewModel i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (VoiceRoomListViewModel) this.f45576g.getValue() : (VoiceRoomListViewModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (VoiceRoomListViewModel) this.f43912g.getValue() : (VoiceRoomListViewModel) invokeV.objValue;
     }
 
     public final void k() {
@@ -270,7 +270,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                 public final /* synthetic */ VoiceRoomListAdapter a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ VoiceRoomListFragment.a f45577b;
+                public final /* synthetic */ VoiceRoomListFragment.a f43913b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -288,7 +288,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                         }
                     }
                     this.a = voiceRoomListAdapter;
-                    this.f45577b = aVar;
+                    this.f43913b = aVar;
                 }
 
                 @Override // androidx.lifecycle.Observer
@@ -298,12 +298,12 @@ public final class VoiceRoomListFragment extends BaseFragment {
                         a aVar2 = (a) t;
                         if (aVar2 instanceof a.c) {
                             this.a.submitList((List) ((a.c) aVar2).a());
-                            this.f45577b.b().setRefreshing(false);
-                        } else if (aVar2 instanceof a.C0839a) {
-                            ToastUtil.show(((a.C0839a) aVar2).a());
-                            this.f45577b.b().setRefreshing(false);
+                            this.f43913b.b().setRefreshing(false);
+                        } else if (aVar2 instanceof a.C0849a) {
+                            ToastUtil.show(((a.C0849a) aVar2).a());
+                            this.f43913b.b().setRefreshing(false);
                         } else if (aVar2 instanceof a.b) {
-                            this.f45577b.b().setRefreshing(true);
+                            this.f43913b.b().setRefreshing(true);
                         }
                     }
                 }
@@ -316,7 +316,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            a aVar = this.f45574e;
+            a aVar = this.f43910e;
             if (aVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 aVar = null;
@@ -324,7 +324,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
             aVar.a().onChangeSkinType(getPageContext(), i2);
             SkinManager.setBackgroundColor(aVar.a(), c1.CAM_X0209);
             SkinManager.setBackgroundColor(aVar.b(), c1.CAM_X0209);
-            g gVar = this.f45575f;
+            g gVar = this.f43911f;
             if (gVar == null) {
                 return;
             }
@@ -382,28 +382,28 @@ public final class VoiceRoomListFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeLL(1048583, this, view, bundle) == null) {
             Intrinsics.checkNotNullParameter(view, "view");
             super.onViewCreated(view, bundle);
-            a a2 = a.f45578e.a(view);
-            this.f45574e = a2;
+            a a2 = a.f43914e.a(view);
+            this.f43910e = a2;
             a aVar = null;
             if (a2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 a2 = null;
             }
             a2.a().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            a aVar2 = this.f45574e;
+            a aVar2 = this.f43910e;
             if (aVar2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 aVar2 = null;
             }
             aVar2.a().setCenterTextTitle(getResources().getString(i1.frs_voice_room_list));
             g gVar = new g(getPageContext());
-            this.f45575f = gVar;
+            this.f43911f = gVar;
             if (gVar != null) {
-                gVar.a(new f.g() { // from class: c.a.t0.d1.d3.a
+                gVar.a(new f.g() { // from class: c.a.t0.d1.e3.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // c.a.s0.s.i0.f.g
+                    @Override // c.a.s0.s.j0.f.g
                     public final void onListPullRefresh(boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
@@ -412,16 +412,16 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     }
                 });
             }
-            a aVar3 = this.f45574e;
+            a aVar3 = this.f43910e;
             if (aVar3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 aVar3 = null;
             }
-            aVar3.b().setProgressView(this.f45575f);
+            aVar3.b().setProgressView(this.f43911f);
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             VoiceRoomListAdapter voiceRoomListAdapter = new VoiceRoomListAdapter(pageContext, getArguments());
-            a aVar4 = this.f45574e;
+            a aVar4 = this.f43910e;
             if (aVar4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 aVar4 = null;
@@ -429,13 +429,13 @@ public final class VoiceRoomListFragment extends BaseFragment {
             aVar4.c().setAdapter(voiceRoomListAdapter);
             DeviderLineDecoration deviderLineDecoration = new DeviderLineDecoration();
             deviderLineDecoration.setDividerHeight(getResources().getDimensionPixelSize(d1.M_H_X003));
-            a aVar5 = this.f45574e;
+            a aVar5 = this.f43910e;
             if (aVar5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 aVar5 = null;
             }
             aVar5.c().addItemDecoration(deviderLineDecoration);
-            a aVar6 = this.f45574e;
+            a aVar6 = this.f43910e;
             if (aVar6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             } else {

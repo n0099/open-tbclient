@@ -17,7 +17,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f49132i;
+    public a f47287i;
 
     /* loaded from: classes12.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
@@ -126,12 +126,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.f49132i;
+        a aVar = this.f47287i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a(this);
-        this.f49132i = aVar2;
+        this.f47287i = aVar2;
         aVar2.execute(bitmap);
     }
 }

@@ -98,6 +98,6 @@ public class eh implements ed {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dzVar) == null) || dzVar == null) {
             return;
         }
-        a(context, dzVar.m331a(), dzVar.c(), dzVar.d());
+        a(context, dzVar.m343a(), dzVar.c(), dzVar.d());
     }
 }

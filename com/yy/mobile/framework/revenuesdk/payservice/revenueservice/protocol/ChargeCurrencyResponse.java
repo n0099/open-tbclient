@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -45,7 +46,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = 2022;
+        this.cmd = RevenueServerConst.ChargeCurrencyResponse;
         parserResponse(str);
     }
 

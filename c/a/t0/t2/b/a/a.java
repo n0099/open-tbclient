@@ -20,34 +20,32 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24535b;
+    public int f23844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24536c;
+    public int f23845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24537d;
+    public int f23846d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24538e;
+    public int f23847e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24539f;
+    public int f23848f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24540g;
+    public int f23849g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24541h;
+    public int f23850h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f24542i;
+    public boolean f23851i;
 
     /* renamed from: j  reason: collision with root package name */
-    public OutputStream f24543j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Bitmap f24544k;
+    public OutputStream f23852j;
+    public Bitmap k;
     public byte[] l;
     public byte[] m;
     public int n;
@@ -73,12 +71,12 @@ public class a {
                 return;
             }
         }
-        this.f24536c = 0;
-        this.f24537d = 0;
-        this.f24538e = -1;
-        this.f24540g = -1;
-        this.f24541h = 0;
-        this.f24542i = false;
+        this.f23845c = 0;
+        this.f23846d = 0;
+        this.f23847e = -1;
+        this.f23849g = -1;
+        this.f23850h = 0;
+        this.f23851i = false;
         this.p = new boolean[256];
         this.q = 7;
         this.r = -1;
@@ -92,20 +90,20 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (bitmap == null || !this.f24542i) {
+            if (bitmap == null || !this.f23851i) {
                 return false;
             }
             try {
                 if (!this.u) {
                     h(bitmap.getWidth(), bitmap.getHeight());
                 }
-                this.f24544k = bitmap;
+                this.k = bitmap;
                 f();
                 b();
                 if (this.t) {
                     l();
                     n();
-                    if (this.f24540g >= 0) {
+                    if (this.f23849g >= 0) {
                         m();
                     }
                 }
@@ -161,9 +159,9 @@ public class a {
             this.l = null;
             this.n = 8;
             this.q = 7;
-            int i9 = this.f24538e;
+            int i9 = this.f23847e;
             if (i9 != -1) {
-                this.f24539f = c(i9);
+                this.f23848f = c(i9);
             }
         }
     }
@@ -208,21 +206,21 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f24542i) {
-                this.f24542i = false;
+            if (this.f23851i) {
+                this.f23851i = false;
                 try {
-                    this.f24543j.write(59);
-                    this.f24543j.flush();
+                    this.f23852j.write(59);
+                    this.f23852j.flush();
                     if (this.s) {
-                        this.f24543j.close();
+                        this.f23852j.close();
                     }
                     z = true;
                 } catch (IOException unused) {
                     z = false;
                 }
-                this.f24539f = 0;
-                this.f24543j = null;
-                this.f24544k = null;
+                this.f23848f = 0;
+                this.f23852j = null;
+                this.k = null;
                 this.l = null;
                 this.m = null;
                 this.o = null;
@@ -251,14 +249,14 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int width = this.f24544k.getWidth();
-            int height = this.f24544k.getHeight();
-            if (width != this.a || height != this.f24535b) {
-                Bitmap createBitmap = Bitmap.createBitmap(this.a, this.f24535b, Bitmap.Config.RGB_565);
-                new Canvas(createBitmap).drawBitmap(this.f24544k, 0.0f, 0.0f, new Paint());
-                this.f24544k = createBitmap;
+            int width = this.k.getWidth();
+            int height = this.k.getHeight();
+            if (width != this.a || height != this.f23844b) {
+                Bitmap createBitmap = Bitmap.createBitmap(this.a, this.f23844b, Bitmap.Config.RGB_565);
+                new Canvas(createBitmap).drawBitmap(this.k, 0.0f, 0.0f, new Paint());
+                this.k = createBitmap;
             }
-            int[] e2 = e(this.f24544k);
+            int[] e2 = e(this.k);
             this.l = new byte[e2.length * 3];
             for (int i2 = 0; i2 < e2.length; i2++) {
                 int i3 = e2[i2];
@@ -277,19 +275,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 < 0) {
             return;
         }
-        this.f24540g = i2;
+        this.f23849g = i2;
     }
 
     public void h(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             this.a = i2;
-            this.f24535b = i3;
+            this.f23844b = i3;
             if (i2 < 1) {
                 this.a = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
             }
-            if (this.f24535b < 1) {
-                this.f24535b = 240;
+            if (this.f23844b < 1) {
+                this.f23844b = 240;
             }
             this.u = true;
         }
@@ -304,13 +302,13 @@ public class a {
                 return false;
             }
             this.s = false;
-            this.f24543j = outputStream;
+            this.f23852j = outputStream;
             try {
                 q("GIF89a");
                 z = true;
             } catch (IOException unused) {
             }
-            this.f24542i = z;
+            this.f23851i = z;
             return z;
         }
         return invokeL.booleanValue;
@@ -321,10 +319,10 @@ public class a {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f24543j.write(33);
-            this.f24543j.write(249);
-            this.f24543j.write(4);
-            if (this.f24538e == -1) {
+            this.f23852j.write(33);
+            this.f23852j.write(249);
+            this.f23852j.write(4);
+            if (this.f23847e == -1) {
                 i2 = 0;
                 i3 = 0;
             } else {
@@ -335,25 +333,25 @@ public class a {
             if (i4 >= 0) {
                 i3 = i4 & 7;
             }
-            this.f24543j.write(i2 | (i3 << 2) | 0 | 0);
-            p(this.f24541h);
-            this.f24543j.write(this.f24539f);
-            this.f24543j.write(0);
+            this.f23852j.write(i2 | (i3 << 2) | 0 | 0);
+            p(this.f23850h);
+            this.f23852j.write(this.f23848f);
+            this.f23852j.write(0);
         }
     }
 
     public void k() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f24543j.write(44);
-            p(this.f24536c);
-            p(this.f24537d);
+            this.f23852j.write(44);
+            p(this.f23845c);
+            p(this.f23846d);
             p(this.a);
-            p(this.f24535b);
+            p(this.f23844b);
             if (this.t) {
-                this.f24543j.write(0);
+                this.f23852j.write(0);
             } else {
-                this.f24543j.write(this.q | 128);
+                this.f23852j.write(this.q | 128);
             }
         }
     }
@@ -362,36 +360,36 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             p(this.a);
-            p(this.f24535b);
-            this.f24543j.write(this.q | 240);
-            this.f24543j.write(0);
-            this.f24543j.write(0);
+            p(this.f23844b);
+            this.f23852j.write(this.q | 240);
+            this.f23852j.write(0);
+            this.f23852j.write(0);
         }
     }
 
     public void m() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f24543j.write(33);
-            this.f24543j.write(255);
-            this.f24543j.write(11);
+            this.f23852j.write(33);
+            this.f23852j.write(255);
+            this.f23852j.write(11);
             q("NETSCAPE2.0");
-            this.f24543j.write(3);
-            this.f24543j.write(1);
-            p(this.f24540g);
-            this.f24543j.write(0);
+            this.f23852j.write(3);
+            this.f23852j.write(1);
+            p(this.f23849g);
+            this.f23852j.write(0);
         }
     }
 
     public void n() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            OutputStream outputStream = this.f24543j;
+            OutputStream outputStream = this.f23852j;
             byte[] bArr = this.o;
             outputStream.write(bArr, 0, bArr.length);
             int length = 768 - this.o.length;
             for (int i2 = 0; i2 < length; i2++) {
-                this.f24543j.write(0);
+                this.f23852j.write(0);
             }
         }
     }
@@ -399,15 +397,15 @@ public class a {
     public void o() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            new b(this.a, this.f24535b, this.m, this.n).f(this.f24543j);
+            new b(this.a, this.f23844b, this.m, this.n).f(this.f23852j);
         }
     }
 
     public void p(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f24543j.write(i2 & 255);
-            this.f24543j.write((i2 >> 8) & 255);
+            this.f23852j.write(i2 & 255);
+            this.f23852j.write((i2 >> 8) & 255);
         }
     }
 
@@ -415,7 +413,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             for (int i2 = 0; i2 < str.length(); i2++) {
-                this.f24543j.write((byte) str.charAt(i2));
+                this.f23852j.write((byte) str.charAt(i2));
             }
         }
     }

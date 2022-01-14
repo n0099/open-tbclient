@@ -220,12 +220,12 @@ public class b {
                 } else if (TextUtils.isEmpty(gVar.k())) {
                     iVar.D(new c.a.r0.q.i.b(2100, "分包名为空"));
                 } else {
-                    HashMap<String, String> k2 = c.a.r0.q.j.b.k(gVar);
+                    HashMap<String, String> k = c.a.r0.q.j.b.k(gVar);
                     if (iVar.C() != null) {
-                        k2.putAll(iVar.C());
+                        k.putAll(iVar.C());
                     }
                     iVar.E();
-                    c.b().M().j(f.e(), k2, iVar.u(), new c.a.r0.q.j.k.e(gVar.f(), iVar, gVar));
+                    c.b().M().j(f.e(), k, iVar.u(), new c.a.r0.q.j.k.e(gVar.f(), iVar, gVar));
                 }
             }
         }

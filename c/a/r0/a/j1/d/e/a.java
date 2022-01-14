@@ -25,19 +25,19 @@ public class a {
     public final Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.a3.j.a f7605b;
+    public c.a.r0.a.a3.j.a f7440b;
 
     /* renamed from: c.a.r0.a.j1.d.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0434a implements b.a {
+    public class C0443a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f7606b;
+        public final /* synthetic */ a f7441b;
 
-        public C0434a(a aVar, String str) {
+        public C0443a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f7606b = aVar;
+            this.f7441b = aVar;
             this.a = str;
         }
 
@@ -60,8 +60,8 @@ public class a {
         public void a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                a.d(bVar.c(), this.f7606b.a, this.a);
-                this.f7606b.f7605b.j();
+                a.d(bVar.c(), this.f7441b.a, this.a);
+                this.f7441b.f7440b.j();
             }
         }
     }
@@ -151,21 +151,21 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || e(str)) {
             return;
         }
-        this.f7605b.e(6, h.swan_app_img_menu_save_image);
+        this.f7440b.e(6, h.swan_app_img_menu_save_image);
     }
 
     public void i(View view, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str) == null) {
-            c.a.r0.a.a3.j.a aVar = this.f7605b;
+            c.a.r0.a.a3.j.a aVar = this.f7440b;
             if (aVar != null && aVar.n()) {
-                this.f7605b.j();
+                this.f7440b.j();
             }
             c.a.r0.a.a3.j.a aVar2 = new c.a.r0.a.a3.j.a(view);
-            this.f7605b = aVar2;
-            aVar2.r(new C0434a(this, str));
+            this.f7440b = aVar2;
+            aVar2.r(new C0443a(this, str));
             c(str);
-            this.f7605b.t();
+            this.f7440b.t();
         }
     }
 }

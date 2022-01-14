@@ -17,13 +17,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f4828b = null;
+    public static e f4723b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f4829c = Integer.MAX_VALUE;
+    public static int f4724c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f4830d = 120;
+    public static long f4725d = 120;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
@@ -70,7 +70,7 @@ public class e {
             }
         }
         int a2 = (a() / 2) + 2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f4829c, f4830d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f4724c, f4725d, TimeUnit.SECONDS, new PriorityBlockingQueue());
         this.a = threadPoolExecutor;
         threadPoolExecutor.setThreadFactory(new d());
     }
@@ -80,11 +80,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (e.class) {
-                if (f4828b == null) {
-                    f4828b = new e();
+                if (f4723b == null) {
+                    f4723b = new e();
                 }
             }
-            return f4828b;
+            return f4723b;
         }
         return (e) invokeV.objValue;
     }

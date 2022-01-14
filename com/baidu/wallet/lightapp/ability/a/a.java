@@ -83,10 +83,10 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                 public final /* synthetic */ ILightappInvokerCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f53344b;
+                public final /* synthetic */ String f51295b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f53345c;
+                public final /* synthetic */ a f51296c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -103,9 +103,9 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             return;
                         }
                     }
-                    this.f53345c = this;
+                    this.f51296c = this;
                     this.a = iLightappInvokerCallback;
-                    this.f53344b = str2;
+                    this.f51295b = str2;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -119,7 +119,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             int intValue = ((Integer) hashMap.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue();
                             String str4 = (String) hashMap.get("params");
                             if (intValue != 0) {
-                                this.f53345c.a(this.a, this.f53344b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
+                                this.f51296c.a(this.a, this.f51295b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
                                 return;
                             } else {
                                 this.a.onResult(0, str4);
@@ -127,9 +127,9 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             }
                         }
                         String str5 = (String) hashMap.get("errorMsg");
-                        a aVar = this.f53345c;
+                        a aVar = this.f51296c;
                         ILightappInvokerCallback iLightappInvokerCallback2 = this.a;
-                        String str6 = this.f53344b;
+                        String str6 = this.f51295b;
                         String num = Integer.toString(i2);
                         if (!TextUtils.isEmpty(str5)) {
                             str5 = LightappConstants.ROUTER_INVOKE_FAIL;

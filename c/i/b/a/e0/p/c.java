@@ -11,19 +11,19 @@ public final class c {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f30457b;
+    public final float f29503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float f30458c;
+    public final float f29504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f30459d;
+    public final int f29505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f30460e;
+    public final int f29506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f30461f;
+    public final float f29507f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(String str) {
@@ -62,10 +62,10 @@ public final class c {
             }
         }
         this.a = str;
-        this.f30457b = f2;
-        this.f30458c = f3;
-        this.f30459d = i2;
-        this.f30460e = i3;
-        this.f30461f = f4;
+        this.f29503b = f2;
+        this.f29504c = f3;
+        this.f29505d = i2;
+        this.f29506e = i3;
+        this.f29507f = f4;
     }
 }

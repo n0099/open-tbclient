@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
     public c.a.d.f.k.b<TbImageView> o;
 
     /* renamed from: c.a.t0.o1.k.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1277a implements c.a.d.f.k.c<ConstrainImageLayout> {
+    /* loaded from: classes8.dex */
+    public class C1291a implements c.a.d.f.k.c<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1277a(a aVar) {
+        public C1291a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements c.a.d.f.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.o1.k.b.c.c.f21244k);
+        super(tbPageContext.getPageActivity(), c.a.t0.o1.k.b.c.c.k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -240,7 +240,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
                 return;
             }
         }
-        this.n = new c.a.d.f.k.b<>(new C1277a(this), 6, 0);
+        this.n = new c.a.d.f.k.b<>(new C1291a(this), 6, 0);
         this.o = new c.a.d.f.k.b<>(new b(this), 12, 0);
         this.m = tbPageContext;
         V(new c(this));
@@ -256,7 +256,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.b.c.c, CardViewHolder<d>> {
             d dVar = new d(this.m);
             dVar.A(this.n);
             dVar.z(this.o);
-            dVar.n(this.f3303i);
+            dVar.n(this.f3262i);
             return new CardViewHolder<>(dVar);
         }
         return (CardViewHolder) invokeL.objValue;

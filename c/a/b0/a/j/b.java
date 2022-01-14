@@ -21,20 +21,20 @@ public class b extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f1628g;
+    public static b f1610g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1629c;
+    public String f1611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f1630d;
+    public File f1612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f1631e;
+    public Context f1613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Boolean f1632f;
+    public Boolean f1614f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -42,7 +42,7 @@ public class b extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f1633e;
+        public final /* synthetic */ b f1615e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class b extends d {
                     return;
                 }
             }
-            this.f1633e = bVar;
+            this.f1615e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b bVar = this.f1633e;
-                bVar.p(bVar.f1631e);
+                b bVar = this.f1615e;
+                bVar.p(bVar.f1613e);
             }
         }
     }
@@ -100,15 +100,15 @@ public class b extends d {
                 return;
             }
         }
-        this.f1629c = "arsource";
+        this.f1611c = "arsource";
     }
 
     public static synchronized void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (b.class) {
-                if (f1628g == null) {
-                    f1628g = new b();
+                if (f1610g == null) {
+                    f1610g = new b();
                 }
             }
         }
@@ -118,10 +118,10 @@ public class b extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f1628g == null) {
+            if (f1610g == null) {
                 h();
             }
-            return f1628g;
+            return f1610g;
         }
         return (b) invokeV.objValue;
     }
@@ -170,17 +170,17 @@ public class b extends d {
     public final String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1629c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1611c : (String) invokeV.objValue;
     }
 
     public final File l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f1630d == null && c.a.b0.a.b.g() != null && !TextUtils.isEmpty(c.a.b0.a.c.a())) {
-                this.f1630d = new File(c.a.b0.a.c.a());
+            if (this.f1612d == null && c.a.b0.a.b.g() != null && !TextUtils.isEmpty(c.a.b0.a.c.a())) {
+                this.f1612d = new File(c.a.b0.a.c.a());
             }
-            return this.f1630d;
+            return this.f1612d;
         }
         return (File) invokeV.objValue;
     }
@@ -189,9 +189,9 @@ public class b extends d {
     public void m(Context context, String str, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, str, file) == null) {
-            this.f1631e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-            this.f1629c = (String) Objects.requireNonNull(str);
-            this.f1630d = (File) Objects.requireNonNull(file);
+            this.f1613e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+            this.f1611c = (String) Objects.requireNonNull(str);
+            this.f1612d = (File) Objects.requireNonNull(file);
             if (n()) {
                 q("init " + str + " to " + file.getAbsolutePath());
             }
@@ -208,7 +208,7 @@ public class b extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Boolean bool = this.f1632f;
+            Boolean bool = this.f1614f;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -221,14 +221,14 @@ public class b extends d {
             String str = null;
             String h2 = (l != null && l.exists() && l.isDirectory()) ? e.h(new File(l, "version")) : null;
             if (!TextUtils.isEmpty(h2)) {
-                Context context = this.f1631e;
+                Context context = this.f1613e;
                 str = e.g(context, j2 + "/version");
             }
             if (n()) {
                 q("assets=" + str + ", sdcard=" + h2);
             }
             z = (TextUtils.isEmpty(h2) || !TextUtils.equals(h2, str)) ? true : true;
-            this.f1632f = Boolean.valueOf(!z);
+            this.f1614f = Boolean.valueOf(!z);
             return !z;
         }
         return invokeV.booleanValue;
@@ -238,7 +238,7 @@ public class b extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             if (!o() ? i(context, j(), l()) : true) {
-                this.f1632f = null;
+                this.f1614f = null;
                 d(2);
             }
             if (n()) {
@@ -257,9 +257,9 @@ public class b extends d {
     public void r(Context context, String str, File file, f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, file, aVar) == null) {
-            this.f1631e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
-            this.f1629c = (String) Objects.requireNonNull(str);
-            this.f1630d = (File) Objects.requireNonNull(file);
+            this.f1613e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+            this.f1611c = (String) Objects.requireNonNull(str);
+            this.f1612d = (File) Objects.requireNonNull(file);
             if (n()) {
                 q("start " + str + " to " + file.getAbsolutePath());
             }

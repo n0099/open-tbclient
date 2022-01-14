@@ -15,13 +15,13 @@ public class cr implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.c> {
         if (jSONObject.opt("sceneId") == JSONObject.NULL) {
             cVar.a = "";
         }
-        cVar.f57652b = new ArrayList();
+        cVar.f55466b = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("packages");
         if (optJSONArray != null) {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 com.kwad.sdk.c.kwai.d dVar = new com.kwad.sdk.c.kwai.d();
                 dVar.parseJson(optJSONArray.optJSONObject(i2));
-                cVar.f57652b.add(dVar);
+                cVar.f55466b.add(dVar);
             }
         }
     }
@@ -33,7 +33,7 @@ public class cr implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.c> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "sceneId", cVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "packages", cVar.f57652b);
+        com.kwad.sdk.utils.t.a(jSONObject, "packages", cVar.f55466b);
         return jSONObject;
     }
 }

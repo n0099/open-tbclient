@@ -16,12 +16,12 @@ public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
     public final K key;
     public final V value;
 
-    public ImmutableEntry(K k2, V v) {
+    public ImmutableEntry(K k, V v) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k2, v};
+            Object[] objArr = {k, v};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
                 return;
             }
         }
-        this.key = k2;
+        this.key = k;
         this.value = v;
     }
 

@@ -26,7 +26,7 @@ public class a extends c.a.d.n.e.a<s, FrsNoListItemViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), s.f16847f);
+        super(tbPageContext.getPageActivity(), s.f16523f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class a extends c.a.d.n.e.a<s, FrsNoListItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f3299e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f3258e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = this.m;

@@ -33,7 +33,7 @@ public final class b implements Serializable {
         public String E;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f52303i;
+        public String f50282i;
         public String osVersion;
         public String q;
         public String r;
@@ -83,7 +83,7 @@ public final class b implements Serializable {
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f52303i = str;
+                this.f50282i = str;
             }
         }
 
@@ -164,7 +164,7 @@ public final class b implements Serializable {
         public final String l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f52303i : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f50282i : (String) invokeV.objValue;
         }
 
         public final void m(String str) {

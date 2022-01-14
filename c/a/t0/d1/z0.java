@@ -11,13 +11,13 @@ public class z0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17321b;
+    public String f16898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17322c;
+    public int f16899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f17323d;
+    public boolean f16900d;
 
     public z0() {
         Interceptable interceptable = $ic;
@@ -32,6 +32,6 @@ public class z0 {
                 return;
             }
         }
-        this.f17323d = false;
+        this.f16900d = false;
     }
 }

@@ -20,7 +20,7 @@ public class d extends Handler {
             super.handleMessage(message);
         } else if (aVar != null) {
             com.meizu.cloud.pushsdk.b.f.a aVar2 = (com.meizu.cloud.pushsdk.b.f.a) message.obj;
-            aVar.a(aVar2.a, aVar2.f60906b);
+            aVar.a(aVar2.a, aVar2.f58599b);
         }
     }
 }

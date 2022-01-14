@@ -28,41 +28,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmotionPackageDetailActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f26629b;
+    public final float f25838b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f26630c;
+    public final int f25839c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f26631d;
+    public final int f25840d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f26632e;
+    public final Rect f25841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26633f;
+    public int f25842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26634g;
+    public int f25843g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26635h;
+    public int f25844h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26636i;
+    public int f25845i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f26637j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public EmotionPreview f26638k;
+    public Handler f25846j;
+    public EmotionPreview k;
     public PackageDetailListView l;
     public boolean m;
     public boolean n;
@@ -72,13 +70,13 @@ public class b {
     public final Runnable r;
     public final PackageDetailListView.a s;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f26639e;
+        public final /* synthetic */ b f25847e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -95,26 +93,26 @@ public class b {
                     return;
                 }
             }
-            this.f26639e = bVar;
+            this.f25847e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26639e.B();
+                this.f25847e.B();
             }
         }
     }
 
     /* renamed from: c.a.t0.y0.z.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C1542b implements PackageDetailListView.a {
+    /* loaded from: classes9.dex */
+    public class C1558b implements PackageDetailListView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1542b(b bVar) {
+        public C1558b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,17 +143,17 @@ public class b {
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            if (this.a.f26633f > -1 && this.a.f26634g > -1) {
-                                this.a.f26635h = (int) motionEvent.getX();
-                                this.a.f26636i = (int) motionEvent.getY();
+                            if (this.a.f25842f > -1 && this.a.f25843g > -1) {
+                                this.a.f25844h = (int) motionEvent.getX();
+                                this.a.f25845i = (int) motionEvent.getY();
                                 if (this.a.m || this.a.q != null) {
                                     if (this.a.q != null && (v = this.a.v()) != null && (this.a.q == null || !this.a.q.equals(v))) {
                                         this.a.z(v);
                                     }
                                 } else {
-                                    float f2 = this.a.f26635h - this.a.f26633f;
-                                    float f3 = this.a.f26636i - this.a.f26634g;
-                                    if ((f2 * f2) + (f3 * f3) > this.a.f26629b * this.a.f26629b) {
+                                    float f2 = this.a.f25844h - this.a.f25842f;
+                                    float f3 = this.a.f25845i - this.a.f25843g;
+                                    if ((f2 * f2) + (f3 * f3) > this.a.f25838b * this.a.f25838b) {
                                         this.a.m = true;
                                     }
                                 }
@@ -168,8 +166,8 @@ public class b {
                     this.a.u();
                     return false;
                 }
-                this.a.f26633f = (int) motionEvent.getX();
-                this.a.f26634g = (int) motionEvent.getY();
+                this.a.f25842f = (int) motionEvent.getX();
+                this.a.f25843g = (int) motionEvent.getY();
                 this.a.m = false;
                 this.a.A();
                 return false;
@@ -178,13 +176,13 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f26640e;
+        public final /* synthetic */ b f25848e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -201,7 +199,7 @@ public class b {
                     return;
                 }
             }
-            this.f26640e = bVar;
+            this.f25848e = bVar;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -215,12 +213,12 @@ public class b {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
-                this.f26640e.u();
+                this.f25848e.u();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d implements SwipeBackLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,17 +260,17 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26641b;
+        public int f25849b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f26642c;
+        public int f25850c;
 
         public e(View view, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -290,8 +288,8 @@ public class b {
                 }
             }
             this.a = view;
-            this.f26641b = i2;
-            this.f26642c = i3;
+            this.f25849b = i2;
+            this.f25850c = i3;
         }
 
         public boolean equals(Object obj) {
@@ -302,7 +300,7 @@ public class b {
                     return false;
                 }
                 e eVar = (e) obj;
-                return eVar.f26641b == this.f26641b && eVar.f26642c == this.f26642c && eVar.a == this.a;
+                return eVar.f25849b == this.f25849b && eVar.f25850c == this.f25850c && eVar.a == this.a;
             }
             return invokeL.booleanValue;
         }
@@ -323,25 +321,25 @@ public class b {
                 return;
             }
         }
-        this.f26632e = new Rect();
-        this.f26633f = -1;
-        this.f26634g = -1;
-        this.f26635h = -1;
-        this.f26636i = -1;
+        this.f25841e = new Rect();
+        this.f25842f = -1;
+        this.f25843g = -1;
+        this.f25844h = -1;
+        this.f25845i = -1;
         this.m = false;
         this.n = false;
         this.p = 3;
         this.r = new a(this);
-        this.s = new C1542b(this);
+        this.s = new C1558b(this);
         this.a = emotionPackageDetailActivity;
         PackageDetailListView listView = emotionPackageDetailActivity.getListView();
         this.l = listView;
         listView.setTouchEventInterceptHandler(this.s);
-        this.f26637j = emotionPackageDetailActivity.getSafeHandler();
+        this.f25846j = emotionPackageDetailActivity.getSafeHandler();
         this.l = emotionPackageDetailActivity.getListView();
-        this.f26629b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
-        this.f26630c = n.f(emotionPackageDetailActivity, R.dimen.ds240);
-        this.f26631d = n.f(emotionPackageDetailActivity, R.dimen.ds260);
+        this.f25838b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
+        this.f25839c = n.f(emotionPackageDetailActivity, R.dimen.ds240);
+        this.f25840d = n.f(emotionPackageDetailActivity, R.dimen.ds260);
         this.l.setOnScrollListener(new c(this));
         SwipeBackLayout swipeBackLayout = emotionPackageDetailActivity.getSwipeBackLayout();
         if (swipeBackLayout != null) {
@@ -352,8 +350,8 @@ public class b {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26637j.removeCallbacks(this.r);
-            this.f26637j.postDelayed(this.r, 500L);
+            this.f25846j.removeCallbacks(this.r);
+            this.f25846j.postDelayed(this.r, 500L);
         }
     }
 
@@ -369,7 +367,7 @@ public class b {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f26637j.removeCallbacks(this.r);
+            this.f25846j.removeCallbacks(this.r);
             u();
         }
     }
@@ -385,30 +383,30 @@ public class b {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             EmotionPreview emotionPreview = new EmotionPreview(this.a);
-            this.f26638k = emotionPreview;
+            this.k = emotionPreview;
             SkinManager.setBackgroundResource(emotionPreview, R.drawable.bg_expression_bubble, this.p);
-            this.f26638k.loadImage(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f26630c, this.f26631d);
+            this.k.loadImage(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f25839c, this.f25840d);
             int i2 = iArr[0] - 60;
             layoutParams.leftMargin = i2;
-            layoutParams.topMargin = iArr[1] - this.f26631d;
+            layoutParams.topMargin = iArr[1] - this.f25840d;
             if (i2 < 0) {
                 layoutParams.leftMargin = 0;
             }
-            if (layoutParams.leftMargin + this.f26630c > n.k(this.a)) {
-                layoutParams.leftMargin = n.k(this.a) - this.f26630c;
+            if (layoutParams.leftMargin + this.f25839c > n.k(this.a)) {
+                layoutParams.leftMargin = n.k(this.a) - this.f25839c;
             }
             if (this.o == null) {
                 this.o = (FrameLayout) this.a.getWindow().getDecorView();
             }
-            if (this.f26638k.getParent() != null) {
-                ViewParent parent = this.f26638k.getParent();
+            if (this.k.getParent() != null) {
+                ViewParent parent = this.k.getParent();
                 FrameLayout frameLayout = this.o;
                 if (parent == frameLayout) {
-                    frameLayout.removeView(this.f26638k);
+                    frameLayout.removeView(this.k);
                 }
             }
-            this.o.addView(this.f26638k, layoutParams);
+            this.o.addView(this.k, layoutParams);
             return true;
         }
         return invokeLL.booleanValue;
@@ -417,21 +415,21 @@ public class b {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f26636i = -1;
-            this.f26635h = -1;
-            this.f26634g = -1;
-            this.f26633f = -1;
+            this.f25845i = -1;
+            this.f25844h = -1;
+            this.f25843g = -1;
+            this.f25842f = -1;
             this.m = false;
             this.a.setSwipeBackEnabled(true);
-            EmotionPreview emotionPreview = this.f26638k;
+            EmotionPreview emotionPreview = this.k;
             if (emotionPreview == null || this.q == null) {
                 return;
             }
             if (emotionPreview.getParent() != null) {
-                ViewParent parent = this.f26638k.getParent();
+                ViewParent parent = this.k.getParent();
                 FrameLayout frameLayout = this.o;
                 if (parent == frameLayout) {
-                    frameLayout.removeView(this.f26638k);
+                    frameLayout.removeView(this.k);
                 }
             }
             this.q = null;
@@ -443,27 +441,27 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f26635h;
-            int i3 = this.f26636i;
+            int i2 = this.f25844h;
+            int i3 = this.f25845i;
             if (i2 < 0) {
-                i2 = this.f26633f;
+                i2 = this.f25842f;
             }
             if (i3 < 0) {
-                i3 = this.f26634g;
+                i3 = this.f25843g;
             }
             int pointToPosition = this.l.pointToPosition(i2, i3);
             if (pointToPosition >= 0) {
-                this.f26632e.set(i2, i3, i2 + 1, i3 + 1);
+                this.f25841e.set(i2, i3, i2 + 1, i3 + 1);
                 View childAt = this.l.getChildAt(pointToPosition);
                 if (childAt == null || !(childAt instanceof ViewGroup)) {
                     return null;
                 }
                 ViewGroup viewGroup = (ViewGroup) childAt;
-                this.l.offsetRectIntoDescendantCoords(childAt, this.f26632e);
+                this.l.offsetRectIntoDescendantCoords(childAt, this.f25841e);
                 int childCount = viewGroup.getChildCount();
                 for (int i4 = 0; i4 < childCount; i4++) {
                     View childAt2 = viewGroup.getChildAt(i4);
-                    if (childAt2.getLeft() < this.f26632e.left && childAt2.getRight() > this.f26632e.right && childAt2.getTop() < this.f26632e.left && childAt2.getBottom() > this.f26632e.bottom) {
+                    if (childAt2.getLeft() < this.f25841e.left && childAt2.getRight() > this.f25841e.right && childAt2.getTop() < this.f25841e.left && childAt2.getBottom() > this.f25841e.bottom) {
                         int headerViewsCount = pointToPosition - this.l.getHeaderViewsCount();
                         e eVar = new e(childAt2, headerViewsCount, i4);
                         String str = "touch cell: (" + headerViewsCount + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX;
@@ -496,24 +494,24 @@ public class b {
     public final void x() {
         EmotionPreview emotionPreview;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (emotionPreview = this.f26638k) == null || this.o == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (emotionPreview = this.k) == null || this.o == null) {
             return;
         }
         if (emotionPreview.getParent() != null) {
-            ViewParent parent = this.f26638k.getParent();
+            ViewParent parent = this.k.getParent();
             FrameLayout frameLayout = this.o;
             if (parent == frameLayout) {
-                frameLayout.removeView(this.f26638k);
+                frameLayout.removeView(this.k);
             }
         }
-        this.f26638k = null;
+        this.k = null;
     }
 
     public void y(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             this.p = i2;
-            EmotionPreview emotionPreview = this.f26638k;
+            EmotionPreview emotionPreview = this.k;
             if (emotionPreview != null) {
                 SkinManager.setBackgroundResource(emotionPreview, R.drawable.bg_expression_bubble, i2);
             }
@@ -526,7 +524,7 @@ public class b {
             return;
         }
         x();
-        if (t(eVar.a, w(eVar.f26641b, eVar.f26642c))) {
+        if (t(eVar.a, w(eVar.f25849b, eVar.f25850c))) {
             this.q = eVar;
             this.l.setDisableListViewTouchIntercept(true);
             this.a.setSwipeBackEnabled(false);

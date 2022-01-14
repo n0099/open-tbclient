@@ -41,12 +41,12 @@ public class Functions$ForMapWithDefault<K, V> implements g<K, V>, Serializable 
     }
 
     @Override // c.i.d.a.g
-    public V apply(K k2) {
+    public V apply(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
-            V v = this.map.get(k2);
-            return (v != null || this.map.containsKey(k2)) ? v : this.defaultValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            V v = this.map.get(k);
+            return (v != null || this.map.containsKey(k)) ? v : this.defaultValue;
         }
         return (V) invokeL.objValue;
     }

@@ -28,14 +28,14 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f57643c;
+    public Context f55457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, com.kwad.sdk.c.kwai.b> f57644d = new HashMap();
+    public Map<String, com.kwad.sdk.c.kwai.b> f55458d = new HashMap();
     public final Map<f, e> a = new ConcurrentHashMap(16);
 
     /* renamed from: b  reason: collision with root package name */
-    public final Lock f57642b = new ReentrantLock();
+    public final Lock f55456b = new ReentrantLock();
 
     /* loaded from: classes3.dex */
     public static class a implements com.kwad.sdk.c.a.c {
@@ -68,25 +68,25 @@ public class d {
     }
 
     public d(Context context) {
-        this.f57643c = context;
+        this.f55457c = context;
     }
 
     private WebResourceResponse a(InputStream inputStream, e eVar, com.kwad.sdk.c.kwai.b bVar) {
         if (Build.VERSION.SDK_INT >= 21) {
             HashMap hashMap = new HashMap();
-            hashMap.put("Access-Control-Allow-Origin", bVar.f57651e.a);
+            hashMap.put("Access-Control-Allow-Origin", bVar.f55465e.a);
             hashMap.put("Access-Control-Allow-Credentials", "true");
-            hashMap.put("Timing-Allow-Origin", bVar.f57651e.f57645b);
-            hashMap.put("content-type", bVar.f57651e.f57646c);
-            hashMap.put("Date", bVar.f57651e.f57647d);
-            return new WebResourceResponse(bVar.f57650d, "", bVar.a, StatHelper.SENSOR_OK, hashMap, inputStream);
+            hashMap.put("Timing-Allow-Origin", bVar.f55465e.f55459b);
+            hashMap.put("content-type", bVar.f55465e.f55460c);
+            hashMap.put("Date", bVar.f55465e.f55461d);
+            return new WebResourceResponse(bVar.f55464d, "", bVar.a, StatHelper.SENSOR_OK, hashMap, inputStream);
         }
         return new WebResourceResponse(eVar.c(), "UTF-8", inputStream);
     }
 
     private com.kwad.sdk.c.kwai.b a(com.kwad.sdk.c.kwai.d dVar, String str) {
-        String d2 = com.kwad.sdk.c.b.a.d(this.f57643c, dVar.f());
-        com.kwad.sdk.c.kwai.b bVar = this.f57644d.get(str);
+        String d2 = com.kwad.sdk.c.b.a.d(this.f55457c, dVar.f());
+        com.kwad.sdk.c.kwai.b bVar = this.f55458d.get(str);
         if (bVar != null) {
             return bVar;
         }
@@ -139,17 +139,17 @@ public class d {
                             JSONObject jSONObject2 = jSONObject.getJSONObject(next);
                             com.kwad.sdk.c.kwai.b bVar = new com.kwad.sdk.c.kwai.b();
                             bVar.parseJson(jSONObject2);
-                            this.f57644d.put(next, bVar);
+                            this.f55458d.put(next, bVar);
                         }
                     }
-                    return this.f57644d.get(str);
+                    return this.f55458d.get(str);
                 }
                 jSONObject = null;
                 if (jSONObject != null) {
                 }
                 if (keys != null) {
                 }
-                return this.f57644d.get(str);
+                return this.f55458d.get(str);
             } finally {
                 q.b(fileInputStream);
                 q.b(inputStreamReader);
@@ -159,9 +159,9 @@ public class d {
     }
 
     private void a(f fVar) {
-        if (this.f57642b.tryLock()) {
+        if (this.f55456b.tryLock()) {
             this.a.remove(fVar);
-            this.f57642b.unlock();
+            this.f55456b.unlock();
         }
     }
 
@@ -171,7 +171,7 @@ public class d {
         if (this.a.get(fVar) != null) {
             d2 = this.a.get(fVar);
         } else {
-            StringBuilder sb = new StringBuilder(com.kwad.sdk.c.b.a.c(this.f57643c, dVar.f()));
+            StringBuilder sb = new StringBuilder(com.kwad.sdk.c.b.a.c(this.f55457c, dVar.f()));
             sb.append("/");
             sb.append(fVar.a());
             d2 = new e().a(dVar.a).b(str).e(dVar.a()).c(sb.toString()).d(URLConnection.getFileNameMap().getContentTypeFor(sb.toString()));

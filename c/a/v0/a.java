@@ -27,12 +27,12 @@ public abstract class a implements u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f27148c;
+    public static final boolean f26341c;
     public transient /* synthetic */ FieldHolder $fh;
     public h0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27149b;
+    public String f26342b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public abstract class a implements u {
                 return;
             }
         }
-        f27148c = b0.m();
+        f26341c = b0.m();
     }
 
     public a() {
@@ -64,21 +64,21 @@ public abstract class a implements u {
             }
         }
         this.a = new h0();
-        this.f27149b = "";
+        this.f26342b = "";
     }
 
     @Override // c.a.v0.u
     public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.f27149b, jSONObject, z, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.f26342b, jSONObject, z, z2) : invokeCommon.booleanValue;
     }
 
     @Override // c.a.v0.u
     public boolean b(File file, long j2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.f27149b, file, j2, z, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.f26342b, file, j2, z, z2) : invokeCommon.booleanValue;
     }
 
     public final HashMap<String, String> c() {
@@ -97,10 +97,10 @@ public abstract class a implements u {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (TextUtils.isEmpty(this.f27149b)) {
-                this.f27149b = b0.k(z);
+            if (TextUtils.isEmpty(this.f26342b)) {
+                this.f26342b = b0.k(z);
             }
-            return this.f27149b;
+            return this.f26342b;
         }
         return (String) invokeZ.objValue;
     }
@@ -138,7 +138,7 @@ public abstract class a implements u {
                 return false;
             }
             if (!e0Var.e()) {
-                if (f27148c) {
+                if (f26341c) {
                     String str = "postByteRequest, fail: " + e0Var.d();
                 } else {
                     d0.a().i(e0Var.d(), null);
@@ -152,13 +152,13 @@ public abstract class a implements u {
             try {
                 int i2 = new JSONObject(e0Var.b()).getInt("error");
                 if (i2 != 0) {
-                    boolean z = f27148c;
-                    if (!f27148c) {
+                    boolean z = f26341c;
+                    if (!f26341c) {
                         d0.a().k(i2);
                     }
                 }
             } catch (Exception e2) {
-                if (f27148c) {
+                if (f26341c) {
                     String str2 = "body tostring fail:" + e2.getMessage();
                 } else {
                     d0.a().j(Log.getStackTraceString(e2));
@@ -225,7 +225,7 @@ public abstract class a implements u {
                     return f2;
                 } catch (Exception e3) {
                     e = e3;
-                    if (!f27148c) {
+                    if (!f26341c) {
                         d0.a().i(null, Log.getStackTraceString(e));
                     }
                     c.a.v0.q0.a.b(inputStream);
@@ -263,7 +263,7 @@ public abstract class a implements u {
                 try {
                     return f(k(e2, a, c2));
                 } catch (IOException e3) {
-                    if (!f27148c) {
+                    if (!f26341c) {
                         d0.a().i(null, Log.getStackTraceString(e3));
                     }
                 }

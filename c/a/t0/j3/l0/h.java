@@ -25,10 +25,10 @@ public class h implements f {
     public HttpMessageListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbHttpMessageTask f18958b;
+    public TbHttpMessageTask f18483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<c> f18959c;
+    public ArrayList<c> f18484c;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -87,7 +87,7 @@ public class h implements f {
             }
         }
         this.a = new a(this, CmdConfigHttp.CMD_AD_UPLOAD);
-        this.f18959c = new ArrayList<>();
+        this.f18484c = new ArrayList<>();
         g();
         MessageManager.getInstance().registerListener(this.a);
     }
@@ -100,7 +100,7 @@ public class h implements f {
         }
         c.a.s0.t.c.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (!(adAdSense == null || adAdSense.d())) {
-            this.f18958b.setUrl("http://als.baidu.com/clog/clog");
+            this.f18483b.setUrl("http://als.baidu.com/clog/clog");
         }
         e(cVar);
         h();
@@ -128,10 +128,10 @@ public class h implements f {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || cVar == null) {
             return;
         }
-        if (ListUtils.getCount(this.f18959c) >= 20) {
-            this.f18959c.remove(0);
+        if (ListUtils.getCount(this.f18484c) >= 20) {
+            this.f18484c.remove(0);
         }
-        this.f18959c.add(cVar);
+        this.f18484c.add(cVar);
     }
 
     public final void f(List<c> list) {
@@ -150,19 +150,19 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-            this.f18958b = tbHttpMessageTask;
+            this.f18483b = tbHttpMessageTask;
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-            this.f18958b.setIsNeedAddCommenParam(true);
-            this.f18958b.setResponsedClass(JsonHttpResponsedMessage.class);
+            this.f18483b.setIsNeedAddCommenParam(true);
+            this.f18483b.setResponsedClass(JsonHttpResponsedMessage.class);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || ListUtils.getCount(this.f18959c) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || ListUtils.getCount(this.f18484c) <= 0) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.f18959c), this.f18958b);
-        this.f18959c.clear();
+        MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.f18484c), this.f18483b);
+        this.f18484c.clear();
     }
 }

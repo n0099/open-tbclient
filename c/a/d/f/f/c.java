@@ -18,18 +18,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f2773d = "_crashtime";
+    public static String f2752d = "_crashtime";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f2774e = "_crashtype";
+    public static String f2753e = "_crashtype";
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2775b;
+    public int f2754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f2776c;
+    public b f2755c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,11 +62,11 @@ public class c {
             }
         }
         this.a = 0;
-        this.f2775b = 0;
-        this.f2776c = null;
+        this.f2754b = 0;
+        this.f2755c = null;
         if (bVar != null) {
-            this.f2776c = bVar;
-            if (bVar.d() > 0 && this.f2776c.c() != null) {
+            this.f2755c = bVar;
+            if (bVar.d() > 0 && this.f2755c.c() != null) {
                 int e2 = e();
                 this.a = e2;
                 if (e2 == -1) {
@@ -74,9 +74,9 @@ public class c {
                 }
             }
             if (!bVar.h()) {
-                this.f2775b = f();
+                this.f2754b = f();
             }
-            this.f2776c.a(this.f2775b, true);
+            this.f2755c.a(this.f2754b, true);
             return;
         }
         throw new InvalidParameterException("SwitchHolder data is null");
@@ -88,33 +88,33 @@ public class c {
         String[] c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null && this.f2776c.d() > 0) {
-                if (this.f2776c.c() != null) {
-                    for (String str2 : this.f2776c.c()) {
+            if (str != null && this.f2755c.d() > 0) {
+                if (this.f2755c.c() != null) {
+                    for (String str2 : this.f2755c.c()) {
                         if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
                             int i2 = this.a + 1;
                             this.a = i2;
                             j(i2);
-                            if (this.a >= this.f2776c.d()) {
-                                k(this.f2776c.f());
-                                this.f2775b = this.f2776c.f();
-                                b bVar = this.f2776c;
+                            if (this.a >= this.f2755c.d()) {
+                                k(this.f2755c.f());
+                                this.f2754b = this.f2755c.f();
+                                b bVar = this.f2755c;
                                 bVar.a(bVar.f(), false);
                             }
                             return true;
                         }
                     }
                 }
-                if (this.f2776c.g() != null) {
-                    for (String str3 : this.f2776c.g()) {
+                if (this.f2755c.g() != null) {
+                    for (String str3 : this.f2755c.g()) {
                         if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
                             int i3 = this.a + 1;
                             this.a = i3;
                             j(i3);
-                            if (this.a >= this.f2776c.d()) {
-                                k(this.f2776c.f());
-                                this.f2775b = this.f2776c.f();
-                                b bVar2 = this.f2776c;
+                            if (this.a >= this.f2755c.d()) {
+                                k(this.f2755c.f());
+                                this.f2754b = this.f2755c.f();
+                                b bVar2 = this.f2755c;
                                 bVar2.a(bVar2.f(), false);
                             }
                             return true;
@@ -130,19 +130,19 @@ public class c {
     public b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2776c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2755c : (b) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2776c.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2755c.b() : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2776c.e() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2755c.e() : (String) invokeV.objValue;
     }
 
     public final int e() {
@@ -150,7 +150,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.f2776c.e() + f2773d, -1);
+            return sharedPreferences.getInt(this.f2755c.e() + f2752d, -1);
         }
         return invokeV.intValue;
     }
@@ -160,7 +160,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-            return sharedPreferences.getInt(this.f2776c.e() + f2774e, this.f2776c.b());
+            return sharedPreferences.getInt(this.f2755c.e() + f2753e, this.f2755c.b());
         }
         return invokeV.intValue;
     }
@@ -175,7 +175,7 @@ public class c {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2775b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2754b : invokeV.intValue;
     }
 
     public void h(int i2) {
@@ -189,14 +189,14 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (this.f2776c.d() >= 0 && this.a >= this.f2776c.d() + 2) {
-                i2 = this.f2776c.f();
+            if (this.f2755c.d() >= 0 && this.a >= this.f2755c.d() + 2) {
+                i2 = this.f2755c.f();
             }
-            if (i2 == this.f2775b) {
+            if (i2 == this.f2754b) {
                 return false;
             }
-            this.f2775b = i2;
-            this.f2776c.a(i2, false);
+            this.f2754b = i2;
+            this.f2755c.a(i2, false);
             k(i2);
             return true;
         }
@@ -207,7 +207,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.f2776c.e() + f2773d, i2);
+            edit.putInt(this.f2755c.e() + f2752d, i2);
             edit.commit();
         }
     }
@@ -216,7 +216,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            edit.putInt(this.f2776c.e() + f2774e, i2);
+            edit.putInt(this.f2755c.e() + f2753e, i2);
             edit.commit();
         }
     }

@@ -24,23 +24,23 @@ public class d implements WrapperListAdapter, Filterable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ArrayList<HListView.c> f21984j;
+    public static final ArrayList<HListView.c> f20955j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ListAdapter f21985e;
+    public final ListAdapter f20956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<HListView.c> f21986f;
+    public ArrayList<HListView.c> f20957f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<HListView.c> f21987g;
+    public ArrayList<HListView.c> f20958g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21988h;
+    public boolean f20959h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f21989i;
+    public final boolean f20960i;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class d implements WrapperListAdapter, Filterable {
                 return;
             }
         }
-        f21984j = new ArrayList<>();
+        f20955j = new ArrayList<>();
     }
 
     public d(ArrayList<HListView.c> arrayList, ArrayList<HListView.c> arrayList2, ListAdapter listAdapter) {
@@ -73,19 +73,19 @@ public class d implements WrapperListAdapter, Filterable {
                 return;
             }
         }
-        this.f21985e = listAdapter;
-        this.f21989i = listAdapter instanceof Filterable;
+        this.f20956e = listAdapter;
+        this.f20960i = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.f21986f = f21984j;
+            this.f20957f = f20955j;
         } else {
-            this.f21986f = arrayList;
+            this.f20957f = arrayList;
         }
         if (arrayList2 == null) {
-            this.f21987g = f21984j;
+            this.f20958g = f20955j;
         } else {
-            this.f21987g = arrayList2;
+            this.f20958g = arrayList2;
         }
-        this.f21988h = a(this.f21986f) && a(this.f21987g);
+        this.f20959h = a(this.f20957f) && a(this.f20958g);
     }
 
     public final boolean a(ArrayList<HListView.c> arrayList) {
@@ -95,7 +95,7 @@ public class d implements WrapperListAdapter, Filterable {
             if (arrayList != null) {
                 Iterator<HListView.c> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    if (!it.next().f46338c) {
+                    if (!it.next().f44629c) {
                         return false;
                     }
                 }
@@ -111,9 +111,9 @@ public class d implements WrapperListAdapter, Filterable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter != null) {
-                return this.f21988h && listAdapter.areAllItemsEnabled();
+                return this.f20959h && listAdapter.areAllItemsEnabled();
             }
             return true;
         }
@@ -123,13 +123,13 @@ public class d implements WrapperListAdapter, Filterable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21987g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20958g.size() : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21986f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20957f.size() : invokeV.intValue;
     }
 
     public boolean d(View view) {
@@ -137,13 +137,13 @@ public class d implements WrapperListAdapter, Filterable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) {
             boolean z = false;
-            for (int i2 = 0; i2 < this.f21987g.size(); i2++) {
-                if (this.f21987g.get(i2).a == view) {
-                    this.f21987g.remove(i2);
-                    if (a(this.f21986f) && a(this.f21987g)) {
+            for (int i2 = 0; i2 < this.f20958g.size(); i2++) {
+                if (this.f20958g.get(i2).a == view) {
+                    this.f20958g.remove(i2);
+                    if (a(this.f20957f) && a(this.f20958g)) {
                         z = true;
                     }
-                    this.f21988h = z;
+                    this.f20959h = z;
                     return true;
                 }
             }
@@ -157,13 +157,13 @@ public class d implements WrapperListAdapter, Filterable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) {
             boolean z = false;
-            for (int i2 = 0; i2 < this.f21986f.size(); i2++) {
-                if (this.f21986f.get(i2).a == view) {
-                    this.f21986f.remove(i2);
-                    if (a(this.f21986f) && a(this.f21987g)) {
+            for (int i2 = 0; i2 < this.f20957f.size(); i2++) {
+                if (this.f20957f.get(i2).a == view) {
+                    this.f20957f.remove(i2);
+                    if (a(this.f20957f) && a(this.f20958g)) {
                         z = true;
                     }
-                    this.f21988h = z;
+                    this.f20959h = z;
                     return true;
                 }
             }
@@ -179,9 +179,9 @@ public class d implements WrapperListAdapter, Filterable {
         int c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f21985e != null) {
+            if (this.f20956e != null) {
                 b2 = b() + c();
-                c2 = this.f21985e.getCount();
+                c2 = this.f20956e.getCount();
             } else {
                 b2 = b();
                 c2 = c();
@@ -196,8 +196,8 @@ public class d implements WrapperListAdapter, Filterable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f21989i) {
-                return ((Filterable) this.f21985e).getFilter();
+            if (this.f20960i) {
+                return ((Filterable) this.f20956e).getFilter();
             }
             return null;
         }
@@ -211,15 +211,15 @@ public class d implements WrapperListAdapter, Filterable {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
             int c2 = c();
             if (i2 < c2) {
-                return this.f21986f.get(i2).f46337b;
+                return this.f20957f.get(i2).f44628b;
             }
             int i3 = i2 - c2;
             int i4 = 0;
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
-                return this.f21985e.getItem(i3);
+                return this.f20956e.getItem(i3);
             }
-            return this.f21987g.get(i3 - i4).f46337b;
+            return this.f20958g.get(i3 - i4).f44628b;
         }
         return invokeI.objValue;
     }
@@ -231,11 +231,11 @@ public class d implements WrapperListAdapter, Filterable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             int c2 = c();
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter == null || i2 < c2 || (i3 = i2 - c2) >= listAdapter.getCount()) {
                 return -1L;
             }
-            return this.f21985e.getItemId(i3);
+            return this.f20956e.getItemId(i3);
         }
         return invokeI.longValue;
     }
@@ -247,11 +247,11 @@ public class d implements WrapperListAdapter, Filterable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             int c2 = c();
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter == null || i2 < c2 || (i3 = i2 - c2) >= listAdapter.getCount()) {
                 return -2;
             }
-            return this.f21985e.getItemViewType(i3);
+            return this.f20956e.getItemViewType(i3);
         }
         return invokeI.intValue;
     }
@@ -263,15 +263,15 @@ public class d implements WrapperListAdapter, Filterable {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i2, view, viewGroup)) == null) {
             int c2 = c();
             if (i2 < c2) {
-                return this.f21986f.get(i2).a;
+                return this.f20957f.get(i2).a;
             }
             int i3 = i2 - c2;
             int i4 = 0;
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
-                return this.f21985e.getView(i3, view, viewGroup);
+                return this.f20956e.getView(i3, view, viewGroup);
             }
-            return this.f21987g.get(i3 - i4).a;
+            return this.f20958g.get(i3 - i4).a;
         }
         return (View) invokeILL.objValue;
     }
@@ -281,7 +281,7 @@ public class d implements WrapperListAdapter, Filterable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter != null) {
                 return listAdapter.getViewTypeCount();
             }
@@ -294,7 +294,7 @@ public class d implements WrapperListAdapter, Filterable {
     public ListAdapter getWrappedAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f21985e : (ListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f20956e : (ListAdapter) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -302,7 +302,7 @@ public class d implements WrapperListAdapter, Filterable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter != null) {
                 return listAdapter.hasStableIds();
             }
@@ -316,7 +316,7 @@ public class d implements WrapperListAdapter, Filterable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             return listAdapter == null || listAdapter.isEmpty();
         }
         return invokeV.booleanValue;
@@ -329,15 +329,15 @@ public class d implements WrapperListAdapter, Filterable {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
             int c2 = c();
             if (i2 < c2) {
-                return this.f21986f.get(i2).f46338c;
+                return this.f20957f.get(i2).f44629c;
             }
             int i3 = i2 - c2;
             int i4 = 0;
-            ListAdapter listAdapter = this.f21985e;
+            ListAdapter listAdapter = this.f20956e;
             if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
-                return this.f21985e.isEnabled(i3);
+                return this.f20956e.isEnabled(i3);
             }
-            return this.f21987g.get(i3 - i4).f46338c;
+            return this.f20958g.get(i3 - i4).f44629c;
         }
         return invokeI.booleanValue;
     }
@@ -346,7 +346,7 @@ public class d implements WrapperListAdapter, Filterable {
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
         ListAdapter listAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) || (listAdapter = this.f21985e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) || (listAdapter = this.f20956e) == null) {
             return;
         }
         listAdapter.registerDataSetObserver(dataSetObserver);
@@ -356,7 +356,7 @@ public class d implements WrapperListAdapter, Filterable {
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         ListAdapter listAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) || (listAdapter = this.f21985e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) || (listAdapter = this.f20956e) == null) {
             return;
         }
         listAdapter.unregisterDataSetObserver(dataSetObserver);

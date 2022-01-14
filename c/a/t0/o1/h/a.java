@@ -23,43 +23,43 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollFragmentTabHost a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonalizePageView f20982b;
+    public PersonalizePageView f20419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcernUnreadTipView f20983c;
+    public ConcernUnreadTipView f20420c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbPageContext f20984d;
+    public TbPageContext f20421d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f20985e;
+    public BdUniqueId f20422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f20986f;
+    public Runnable f20423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f20987g;
+    public c.a.d.c.g.a f20424g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f20988h;
+    public CustomMessageListener f20425h;
 
     /* renamed from: c.a.t0.o1.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class RunnableC1268a implements Runnable {
+    /* loaded from: classes8.dex */
+    public class RunnableC1282a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20989e;
+        public final /* synthetic */ a f20426e;
 
-        public RunnableC1268a(a aVar) {
+        public RunnableC1282a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,24 +74,24 @@ public class a {
                     return;
                 }
             }
-            this.f20989e = aVar;
+            this.f20426e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20989e.f20982b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20426e.f20419b == null) {
                 return;
             }
-            if (this.f20989e.f20983c != null) {
-                this.f20989e.f20982b.removeView(this.f20989e.f20983c);
+            if (this.f20426e.f20420c != null) {
+                this.f20426e.f20419b.removeView(this.f20426e.f20420c);
                 TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
             }
-            this.f20989e.f20982b.setIsUnreadTipShow(false);
+            this.f20426e.f20419b.setIsUnreadTipShow(false);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,13 +169,13 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20990e;
+        public final /* synthetic */ a f20427e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -192,23 +192,23 @@ public class a {
                     return;
                 }
             }
-            this.f20990e = aVar;
+            this.f20427e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20990e.f20983c == null || this.f20990e.f20983c.mClose == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20427e.f20420c == null || this.f20427e.f20420c.mClose == null) {
                 return;
             }
-            if (view.getId() != this.f20990e.f20983c.mClose.getId()) {
-                if (this.f20990e.a != null) {
-                    this.f20990e.a.setCurrentTab(0);
+            if (view.getId() != this.f20427e.f20420c.mClose.getId()) {
+                if (this.f20427e.a != null) {
+                    this.f20427e.a.setCurrentTab(0);
                     return;
                 }
                 return;
             }
-            this.f20990e.f(false);
+            this.f20427e.f(false);
             TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
         }
     }
@@ -228,15 +228,15 @@ public class a {
                 return;
             }
         }
-        this.f20986f = new RunnableC1268a(this);
-        this.f20987g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
-        this.f20988h = new c(this, 2921064);
+        this.f20423f = new RunnableC1282a(this);
+        this.f20424g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
+        this.f20425h = new c(this, 2921064);
         if (tbPageContext == null) {
             return;
         }
-        this.f20984d = tbPageContext;
-        tbPageContext.registerListener(this.f20987g);
-        tbPageContext.registerListener(this.f20988h);
+        this.f20421d = tbPageContext;
+        tbPageContext.registerListener(this.f20424g);
+        tbPageContext.registerListener(this.f20425h);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, c.a.t0.w3.f0.a.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
@@ -257,18 +257,18 @@ public class a {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            c.a.d.f.m.e.a().removeCallbacks(this.f20986f);
-            PersonalizePageView personalizePageView = this.f20982b;
+            c.a.d.f.m.e.a().removeCallbacks(this.f20423f);
+            PersonalizePageView personalizePageView = this.f20419b;
             if (personalizePageView != null) {
-                ConcernUnreadTipView concernUnreadTipView = this.f20983c;
+                ConcernUnreadTipView concernUnreadTipView = this.f20420c;
                 if (concernUnreadTipView != null) {
                     personalizePageView.removeView(concernUnreadTipView);
-                    if (z && this.f20982b.getIsUnreadTipShow()) {
-                        c.a.s0.s.g0.b.j().w(c.a.s0.s.g0.b.n("concern_unread_tip_next_show_time"), 0L);
+                    if (z && this.f20419b.getIsUnreadTipShow()) {
+                        c.a.s0.s.h0.b.k().x(c.a.s0.s.h0.b.o("concern_unread_tip_next_show_time"), 0L);
                         TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
                     }
                 }
-                this.f20982b.setIsUnreadTipShow(false);
+                this.f20419b.setIsUnreadTipShow(false);
             }
         }
     }
@@ -276,27 +276,27 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f20982b = null;
+            this.f20419b = null;
             this.a = null;
-            if (this.f20986f != null) {
-                c.a.d.f.m.e.a().removeCallbacks(this.f20986f);
+            if (this.f20423f != null) {
+                c.a.d.f.m.e.a().removeCallbacks(this.f20423f);
             }
-            MessageManager.getInstance().unRegisterListener(this.f20987g);
-            MessageManager.getInstance().unRegisterListener(this.f20988h);
+            MessageManager.getInstance().unRegisterListener(this.f20424g);
+            MessageManager.getInstance().unRegisterListener(this.f20425h);
         }
     }
 
     public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f20985e = bdUniqueId;
+            this.f20422e = bdUniqueId;
         }
     }
 
     public void i(PersonalizePageView personalizePageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
-            this.f20982b = personalizePageView;
+            this.f20419b = personalizePageView;
         }
     }
 
@@ -309,22 +309,22 @@ public class a {
 
     public void k(c.a.t0.o1.h.j.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || this.f20982b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || this.f20419b == null) {
             return;
         }
-        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.f20984d.getContext());
-        this.f20983c = concernUnreadTipView;
-        concernUnreadTipView.setBdUniqueId(this.f20985e);
+        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.f20421d.getContext());
+        this.f20420c = concernUnreadTipView;
+        concernUnreadTipView.setBdUniqueId(this.f20422e);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 49;
-        this.f20983c.setLayoutParams(layoutParams);
-        this.f20983c.setData(eVar);
-        this.f20983c.setClickListener(new d(this));
-        this.f20982b.setIsUnreadTipShow(true);
-        this.f20982b.addView(this.f20983c);
+        this.f20420c.setLayoutParams(layoutParams);
+        this.f20420c.setData(eVar);
+        this.f20420c.setClickListener(new d(this));
+        this.f20419b.setIsUnreadTipShow(true);
+        this.f20419b.addView(this.f20420c);
         if (eVar != null) {
-            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", eVar.a).param(TiebaStatic.Params.OBJ_PARAM2, eVar.f21103e));
+            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", eVar.a).param(TiebaStatic.Params.OBJ_PARAM2, eVar.f20539e));
         }
-        c.a.d.f.m.e.a().postDelayed(this.f20986f, 5000L);
+        c.a.d.f.m.e.a().postDelayed(this.f20423f, 5000L);
     }
 }

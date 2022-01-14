@@ -32,7 +32,7 @@ public class b {
             if (aVar2 == null) {
                 aVar2 = a.g();
             }
-            String str = aVar.f11714b;
+            String str = aVar.f11449b;
             char c2 = 65535;
             switch (str.hashCode()) {
                 case -531492226:
@@ -110,7 +110,7 @@ public class b {
                 default:
                     return aVar2.getRequest();
             }
-            RequestBody requestBody = aVar.f11716d;
+            RequestBody requestBody = aVar.f11451d;
             if (requestBody != null) {
                 o.requestBody(requestBody);
             }

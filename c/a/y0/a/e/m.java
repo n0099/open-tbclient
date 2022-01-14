@@ -17,31 +17,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubs.analytics.a.n;
 import java.util.UUID;
 /* loaded from: classes9.dex */
-public final class m implements a.InterfaceC1590a {
+public final class m implements a.InterfaceC1606a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static n f27670f;
+    public static n f26838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f27671g;
+    public static long f26839g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f27672h;
+    public static long f26840h;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27673b;
+    public boolean f26841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f27674c;
+    public Handler f26842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f27675d;
+    public Runnable f26843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f27676e;
+    public e f26844e;
 
     /* loaded from: classes9.dex */
     public class a implements e {
@@ -51,11 +51,11 @@ public final class m implements a.InterfaceC1590a {
 
         /* renamed from: c.a.y0.a.e.m$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1591a extends c.a.y0.a.f.c {
+        public class C1607a extends c.a.y0.a.f.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1591a(a aVar) {
+            public C1607a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,11 +106,11 @@ public final class m implements a.InterfaceC1590a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 c.a.y0.a.f.a.b("app   went foreground ");
-                if (currentTimeMillis - m.f27672h > m.f27671g) {
+                if (currentTimeMillis - m.f26840h > m.f26839g) {
                     this.a.n(currentTimeMillis);
                 }
                 if (c.a.y0.a.c.h().g()) {
-                    c.a.y0.a.f.b.a(new C1591a(this));
+                    c.a.y0.a.f.b.a(new C1607a(this));
                 }
             }
         }
@@ -124,7 +124,7 @@ public final class m implements a.InterfaceC1590a {
                 if (dVar.a().size() == 0) {
                     c.a.y0.a.f.a.b("后台应用退出了 了               ");
                     c.a.y0.a.c.h().d(true);
-                    long unused = m.f27672h = 0L;
+                    long unused = m.f26840h = 0L;
                     return;
                 }
                 c.a.y0.a.f.a.b("进入后台但没退出                  ");
@@ -138,7 +138,7 @@ public final class m implements a.InterfaceC1590a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f27677e;
+        public final /* synthetic */ m f26845e;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -155,16 +155,16 @@ public final class m implements a.InterfaceC1590a {
                     return;
                 }
             }
-            this.f27677e = mVar;
+            this.f26845e = mVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27677e.a && this.f27677e.f27673b) {
-                this.f27677e.a = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26845e.a && this.f26845e.f26841b) {
+                this.f26845e.a = false;
                 try {
-                    this.f27677e.f27676e.b();
+                    this.f26845e.f26844e.b();
                 } catch (Exception e2) {
                     c.a.y0.a.f.i.b("Listener threw exception!:" + e2.toString());
                 }
@@ -198,17 +198,17 @@ public final class m implements a.InterfaceC1590a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                m.f27670f.z(String.valueOf(currentTimeMillis));
+                m.f26838f.z(String.valueOf(currentTimeMillis));
                 try {
-                    m.f27670f.A(String.valueOf(currentTimeMillis - Long.parseLong(m.f27670f.N())));
+                    m.f26838f.A(String.valueOf(currentTimeMillis - Long.parseLong(m.f26838f.N())));
                 } catch (NumberFormatException e2) {
                     c.a.y0.a.f.a.b(e2.getLocalizedMessage());
                 }
                 c.l lVar = new c.l();
-                if (lVar.b(m.f27670f.I())) {
-                    lVar.e(m.f27670f);
+                if (lVar.b(m.f26838f.I())) {
+                    lVar.e(m.f26838f);
                 } else {
-                    lVar.f(m.f27670f);
+                    lVar.f(m.f26838f);
                 }
             }
         }
@@ -240,7 +240,7 @@ public final class m implements a.InterfaceC1590a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.y0.a.f.a.b("超时了……………… 一个新的session");
-                new c.l().f(m.f27670f);
+                new c.l().f(m.f26838f);
             }
         }
     }
@@ -265,7 +265,7 @@ public final class m implements a.InterfaceC1590a {
                 return;
             }
         }
-        f27671g = f.a();
+        f26839g = f.a();
     }
 
     public m() {
@@ -282,41 +282,41 @@ public final class m implements a.InterfaceC1590a {
             }
         }
         this.a = false;
-        this.f27673b = true;
-        this.f27674c = new Handler();
-        this.f27676e = new a(this);
+        this.f26841b = true;
+        this.f26842c = new Handler();
+        this.f26844e = new a(this);
         long currentTimeMillis = System.currentTimeMillis();
-        f27672h = currentTimeMillis;
+        f26840h = currentTimeMillis;
         n(currentTimeMillis);
     }
 
     public static n f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f27670f : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f26838f : (n) invokeV.objValue;
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27673b = false;
+            this.f26841b = false;
             boolean z = !this.a;
             this.a = true;
-            Runnable runnable = this.f27675d;
+            Runnable runnable = this.f26843d;
             if (runnable != null) {
-                this.f27674c.removeCallbacks(runnable);
+                this.f26842c.removeCallbacks(runnable);
             }
             if (z) {
                 try {
-                    this.f27676e.a();
+                    this.f26844e.a();
                 } catch (Exception e2) {
                     c.a.y0.a.f.i.b("Listener threw exception!:" + e2.toString());
                 }
@@ -324,21 +324,21 @@ public final class m implements a.InterfaceC1590a {
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27673b = true;
-            Runnable runnable = this.f27675d;
+            this.f26841b = true;
+            Runnable runnable = this.f26843d;
             if (runnable != null) {
-                this.f27674c.removeCallbacks(runnable);
-                this.f27675d = null;
+                this.f26842c.removeCallbacks(runnable);
+                this.f26843d = null;
             }
-            f27672h = System.currentTimeMillis();
+            f26840h = System.currentTimeMillis();
             c.a.y0.a.f.b.c(new c(this));
-            Handler handler = this.f27674c;
+            Handler handler = this.f26842c;
             b bVar = new b(this);
-            this.f27675d = bVar;
+            this.f26843d = bVar;
             handler.postDelayed(bVar, 1000L);
         }
     }
@@ -347,14 +347,14 @@ public final class m implements a.InterfaceC1590a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             n nVar = new n();
-            f27670f = nVar;
+            f26838f = nVar;
             nVar.setStartTime(String.valueOf(j2));
-            f27670f.x(UUID.randomUUID().toString().replace("-", ""));
+            f26838f.x(UUID.randomUUID().toString().replace("-", ""));
             c.a.y0.a.f.b.c(new d(this));
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {

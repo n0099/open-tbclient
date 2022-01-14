@@ -28,25 +28,25 @@ public class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaiduMap f11684b;
+    public BaiduMap f11421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Marker f11685c;
+    public Marker f11422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BitmapDescriptor f11686d;
+    public BitmapDescriptor f11423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11687e;
+    public b f11424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LocationClient f11688f;
+    public LocationClient f11425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BDLocation f11689g;
+    public BDLocation f11426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11690h;
+    public boolean f11427h;
 
     /* loaded from: classes6.dex */
     public class a extends BDAbstractLocationListener {
@@ -80,21 +80,21 @@ public class c {
                     this.a.m();
                     return;
                 }
-                this.a.f11684b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.a.f11685c != null) {
-                    this.a.f11685c.remove();
-                    this.a.f11685c = null;
+                this.a.f11421b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
+                if (this.a.f11422c != null) {
+                    this.a.f11422c.remove();
+                    this.a.f11422c = null;
                 }
-                MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.f11686d).anchor(0.5f, 0.5f);
+                MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.f11423d).anchor(0.5f, 0.5f);
                 c cVar = this.a;
-                cVar.f11685c = (Marker) cVar.f11684b.addOverlay(anchor);
-                if (this.a.f11689g == null) {
+                cVar.f11422c = (Marker) cVar.f11421b.addOverlay(anchor);
+                if (this.a.f11426g == null) {
                     MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
-                    if (this.a.f11687e != null) {
-                        this.a.f11687e.a(bDLocation);
+                    if (this.a.f11424e != null) {
+                        this.a.f11424e.a(bDLocation);
                     }
                 }
-                this.a.f11689g = bDLocation;
+                this.a.f11426g = bDLocation;
             }
         }
     }
@@ -119,59 +119,59 @@ public class c {
                 return;
             }
         }
-        this.f11690h = false;
+        this.f11427h = false;
         this.a = context;
-        this.f11684b = baiduMap;
+        this.f11421b = baiduMap;
     }
 
     public BDLocation i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11689g : (BDLocation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11426g : (BDLocation) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f11688f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f11425f == null) {
             LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
-            this.f11688f = locationClient;
+            this.f11425f = locationClient;
             locationClient.registerLocationListener(new a(this));
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.f11688f.setLocOption(locationClientOption);
-            this.f11686d = BitmapDescriptorFactory.fromResource(e.aiapps_location_ding);
+            this.f11425f.setLocOption(locationClientOption);
+            this.f11423d = BitmapDescriptorFactory.fromResource(e.aiapps_location_ding);
         }
     }
 
     public void k(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f11687e = bVar;
+            this.f11424e = bVar;
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11690h) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11427h) {
             return;
         }
         j();
-        LocationClient locationClient = this.f11688f;
+        LocationClient locationClient = this.f11425f;
         if (locationClient == null || locationClient.isStarted()) {
             return;
         }
-        this.f11688f.start();
-        this.f11690h = true;
+        this.f11425f.start();
+        this.f11427h = true;
     }
 
     public final void m() {
         LocationClient locationClient;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f11690h && (locationClient = this.f11688f) != null && locationClient.isStarted()) {
-            this.f11688f.stop();
-            this.f11690h = false;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f11427h && (locationClient = this.f11425f) != null && locationClient.isStarted()) {
+            this.f11425f.stop();
+            this.f11427h = false;
         }
     }
 

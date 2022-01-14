@@ -14,22 +14,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public abstract class e extends k {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final boolean f6795k;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicInteger f6796g;
+    public final AtomicInteger f6650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.q.p.g f6797h;
+    public c.a.r0.q.p.g f6651h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.a.u2.a f6798i;
+    public c.a.r0.a.u2.a f6652i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.r0.q.f.e<c.a.r0.q.i.i> f6799j;
+    public final c.a.r0.q.f.e<c.a.r0.q.i.i> f6653j;
 
     /* loaded from: classes.dex */
     public class a extends l<e> {
@@ -37,7 +35,7 @@ public abstract class e extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6800f;
+        public final /* synthetic */ e f6654f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, e eVar2) {
@@ -57,17 +55,17 @@ public abstract class e extends k {
                     return;
                 }
             }
-            this.f6800f = eVar;
+            this.f6654f = eVar;
         }
 
         @Override // c.a.r0.a.h0.m.l
         public void r(@NonNull c.a.r0.q.i.i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (e.f6795k) {
+                if (e.k) {
                     String str = "onDownloadAndUnzipSuccess:" + iVar;
                 }
-                this.f6800f.f6796g.incrementAndGet();
+                this.f6654f.f6650g.incrementAndGet();
             }
         }
 
@@ -76,8 +74,8 @@ public abstract class e extends k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, aVar) == null) {
                 c.a.r0.a.e0.d.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + iVar + StringUtil.ARRAY_ELEMENT_SEPARATOR + aVar);
-                if (this.f6800f.f6798i == null) {
-                    this.f6800f.f6798i = aVar;
+                if (this.f6654f.f6652i == null) {
+                    this.f6654f.f6652i = aVar;
                 }
             }
         }
@@ -96,7 +94,7 @@ public abstract class e extends k {
                 return;
             }
         }
-        f6795k = c.a.r0.a.k.a;
+        k = c.a.r0.a.k.a;
     }
 
     public e() {
@@ -112,8 +110,8 @@ public abstract class e extends k {
                 return;
             }
         }
-        this.f6796g = new AtomicInteger(0);
-        this.f6799j = new a(this, this);
+        this.f6650g = new AtomicInteger(0);
+        this.f6653j = new a(this, this);
     }
 
     @Override // c.a.r0.q.f.i
@@ -148,8 +146,8 @@ public abstract class e extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
             super.H(gVar);
-            this.f6797h = gVar;
-            if (f6795k) {
+            this.f6651h = gVar;
+            if (k) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("mStartDownload=");
                 sb.append(gVar == null ? 0 : gVar.n());
@@ -168,7 +166,7 @@ public abstract class e extends k {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.b();
             c.a.r0.a.e0.d.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
-            c.a.r0.q.p.g gVar = this.f6797h;
+            c.a.r0.q.p.g gVar = this.f6651h;
             if (gVar == null) {
                 c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
                 aVar.k(17L);
@@ -177,21 +175,21 @@ public abstract class e extends k {
                 R(aVar);
                 return;
             }
-            int n = gVar.n() - this.f6796g.get();
+            int n = gVar.n() - this.f6650g.get();
             if (n == 0) {
                 S();
                 return;
             }
-            if (this.f6798i == null) {
+            if (this.f6652i == null) {
                 c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                 aVar2.k(17L);
                 aVar2.i(2900L);
                 aVar2.d("unknown error.");
-                this.f6798i = aVar2;
+                this.f6652i = aVar2;
             }
-            c.a.r0.a.u2.a aVar3 = this.f6798i;
+            c.a.r0.a.u2.a aVar3 = this.f6652i;
             aVar3.f("failCount:" + n);
-            R(this.f6798i);
+            R(this.f6652i);
         }
     }
 
@@ -199,6 +197,6 @@ public abstract class e extends k {
     public c.a.r0.q.f.e<c.a.r0.q.i.i> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6799j : (c.a.r0.q.f.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6653j : (c.a.r0.q.f.e) invokeV.objValue;
     }
 }

@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendForumInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f21423b;
+    public boolean f20856b;
 
     public g(RecommendForumInfo recommendForumInfo, boolean z) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class g {
             }
         }
         this.a = recommendForumInfo;
-        this.f21423b = z;
+        this.f20856b = z;
     }
 }

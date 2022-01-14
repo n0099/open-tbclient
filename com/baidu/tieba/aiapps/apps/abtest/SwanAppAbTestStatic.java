@@ -22,7 +22,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
@@ -58,7 +57,7 @@ public class SwanAppAbTestStatic {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.s0.k0.i f43380b;
+    public static c.a.s0.k0.i f41826b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -151,7 +150,7 @@ public class SwanAppAbTestStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && !StringUtils.isNull(customMessage.getData())) {
                     if (Build.VERSION.SDK_INT <= 21) {
-                        n.L(TbadkCoreApplication.getInst(), R.string.ai_apps_not_support);
+                        n.M(TbadkCoreApplication.getInst(), R.string.ai_apps_not_support);
                         return null;
                     }
                     String data = customMessage.getData();
@@ -202,7 +201,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.s0.a.h) && (a = c.a.t0.z.b.a.a((c.a.s0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.d.a.b.g().b()) != null && b2.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.s0.a.h) && (a = c.a.t0.z.b.a.a((c.a.s0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.d.a.b.f().b()) != null && b2.getWindow() != null) {
                 try {
                     a.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -495,7 +494,7 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f43380b = new a();
+        f41826b = new a();
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             c.a.d.f.m.e.a().postDelayed(new b(), 10000L);
         } else {
@@ -542,8 +541,7 @@ public class SwanAppAbTestStatic {
             statisticItem.param("obj_id", str);
             TiebaStatic.log(statisticItem);
             Uri parse = Uri.parse(str);
-            h(parse);
-            g();
+            g(parse);
             SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
         }
     }
@@ -555,7 +553,7 @@ public class SwanAppAbTestStatic {
                 f();
                 return;
             }
-            c.a.s0.k0.h.f().m(PrivacyPolicyEvent.class, f43380b, BdUniqueId.gen());
+            c.a.s0.k0.h.f().m(PrivacyPolicyEvent.class, f41826b, BdUniqueId.gen());
         }
     }
 
@@ -579,17 +577,10 @@ public class SwanAppAbTestStatic {
         q0.b0(new i(), 3000L);
     }
 
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            LaunchTaskSchedule.getInstance().start(5);
-        }
-    }
-
-    public static void h(Uri uri) {
+    public static void g(Uri uri) {
         List<String> pathSegments;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, uri) == null) || uri == null || (pathSegments = uri.getPathSegments()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, uri) == null) || uri == null || (pathSegments = uri.getPathSegments()) == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY);

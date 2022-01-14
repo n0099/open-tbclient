@@ -19,25 +19,25 @@ public class g {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f18992b;
+    public final View f18512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.j3.l0.c f18993c;
+    public c.a.t0.j3.l0.c f18513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdvertAppInfo f18994d;
+    public AdvertAppInfo f18514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.x1.o.h.b f18995e;
+    public c.a.t0.x1.o.h.b f18515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f18996f;
+    public TbPageContext f18516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdCard f18997g;
+    public AdCard f18517g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f18998h;
+    public View.OnClickListener f18518h;
 
     public g(View view, String str) {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class g {
                 return;
             }
         }
-        this.f18992b = view;
+        this.f18512b = view;
         this.a = str;
     }
 
@@ -67,7 +67,7 @@ public class g {
     public final <T> T b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (T) this.f18992b.findViewById(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (T) this.f18512b.findViewById(i2) : (T) invokeI.objValue;
     }
 
     public void c() {
@@ -85,11 +85,11 @@ public class g {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f18992b.setVisibility(0);
-            c.a.t0.j3.l0.c cVar = this.f18993c;
+            this.f18512b.setVisibility(0);
+            c.a.t0.j3.l0.c cVar = this.f18513c;
             if (cVar != null) {
                 cVar.i(303);
-                c.a.t0.j3.l0.e.b().d(this.f18993c);
+                c.a.t0.j3.l0.e.b().d(this.f18513c);
             }
         }
     }
@@ -97,7 +97,7 @@ public class g {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f18992b.setVisibility(8);
+            this.f18512b.setVisibility(8);
         }
     }
 
@@ -105,11 +105,11 @@ public class g {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            this.f18994d = advertAppInfo;
+            this.f18514d = advertAppInfo;
             if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.n4) == null || !(iLegoAdvert instanceof AdCard)) {
                 return;
             }
-            this.f18997g = (AdCard) iLegoAdvert;
+            this.f18517g = (AdCard) iLegoAdvert;
         }
     }
 
@@ -122,28 +122,28 @@ public class g {
     public void i(c.a.t0.x1.o.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f18995e = bVar;
+            this.f18515e = bVar;
         }
     }
 
     public void j(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) {
-            this.f18996f = tbPageContext;
+            this.f18516f = tbPageContext;
         }
     }
 
     public void k(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.f18998h = onClickListener;
+            this.f18518h = onClickListener;
         }
     }
 
     public void l(c.a.t0.j3.l0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f18993c = cVar;
+            this.f18513c = cVar;
         }
     }
 

@@ -31,15 +31,15 @@ public class a implements Dns {
     public HttpDnsService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f64631b;
+    public volatile boolean f62206b;
 
     /* renamed from: j.a.a.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C2290a implements GslbEvent.GslbEventListener {
+    public class C2307a implements GslbEvent.GslbEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2290a(a aVar) {
+        public C2307a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class a implements Dns {
         }
     }
 
-    public /* synthetic */ a(C2290a c2290a) {
+    public /* synthetic */ a(C2307a c2307a) {
         this();
     }
 
@@ -177,7 +177,7 @@ public class a implements Dns {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, str2) == null) {
             synchronized (this) {
-                if (!this.f64631b) {
+                if (!this.f62206b) {
                     RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
                 } else if (this.a != null) {
                     RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
@@ -188,7 +188,7 @@ public class a implements Dns {
                     HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
                     this.a = service;
                     service.setLogEnabled(Env.instance().isTestEnv());
-                    this.a.setGslbEventMessager(new C2290a(this));
+                    this.a.setGslbEventMessager(new C2307a(this));
                     this.a.setHttpsEnable(true);
                     this.a.setNetworkStatus(3);
                     ArrayList<String> arrayList = new ArrayList<>();
@@ -224,7 +224,7 @@ public class a implements Dns {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
             return (List) invokeL.objValue;
         }
-        if (this.f64631b && this.a != null) {
+        if (this.f62206b && this.a != null) {
             RLog.info("YYPayHttpDns", "httpdns lookup ");
             try {
                 list = d(a(str));
@@ -260,7 +260,7 @@ public class a implements Dns {
             }
         }
         this.a = null;
-        this.f64631b = true;
+        this.f62206b = true;
         RLog.warn("YYPayHttpDns", "new OkHttpDns:" + toString());
     }
 }

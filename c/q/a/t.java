@@ -12,7 +12,7 @@ public class t implements ViewTreeObserver.OnScrollChangedListener {
     public final /* synthetic */ p0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ s0 f31436b;
+    public final /* synthetic */ s0 f30448b;
 
     public t(s0 s0Var, p0 p0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class t implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.f31436b = s0Var;
+        this.f30448b = s0Var;
         this.a = p0Var;
     }
 
@@ -38,15 +38,15 @@ public class t implements ViewTreeObserver.OnScrollChangedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f31436b.f31421b || !this.f31436b.b(this.f31436b.a)) {
+                if (this.f30448b.f30434b || !this.f30448b.b(this.f30448b.a)) {
                     return;
                 }
-                this.f31436b.f31424e.removeMessages(1101);
-                this.f31436b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
+                this.f30448b.f30437e.removeMessages(1101);
+                this.f30448b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
                 if (this.a != null) {
                     this.a.a();
                 }
-                this.f31436b.f31421b = true;
+                this.f30448b.f30434b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

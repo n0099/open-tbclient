@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.a0.f.a.e;
 import c.a.t0.a0.f.h.d.f;
 import com.baidu.adp.BdUniqueId;
@@ -31,7 +31,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.h.b.a, AlaSubListGameDoubleViewHo
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.h.b.a.f15025g);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.h.b.a.f14662g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,32 +59,32 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.h.b.a, AlaSubListGameDoubleViewHo
         }
         int i2 = this.r;
         if (i2 == 1) {
-            if (aVar.f15026e != null) {
+            if (aVar.f14663e != null) {
                 c.a.t0.a0.f.e.a c2 = c.a.t0.a0.f.e.a.c();
                 c.a.t0.a0.f.e.a c3 = c.a.t0.a0.f.e.a.c();
                 int i3 = this.q;
-                e eVar = aVar.f15026e;
-                c2.a(c3.e(i3, "c12117", eVar.f14690e, eVar.f14691f, eVar.getThreadData()));
+                e eVar = aVar.f14663e;
+                c2.a(c3.e(i3, "c12117", eVar.f14341e, eVar.f14342f, eVar.getThreadData()));
             }
-            if (aVar.f15027f != null) {
+            if (aVar.f14664f != null) {
                 c.a.t0.a0.f.e.a c4 = c.a.t0.a0.f.e.a.c();
                 c.a.t0.a0.f.e.a c5 = c.a.t0.a0.f.e.a.c();
                 int i4 = this.q;
-                e eVar2 = aVar.f15027f;
-                c4.a(c5.e(i4, "c12117", eVar2.f14690e, eVar2.f14691f, eVar2.getThreadData()));
+                e eVar2 = aVar.f14664f;
+                c4.a(c5.e(i4, "c12117", eVar2.f14341e, eVar2.f14342f, eVar2.getThreadData()));
             }
         } else if (i2 == 2) {
-            e eVar3 = aVar.f15026e;
-            if (eVar3 != null && eVar3.getThreadData() != null && aVar.f15026e.getThreadData().o1() != null) {
-                d2 threadData = aVar.f15026e.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.o1().appId).param("locate_type", aVar.f15026e.f14691f));
+            e eVar3 = aVar.f14663e;
+            if (eVar3 != null && eVar3.getThreadData() != null && aVar.f14663e.getThreadData().o1() != null) {
+                e2 threadData = aVar.f14663e.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.o1().appId).param("locate_type", aVar.f14663e.f14342f));
             }
-            e eVar4 = aVar.f15027f;
-            if (eVar4 == null || eVar4.getThreadData() == null || aVar.f15027f.getThreadData().o1() == null) {
+            e eVar4 = aVar.f14664f;
+            if (eVar4 == null || eVar4.getThreadData() == null || aVar.f14664f.getThreadData().o1() == null) {
                 return;
             }
-            d2 threadData2 = aVar.f15027f.getThreadData();
-            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.o1().appId).param("locate_type", aVar.f15027f.f14691f));
+            e2 threadData2 = aVar.f14664f.getThreadData();
+            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.o1().appId).param("locate_type", aVar.f14664f.f14342f));
         }
     }
 

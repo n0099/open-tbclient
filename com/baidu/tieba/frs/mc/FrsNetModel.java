@@ -108,7 +108,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public FrsRequestData b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (FrsRequestData) this.f42554g : (FrsRequestData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (FrsRequestData) this.f41060g : (FrsRequestData) invokeV.objValue;
     }
 
     public boolean c0() {
@@ -120,7 +120,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public void d0(FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, frsRequestData) == null) {
-            this.f42554g = frsRequestData;
+            this.f41060g = frsRequestData;
         }
     }
 

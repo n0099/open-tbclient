@@ -23,13 +23,13 @@ public class d {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f15727b;
+    public final BdUniqueId f15330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f15728c;
+    public b f15331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d.c.g.a f15729d;
+    public c.a.d.c.g.a f15332d;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.d.c.g.a {
@@ -63,9 +63,9 @@ public class d {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.a.f15727b) {
-                    if (this.a.f15728c != null) {
-                        this.a.f15728c.a(false, null);
+                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.a.f15330b) {
+                    if (this.a.f15331c != null) {
+                        this.a.f15331c.a(false, null);
                         return;
                     }
                     return;
@@ -74,8 +74,8 @@ public class d {
                 if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                     searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
                 }
-                if (this.a.f15728c != null) {
-                    this.a.f15728c.a(searchData != null, searchData);
+                if (this.a.f15331c != null) {
+                    this.a.f15331c.a(searchData != null, searchData);
                 }
             }
         }
@@ -102,17 +102,17 @@ public class d {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.f15729d = aVar;
+        this.f15332d = aVar;
         this.a = tbPageContext;
-        this.f15727b = bdUniqueId;
+        this.f15330b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f15729d);
+        MessageManager.getInstance().registerListener(this.f15332d);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f15727b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f15330b);
         }
     }
 
@@ -126,9 +126,9 @@ public class d {
             return;
         }
         c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f15727b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f15330b);
         SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.f15727b);
+        searchPostForumRequestMessage.setTag(this.f15330b);
         searchPostForumRequestMessage.set_word(str);
         MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
@@ -136,7 +136,7 @@ public class d {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f15728c = bVar;
+            this.f15331c = bVar;
         }
     }
 }

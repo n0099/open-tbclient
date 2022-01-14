@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.a;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -157,7 +157,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i2);
                 httpURLConnection.setReadTimeout(i3);
-                httpURLConnection.setRequestProperty("User-Agent", w0.b());
+                httpURLConnection.setRequestProperty("User-Agent", v0.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }

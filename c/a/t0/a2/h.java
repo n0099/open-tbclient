@@ -742,6 +742,11 @@ public final class h {
     public static final int[] EmotionButton;
     public static final int EmotionButton_ebTextSize = 0;
     public static final int EmotionButton_text = 1;
+    public static final int[] ExpandIconView;
+    public static final int ExpandIconView_animationDuration = 0;
+    public static final int ExpandIconView_color = 1;
+    public static final int ExpandIconView_length = 2;
+    public static final int ExpandIconView_thick = 3;
     public static final int[] ExpandListView;
     public static final int ExpandListView_beforeExpandHeight = 0;
     public static final int ExpandListView_expandDistance = 1;
@@ -1065,6 +1070,10 @@ public final class h {
     public static final int[] MaxHeightFrameLayout;
     public static final int MaxHeightFrameLayout_mhf_HeightDimen = 0;
     public static final int MaxHeightFrameLayout_mhf_HeightRatio = 1;
+    public static final int[] MaxHeightScrollView;
+    public static final int MaxHeightScrollView_maxHeight = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 1;
+    public static final int MaxHeightScrollView_minHeightRatio = 2;
     public static final int[] MenuGroup;
     public static final int MenuGroup_android_checkableBehavior = 5;
     public static final int MenuGroup_android_enabled = 0;
@@ -2029,6 +2038,7 @@ public final class h {
         DrawerArrowToggle = new int[]{R.attr.arrowHeadLength, R.attr.arrowShaftLength, R.attr.barLength, R.attr.color, R.attr.drawableSize, R.attr.gapBetweenBars, R.attr.spinBars, R.attr.thickness};
         EllipsizeTagTitleView = new int[]{R.attr.tag_title_ellipsize_text, R.attr.tag_title_line_space, R.attr.tag_title_max_line, R.attr.tag_title_tag_color, R.attr.tag_title_tag_corner_radius, R.attr.tag_title_tag_margin, R.attr.tag_title_tag_padding_horizontal, R.attr.tag_title_tag_padding_vertical, R.attr.tag_title_tag_stroke_width, R.attr.tag_title_text_color, R.attr.tag_title_text_size, R.attr.tag_title_text_style};
         EmotionButton = new int[]{R.attr.ebTextSize, R.attr.text};
+        ExpandIconView = new int[]{R.attr.animationDuration, R.attr.color, R.attr.length, R.attr.thick};
         ExpandListView = new int[]{R.attr.beforeExpandHeight, R.attr.expandDistance};
         ExpandableHListView = new int[]{R.attr.hlv_childDivider, R.attr.hlv_childIndicator, R.attr.hlv_childIndicatorGravity, R.attr.hlv_childIndicatorPaddingLeft, R.attr.hlv_childIndicatorPaddingTop, R.attr.hlv_groupIndicator, R.attr.hlv_indicatorGravity, R.attr.hlv_indicatorPaddingLeft, R.attr.hlv_indicatorPaddingTop};
         ExtendedFloatingActionButton = new int[]{R.attr.elevation, R.attr.extendMotionSpec, R.attr.hideMotionSpec, R.attr.showMotionSpec, R.attr.shrinkMotionSpec};
@@ -2079,6 +2089,7 @@ public final class h {
         MaterialTextAppearance = new int[]{16844159, R.attr.lineHeight};
         MaterialTextView = new int[]{16842804, 16844159, R.attr.lineHeight};
         MaxHeightFrameLayout = new int[]{R.attr.mhf_HeightDimen, R.attr.mhf_HeightRatio};
+        MaxHeightScrollView = new int[]{R.attr.maxHeight, R.attr.maxHeightRatio, R.attr.minHeightRatio};
         MenuGroup = new int[]{16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
         MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, R.attr.actionLayout, R.attr.actionProviderClass, R.attr.actionViewClass, R.attr.alphabeticModifiers, R.attr.contentDescription, R.attr.iconTint, R.attr.iconTintMode, R.attr.numericModifiers, R.attr.showAsAction, R.attr.tooltipText};
         MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, R.attr.preserveIconSpacing, R.attr.subMenuArrow};

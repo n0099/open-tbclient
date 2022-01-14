@@ -24,22 +24,22 @@ public class DailyPrivilegeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47634e;
+    public Context f45862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47635f;
+    public View f45863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47636g;
+    public TbImageView f45864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f47637h;
+    public TbImageView f45865h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PrivilegeTextView f47638i;
+    public PrivilegeTextView f45866i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f47639j;
+    public TextView f45867j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeItemView(Context context) {
@@ -59,29 +59,29 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f47634e = context;
+        this.f45862e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f47634e).inflate(R.layout.index_daily_item, this);
-            this.f47635f = inflate;
-            this.f47636g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            TbImageView tbImageView = (TbImageView) this.f47635f.findViewById(R.id.privilege_tag_icon);
-            this.f47637h = tbImageView;
+            View inflate = LayoutInflater.from(this.f45862e).inflate(R.layout.index_daily_item, this);
+            this.f45863f = inflate;
+            this.f45864g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            TbImageView tbImageView = (TbImageView) this.f45863f.findViewById(R.id.privilege_tag_icon);
+            this.f45865h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f47637h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f47638i = (PrivilegeTextView) this.f47635f.findViewById(R.id.privilege_title);
-            this.f47639j = (TextView) this.f47635f.findViewById(R.id.privilege_desc);
+            this.f45865h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f45866i = (PrivilegeTextView) this.f45863f.findViewById(R.id.privilege_title);
+            this.f45867j = (TextView) this.f45863f.findViewById(R.id.privilege_desc);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f47634e), this.f47635f);
+            a.a((TbPageContext) j.a(this.f45862e), this.f45863f);
         }
     }
 
@@ -90,12 +90,12 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) || hVar == null) {
             return;
         }
-        this.f47636g.setIsRound(false);
-        this.f47636g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
-        this.f47636g.startLoad(hVar.a(), 10, false);
-        this.f47639j.setText(hVar.d());
-        this.f47638i.setText(hVar.b());
-        this.f47637h.startLoad(hVar.c(), 10, false);
+        this.f45864g.setIsRound(false);
+        this.f45864g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+        this.f45864g.startLoad(hVar.a(), 10, false);
+        this.f45867j.setText(hVar.d());
+        this.f45866i.setText(hVar.b());
+        this.f45865h.startLoad(hVar.c(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,7 +117,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f47634e = context;
+        this.f45862e = context;
         a();
     }
 
@@ -140,7 +140,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f47634e = context;
+        this.f45862e = context;
         a();
     }
 }

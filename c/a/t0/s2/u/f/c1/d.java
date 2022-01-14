@@ -32,25 +32,23 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f23371e;
+    public Context f22725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<EmotionImageData> f23372f;
+    public List<EmotionImageData> f22726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Set<String> f23373g;
+    public Set<String> f22727g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.s2.u.f.c1.a f23374h;
+    public c.a.t0.s2.u.f.c1.a f22728h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23375i;
+    public int f22729i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f23376j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<String> f23377k;
+    public int f22730j;
+    public List<String> k;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -58,7 +56,7 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f23378e;
+        public final /* synthetic */ d f22731e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -75,7 +73,7 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f23378e = dVar;
+            this.f22731e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -83,8 +81,8 @@ public class d extends BaseAdapter {
             Object tag;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (tag = view.getTag(view.getId())) != null && (tag instanceof EmotionImageData)) {
-                if (this.f23378e.f23374h != null && (view instanceof EmotionView)) {
-                    this.f23378e.f23374h.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+                if (this.f22731e.f22728h != null && (view instanceof EmotionView)) {
+                    this.f22731e.f22728h.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
                 }
                 TiebaStatic.log("c12180");
             }
@@ -121,8 +119,8 @@ public class d extends BaseAdapter {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (this.a.f23373g != null) {
-                    for (String str : this.a.f23373g) {
+                if (this.a.f22727g != null) {
+                    for (String str : this.a.f22727g) {
                         if (!TextUtils.isEmpty(str)) {
                             c.a.s0.c0.c.k().h(str);
                         }
@@ -142,16 +140,16 @@ public class d extends BaseAdapter {
         public EmotionView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public EmotionView f23379b;
+        public EmotionView f22732b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EmotionView f23380c;
+        public EmotionView f22733c;
 
         /* renamed from: d  reason: collision with root package name */
-        public EmotionView f23381d;
+        public EmotionView f22734d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f23382e;
+        public final /* synthetic */ d f22735e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -168,16 +166,16 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f23382e = dVar;
+            this.f22735e = dVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23382e.e(this.a);
-                this.f23382e.e(this.f23379b);
-                this.f23382e.e(this.f23380c);
-                this.f23382e.e(this.f23381d);
+                this.f22735e.e(this.a);
+                this.f22735e.e(this.f22732b);
+                this.f22735e.e(this.f22733c);
+                this.f22735e.e(this.f22734d);
             }
         }
     }
@@ -197,11 +195,11 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f23371e = BdBaseApplication.getInst().getApp();
-        this.f23372f = list;
-        this.f23373g = new HashSet();
-        this.f23376j = n.f(this.f23371e, g.ds116);
-        this.f23375i = (int) (((n.k(this.f23371e) - n.f(this.f23371e, g.ds88)) - (this.f23376j * 4)) * 0.333d);
+        this.f22725e = BdBaseApplication.getInst().getApp();
+        this.f22726f = list;
+        this.f22727g = new HashSet();
+        this.f22730j = n.f(this.f22725e, g.ds116);
+        this.f22729i = (int) (((n.k(this.f22725e) - n.f(this.f22725e, g.ds88)) - (this.f22730j * 4)) * 0.333d);
     }
 
     public final void d(EmotionView emotionView, EmotionImageData emotionImageData) {
@@ -212,11 +210,11 @@ public class d extends BaseAdapter {
         emotionView.setTag(emotionView.getId(), emotionImageData);
         emotionView.enablePreview();
         emotionView.loadData(emotionImageData);
-        if (this.f23373g == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+        if (this.f22727g == null || TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
             return;
         }
-        if (ListUtils.isEmpty(this.f23377k) || !this.f23377k.contains(emotionImageData.getThumbUrl())) {
-            Set<String> set = this.f23373g;
+        if (ListUtils.isEmpty(this.k) || !this.k.contains(emotionImageData.getThumbUrl())) {
+            Set<String> set = this.f22727g;
             set.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
         }
     }
@@ -239,7 +237,7 @@ public class d extends BaseAdapter {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f23374h = null;
+            this.f22728h = null;
         }
     }
 
@@ -248,10 +246,10 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f23372f.size() % 4 == 0) {
-                return this.f23372f.size() / 4;
+            if (this.f22726f.size() % 4 == 0) {
+                return this.f22726f.size() / 4;
             }
-            return (this.f23372f.size() / 4) + 1;
+            return (this.f22726f.size() / 4) + 1;
         }
         return invokeV.intValue;
     }
@@ -260,7 +258,7 @@ public class d extends BaseAdapter {
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f23372f.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f22726f.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -283,13 +281,13 @@ public class d extends BaseAdapter {
                 c cVar2 = new c(this);
                 View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(j.list_search_emotion_item, (ViewGroup) null);
                 cVar2.a = (EmotionView) inflate.findViewById(i.emotion_view1);
-                cVar2.f23379b = (EmotionView) inflate.findViewById(i.emotion_view2);
-                cVar2.f23380c = (EmotionView) inflate.findViewById(i.emotion_view3);
-                cVar2.f23381d = (EmotionView) inflate.findViewById(i.emotion_view4);
+                cVar2.f22732b = (EmotionView) inflate.findViewById(i.emotion_view2);
+                cVar2.f22733c = (EmotionView) inflate.findViewById(i.emotion_view3);
+                cVar2.f22734d = (EmotionView) inflate.findViewById(i.emotion_view4);
                 cVar2.a();
-                i(cVar2.f23379b, this.f23375i);
-                i(cVar2.f23380c, this.f23375i);
-                i(cVar2.f23381d, this.f23375i);
+                i(cVar2.f22732b, this.f22729i);
+                i(cVar2.f22733c, this.f22729i);
+                i(cVar2.f22734d, this.f22729i);
                 inflate.setTag(cVar2);
                 cVar = cVar2;
                 view = inflate;
@@ -298,19 +296,19 @@ public class d extends BaseAdapter {
             }
             int i3 = i2 * 4;
             int i4 = i3 + 4;
-            int min = Math.min(i4, this.f23372f.size() - 1);
+            int min = Math.min(i4, this.f22726f.size() - 1);
             for (int i5 = i3; i5 < i4; i5++) {
                 if (i5 <= min) {
-                    EmotionImageData emotionImageData = this.f23372f.get(i5);
+                    EmotionImageData emotionImageData = this.f22726f.get(i5);
                     int i6 = i5 - i3;
                     if (i6 == 0) {
                         d(cVar.a, emotionImageData);
                     } else if (i6 == 1) {
-                        d(cVar.f23379b, emotionImageData);
+                        d(cVar.f22732b, emotionImageData);
                     } else if (i6 == 2) {
-                        d(cVar.f23380c, emotionImageData);
+                        d(cVar.f22733c, emotionImageData);
                     } else if (i6 == 3) {
-                        d(cVar.f23381d, emotionImageData);
+                        d(cVar.f22734d, emotionImageData);
                     }
                 }
             }
@@ -322,7 +320,7 @@ public class d extends BaseAdapter {
     public void h(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f23377k = list;
+            this.k = list;
         }
     }
 
@@ -339,7 +337,7 @@ public class d extends BaseAdapter {
     public void j(c.a.t0.s2.u.f.c1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f23374h = aVar;
+            this.f22728h = aVar;
         }
     }
 }

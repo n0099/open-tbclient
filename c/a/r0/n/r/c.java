@@ -14,7 +14,7 @@ public class c<T> {
     public ArrayList<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f11711b;
+    public final int f11446b;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c<T> {
             }
         }
         this.a = new ArrayList<>();
-        this.f11711b = i2;
+        this.f11446b = i2;
     }
 
     public synchronized T a() {
@@ -58,7 +58,7 @@ public class c<T> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             synchronized (this) {
                 if (t != null) {
-                    if (this.a.size() >= this.f11711b) {
+                    if (this.a.size() >= this.f11446b) {
                         this.a.remove(this.a.size() - 1);
                     }
                     this.a.add(t);

@@ -22,54 +22,54 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.h.i.m.c f10743b;
+    public c.a.r0.h.i.m.c f10508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10744c;
+    public boolean f10509c;
 
     /* renamed from: c.a.r0.h.i.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0690a implements Runnable {
+    public class RunnableC0699a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f10745e;
+        public final /* synthetic */ f f10510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.h.i.m.h f10746f;
+        public final /* synthetic */ c.a.r0.h.i.m.h f10511f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f10747g;
+        public final /* synthetic */ a f10512g;
 
         /* renamed from: c.a.r0.h.i.p.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0691a extends ResponseCallback<AdResponseInfo> {
+        public class C0700a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0690a f10748b;
+            public final /* synthetic */ RunnableC0699a f10513b;
 
             /* renamed from: c.a.r0.h.i.p.a$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0692a implements Runnable {
+            public class RunnableC0701a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ AdElementInfo f10749e;
+                public final /* synthetic */ AdElementInfo f10514e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ C0691a f10750f;
+                public final /* synthetic */ C0700a f10515f;
 
-                public RunnableC0692a(C0691a c0691a, AdElementInfo adElementInfo) {
+                public RunnableC0701a(C0700a c0700a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0691a, adElementInfo};
+                        Object[] objArr = {c0700a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -79,26 +79,26 @@ public class a {
                             return;
                         }
                     }
-                    this.f10750f = c0691a;
-                    this.f10749e = adElementInfo;
+                    this.f10515f = c0700a;
+                    this.f10514e = adElementInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10750f.f10748b.f10747g.f10743b == null) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10515f.f10513b.f10512g.f10508b == null) {
                         return;
                     }
-                    this.f10750f.f10748b.f10747g.f10743b.c(this.f10749e);
+                    this.f10515f.f10513b.f10512g.f10508b.c(this.f10514e);
                 }
             }
 
-            public C0691a(RunnableC0690a runnableC0690a) {
+            public C0700a(RunnableC0699a runnableC0699a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0690a};
+                    Object[] objArr = {runnableC0699a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -108,7 +108,7 @@ public class a {
                         return;
                     }
                 }
-                this.f10748b = runnableC0690a;
+                this.f10513b = runnableC0699a;
                 this.a = 0;
             }
 
@@ -118,18 +118,18 @@ public class a {
             public void onSuccess(AdResponseInfo adResponseInfo, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, adResponseInfo, i2) == null) {
-                    RunnableC0690a runnableC0690a = this.f10748b;
-                    runnableC0690a.f10747g.j(runnableC0690a.f10745e, "requestSuccess", runnableC0690a.f10746f);
+                    RunnableC0699a runnableC0699a = this.f10513b;
+                    runnableC0699a.f10512g.j(runnableC0699a.f10510e, "requestSuccess", runnableC0699a.f10511f);
                     if (adResponseInfo == null) {
-                        this.f10748b.f10747g.g("200000");
+                        this.f10513b.f10512g.g("200000");
                     } else if (adResponseInfo.getAdInstanceList().size() <= 0) {
-                        if (!this.f10748b.f10747g.f10744c) {
-                            RunnableC0690a runnableC0690a2 = this.f10748b;
-                            runnableC0690a2.f10747g.j(runnableC0690a2.f10745e, "requestNoAd", runnableC0690a2.f10746f);
+                        if (!this.f10513b.f10512g.f10509c) {
+                            RunnableC0699a runnableC0699a2 = this.f10513b;
+                            runnableC0699a2.f10512g.j(runnableC0699a2.f10510e, "requestNoAd", runnableC0699a2.f10511f);
                         }
-                        if (this.a == 1 && this.f10748b.f10745e.f10780i.c() == "video" && i.h()) {
-                            RunnableC0690a runnableC0690a3 = this.f10748b;
-                            runnableC0690a3.f10747g.h(runnableC0690a3.f10746f, runnableC0690a3.f10745e, this);
+                        if (this.a == 1 && this.f10513b.f10510e.f10544i.c() == "video" && i.h()) {
+                            RunnableC0699a runnableC0699a3 = this.f10513b;
+                            runnableC0699a3.f10512g.h(runnableC0699a3.f10511f, runnableC0699a3.f10510e, this);
                             return;
                         }
                         this.a = 0;
@@ -137,9 +137,9 @@ public class a {
                         if (errorCode.equals("0")) {
                             errorCode = "201000";
                         }
-                        this.f10748b.f10747g.g(errorCode);
+                        this.f10513b.f10512g.g(errorCode);
                     } else {
-                        c.a.r0.h.i.s.d.c(new RunnableC0692a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                        c.a.r0.h.i.s.d.c(new RunnableC0701a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
                     }
                 }
             }
@@ -159,8 +159,8 @@ public class a {
                         try {
                             String string = response.body().string();
                             if (!TextUtils.isEmpty(string)) {
-                                if (this.f10748b.f10747g.f10744c) {
-                                    return new AdResponseInfo(string, this.f10748b.f10747g.f10744c);
+                                if (this.f10513b.f10512g.f10509c) {
+                                    return new AdResponseInfo(string, this.f10513b.f10512g.f10509c);
                                 }
                                 return new AdResponseInfo(string);
                             }
@@ -176,14 +176,14 @@ public class a {
             public void onFail(Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                    this.f10748b.f10747g.g("3010002");
-                    RunnableC0690a runnableC0690a = this.f10748b;
-                    runnableC0690a.f10747g.j(runnableC0690a.f10745e, "requestFail", runnableC0690a.f10746f);
+                    this.f10513b.f10512g.g("3010002");
+                    RunnableC0699a runnableC0699a = this.f10513b;
+                    runnableC0699a.f10512g.j(runnableC0699a.f10510e, "requestFail", runnableC0699a.f10511f);
                 }
             }
         }
 
-        public RunnableC0690a(a aVar, f fVar, c.a.r0.h.i.m.h hVar) {
+        public RunnableC0699a(a aVar, f fVar, c.a.r0.h.i.m.h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,41 +198,41 @@ public class a {
                     return;
                 }
             }
-            this.f10747g = aVar;
-            this.f10745e = fVar;
-            this.f10746f = hVar;
+            this.f10512g = aVar;
+            this.f10510e = fVar;
+            this.f10511f = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             f fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f10745e) == null || fVar.f10780i == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f10510e) == null || fVar.f10544i == null) {
                 return;
             }
-            C0691a c0691a = new C0691a(this);
-            if (NetworkUtils.f(this.f10747g.a)) {
-                if (this.f10747g.f10744c) {
-                    f fVar2 = this.f10745e;
+            C0700a c0700a = new C0700a(this);
+            if (NetworkUtils.f(this.f10512g.a)) {
+                if (this.f10512g.f10509c) {
+                    f fVar2 = this.f10510e;
                     if (fVar2 instanceof g) {
                         g gVar = (g) fVar2;
-                        if (this.f10746f == null || gVar.i() == null) {
+                        if (this.f10511f == null || gVar.i() == null) {
                             return;
                         }
-                        this.f10746f.a(gVar.g(), gVar.i(), c0691a);
+                        this.f10511f.a(gVar.g(), gVar.i(), c0700a);
                         return;
                     }
                 }
-                this.f10747g.f10744c = false;
-                String g2 = this.f10745e.g();
-                c.a.r0.h.i.m.h hVar = this.f10746f;
+                this.f10512g.f10509c = false;
+                String g2 = this.f10510e.g();
+                c.a.r0.h.i.m.h hVar = this.f10511f;
                 if (hVar != null) {
-                    hVar.f(g2, c0691a);
+                    hVar.f(g2, c0700a);
                 }
-                this.f10747g.j(this.f10745e, "request", this.f10746f);
+                this.f10512g.j(this.f10510e, "request", this.f10511f);
                 return;
             }
-            this.f10747g.g("3010003");
+            this.f10512g.g("3010003");
         }
     }
 
@@ -242,10 +242,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10751e;
+        public final /* synthetic */ String f10516e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f10752f;
+        public final /* synthetic */ a f10517f;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -262,17 +262,17 @@ public class a {
                     return;
                 }
             }
-            this.f10752f = aVar;
-            this.f10751e = str;
+            this.f10517f = aVar;
+            this.f10516e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10752f.f10743b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10517f.f10508b == null) {
                 return;
             }
-            this.f10752f.f10743b.a(this.f10751e);
+            this.f10517f.f10508b.a(this.f10516e);
         }
     }
 
@@ -305,7 +305,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, fVar, responseCallback) == null) {
             if (NetworkUtils.f(this.a)) {
-                this.f10744c = true;
+                this.f10509c = true;
                 if (fVar instanceof g) {
                     g gVar = (g) fVar;
                     if (hVar == null || gVar.i() == null) {
@@ -317,7 +317,7 @@ public class a {
                 d.b bVar = new d.b();
                 bVar.m(i.c());
                 bVar.j(i.d());
-                bVar.o(fVar.f10780i.g());
+                bVar.o(fVar.f10544i.g());
                 bVar.l(c.a.r0.h.i.s.h.i(this.a));
                 bVar.i(c.a.r0.h.i.s.h.h(this.a));
                 g gVar2 = new g(this.a, bVar.h(), 5, 5);
@@ -334,21 +334,21 @@ public class a {
     public void i(f fVar, c.a.r0.h.i.m.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, hVar) == null) {
-            c.a.r0.h.i.s.c.d(new RunnableC0690a(this, fVar, hVar), "execAdRequest");
+            c.a.r0.h.i.s.c.d(new RunnableC0699a(this, fVar, hVar), "execAdRequest");
         }
     }
 
     public final void j(f fVar, String str, c.a.r0.h.i.m.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, fVar, str, hVar) == null) {
-            c.a.r0.h.i.r.b.n(str, c.a.r0.h.i.r.b.a(fVar.f10780i.c(), fVar.f10780i.f(), fVar.f10780i.e(), fVar.f10780i.b(), false), hVar);
+            c.a.r0.h.i.r.b.n(str, c.a.r0.h.i.r.b.a(fVar.f10544i.c(), fVar.f10544i.f(), fVar.f10544i.e(), fVar.f10544i.b(), false), hVar);
         }
     }
 
     public void k(c.a.r0.h.i.m.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f10743b = cVar;
+            this.f10508b = cVar;
         }
     }
 
@@ -370,6 +370,6 @@ public class a {
                 return;
             }
         }
-        this.f10744c = z;
+        this.f10509c = z;
     }
 }

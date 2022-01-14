@@ -18,7 +18,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25715g;
+    public boolean f24996g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(String str, int i2, int i3, long j2, String str2) {
@@ -45,7 +45,7 @@ public class c extends a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25715g = true;
+            this.f24996g = true;
         }
     }
 
@@ -53,7 +53,7 @@ public class c extends a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25715g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24996g : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.w3.q0.d.f.a
@@ -63,7 +63,7 @@ public class c extends a {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i2)) == null) {
             d dVar = new d();
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f25699b), "r");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f24981b), "r");
                 int i3 = 0;
                 int size = arrayList.size();
                 Iterator<Integer> it = arrayList.iterator();
@@ -74,7 +74,7 @@ public class c extends a {
                         return null;
                     }
                     d((int) (((i4 * 50.0f) / size) + 30.0f));
-                    if (!StringUtils.isNull(h2.a) || h2.f25716b != 0) {
+                    if (!StringUtils.isNull(h2.a) || h2.f24997b != 0) {
                         return h2;
                     }
                     i3 = i4;

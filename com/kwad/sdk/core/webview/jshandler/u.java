@@ -11,33 +11,33 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     public static int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f58659b = 2;
+    public static int f56448b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f58660c;
+    public com.kwad.sdk.core.webview.kwai.c f56449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58661d;
+    public int f56450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58662e;
+    public int f56451e;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f58664g;
+    public b f56453g;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f58663f = new c();
+    public c f56452f = new c();
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f58665h = null;
+    public Runnable f56454h = null;
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58666b;
+        public int f56455b;
     }
 
     /* loaded from: classes3.dex */
@@ -49,46 +49,46 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     public class c implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f58667b;
+        public boolean f56456b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58668c;
+        public int f56457c;
 
         public c() {
-            this.f58667b = false;
-            this.f58668c = -1;
+            this.f56456b = false;
+            this.f56457c = -1;
         }
 
         public void a(int i2) {
-            this.f58668c = i2;
+            this.f56457c = i2;
         }
 
         public void a(boolean z) {
-            this.f58667b = z;
+            this.f56456b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.kwad.sdk.core.d.a.a("RegisterTimer", "TimerRunnable run timerPaused:  " + this.f58667b + ", currentTime: " + this.f58668c);
-            if (this.f58667b) {
+            com.kwad.sdk.core.d.a.a("RegisterTimer", "TimerRunnable run timerPaused:  " + this.f56456b + ", currentTime: " + this.f56457c);
+            if (this.f56456b) {
                 ax.a(this, null, 1000L);
                 return;
             }
-            int i2 = this.f58668c;
+            int i2 = this.f56457c;
             if (i2 < 0) {
                 return;
             }
             u.this.a(i2);
-            this.f58668c--;
+            this.f56457c--;
             ax.a(this, null, 1000L);
         }
     }
 
     public u(int i2, int i3) {
-        this.f58661d = -1;
-        this.f58662e = -1;
-        this.f58661d = i2;
-        this.f58662e = i3;
+        this.f56450d = -1;
+        this.f56451e = -1;
+        this.f56450d = i2;
+        this.f56451e = i3;
     }
 
     public static int a(AdInfo adInfo) {
@@ -109,7 +109,7 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
         boolean an = com.kwad.sdk.core.response.a.a.an(j2);
         boolean z = !com.kwad.sdk.core.response.a.a.P(j2);
         if (an && z) {
-            return new u(f58659b, a(j2));
+            return new u(f56448b, a(j2));
         }
         if (j2.adInsertScreenInfo.autoCloseTime > 0) {
             return new u(a, a(j2));
@@ -119,16 +119,16 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        com.kwad.sdk.core.d.a.a("RegisterTimer", "updateTimer: " + i2 + ", mCallBackFunction: " + this.f58660c);
-        if (i2 >= 0 && this.f58660c != null) {
-            b bVar = this.f58664g;
+        com.kwad.sdk.core.d.a.a("RegisterTimer", "updateTimer: " + i2 + ", mCallBackFunction: " + this.f56449c);
+        if (i2 >= 0 && this.f56449c != null) {
+            b bVar = this.f56453g;
             if (bVar != null && i2 == 0) {
-                bVar.a(this.f58661d);
+                bVar.a(this.f56450d);
             }
             a aVar = new a();
-            aVar.f58666b = i2;
-            aVar.a = this.f58661d;
-            this.f58660c.a(aVar);
+            aVar.f56455b = i2;
+            aVar.a = this.f56450d;
+            this.f56449c.a(aVar);
         }
     }
 
@@ -139,28 +139,28 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public void a(b bVar) {
-        this.f58664g = bVar;
+        this.f56453g = bVar;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f58660c = cVar;
-        Runnable runnable = this.f58665h;
+        this.f56449c = cVar;
+        Runnable runnable = this.f56454h;
         if (runnable != null) {
             runnable.run();
-            this.f58665h = null;
+            this.f56454h = null;
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f58660c = null;
+        this.f56449c = null;
     }
 
     public void c() {
-        com.kwad.sdk.core.d.a.a("RegisterTimer", "startTimer: mCallBackFunction: " + this.f58660c);
-        if (this.f58660c == null) {
-            this.f58665h = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.u.1
+        com.kwad.sdk.core.d.a.a("RegisterTimer", "startTimer: mCallBackFunction: " + this.f56449c);
+        if (this.f56449c == null) {
+            this.f56454h = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.u.1
                 @Override // java.lang.Runnable
                 public void run() {
                     u.this.c();
@@ -168,15 +168,15 @@ public class u implements com.kwad.sdk.core.webview.kwai.a {
             };
             return;
         }
-        this.f58663f.a(this.f58662e);
-        ax.a(this.f58663f);
+        this.f56452f.a(this.f56451e);
+        ax.a(this.f56452f);
     }
 
     public void d() {
-        this.f58663f.a(true);
+        this.f56452f.a(true);
     }
 
     public void e() {
-        this.f58663f.a(false);
+        this.f56452f.a(false);
     }
 }

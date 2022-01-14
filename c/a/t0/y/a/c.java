@@ -14,7 +14,6 @@ import c.a.t0.v.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -31,37 +30,120 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements c.a.t0.y.a.g.b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: f  reason: collision with root package name */
-    public static volatile c.a.i0.b.f.c f26385f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static volatile boolean f26386g;
-
     /* renamed from: h  reason: collision with root package name */
-    public static volatile c.a.i0.b.c f26387h;
+    public static volatile c.a.i0.b.f.c f25599h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static volatile boolean f25600i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static volatile c.a.i0.b.c f25601j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26388b;
+    public int f25602b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile AdLoadState f26389c;
+    public volatile AdLoadState f25603c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<ViewGroup> f26390d;
+    public WeakReference<ViewGroup> f25604d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.l.a f26391e;
+    public c.a.s0.l.a f25605e;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f25606f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f25607g;
+
+    /* loaded from: classes9.dex */
     public class a implements c.a.i0.b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
+
+        /* renamed from: c.a.t0.y.a.c$a$a  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public class RunnableC1546a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ a f25608e;
+
+            public RunnableC1546a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f25608e = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.f25608e.a.f25605e != null) {
+                        this.f25608e.a.f25605e.e(c.a.t0.y.a.i.a.f25641b);
+                    }
+                    c.a.t0.y.a.g.a.c().j(this.f25608e.a.f25605e);
+                }
+            }
+        }
+
+        /* loaded from: classes9.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ a f25609e;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f25609e = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.f25609e.a.f25605e != null) {
+                        this.f25609e.a.f25605e.e(c.a.t0.y.a.i.a.f25641b);
+                    }
+                    c.a.t0.y.a.g.a.c().j(this.f25609e.a.f25605e);
+                }
+            }
+        }
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -87,10 +169,10 @@ public class c implements c.a.t0.y.a.g.b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 System.out.println("SplashTes=>PrologueAdSdkSplash=>onSkip");
                 boolean z = c.a.t0.y.a.g.b.a;
-                if (c.f26385f != null) {
+                if (c.f25599h != null) {
                     int i2 = 1;
-                    boolean z2 = c.f26385f.g().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
-                    boolean z3 = c.f26385f.g().optInt("full_type", 0) == 1;
+                    boolean z2 = c.f25599h.g().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
+                    boolean z3 = c.f25599h.g().optInt("full_type", 0) == 1;
                     if (z3 && z2) {
                         i2 = 4;
                     } else if (z2) {
@@ -101,8 +183,8 @@ public class c implements c.a.t0.y.a.g.b {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 5).param("obj_type", i2));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f26391e != null ? this.a.f26391e.hashCode() : 0));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).eventStat();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f25605e != null ? this.a.f25605e.hashCode() : 0));
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", this.a.f25607g).eventStat();
             }
         }
 
@@ -113,15 +195,15 @@ public class c implements c.a.t0.y.a.g.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 boolean z3 = c.a.t0.y.a.g.b.a;
-                if (this.a.f26391e != null) {
-                    if (c.f26385f == null || c.f26385f.g() == null) {
+                if (this.a.f25605e != null) {
+                    if (c.f25599h == null || c.f25599h.g() == null) {
                         z = false;
                         z2 = false;
                     } else {
-                        z = c.f26385f.g().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
-                        z2 = c.f26385f.g().optInt("full_type", 0) == 1;
+                        z = c.f25599h.g().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
+                        z2 = c.f25599h.g().optInt("full_type", 0) == 1;
                     }
-                    this.a.f26391e.a(z, z2, this.a.f26388b, null, null);
+                    this.a.f25605e.d(z, z2, this.a.f25602b, null, null, null);
                 }
             }
         }
@@ -130,17 +212,21 @@ public class c implements c.a.t0.y.a.g.b {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f26425b, str, 0);
-                c.a.t0.y.a.i.a.k(c.a.t0.y.a.i.a.f26425b, "1");
+                c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f25641b, "1", str, 1, 0, this.a.f25606f, this.a.f25607g);
+                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f25641b, "1", str, null, null, null, this.a.f25607g);
                 if (c.a.t0.y.a.g.b.a) {
                     String str2 = "prologue ad loaded failed: " + str;
                 }
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("");
+                this.a.f25603c = AdLoadState.FAILED;
+                if (n.B()) {
+                    if (this.a.f25605e != null) {
+                        this.a.f25605e.e(c.a.t0.y.a.i.a.f25641b);
+                    }
+                    c.a.t0.y.a.g.a.c().j(this.a.f25605e);
+                } else {
+                    e.a().post(new b(this));
                 }
-                this.a.f26389c = AdLoadState.FAILED;
-                c.a.t0.y.a.g.a.c().i(this.a.f26391e);
-                g("advert_show", 0);
+                h("advert_show", 0);
             }
         }
 
@@ -149,10 +235,10 @@ public class c implements c.a.t0.y.a.g.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 boolean z = c.a.t0.y.a.g.b.a;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f26391e == null ? 0 : this.a.f26391e.hashCode()));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).eventStat();
-                if (this.a.f26391e != null) {
-                    this.a.f26391e.onAdDismiss();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f25605e == null ? 0 : this.a.f25605e.hashCode()));
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", this.a.f25607g).eventStat();
+                if (this.a.f25605e != null) {
+                    this.a.f25605e.onAdDismiss();
                 }
             }
         }
@@ -161,25 +247,43 @@ public class c implements c.a.t0.y.a.g.b {
         public void e(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f26425b, "0", 0);
+                c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f25641b, "0", null, 0, 0, this.a.f25606f, this.a.f25607g);
                 boolean z = c.a.t0.y.a.g.b.a;
-                this.a.f26389c = AdLoadState.SUCCEED;
-                c.a.t0.y.a.g.a.c().i(this.a.f26391e);
-                g("advert_load", 1);
+                this.a.f25603c = AdLoadState.SUCCEED;
+                if (n.B()) {
+                    if (this.a.f25605e != null) {
+                        this.a.f25605e.e(c.a.t0.y.a.i.a.f25641b);
+                    }
+                    c.a.t0.y.a.g.a.c().j(this.a.f25605e);
+                } else {
+                    e.a().post(new RunnableC1546a(this));
+                }
+                h("advert_load", 1);
+            }
+        }
+
+        @Override // c.a.i0.b.c
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                boolean z = c.a.t0.y.a.g.b.a;
+                if (this.a.f25605e != null) {
+                    this.a.f25605e.c("play error");
+                }
             }
         }
 
         @Override // c.a.i0.b.c
         @NonNull
-        public ViewGroup f() {
+        public ViewGroup g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (ViewGroup) this.a.f26390d.get() : (ViewGroup) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (ViewGroup) this.a.f25604d.get() : (ViewGroup) invokeV.objValue;
         }
 
-        public final void g(String str, int i2) {
+        public final void h(String str, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) {
                 c.a.d.f.n.a a = j.a();
                 a.b("type", "prologue");
                 a.b("locate", SpeedStatsUtils.UBC_VALUE_SPLASH);
@@ -192,96 +296,23 @@ public class c implements c.a.t0.y.a.g.b {
         @Override // c.a.i0.b.c
         public void onAdShow() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 boolean z = c.a.t0.y.a.g.b.a;
-                if (this.a.f26391e != null) {
-                    this.a.f26391e.e(true, false, this.a.f26388b);
+                if (this.a.f25605e != null) {
+                    this.a.f25605e.f(true, false, this.a.f25602b);
                 }
-                c.a.t0.y.a.i.a.k(c.a.t0.y.a.i.a.f26425b, "0");
-                g("advert_show", 1);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f26391e != null ? this.a.f26391e.hashCode() : 0));
+                c.a.t0.y.a.i.a.j(c.a.t0.y.a.i.a.f25641b, "0", null, null, null, null, this.a.f25607g);
+                h("advert_show", 1);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f25605e != null ? this.a.f25605e.hashCode() : 0));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements c.a.i0.b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
-
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f26392e;
-
-            public a(b bVar, d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f26392e = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.f26387h == null) {
-                    return;
-                }
-                c.f26387h.e(this.f26392e);
-            }
-        }
-
-        /* renamed from: c.a.t0.y.a.c$b$b  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC1530b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f26393e;
-
-            public RunnableC1530b(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f26393e = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.f26387h == null) {
-                    return;
-                }
-                c.f26387h.c(this.f26393e);
-            }
-        }
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -304,70 +335,81 @@ public class c implements c.a.t0.y.a.g.b {
         @Override // c.a.i0.b.c
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.f26387h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.f25601j == null) {
                 return;
             }
-            c.f26387h.a();
+            c.f25601j.a();
         }
 
         @Override // c.a.i0.b.c
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || c.f26387h == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || c.f25601j == null) {
                 return;
             }
-            c.f26387h.b();
+            c.f25601j.b();
         }
 
         @Override // c.a.i0.b.c
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (c.f26387h == null) {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("data", str);
-                    c.a.t0.v.d.c().a(this.a.e(), "onAdLoadFailed", hashMap);
-                } else if (n.B()) {
-                    c.f26387h.c(str);
-                } else {
-                    e.a().post(new RunnableC1530b(this, str));
+                if (c.f25601j != null) {
+                    if (c.f25601j != null) {
+                        c.f25601j.c(str);
+                        return;
+                    }
+                    return;
                 }
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("data", str);
+                c.a.t0.v.d.c().a(this.a.e(), "onAdLoadFailed", hashMap);
             }
         }
 
         @Override // c.a.i0.b.c
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.f26387h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.f25601j == null) {
                 return;
             }
-            c.f26387h.d();
+            c.f25601j.d();
         }
 
         @Override // c.a.i0.b.c
         public void e(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-                if (c.f26387h == null) {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("data", dVar);
-                    c.a.t0.v.d.c().a(this.a.e(), "onAdLoaded", hashMap);
-                } else if (n.B()) {
-                    c.f26387h.e(dVar);
-                } else {
-                    e.a().post(new a(this, dVar));
+                if (c.f25601j != null) {
+                    if (c.f25601j != null) {
+                        c.f25601j.e(dVar);
+                        return;
+                    }
+                    return;
                 }
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("data", dVar);
+                c.a.t0.v.d.c().a(this.a.e(), "onAdLoaded", hashMap);
             }
         }
 
         @Override // c.a.i0.b.c
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || c.f25601j == null) {
+                return;
+            }
+            c.f25601j.f();
+        }
+
+        @Override // c.a.i0.b.c
         @NonNull
-        public ViewGroup f() {
+        public ViewGroup g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (c.f26387h != null) {
-                    return c.f26387h.f();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if (c.f25601j != null) {
+                    return c.f25601j.g();
                 }
                 return new RelativeLayout(TbadkCoreApplication.getInst().getContext());
             }
@@ -377,10 +419,10 @@ public class c implements c.a.t0.y.a.g.b {
         @Override // c.a.i0.b.c
         public void onAdShow() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || c.f26387h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || c.f25601j == null) {
                 return;
             }
-            c.f26387h.onAdShow();
+            c.f25601j.onAdShow();
         }
     }
 
@@ -412,14 +454,16 @@ public class c implements c.a.t0.y.a.g.b {
                 return;
             }
         }
-        this.f26388b = 5;
-        this.f26389c = AdLoadState.INIT;
-        this.f26391e = null;
+        this.f25602b = 5;
+        this.f25603c = AdLoadState.INIT;
+        this.f25605e = null;
+        this.f25606f = false;
+        this.f25607g = -1L;
     }
 
-    public static void m() {
+    public static void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             c.a.b.f().g();
         }
     }
@@ -428,8 +472,8 @@ public class c implements c.a.t0.y.a.g.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f26386g = true;
-            n(new b(this), null);
+            f25600i = true;
+            p(new b(this), null);
         }
     }
 
@@ -437,14 +481,14 @@ public class c implements c.a.t0.y.a.g.b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26390d.get() != null && this.f26390d.get().getChildCount() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25604d.get() != null && this.f25604d.get().getChildCount() > 0 : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.y.a.g.b
     public AdLoadState c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26389c : (AdLoadState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25603c : (AdLoadState) invokeV.objValue;
     }
 
     @Override // c.a.t0.y.a.g.b
@@ -453,27 +497,29 @@ public class c implements c.a.t0.y.a.g.b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null || dVar.b() == null || dVar.b().getContext() == null) {
             return;
         }
-        this.f26391e = dVar.a();
-        this.f26390d = new WeakReference<>(dVar.b());
+        this.f25605e = dVar.a();
+        this.f25606f = dVar.d();
+        this.f25607g = dVar.c();
+        this.f25604d = new WeakReference<>(dVar.b());
         a aVar = new a(this);
-        f26387h = aVar;
-        if (f26386g) {
-            l();
-            f26386g = false;
+        f25601j = aVar;
+        if (f25600i) {
+            n();
+            f25600i = false;
             return;
         }
-        n(aVar, this.f26391e);
+        p(aVar, this.f25605e);
     }
 
     @Override // c.a.t0.y.a.g.b
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (f26385f != null) {
-                f26385f.f();
-                f26385f = null;
+            if (f25599h != null) {
+                f25599h.f();
+                f25599h = null;
             }
-            f26387h = null;
+            f25601j = null;
         }
     }
 
@@ -484,21 +530,21 @@ public class c implements c.a.t0.y.a.g.b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "prologue_gd" : (String) invokeV.objValue;
     }
 
-    public final void k() {
+    public final void m() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = this.f26390d) == null || weakReference.get().getParent() == null || !(this.f26390d.get().getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = this.f25604d) == null || weakReference.get().getParent() == null || !(this.f25604d.get().getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             return;
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f26390d.get().getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f25604d.get().getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -1;
-        this.f26390d.get().setLayoutParams(layoutParams);
+        this.f25604d.get().setLayoutParams(layoutParams);
     }
 
-    public final void l() {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || f26387h == null || c.a.t0.v.d.c().d(e()).isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || f25601j == null || c.a.t0.v.d.c().d(e()).isEmpty()) {
             return;
         }
         for (d.a aVar : c.a.t0.v.d.c().d(e())) {
@@ -513,15 +559,15 @@ public class c implements c.a.t0.y.a.g.b {
                 c2 = 1;
             }
             if (c2 == 0) {
-                f26387h.e((c.a.m0.a.h.d) aVar.f25158b.get("data"));
+                f25601j.e((c.a.m0.a.h.d) aVar.f24455b.get("data"));
             } else if (c2 == 1) {
-                f26387h.c((String) aVar.f25158b.get("data"));
+                f25601j.c((String) aVar.f24455b.get("data"));
             }
         }
         c.a.t0.v.d.c().b(e());
     }
 
-    public final void n(c.a.i0.b.c cVar, c.a.s0.l.a aVar) {
+    public final void p(c.a.i0.b.c cVar, c.a.s0.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, aVar) == null) {
             try {
@@ -529,10 +575,9 @@ public class c implements c.a.t0.y.a.g.b {
                 c.b bVar = new c.b();
                 bVar.j(n.k(context));
                 bVar.k(n.i(context));
-                f26385f = new c.a.i0.b.f.c(context, "1481698145541", bVar.i(), cVar);
-                this.f26389c = AdLoadState.LOADING;
-                c.a.t0.y.a.i.a.i(c.a.t0.y.a.i.a.f26425b);
-                f26385f.h();
+                f25599h = new c.a.i0.b.f.c(context, "1481698145541", bVar.i(), cVar);
+                this.f25603c = AdLoadState.LOADING;
+                f25599h.h();
                 boolean z = c.a.t0.y.a.g.b.a;
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onLowMemory();
@@ -547,16 +592,16 @@ public class c implements c.a.t0.y.a.g.b {
     public void show() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || f26385f == null || (weakReference = this.f26390d) == null || weakReference.get() == null || this.f26389c != AdLoadState.SUCCEED) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || f25599h == null || (weakReference = this.f25604d) == null || weakReference.get() == null || this.f25603c != AdLoadState.SUCCEED) {
             return;
         }
-        c.a.s0.l.a aVar = this.f26391e;
+        c.a.s0.l.a aVar = this.f25605e;
         if (aVar != null) {
-            aVar.d();
+            aVar.a(c.a.t0.y.a.i.a.f25641b);
         }
-        k();
-        this.f26389c = AdLoadState.SHOWED;
+        m();
+        this.f25603c = AdLoadState.SHOWED;
         boolean z = c.a.t0.y.a.g.b.a;
-        f26385f.m(this.f26390d.get());
+        f25599h.m(this.f25604d.get());
     }
 }

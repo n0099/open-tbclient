@@ -31,11 +31,11 @@ public abstract class a implements c {
 
     /* renamed from: c.a.r0.a.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0457a extends ResponseCallback<JSONObject> {
+    public class C0466a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0457a(a aVar) {
+        public C0466a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public abstract class a implements c {
     public final ResponseCallback<JSONObject> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0457a(this) : (ResponseCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0466a(this) : (ResponseCallback) invokeV.objValue;
     }
 
     public void d(String str) {

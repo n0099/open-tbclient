@@ -150,11 +150,11 @@ public class f {
 
     /* renamed from: c.a.r0.r.a.d.f$f  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0797f extends e {
+    public static class C0806f extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0797f() {
+        public C0806f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class f {
     }
 
     /* loaded from: classes6.dex */
-    public static class g extends C0797f {
+    public static class g extends C0806f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

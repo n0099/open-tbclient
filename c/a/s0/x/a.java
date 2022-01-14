@@ -11,10 +11,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14518b;
+    public int f14179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f14519c;
+    public Object f14180c;
 
     public a(int i2, int i3, Object obj) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
             }
         }
         this.a = i2;
-        this.f14518b = i3;
-        this.f14519c = obj;
+        this.f14179b = i3;
+        this.f14180c = obj;
     }
 }

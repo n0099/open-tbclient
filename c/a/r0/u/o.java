@@ -19,7 +19,7 @@ public class o extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12174e;
+    public Context f11891e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(Context context) {
@@ -40,7 +40,7 @@ public class o extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f12174e = context.getApplicationContext();
+        this.f11891e = context.getApplicationContext();
     }
 
     public final void a(SQLiteDatabase sQLiteDatabase) {
@@ -93,7 +93,7 @@ public class o extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new File(this.f12174e.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
+            return new File(this.f11891e.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
         }
         return invokeV.longValue;
     }
@@ -101,7 +101,7 @@ public class o extends SQLiteOpenHelper {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new File(this.f12174e.getDatabasePath("OpenStat.db").getPath()).length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new File(this.f11891e.getDatabasePath("OpenStat.db").getPath()).length() : invokeV.longValue;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -115,7 +115,7 @@ public class o extends SQLiteOpenHelper {
                 try {
                     sQLiteDatabase = super.getReadableDatabase();
                 } catch (Exception unused) {
-                    new File(this.f12174e.getDatabasePath("OpenStat.db").getPath()).delete();
+                    new File(this.f11891e.getDatabasePath("OpenStat.db").getPath()).delete();
                     sQLiteDatabase = null;
                 }
             }
@@ -137,7 +137,7 @@ public class o extends SQLiteOpenHelper {
                     try {
                         sQLiteDatabase.enableWriteAheadLogging();
                     } catch (Exception unused) {
-                        new File(this.f12174e.getDatabasePath("OpenStat.db").getPath()).delete();
+                        new File(this.f11891e.getDatabasePath("OpenStat.db").getPath()).delete();
                         return sQLiteDatabase;
                     }
                 } catch (Exception unused2) {

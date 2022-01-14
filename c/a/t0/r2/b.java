@@ -18,7 +18,7 @@ public class b extends WebChromeClient {
     public PayVcodeActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.w3.n0.c f22461b;
+    public c.a.t0.w3.n0.c f21842b;
 
     public b(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b extends WebChromeClient {
     public void a(c.a.t0.w3.n0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f22461b = cVar;
+            this.f21842b = cVar;
         }
     }
 
@@ -51,7 +51,7 @@ public class b extends WebChromeClient {
         PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c.a.t0.w3.n0.c cVar = this.f22461b;
+            c.a.t0.w3.n0.c cVar = this.f21842b;
             if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.a) != null && g.f(payVcodeActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }

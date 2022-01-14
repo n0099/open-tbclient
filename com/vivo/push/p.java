@@ -12,13 +12,13 @@ public final class p {
     public static final Uri a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f63100b;
+    public static final Uri f60722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f63101c;
+    public static final Uri f60723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f63102d;
+    public static final Uri f60724d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,9 +35,9 @@ public final class p {
             }
         }
         a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
-        f63100b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
-        f63101c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
-        f63102d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+        f60722b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+        f60723c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+        f60724d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
     }
 
     public static String a(int i2) {

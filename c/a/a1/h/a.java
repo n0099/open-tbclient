@@ -15,7 +15,7 @@ public class a {
     public AudioPlayData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f1130b;
+    public b f1128b;
 
     public a(AudioPlayData audioPlayData) {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public class a {
         if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
             return;
         }
-        this.f1130b = new b(audioPlayData.audioPath);
+        this.f1128b = new b(audioPlayData.audioPath);
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1130b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1128b : (b) invokeV.objValue;
     }
 
     public AudioPlayData b() {
@@ -55,7 +55,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f1130b;
+            b bVar = this.f1128b;
             return bVar != null && bVar.i();
         }
         return invokeV.booleanValue;
@@ -64,7 +64,7 @@ public class a {
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f1130b = bVar;
+            this.f1128b = bVar;
         }
     }
 }

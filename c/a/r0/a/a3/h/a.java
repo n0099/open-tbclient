@@ -23,17 +23,17 @@ public class a implements SwanAppAlertDialog.c {
 
     /* renamed from: c.a.r0.a.a3.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0261a implements Runnable {
+    public class RunnableC0270a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f5374e;
+        public final /* synthetic */ ViewGroup f5261e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5375f;
+        public final /* synthetic */ a f5262f;
 
-        public RunnableC0261a(a aVar, ViewGroup viewGroup) {
+        public RunnableC0270a(a aVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,22 +48,22 @@ public class a implements SwanAppAlertDialog.c {
                     return;
                 }
             }
-            this.f5375f = aVar;
-            this.f5374e = viewGroup;
+            this.f5262f = aVar;
+            this.f5261e = viewGroup;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f5375f.a == null) {
-                    this.f5375f.a = new FrameLayout(this.f5374e.getContext());
-                    this.f5375f.a.setBackgroundResource(c.a.r0.a.c.aiapps_night_mode_cover_layer);
+                if (this.f5262f.a == null) {
+                    this.f5262f.a = new FrameLayout(this.f5261e.getContext());
+                    this.f5262f.a.setBackgroundResource(c.a.r0.a.c.aiapps_night_mode_cover_layer);
                 }
-                this.f5374e.removeView(this.f5375f.a);
+                this.f5261e.removeView(this.f5262f.a);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                 layoutParams.gravity = 17;
-                this.f5374e.addView(this.f5375f.a, layoutParams);
+                this.f5261e.addView(this.f5262f.a, layoutParams);
             }
         }
     }
@@ -106,7 +106,7 @@ public class a implements SwanAppAlertDialog.c {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view) == null) || viewGroup == null || view == null || !(viewGroup instanceof FrameLayout)) {
             return;
         }
-        view.post(new RunnableC0261a(this, viewGroup));
+        view.post(new RunnableC0270a(this, viewGroup));
     }
 
     public final void e(ViewGroup viewGroup) {

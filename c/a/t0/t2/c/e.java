@@ -34,34 +34,32 @@ public class e extends c.a.d.a.d<PraiseListActivity> {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PraiseListActivity f24583b;
+    public PraiseListActivity f23890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f24584c;
+    public View f23891c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f24585d;
+    public NavigationBar f23892d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f24586e;
+    public View f23893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f24587f;
+    public NoDataView f23894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f24588g;
+    public View f23895g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f24589h;
+    public TextView f23896h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView f24590i;
+    public BdListView f23897i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f24591j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f24592k;
+    public View f23898j;
+    public TextView k;
     public TextView l;
     public ProgressBar m;
     public ProgressBar n;
@@ -85,53 +83,53 @@ public class e extends c.a.d.a.d<PraiseListActivity> {
             }
         }
         this.a = null;
-        this.f24583b = null;
-        this.f24584c = null;
-        this.f24585d = null;
-        this.f24586e = null;
-        this.f24587f = null;
-        this.f24588g = null;
-        this.f24589h = null;
-        this.f24590i = null;
-        this.f24591j = null;
-        this.f24592k = null;
+        this.f23890b = null;
+        this.f23891c = null;
+        this.f23892d = null;
+        this.f23893e = null;
+        this.f23894f = null;
+        this.f23895g = null;
+        this.f23896h = null;
+        this.f23897i = null;
+        this.f23898j = null;
+        this.k = null;
         this.l = null;
         this.m = null;
         this.n = null;
-        this.f24583b = praiseListActivity;
+        this.f23890b = praiseListActivity;
         praiseListActivity.setContentView(R.layout.zan_list_activity);
-        this.f24584c = praiseListActivity.findViewById(R.id.zan_list_page_parent);
-        this.f24585d = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
-        this.f24586e = praiseListActivity.findViewById(R.id.zan_list_page_frame);
-        this.f24587f = NoDataViewFactory.a(this.f24583b.getPageContext().getContext(), this.f24584c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.f24583b.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.praise_list_no_data), null);
-        this.f24590i = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
-        TextView textView = new TextView(this.f24583b.getActivity());
+        this.f23891c = praiseListActivity.findViewById(R.id.zan_list_page_parent);
+        this.f23892d = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
+        this.f23893e = praiseListActivity.findViewById(R.id.zan_list_page_frame);
+        this.f23894f = NoDataViewFactory.a(this.f23890b.getPageContext().getContext(), this.f23891c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(this.f23890b.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.praise_list_no_data), null);
+        this.f23897i = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
+        TextView textView = new TextView(this.f23890b.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.f24590i.addHeaderView(textView, 0);
+        this.f23897i.addHeaderView(textView, 0);
         this.m = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
         c cVar = new c(praiseListActivity);
         this.a = cVar;
-        this.f24590i.setAdapter((ListAdapter) cVar);
-        this.f24590i.setOnScrollListener(this.a);
-        this.f24585d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f24585d.setTitleText("");
+        this.f23897i.setAdapter((ListAdapter) cVar);
+        this.f23897i.setOnScrollListener(this.a);
+        this.f23892d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f23892d.setTitleText("");
         View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
-        this.f24588g = inflate;
+        this.f23895g = inflate;
         inflate.setOnClickListener(praiseListActivity);
-        TextView textView2 = (TextView) this.f24588g.findViewById(R.id.zan_list_head_text);
-        this.f24589h = textView2;
+        TextView textView2 = (TextView) this.f23895g.findViewById(R.id.zan_list_head_text);
+        this.f23896h = textView2;
         textView2.setText(str);
-        this.f24588g.setVisibility(8);
-        this.f24590i.addHeaderView(this.f24588g);
+        this.f23895g.setVisibility(8);
+        this.f23897i.addHeaderView(this.f23895g);
         View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
-        this.f24591j = inflate2;
-        this.f24592k = (TextView) inflate2.findViewById(R.id.zan_list_foot_text_continue);
-        this.l = (TextView) this.f24591j.findViewById(R.id.zan_list_foot_text_more);
-        this.n = (ProgressBar) this.f24591j.findViewById(R.id.zan_list_foot_progress);
-        this.f24591j.setVisibility(8);
-        this.f24592k.setOnClickListener(praiseListActivity);
-        this.f24590i.addFooterView(this.f24591j);
-        this.f24590i.setOnItemClickListener(praiseListActivity);
+        this.f23898j = inflate2;
+        this.k = (TextView) inflate2.findViewById(R.id.zan_list_foot_text_continue);
+        this.l = (TextView) this.f23898j.findViewById(R.id.zan_list_foot_text_more);
+        this.n = (ProgressBar) this.f23898j.findViewById(R.id.zan_list_foot_progress);
+        this.f23898j.setVisibility(8);
+        this.k.setOnClickListener(praiseListActivity);
+        this.f23897i.addFooterView(this.f23898j);
+        this.f23897i.setOnItemClickListener(praiseListActivity);
     }
 
     public void c(c.a.s0.s.c cVar, int i2) {
@@ -140,27 +138,27 @@ public class e extends c.a.d.a.d<PraiseListActivity> {
             return;
         }
         cVar.k(i2 == 1);
-        cVar.j(this.f24584c);
-        cVar.j(this.f24588g);
-        cVar.j(this.f24591j);
-        this.f24585d.onChangeSkinType(this.f24583b.getPageContext(), i2);
-        SkinManager.setBackgroundResource(this.f24591j, R.drawable.bg_pack);
-        NoDataView noDataView = this.f24587f;
+        cVar.j(this.f23891c);
+        cVar.j(this.f23895g);
+        cVar.j(this.f23898j);
+        this.f23892d.onChangeSkinType(this.f23890b.getPageContext(), i2);
+        SkinManager.setBackgroundResource(this.f23898j, R.drawable.bg_pack);
+        NoDataView noDataView = this.f23894f;
         if (noDataView != null) {
-            noDataView.onChangeSkinType(this.f24583b.getPageContext(), i2);
+            noDataView.onChangeSkinType(this.f23890b.getPageContext(), i2);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24592k : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (View) invokeV.objValue;
     }
 
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24588g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23895g : (View) invokeV.objValue;
     }
 
     public boolean f() {
@@ -183,14 +181,14 @@ public class e extends c.a.d.a.d<PraiseListActivity> {
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
             this.m.setVisibility(8);
             this.n.setVisibility(8);
-            this.f24586e.setVisibility(8);
-            this.f24587f.setVisibility(0);
+            this.f23893e.setVisibility(8);
+            this.f23894f.setVisibility(0);
             if (!StringUtils.isNull(str)) {
-                this.f24587f.setTextOption(NoDataViewFactory.e.c(str));
+                this.f23894f.setTextOption(NoDataViewFactory.e.c(str));
             } else if (1 == i2) {
-                this.f24587f.setTextOption(NoDataViewFactory.e.a(R.string.graffiti_list_no_data));
+                this.f23894f.setTextOption(NoDataViewFactory.e.a(R.string.graffiti_list_no_data));
             } else {
-                this.f24587f.setTextOption(NoDataViewFactory.e.a(R.string.praise_list_no_data));
+                this.f23894f.setTextOption(NoDataViewFactory.e.a(R.string.praise_list_no_data));
             }
         }
     }
@@ -221,38 +219,38 @@ public class e extends c.a.d.a.d<PraiseListActivity> {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.m.setVisibility(8);
             this.n.setVisibility(8);
-            this.f24588g.setVisibility(0);
+            this.f23895g.setVisibility(0);
             if (i2 > 0) {
-                PraiseListActivity praiseListActivity = this.f24583b;
+                PraiseListActivity praiseListActivity = this.f23890b;
                 if (praiseListActivity.pageType != 1) {
                     format2 = String.format(praiseListActivity.getResources().getString(R.string.praise_list_title_count), StringHelper.numFormatOverWan(i2));
                 } else {
                     format2 = String.format(praiseListActivity.getResources().getString(R.string.graffiti_list_title_count), StringHelper.numFormatOverWan(i2));
                 }
-                this.f24585d.setTitleText(format2);
+                this.f23892d.setTitleText(format2);
             } else {
-                this.f24585d.setTitleText("");
+                this.f23892d.setTitleText("");
             }
             if (list != null && list.size() >= 1) {
-                this.f24586e.setVisibility(0);
-                this.f24587f.setVisibility(8);
+                this.f23893e.setVisibility(0);
+                this.f23894f.setVisibility(8);
                 this.a.c(list);
                 this.a.notifyDataSetChanged();
                 switch (i3) {
                     case 1001:
-                        this.f24591j.setVisibility(0);
-                        this.f24592k.setVisibility(0);
+                        this.f23898j.setVisibility(0);
+                        this.k.setVisibility(0);
                         this.l.setVisibility(8);
                         return;
                     case 1002:
-                        this.f24591j.setVisibility(8);
+                        this.f23898j.setVisibility(8);
                         return;
                     case 1003:
-                        this.f24591j.setVisibility(0);
-                        SkinManager.setBackgroundResource(this.f24591j, R.drawable.bg_pack);
-                        this.f24592k.setVisibility(8);
+                        this.f23898j.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.f23898j, R.drawable.bg_pack);
+                        this.k.setVisibility(8);
                         this.l.setVisibility(0);
-                        PraiseListActivity praiseListActivity2 = this.f24583b;
+                        PraiseListActivity praiseListActivity2 = this.f23890b;
                         if (praiseListActivity2.pageType != 1) {
                             format = String.format(praiseListActivity2.getResources().getString(R.string.praise_item_more), StringHelper.numFormatOverWan(i2));
                         } else {
@@ -261,11 +259,11 @@ public class e extends c.a.d.a.d<PraiseListActivity> {
                         this.l.setText(format);
                         return;
                     default:
-                        this.f24591j.setVisibility(8);
+                        this.f23898j.setVisibility(8);
                         return;
                 }
             }
-            h(null, this.f24583b.pageType);
+            h(null, this.f23890b.pageType);
         }
     }
 }

@@ -55,12 +55,12 @@ public class b {
 
     /* renamed from: c.a.r0.r.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class SharedElementCallbackC0793b extends SharedElementCallback {
+    public static class SharedElementCallbackC0802b extends SharedElementCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
 
-        public SharedElementCallbackC0793b(a aVar) {
+        public SharedElementCallbackC0802b(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
             if (aVar != null) {
-                return new SharedElementCallbackC0793b(aVar);
+                return new SharedElementCallbackC0802b(aVar);
             }
             return null;
         }

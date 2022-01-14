@@ -15,10 +15,10 @@ public class e0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13673b;
+    public int f13358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13674c;
+    public boolean f13359c;
 
     public e0() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class e0 {
             return;
         }
         this.a = jSONObject.optInt("is_bawu") == 1;
-        this.f13673b = "manager".equals(jSONObject.optString("bawu_type")) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type")) ? 2 : 0;
-        this.f13674c = jSONObject.optInt("is_deleted") == 1;
+        this.f13358b = "manager".equals(jSONObject.optString("bawu_type")) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type")) ? 2 : 0;
+        this.f13359c = jSONObject.optInt("is_deleted") == 1;
     }
 
     public void b(MultiForumPerm multiForumPerm) {
@@ -50,7 +50,7 @@ public class e0 {
             return;
         }
         this.a = multiForumPerm.is_bawu.intValue() == 1;
-        this.f13673b = "manager".equals(multiForumPerm.bawu_type) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
-        this.f13674c = multiForumPerm.is_deleted.intValue() == 1;
+        this.f13358b = "manager".equals(multiForumPerm.bawu_type) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
+        this.f13359c = multiForumPerm.is_deleted.intValue() == 1;
     }
 }

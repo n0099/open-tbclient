@@ -18,16 +18,16 @@ import tbclient.Error;
 import tbclient.ExcFrsPage.DataRes;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b, h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Object> f21152e;
+    public List<Object> f20593e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Object> f21153f;
+    public List<Object> f20594f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -87,16 +87,16 @@ public class a implements b, h {
         }
         if (dataRes.thread_list != null) {
             ArrayList arrayList = new ArrayList();
-            this.f21152e = arrayList;
+            this.f20593e = arrayList;
             arrayList.addAll(excFrsPageResIdl.data.thread_list);
         }
         excFrsPageResIdl.data.has_more.intValue();
         excFrsPageResIdl.data.pn.intValue();
         if (excFrsPageResIdl.data.tag_list != null) {
-            this.f21153f = new ArrayList();
+            this.f20594f = new ArrayList();
             for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                 if (excellentTagInfo != null) {
-                    this.f21153f.add(excellentTagInfo);
+                    this.f20594f.add(excellentTagInfo);
                 }
             }
         }

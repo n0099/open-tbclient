@@ -537,8 +537,8 @@ public final class Cookie {
             int length = str.length();
             char c2 = ';';
             int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-            char c3 = a.f31864h;
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f31864h);
+            char c3 = a.f30865h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f30865h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -584,12 +584,12 @@ public final class Cookie {
                     }
                     i2 = delimiterOffset3 + 1;
                     c2 = ';';
-                    c3 = a.f31864h;
+                    c3 = a.f30865h;
                 }
                 z4 = true;
                 i2 = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f31864h;
+                c3 = a.f30865h;
             }
             long j6 = Long.MIN_VALUE;
             if (j4 != Long.MIN_VALUE) {
@@ -645,7 +645,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append(a.f31864h);
+            sb.append(a.f30865h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {

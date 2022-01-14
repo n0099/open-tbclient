@@ -80,7 +80,7 @@ public class ef implements ed {
                 try {
                     if (TextUtils.isEmpty(a2)) {
                         dw.a(context, d2, 1008, "info is empty");
-                    } else if (a == 1 && !ea.m334a(context)) {
+                    } else if (a == 1 && !ea.m346a(context)) {
                         dw.a(context, d2, 1008, "A not in foreground");
                     } else {
                         String type = context.getContentResolver().getType(dv.a(b2, a2));

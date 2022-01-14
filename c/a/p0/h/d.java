@@ -21,16 +21,16 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4790f;
+        public final /* synthetic */ int f4687f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4791g;
+        public final /* synthetic */ int f4688g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4792h;
+        public final /* synthetic */ String f4689h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f4793i;
+        public final /* synthetic */ Context f4690i;
 
         public a(int i2, int i3, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class d {
                     return;
                 }
             }
-            this.f4790f = i2;
-            this.f4791g = i3;
-            this.f4792h = str;
-            this.f4793i = context;
+            this.f4687f = i2;
+            this.f4688g = i3;
+            this.f4689h = str;
+            this.f4690i = context;
         }
 
         @Override // c.a.p0.k.c
@@ -60,13 +60,13 @@ public class d {
                 try {
                     JSONArray jSONArray = new JSONArray();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.f4790f);
+                    jSONObject.put("0", this.f4687f);
                     jSONObject.put("1", System.currentTimeMillis());
-                    jSONObject.put("2", this.f4791g);
-                    jSONObject.put("3", this.f4792h);
+                    jSONObject.put("2", this.f4688g);
+                    jSONObject.put("3", this.f4689h);
                     jSONObject.put("4", "1");
                     jSONArray.put(jSONObject);
-                    c.a.p0.h.b.c(this.f4793i).f(jSONArray.toString(), "1077112", 2);
+                    c.a.p0.h.b.c(this.f4690i).f(jSONArray.toString(), "1077112", 2);
                 } catch (Throwable th) {
                     c.a.p0.l.c.d(th);
                 }
@@ -80,19 +80,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4794f;
+        public final /* synthetic */ int f4691f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f4795g;
+        public final /* synthetic */ Context f4692g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f4796h;
+        public final /* synthetic */ int f4693h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f4797i;
+        public final /* synthetic */ int f4694i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f4798j;
+        public final /* synthetic */ String f4695j;
 
         public b(int i2, Context context, int i3, int i4, String str) {
             Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class d {
                     return;
                 }
             }
-            this.f4794f = i2;
-            this.f4795g = context;
-            this.f4796h = i3;
-            this.f4797i = i4;
-            this.f4798j = str;
+            this.f4691f = i2;
+            this.f4692g = context;
+            this.f4693h = i3;
+            this.f4694i = i4;
+            this.f4695j = str;
         }
 
         @Override // c.a.p0.k.c
@@ -122,22 +122,22 @@ public class d {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.f4794f);
+                    jSONObject.put("0", this.f4691f);
                     jSONObject.put("3", System.currentTimeMillis());
-                    int Z = c.a.p0.b.a.h(this.f4795g).Z();
+                    int Z = c.a.p0.b.a.h(this.f4692g).Z();
                     if (Z != -1) {
                         jSONObject.put("4", Z);
                     }
-                    jSONObject.put("5", c.a.p0.b.a.h(this.f4795g).a0());
-                    jSONObject.put("7", this.f4796h);
-                    if (this.f4797i != -1) {
-                        jSONObject.put("8", this.f4797i);
+                    jSONObject.put("5", c.a.p0.b.a.h(this.f4692g).a0());
+                    jSONObject.put("7", this.f4693h);
+                    if (this.f4694i != -1) {
+                        jSONObject.put("8", this.f4694i);
                     }
-                    jSONObject.put("9", this.f4798j);
+                    jSONObject.put("9", this.f4695j);
                     jSONObject.put("10", 1);
                     jSONObject.put("11", i.q);
                     jSONObject.put("12", "1");
-                    new c.a.p0.f.d(this.f4795g, null).h(jSONObject);
+                    new c.a.p0.f.d(this.f4692g, null).h(jSONObject);
                 } catch (Throwable th) {
                     c.a.p0.l.c.d(th);
                 }
@@ -151,19 +151,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4799f;
+        public final /* synthetic */ int f4696f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f4800g;
+        public final /* synthetic */ Context f4697g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f4801h;
+        public final /* synthetic */ int f4698h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f4802i;
+        public final /* synthetic */ int f4699i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f4803j;
+        public final /* synthetic */ String f4700j;
 
         public c(int i2, Context context, int i3, int i4, String str) {
             Interceptable interceptable = $ic;
@@ -180,11 +180,11 @@ public class d {
                     return;
                 }
             }
-            this.f4799f = i2;
-            this.f4800g = context;
-            this.f4801h = i3;
-            this.f4802i = i4;
-            this.f4803j = str;
+            this.f4696f = i2;
+            this.f4697g = context;
+            this.f4698h = i3;
+            this.f4699i = i4;
+            this.f4700j = str;
         }
 
         @Override // c.a.p0.k.c
@@ -194,23 +194,23 @@ public class d {
                 try {
                     JSONArray jSONArray = new JSONArray();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.f4799f);
+                    jSONObject.put("0", this.f4696f);
                     jSONObject.put("3", System.currentTimeMillis());
-                    int d0 = c.a.p0.b.a.h(this.f4800g).d0();
+                    int d0 = c.a.p0.b.a.h(this.f4697g).d0();
                     if (d0 != -1) {
                         jSONObject.put("4", d0);
                     }
-                    jSONObject.put("5", c.a.p0.b.a.h(this.f4800g).e0());
-                    jSONObject.put("7", this.f4801h);
-                    if (this.f4802i != -1) {
-                        jSONObject.put("8", this.f4802i);
+                    jSONObject.put("5", c.a.p0.b.a.h(this.f4697g).e0());
+                    jSONObject.put("7", this.f4698h);
+                    if (this.f4699i != -1) {
+                        jSONObject.put("8", this.f4699i);
                     }
-                    jSONObject.put("9", this.f4803j);
+                    jSONObject.put("9", this.f4700j);
                     jSONObject.put("10", 1);
                     jSONObject.put("11", i.r);
                     jSONObject.put("12", "1");
                     jSONArray.put(jSONObject);
-                    c.a.p0.h.b.c(this.f4800g).f(jSONArray.toString(), "1077122", 2);
+                    c.a.p0.h.b.c(this.f4697g).f(jSONArray.toString(), "1077122", 2);
                 } catch (Throwable th) {
                     c.a.p0.l.c.d(th);
                 }
@@ -220,29 +220,27 @@ public class d {
 
     /* renamed from: c.a.p0.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0219d extends c.a.p0.k.c {
+    public static class C0228d extends c.a.p0.k.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4804f;
+        public final /* synthetic */ int f4701f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4805g;
+        public final /* synthetic */ int f4702g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4806h;
+        public final /* synthetic */ String f4703h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f4807i;
+        public final /* synthetic */ int f4704i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f4808j;
+        public final /* synthetic */ int f4705j;
+        public final /* synthetic */ Context k;
 
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ Context f4809k;
-
-        public C0219d(int i2, int i3, String str, int i4, int i5, Context context) {
+        public C0228d(int i2, int i3, String str, int i4, int i5, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -257,12 +255,12 @@ public class d {
                     return;
                 }
             }
-            this.f4804f = i2;
-            this.f4805g = i3;
-            this.f4806h = str;
-            this.f4807i = i4;
-            this.f4808j = i5;
-            this.f4809k = context;
+            this.f4701f = i2;
+            this.f4702g = i3;
+            this.f4703h = str;
+            this.f4704i = i4;
+            this.f4705j = i5;
+            this.k = context;
         }
 
         @Override // c.a.p0.k.c
@@ -273,20 +271,20 @@ public class d {
                     JSONArray jSONArray = new JSONArray();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("0", System.currentTimeMillis());
-                    jSONObject.put("1", this.f4807i);
-                    jSONObject.put("2", this.f4804f);
-                    if (this.f4805g != -1) {
-                        jSONObject.put("3", this.f4805g);
+                    jSONObject.put("1", this.f4704i);
+                    jSONObject.put("2", this.f4701f);
+                    if (this.f4702g != -1) {
+                        jSONObject.put("3", this.f4702g);
                     }
-                    if (!TextUtils.isEmpty(this.f4806h)) {
-                        jSONObject.put("4", this.f4806h);
+                    if (!TextUtils.isEmpty(this.f4703h)) {
+                        jSONObject.put("4", this.f4703h);
                     }
                     jSONObject.put("5", 1);
                     jSONObject.put("6", i.q);
-                    jSONObject.put("7", this.f4808j);
+                    jSONObject.put("7", this.f4705j);
                     jSONObject.put("8", "1");
                     jSONArray.put(jSONObject);
-                    c.a.p0.h.b.c(this.f4809k).f(jSONArray.toString(), "1077105", 2);
+                    c.a.p0.h.b.c(this.k).f(jSONArray.toString(), "1077105", 2);
                 } catch (Throwable th) {
                     c.a.p0.l.c.d(th);
                 }
@@ -300,22 +298,20 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4810f;
+        public final /* synthetic */ int f4706f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4811g;
+        public final /* synthetic */ int f4707g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4812h;
+        public final /* synthetic */ String f4708h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f4813i;
+        public final /* synthetic */ int f4709i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f4814j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ Context f4815k;
+        public final /* synthetic */ int f4710j;
+        public final /* synthetic */ Context k;
 
         public e(int i2, int i3, String str, int i4, int i5, Context context) {
             Interceptable interceptable = $ic;
@@ -332,12 +328,12 @@ public class d {
                     return;
                 }
             }
-            this.f4810f = i2;
-            this.f4811g = i3;
-            this.f4812h = str;
-            this.f4813i = i4;
-            this.f4814j = i5;
-            this.f4815k = context;
+            this.f4706f = i2;
+            this.f4707g = i3;
+            this.f4708h = str;
+            this.f4709i = i4;
+            this.f4710j = i5;
+            this.k = context;
         }
 
         @Override // c.a.p0.k.c
@@ -348,20 +344,20 @@ public class d {
                     JSONArray jSONArray = new JSONArray();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("0", System.currentTimeMillis());
-                    jSONObject.put("1", this.f4813i);
-                    jSONObject.put("2", this.f4810f);
-                    if (this.f4811g != -1) {
-                        jSONObject.put("3", this.f4811g);
+                    jSONObject.put("1", this.f4709i);
+                    jSONObject.put("2", this.f4706f);
+                    if (this.f4707g != -1) {
+                        jSONObject.put("3", this.f4707g);
                     }
-                    if (!TextUtils.isEmpty(this.f4812h)) {
-                        jSONObject.put("4", this.f4812h);
+                    if (!TextUtils.isEmpty(this.f4708h)) {
+                        jSONObject.put("4", this.f4708h);
                     }
                     jSONObject.put("5", 1);
                     jSONObject.put("6", i.r);
-                    jSONObject.put("7", this.f4814j);
+                    jSONObject.put("7", this.f4710j);
                     jSONObject.put("8", "1");
                     jSONArray.put(jSONObject);
-                    c.a.p0.h.b.c(this.f4815k).f(jSONArray.toString(), "1077123", 2);
+                    c.a.p0.h.b.c(this.k).f(jSONArray.toString(), "1077123", 2);
                 } catch (Throwable th) {
                     c.a.p0.l.c.d(th);
                 }
@@ -372,7 +368,7 @@ public class d {
     public static void a(Context context, int i2, int i3, int i4, int i5, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str}) == null) {
-            c.a.p0.k.e.c().b(new C0219d(i4, i5, str, i2, i3, context));
+            c.a.p0.k.e.c().b(new C0228d(i4, i5, str, i2, i3, context));
         }
     }
 

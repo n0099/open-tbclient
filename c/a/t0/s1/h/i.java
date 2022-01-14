@@ -26,18 +26,18 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static i f22683c = null;
+    public static i f22062c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f22684d = -1;
+    public static long f22063d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f22685e;
+    public static int f22064e;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f22686b;
+    public c f22065b;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -151,23 +151,23 @@ public class i {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 LinkedList<ImMessageCenterPojo> h2 = j.f().h();
                 if (h2 != null && h2.size() != 0) {
-                    if (i.f22684d < 0) {
+                    if (i.f22063d < 0) {
                         try {
                             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                            long unused = i.f22684d = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                            if (i.f22684d > 2147483648L) {
-                                int unused2 = i.f22685e = 5000;
-                            } else if (i.f22684d > 1073741824) {
-                                int unused3 = i.f22685e = 3000;
+                            long unused = i.f22063d = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                            if (i.f22063d > 2147483648L) {
+                                int unused2 = i.f22064e = 5000;
+                            } else if (i.f22063d > 1073741824) {
+                                int unused3 = i.f22064e = 3000;
                             } else {
-                                int unused4 = i.f22685e = 1000;
+                                int unused4 = i.f22064e = 1000;
                             }
                         } catch (Exception e2) {
                             BdLog.e(e2);
                         }
                     }
-                    if (i.f22685e < 1000) {
-                        int unused5 = i.f22685e = 1000;
+                    if (i.f22064e < 1000) {
+                        int unused5 = i.f22064e = 1000;
                     }
                     try {
                         try {
@@ -177,13 +177,13 @@ public class i {
                                     h.d().b();
                                     return Boolean.FALSE;
                                 } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                                    c.a.t0.s1.h.c.h().n(imMessageCenterPojo.getGid(), i.f22685e);
+                                    c.a.t0.s1.h.c.h().n(imMessageCenterPojo.getGid(), i.f22064e);
                                 } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                                    m.t().q(imMessageCenterPojo.getGid(), i.f22685e);
+                                    m.t().q(imMessageCenterPojo.getGid(), i.f22064e);
                                 } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                                    l.t().q(imMessageCenterPojo.getGid(), i.f22685e);
+                                    l.t().q(imMessageCenterPojo.getGid(), i.f22064e);
                                 } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                                    d.f().l(imMessageCenterPojo.getGid(), i.f22685e);
+                                    d.f().l(imMessageCenterPojo.getGid(), i.f22064e);
                                 }
                             }
                         } catch (Exception e3) {
@@ -230,7 +230,7 @@ public class i {
             }
         }
         this.a = new b(null);
-        this.f22686b = null;
+        this.f22065b = null;
         MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
@@ -238,14 +238,14 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f22683c == null) {
+            if (f22062c == null) {
                 synchronized (i.class) {
-                    if (f22683c == null) {
-                        f22683c = new i();
+                    if (f22062c == null) {
+                        f22062c = new i();
                     }
                 }
             }
-            return f22683c;
+            return f22062c;
         }
         return (i) invokeV.objValue;
     }
@@ -253,26 +253,26 @@ public class i {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = this.f22686b;
+            c cVar = this.f22065b;
             if (cVar != null) {
                 cVar.cancel();
-                this.f22686b = null;
+                this.f22065b = null;
             }
             c cVar2 = new c(this, null);
-            this.f22686b = cVar2;
+            this.f22065b = cVar2;
             cVar2.setParallel(TiebaIMConfig.getParallel());
-            this.f22686b.setPriority(4);
-            this.f22686b.execute(new String[0]);
+            this.f22065b.setPriority(4);
+            this.f22065b.execute(new String[0]);
         }
     }
 
     public final void j() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f22686b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f22065b) == null) {
             return;
         }
         cVar.cancel();
-        this.f22686b = null;
+        this.f22065b = null;
     }
 }

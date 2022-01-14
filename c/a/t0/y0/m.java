@@ -9,7 +9,7 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -32,58 +32,58 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<FaceShopActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinearLayout f26503b;
+    public final LinearLayout f25715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f26504c;
+    public final NavigationBar f25716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TextView f26505d;
+    public final TextView f25717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BdListView f26506e;
+    public final BdListView f25718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final l f26507f;
+    public final l f25719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final NoNetworkView f26508g;
+    public final NoNetworkView f25720g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.s0.s.i0.g f26509h;
+    public final c.a.s0.s.j0.g f25721h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final a f26510i;
+    public final a f25722i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final FaceBuyDialog f26511j;
+    public final FaceBuyDialog f25723j;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends c.a.d.n.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TbPageContext<?> f26512f;
+        public final TbPageContext<?> f25724f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f26513g;
+        public TextView f25725g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ProgressBar f26514h;
+        public ProgressBar f25726h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f26515i;
+        public View f25727i;
 
         /* renamed from: j  reason: collision with root package name */
-        public View f26516j;
+        public View f25728j;
 
         public a(m mVar, TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
@@ -100,10 +100,10 @@ public class m {
                     return;
                 }
             }
-            this.f26513g = null;
-            this.f26514h = null;
-            this.f26515i = null;
-            this.f26512f = tbPageContext;
+            this.f25725g = null;
+            this.f25726h = null;
+            this.f25727i = null;
+            this.f25724f = tbPageContext;
         }
 
         @Override // c.a.d.n.e.b
@@ -111,17 +111,17 @@ public class m {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.f26512f.getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-                this.f26515i = inflate;
-                inflate.setPadding(0, this.f26512f.getResources().getDimensionPixelSize(R.dimen.ds16), 0, this.f26512f.getResources().getDimensionPixelSize(R.dimen.ds16));
-                this.f26513g = (TextView) this.f26515i.findViewById(R.id.pb_more_text);
-                View findViewById = this.f26515i.findViewById(R.id.pb_more_view);
-                this.f26516j = findViewById;
+                View inflate = LayoutInflater.from(this.f25724f.getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                this.f25727i = inflate;
+                inflate.setPadding(0, this.f25724f.getResources().getDimensionPixelSize(R.dimen.ds16), 0, this.f25724f.getResources().getDimensionPixelSize(R.dimen.ds16));
+                this.f25725g = (TextView) this.f25727i.findViewById(R.id.pb_more_text);
+                View findViewById = this.f25727i.findViewById(R.id.pb_more_view);
+                this.f25728j = findViewById;
                 findViewById.setVisibility(8);
-                this.f26514h = (ProgressBar) this.f26515i.findViewById(R.id.progress);
+                this.f25726h = (ProgressBar) this.f25727i.findViewById(R.id.progress);
                 h(TbadkApplication.getInst().getSkinType());
-                this.f26516j.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-                return this.f26515i;
+                this.f25728j.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                return this.f25727i;
             }
             return (View) invokeV.objValue;
         }
@@ -136,42 +136,42 @@ public class m {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f26515i.setVisibility(0);
+                this.f25727i.setVisibility(0);
             }
         }
 
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f26515i.setVisibility(8);
+                this.f25727i.setVisibility(8);
             }
         }
 
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f26514h.setVisibility(8);
-                this.f26513g.setText(R.string.load_more);
+                this.f25726h.setVisibility(8);
+                this.f25725g.setText(R.string.load_more);
             }
         }
 
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f26514h.setVisibility(0);
-                this.f26513g.setText(this.f26512f.getPageActivity().getText(R.string.loading));
-                this.f26516j.setVisibility(0);
+                this.f25726h.setVisibility(0);
+                this.f25725g.setText(this.f25724f.getPageActivity().getText(R.string.loading));
+                this.f25728j.setVisibility(0);
             }
         }
 
         public void h(int i2) {
             TbPageContext<?> tbPageContext;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (tbPageContext = this.f26512f) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (tbPageContext = this.f25724f) == null) {
                 return;
             }
             tbPageContext.getLayoutMode().k(i2 == 1);
-            this.f26512f.getLayoutMode().j(this.f26516j);
+            this.f25724f.getLayoutMode().j(this.f25728j);
         }
     }
 
@@ -192,61 +192,61 @@ public class m {
         }
         this.a = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.face_shop_activity);
-        this.f26503b = (LinearLayout) tbPageContext.getPageActivity().findViewById(R.id.face_shop);
+        this.f25715b = (LinearLayout) tbPageContext.getPageActivity().findViewById(R.id.face_shop);
         NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.view_navigation_bar);
-        this.f26504c = navigationBar;
+        this.f25716c = navigationBar;
         navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.face_store));
-        this.f26504c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TextView addTextButton = this.f26504c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getResources().getString(R.string.manage));
-        this.f26505d = addTextButton;
+        this.f25716c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        TextView addTextButton = this.f25716c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getResources().getString(R.string.manage));
+        this.f25717d = addTextButton;
         SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0106, 1);
-        this.f26508g = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.view_no_network);
-        this.f26506e = (BdListView) tbPageContext.getPageActivity().findViewById(R.id.face_shop_list);
-        this.f26509h = new c.a.s0.s.i0.g(tbPageContext);
-        this.f26507f = new l(tbPageContext.getOrignalPage());
-        this.f26510i = new a(this, tbPageContext);
-        this.f26506e.setAdapter((ListAdapter) this.f26507f);
-        this.f26506e.setPullRefresh(this.f26509h);
-        this.f26506e.setNextPage(this.f26510i);
+        this.f25720g = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.view_no_network);
+        this.f25718e = (BdListView) tbPageContext.getPageActivity().findViewById(R.id.face_shop_list);
+        this.f25721h = new c.a.s0.s.j0.g(tbPageContext);
+        this.f25719f = new l(tbPageContext.getOrignalPage());
+        this.f25722i = new a(this, tbPageContext);
+        this.f25718e.setAdapter((ListAdapter) this.f25719f);
+        this.f25718e.setPullRefresh(this.f25721h);
+        this.f25718e.setNextPage(this.f25722i);
         try {
-            this.f26505d.setOnClickListener(tbPageContext.getOrignalPage());
+            this.f25717d.setOnClickListener(tbPageContext.getOrignalPage());
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f26511j = new FaceBuyDialog(tbPageContext, R.style.common_alert_dialog);
+        this.f25723j = new FaceBuyDialog(tbPageContext, R.style.common_alert_dialog);
     }
 
     public void a(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f26508g.addNetworkChangeListener(bVar);
+            this.f25720g.addNetworkChangeListener(bVar);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f26510i.f();
-            this.f26506e.completePullRefreshPostDelayed(0L);
+            this.f25722i.f();
+            this.f25718e.completePullRefreshPostDelayed(0L);
         }
     }
 
     public l c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26507f : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25719f : (l) invokeV.objValue;
     }
 
     public TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26505d : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25717d : (TextView) invokeV.objValue;
     }
 
     public void e() {
         FaceBuyDialog faceBuyDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (faceBuyDialog = this.f26511j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (faceBuyDialog = this.f25723j) == null) {
             return;
         }
         c.a.d.f.m.g.b(faceBuyDialog, this.a);
@@ -255,7 +255,7 @@ public class m {
     public void f() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f26510i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f25722i) == null) {
             return;
         }
         aVar.e();
@@ -266,20 +266,20 @@ public class m {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             c.a.s0.s.c layoutMode = this.a.getLayoutMode();
             layoutMode.k(i2 == 1);
-            layoutMode.j(this.f26503b);
-            NavigationBar navigationBar = this.f26504c;
+            layoutMode.j(this.f25715b);
+            NavigationBar navigationBar = this.f25716c;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a, i2);
             }
-            c.a.s0.s.i0.g gVar = this.f26509h;
+            c.a.s0.s.j0.g gVar = this.f25721h;
             if (gVar != null) {
                 gVar.C(i2);
             }
-            a aVar = this.f26510i;
+            a aVar = this.f25722i;
             if (aVar != null) {
                 aVar.h(i2);
             }
-            NoNetworkView noNetworkView = this.f26508g;
+            NoNetworkView noNetworkView = this.f25720g;
             if (noNetworkView != null) {
                 noNetworkView.onChangeSkinType(this.a, i2);
             }
@@ -289,8 +289,8 @@ public class m {
     public void h() {
         NoNetworkView noNetworkView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (noNetworkView = this.f26508g) != null && noNetworkView.getVisibility() == 0 && c.a.d.f.p.l.z()) {
-            this.f26508g.update(false);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (noNetworkView = this.f25720g) != null && noNetworkView.getVisibility() == 0 && c.a.d.f.p.l.z()) {
+            this.f25720g.update(false);
         }
     }
 
@@ -322,14 +322,14 @@ public class m {
     public void k(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f26508g.removeNetworkChangeListener(bVar);
+            this.f25720g.removeNetworkChangeListener(bVar);
         }
     }
 
     public void l() {
         FaceBuyDialog faceBuyDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (faceBuyDialog = this.f26511j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (faceBuyDialog = this.f25723j) == null) {
             return;
         }
         faceBuyDialog.setFailDialogInfo();
@@ -338,45 +338,45 @@ public class m {
     public void m(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onItemClickListener) == null) {
-            this.f26506e.setOnItemClickListener(onItemClickListener);
+            this.f25718e.setOnItemClickListener(onItemClickListener);
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f26510i.g();
+            this.f25722i.g();
         }
     }
 
     public void o(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, gVar) == null) {
-            this.f26509h.a(gVar);
+            this.f25721h.a(gVar);
         }
     }
 
     public void p(BdListView.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, pVar) == null) {
-            this.f26506e.setOnSrollToBottomListener(pVar);
+            this.f25718e.setOnSrollToBottomListener(pVar);
         }
     }
 
     public void q() {
         FaceBuyDialog faceBuyDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (faceBuyDialog = this.f26511j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (faceBuyDialog = this.f25723j) == null) {
             return;
         }
         faceBuyDialog.setLoadingDialogInfo();
-        c.a.d.f.m.g.j(this.f26511j, this.a);
+        c.a.d.f.m.g.j(this.f25723j, this.a);
     }
 
     public void r() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (aVar = this.f26510i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (aVar = this.f25722i) == null) {
             return;
         }
         aVar.d();
@@ -385,7 +385,7 @@ public class m {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f26506e.startPullRefresh();
+            this.f25718e.startPullRefresh();
         }
     }
 }

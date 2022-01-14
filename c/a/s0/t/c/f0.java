@@ -13,28 +13,28 @@ public class f0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14150b;
+    public boolean f13819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14151c;
+    public int f13820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14152d;
+    public int f13821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14153e;
+    public String f13822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14154f;
+    public String f13823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14155g;
+    public String f13824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14156h;
+    public int f13825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14157i;
+    public String f13826i;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -56,13 +56,13 @@ public class f0 {
             return;
         }
         this.a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
-        this.f14150b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
-        this.f14151c = jSONObject.optInt("downloadNaniShowPosition", 3);
-        this.f14152d = jSONObject.optInt("downloadNaniShowRate", 2);
-        this.f14153e = jSONObject.optString("downloadNaniLinkUrl", null);
-        this.f14154f = jSONObject.optString("downloadNaniTxt", null);
-        this.f14155g = jSONObject.optString("showNaniTailTxt", null);
-        this.f14156h = jSONObject.optInt("showNaniTailVideoType", 0);
-        this.f14157i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+        this.f13819b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.f13820c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.f13821d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.f13822e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f13823f = jSONObject.optString("downloadNaniTxt", null);
+        this.f13824g = jSONObject.optString("showNaniTailTxt", null);
+        this.f13825h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.f13826i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

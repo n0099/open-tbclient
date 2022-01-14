@@ -23,13 +23,13 @@ public class f extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17850e;
+    public Context f17418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseFragmentActivity f17851f;
+    public BaseFragmentActivity f17419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.t0.f2.c.k.f> f17852g;
+    public List<c.a.t0.f2.c.k.f> f17420g;
 
     public f(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class f extends BaseAdapter {
                 return;
             }
         }
-        this.f17851f = baseFragmentActivity;
-        this.f17850e = baseFragmentActivity.getActivity();
-        this.f17852g = new ArrayList();
+        this.f17419f = baseFragmentActivity;
+        this.f17418e = baseFragmentActivity.getActivity();
+        this.f17420g = new ArrayList();
     }
 
     public View a(c.a.t0.f2.c.k.f fVar, View view, ViewGroup viewGroup) {
@@ -64,8 +64,8 @@ public class f extends BaseAdapter {
                     expandViewHolder = (ExpandViewHolder) view.getTag();
                 }
                 if (expandViewHolder == null) {
-                    view = LayoutInflater.from(this.f17850e).inflate(R.layout.index_expand_item, viewGroup, false);
-                    expandViewHolder = new ExpandViewHolder(view, this.f17851f);
+                    view = LayoutInflater.from(this.f17418e).inflate(R.layout.index_expand_item, viewGroup, false);
+                    expandViewHolder = new ExpandViewHolder(view, this.f17419f);
                     view.setTag(expandViewHolder);
                 }
                 expandViewHolder.renderView(fVar);
@@ -74,8 +74,8 @@ public class f extends BaseAdapter {
                     cooperatePrivilegeViewHolder = (CooperatePrivilegeViewHolder) view.getTag();
                 }
                 if (cooperatePrivilegeViewHolder == null) {
-                    view = LayoutInflater.from(this.f17850e).inflate(R.layout.index_cooperate_item, viewGroup, false);
-                    cooperatePrivilegeViewHolder = new CooperatePrivilegeViewHolder(view, this.f17851f);
+                    view = LayoutInflater.from(this.f17418e).inflate(R.layout.index_cooperate_item, viewGroup, false);
+                    cooperatePrivilegeViewHolder = new CooperatePrivilegeViewHolder(view, this.f17419f);
                     view.setTag(cooperatePrivilegeViewHolder);
                 }
                 cooperatePrivilegeViewHolder.renderView(fVar);
@@ -88,13 +88,13 @@ public class f extends BaseAdapter {
     public List<c.a.t0.f2.c.k.f> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17852g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17420g : (List) invokeV.objValue;
     }
 
     public void c(List<c.a.t0.f2.c.k.f> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f17852g = list;
+            this.f17420g = list;
         }
     }
 
@@ -103,7 +103,7 @@ public class f extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<c.a.t0.f2.c.k.f> list = this.f17852g;
+            List<c.a.t0.f2.c.k.f> list = this.f17420g;
             if (list != null) {
                 return list.size();
             }
@@ -116,7 +116,7 @@ public class f extends BaseAdapter {
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f17852g.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f17420g.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -131,7 +131,7 @@ public class f extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
-            c.a.t0.f2.c.k.f fVar = this.f17852g.get(i2);
+            c.a.t0.f2.c.k.f fVar = this.f17420g.get(i2);
             return fVar != null ? a(fVar, view, viewGroup) : view;
         }
         return (View) invokeILL.objValue;

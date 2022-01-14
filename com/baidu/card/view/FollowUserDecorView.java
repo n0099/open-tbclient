@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.n.b;
-import c.a.s0.s.i0.t.c;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.j0.n.b;
+import c.a.s0.s.j0.t.c;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -65,10 +65,10 @@ public class FollowUserDecorView extends FollowUserButton {
         return (TbPageContext) invokeL.objValue;
     }
 
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) {
-            if (d2Var != null && d2Var.J() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) {
+            if (e2Var != null && e2Var.J() != null) {
                 if (this.v == null) {
                     c cVar = new c(k(getContext()), this);
                     this.v = cVar;
@@ -76,8 +76,8 @@ public class FollowUserDecorView extends FollowUserButton {
                 }
                 setVisibility(0);
                 this.v.q(true);
-                this.v.n(d2Var.J());
-                this.v.p(d2Var.E);
+                this.v.n(e2Var.J());
+                this.v.p(e2Var.E);
                 return;
             }
             setVisibility(8);

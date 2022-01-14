@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Number3D {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int M00 = 0;
@@ -36,7 +36,7 @@ public class Number3D {
     public float z;
 
     /* renamed from: com.baidu.ar.arplay.representation.Number3D$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis;
         public static /* synthetic */ Interceptable $ic;
@@ -73,7 +73,7 @@ public class Number3D {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Axis {
         public static final /* synthetic */ Axis[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -27,16 +27,16 @@ public class e extends c.a.s0.c.a {
         public volatile NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f25915b;
+        public String f25153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f25916c;
+        public String f25154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f25917d;
+        public HashMap<String, String> f25155d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.d.a.e f25918e;
+        public c.a.d.a.e f25156e;
 
         public a(e eVar, String str, String str2, HashMap<String, String> hashMap, c.a.d.a.e eVar2) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class e extends c.a.s0.c.a {
                 }
             }
             this.a = null;
-            this.f25915b = str;
-            this.f25916c = str2;
-            this.f25917d = hashMap;
-            this.f25918e = eVar2;
+            this.f25153b = str;
+            this.f25154c = str2;
+            this.f25155d = hashMap;
+            this.f25156e = eVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,12 +69,12 @@ public class e extends c.a.s0.c.a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 f fVar = new f();
                 try {
-                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.f25916c);
-                    Set<String> keySet = this.f25917d.keySet();
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.f25154c);
+                    Set<String> keySet = this.f25155d.keySet();
                     if (keySet.size() > 0) {
                         for (String str : keySet) {
                             if (!"url".equalsIgnoreCase(str)) {
-                                this.a.addPostData(str, this.f25917d.get(str));
+                                this.a.addPostData(str, this.f25155d.get(str));
                             }
                         }
                     }
@@ -84,14 +84,14 @@ public class e extends c.a.s0.c.a {
                     this.a.getNetContext().getRequest().mIsNeedTbs = true;
                     String postNetData = this.a.postNetData();
                     if (!this.a.getNetContext().getResponse().isNetSuccess()) {
-                        fVar.f12556b = this.a.getNetErrorCode();
-                        fVar.f12557c = this.a.getNetString();
+                        fVar.f12262b = this.a.getNetErrorCode();
+                        fVar.f12263c = this.a.getNetString();
                     } else {
-                        fVar.f12556b = this.a.getServerErrorCode();
-                        fVar.f12557c = this.a.getErrorString();
+                        fVar.f12262b = this.a.getServerErrorCode();
+                        fVar.f12263c = this.a.getErrorString();
                     }
                     if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        if (fVar.f12556b != 0) {
+                        if (fVar.f12262b != 0) {
                             z = false;
                         }
                         fVar.a = z;
@@ -112,11 +112,11 @@ public class e extends c.a.s0.c.a {
         public void onPostExecute(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                c.a.d.a.e eVar = this.f25918e;
+                c.a.d.a.e eVar = this.f25156e;
                 if (eVar != null) {
                     eVar.c(fVar);
                 }
-                c.a.t0.x1.m.a.a().d(this.f25916c, this.f25917d, fVar);
+                c.a.t0.x1.m.a.a().d(this.f25154c, this.f25155d, fVar);
             }
         }
 
@@ -129,7 +129,7 @@ public class e extends c.a.s0.c.a {
                     this.a = null;
                 }
                 super.cancel(true);
-                c.a.d.a.e eVar = this.f25918e;
+                c.a.d.a.e eVar = this.f25156e;
                 if (eVar != null) {
                     eVar.c(null);
                 }

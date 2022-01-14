@@ -21,26 +21,26 @@ public class w0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f10275f;
+    public static final boolean f10051f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f10276g;
+    public static c f10052g;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final Application a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.g1.a f10277b;
+    public c.a.r0.a.g1.a f10053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10278c;
+    public boolean f10054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f10279d;
+    public boolean f10055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10280e;
+    public int f10056e;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.r0.a.g1.a {
@@ -48,21 +48,21 @@ public class w0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ w0 f10281e;
+        public final /* synthetic */ w0 f10057e;
 
         /* renamed from: c.a.r0.a.z2.w0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0647a implements Runnable {
+        public class RunnableC0656a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Activity f10282e;
+            public final /* synthetic */ Activity f10058e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f10283f;
+            public final /* synthetic */ a f10059f;
 
-            public RunnableC0647a(a aVar, Activity activity) {
+            public RunnableC0656a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,8 +77,8 @@ public class w0 {
                         return;
                     }
                 }
-                this.f10283f = aVar;
-                this.f10282e = activity;
+                this.f10059f = aVar;
+                this.f10058e = activity;
             }
 
             @Override // java.lang.Runnable
@@ -86,27 +86,27 @@ public class w0 {
                 boolean u;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.f10282e.getIntent();
+                    Intent intent = this.f10058e.getIntent();
                     c.a.r0.a.p.d.a0 o = c.a.r0.a.c1.a.o();
                     ComponentName component = intent.getComponent();
-                    if (this.f10283f.f10281e.f10278c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.f10283f.f10281e.f10279d) {
-                            boolean unused = w0.f10275f;
+                    if (this.f10059f.f10057e.f10054c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
+                        if (this.f10059f.f10057e.f10055d) {
+                            boolean unused = w0.f10051f;
                             return;
                         }
                         c.a.r0.a.z2.c m = c.a.r0.a.z2.c.m();
                         if (d.a() && c.a.r0.a.z2.c.k()) {
-                            u = m.w(this.f10282e, this.f10283f.f10281e.f10280e, false);
+                            u = m.w(this.f10058e, this.f10059f.f10057e.f10056e, false);
                         } else {
-                            u = m.u(this.f10283f.f10281e.f10280e, false, false);
+                            u = m.u(this.f10059f.f10057e.f10056e, false, false);
                         }
-                        if (w0.f10275f) {
-                            String str = "moveTaskToFront " + u + ", taskId=" + this.f10283f.f10281e.f10280e;
+                        if (w0.f10051f) {
+                            String str = "moveTaskToFront " + u + ", taskId=" + this.f10059f.f10057e.f10056e;
                         }
                         m.i();
                     }
-                    if (w0.f10275f) {
-                        String str2 = "class=" + this.f10282e + ", swanAppForeground=" + this.f10283f.f10281e.f10278c + ", flag=" + intent.getFlags() + ", ComponentName=" + component;
+                    if (w0.f10051f) {
+                        String str2 = "class=" + this.f10058e + ", swanAppForeground=" + this.f10059f.f10057e.f10054c + ", flag=" + intent.getFlags() + ", ComponentName=" + component;
                     }
                 }
             }
@@ -127,7 +127,7 @@ public class w0 {
                     return;
                 }
             }
-            this.f10281e = w0Var;
+            this.f10057e = w0Var;
         }
 
         @Override // c.a.r0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
@@ -138,11 +138,11 @@ public class w0 {
                 if (activity == null || activity.getIntent() == null) {
                     return;
                 }
-                RunnableC0647a runnableC0647a = new RunnableC0647a(this, activity);
+                RunnableC0656a runnableC0656a = new RunnableC0656a(this, activity);
                 if (d.a()) {
-                    runnableC0647a.run();
+                    runnableC0656a.run();
                 } else {
-                    q.j(runnableC0647a, "moveTaskToFront");
+                    q.j(runnableC0656a, "moveTaskToFront");
                 }
             }
         }
@@ -152,8 +152,8 @@ public class w0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
                 super.onActivityStarted(activity);
-                w0 w0Var = this.f10281e;
-                w0Var.f10278c = w0Var.f10278c && activity != null && activity.getTaskId() == this.f10281e.f10280e;
+                w0 w0Var = this.f10057e;
+                w0Var.f10054c = w0Var.f10054c && activity != null && activity.getTaskId() == this.f10057e.f10056e;
             }
         }
     }
@@ -187,12 +187,12 @@ public class w0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
                 if (z) {
-                    this.a.f10278c = true;
-                    this.a.f10280e = i2;
-                } else if (this.a.f10278c && i2 == 1) {
-                    this.a.f10278c = false;
+                    this.a.f10054c = true;
+                    this.a.f10056e = i2;
+                } else if (this.a.f10054c && i2 == 1) {
+                    this.a.f10054c = false;
                 }
-                this.a.f10279d = z;
+                this.a.f10055d = z;
             }
         }
     }
@@ -215,7 +215,7 @@ public class w0 {
                 return;
             }
         }
-        f10275f = c.a.r0.a.k.a;
+        f10051f = c.a.r0.a.k.a;
     }
 
     public w0(@NonNull Application application) {
@@ -234,15 +234,15 @@ public class w0 {
             }
         }
         this.a = application;
-        this.f10277b = new a(this);
-        f10276g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.f10277b);
+        this.f10053b = new a(this);
+        f10052g = new b(this);
+        application.registerActivityLifecycleCallbacks(this.f10053b);
     }
 
     public static void h(boolean z, int i2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (cVar = f10276g) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (cVar = f10052g) == null) {
             return;
         }
         cVar.a(z, i2);
@@ -251,8 +251,8 @@ public class w0 {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f10276g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.f10277b);
+            f10052g = null;
+            this.a.unregisterActivityLifecycleCallbacks(this.f10053b);
         }
     }
 }

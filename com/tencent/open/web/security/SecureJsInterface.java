@@ -71,11 +71,11 @@ public class SecureJsInterface extends a.b {
                 i2 = -1;
             }
             if (i2 >= 0) {
-                boolean z = a.f62993c;
-                boolean z2 = a.f62992b;
+                boolean z = a.f60616c;
+                boolean z2 = a.f60615b;
                 if (z2) {
                     if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i2)).booleanValue()) {
-                        a.f62992b = false;
+                        a.f60615b = false;
                         return;
                     }
                     return;

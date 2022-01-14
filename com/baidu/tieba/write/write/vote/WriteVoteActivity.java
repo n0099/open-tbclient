@@ -33,7 +33,7 @@ public class WriteVoteActivity extends SuspendedActivity {
     public b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new c.a.t0.o4.e0.o.b(getPageContext(), linearLayout, navigationBar) : (b) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new c.a.t0.p4.e0.o.b(getPageContext(), linearLayout, navigationBar) : (b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity

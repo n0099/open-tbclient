@@ -30,13 +30,13 @@ public abstract class ApollonBean<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f55643e;
+        public final /* synthetic */ Class f53531e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Class f55644f;
+        public final /* synthetic */ Class f53532f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ApollonBean f55645g;
+        public final /* synthetic */ ApollonBean f53533g;
 
         public a(ApollonBean apollonBean, Class cls, Class cls2) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public abstract class ApollonBean<T> {
                     return;
                 }
             }
-            this.f55645g = apollonBean;
-            this.f55643e = cls;
-            this.f55644f = cls2;
+            this.f53533g = apollonBean;
+            this.f53531e = cls;
+            this.f53532f = cls2;
         }
 
         @Override // java.lang.Runnable
@@ -64,13 +64,13 @@ public abstract class ApollonBean<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     try {
-                        this.f55645g.prepareRestTemplate();
-                        this.f55645g.executeAndHandleResponse(this.f55643e, this.f55644f);
+                        this.f53533g.prepareRestTemplate();
+                        this.f53533g.executeAndHandleResponse(this.f53531e, this.f53532f);
                     } catch (Exception e2) {
-                        this.f55645g.handleCommonErrors(e2);
+                        this.f53533g.handleCommonErrors(e2);
                     }
                 } finally {
-                    this.f55645g.mRspCallback = null;
+                    this.f53533g.mRspCallback = null;
                 }
             }
         }

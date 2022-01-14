@@ -42,22 +42,20 @@ public class g extends e implements c.a.t0.x2.h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final BaseFragmentActivity f26129f;
+    public final BaseFragmentActivity f25358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragment f26130g;
+    public BaseFragment f25359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f26131h;
+    public TbPageContext f25360h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View f26132i;
+    public final View f25361i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final BdUniqueId f26133j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f26134k;
+    public final BdUniqueId f25362j;
+    public long k;
     public String l;
     public f m;
     public final PersonPolymericModel n;
@@ -203,49 +201,49 @@ public class g extends e implements c.a.t0.x2.h.b {
         this.v = false;
         this.w = new a(this);
         this.x = new b(this, 2921424);
-        this.f26130g = baseFragment;
+        this.f25359g = baseFragment;
         BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
-        this.f26129f = baseFragmentActivity;
-        this.f26132i = view;
-        this.f26133j = bdUniqueId;
-        this.f26134k = j2;
+        this.f25358f = baseFragmentActivity;
+        this.f25361i = view;
+        this.f25362j = bdUniqueId;
+        this.k = j2;
         this.l = str;
-        this.f26131h = baseFragmentActivity.getPageContext();
+        this.f25360h = baseFragmentActivity.getPageContext();
         MessageManager.getInstance().registerListener(this.x);
-        this.o = new d(this.f26130g.getPageContext(), bdUniqueId);
-        f fVar = new f(this.f26130g.getPageContext(), view, z);
+        this.o = new d(this.f25359g.getPageContext(), bdUniqueId);
+        f fVar = new f(this.f25359g.getPageContext(), view, z);
         this.m = fVar;
         fVar.t(this.w);
-        this.s = new PersonPolymericEventController(this.f26131h, this);
-        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f26129f, bdUniqueId, z);
+        this.s = new PersonPolymericEventController(this.f25360h, this);
+        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f25358f, bdUniqueId, z);
         this.n = personPolymericModel;
         personPolymericModel.N(new p(z));
         this.n.L(this);
         this.n.M(this.o);
-        this.p = new BlackListModel(this.f26129f.getPageContext(), bdUniqueId);
+        this.p = new BlackListModel(this.f25358f.getPageContext(), bdUniqueId);
         if (StringUtils.isNull(this.l)) {
-            k kVar = new k(this.f26130g, this, this.f26133j, this.f26134k, z);
+            k kVar = new k(this.f25359g, this, this.f25362j, this.k, z);
             this.q = kVar;
             kVar.k(TbadkCoreApplication.getInst().getSkinType());
             this.q.j(this.s);
         }
-        this.t = new h(this.f26131h, this.o, this.p, bdUniqueId);
+        this.t = new h(this.f25360h, this.o, this.p, bdUniqueId);
         loadData();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TbadkCoreApplication.isLogin() && this.f26116e) {
+            if (!TbadkCoreApplication.isLogin() && this.f25346e) {
                 this.m.A();
             } else if (l.A()) {
-                this.n.I(this.f26134k, this.l);
+                this.n.I(this.k, this.l);
             } else {
                 this.m.n();
-                n.M(this.f26131h.getContext(), this.f26131h.getString(c.a.t0.y2.g.data_load_error));
+                n.N(this.f25360h.getContext(), this.f25360h.getString(c.a.t0.y2.g.data_load_error));
                 ArrayList arrayList = new ArrayList();
                 c.a.t0.x2.e.i iVar = new c.a.t0.x2.e.i();
-                iVar.f26215e = this.f26116e;
+                iVar.f25436e = this.f25346e;
                 arrayList.add(iVar);
                 this.m.m();
                 this.m.v(arrayList);
@@ -260,9 +258,9 @@ public class g extends e implements c.a.t0.x2.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null && aVar.j() != null && !StringUtils.isNull(this.l)) {
-                this.f26134k = aVar.j().getUserIdLong();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.f26134k)));
-                this.f26116e = this.f26134k == c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                this.k = aVar.j().getUserIdLong();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.k)));
+                this.f25346e = this.k == c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
             }
             this.m.n();
             h hVar = this.t;
@@ -276,7 +274,7 @@ public class g extends e implements c.a.t0.x2.h.b {
             if (kVar != null) {
                 kVar.o(aVar);
             } else {
-                k kVar2 = new k(this.f26130g, this, this.f26133j, this.f26134k, this.f26116e);
+                k kVar2 = new k(this.f25359g, this, this.f25362j, this.k, this.f25346e);
                 this.q = kVar2;
                 kVar2.k(TbadkCoreApplication.getInst().getSkinType());
                 this.q.j(this.s);
@@ -306,8 +304,8 @@ public class g extends e implements c.a.t0.x2.h.b {
             if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || m.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
-            if (c.a.s0.s.g0.b.j().g(c.a.s0.s.g0.b.n(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f26129f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+            if (c.a.s0.s.h0.b.k().h(c.a.s0.s.h0.b.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f25358f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
             return false;
@@ -324,18 +322,18 @@ public class g extends e implements c.a.t0.x2.h.b {
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!TbadkCoreApplication.isLogin() && this.f26116e) {
+            if (!TbadkCoreApplication.isLogin() && this.f25346e) {
                 this.m.A();
             } else if (l.A()) {
                 c.a.t0.x2.b.d().m(System.currentTimeMillis());
                 this.m.w(false, -1);
                 this.m.B(true);
-                this.n.J(this.f26134k);
-                this.n.I(this.f26134k, this.l);
+                this.n.J(this.k);
+                this.n.I(this.k, this.l);
             } else {
                 this.m.n();
                 this.m.s(8);
-                this.m.x(this.f26130g.getString(c.a.t0.y2.g.neterror), true);
+                this.m.x(this.f25359g.getString(c.a.t0.y2.g.neterror), true);
             }
         }
     }
@@ -368,7 +366,7 @@ public class g extends e implements c.a.t0.x2.h.b {
             if (z) {
                 this.v = z;
                 if (l.A()) {
-                    this.n.I(this.f26134k, this.l);
+                    this.n.I(this.k, this.l);
                 }
             }
             return this.n.H();
@@ -443,7 +441,7 @@ public class g extends e implements c.a.t0.x2.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) {
             if (this.r == null) {
-                this.r = new c.a.t0.k0.j(this.f26129f.getPageContext(), (NavigationBarCoverTip) this.f26129f.findViewById(c.a.t0.y2.d.navigation_cover_tip));
+                this.r = new c.a.t0.k0.j(this.f25358f.getPageContext(), (NavigationBarCoverTip) this.f25358f.findViewById(c.a.t0.y2.d.navigation_cover_tip));
             }
             this.r.l(postWriteCallBackData);
         }

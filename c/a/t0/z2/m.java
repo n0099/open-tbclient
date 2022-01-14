@@ -16,7 +16,7 @@ public class m extends ContentObserver {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f26852b;
+    public a f26055b;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -52,8 +52,8 @@ public class m extends ContentObserver {
         }
         try {
             int i2 = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
-            if (this.f26852b != null) {
-                a aVar = this.f26852b;
+            if (this.f26055b != null) {
+                a aVar = this.f26055b;
                 boolean z = true;
                 if (i2 != 1) {
                     z = false;
@@ -68,7 +68,7 @@ public class m extends ContentObserver {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f26852b = aVar;
+            this.f26055b = aVar;
             a();
         }
     }

@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.b0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class b extends c.a.t0.g0.b<d2> implements b0 {
+public class b extends c.a.t0.g0.b<e2> implements b0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
     public RelativeLayout n;
-    public d2 o;
+    public e2 o;
     public View p;
     public View q;
     public View r;
@@ -45,7 +45,7 @@ public class b extends c.a.t0.g0.b<d2> implements b0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15260e;
+        public final /* synthetic */ b f14882e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class b extends c.a.t0.g0.b<d2> implements b0 {
                     return;
                 }
             }
-            this.f15260e = bVar;
+            this.f14882e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15260e.o == null || this.f15260e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f14882e.o == null || this.f14882e.g() == null) {
                 return;
             }
-            this.f15260e.g().a(view, this.f15260e.o);
-            TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f15260e.o.U()));
+            this.f14882e.g().a(view, this.f14882e.o);
+            TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f14882e.o.U()));
         }
     }
 
@@ -124,7 +124,7 @@ public class b extends c.a.t0.g0.b<d2> implements b0 {
     @Override // c.a.t0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f18209e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f17766e == i2) {
             return;
         }
         SkinManager.setBackgroundResource(this.t, R.drawable.ala_live_card_start_live_selector);
@@ -136,7 +136,7 @@ public class b extends c.a.t0.g0.b<d2> implements b0 {
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0108);
         SkinManager.setBackgroundColor(this.v, R.color.CAM_X0201);
-        this.f18209e = i2;
+        this.f17766e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -149,10 +149,10 @@ public class b extends c.a.t0.g0.b<d2> implements b0 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.g0.b
     /* renamed from: q */
-    public void k(d2 d2Var) {
+    public void k(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, d2Var) == null) {
-            this.o = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, e2Var) == null) {
+            this.o = e2Var;
             s();
         }
     }
@@ -167,7 +167,7 @@ public class b extends c.a.t0.g0.b<d2> implements b0 {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!this.o.k1) {
+            if (!this.o.j1) {
                 this.u.setVisibility(8);
                 this.q.setVisibility(8);
                 this.r.setVisibility(8);

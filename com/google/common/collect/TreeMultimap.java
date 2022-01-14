@@ -290,22 +290,22 @@ public class TreeMultimap<K, V> extends AbstractSortedKeySortedSetMultimap<K, V>
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: K */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.google.common.collect.AbstractMapBasedMultimap
-    public Collection<V> createCollection(K k2) {
+    public Collection<V> createCollection(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) {
-            if (k2 == 0) {
-                keyComparator().compare(k2, k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) {
+            if (k == 0) {
+                keyComparator().compare(k, k);
             }
-            return super.createCollection(k2);
+            return super.createCollection(k);
         }
         return (Collection) invokeL.objValue;
     }
 
     @Override // com.google.common.collect.AbstractSortedSetMultimap, com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
-    public NavigableSet<V> get(K k2) {
+    public NavigableSet<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, k2)) == null) ? (NavigableSet) super.get((TreeMultimap<K, V>) k2) : (NavigableSet) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, k)) == null) ? (NavigableSet) super.get((TreeMultimap<K, V>) k) : (NavigableSet) invokeL.objValue;
     }
 }

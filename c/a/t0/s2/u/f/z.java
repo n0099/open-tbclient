@@ -25,25 +25,23 @@ public class z implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23752e;
+    public String f23095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23753f;
+    public int f23096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23754g;
+    public int f23097g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f23755h;
+    public String f23098h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f23756i;
+    public String f23099i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MetaData f23757j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public HashMap<String, MetaData> f23758k;
+    public MetaData f23100j;
+    public HashMap<String, MetaData> k;
     public boolean l;
     public String m;
     public String n;
@@ -90,14 +88,14 @@ public class z implements c.a.d.n.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
             if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
-                this.f23752e = alaLiveInfo.user_info.user_name;
-                this.f23753f = alaLiveInfo.live_status.intValue();
-                this.f23754g = alaLiveInfo.audience_count.intValue();
-                this.f23755h = alaLiveInfo.description;
+                this.f23095e = alaLiveInfo.user_info.user_name;
+                this.f23096f = alaLiveInfo.live_status.intValue();
+                this.f23097g = alaLiveInfo.audience_count.intValue();
+                this.f23098h = alaLiveInfo.description;
                 String str = alaLiveInfo.cover_wide;
-                this.f23756i = str;
+                this.f23099i = str;
                 if (str == null || TextUtils.isEmpty(str)) {
-                    this.f23756i = alaLiveInfo.cover;
+                    this.f23099i = alaLiveInfo.cover;
                 }
                 alaLiveInfo.live_id.longValue();
                 this.l = alaLiveInfo.live_from.intValue() == 1;
@@ -108,8 +106,8 @@ public class z implements c.a.d.n.e.n {
                 this.r = yyExtData;
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
                 Long l = alaLiveInfo.user_info.user_id;
-                if (l != null && l.longValue() > 0 && (hashMap = this.f23758k) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                    this.f23757j = metaData;
+                if (l != null && l.longValue() > 0 && (hashMap = this.k) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                    this.f23100j = metaData;
                 }
                 List<DislikeInfo> list = alaLiveInfo.dislike_info;
                 if (ListUtils.getCount(list) > 0) {
@@ -124,7 +122,7 @@ public class z implements c.a.d.n.e.n {
                     c.a.s0.s.q.x0 x0Var = new c.a.s0.s.q.x0();
                     this.q = x0Var;
                     x0Var.j(sparseArray);
-                    this.q.f13845g = sparseArray2;
+                    this.q.f13531g = sparseArray2;
                 } else {
                     this.q = null;
                 }
@@ -138,7 +136,7 @@ public class z implements c.a.d.n.e.n {
     public void d(HashMap<String, MetaData> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            this.f23758k = hashMap;
+            this.k = hashMap;
         }
     }
 

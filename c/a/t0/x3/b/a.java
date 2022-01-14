@@ -19,7 +19,7 @@ public class a {
     public List<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f26352b;
+    public List<b> f25567b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,11 +52,11 @@ public class a {
         }
         JSONArray optJSONArray2 = optJSONObject.optJSONArray("next");
         if (optJSONArray != null) {
-            this.f26352b = new ArrayList();
+            this.f25567b = new ArrayList();
             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                 b bVar2 = new b();
                 bVar2.d(optJSONArray2.optJSONObject(i3));
-                this.f26352b.add(bVar2);
+                this.f25567b.add(bVar2);
             }
         }
     }

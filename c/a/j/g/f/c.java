@@ -16,10 +16,10 @@ public final class c extends c.a.j.g.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UniqueId f3955b;
+    public static final UniqueId f3893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f3956c;
+    public static final a f3894c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public final class c extends c.a.j.g.a {
         public final UniqueId a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f3955b : (UniqueId) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f3893b : (UniqueId) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -65,10 +65,10 @@ public final class c extends c.a.j.g.a {
                 return;
             }
         }
-        f3956c = new a(null);
+        f3894c = new a(null);
         UniqueId gen = UniqueId.gen("TaskViewCloseEvent");
         Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskViewCloseEvent\")");
-        f3955b = gen;
+        f3893b = gen;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public final class c extends c.a.j.g.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + f3956c.a().getAlias() + ':' + a().toJson();
+            return "" + f3894c.a().getAlias() + ':' + a().toJson();
         }
         return (String) invokeV.objValue;
     }

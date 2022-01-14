@@ -57,7 +57,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             g V = f.U().V();
@@ -118,12 +118,12 @@ public class a extends z {
                 jSONObject.put("bottom", Q5);
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             } catch (JSONException e2) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     e2.printStackTrace();
                 }
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
             }
-            if (z.f6340b) {
+            if (z.f6201b) {
                 wrapCallbackParams.toString();
             }
             return wrapCallbackParams;

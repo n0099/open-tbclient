@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f32991b;
+    public static h f31943b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -53,10 +53,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (h.class) {
-                if (f32991b == null) {
-                    f32991b = new h(context);
+                if (f31943b == null) {
+                    f31943b = new h(context);
                 }
-                hVar = f32991b;
+                hVar = f31943b;
             }
             return hVar;
         }
@@ -85,14 +85,14 @@ public class h {
             int intExtra = intent.getIntExtra("bind_status", 0);
             int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
             com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_BIND ", this.a);
-            String d2 = com.baidu.android.pushservice.a.b.a(this.a).d(iVar.f33278d);
-            if (!TextUtils.isEmpty(iVar.f33281g) && com.baidu.android.pushservice.a.b.a(this.a).b(iVar.f33278d, iVar.f33281g) && !TextUtils.isEmpty(d2)) {
+            String d2 = com.baidu.android.pushservice.a.b.a(this.a).d(iVar.f32221d);
+            if (!TextUtils.isEmpty(iVar.f32224g) && com.baidu.android.pushservice.a.b.a(this.a).b(iVar.f32221d, iVar.f32224g) && !TextUtils.isEmpty(d2)) {
                 Intent intent2 = new Intent();
                 intent2.putExtra("method", iVar.a);
                 intent2.putExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, 0);
                 intent2.putExtra("content", d2.getBytes());
                 intent2.putExtra("bind_status", intExtra);
-                m.b(this.a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.f33278d);
+                m.b(this.a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.f32221d);
                 return;
             }
             if (intent.hasExtra("bind_notify_status")) {
@@ -112,12 +112,12 @@ public class h {
         if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
             com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
             com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.a);
-            if (!TextUtils.isEmpty(iVar.f33278d) && !TextUtils.isEmpty(iVar.f33281g)) {
-                com.baidu.android.pushservice.a.e a = com.baidu.android.pushservice.a.b.a(this.a).a(iVar.f33278d);
+            if (!TextUtils.isEmpty(iVar.f32221d) && !TextUtils.isEmpty(iVar.f32224g)) {
+                com.baidu.android.pushservice.a.e a = com.baidu.android.pushservice.a.b.a(this.a).a(iVar.f32221d);
                 if (a != null && !TextUtils.isEmpty(a.a())) {
-                    iVar.f33279e = a.a();
+                    iVar.f32222e = a.a();
                 }
-                com.baidu.android.pushservice.a.b.a(this.a).e(iVar.f33278d);
+                com.baidu.android.pushservice.a.b.a(this.a).e(iVar.f32221d);
             }
             a(new n(iVar, this.a));
         }

@@ -39,9 +39,7 @@ public class DnsParseResult {
     public static final int TYPE_LOCAL = 0;
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f39593k;
+    public int k;
     public List<String> l;
     public int stackType;
     public int type;
@@ -68,7 +66,7 @@ public class DnsParseResult {
             this.l = null;
         }
         this.type = i2;
-        this.f39593k = i3;
+        this.k = i3;
         this.stackType = i4;
     }
 
@@ -87,7 +85,7 @@ public class DnsParseResult {
     public int getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39593k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int getType() {
@@ -103,7 +101,7 @@ public class DnsParseResult {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.type);
-                jSONObject.put("subType", this.f39593k);
+                jSONObject.put("subType", this.k);
                 jSONObject.put("ipList", new JSONArray((Collection) this.l));
                 jSONObject.put("stackType", this.stackType);
             } catch (JSONException e2) {

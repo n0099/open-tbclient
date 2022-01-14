@@ -18,31 +18,31 @@ public class a0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14117b;
+    public String f13787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14118c;
+    public String f13788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14119d;
+    public String f13789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14120e;
+    public String f13790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14121f;
+    public boolean f13791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14122g;
+    public String f13792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14123h;
+    public String f13793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14124i;
+    public int f13794i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14125j;
+    public int f13795j;
 
     public a0() {
         Interceptable interceptable = $ic;
@@ -70,10 +70,10 @@ public class a0 {
                 }
                 try {
                     a0 a0Var = new a0();
-                    a0Var.f14122g = split[1];
-                    a0Var.f14123h = split[2];
-                    a0Var.f14124i = Integer.parseInt(split[3]);
-                    a0Var.f14125j = Integer.parseInt(split[4]);
+                    a0Var.f13792g = split[1];
+                    a0Var.f13793h = split[2];
+                    a0Var.f13794i = Integer.parseInt(split[3]);
+                    a0Var.f13795j = Integer.parseInt(split[4]);
                     return a0Var;
                 } catch (Exception unused) {
                     return null;
@@ -89,9 +89,9 @@ public class a0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (d()) {
-                return "[pic-tab] " + this.f14122g + " " + this.f14123h + " " + this.f14124i + " " + this.f14125j;
+                return "[pic-tab] " + this.f13792g + " " + this.f13793h + " " + this.f13794i + " " + this.f13795j;
             }
-            return this.f14117b;
+            return this.f13787b;
         }
         return (String) invokeV.objValue;
     }
@@ -99,13 +99,13 @@ public class a0 {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f14117b) || this.a <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f13787b) || this.a <= 0 : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f14122g) && !TextUtils.isEmpty(this.f14123h) && this.f14124i > 0 && this.f14125j > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f13792g) && !TextUtils.isEmpty(this.f13793h) && this.f13794i > 0 && this.f13795j > 0 : invokeV.booleanValue;
     }
 
     public void e(JSONObject jSONObject) {
@@ -114,13 +114,13 @@ public class a0 {
             return;
         }
         this.a = jSONObject.optInt("tab_type");
-        this.f14117b = jSONObject.optString("tab_name");
-        this.f14118c = jSONObject.optString("tab_code");
-        this.f14119d = jSONObject.optString(TabWebFragment.TAB_URL);
-        this.f14120e = jSONObject.optString("tab_version");
-        this.f14122g = jSONObject.optString("selected_pic_url");
-        this.f14123h = jSONObject.optString("unselected_pic_url");
-        this.f14124i = jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH);
-        this.f14125j = jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT);
+        this.f13787b = jSONObject.optString("tab_name");
+        this.f13788c = jSONObject.optString("tab_code");
+        this.f13789d = jSONObject.optString(TabWebFragment.TAB_URL);
+        this.f13790e = jSONObject.optString("tab_version");
+        this.f13792g = jSONObject.optString("selected_pic_url");
+        this.f13793h = jSONObject.optString("unselected_pic_url");
+        this.f13794i = jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH);
+        this.f13795j = jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT);
     }
 }

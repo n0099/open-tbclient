@@ -16,19 +16,19 @@ public class gn {
     public static final char[] f444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f63532b;
+    public static final char[] f61147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f63533c;
+    public static final char[] f61148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f63534d;
+    public static final char[] f61149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f63535e;
+    public static final char[] f61150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f63536f;
+    public static char[] f61151f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +45,12 @@ public class gn {
             }
         }
         f444a = "&quot;".toCharArray();
-        f63532b = "&apos;".toCharArray();
-        f63533c = "&amp;".toCharArray();
-        f63534d = "&lt;".toCharArray();
-        f63535e = "&gt;".toCharArray();
+        f61147b = "&apos;".toCharArray();
+        f61148c = "&amp;".toCharArray();
+        f61149d = "&lt;".toCharArray();
+        f61150e = "&gt;".toCharArray();
         a = new Random();
-        f63536f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f61151f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public static String a(int i2) {
@@ -62,7 +62,7 @@ public class gn {
             }
             char[] cArr = new char[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = f63536f[a.nextInt(71)];
+                cArr[i3] = f61151f[a.nextInt(71)];
             }
             return new String(cArr);
         }
@@ -89,13 +89,13 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f63534d);
+                        sb.append(f61149d);
                     } else if (c2 == '>') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f63535e);
+                        sb.append(f61150e);
                     } else if (c2 == '&') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
@@ -103,7 +103,7 @@ public class gn {
                         int i4 = i2 + 5;
                         if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
                             i3 = i2 + 1;
-                            sb.append(f63533c);
+                            sb.append(f61148c);
                         }
                     } else if (c2 == '\"') {
                         if (i2 > i3) {
@@ -116,7 +116,7 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f63532b);
+                        sb.append(f61147b);
                     }
                 }
                 i2++;

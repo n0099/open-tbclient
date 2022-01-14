@@ -46,10 +46,10 @@ public final class b {
                 codeCacheSetting.maxCount = 20;
                 codeCacheSetting.sizeLimit = 102400;
             } else {
-                a.C0340a d2 = a.b.d();
+                a.C0349a d2 = a.b.d();
                 codeCacheSetting.maxCount = d2.a;
-                codeCacheSetting.sizeLimit = d2.f6433b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d2.f6434c;
+                codeCacheSetting.sizeLimit = d2.f6292b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d2.f6293c;
             }
             if (a) {
                 String str3 = "buildCacheSetting cacheType: " + str;

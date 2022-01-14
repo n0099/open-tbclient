@@ -25,23 +25,23 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.p0.f.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0495a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
+    public class C0504a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8368e;
+        public final /* synthetic */ CallbackHandler f8185e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8369f;
+        public final /* synthetic */ String f8186f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8370g;
+        public final /* synthetic */ String f8187g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f8371h;
+        public final /* synthetic */ a f8188h;
 
-        public C0495a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
+        public C0504a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,10 +56,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8371h = aVar;
-            this.f8368e = callbackHandler;
-            this.f8369f = str;
-            this.f8370g = str2;
+            this.f8188h = aVar;
+            this.f8185e = callbackHandler;
+            this.f8186f = str;
+            this.f8187g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,9 +69,9 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f8371h.k(this.f8370g, this.f8369f, this.f8368e);
+                    this.f8188h.k(this.f8187g, this.f8186f, this.f8185e);
                 } else {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f8368e, this.f8369f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f8185e, this.f8186f);
                 }
             }
         }
@@ -84,10 +84,10 @@ public class a extends z {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8372b;
+        public final /* synthetic */ JSONObject f8189b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f8373c;
+        public final /* synthetic */ String f8190c;
 
         public b(a aVar, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
@@ -105,8 +105,8 @@ public class a extends z {
                 }
             }
             this.a = callbackHandler;
-            this.f8372b = jSONObject;
-            this.f8373c = str;
+            this.f8189b = jSONObject;
+            this.f8190c = str;
         }
 
         @Override // c.a.r0.a.a1.d.c
@@ -120,11 +120,11 @@ public class a extends z {
                 try {
                     c.a.r0.a.e0.d.c("ExtCore-DebugDownload", "download failed");
                     c.a.r0.a.c2.b.f.e.f(c.a.r0.a.c1.a.c(), c.a.r0.a.h.aiapps_debug_extension_core_download_failed).G();
-                    this.f8372b.put("status", -1);
+                    this.f8189b.put("status", -1);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                this.a.handleSchemeDispatchCallback(this.f8373c, UnitedSchemeUtility.wrapCallbackParams(this.f8372b, 1001).toString());
+                this.a.handleSchemeDispatchCallback(this.f8190c, UnitedSchemeUtility.wrapCallbackParams(this.f8189b, 1001).toString());
             }
         }
 
@@ -149,18 +149,18 @@ public class a extends z {
                     if (c2.exists() && c.a.r0.w.d.U(c2.getPath(), b2.getPath())) {
                         c.a.r0.a.e0.d.c("ExtCore-DebugDownload", "download success");
                         c.a.r0.a.c2.b.f.e.f(c.a.r0.a.c1.a.c(), c.a.r0.a.h.aiapps_debug_extension_core_download_success).G();
-                        this.f8372b.put("status", 0);
-                        this.a.handleSchemeDispatchCallback(this.f8373c, UnitedSchemeUtility.wrapCallbackParams(this.f8372b, 0).toString());
+                        this.f8189b.put("status", 0);
+                        this.a.handleSchemeDispatchCallback(this.f8190c, UnitedSchemeUtility.wrapCallbackParams(this.f8189b, 0).toString());
                     } else {
                         c.a.r0.a.e0.d.c("ExtCore-DebugDownload", "download failed");
                         c.a.r0.a.c2.b.f.e.f(c.a.r0.a.c1.a.c(), c.a.r0.a.h.aiapps_debug_extension_core_download_failed).G();
-                        this.f8372b.put("status", -1);
-                        this.a.handleSchemeDispatchCallback(this.f8373c, UnitedSchemeUtility.wrapCallbackParams(this.f8372b, 1001).toString());
+                        this.f8189b.put("status", -1);
+                        this.a.handleSchemeDispatchCallback(this.f8190c, UnitedSchemeUtility.wrapCallbackParams(this.f8189b, 1001).toString());
                     }
                 } catch (JSONException e2) {
                     c.a.r0.a.e0.d.d("ExtCore-DebugDownload", "build result with exception", e2);
                     e2.printStackTrace();
-                    this.a.handleSchemeDispatchCallback(this.f8373c, UnitedSchemeUtility.wrapCallbackParams(this.f8372b, 1001).toString());
+                    this.a.handleSchemeDispatchCallback(this.f8190c, UnitedSchemeUtility.wrapCallbackParams(this.f8189b, 1001).toString());
                 }
             }
         }
@@ -213,7 +213,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
                 return false;
             }
-            eVar.d0().g(context, "mapp_cts_debug", new C0495a(this, callbackHandler, optString2, optString));
+            eVar.d0().g(context, "mapp_cts_debug", new C0504a(this, callbackHandler, optString2, optString));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

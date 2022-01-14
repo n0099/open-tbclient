@@ -29,7 +29,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f42507e;
+    public final HttpMessageListener f41016e;
 
     /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
@@ -108,12 +108,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42507e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f41016e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f42507e.setTag(getUniqueId());
-        this.f42507e.setSelfListener(true);
-        registerListener(this.f42507e);
+        this.f41016e.setTag(getUniqueId());
+        this.f41016e.setSelfListener(true);
+        registerListener(this.f41016e);
     }
 
     public static void A() {
@@ -158,7 +158,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                Object invoke = c.a.d.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.g().b(), new Object[0]);
+                Object invoke = c.a.d.a.b.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.f().b(), new Object[0]);
                 b.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();

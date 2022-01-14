@@ -4,13 +4,13 @@ public interface c {
     public static final int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f52516b = 2;
+    public static final int f50492b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f52517c = 4;
+    public static final int f50493c = 4;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f52518d = 8;
+    public static final int f50494d = 8;
 
     void destroyCamera();
 

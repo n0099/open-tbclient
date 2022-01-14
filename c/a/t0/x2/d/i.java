@@ -51,22 +51,20 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f26144f;
+    public TbPageContext f25371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WriteImagesInfo f26145g;
+    public final WriteImagesInfo f25372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26146h;
+    public boolean f25373h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.x2.e.a f26147i;
+    public c.a.t0.x2.e.a f25374i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PersonChangeData f26148j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public PermissionJudgePolicy f26149k;
+    public PersonChangeData f25375j;
+    public PermissionJudgePolicy k;
     public HttpMessageListener l;
     public HttpMessageListener m;
     public Runnable n;
@@ -78,10 +76,10 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f26150e;
+        public final /* synthetic */ PopupDialog f25376e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f26151f;
+        public final /* synthetic */ i f25377f;
 
         public a(i iVar, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -98,22 +96,22 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f26151f = iVar;
-            this.f26150e = popupDialog;
+            this.f25377f = iVar;
+            this.f25376e = popupDialog;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(c.a.s0.s.s.j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f26151f.f26146h = false;
+                this.f25377f.f25373h = false;
                 if (i2 == 0) {
-                    this.f26151f.t();
+                    this.f25377f.t();
                 } else if (i2 == 1) {
-                    this.f26151f.v();
+                    this.f25377f.v();
                 }
-                if (this.f26150e.isShowing()) {
-                    this.f26150e.dismiss();
+                if (this.f25376e.isShowing()) {
+                    this.f25376e.dismiss();
                 }
             }
         }
@@ -125,19 +123,19 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f26152e;
+        public final /* synthetic */ q f25378e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f26153f;
+        public final /* synthetic */ List f25379f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f26154g;
+        public final /* synthetic */ int f25380g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f26155h;
+        public final /* synthetic */ PopupDialog f25381h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i f26156i;
+        public final /* synthetic */ i f25382i;
 
         public b(i iVar, q qVar, List list, int i2, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -154,48 +152,48 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f26156i = iVar;
-            this.f26152e = qVar;
-            this.f26153f = list;
-            this.f26154g = i2;
-            this.f26155h = popupDialog;
+            this.f25382i = iVar;
+            this.f25378e = qVar;
+            this.f25379f = list;
+            this.f25380g = i2;
+            this.f25381h = popupDialog;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(c.a.s0.s.s.j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f26156i.f26146h = true;
+                this.f25382i.f25373h = true;
                 if (i2 == 0) {
-                    this.f26156i.w(this.f26152e, this.f26153f, this.f26154g);
+                    this.f25382i.w(this.f25378e, this.f25379f, this.f25380g);
                 } else if (i2 == 1) {
-                    i iVar = this.f26156i;
-                    if (iVar.f26116e && iVar.f26147i != null && this.f26156i.f26147i.j() != null && !this.f26156i.f26147i.j().canModifyAvatar()) {
-                        if (!StringUtils.isNull(this.f26156i.f26147i.j().getCantModifyAvatarDesc())) {
-                            n.J(TbadkCoreApplication.getInst(), this.f26156i.f26147i.j().getCantModifyAvatarDesc());
+                    i iVar = this.f25382i;
+                    if (iVar.f25346e && iVar.f25374i != null && this.f25382i.f25374i.j() != null && !this.f25382i.f25374i.j().canModifyAvatar()) {
+                        if (!StringUtils.isNull(this.f25382i.f25374i.j().getCantModifyAvatarDesc())) {
+                            n.K(TbadkCoreApplication.getInst(), this.f25382i.f25374i.j().getCantModifyAvatarDesc());
                         } else {
-                            n.I(TbadkCoreApplication.getInst(), c.a.t0.y2.g.person_cant_edit_avatar_default_tip);
+                            n.J(TbadkCoreApplication.getInst(), c.a.t0.y2.g.person_cant_edit_avatar_default_tip);
                         }
                     } else {
-                        this.f26156i.t();
+                        this.f25382i.t();
                     }
                 } else if (i2 == 2) {
-                    i iVar2 = this.f26156i;
-                    if (iVar2.f26116e && iVar2.f26147i != null && this.f26156i.f26147i.j() != null && !this.f26156i.f26147i.j().canModifyAvatar()) {
-                        if (!StringUtils.isNull(this.f26156i.f26147i.j().getCantModifyAvatarDesc())) {
-                            n.J(TbadkCoreApplication.getInst(), this.f26156i.f26147i.j().getCantModifyAvatarDesc());
+                    i iVar2 = this.f25382i;
+                    if (iVar2.f25346e && iVar2.f25374i != null && this.f25382i.f25374i.j() != null && !this.f25382i.f25374i.j().canModifyAvatar()) {
+                        if (!StringUtils.isNull(this.f25382i.f25374i.j().getCantModifyAvatarDesc())) {
+                            n.K(TbadkCoreApplication.getInst(), this.f25382i.f25374i.j().getCantModifyAvatarDesc());
                         } else {
-                            n.I(TbadkCoreApplication.getInst(), c.a.t0.y2.g.person_cant_edit_avatar_default_tip);
+                            n.J(TbadkCoreApplication.getInst(), c.a.t0.y2.g.person_cant_edit_avatar_default_tip);
                         }
                     } else {
-                        this.f26156i.v();
+                        this.f25382i.v();
                     }
                 } else if (i2 == 3) {
                     TiebaStatic.log(new StatisticItem("c11616").param("obj_type", 1));
-                    this.f26156i.u();
+                    this.f25382i.u();
                 }
-                if (this.f26155h.isShowing()) {
-                    this.f26155h.dismiss();
+                if (this.f25381h.isShowing()) {
+                    this.f25381h.dismiss();
                 }
             }
         }
@@ -207,19 +205,19 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f26157e;
+        public final /* synthetic */ q f25383e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f26158f;
+        public final /* synthetic */ List f25384f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f26159g;
+        public final /* synthetic */ int f25385g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f26160h;
+        public final /* synthetic */ PopupDialog f25386h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i f26161i;
+        public final /* synthetic */ i f25387i;
 
         public c(i iVar, q qVar, List list, int i2, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -236,11 +234,11 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f26161i = iVar;
-            this.f26157e = qVar;
-            this.f26158f = list;
-            this.f26159g = i2;
-            this.f26160h = popupDialog;
+            this.f25387i = iVar;
+            this.f25383e = qVar;
+            this.f25384f = list;
+            this.f25385g = i2;
+            this.f25386h = popupDialog;
         }
 
         @Override // c.a.s0.s.s.j.e
@@ -248,14 +246,14 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
                 if (i2 == 0) {
-                    this.f26161i.w(this.f26157e, this.f26158f, this.f26159g);
+                    this.f25387i.w(this.f25383e, this.f25384f, this.f25385g);
                 } else if (i2 == 1) {
-                    j.d(this.f26157e, this.f26161i.f26144f.getUniqueId());
+                    j.d(this.f25383e, this.f25387i.f25371f.getUniqueId());
                 } else if (i2 == 2) {
-                    j.b(this.f26157e, this.f26158f);
+                    j.b(this.f25383e, this.f25384f);
                 }
-                if (this.f26160h.isShowing()) {
-                    this.f26160h.dismiss();
+                if (this.f25386h.isShowing()) {
+                    this.f25386h.dismiss();
                 }
             }
         }
@@ -332,7 +330,7 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof SetUserPicsResponse)) {
                 SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
                 if (setUserPicsResponse.getErrCode() != 0) {
-                    this.a.f26144f.showToast(setUserPicsResponse.getErrorString());
+                    this.a.f25371f.showToast(setUserPicsResponse.getErrorString());
                 } else {
                     this.a.z();
                 }
@@ -425,37 +423,37 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
                 return;
             }
         }
-        this.f26145g = new WriteImagesInfo(1);
-        this.f26146h = true;
+        this.f25372g = new WriteImagesInfo(1);
+        this.f25373h = true;
         this.l = new d(this, CmdConfigHttp.CMD_CHANGE_PORTRAIT);
         this.m = new e(this, CmdConfigHttp.CMD_SET_USER_PICS);
         this.n = new f(this);
         g gVar = new g(this, 2001380);
         this.o = gVar;
-        this.f26144f = tbPageContext;
+        this.f25371f = tbPageContext;
         gVar.setTag(bdUniqueId);
         this.m.setTag(bdUniqueId);
         this.l.setTag(bdUniqueId);
-        this.f26144f.registerListener(this.o);
-        this.f26144f.registerListener(this.m);
-        this.f26144f.registerListener(this.l);
+        this.f25371f.registerListener(this.o);
+        this.f25371f.registerListener(this.m);
+        this.f25371f.registerListener(this.l);
     }
 
     public void A(c.a.t0.x2.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f26147i = aVar;
+            this.f25374i = aVar;
         }
     }
 
     public final void B() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.f26144f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.f25371f) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(c.a.t0.y2.g.choose_local_photo), this.f26144f.getString(c.a.t0.y2.g.change_system_photo)};
-        PopupDialog popupDialog = new PopupDialog(this.f26144f);
+        String[] strArr = {tbPageContext.getString(c.a.t0.y2.g.choose_local_photo), this.f25371f.getString(c.a.t0.y2.g.change_system_photo)};
+        PopupDialog popupDialog = new PopupDialog(this.f25371f);
         popupDialog.setDefaultContentView(null, strArr, new a(this, popupDialog));
         popupDialog.showDialog();
     }
@@ -463,11 +461,11 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
     public final void C(q qVar, List<c.a.d.n.e.n> list, int i2) {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, qVar, list, i2) == null) || (tbPageContext = this.f26144f) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, qVar, list, i2) == null) || (tbPageContext = this.f25371f) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(c.a.t0.y2.g.hd_photo), this.f26144f.getString(c.a.t0.y2.g.change_photo), this.f26144f.getString(c.a.t0.y2.g.change_system_photo), this.f26144f.getString(c.a.t0.y2.g.check_headpendant)};
-        PopupDialog popupDialog = new PopupDialog(this.f26144f);
+        String[] strArr = {tbPageContext.getString(c.a.t0.y2.g.hd_photo), this.f25371f.getString(c.a.t0.y2.g.change_photo), this.f25371f.getString(c.a.t0.y2.g.change_system_photo), this.f25371f.getString(c.a.t0.y2.g.check_headpendant)};
+        PopupDialog popupDialog = new PopupDialog(this.f25371f);
         popupDialog.setDefaultContentView(null, strArr, new b(this, qVar, list, i2, popupDialog));
         popupDialog.showDialog();
     }
@@ -475,8 +473,8 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
     public final void D(q qVar, List<c.a.d.n.e.n> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, qVar, list, i2) == null) {
-            String[] strArr = {this.f26144f.getString(c.a.t0.y2.g.look_big_photo), this.f26144f.getString(c.a.t0.y2.g.set_as_portrait_photo), this.f26144f.getString(c.a.t0.y2.g.delete)};
-            PopupDialog popupDialog = new PopupDialog(this.f26144f);
+            String[] strArr = {this.f25371f.getString(c.a.t0.y2.g.look_big_photo), this.f25371f.getString(c.a.t0.y2.g.set_as_portrait_photo), this.f25371f.getString(c.a.t0.y2.g.delete)};
+            PopupDialog popupDialog = new PopupDialog(this.f25371f);
             popupDialog.setDefaultContentView(null, strArr, new c(this, qVar, list, i2, popupDialog));
             popupDialog.showDialog();
         }
@@ -485,10 +483,10 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
     public void o() {
         c.a.t0.x2.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f26147i) == null || aVar.j() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f25374i) == null || aVar.j() == null) {
             return;
         }
-        c.a.s0.c0.c.k().g(this.f26147i.j().getPortrait());
+        c.a.s0.c0.c.k().g(this.f25374i.j().getPortrait());
     }
 
     @Override // android.view.View.OnClickListener
@@ -516,19 +514,19 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, intent) == null) || intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
             return;
         }
-        this.f26145g.parseJson(stringExtra);
-        this.f26145g.updateQuality();
-        if (!ListUtils.isEmpty(this.f26145g.getChosedFiles())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(this.f26144f.getPageActivity(), (int) TaskResponseData.ERROR_NO_TASK_OFFLINE_03, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, this.f26145g.getChosedFiles().get(0).getFilePath(), 1.0f, this.f26146h)));
+        this.f25372g.parseJson(stringExtra);
+        this.f25372g.updateQuality();
+        if (!ListUtils.isEmpty(this.f25372g.getChosedFiles())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(this.f25371f.getPageActivity(), (int) TaskResponseData.ERROR_NO_TASK_OFFLINE_03, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, this.f25372g.getChosedFiles().get(0).getFilePath(), 1.0f, this.f25373h)));
         }
-        this.f26145g.clear();
+        this.f25372g.clear();
     }
 
     public List<c.a.d.n.e.n> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.t0.x2.e.a aVar = this.f26147i;
+            c.a.t0.x2.e.a aVar = this.f25374i;
             if (aVar == null) {
                 return null;
             }
@@ -556,13 +554,13 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
             }
             return;
         }
-        c.a.t0.x2.e.a aVar = this.f26147i;
+        c.a.t0.x2.e.a aVar = this.f25374i;
         if (aVar != null) {
-            this.f26116e = aVar.m();
+            this.f25346e = aVar.m();
         }
         if (!n.C()) {
-            this.f26144f.showToast(c.a.t0.y2.g.neterror);
-        } else if (!this.f26116e) {
+            this.f25371f.showToast(c.a.t0.y2.g.neterror);
+        } else if (!this.f25346e) {
             if (nVar instanceof q) {
                 w((q) nVar, list, i2);
             }
@@ -581,19 +579,19 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
     public void t() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (tbPageContext = this.f26144f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (tbPageContext = this.f25371f) == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
-        if (this.f26149k == null) {
-            this.f26149k = new PermissionJudgePolicy();
+        if (this.k == null) {
+            this.k = new PermissionJudgePolicy();
         }
-        this.f26149k.clearRequestPermissionList();
-        this.f26149k.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (this.f26149k.startRequestPermission(pageActivity)) {
+        this.k.clearRequestPermissionList();
+        this.k.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (this.k.startRequestPermission(pageActivity)) {
             return;
         }
-        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f26144f.getPageActivity(), this.f26145g.toJsonString(), true);
+        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f25371f.getPageActivity(), this.f25372g.toJsonString(), true);
         albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
         albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
         albumActivityConfig.setResourceType(2);
@@ -602,23 +600,23 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
 
     public void u() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f26144f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f25371f == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f26144f.getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f25371f.getPageActivity())));
     }
 
     public void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f26144f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f25371f == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f26144f.getPageActivity(), 12014, this.f26146h)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f25371f.getPageActivity(), 12014, this.f25373h)));
     }
 
     public final void w(q qVar, List<c.a.d.n.e.n> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048589, this, qVar, list, i2) == null) || this.f26144f == null || qVar == null || list == null || StringUtils.isNull(qVar.a())) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048589, this, qVar, list, i2) == null) || this.f25371f == null || qVar == null || list == null || StringUtils.isNull(qVar.a())) {
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -626,7 +624,7 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
             if (nVar instanceof q) {
                 q qVar2 = (q) nVar;
                 if (qVar2.e() && !qVar2.a().startsWith("http")) {
-                    arrayList.add(j.c(this.f26144f, qVar2.a()));
+                    arrayList.add(j.c(this.f25371f, qVar2.a()));
                 } else {
                     arrayList.add(qVar2.a());
                 }
@@ -641,21 +639,21 @@ public class i extends c.a.t0.x2.d.e implements View.OnClickListener {
         bVar.J(str);
         bVar.F(true);
         bVar.I(false);
-        ImageViewerConfig v = bVar.v(this.f26144f.getPageActivity());
+        ImageViewerConfig v = bVar.v(this.f25371f.getPageActivity());
         v.getIntent().putExtra("from", "portrait");
-        this.f26144f.sendMessage(new CustomMessage(2010000, v));
+        this.f25371f.sendMessage(new CustomMessage(2010000, v));
     }
 
     public final void x(PersonChangeData personChangeData) {
         c.a.t0.x2.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, personChangeData) == null) || personChangeData == null || (aVar = this.f26147i) == null || aVar.j() == null || !this.f26147i.m() || !personChangeData.getPhotoChanged()) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, personChangeData) == null) || personChangeData == null || (aVar = this.f25374i) == null || aVar.j() == null || !this.f25374i.m() || !personChangeData.getPhotoChanged()) {
             return;
         }
-        if (this.f26148j == null) {
-            this.f26148j = new PersonChangeData();
+        if (this.f25375j == null) {
+            this.f25375j = new PersonChangeData();
         }
-        this.f26148j.setPhotoChanged(true);
+        this.f25375j.setPhotoChanged(true);
         o();
     }
 

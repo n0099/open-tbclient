@@ -21,10 +21,10 @@ public class f {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f12409b;
+    public b f12118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f12410c;
+    public c.a.d.c.g.a f12119c;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -89,7 +89,7 @@ public class f {
             }
         }
         this.a = false;
-        this.f12410c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        this.f12119c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
         f();
         e();
     }
@@ -109,7 +109,7 @@ public class f {
     public final void d(boolean z, a0 a0Var) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, a0Var) == null) || (bVar = this.f12409b) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, a0Var) == null) || (bVar = this.f12118b) == null) {
             return;
         }
         bVar.a(z, a0Var);
@@ -118,7 +118,7 @@ public class f {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f12410c);
+            MessageManager.getInstance().registerListener(this.f12119c);
         }
     }
 
@@ -133,7 +133,7 @@ public class f {
     public void g(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f12409b = bVar;
+            this.f12118b = bVar;
         }
     }
 }

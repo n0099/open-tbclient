@@ -20,7 +20,7 @@ public class a implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9541e;
+    public static final boolean f9334e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 return;
             }
         }
-        f9541e = k.a;
+        f9334e = k.a;
     }
 
     public a() {
@@ -58,12 +58,12 @@ public class a implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybridUbcFlow)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f40320f.isEmpty()) {
+            if (hybridUbcFlow != null && !hybridUbcFlow.f38987f.isEmpty()) {
                 jSONObject.put("flowId", hybridUbcFlow.l());
                 JSONArray jSONArray = new JSONArray();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f40320f) {
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f38987f) {
                     if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
-                        if (f9541e) {
+                        if (f9334e) {
                             String str = "buildJoMsg: event=" + ubcFlowEvent;
                         }
                         jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
@@ -71,7 +71,7 @@ public class a implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 }
                 jSONObject.put("data", jSONArray);
             }
-            if (f9541e) {
+            if (f9334e) {
                 String str2 = "buildJoMsg: joMsg=" + jSONObject;
             }
             return jSONObject;
@@ -85,15 +85,15 @@ public class a implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (f9541e) {
+            if (f9334e) {
                 String str = "report: flow=" + hybridUbcFlow;
             }
             if (c.a.r0.a.g1.f.U().Y()) {
-                if (f9541e || c.a.r0.a.g1.f.U().N()) {
+                if (f9334e || c.a.r0.a.g1.f.U().N()) {
                     try {
                         j.e().c(a(hybridUbcFlow));
                     } catch (JSONException e2) {
-                        if (f9541e) {
+                        if (f9334e) {
                             e2.printStackTrace();
                         }
                     }

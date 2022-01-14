@@ -21,13 +21,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f17832e;
+    public TbPageContext<BaseFragmentActivity> f17400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f17833f;
+    public List<o> f17401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f17834g;
+    public View.OnClickListener f17402g;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -65,9 +65,9 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f17832e = tbPageContext;
-        this.f17833f = arrayList;
-        this.f17834g = onClickListener;
+        this.f17400e = tbPageContext;
+        this.f17401f = arrayList;
+        this.f17402g = onClickListener;
     }
 
     @Override // android.widget.Adapter
@@ -75,7 +75,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<o> list = this.f17833f;
+            List<o> list = this.f17401f;
             if (list == null) {
                 return 0;
             }
@@ -89,7 +89,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<o> list = this.f17833f;
+            List<o> list = this.f17401f;
             if (list == null) {
                 return null;
             }
@@ -103,7 +103,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<o> list = this.f17833f;
+            List<o> list = this.f17401f;
             if (list == null) {
                 return 0L;
             }
@@ -121,7 +121,7 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                BasicTaskItemView basicTaskItemView = new BasicTaskItemView(this.f17832e.getPageActivity(), this.f17834g);
+                BasicTaskItemView basicTaskItemView = new BasicTaskItemView(this.f17400e.getPageActivity(), this.f17402g);
                 aVar.a = basicTaskItemView;
                 basicTaskItemView.hideDivideLine();
                 view2 = aVar.a;
@@ -130,8 +130,8 @@ public class b extends BaseAdapter {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            aVar.a.renderView(this.f17833f.get(i2));
-            c.a.s0.x0.a.a(this.f17832e, view2);
+            aVar.a.renderView(this.f17401f.get(i2));
+            c.a.s0.x0.a.a(this.f17400e, view2);
             return view2;
         }
         return (View) invokeILL.objValue;

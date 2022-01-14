@@ -30,10 +30,10 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17840e;
+    public Context f17408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j> f17841f;
+    public List<j> f17409f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -41,13 +41,13 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f17842e;
+        public final /* synthetic */ int f17410e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f17843f;
+        public final /* synthetic */ j f17411f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f17844g;
+        public final /* synthetic */ e f17412g;
 
         public a(e eVar, int i2, j jVar) {
             Interceptable interceptable = $ic;
@@ -64,30 +64,30 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f17844g = eVar;
-            this.f17842e = i2;
-            this.f17843f = jVar;
+            this.f17412g = eVar;
+            this.f17410e = i2;
+            this.f17411f = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c11219").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f17842e + 1));
-                TbPageContext tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17844g.f17840e);
+                TiebaStatic.log(new StatisticItem("c11219").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f17410e + 1));
+                TbPageContext tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17412g.f17408e);
                 if (tbPageContext == null) {
                     return;
                 }
-                if (!StringUtils.isNull(this.f17843f.d())) {
-                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f17843f.a()));
-                    MemberCenterStatic.a(tbPageContext, new String[]{this.f17843f.d(), this.f17843f.b(), this.f17843f.e()});
+                if (!StringUtils.isNull(this.f17411f.d())) {
+                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f17411f.a()));
+                    MemberCenterStatic.a(tbPageContext, new String[]{this.f17411f.d(), this.f17411f.b(), this.f17411f.e()});
                 }
-                if (this.f17843f.c() > 0) {
+                if (this.f17411f.c() > 0) {
                     String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                    c.a.s0.s.g0.b.j().x("member_center_item_red_tip_" + this.f17843f.c() + currentAccount, this.f17843f.h());
+                    c.a.s0.s.h0.b.k().y("member_center_item_red_tip_" + this.f17411f.c() + currentAccount, this.f17411f.h());
                     b bVar = (b) view.getTag();
                     if (bVar != null) {
-                        bVar.f17849f.setVisibility(8);
+                        bVar.f17417f.setVisibility(8);
                     }
                 }
             }
@@ -101,19 +101,19 @@ public class e extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f17845b;
+        public TbImageView f17413b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f17846c;
+        public TbImageView f17414c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f17847d;
+        public TextView f17415d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f17848e;
+        public TextView f17416e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f17849f;
+        public TbImageView f17417f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f17840e = context;
+        this.f17408e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -155,11 +155,11 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<j> list = this.f17841f;
+            List<j> list = this.f17409f;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f17841f.get(i2);
+            return this.f17409f.get(i2);
         }
         return (j) invokeI.objValue;
     }
@@ -169,26 +169,26 @@ public class e extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jVar) == null) || jVar == null || bVar == null) {
             return;
         }
-        bVar.f17845b.startLoad(jVar.b(), 10, false);
-        bVar.f17846c.startLoad(jVar.e(), 10, false);
-        bVar.f17848e.setText(jVar.f());
-        bVar.f17847d.setText(jVar.g());
+        bVar.f17413b.startLoad(jVar.b(), 10, false);
+        bVar.f17414c.startLoad(jVar.e(), 10, false);
+        bVar.f17416e.setText(jVar.f());
+        bVar.f17415d.setText(jVar.g());
         if (TbadkCoreApplication.isLogin() && jVar.c() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String p = c.a.s0.s.g0.b.j().p("member_center_item_red_tip_" + jVar.c() + currentAccount, "0");
-            if (Long.parseLong(StringUtils.isNull(jVar.h()) ? "0" : jVar.h()) > Long.parseLong(StringUtils.isNull(p) ? "0" : p)) {
+            String q = c.a.s0.s.h0.b.k().q("member_center_item_red_tip_" + jVar.c() + currentAccount, "0");
+            if (Long.parseLong(StringUtils.isNull(jVar.h()) ? "0" : jVar.h()) > Long.parseLong(StringUtils.isNull(q) ? "0" : q)) {
                 if (jVar.i() == 1) {
-                    bVar.f17849f.setVisibility(8);
+                    bVar.f17417f.setVisibility(8);
                 } else {
-                    bVar.f17849f.setVisibility(0);
+                    bVar.f17417f.setVisibility(0);
                 }
             } else {
-                bVar.f17849f.setVisibility(8);
+                bVar.f17417f.setVisibility(8);
             }
         } else {
-            bVar.f17849f.setVisibility(8);
+            bVar.f17417f.setVisibility(8);
         }
-        TbPageContext tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17840e);
+        TbPageContext tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17408e);
         if (tbPageContext == null) {
             return;
         }
@@ -199,7 +199,7 @@ public class e extends BaseAdapter {
     public void d(List<j> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f17841f = list;
+            this.f17409f = list;
         }
     }
 
@@ -208,7 +208,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<j> list = this.f17841f;
+            List<j> list = this.f17409f;
             if (list != null) {
                 return list.size();
             }
@@ -240,17 +240,17 @@ public class e extends BaseAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f17840e).inflate(R.layout.index_dressup_card_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f17408e).inflate(R.layout.index_dressup_card_item, (ViewGroup) null);
                 bVar = new b();
                 bVar.a = view.findViewById(R.id.root_card_item_view);
-                bVar.f17845b = (TbImageView) view.findViewById(R.id.bg_image);
+                bVar.f17413b = (TbImageView) view.findViewById(R.id.bg_image);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.permission_icon);
-                bVar.f17846c = tbImageView;
+                bVar.f17414c = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.transparent_bg);
-                bVar.f17846c.setDefaultBgResource(R.drawable.transparent_bg);
-                bVar.f17847d = (TextView) view.findViewById(R.id.txt_type);
-                bVar.f17848e = (TextView) view.findViewById(R.id.txt_name);
-                bVar.f17849f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
+                bVar.f17414c.setDefaultBgResource(R.drawable.transparent_bg);
+                bVar.f17415d = (TextView) view.findViewById(R.id.txt_type);
+                bVar.f17416e = (TextView) view.findViewById(R.id.txt_name);
+                bVar.f17417f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
             }
             c(bVar, item);
             view.setTag(bVar);

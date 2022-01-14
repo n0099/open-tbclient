@@ -22,25 +22,23 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45713e;
+    public boolean f44041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45714f;
+    public int f44042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45715g;
+    public boolean f44043g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45716h;
+    public boolean f44044h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f45717i;
+    public boolean f44045i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f45718j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f45719k;
+    public long f44046j;
+    public String k;
     public c.a.t0.h1.c.a l;
     public b m;
     public int mUserType;
@@ -90,9 +88,9 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
                     }
                 }
                 if (this.a.m != null) {
-                    this.a.m.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f45717i, this.a.l);
+                    this.a.m.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f44045i, this.a.l);
                 }
-                this.a.f45717i = false;
+                this.a.f44045i = false;
             }
         }
     }
@@ -120,13 +118,13 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
                 return;
             }
         }
-        this.f45715g = false;
-        this.f45717i = true;
-        this.f45718j = 0L;
+        this.f44043g = false;
+        this.f44045i = true;
+        this.f44046j = 0L;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, 309052);
         this.n = aVar;
-        this.f45716h = true;
-        this.f45719k = str;
+        this.f44044h = true;
+        this.k = str;
         aVar.getHttpMessageListener().setSelfListener(true);
         this.n.getSocketMessageListener().setSelfListener(true);
         registerListener(this.n);
@@ -144,9 +142,9 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             }
             getPersonalGiftListRequest.setPageNumber(i2);
             getPersonalGiftListRequest.setUserId(j2);
-            getPersonalGiftListRequest.setType(this.f45719k);
+            getPersonalGiftListRequest.setType(this.k);
             getPersonalGiftListRequest.userType = this.mUserType;
-            this.f45714f = i2;
+            this.f44042f = i2;
             return getPersonalGiftListRequest;
         }
         return (GetPersonalGiftListRequest) invokeCommon.objValue;
@@ -155,17 +153,17 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45716h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44044h : invokeV.booleanValue;
     }
 
     public final void D() {
         GetPersonalGiftListRequest B;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!this.f45715g) {
-                B = B(1, this.f45718j);
+            if (!this.f44043g) {
+                B = B(1, this.f44046j);
             } else {
-                B = B(this.f45714f + 1, this.f45718j);
+                B = B(this.f44042f + 1, this.f44046j);
             }
             sendMessage(B);
         }
@@ -174,7 +172,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45713e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44041e : invokeV.booleanValue;
     }
 
     public final void F(c.a.t0.h1.c.a aVar) {
@@ -199,29 +197,29 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         this.l.i(aVar.c());
         this.l.j(aVar.d());
         c.a.t0.h1.c.a aVar2 = this.l;
-        aVar2.f18495h = aVar.f18495h;
-        aVar2.f18493f = aVar.f18493f;
-        if (aVar.f18494g != null) {
-            aVar2.f18494g = new k0();
-            k0 k0Var = this.l.f18494g;
-            k0 k0Var2 = aVar.f18494g;
+        aVar2.f18037h = aVar.f18037h;
+        aVar2.f18035f = aVar.f18035f;
+        if (aVar.f18036g != null) {
+            aVar2.f18036g = new k0();
+            k0 k0Var = this.l.f18036g;
+            k0 k0Var2 = aVar.f18036g;
             k0Var.a = k0Var2.a;
-            k0Var.f13757b = k0Var2.f13757b;
+            k0Var.f13443b = k0Var2.f13443b;
         }
         if (this.l.c() != null) {
-            this.f45714f = this.l.c().a;
-            this.f45713e = this.l.c().f18506b == 1;
+            this.f44042f = this.l.c().a;
+            this.f44041e = this.l.c().f18047b == 1;
         }
         if (aVar.a() == null || aVar.a().size() <= 0) {
             return;
         }
-        if (this.f45715g) {
-            ArrayList<a.C1113a> a2 = aVar.a();
+        if (this.f44043g) {
+            ArrayList<a.C1127a> a2 = aVar.a();
             int size = this.l.a().size() + 1;
             for (int i2 = 0; i2 < a2.size(); i2++) {
-                a.C1113a c1113a = a2.get(i2);
-                if (c1113a != null) {
-                    c1113a.f18504j = size;
+                a.C1127a c1127a = a2.get(i2);
+                if (c1127a != null) {
+                    c1127a.f18046j = size;
                     size++;
                 }
             }
@@ -254,14 +252,14 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f45715g = z;
+            this.f44043g = z;
         }
     }
 
     public void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f45716h = z;
+            this.f44044h = z;
         }
     }
 
@@ -278,7 +276,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public long getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f45718j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44046j : invokeV.longValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -295,7 +293,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public void setUid(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.f45718j = j2;
+            this.f44046j = j2;
             H(String.valueOf(j2));
         }
     }

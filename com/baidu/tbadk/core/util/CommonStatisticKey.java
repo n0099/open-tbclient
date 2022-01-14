@@ -26,6 +26,13 @@ public class CommonStatisticKey {
     public static final int FUNCTION_STATISTIC_LOCATION_MESSAGE = 1;
     public static final int FUNCTION_STATISTIC_LOCATION_SHELF = 9;
     public static final String HOME_PUBLISH_ALA_CLICK = "c13619";
+    public static final String KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_CLICK = "c14545";
+    public static final String KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_SHOW = "c14544";
+    public static final String KEY_ACCELERATOR_PAGE_RETRY_BTN_CLICK = "c14549";
+    public static final String KEY_ACCELERATOR_PAGE_RETRY_BTN_SHOW = "c14548";
+    public static final String KEY_ACCELERATOR_PAGE_SHOW = "c14543";
+    public static final String KEY_ACCELERATOR_PAGE_STOP_BTN_CLICK = "c14547";
+    public static final String KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW = "c14546";
     public static final String KEY_AT_PANEL_COMMIT = "c14377";
     public static final String KEY_AT_PANEL_SHOW = "c14376";
     public static final String KEY_BAWU_FRS_MUSK_CLICK = "c14324";
@@ -58,6 +65,9 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
+    public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK = "c14541";
+    public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW = "c14540";
+    public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK = "c14542";
     public static final String KEY_FRS_ITEM_GAME_CODE_CLICK = "c14422";
     public static final String KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK = "c14424";
     public static final String KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW = "c14423";
@@ -123,6 +133,7 @@ public class CommonStatisticKey {
     public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
     public static final String KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK = "c14517";
     public static final String KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW = "c14516";
+    public static final String KEY_PB_NOVEL_INFO_JUMP_H5 = "c14552";
     public static final String KEY_PB_NOVEL_INFO_PAY_DIALOG_CLICK = "c14529";
     public static final String KEY_PB_NOVEL_INFO_PAY_DIALOG_SHOW = "c14528";
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK = "c14519";

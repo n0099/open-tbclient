@@ -376,20 +376,20 @@ public class SimpleArrayMap<K, V> {
     }
 
     @Nullable
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         int i2;
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k2, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
             int i3 = this.mSize;
-            if (k2 == null) {
+            if (k == null) {
                 indexOf = indexOfNull();
                 i2 = 0;
             } else {
-                int hashCode = k2.hashCode();
+                int hashCode = k.hashCode();
                 i2 = hashCode;
-                indexOf = indexOf(k2, hashCode);
+                indexOf = indexOf(k, hashCode);
             }
             if (indexOf >= 0) {
                 int i4 = (indexOf << 1) + 1;
@@ -434,7 +434,7 @@ public class SimpleArrayMap<K, V> {
                     iArr4[i5] = i2;
                     Object[] objArr4 = this.mArray;
                     int i9 = i5 << 1;
-                    objArr4[i9] = k2;
+                    objArr4[i9] = k;
                     objArr4[i9 + 1] = v;
                     this.mSize = i8 + 1;
                     return null;
@@ -463,12 +463,12 @@ public class SimpleArrayMap<K, V> {
     }
 
     @Nullable
-    public V putIfAbsent(K k2, V v) {
+    public V putIfAbsent(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, k2, v)) == null) {
-            V v2 = get(k2);
-            return v2 == null ? put(k2, v) : v2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, k, v)) == null) {
+            V v2 = get(k);
+            return v2 == null ? put(k, v) : v2;
         }
         return (V) invokeLL.objValue;
     }
@@ -547,11 +547,11 @@ public class SimpleArrayMap<K, V> {
     }
 
     @Nullable
-    public V replace(K k2, V v) {
+    public V replace(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, k2, v)) == null) {
-            int indexOfKey = indexOfKey(k2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, k, v)) == null) {
+            int indexOfKey = indexOfKey(k);
             if (indexOfKey >= 0) {
                 return setValueAt(indexOfKey, v);
             }
@@ -598,7 +598,7 @@ public class SimpleArrayMap<K, V> {
                 } else {
                     sb.append("(this Map)");
                 }
-                sb.append(a.f31864h);
+                sb.append(a.f30865h);
                 V valueAt = valueAt(i2);
                 if (valueAt != this) {
                     sb.append(valueAt);
@@ -636,11 +636,11 @@ public class SimpleArrayMap<K, V> {
         return invokeLL.booleanValue;
     }
 
-    public boolean replace(K k2, V v, V v2) {
+    public boolean replace(K k, V v, V v2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048597, this, k2, v, v2)) == null) {
-            int indexOfKey = indexOfKey(k2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048597, this, k, v, v2)) == null) {
+            int indexOfKey = indexOfKey(k);
             if (indexOfKey >= 0) {
                 V valueAt = valueAt(indexOfKey);
                 if (valueAt == v || (v != null && v.equals(valueAt))) {

@@ -17,7 +17,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5952b;
+    public static final boolean f5821b;
     public transient /* synthetic */ FieldHolder $fh;
     public final LruCache<String, Object> a;
 
@@ -29,7 +29,7 @@ public final class b {
 
     /* renamed from: c.a.r0.a.f1.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0305b {
+    public static class C0314b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public final class b {
                 return;
             }
         }
-        f5952b = k.a;
+        f5821b = k.a;
     }
 
     public /* synthetic */ b(a aVar) {
@@ -74,7 +74,7 @@ public final class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0305b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0314b.a : (b) invokeV.objValue;
     }
 
     public synchronized void a() {
@@ -98,18 +98,18 @@ public final class b {
                 }
                 RESULT result = (RESULT) this.a.get(str);
                 if (result == null) {
-                    if (f5952b) {
+                    if (f5821b) {
                         String str2 = "doesn't hit the cache result, key = " + str;
                     }
                     return null;
                 }
                 try {
-                    if (f5952b) {
+                    if (f5821b) {
                         String str3 = "hit the cache result, key = " + str;
                     }
                     return result;
                 } catch (Exception e2) {
-                    if (f5952b) {
+                    if (f5821b) {
                         Log.getStackTraceString(e2);
                     }
                     return null;
@@ -124,7 +124,7 @@ public final class b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str) && result != null) {
-                    if (f5952b) {
+                    if (f5821b) {
                         String str2 = "putConfig key: " + str;
                     }
                     this.a.put(str, result);
@@ -140,7 +140,7 @@ public final class b {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                if (f5952b) {
+                if (f5821b) {
                     String str2 = "removeConfig key: " + str;
                 }
                 this.a.remove(str);

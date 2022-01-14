@@ -24,10 +24,10 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f23463f;
+    public LinearLayout f22814f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23464g;
+    public TextView f22815g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext, int i2) {
@@ -55,9 +55,9 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(j.delete_original_thread_view, (ViewGroup) null);
-            this.f23463f = linearLayout;
-            this.f23464g = (TextView) linearLayout.findViewById(c.a.t0.s2.i.text);
-            return this.f23463f;
+            this.f22814f = linearLayout;
+            this.f22815g = (TextView) linearLayout.findViewById(c.a.t0.s2.i.text);
+            return this.f22814f;
         }
         return (View) invokeV.objValue;
     }
@@ -65,28 +65,28 @@ public class d extends a {
     @Override // c.a.t0.s2.u.f.e1.a
     public void b(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f23451e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f22802e == i2) {
             return;
         }
-        this.f23451e = i2;
-        SkinManager.setBackgroundColor(this.f23463f, c.a.t0.s2.f.CAM_X0204);
-        SkinManager.setViewTextColor(this.f23464g, c.a.t0.s2.f.CAM_X0105);
+        this.f22802e = i2;
+        SkinManager.setBackgroundColor(this.f22814f, c.a.t0.s2.f.CAM_X0204);
+        SkinManager.setViewTextColor(this.f22815g, c.a.t0.s2.f.CAM_X0105);
     }
 
     @Override // c.a.t0.s2.u.f.e1.a
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.f23464g.setText(new SpannableString(this.a.getString(l.origin_thread_deleted_title)));
-            SkinManager.setViewTextColor(this.f23464g, c.a.t0.s2.f.CAM_X0105);
+            this.f22815g.setText(new SpannableString(this.a.getString(l.origin_thread_deleted_title)));
+            SkinManager.setViewTextColor(this.f22815g, c.a.t0.s2.f.CAM_X0105);
         }
     }
 
     @Override // c.a.t0.s2.u.f.e1.a
-    public void d(a.InterfaceC0184a interfaceC0184a) {
+    public void d(a.InterfaceC0193a interfaceC0193a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0184a) == null) {
-            super.d(interfaceC0184a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0193a) == null) {
+            super.d(interfaceC0193a);
         }
     }
 

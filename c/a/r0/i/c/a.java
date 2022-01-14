@@ -17,14 +17,14 @@ public class a extends c.a.r0.i.e.a {
 
     /* renamed from: c.a.r0.i.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0710a implements c<f> {
+    public class C0719a implements c<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.u0.b f10988e;
+        public final /* synthetic */ c.a.r0.a.u0.b f10745e;
 
-        public C0710a(a aVar, c.a.r0.a.u0.b bVar) {
+        public C0719a(a aVar, c.a.r0.a.u0.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,7 +39,7 @@ public class a extends c.a.r0.i.e.a {
                     return;
                 }
             }
-            this.f10988e = bVar;
+            this.f10745e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,10 +49,10 @@ public class a extends c.a.r0.i.e.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
                 boolean z = true;
-                if ((fVar == null || fVar.f7281d || fVar.f7287j != 1) ? false : false) {
-                    this.f10988e.a(null);
+                if ((fVar == null || fVar.f7125d || fVar.f7131j != 1) ? false : false) {
+                    this.f10745e.a(null);
                 } else {
-                    this.f10988e.onFail(10001, "authorize fail.");
+                    this.f10745e.onFail(10001, "authorize fail.");
                 }
             }
         }
@@ -81,7 +81,7 @@ public class a extends c.a.r0.i.e.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-            if (c.a.r0.i.e.a.f10991b && jSONObject.optBoolean("debug", false)) {
+            if (c.a.r0.i.e.a.f10748b && jSONObject.optBoolean("debug", false)) {
                 bVar.a(null);
                 return null;
             }
@@ -90,7 +90,7 @@ public class a extends c.a.r0.i.e.a {
                 bVar.onFail(10001, "authorize fail.");
                 return null;
             }
-            a0.d0().e("mapp_gamecenter_private_api", new C0710a(this, bVar));
+            a0.d0().e("mapp_gamecenter_private_api", new C0719a(this, bVar));
             return null;
         }
         return (c.a.r0.a.u.h.b) invokeLL.objValue;

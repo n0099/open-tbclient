@@ -29,25 +29,25 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.t0.s2.v.b.d> f22969e;
+    public List<c.a.t0.s2.v.b.d> f22337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f22970f;
+    public Context f22338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22971g;
+    public int f22339g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22972h;
+    public int f22340h;
 
     /* renamed from: c.a.t0.s2.q.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1372a {
+    public static class C1387a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
 
-        public C1372a() {
+        public C1387a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,34 +77,34 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f22971g = 0;
-        this.f22972h = 0;
-        this.f22970f = context;
-        this.f22969e = new ArrayList();
-        this.f22971g = n.k(context) - (((int) context.getResources().getDimension(R.dimen.ds30)) * 2);
-        this.f22972h = context.getResources().getDimensionPixelSize(R.dimen.ds32);
+        this.f22339g = 0;
+        this.f22340h = 0;
+        this.f22338f = context;
+        this.f22337e = new ArrayList();
+        this.f22339g = n.k(context) - (((int) context.getResources().getDimension(R.dimen.ds30)) * 2);
+        this.f22340h = context.getResources().getDimensionPixelSize(R.dimen.ds32);
     }
 
     public final View a(int i2, View view) {
         InterceptResult invokeIL;
-        C1372a c1372a;
+        C1387a c1387a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, view)) == null) {
-            if (view != null && (view.getTag() instanceof C1372a)) {
-                c1372a = (C1372a) view.getTag();
+            if (view != null && (view.getTag() instanceof C1387a)) {
+                c1387a = (C1387a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f22970f).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
-                c1372a = new C1372a();
-                c1372a.a = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
-                view.setTag(c1372a);
+                view = LayoutInflater.from(this.f22338f).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
+                c1387a = new C1387a();
+                c1387a.a = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
+                view.setTag(c1387a);
             }
             c.a.t0.s2.v.b.d item = getItem(i2);
             if (item instanceof c.a.t0.s2.v.b.e) {
                 c.a.t0.s2.v.b.e eVar = (c.a.t0.s2.v.b.e) item;
-                if (!StringUtils.isNull(eVar.f23858i) && !"1".equals(eVar.f23858i)) {
-                    c1372a.a.setVisibility(0);
-                    ViewGroup.LayoutParams layoutParams = c1372a.a.getLayoutParams();
-                    int i3 = this.f22971g;
+                if (!StringUtils.isNull(eVar.f23198i) && !"1".equals(eVar.f23198i)) {
+                    c1387a.a.setVisibility(0);
+                    ViewGroup.LayoutParams layoutParams = c1387a.a.getLayoutParams();
+                    int i3 = this.f22339g;
                     int c2 = eVar.c(i3);
                     if (layoutParams == null) {
                         layoutParams = new AbsListView.LayoutParams(i3, c2);
@@ -112,10 +112,10 @@ public class a extends BaseAdapter {
                         layoutParams.height = c2;
                         layoutParams.width = i3;
                     }
-                    c1372a.a.setLayoutParams(layoutParams);
-                    c1372a.a.startLoad(eVar.d(), 17, false);
+                    c1387a.a.setLayoutParams(layoutParams);
+                    c1387a.a.startLoad(eVar.d(), 17, false);
                 } else {
-                    c1372a.a.setVisibility(8);
+                    c1387a.a.setVisibility(8);
                 }
             }
             return view;
@@ -130,11 +130,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<c.a.t0.s2.v.b.d> list = this.f22969e;
+            List<c.a.t0.s2.v.b.d> list = this.f22337e;
             if (list != null && list.size() > 0) {
-                int size = this.f22969e.size();
+                int size = this.f22337e.size();
                 if (i2 >= 0 && i2 < size) {
-                    return this.f22969e.get(i2);
+                    return this.f22337e.get(i2);
                 }
             }
             return null;
@@ -150,11 +150,11 @@ public class a extends BaseAdapter {
             if (view instanceof TextView) {
                 textView = (TextView) view;
             } else {
-                textView = new TextView(this.f22970f);
-                textView.setTextSize(0, this.f22970f.getResources().getDimensionPixelSize(R.dimen.fontsize32));
+                textView = new TextView(this.f22338f);
+                textView.setTextSize(0, this.f22338f.getResources().getDimensionPixelSize(R.dimen.fontsize32));
                 textView.setLineSpacing(0.0f, 1.2f);
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
-                int i3 = this.f22972h;
+                int i3 = this.f22340h;
                 textView.setPadding(i3, 0, i3, 0);
             }
             c.a.t0.s2.v.b.d item = getItem(i2);
@@ -188,11 +188,11 @@ public class a extends BaseAdapter {
     public void d(List<c.a.t0.s2.v.b.d> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f22969e.clear();
+            this.f22337e.clear();
             if (list == null || list.size() <= 0) {
                 return;
             }
-            this.f22969e.addAll(list);
+            this.f22337e.addAll(list);
         }
     }
 
@@ -201,7 +201,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<c.a.t0.s2.v.b.d> list = this.f22969e;
+            List<c.a.t0.s2.v.b.d> list = this.f22337e;
             if (list == null) {
                 return 0;
             }
@@ -225,10 +225,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<c.a.t0.s2.v.b.d> list = this.f22969e;
+            List<c.a.t0.s2.v.b.d> list = this.f22337e;
             if (list != null && list.size() > 0) {
-                if (i2 >= 0 && i2 < this.f22969e.size()) {
-                    c.a.t0.s2.v.b.d dVar = this.f22969e.get(i2);
+                if (i2 >= 0 && i2 < this.f22337e.size()) {
+                    c.a.t0.s2.v.b.d dVar = this.f22337e.get(i2);
                     if (dVar == null) {
                         return super.getItemViewType(i2);
                     }

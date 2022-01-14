@@ -24,7 +24,7 @@ public class f extends c.a.r0.a.u.e.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f9488f;
+    public static final boolean f9282f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -33,13 +33,13 @@ public class f extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9489e;
+        public final /* synthetic */ String f9283e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9490f;
+        public final /* synthetic */ c.a.r0.a.d2.e f9284f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f9491g;
+        public final /* synthetic */ f f9285g;
 
         public a(f fVar, String str, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class f extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9491g = fVar;
-            this.f9489e = str;
-            this.f9490f = eVar;
+            this.f9285g = fVar;
+            this.f9283e = str;
+            this.f9284f = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,13 +68,13 @@ public class f extends c.a.r0.a.u.e.p.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    boolean unused = f.f9488f;
-                    this.f9491g.A(this.f9490f.x(), this.f9490f);
-                    this.f9491g.d(this.f9489e, new c.a.r0.a.u.h.b(0));
+                    boolean unused = f.f9282f;
+                    this.f9285g.A(this.f9284f.x(), this.f9284f);
+                    this.f9285g.d(this.f9283e, new c.a.r0.a.u.h.b(0));
                     return;
                 }
                 int b2 = iVar.b();
-                this.f9491g.d(this.f9489e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                this.f9285g.d(this.f9283e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
             }
         }
     }
@@ -122,7 +122,7 @@ public class f extends c.a.r0.a.u.e.p.a {
                 return;
             }
         }
-        f9488f = c.a.r0.a.k.a;
+        f9282f = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -152,13 +152,13 @@ public class f extends c.a.r0.a.u.e.p.a {
             c.a.r0.a.d2.d J = c.a.r0.a.d2.d.J();
             String appId = J.getAppId();
             String n = n.n(J.l());
-            fVar.f8161f = appId;
-            fVar.f8157b = RetrieveTaskManager.KEY;
+            fVar.f7981f = appId;
+            fVar.f7977b = RetrieveTaskManager.KEY;
             fVar.a = n;
-            fVar.f8160e = "addshortcut";
+            fVar.f7980e = "addshortcut";
             b.a V = J.r().V();
             if (V != null) {
-                fVar.f8158c = V.T();
+                fVar.f7978c = V.T();
             }
             fVar.a("appid", appId);
             fVar.a("resultstate", Integer.valueOf(i2));
@@ -180,7 +180,7 @@ public class f extends c.a.r0.a.u.e.p.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             q("#addToDesktop", false);
-            if (f9488f) {
+            if (f9282f) {
                 String str2 = "#addToDesktop params = " + str;
             }
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);

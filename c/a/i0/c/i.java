@@ -135,15 +135,15 @@ public class i extends e {
                 String optString2 = jSONObject.optString("webUrl");
                 String optString3 = jSONObject.optString("pkgName");
                 if (!TextUtils.isEmpty(optString) && c.a.i0.a.c.h.b(context, optString)) {
-                    BaseVM.e("APP");
+                    BaseVM.f("APP");
                     return true;
                 } else if (!TextUtils.isEmpty(optString3) && c.a.i0.a.c.h.a(context, optString3)) {
-                    BaseVM.e("APP");
+                    BaseVM.f("APP");
                     return true;
                 } else if (TextUtils.isEmpty(optString2)) {
                     return false;
                 } else {
-                    BaseVM.e("URL");
+                    BaseVM.f("URL");
                     return g(optString2, aVar);
                 }
             } catch (JSONException e2) {

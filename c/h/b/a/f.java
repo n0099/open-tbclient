@@ -20,10 +20,10 @@ public class f {
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f29403b;
+    public static final SimpleDateFormat f28509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f29404c;
+    public static final SimpleDateFormat f28510c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -79,8 +79,8 @@ public class f {
             }
         }
         a = new Object();
-        f29403b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        f29404c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+        f28509b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        f28510c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
     public static void b() {
@@ -112,13 +112,13 @@ public class f {
             try {
                 File c2 = c.c();
                 long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + f29403b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + f28509b.format(Long.valueOf(currentTimeMillis)) + ".log";
                 BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
                 try {
                     bufferedWriter2.write("\r\n");
                     bufferedWriter2.write("**********************");
                     bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(f29404c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write(f28510c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
                     bufferedWriter2.write("\r\n");
                     bufferedWriter2.write("\r\n");
                     bufferedWriter2.write(str2);

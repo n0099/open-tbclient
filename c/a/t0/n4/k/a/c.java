@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.t0.j4.i.a f20463b;
+    public static final c.a.t0.j4.i.a f19915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f20464c;
+    public static boolean f19916c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class c {
             }
         }
         a = TimeUnit.DAYS.toMillis(5L);
-        f20463b = new c.a.t0.j4.i.a("camera_last_api", 0, "camera_last_api_stamp");
-        f20464c = "Lenovo K520".equals(Build.MODEL);
+        f19915b = new c.a.t0.j4.i.a("camera_last_api", 0, "camera_last_api_stamp");
+        f19916c = "Lenovo K520".equals(Build.MODEL);
     }
 }

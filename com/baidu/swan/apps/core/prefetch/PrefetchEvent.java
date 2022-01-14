@@ -211,7 +211,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         public Map<String, String> t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8214c : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8032c : (Map) invokeV.objValue;
         }
 
         @NonNull
@@ -219,12 +219,12 @@ public class PrefetchEvent extends SwanAppIPCData {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, String> map = this.f8214c;
+                Map<String, String> map = this.f8032c;
                 if (map == null || map.size() <= 0) {
                     return "";
                 }
                 StringBuilder sb = new StringBuilder();
-                Set<Map.Entry<String, String>> entrySet = this.f8214c.entrySet();
+                Set<Map.Entry<String, String>> entrySet = this.f8032c.entrySet();
                 int size = entrySet.size();
                 int i2 = 0;
                 for (Map.Entry<String, String> entry : entrySet) {

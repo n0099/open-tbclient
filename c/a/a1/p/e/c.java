@@ -22,30 +22,30 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f1415i = 500;
+    public static int f1405i = 500;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f1416b;
+    public volatile int f1406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f1417c;
+    public volatile boolean f1407c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1418d;
+    public int f1408d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1419e;
+    public int f1409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1420f;
+    public String f1410f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile String f1421g;
+    public volatile String f1411g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f1422h;
+    public Context f1412h;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -53,10 +53,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ byte[] f1423e;
+        public final /* synthetic */ byte[] f1413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f1424f;
+        public final /* synthetic */ c f1414f;
 
         public a(c cVar, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -73,8 +73,8 @@ public class c {
                     return;
                 }
             }
-            this.f1424f = cVar;
-            this.f1423e = bArr;
+            this.f1414f = cVar;
+            this.f1413e = bArr;
         }
 
         @Override // java.lang.Runnable
@@ -82,8 +82,8 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Bitmap a = new p(this.f1424f.f1422h).a(this.f1424f.j(this.f1423e, this.f1424f.f1419e, this.f1424f.f1418d), this.f1424f.f1418d, this.f1424f.f1419e);
-                    this.f1424f.f1421g = this.f1424f.b(a);
+                    Bitmap a = new p(this.f1414f.f1412h).a(this.f1414f.j(this.f1413e, this.f1414f.f1409e, this.f1414f.f1408d), this.f1414f.f1408d, this.f1414f.f1409e);
+                    this.f1414f.f1411g = this.f1414f.b(a);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -122,15 +122,15 @@ public class c {
             }
         }
         this.a = 0;
-        this.f1416b = -1;
-        this.f1422h = context;
+        this.f1406b = -1;
+        this.f1412h = context;
     }
 
     public final String b(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            File file = new File(new File(this.f1420f), "samplecover.dat");
+            File file = new File(new File(this.f1410f), "samplecover.dat");
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 if (bitmap != null) {
@@ -150,10 +150,10 @@ public class c {
     public void e(int i2, int i3, int i4, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            this.f1418d = i2;
-            this.f1419e = i3;
-            this.f1420f = str;
-            this.f1417c = z;
+            this.f1408d = i2;
+            this.f1409e = i3;
+            this.f1410f = str;
+            this.f1407c = z;
         }
     }
 
@@ -184,11 +184,11 @@ public class c {
                 th = th;
             }
             try {
-                byte[] bArr = new byte[f1415i];
-                randomAccessFile.read(bArr, 0, f1415i);
+                byte[] bArr = new byte[f1405i];
+                randomAccessFile.read(bArr, 0, f1405i);
                 byte[] m = m(bArr);
                 randomAccessFile.seek(0L);
-                randomAccessFile.write(m, 0, f1415i);
+                randomAccessFile.write(m, 0, f1405i);
                 f(randomAccessFile);
             } catch (Exception e3) {
                 e = e3;
@@ -207,7 +207,7 @@ public class c {
     public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            if (this.f1416b > 0 && this.f1417c && this.a == this.f1416b) {
+            if (this.f1406b > 0 && this.f1407c && this.a == this.f1406b) {
                 byte[] bArr2 = new byte[bArr.length];
                 for (int i2 = 0; i2 < bArr.length; i2++) {
                     bArr2[i2] = bArr[i2];
@@ -251,17 +251,17 @@ public class c {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f1416b >= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f1406b >= 0) {
             return;
         }
-        this.f1416b = new Random().nextInt(240);
+        this.f1406b = new Random().nextInt(240);
     }
 
     public final byte[] m(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            int i2 = f1415i;
+            int i2 = f1405i;
             int i3 = i2 / 2;
             byte[] bArr2 = new byte[i2];
             int i4 = 0;

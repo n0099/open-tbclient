@@ -136,7 +136,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
             return;
         }
-        c.a.s0.s.y.a.o(intent.getDataString(), false);
+        c.a.s0.s.y.a.n(intent.getDataString(), false);
         clearClipBoardIfNeed(intent.getData());
         parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
@@ -146,7 +146,7 @@ public class SchemaRouteActivity extends BaseActivity {
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
         if (!TextUtils.isEmpty(dataString) && SchemeActionHelper.isTieBaAppSchemeHeader(dataString)) {
             d.y().N(true);
-            if (!b.g().i("MainTabActivity")) {
+            if (!b.f().h("MainTabActivity")) {
                 targetSchemeAction = dataString;
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
                 return;
@@ -159,7 +159,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
-                if (b.g().i("MainTabActivity")) {
+                if (b.f().h("MainTabActivity")) {
                     return;
                 }
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
@@ -211,13 +211,13 @@ public class SchemaRouteActivity extends BaseActivity {
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
-            if (!b.g().i("MainTabActivity")) {
+            if (!b.f().h("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
             }
             d.y().N(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12411b + g.f12420k)) {
+                if (dataString.contains(g.f12120b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter3 = parse.getQueryParameter(g.K);
                     String queryParameter4 = parse.getQueryParameter(g.L);
@@ -227,7 +227,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12411b + g.l)) {
+                if (dataString.contains(g.f12120b + g.l)) {
                     String queryParameter5 = Uri.parse(dataString).getQueryParameter(g.M);
                     if (queryParameter5 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter5.getBytes(), 2))});
@@ -252,7 +252,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
             } else {
                 if (!TextUtils.isEmpty(dataString)) {
-                    if (dataString.contains(g.f12411b + g.q)) {
+                    if (dataString.contains(g.f12120b + g.q)) {
                         Anniversary18thActivityConfig.open(this);
                         return;
                     }
@@ -492,7 +492,7 @@ public class SchemaRouteActivity extends BaseActivity {
 
     private void setDayOrDarkSkin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || b.g().i("MainTabActivity")) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || b.f().h("MainTabActivity")) {
             return;
         }
         int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);

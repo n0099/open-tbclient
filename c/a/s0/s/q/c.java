@@ -15,33 +15,33 @@ public class c {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13625b;
+    public String f13309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13626c;
+    public String f13310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13627d;
+    public String f13311d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13628e;
+    public float f13312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13629f;
+    public String f13313f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public b f13630g;
+    public b f13314g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public a f13631h;
+    public a f13315h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13632i;
+    public String f13316i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13633j;
+    public String f13317j;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -50,10 +50,10 @@ public class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13634b;
+        public String f13318b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13635c;
+        public String f13319c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -80,11 +80,11 @@ public class c {
                 a aVar = new a();
                 aVar.a = jSONObject.optString("desc", "权限");
                 String optString = jSONObject.optString("url");
-                aVar.f13634b = optString;
+                aVar.f13318b = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    aVar.f13634b = jSONObject.optString("cmd");
+                    aVar.f13318b = jSONObject.optString("cmd");
                 }
-                aVar.f13635c = jSONObject.optString("cmd");
+                aVar.f13319c = jSONObject.optString("cmd");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -98,10 +98,10 @@ public class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13636b;
+        public String f13320b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13637c;
+        public String f13321c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -128,11 +128,11 @@ public class c {
                 b bVar = new b();
                 bVar.a = jSONObject.optString("desc", "隐私");
                 String optString = jSONObject.optString("url");
-                bVar.f13636b = optString;
+                bVar.f13320b = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    bVar.f13636b = jSONObject.optString("cmd");
+                    bVar.f13320b = jSONObject.optString("cmd");
                 }
-                bVar.f13637c = jSONObject.optString("cmd");
+                bVar.f13321c = jSONObject.optString("cmd");
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -152,7 +152,7 @@ public class c {
                 return;
             }
         }
-        this.f13628e = -1.0f;
+        this.f13312e = -1.0f;
     }
 
     public static boolean a(c cVar) {
@@ -164,7 +164,7 @@ public class c {
             if (cVar == null) {
                 return false;
             }
-            return (TextUtils.isEmpty(cVar.f13629f) && TextUtils.isEmpty(cVar.f13627d) && ((bVar = cVar.f13630g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = cVar.f13631h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+            return (TextUtils.isEmpty(cVar.f13313f) && TextUtils.isEmpty(cVar.f13311d) && ((bVar = cVar.f13314g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = cVar.f13315h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -179,23 +179,23 @@ public class c {
             }
             c cVar = new c();
             cVar.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            cVar.f13625b = jSONObject.optString("app_icon");
-            cVar.f13626c = jSONObject.optString("app_name");
-            cVar.f13627d = jSONObject.optString("developer_name");
-            cVar.f13629f = jSONObject.optString("version");
-            cVar.f13630g = b.a(jSONObject.optJSONObject("privacy"));
-            cVar.f13631h = a.a(jSONObject.optJSONObject("permission"));
-            cVar.f13632i = jSONObject.optString("apk_size");
-            cVar.f13633j = jSONObject.optString("apk_url");
+            cVar.f13309b = jSONObject.optString("app_icon");
+            cVar.f13310c = jSONObject.optString("app_name");
+            cVar.f13311d = jSONObject.optString("developer_name");
+            cVar.f13313f = jSONObject.optString("version");
+            cVar.f13314g = b.a(jSONObject.optJSONObject("privacy"));
+            cVar.f13315h = a.a(jSONObject.optJSONObject("permission"));
+            cVar.f13316i = jSONObject.optString("apk_size");
+            cVar.f13317j = jSONObject.optString("apk_url");
             try {
                 float parseFloat = Float.parseFloat(jSONObject.optString("score"));
                 if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    cVar.f13628e = parseFloat;
+                    cVar.f13312e = parseFloat;
                 } else {
-                    cVar.f13628e = -1.0f;
+                    cVar.f13312e = -1.0f;
                 }
             } catch (NumberFormatException unused) {
-                cVar.f13628e = -1.0f;
+                cVar.f13312e = -1.0f;
             }
             return cVar;
         }
@@ -209,7 +209,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cVar)) == null) {
             if (cVar != null && cVar.a) {
-                return (TextUtils.isEmpty(cVar.f13629f) || TextUtils.isEmpty(cVar.f13627d) || (bVar = cVar.f13630g) == null || TextUtils.isEmpty(bVar.f13636b) || (aVar = cVar.f13631h) == null || TextUtils.isEmpty(aVar.f13634b)) ? false : true;
+                return (TextUtils.isEmpty(cVar.f13313f) || TextUtils.isEmpty(cVar.f13311d) || (bVar = cVar.f13314g) == null || TextUtils.isEmpty(bVar.f13320b) || (aVar = cVar.f13315h) == null || TextUtils.isEmpty(aVar.f13318b)) ? false : true;
             }
             return true;
         }

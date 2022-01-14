@@ -21,10 +21,10 @@ public class a extends d {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f22419b;
+    public HashMap<String, String> f21800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f22420c;
+    public Gson f21801c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(int i2) {
@@ -44,7 +44,7 @@ public class a extends d {
                 return;
             }
         }
-        this.f22420c = new Gson();
+        this.f21801c = new Gson();
     }
 
     public String a(String str) {
@@ -55,7 +55,7 @@ public class a extends d {
                 str = str.split("[?]")[0];
             }
             String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-            HashMap<String, String> hashMap = this.f22419b;
+            HashMap<String, String> hashMap = this.f21800b;
             if (hashMap != null) {
                 return hashMap.get(replace);
             }
@@ -64,37 +64,17 @@ public class a extends d {
         return (String) invokeL.objValue;
     }
 
-    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        String json;
+    public void b(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpMessage, httpMessageTask)) == null) {
-            String a = a(httpMessageTask.getUrl());
-            if (a != null && this.a != null) {
-                if (httpMessage.getExtra() instanceof NetMessage) {
-                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                    json = netMessage.getSocketMessage() != null ? this.f22420c.toJson(netMessage.getSocketMessage().getData()) : "";
-                } else {
-                    json = this.f22420c.toJson(httpMessage.getParams());
-                }
-                this.a.a(httpMessageTask.getUrl(), this.f22420c.toJson(a), this.f22420c.toJson(json));
-            }
-            return httpMessage;
-        }
-        return (HttpMessage) invokeLL.objValue;
-    }
-
-    public void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.a = cVar;
         }
     }
 
-    public void d(HashMap<String, String> hashMap) {
+    public void c(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
-            this.f22419b = hashMap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.f21800b = hashMap;
         }
     }
 
@@ -103,7 +83,28 @@ public class a extends d {
     @Override // c.a.d.c.f.f
     public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         HttpMessage httpMessage2 = httpMessage;
-        b(httpMessage2, httpMessageTask);
+        process2(httpMessage2, httpMessageTask);
         return httpMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        String json;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
+            String a = a(httpMessageTask.getUrl());
+            if (a != null && this.a != null) {
+                if (httpMessage.getExtra() instanceof NetMessage) {
+                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
+                    json = netMessage.getSocketMessage() != null ? this.f21801c.toJson(netMessage.getSocketMessage().getData()) : "";
+                } else {
+                    json = this.f21801c.toJson(httpMessage.getParams());
+                }
+                this.a.a(httpMessageTask.getUrl(), this.f21801c.toJson(a), this.f21801c.toJson(json));
+            }
+            return httpMessage;
+        }
+        return (HttpMessage) invokeLL.objValue;
     }
 }

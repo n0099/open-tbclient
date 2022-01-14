@@ -24,28 +24,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f20640f;
+    public static d f20090f;
     public transient /* synthetic */ FieldHolder $fh;
     public BroadcastReceiver a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f20641b;
+    public Object f20091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, c.a.t0.o0.i.a> f20642c;
+    public Map<String, c.a.t0.o0.i.a> f20092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.o0.i.a f20643d;
+    public c.a.t0.o0.i.a f20093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20644e;
+    public boolean f20094e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,22 +89,22 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements s<WriteHistroyDataReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ WriteHistroyDataReqIdl f20645e;
+            public final /* synthetic */ WriteHistroyDataReqIdl f20095e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f20646f;
+            public final /* synthetic */ b f20096f;
 
             public a(b bVar, WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
                 Interceptable interceptable = $ic;
@@ -121,8 +121,8 @@ public class d {
                         return;
                     }
                 }
-                this.f20646f = bVar;
-                this.f20645e = writeHistroyDataReqIdl;
+                this.f20096f = bVar;
+                this.f20095e = writeHistroyDataReqIdl;
             }
 
             @Override // java.lang.Runnable
@@ -130,33 +130,33 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    WriteHistroyDataReqIdl writeHistroyDataReqIdl = this.f20645e;
+                    WriteHistroyDataReqIdl writeHistroyDataReqIdl = this.f20095e;
                     if (writeHistroyDataReqIdl != null) {
                         for (ConnectPointData connectPointData : writeHistroyDataReqIdl.connect_point_list) {
                             c.a.t0.o0.i.a a = c.a.t0.o0.i.a.a(connectPointData);
                             if (a != null) {
-                                hashMap.put(a.f20630e, a);
+                                hashMap.put(a.f20080e, a);
                             }
                         }
                     }
-                    synchronized (this.f20646f.a.f20641b) {
-                        if (this.f20646f.a.f20642c == null) {
-                            this.f20646f.a.f20642c = new ConcurrentHashMap();
+                    synchronized (this.f20096f.a.f20091b) {
+                        if (this.f20096f.a.f20092c == null) {
+                            this.f20096f.a.f20092c = new ConcurrentHashMap();
                         }
-                        this.f20646f.a.f20642c.clear();
-                        this.f20646f.a.f20642c.putAll(hashMap);
+                        this.f20096f.a.f20092c.clear();
+                        this.f20096f.a.f20092c.putAll(hashMap);
                     }
-                    this.f20646f.a.f20644e = true;
-                    this.f20646f.a.s();
+                    this.f20096f.a.f20094e = true;
+                    this.f20096f.a.s();
                     ArrayList<c.a.t0.o0.i.a> arrayList = new ArrayList();
-                    for (Map.Entry entry : this.f20646f.a.f20642c.entrySet()) {
-                        if (this.f20646f.a.f20643d != entry.getValue() && System.currentTimeMillis() - ((c.a.t0.o0.i.a) entry.getValue()).f20628c > 604800000) {
+                    for (Map.Entry entry : this.f20096f.a.f20092c.entrySet()) {
+                        if (this.f20096f.a.f20093d != entry.getValue() && System.currentTimeMillis() - ((c.a.t0.o0.i.a) entry.getValue()).f20078c > 604800000) {
                             arrayList.add(entry.getValue());
                             c.a.t0.o0.d.c().b("conpoint_remove", "out_time", (String) entry.getKey());
                         }
                     }
                     for (c.a.t0.o0.i.a aVar : arrayList) {
-                        this.f20646f.a.f20642c.remove(aVar.f20630e);
+                        this.f20096f.a.f20092c.remove(aVar.f20080e);
                     }
                 }
             }
@@ -191,22 +191,22 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20647e;
+        public final /* synthetic */ String f20097e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f20648f;
+        public final /* synthetic */ boolean f20098f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f20649g;
+        public final /* synthetic */ boolean f20099g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f20650h;
+        public final /* synthetic */ d f20100h;
 
         public c(d dVar, String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -223,10 +223,10 @@ public class d {
                     return;
                 }
             }
-            this.f20650h = dVar;
-            this.f20647e = str;
-            this.f20648f = z;
-            this.f20649g = z2;
+            this.f20100h = dVar;
+            this.f20097e = str;
+            this.f20098f = z;
+            this.f20099g = z2;
         }
 
         @Override // java.lang.Runnable
@@ -234,24 +234,24 @@ public class d {
             HashMap hashMap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f20650h.f20643d != null) {
-                    c.a.t0.o0.i.b bVar = this.f20650h.f20643d.a.get(this.f20647e);
+                if (this.f20100h.f20093d != null) {
+                    c.a.t0.o0.i.b bVar = this.f20100h.f20093d.a.get(this.f20097e);
                     if (bVar == null) {
                         bVar = new c.a.t0.o0.i.b();
-                        bVar.a = this.f20647e;
-                        this.f20650h.f20643d.a.put(this.f20647e, bVar);
+                        bVar.a = this.f20097e;
+                        this.f20100h.f20093d.a.put(this.f20097e, bVar);
                     }
-                    bVar.a(this.f20648f ? 1 : 0);
-                    synchronized (this.f20650h.f20641b) {
-                        hashMap = new HashMap(this.f20650h.f20642c);
+                    bVar.a(this.f20098f ? 1 : 0);
+                    synchronized (this.f20100h.f20091b) {
+                        hashMap = new HashMap(this.f20100h.f20092c);
                     }
                     c.a.t0.o0.i.c.h().j(hashMap);
                 }
-                if (this.f20649g) {
+                if (this.f20099g) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                     intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                    intent.putExtra("ip", this.f20647e);
-                    intent.putExtra("result", this.f20648f);
+                    intent.putExtra("ip", this.f20097e);
+                    intent.putExtra("result", this.f20098f);
                     f.a(TbadkCoreApplication.getInst().getContext(), intent);
                 }
             }
@@ -259,27 +259,27 @@ public class d {
     }
 
     /* renamed from: c.a.t0.o0.i.d$d  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class RunnableC1249d implements Runnable {
+    /* loaded from: classes8.dex */
+    public class RunnableC1263d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20651e;
+        public final /* synthetic */ String f20101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f20652f;
+        public final /* synthetic */ boolean f20102f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f20653g;
+        public final /* synthetic */ int f20103g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f20654h;
+        public final /* synthetic */ boolean f20104h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f20655i;
+        public final /* synthetic */ d f20105i;
 
-        public RunnableC1249d(d dVar, String str, boolean z, int i2, boolean z2) {
+        public RunnableC1263d(d dVar, String str, boolean z, int i2, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -294,11 +294,11 @@ public class d {
                     return;
                 }
             }
-            this.f20655i = dVar;
-            this.f20651e = str;
-            this.f20652f = z;
-            this.f20653g = i2;
-            this.f20654h = z2;
+            this.f20105i = dVar;
+            this.f20101e = str;
+            this.f20102f = z;
+            this.f20103g = i2;
+            this.f20104h = z2;
         }
 
         @Override // java.lang.Runnable
@@ -306,43 +306,43 @@ public class d {
             HashMap hashMap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f20655i.f20643d == null) {
+                if (this.f20105i.f20093d == null) {
                     String b2 = c.a.t0.o0.i.a.b();
                     if (!TextUtils.isEmpty(b2)) {
                         c.a.t0.o0.i.a aVar = new c.a.t0.o0.i.a();
-                        aVar.f20630e = b2;
-                        this.f20655i.f20643d = aVar;
-                        this.f20655i.f20642c.put(b2, aVar);
+                        aVar.f20080e = b2;
+                        this.f20105i.f20093d = aVar;
+                        this.f20105i.f20092c.put(b2, aVar);
                     }
                 }
-                if (this.f20655i.f20643d != null) {
-                    c.a.t0.o0.i.b bVar = this.f20655i.f20643d.a.get(this.f20651e);
+                if (this.f20105i.f20093d != null) {
+                    c.a.t0.o0.i.b bVar = this.f20105i.f20093d.a.get(this.f20101e);
                     if (bVar == null) {
                         bVar = new c.a.t0.o0.i.b();
-                        bVar.a = this.f20651e;
-                        this.f20655i.f20643d.a.put(this.f20651e, bVar);
+                        bVar.a = this.f20101e;
+                        this.f20105i.f20093d.a.put(this.f20101e, bVar);
                     }
-                    bVar.a(this.f20652f ? 1 : 0);
-                    if (this.f20652f) {
-                        c.a.t0.o0.i.b bVar2 = this.f20655i.f20643d.f20627b.get(this.f20651e);
+                    bVar.a(this.f20102f ? 1 : 0);
+                    if (this.f20102f) {
+                        c.a.t0.o0.i.b bVar2 = this.f20105i.f20093d.f20077b.get(this.f20101e);
                         if (bVar2 == null) {
                             bVar2 = new c.a.t0.o0.i.b();
-                            bVar2.a = this.f20651e;
-                            this.f20655i.f20643d.f20627b.put(this.f20651e, bVar2);
+                            bVar2.a = this.f20101e;
+                            this.f20105i.f20093d.f20077b.put(this.f20101e, bVar2);
                         }
-                        bVar2.a(this.f20653g);
+                        bVar2.a(this.f20103g);
                     }
-                    synchronized (this.f20655i.f20641b) {
-                        hashMap = new HashMap(this.f20655i.f20642c);
+                    synchronized (this.f20105i.f20091b) {
+                        hashMap = new HashMap(this.f20105i.f20092c);
                     }
                     c.a.t0.o0.i.c.h().j(hashMap);
                 }
-                if (this.f20654h) {
+                if (this.f20104h) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                     intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                    intent.putExtra("ip", this.f20651e);
-                    intent.putExtra("result", this.f20652f);
-                    intent.putExtra("speed", this.f20653g);
+                    intent.putExtra("ip", this.f20101e);
+                    intent.putExtra("result", this.f20102f);
+                    intent.putExtra("speed", this.f20103g);
                     f.a(TbadkCoreApplication.getInst().getContext(), intent);
                 }
             }
@@ -378,24 +378,24 @@ public class d {
             }
         }
         this.a = new a(this);
-        this.f20641b = new Object();
-        this.f20642c = null;
-        this.f20643d = null;
-        this.f20644e = false;
+        this.f20091b = new Object();
+        this.f20092c = null;
+        this.f20093d = null;
+        this.f20094e = false;
     }
 
     public static final d m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f20640f == null) {
+            if (f20090f == null) {
                 synchronized (d.class) {
-                    if (f20640f == null) {
-                        f20640f = new d();
+                    if (f20090f == null) {
+                        f20090f = new d();
                     }
                 }
             }
-            return f20640f;
+            return f20090f;
         }
         return (d) invokeV.objValue;
     }
@@ -413,10 +413,10 @@ public class d {
         c.a.t0.o0.i.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (!this.f20644e || (aVar = this.f20643d) == null || (bVar = aVar.a.get(str2)) == null) {
+            if (!this.f20094e || (aVar = this.f20093d) == null || (bVar = aVar.a.get(str2)) == null) {
                 return 0.0f;
             }
-            return bVar.f20632c;
+            return bVar.f20082c;
         }
         return invokeLL.floatValue;
     }
@@ -427,10 +427,10 @@ public class d {
         c.a.t0.o0.i.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!this.f20644e || (aVar = this.f20643d) == null || (bVar = aVar.f20627b.get(str2)) == null) {
+            if (!this.f20094e || (aVar = this.f20093d) == null || (bVar = aVar.f20077b.get(str2)) == null) {
                 return 10000.0f;
             }
-            return bVar.f20632c;
+            return bVar.f20082c;
         }
         return invokeLL.floatValue;
     }
@@ -444,8 +444,8 @@ public class d {
 
     public final void o(String str, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f20644e && !TextUtils.isEmpty(str)) {
-            e.i().o(new RunnableC1249d(this, str, z, i2, z2));
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f20094e && !TextUtils.isEmpty(str)) {
+            e.i().o(new RunnableC1263d(this, str, z, i2, z2));
         }
     }
 
@@ -458,7 +458,7 @@ public class d {
 
     public final void q(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f20644e && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f20094e && !TextUtils.isEmpty(str)) {
             e.i().o(new c(this, str, z, z2));
         }
     }
@@ -472,24 +472,24 @@ public class d {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f20644e) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f20094e) {
             String b2 = c.a.t0.o0.i.a.b();
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            if (!this.f20642c.containsKey(b2)) {
+            if (!this.f20092c.containsKey(b2)) {
                 e.i().g(false);
                 return;
             }
-            c.a.t0.o0.i.a aVar = this.f20642c.get(b2);
-            this.f20643d = aVar;
+            c.a.t0.o0.i.a aVar = this.f20092c.get(b2);
+            this.f20093d = aVar;
             if (aVar == null) {
                 e.i().g(false);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            c.a.t0.o0.i.a aVar2 = this.f20643d;
-            if (currentTimeMillis - aVar2.f20629d <= 3600000 || currentTimeMillis - aVar2.f20628c >= 3600000) {
+            c.a.t0.o0.i.a aVar2 = this.f20093d;
+            if (currentTimeMillis - aVar2.f20079d <= 3600000 || currentTimeMillis - aVar2.f20078c >= 3600000) {
                 return;
             }
             e.i().g(false);
@@ -506,7 +506,7 @@ public class d {
                 TbadkCoreApplication.getInst().unregisterReceiver(this.a);
                 TbadkCoreApplication.getInst().registerReceiver(this.a, new IntentFilter("action_main_process_ip_data_change"));
             }
-            if (this.f20644e) {
+            if (this.f20094e) {
                 return;
             }
             c.a.t0.o0.i.c.h().i(new b(this));

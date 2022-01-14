@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class c extends b.AbstractC0980b {
+public class c extends b.AbstractC0993b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f15866d;
+    public final int f15462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f15867e;
+    public final String f15463e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i2, String str, int i3, String str2) {
@@ -39,11 +39,11 @@ public class c extends b.AbstractC0980b {
                 return;
             }
         }
-        this.f15866d = i3;
-        this.f15867e = str2;
+        this.f15462d = i3;
+        this.f15463e = str2;
     }
 
-    @Override // c.a.t0.c3.b.AbstractC0980b, c.a.t0.c3.b
+    @Override // c.a.t0.c3.b.AbstractC0993b, c.a.t0.c3.b
     public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public class c extends b.AbstractC0980b {
             JSONObject a = super.a();
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f15866d != -4399) {
-                    jSONObject.put("code", this.f15866d);
+                if (this.f15462d != -4399) {
+                    jSONObject.put("code", this.f15462d);
                 }
-                if (!StringUtils.isNull(this.f15867e)) {
-                    jSONObject.put("msg", this.f15867e);
+                if (!StringUtils.isNull(this.f15463e)) {
+                    jSONObject.put("msg", this.f15463e);
                 }
                 a.put("ext", jSONObject);
             } catch (JSONException e2) {

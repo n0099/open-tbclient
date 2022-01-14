@@ -103,7 +103,7 @@ public class i {
                 kVar.g(jSONObject.optInt("pi", 15));
                 kVar.i(jSONObject.optInt("pp", 6));
                 kVar.l(jSONObject.optInt("pu", 0));
-                kVar.a(jSONObject.optInt(com.alipay.sdk.cons.b.f31824k, 1));
+                kVar.a(jSONObject.optInt(com.alipay.sdk.cons.b.k, 1));
                 kVar.b(jSONObject.optInt("pb", 1));
                 kVar.e(jSONObject.optInt("pg", 0));
                 kVar.k(jSONObject.optInt("pt", 20));

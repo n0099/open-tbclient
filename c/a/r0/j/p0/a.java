@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class a extends c.a.r0.a.u.e.c.a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a.InterfaceC0555a> a;
+    public ArrayList<a.InterfaceC0564a> a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class a extends c.a.r0.a.u.e.c.a implements i {
     }
 
     @Override // c.a.r0.a.u.e.c.a
-    public synchronized void b(a.InterfaceC0555a interfaceC0555a) {
+    public synchronized void b(a.InterfaceC0564a interfaceC0564a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0555a) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0564a) == null) {
             synchronized (this) {
-                if (!this.a.contains(interfaceC0555a)) {
-                    this.a.add(interfaceC0555a);
+                if (!this.a.contains(interfaceC0564a)) {
+                    this.a.add(interfaceC0564a);
                 }
             }
         }
@@ -76,7 +76,7 @@ public class a extends c.a.r0.a.u.e.c.a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             synchronized (this) {
-                Iterator<a.InterfaceC0555a> it = this.a.iterator();
+                Iterator<a.InterfaceC0564a> it = this.a.iterator();
                 while (it.hasNext()) {
                     it.next().b(i2);
                 }
@@ -88,7 +88,7 @@ public class a extends c.a.r0.a.u.e.c.a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                Iterator<a.InterfaceC0555a> it = this.a.iterator();
+                Iterator<a.InterfaceC0564a> it = this.a.iterator();
                 while (it.hasNext()) {
                     it.next().a();
                 }

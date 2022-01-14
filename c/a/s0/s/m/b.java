@@ -14,13 +14,13 @@ public class b {
     public ShareItem a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f13551b;
+    public Activity f13236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13552c;
+    public int f13237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f13553d;
+    public DialogInterface.OnCancelListener f13238d;
 
     public b(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class b {
             }
         }
         this.a = shareItem;
-        this.f13551b = activity;
-        this.f13553d = onCancelListener;
+        this.f13236b = activity;
+        this.f13238d = onCancelListener;
     }
 
     public b(ShareItem shareItem, Activity activity, int i2, DialogInterface.OnCancelListener onCancelListener) {
@@ -58,8 +58,8 @@ public class b {
             }
         }
         this.a = shareItem;
-        this.f13551b = activity;
-        this.f13552c = i2;
-        this.f13553d = onCancelListener;
+        this.f13236b = activity;
+        this.f13237c = i2;
+        this.f13238d = onCancelListener;
     }
 }

@@ -30,25 +30,23 @@ public class a extends EventTargetImpl implements d, c.a {
     public String adUnitId;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11005e;
+    public String f10761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.l0.c f11006f;
+    public c.a.r0.a.l0.c f10762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11007g;
+    public String f10763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11008h;
+    public boolean f10764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.h.i.i.b f11009i;
+    public c.a.r0.h.i.i.b f10765i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f11010j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f11011k;
+    public g f10766j;
+    public boolean k;
     public Map<String, String> l;
     public c.a.r0.j.a.f.d m;
     public f n;
@@ -57,12 +55,12 @@ public class a extends EventTargetImpl implements d, c.a {
 
     /* renamed from: c.a.r0.j.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0715a implements f {
+    public class C0724a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0715a(a aVar) {
+        public C0724a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,10 +84,10 @@ public class a extends EventTargetImpl implements d, c.a {
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                 if (z) {
                     this.a.dispatchEvent(new JSEvent("load"));
-                    c.a.r0.j.a.c.b(this.a.f11011k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, "success");
+                    c.a.r0.j.a.c.b(this.a.k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, "success");
                     return;
                 }
-                c.a.r0.j.a.c.c(this.a.f11011k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+                c.a.r0.j.a.c.c(this.a.k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
             }
         }
 
@@ -119,7 +117,7 @@ public class a extends EventTargetImpl implements d, c.a {
         @Override // c.a.r0.h.i.i.f
         public void onClick() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.f11011k) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.k) {
                 c.a.r0.j.a.c.b("gdtbanner", "click");
             }
         }
@@ -132,7 +130,7 @@ public class a extends EventTargetImpl implements d, c.a {
                 c.a.r0.j.n0.d A = c.a.r0.j.n0.d.A();
                 String str = this.a.adUnitId;
                 A.K(str, "" + System.currentTimeMillis());
-                c.a.r0.j.a.c.b(this.a.f11011k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, IntentConfig.CLOSE);
+                c.a.r0.j.a.c.b(this.a.k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, IntentConfig.CLOSE);
             }
         }
 
@@ -154,7 +152,7 @@ public class a extends EventTargetImpl implements d, c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11012e;
+        public final /* synthetic */ a f10767e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -171,7 +169,7 @@ public class a extends EventTargetImpl implements d, c.a {
                     return;
                 }
             }
-            this.f11012e = aVar;
+            this.f10767e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -179,9 +177,9 @@ public class a extends EventTargetImpl implements d, c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 JSEvent jSEvent = new JSEvent("error");
-                jSEvent.data = c.a.r0.j.a.e.b.a(this.f11012e.f11007g);
-                this.f11012e.dispatchEvent(jSEvent);
-                c.a.r0.h.i.r.b.k(this.f11012e.l, this.f11012e.f11007g);
+                jSEvent.data = c.a.r0.j.a.e.b.a(this.f10767e.f10763g);
+                this.f10767e.dispatchEvent(jSEvent);
+                c.a.r0.h.i.r.b.k(this.f10767e.l, this.f10767e.f10763g);
             }
         }
     }
@@ -206,43 +204,43 @@ public class a extends EventTargetImpl implements d, c.a {
         }
         this.style = null;
         this.l = new TreeMap();
-        this.n = new C0715a(this);
-        this.f11006f = cVar;
+        this.n = new C0724a(this);
+        this.f10762f = cVar;
         c.a.r0.a.y.b.a F = c.a.r0.a.y.b.a.F(jsObject);
         if (F != null) {
             this.adUnitId = F.B("adUnitId");
-            this.f11005e = F.B("appSid");
+            this.f10761e = F.B("appSid");
             c.a.r0.a.y.b.a w = F.w("style");
             if (w != null) {
                 this.style = new c(w);
             }
         }
         boolean e2 = i.e();
-        this.f11011k = e2;
+        this.k = e2;
         if (e2) {
-            this.f11005e = i.a();
+            this.f10761e = i.a();
             this.adUnitId = i.b();
         }
-        String str = this.f11005e;
+        String str = this.f10761e;
         String str2 = this.adUnitId;
-        boolean z = this.f11011k;
+        boolean z = this.k;
         String str3 = SpeedStatsUtils.UBC_VALUE_BANNER;
         Map<String, String> a = c.a.r0.h.i.r.b.a(SpeedStatsUtils.UBC_VALUE_BANNER, "game", str, str2, z);
         this.l = a;
         c.a.r0.h.i.r.b.m("loadApi", a);
         if (B()) {
-            if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f11005e) && this.style != null) {
+            if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f10761e) && this.style != null) {
                 c.a.r0.j.a.a aVar = new c.a.r0.j.a.a();
-                this.f11010j = aVar;
-                c.a.r0.h.i.i.b bVar = new c.a.r0.h.i.i.b(this.f11005e, this.adUnitId, this.n, aVar);
-                this.f11009i = bVar;
+                this.f10766j = aVar;
+                c.a.r0.h.i.i.b bVar = new c.a.r0.h.i.i.b(this.f10761e, this.adUnitId, this.n, aVar);
+                this.f10765i = bVar;
                 bVar.F(this.l);
                 c cVar2 = this.style;
                 if (cVar2 != null) {
-                    this.f11009i.E(cVar2.left, cVar2.top, cVar2.width, cVar2.height);
+                    this.f10765i.E(cVar2.left, cVar2.top, cVar2.width, cVar2.height);
                     this.style.b(this);
                 }
-                c.a.r0.j.a.c.b(this.f11011k ? "gdtbanner" : str3, null);
+                c.a.r0.j.a.c.b(this.k ? "gdtbanner" : str3, null);
                 return;
             }
             cVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
@@ -253,25 +251,25 @@ public class a extends EventTargetImpl implements d, c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f11007g)) {
+            if (TextUtils.isEmpty(this.f10763g)) {
                 c.a.r0.j.n0.d A = c.a.r0.j.n0.d.A();
                 if (!A.k()) {
                     if (!A.l()) {
                         if (A.t(this.adUnitId)) {
-                            this.f11007g = "3010011";
+                            this.f10763g = "3010011";
                         }
                     } else {
-                        this.f11007g = "3010013";
+                        this.f10763g = "3010013";
                     }
                 } else {
-                    this.f11007g = "3010012";
+                    this.f10763g = "3010012";
                 }
             }
-            if (TextUtils.isEmpty(this.f11007g)) {
+            if (TextUtils.isEmpty(this.f10763g)) {
                 return true;
             }
-            this.f11006f.postOnJSThread(new b(this));
-            c.a.r0.j.a.c.c(SpeedStatsUtils.UBC_VALUE_BANNER, "reject", this.f11007g);
+            this.f10762f.postOnJSThread(new b(this));
+            c.a.r0.j.a.c.c(SpeedStatsUtils.UBC_VALUE_BANNER, "reject", this.f10763g);
             return false;
         }
         return invokeV.booleanValue;
@@ -281,14 +279,14 @@ public class a extends EventTargetImpl implements d, c.a {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f11008h = true;
+            this.f10764h = true;
             removeEventListener("error", null);
             removeEventListener("load", null);
             removeEventListener("resize", null);
-            c.a.r0.h.i.i.b bVar = this.f11009i;
+            c.a.r0.h.i.i.b bVar = this.f10765i;
             if (bVar != null) {
                 bVar.y();
-                this.f11009i = null;
+                this.f10765i = null;
             }
         }
     }
@@ -297,7 +295,7 @@ public class a extends EventTargetImpl implements d, c.a {
     public void hide() {
         c.a.r0.h.i.i.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f11009i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10765i) == null) {
             return;
         }
         bVar.B();
@@ -307,7 +305,7 @@ public class a extends EventTargetImpl implements d, c.a {
     public void i(String str) {
         c.a.r0.h.i.i.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f11008h || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (bVar = this.f11009i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f10764h || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (bVar = this.f10765i) == null) {
             return;
         }
         bVar.H(str);
@@ -317,14 +315,14 @@ public class a extends EventTargetImpl implements d, c.a {
     public void showAd(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-            c.a.r0.j.a.c.d(this.f11011k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER);
+            c.a.r0.j.a.c.d(this.k ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER);
             c.a.r0.h.i.r.b.m("showApi", this.l);
-            if (!B() || this.f11009i == null) {
+            if (!B() || this.f10765i == null) {
                 return;
             }
             c.a.r0.j.n0.d.A().E();
             this.m = c.a.r0.j.a.f.d.d(c.a.r0.a.y.b.a.F(jsObject));
-            this.f11009i.G(jsObject);
+            this.f10765i.G(jsObject);
         }
     }
 }

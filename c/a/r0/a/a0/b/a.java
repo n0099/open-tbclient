@@ -66,9 +66,9 @@ public class a extends c.a.r0.a.c0.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             super.a(jSONObject);
-            this.f5425j = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
+            this.f5312j = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
             this.n = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
-            this.f5426k = !TextUtils.equals(jSONObject.optString("gesture"), "0");
+            this.k = !TextUtils.equals(jSONObject.optString("gesture"), "0");
         }
     }
 
@@ -76,6 +76,6 @@ public class a extends c.a.r0.a.c0.b.b {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f5421f) || TextUtils.isEmpty(this.f5422g)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f5308f) || TextUtils.isEmpty(this.f5309g)) ? false : true : invokeV.booleanValue;
     }
 }

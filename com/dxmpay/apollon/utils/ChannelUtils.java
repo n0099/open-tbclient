@@ -14,13 +14,13 @@ public final class ChannelUtils {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f55755b = null;
+    public static String f53641b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f55756c = "";
+    public static String f53642c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f55757d;
+    public static String f53643d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,25 +55,25 @@ public final class ChannelUtils {
     public static String getHostPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f55756c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f53642c : (String) invokeV.objValue;
     }
 
     public static String getHostUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f55757d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f53643d : (String) invokeV.objValue;
     }
 
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f55755b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f53641b : (String) invokeV.objValue;
     }
 
     public static void initBussinessParams(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, null, str, z) == null) {
-            f55755b = str;
+            f53641b = str;
             a = z;
         }
     }
@@ -81,7 +81,7 @@ public final class ChannelUtils {
     public static void initHostParams(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            f55757d = str;
+            f53643d = str;
         }
     }
 
@@ -94,7 +94,7 @@ public final class ChannelUtils {
     public static void setHostPackageName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f55756c = str;
+            f53642c = str;
         }
     }
 }

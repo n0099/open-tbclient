@@ -11,7 +11,7 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f26793e;
+    public View f25999e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class a implements Runnable {
     public void run() {
         View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view = this.f26793e) != null && (view.getTag() instanceof e)) {
-            ((e) this.f26793e.getTag()).startPlay();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view = this.f25999e) != null && (view.getTag() instanceof e)) {
+            ((e) this.f25999e.getTag()).startPlay();
         }
     }
 }

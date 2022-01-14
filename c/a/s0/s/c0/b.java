@@ -22,6 +22,8 @@ public class b {
             b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
             b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
             b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
+            b(jSONObject, "continuous_crash_times", String.valueOf(c.a.s0.s.f0.a.q().o()));
+            b(jSONObject, "trigger_safe_mode_status", String.valueOf(c.a.s0.s.f0.a.q().s()));
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

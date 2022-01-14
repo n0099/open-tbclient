@@ -13,10 +13,10 @@ public class a implements Comparable<a> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60662b;
+    public String f58366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60663c;
+    public boolean f58367c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,6 +38,6 @@ public class a implements Comparable<a> {
     public int compareTo(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f60662b.compareTo(this.f60662b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f58366b.compareTo(this.f58366b) : invokeL.intValue;
     }
 }

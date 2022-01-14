@@ -17,31 +17,29 @@ public class g extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f7704c;
+    public c f7536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f7705d;
+    public m f7537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f7706e;
+    public e f7538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f7707f;
+    public d f7539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j f7708g;
+    public j f7540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f7709h;
+    public b f7541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public k f7710i;
+    public k f7542i;
 
     /* renamed from: j  reason: collision with root package name */
-    public i f7711j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public l f7712k;
+    public i f7543j;
+    public l k;
     public f l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +68,7 @@ public class g extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -165,58 +163,58 @@ public class g extends z {
             }
             switch (c2) {
                 case 0:
-                    if (this.f7704c == null) {
-                        this.f7704c = new c("/swanAPI/video/open");
+                    if (this.f7536c == null) {
+                        this.f7536c = new c("/swanAPI/video/open");
                     }
-                    c3 = this.f7704c.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7536c.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 1:
-                    if (this.f7705d == null) {
-                        this.f7705d = new m("/swanAPI/video/update");
+                    if (this.f7537d == null) {
+                        this.f7537d = new m("/swanAPI/video/update");
                     }
-                    c3 = this.f7705d.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7537d.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 2:
-                    if (this.f7711j == null) {
-                        this.f7711j = new i("/swanAPI/video/remove");
+                    if (this.f7543j == null) {
+                        this.f7543j = new i("/swanAPI/video/remove");
                     }
-                    c3 = this.f7711j.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7543j.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 3:
-                    if (this.f7706e == null) {
-                        this.f7706e = new e("/swanAPI/video/play");
+                    if (this.f7538e == null) {
+                        this.f7538e = new e("/swanAPI/video/play");
                     }
-                    c3 = this.f7706e.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7538e.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 4:
-                    if (this.f7707f == null) {
-                        this.f7707f = new d("/swanAPI/video/pause");
+                    if (this.f7539f == null) {
+                        this.f7539f = new d("/swanAPI/video/pause");
                     }
-                    c3 = this.f7707f.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7539f.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 5:
-                    if (this.f7708g == null) {
-                        this.f7708g = new j("/swanAPI/video/seek");
+                    if (this.f7540g == null) {
+                        this.f7540g = new j("/swanAPI/video/seek");
                     }
-                    c3 = this.f7708g.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7540g.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 6:
-                    if (this.f7709h == null) {
-                        this.f7709h = new b("/swanAPI/video/fullScreen");
+                    if (this.f7541h == null) {
+                        this.f7541h = new b("/swanAPI/video/fullScreen");
                     }
-                    c3 = this.f7709h.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7541h.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case 7:
-                    if (this.f7710i == null) {
-                        this.f7710i = new k("/swanAPI/video/sendDanmu");
+                    if (this.f7542i == null) {
+                        this.f7542i = new k("/swanAPI/video/sendDanmu");
                     }
-                    c3 = this.f7710i.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.f7542i.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case '\b':
-                    if (this.f7712k == null) {
-                        this.f7712k = new l("/swanAPI/video/stop");
+                    if (this.k == null) {
+                        this.k = new l("/swanAPI/video/stop");
                     }
-                    c3 = this.f7712k.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                    c3 = this.k.c(context, unitedSchemeEntity, callbackHandler, eVar);
                     break;
                 case '\t':
                     if (this.l == null) {

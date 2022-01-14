@@ -141,7 +141,7 @@ public class TbLiveCyberView extends CyberVideoView {
             }
             new WeakReference(TbadkCoreApplication.getInst());
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.t0.a0.b
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.t0.a0.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i2, i3, obj)) == null) ? TbLiveCyberView.this.l(i2, i3, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.t0.a0.a
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.t0.a0.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

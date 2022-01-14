@@ -14,10 +14,10 @@ public class i {
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28273b;
+    public int f27416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28274c;
+    public boolean f27417c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i() {
@@ -42,12 +42,12 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
             float[] fArr = this.a;
-            int i2 = this.f28273b;
+            int i2 = this.f27416b;
             if (i2 == fArr.length) {
                 fArr = d(Math.max(8, (int) (i2 * 1.75f)));
             }
-            int i3 = this.f28273b;
-            this.f28273b = i3 + 1;
+            int i3 = this.f27416b;
+            this.f27416b = i3 + 1;
             fArr[i3] = f2;
         }
     }
@@ -55,7 +55,7 @@ public class i {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28273b = 0;
+            this.f27416b = 0;
         }
     }
 
@@ -63,10 +63,10 @@ public class i {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 < this.f28273b) {
+            if (i2 < this.f27416b) {
                 return this.a[i2];
             }
-            throw new IndexOutOfBoundsException("index can't be >= size: " + i2 + " >= " + this.f28273b);
+            throw new IndexOutOfBoundsException("index can't be >= size: " + i2 + " >= " + this.f27416b);
         }
         return invokeI.floatValue;
     }
@@ -76,7 +76,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             float[] fArr = new float[i2];
-            System.arraycopy(this.a, 0, fArr, 0, Math.min(this.f28273b, i2));
+            System.arraycopy(this.a, 0, fArr, 0, Math.min(this.f27416b, i2));
             this.a = fArr;
             return fArr;
         }
@@ -91,9 +91,9 @@ public class i {
             if (obj == this) {
                 return true;
             }
-            if (this.f28274c && (obj instanceof i)) {
+            if (this.f27417c && (obj instanceof i)) {
                 i iVar = (i) obj;
-                if (iVar.f28274c && (i2 = this.f28273b) == iVar.f28273b) {
+                if (iVar.f27417c && (i2 = this.f27416b) == iVar.f27416b) {
                     float[] fArr = this.a;
                     float[] fArr2 = iVar.a;
                     for (int i3 = 0; i3 < i2; i3++) {
@@ -114,9 +114,9 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f28274c) {
+            if (this.f27417c) {
                 float[] fArr = this.a;
-                int i2 = this.f28273b;
+                int i2 = this.f27416b;
                 int i3 = 1;
                 for (int i4 = 0; i4 < i2; i4++) {
                     i3 = (i3 * 31) + t.b(fArr[i4]);
@@ -131,22 +131,22 @@ public class i {
     public void insert(int i2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            int i3 = this.f28273b;
+            int i3 = this.f27416b;
             if (i2 <= i3) {
                 float[] fArr = this.a;
                 if (i3 == fArr.length) {
                     fArr = d(Math.max(8, (int) (i3 * 1.75f)));
                 }
-                if (this.f28274c) {
-                    System.arraycopy(fArr, i2, fArr, i2 + 1, this.f28273b - i2);
+                if (this.f27417c) {
+                    System.arraycopy(fArr, i2, fArr, i2 + 1, this.f27416b - i2);
                 } else {
-                    fArr[this.f28273b] = fArr[i2];
+                    fArr[this.f27416b] = fArr[i2];
                 }
-                this.f28273b++;
+                this.f27416b++;
                 fArr[i2] = f2;
                 return;
             }
-            throw new IndexOutOfBoundsException("index can't be > size: " + i2 + " > " + this.f28273b);
+            throw new IndexOutOfBoundsException("index can't be > size: " + i2 + " > " + this.f27416b);
         }
     }
 
@@ -154,14 +154,14 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f28273b == 0) {
+            if (this.f27416b == 0) {
                 return "[]";
             }
             float[] fArr = this.a;
             j0 j0Var = new j0(32);
             j0Var.a('[');
             j0Var.c(fArr[0]);
-            for (int i2 = 1; i2 < this.f28273b; i2++) {
+            for (int i2 = 1; i2 < this.f27416b; i2++) {
                 j0Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 j0Var.c(fArr[i2]);
             }
@@ -207,7 +207,7 @@ public class i {
                 return;
             }
         }
-        this.f28274c = z;
+        this.f27417c = z;
         this.a = new float[i2];
     }
 }

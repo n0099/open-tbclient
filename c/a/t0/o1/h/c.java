@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f21002b;
+    public static int f20439b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,7 +58,7 @@ public class c {
         View childAt = bdTypeRecyclerView.getChildAt(0);
         int top = childAt != null ? childAt.getTop() : 0;
         a = firstVisiblePosition;
-        f21002b = top;
+        f20439b = top;
     }
 
     public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
@@ -67,8 +67,8 @@ public class c {
             return;
         }
         bdTypeRecyclerView.requestFocusFromTouch();
-        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, f21002b);
+        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, f20439b);
         a = 0;
-        f21002b = 0;
+        f20439b = 0;
     }
 }

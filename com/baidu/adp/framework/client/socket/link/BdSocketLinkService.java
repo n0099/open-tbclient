@@ -215,7 +215,7 @@ public class BdSocketLinkService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f32162e;
+        public final /* synthetic */ BdSocketLinkService f31151e;
 
         public c(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f32162e = bdSocketLinkService;
+            this.f31151e = bdSocketLinkService;
         }
 
         @Override // android.content.ServiceConnection
@@ -257,7 +257,7 @@ public class BdSocketLinkService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f32163e;
+        public final /* synthetic */ BdSocketLinkService f31152e;
 
         public d(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f32163e = bdSocketLinkService;
+            this.f31152e = bdSocketLinkService;
         }
     }
 
@@ -531,7 +531,7 @@ public class BdSocketLinkService extends BdBaseService {
         if (interceptable == null || interceptable.invokeLI(1048581, this, intent, i2) == null) {
             super.onStart(intent, i2);
             c.a.d.c.e.c.k.b bVar = mCanOpenWebSocket;
-            if (bVar != null && !bVar.a()) {
+            if (bVar != null && !bVar.canOpenWebSocket()) {
                 close("exit app");
             } else if (intent != null) {
                 String stringExtra = intent.getStringExtra("reason");

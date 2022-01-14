@@ -25,25 +25,23 @@ public class MemberPayFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47703e;
+    public int f45929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47704f;
+    public String f45930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47705g;
+    public String f45931g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47706h;
+    public boolean f45932h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47707i;
+    public int f45933i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f47708j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public f f47709k;
+    public b f45934j;
+    public f k;
     public View l;
 
     public MemberPayFragment() {
@@ -59,13 +57,13 @@ public class MemberPayFragment extends BaseFragment {
                 return;
             }
         }
-        this.f47709k = null;
+        this.k = null;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47703e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45929e : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -81,7 +79,7 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b bVar = this.f47708j;
+            b bVar = this.f45934j;
             if (bVar != null) {
                 bVar.p(i2);
             }
@@ -94,11 +92,11 @@ public class MemberPayFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
-            this.f47703e = arguments.getInt("member_type");
-            this.f47704f = arguments.getString(MEMBER_REFER_PAGE);
-            this.f47705g = arguments.getString(MEMBER_CLICK_ZONE);
-            this.f47706h = arguments.getBoolean(MEMBER_IS_PAY_DIALOG);
-            this.f47707i = arguments.getInt(MEMBER_FROM_TYPE);
+            this.f45929e = arguments.getInt("member_type");
+            this.f45930f = arguments.getString(MEMBER_REFER_PAGE);
+            this.f45931g = arguments.getString(MEMBER_CLICK_ZONE);
+            this.f45932h = arguments.getBoolean(MEMBER_IS_PAY_DIALOG);
+            this.f45933i = arguments.getInt(MEMBER_FROM_TYPE);
         }
     }
 
@@ -108,9 +106,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.l = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-            b bVar = new b(getPageContext(), this.l, this.f47703e, this.f47704f, this.f47705g, this.f47706h, this.f47707i);
-            this.f47708j = bVar;
-            bVar.s(this.f47709k);
+            b bVar = new b(getPageContext(), this.l, this.f45929e, this.f45930f, this.f45931g, this.f45932h, this.f45933i);
+            this.f45934j = bVar;
+            bVar.s(this.k);
             return this.l;
         }
         return (View) invokeLLL.objValue;
@@ -119,7 +117,7 @@ public class MemberPayFragment extends BaseFragment {
     public void refreshAutoPayItemUI(Boolean bool) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (bVar = this.f47708j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (bVar = this.f45934j) == null) {
             return;
         }
         bVar.q(bool.booleanValue());
@@ -128,8 +126,8 @@ public class MemberPayFragment extends BaseFragment {
     public void setDataAndRefreshUI(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-            this.f47709k = fVar;
-            b bVar = this.f47708j;
+            this.k = fVar;
+            b bVar = this.f45934j;
             if (bVar != null) {
                 bVar.s(fVar);
             }

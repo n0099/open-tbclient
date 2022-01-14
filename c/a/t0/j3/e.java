@@ -18,10 +18,10 @@ public class e {
     public static final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f18738b;
+    public static final long f18270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f18739c;
+    public static final long f18271c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class e {
         }
         a = TimeUnit.DAYS.toMillis(1L);
         TimeUnit.HOURS.toMillis(1L);
-        f18738b = TimeUnit.MINUTES.toMillis(1L);
-        f18739c = TimeUnit.SECONDS.toMillis(1L);
+        f18270b = TimeUnit.MINUTES.toMillis(1L);
+        f18271c = TimeUnit.SECONDS.toMillis(1L);
     }
 
     public static int a(@NonNull String str) {
@@ -101,7 +101,7 @@ public class e {
     public static boolean e(long j2, long j3, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? j2 - j3 > ((long) i2) * f18738b : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? j2 - j3 > ((long) i2) * f18270b : invokeCommon.booleanValue;
     }
 
     public static boolean f(long j2, long j3) {

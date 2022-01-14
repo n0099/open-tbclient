@@ -2,10 +2,10 @@ package com.baidu.tieba.write.vcode.newVcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.s0.t.c.m0;
-import c.a.t0.o4.c0.a.a.a;
-import c.a.t0.o4.c0.a.a.b;
-import c.a.t0.o4.c0.a.a.c;
+import c.a.s0.t.c.n0;
+import c.a.t0.p4.c0.a.a.a;
+import c.a.t0.p4.c0.a.a.b;
+import c.a.t0.p4.c0.a.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -70,9 +70,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, m0 m0Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, n0 n0Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m0Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n0Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
                     return;
                 }
                 if (postWriteCallBackData.getErrorCode() == 220015) {
@@ -90,15 +90,15 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     intent2.putExtras(bundle2);
                     this.a.setResult(0, intent2);
                     this.a.finish();
-                } else if (m0Var == null || writeData == null) {
+                } else if (n0Var == null || writeData == null) {
                 } else {
                     this.a.mPageType = c.a.d.f.m.b.e("4", 0);
                     this.a.mPresenter.d();
                     this.a.mPresenter.onDestroy();
                     this.a.mWriteData = writeData;
-                    this.a.mWriteData.setVcodeMD5(m0Var.b());
-                    this.a.mWriteData.setVcodeUrl(m0Var.c());
-                    this.a.mWriteData.setVcodeExtra(m0Var.a());
+                    this.a.mWriteData.setVcodeMD5(n0Var.b());
+                    this.a.mWriteData.setVcodeUrl(n0Var.c());
+                    this.a.mWriteData.setVcodeExtra(n0Var.a());
                     this.a.mWriteModel.setWriteData(this.a.mWriteData);
                     NewVcodeActivity newVcodeActivity = this.a;
                     newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();

@@ -36,14 +36,14 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public AlaEnterEffectData mData;
     public c.a.t0.a0.l.g.d.e.a mMainView;
     public c.a.t0.a0.l.g.d.e.b mModel;
-    public b.InterfaceC0942b mModelCallback;
+    public b.InterfaceC0955b mModelCallback;
     public c.a.t0.a0.l.g.d.b mPreViewController;
     public String mSelectedEffectId;
     public c.a.t0.a0.l.g.b mTDouBuyController;
     public a.b mViewClickListener;
 
     /* loaded from: classes12.dex */
-    public class a implements b.InterfaceC0942b {
+    public class a implements b.InterfaceC0955b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -66,7 +66,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // c.a.t0.a0.l.g.d.e.b.InterfaceC0942b
+        @Override // c.a.t0.a0.l.g.d.e.b.InterfaceC0955b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -74,7 +74,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.t0.a0.l.g.d.e.b.InterfaceC0942b
+        @Override // c.a.t0.a0.l.g.d.e.b.InterfaceC0955b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a.mData == null) {
@@ -97,7 +97,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaEnterEffectDetailActivity f43730e;
+        public final /* synthetic */ AlaEnterEffectDetailActivity f42144e;
 
         public b(AlaEnterEffectDetailActivity alaEnterEffectDetailActivity) {
             Interceptable interceptable = $ic;
@@ -114,15 +114,15 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f43730e = alaEnterEffectDetailActivity;
+            this.f42144e = alaEnterEffectDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43730e.setResult(0);
-                this.f43730e.finish();
+                this.f42144e.setResult(0);
+                this.f42144e.finish();
             }
         }
     }
@@ -221,7 +221,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f43731e;
+            public final /* synthetic */ e f42145e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -238,7 +238,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f43731e = eVar;
+                this.f42145e = eVar;
             }
 
             @Override // c.a.s0.s.s.a.e
@@ -246,8 +246,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    if (this.f43731e.a.mData != null) {
-                        this.f43731e.a.mModel.b(this.f43731e.a.mData.id, this.f43731e.a.mData.use_status != 1);
+                    if (this.f42145e.a.mData != null) {
+                        this.f42145e.a.mModel.b(this.f42145e.a.mData.id, this.f42145e.a.mData.use_status != 1);
                     }
                 }
             }

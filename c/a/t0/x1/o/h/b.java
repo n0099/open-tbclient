@@ -18,13 +18,13 @@ public interface b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f25924b;
+        public String f25162b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f25925c;
+        public ArrayList<String> f25163c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<String> f25926d;
+        public ArrayList<String> f25164d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public interface b {
                     return;
                 }
             }
-            this.f25925c = new ArrayList<>();
-            this.f25926d = new ArrayList<>();
+            this.f25163c = new ArrayList<>();
+            this.f25164d = new ArrayList<>();
         }
 
         public void a(JSONObject jSONObject) {
@@ -54,11 +54,11 @@ public interface b {
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("show_url");
                     if (!TextUtils.isEmpty(optString)) {
-                        this.f25925c.add(optString);
+                        this.f25163c.add(optString);
                     }
                     String optString2 = optJSONObject.optString("click_url");
                     if (!TextUtils.isEmpty(optString2)) {
-                        this.f25926d.add(optString2);
+                        this.f25164d.add(optString2);
                     }
                 }
             }

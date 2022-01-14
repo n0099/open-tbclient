@@ -30,32 +30,32 @@ public final class b implements ServiceConnection {
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, b> f62999b;
+    public static Map<String, b> f60622b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f63000c;
+    public boolean f60623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63001d;
+    public String f60624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f63002e;
+    public Context f60625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f63003f;
+    public AtomicInteger f60626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile IPCInvoke f63004g;
+    public volatile IPCInvoke f60627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f63005h;
+    public Object f60628h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f63006i;
+    public String f60629i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f63007j;
+    public Handler f60630j;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public final class b implements ServiceConnection {
             }
         }
         a = new Object();
-        f62999b = new HashMap();
+        f60622b = new HashMap();
     }
 
     public b(Context context, String str) {
@@ -89,37 +89,37 @@ public final class b implements ServiceConnection {
                 return;
             }
         }
-        this.f63001d = null;
-        this.f63005h = new Object();
-        this.f63007j = null;
-        this.f63002e = context;
-        this.f63006i = str;
-        this.f63003f = new AtomicInteger(1);
-        this.f63007j = new Handler(Looper.getMainLooper(), new c(this));
+        this.f60624d = null;
+        this.f60628h = new Object();
+        this.f60630j = null;
+        this.f60625e = context;
+        this.f60629i = str;
+        this.f60626f = new AtomicInteger(1);
+        this.f60630j = new Handler(Looper.getMainLooper(), new c(this));
         String b2 = t.b(context);
-        this.f63001d = b2;
-        if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(this.f63006i)) {
-            this.f63000c = aa.a(context, this.f63001d) >= 1260;
+        this.f60624d = b2;
+        if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(this.f60629i)) {
+            this.f60623c = aa.a(context, this.f60624d) >= 1260;
             b();
             return;
         }
-        Context context2 = this.f63002e;
-        com.vivo.push.util.p.c(context2, "init error : push pkgname is " + this.f63001d + " ; action is " + this.f63006i);
-        this.f63000c = false;
+        Context context2 = this.f60625e;
+        com.vivo.push.util.p.c(context2, "init error : push pkgname is " + this.f60624d + " ; action is " + this.f60629i);
+        this.f60623c = false;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.f63007j.removeMessages(1);
-            this.f63007j.sendEmptyMessageDelayed(1, 3000L);
+            this.f60630j.removeMessages(1);
+            this.f60630j.sendEmptyMessageDelayed(1, 3000L);
         }
     }
 
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f63007j.removeMessages(1);
+            this.f60630j.removeMessages(1);
         }
     }
 
@@ -128,7 +128,7 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             try {
-                this.f63002e.unbindService(this);
+                this.f60625e.unbindService(this);
             } catch (Exception e2) {
                 com.vivo.push.util.p.a("AidlManager", "On unBindServiceException:" + e2.getMessage());
             }
@@ -148,20 +148,20 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, componentName, iBinder) == null) {
             e();
-            this.f63004g = IPCInvoke.Stub.asInterface(iBinder);
-            if (this.f63004g == null) {
+            this.f60627g = IPCInvoke.Stub.asInterface(iBinder);
+            if (this.f60627g == null) {
                 com.vivo.push.util.p.d("AidlManager", "onServiceConnected error : aidl must not be null.");
                 f();
-                this.f63003f.set(1);
+                this.f60626f.set(1);
                 return;
             }
-            if (this.f63003f.get() == 2) {
+            if (this.f60626f.get() == 2) {
                 a(4);
-            } else if (this.f63003f.get() != 4) {
+            } else if (this.f60626f.get() != 4) {
                 f();
             }
-            synchronized (this.f63005h) {
-                this.f63005h.notifyAll();
+            synchronized (this.f60628h) {
+                this.f60628h.notifyAll();
             }
         }
     }
@@ -170,7 +170,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, componentName) == null) {
-            this.f63004g = null;
+            this.f60627g = null;
             a(1);
         }
     }
@@ -179,13 +179,13 @@ public final class b implements ServiceConnection {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            b bVar = f62999b.get(str);
+            b bVar = f60622b.get(str);
             if (bVar == null) {
                 synchronized (a) {
-                    bVar = f62999b.get(str);
+                    bVar = f60622b.get(str);
                     if (bVar == null) {
                         bVar = new b(context, str);
-                        f62999b.put(str, bVar);
+                        f60622b.put(str, bVar);
                     }
                 }
             }
@@ -197,9 +197,9 @@ public final class b implements ServiceConnection {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            int i2 = this.f63003f.get();
+            int i2 = this.f60626f.get();
             com.vivo.push.util.p.d("AidlManager", "Enter connect, Connection Status: ".concat(String.valueOf(i2)));
-            if (i2 == 4 || i2 == 2 || i2 == 3 || i2 == 5 || !this.f63000c) {
+            if (i2 == 4 || i2 == 2 || i2 == 3 || i2 == 5 || !this.f60623c) {
                 return;
             }
             a(2);
@@ -216,10 +216,10 @@ public final class b implements ServiceConnection {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            Intent intent = new Intent(this.f63006i);
-            intent.setPackage(this.f63001d);
+            Intent intent = new Intent(this.f60629i);
+            intent.setPackage(this.f60624d);
             try {
-                return this.f63002e.bindService(intent, this, 1);
+                return this.f60625e.bindService(intent, this, 1);
             } catch (Exception e2) {
                 com.vivo.push.util.p.a("AidlManager", "bind core error", e2);
                 return false;
@@ -232,14 +232,14 @@ public final class b implements ServiceConnection {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String b2 = t.b(this.f63002e);
-            this.f63001d = b2;
+            String b2 = t.b(this.f60625e);
+            this.f60624d = b2;
             if (TextUtils.isEmpty(b2)) {
-                com.vivo.push.util.p.c(this.f63002e, "push pkgname is null");
+                com.vivo.push.util.p.c(this.f60625e, "push pkgname is null");
                 return false;
             }
-            boolean z = aa.a(this.f63002e, this.f63001d) >= 1260;
-            this.f63000c = z;
+            boolean z = aa.a(this.f60625e, this.f60624d) >= 1260;
+            this.f60623c = z;
             return z;
         }
         return invokeV.booleanValue;
@@ -249,7 +249,7 @@ public final class b implements ServiceConnection {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            this.f63003f.set(i2);
+            this.f60626f.set(i2);
         }
     }
 
@@ -258,28 +258,28 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             b();
-            if (this.f63003f.get() == 2) {
-                synchronized (this.f63005h) {
+            if (this.f60626f.get() == 2) {
+                synchronized (this.f60628h) {
                     try {
-                        this.f63005h.wait(2000L);
+                        this.f60628h.wait(2000L);
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
                     }
                 }
             }
             try {
-                int i2 = this.f63003f.get();
+                int i2 = this.f60626f.get();
                 if (i2 == 4) {
-                    this.f63007j.removeMessages(2);
-                    this.f63007j.sendEmptyMessageDelayed(2, 30000L);
-                    this.f63004g.asyncCall(bundle, null);
+                    this.f60630j.removeMessages(2);
+                    this.f60630j.sendEmptyMessageDelayed(2, 30000L);
+                    this.f60627g.asyncCall(bundle, null);
                     return true;
                 }
                 com.vivo.push.util.p.d("AidlManager", "invoke error : connect status = ".concat(String.valueOf(i2)));
                 return false;
             } catch (Exception e3) {
                 com.vivo.push.util.p.a("AidlManager", "invoke error ", e3);
-                int i3 = this.f63003f.get();
+                int i3 = this.f60626f.get();
                 com.vivo.push.util.p.d("AidlManager", "Enter disconnect, Connection Status: ".concat(String.valueOf(i3)));
                 if (i3 == 2) {
                     e();

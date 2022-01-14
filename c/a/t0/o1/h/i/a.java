@@ -1,6 +1,6 @@
 package c.a.t0.o1.h.i;
 
-import c.a.s0.s.i0.g;
+import c.a.s0.s.j0.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.personalize.PersonalizePageView;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends g implements BigdaySwipeRefreshLayout.k, PersonalizePageView.h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class a extends g implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         }
     }
 
-    @Override // c.a.s0.s.i0.f
+    @Override // c.a.s0.s.j0.f
     public boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

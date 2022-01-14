@@ -24,25 +24,23 @@ public class BasicTaskItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47611e;
+    public Context f45842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47612f;
+    public View f45843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47613g;
+    public TbImageView f45844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47614h;
+    public TextView f45845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47615i;
+    public TextView f45846i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f47616j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f47617k;
+    public TextView f45847j;
+    public View k;
     public View l;
     public View.OnClickListener m;
 
@@ -64,38 +62,38 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47611e = context;
+        this.f45842e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f47611e).inflate(R.layout.index_task_item, this);
-            this.f47612f = inflate;
+            View inflate = LayoutInflater.from(this.f45842e).inflate(R.layout.index_task_item, this);
+            this.f45843f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f47613g = (TbImageView) this.f47612f.findViewById(R.id.task_icon);
-            this.f47614h = (TextView) this.f47612f.findViewById(R.id.txt_title);
-            this.f47615i = (TextView) this.f47612f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f47612f.findViewById(R.id.txt_status);
-            this.f47616j = textView;
+            this.f45844g = (TbImageView) this.f45843f.findViewById(R.id.task_icon);
+            this.f45845h = (TextView) this.f45843f.findViewById(R.id.txt_title);
+            this.f45846i = (TextView) this.f45843f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f45843f.findViewById(R.id.txt_status);
+            this.f45847j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.f47617k = this.f47612f.findViewById(R.id.divider_line);
+            this.k = this.f45843f.findViewById(R.id.divider_line);
         }
     }
 
     public void hideDivideLine() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47617k.setVisibility(8);
+            this.k.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f47611e), this.f47612f);
+            a.a((TbPageContext) j.a(this.f45842e), this.f45843f);
         }
     }
 
@@ -105,19 +103,19 @@ public class BasicTaskItemView extends LinearLayout {
             return;
         }
         this.l.setTag(oVar);
-        this.f47616j.setTag(oVar);
-        this.f47613g.startLoad(oVar.b(), 10, false);
-        this.f47614h.setText(oVar.f());
-        this.f47615i.setText(oVar.a());
+        this.f45847j.setTag(oVar);
+        this.f45844g.startLoad(oVar.b(), 10, false);
+        this.f45845h.setText(oVar.f());
+        this.f45846i.setText(oVar.a());
         if (oVar.c()) {
-            this.f47616j.setText(this.f47611e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
-            this.f47616j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f47616j.setBackgroundDrawable(null);
+            this.f45847j.setText(this.f45842e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+            this.f45847j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f45847j.setBackgroundDrawable(null);
             return;
         }
-        this.f47616j.setText(this.f47611e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-        this.f47616j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
-        this.f47616j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
+        this.f45847j.setText(this.f45842e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+        this.f45847j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
+        this.f45847j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
@@ -145,7 +143,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47611e = context;
+        this.f45842e = context;
         this.m = onClickListener;
         a();
     }
@@ -169,7 +167,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47611e = context;
+        this.f45842e = context;
         a();
     }
 
@@ -192,7 +190,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47611e = context;
+        this.f45842e = context;
         a();
     }
 }

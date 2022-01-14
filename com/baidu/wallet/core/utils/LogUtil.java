@@ -14,19 +14,19 @@ public final class LogUtil {
     public static final String a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f53010b = false;
+    public static final boolean f50967b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f53011c = false;
+    public static final boolean f50968c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f53012d = false;
+    public static final boolean f50969d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f53013e = false;
+    public static final boolean f50970e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f53014f = false;
+    public static final boolean f50971f = false;
     public transient /* synthetic */ FieldHolder $fh;
 
     public LogUtil() {

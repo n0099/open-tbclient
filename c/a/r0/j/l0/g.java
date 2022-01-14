@@ -31,25 +31,23 @@ public final class g extends EventTargetImpl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f11310e;
+    public final String f11058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DatagramSocket f11311f;
+    public DatagramSocket f11059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11312g;
+    public int f11060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f11313h;
+    public k f11061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f11314i;
+    public a f11062i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<JsFunction> f11315j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ArrayList<JsFunction> f11316k;
+    public ArrayList<JsFunction> f11063j;
+    public ArrayList<JsFunction> k;
     public ArrayList<JsFunction> l;
     public ArrayList<JsFunction> m;
 
@@ -72,11 +70,11 @@ public final class g extends EventTargetImpl {
             }
         }
         Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
-        this.f11310e = "%s:fail %s";
-        this.f11313h = new k();
-        this.f11314i = new a();
-        this.f11315j = new ArrayList<>();
-        this.f11316k = new ArrayList<>();
+        this.f11058e = "%s:fail %s";
+        this.f11061h = new k();
+        this.f11062i = new a();
+        this.f11063j = new ArrayList<>();
+        this.k = new ArrayList<>();
         this.l = new ArrayList<>();
         this.m = new ArrayList<>();
     }
@@ -84,7 +82,7 @@ public final class g extends EventTargetImpl {
     public final int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11312g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11060g : invokeV.intValue;
     }
 
     public final int B() {
@@ -93,7 +91,7 @@ public final class g extends EventTargetImpl {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             for (int i2 = 49152; i2 <= 65535; i2++) {
                 try {
-                    this.f11311f = new DatagramSocket(i2);
+                    this.f11059f = new DatagramSocket(i2);
                     x(i2);
                     return i2;
                 } catch (Throwable unused) {
@@ -107,7 +105,7 @@ public final class g extends EventTargetImpl {
     public final DatagramSocket C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11311f : (DatagramSocket) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11059f : (DatagramSocket) invokeV.objValue;
     }
 
     public final void D(String method, String error) {
@@ -125,7 +123,7 @@ public final class g extends EventTargetImpl {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Iterator<JsFunction> it = this.f11316k.iterator();
+            Iterator<JsFunction> it = this.k.iterator();
             while (it.hasNext()) {
                 it.next().call();
             }
@@ -144,25 +142,25 @@ public final class g extends EventTargetImpl {
 
     public final void G(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || j.f11318c.c(this)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || j.f11065c.c(this)) {
             return;
         }
         try {
-            if (!this.f11313h.a().offer(new b(new DatagramPacket(cVar.b(), cVar.d(), cVar.c(), InetAddress.getByName(cVar.a()), cVar.e()), this))) {
+            if (!this.f11061h.a().offer(new b(new DatagramPacket(cVar.b(), cVar.d(), cVar.c(), InetAddress.getByName(cVar.a()), cVar.e()), this))) {
                 D(ReturnKeyType.SEND, "send queue is full");
                 return;
             }
-            if (!this.f11313h.b()) {
-                this.f11313h.c(true);
-                this.f11313h.start();
+            if (!this.f11061h.b()) {
+                this.f11061h.c(true);
+                this.f11061h.start();
             }
-            if (this.f11314i.a()) {
+            if (this.f11062i.a()) {
                 return;
             }
-            this.f11314i.b(true);
-            this.f11314i.c(this);
+            this.f11062i.b(true);
+            this.f11062i.c(this);
             E();
-            this.f11314i.start();
+            this.f11062i.start();
         } catch (Throwable unused) {
         }
     }
@@ -172,9 +170,9 @@ public final class g extends EventTargetImpl {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (i2 != -1 && !j.f11318c.d(i2)) {
+            if (i2 != -1 && !j.f11065c.d(i2)) {
                 try {
-                    this.f11311f = new DatagramSocket(i2);
+                    this.f11059f = new DatagramSocket(i2);
                     x(i2);
                     return i2;
                 } catch (Throwable unused) {
@@ -191,15 +189,15 @@ public final class g extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                DatagramSocket datagramSocket = this.f11311f;
+                DatagramSocket datagramSocket = this.f11059f;
                 if (datagramSocket != null) {
                     datagramSocket.close();
                 }
-                this.f11313h.c(false);
-                this.f11313h.interrupt();
-                this.f11314i.b(false);
-                this.f11314i.interrupt();
-                j.f11318c.e(this);
+                this.f11061h.c(false);
+                this.f11061h.interrupt();
+                this.f11062i.b(false);
+                this.f11062i.interrupt();
+                j.f11065c.e(this);
                 Iterator<JsFunction> it = this.m.iterator();
                 while (it.hasNext()) {
                     it.next().call("success");
@@ -233,7 +231,7 @@ public final class g extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) {
             Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.f11316k.remove(c.a.r0.j.d.c.a.e(c.a.r0.a.y.b.a.F(jsObject)).a);
+            this.k.remove(c.a.r0.j.d.c.a.e(c.a.r0.a.y.b.a.F(jsObject)).a);
         }
     }
 
@@ -242,7 +240,7 @@ public final class g extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
             Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.f11315j.remove(c.a.r0.j.d.c.a.e(c.a.r0.a.y.b.a.F(jsObject)).a);
+            this.f11063j.remove(c.a.r0.j.d.c.a.e(c.a.r0.a.y.b.a.F(jsObject)).a);
         }
     }
 
@@ -275,7 +273,7 @@ public final class g extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, jsObject) == null) {
             Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.f11316k.add(c.a.r0.j.d.c.a.e(c.a.r0.a.y.b.a.F(jsObject)).a);
+            this.k.add(c.a.r0.j.d.c.a.e(c.a.r0.a.y.b.a.F(jsObject)).a);
         }
     }
 
@@ -285,10 +283,10 @@ public final class g extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, jsObject) == null) {
             Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            if (j.f11318c.c(this) || (F = F(jsObject)) == null) {
+            if (j.f11065c.c(this) || (F = F(jsObject)) == null) {
                 return;
             }
-            this.f11315j.add(c.a.r0.j.d.c.a.e(F).a);
+            this.f11063j.add(c.a.r0.j.d.c.a.e(F).a);
         }
     }
 
@@ -343,8 +341,8 @@ public final class g extends EventTargetImpl {
     public final void x(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            j.f11318c.a(i2);
-            this.f11312g = i2;
+            j.f11065c.a(i2);
+            this.f11060g = i2;
         }
     }
 
@@ -352,7 +350,7 @@ public final class g extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, jsFunction, str, str2) == null) {
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String format = String.format(this.f11310e, Arrays.copyOf(new Object[]{str, str2}, 2));
+            String format = String.format(this.f11058e, Arrays.copyOf(new Object[]{str, str2}, 2));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             if (jsFunction != null) {
                 jsFunction.call(new d(format));
@@ -370,7 +368,7 @@ public final class g extends EventTargetImpl {
                 System.arraycopy(dp.getData(), dp.getOffset(), bArr, 0, dp.getLength());
                 InetAddress address2 = dp.getAddress();
                 String str = (address2 == null || (address = address2.getAddress()) == null || address.length != 4) ? "IPv6" : "IPv4";
-                Iterator<JsFunction> it = this.f11315j.iterator();
+                Iterator<JsFunction> it = this.f11063j.iterator();
                 while (it.hasNext()) {
                     String inetAddress = dp.getAddress().toString();
                     Intrinsics.checkNotNullExpressionValue(inetAddress, "dp.address.toString()");

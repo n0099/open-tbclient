@@ -14,10 +14,10 @@ public class b {
     public JsFunction a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsFunction f11336b;
+    public JsFunction f11083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsFunction f11337c;
+    public JsFunction f11084c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public class b {
                 u.setReleaseMode(false);
             }
             JsFunction u2 = aVar.u("onUpdateReady");
-            bVar.f11336b = u2;
+            bVar.f11083b = u2;
             if (u2 != null) {
                 u2.setReleaseMode(false);
             }
             JsFunction u3 = aVar.u("onUpdateFailed");
-            bVar.f11337c = u3;
+            bVar.f11084c = u3;
             if (u3 != null) {
                 u3.setReleaseMode(false);
             }
@@ -73,7 +73,7 @@ public class b {
     public void b() {
         JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jsFunction = this.f11337c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jsFunction = this.f11084c) == null) {
             return;
         }
         jsFunction.call();
@@ -82,7 +82,7 @@ public class b {
     public void c() {
         JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jsFunction = this.f11336b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jsFunction = this.f11083b) == null) {
             return;
         }
         jsFunction.call();

@@ -26,7 +26,7 @@ public final class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f6407b;
+    public static c f6267b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -66,7 +66,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.d f6408e;
+        public final /* synthetic */ e.d f6268e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -74,7 +74,7 @@ public final class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f6409e;
+            public final /* synthetic */ b f6269e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class d {
                         return;
                     }
                 }
-                this.f6409e = bVar;
+                this.f6269e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -100,21 +100,21 @@ public final class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (c.a.r0.a.z2.d.a()) {
-                        decodeFile = u.e(this.f6409e.f6408e.f6426b);
+                        decodeFile = u.e(this.f6269e.f6268e.f6285b);
                     } else {
-                        decodeFile = BitmapFactory.decodeFile(this.f6409e.f6408e.a);
+                        decodeFile = BitmapFactory.decodeFile(this.f6269e.f6268e.a);
                     }
-                    File k2 = u.k("screenshot.jpg");
+                    File k = u.k("screenshot.jpg");
                     if (decodeFile != null) {
-                        u.o(decodeFile, k2.getAbsolutePath(), 20);
+                        u.o(decodeFile, k.getAbsolutePath(), 20);
                     }
-                    String h2 = f.U().G().h(k2.getAbsolutePath());
-                    if (!k2.exists()) {
+                    String h2 = f.U().G().h(k.getAbsolutePath());
+                    if (!k.exists()) {
                         h2 = "";
                     }
                     d.f(h2);
                     if (d.a) {
-                        String str = "saveScreenshot:" + TextUtils.isEmpty(h2) + ",path:" + k2.getAbsolutePath();
+                        String str = "saveScreenshot:" + TextUtils.isEmpty(h2) + ",path:" + k.getAbsolutePath();
                     }
                 }
             }
@@ -135,7 +135,7 @@ public final class d {
                     return;
                 }
             }
-            this.f6408e = dVar;
+            this.f6268e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -194,10 +194,10 @@ public final class d {
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             e.s(c.a.r0.a.c1.a.c());
             boolean z = a;
-            if (f6407b == null) {
-                f6407b = new a();
+            if (f6267b == null) {
+                f6267b = new a();
             }
-            e.r(f6407b);
+            e.r(f6267b);
         }
     }
 
@@ -214,17 +214,17 @@ public final class d {
         if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || (activity = f.U().getActivity()) == null) {
             return;
         }
-        c.a.r0.a.c1.a.f0().b(activity, dVar.a, dVar.f6426b);
+        c.a.r0.a.c1.a.f0().b(activity, dVar.a, dVar.f6285b);
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             boolean z = a;
-            c cVar = f6407b;
+            c cVar = f6267b;
             if (cVar != null) {
                 e.u(cVar);
-                f6407b = null;
+                f6267b = null;
             }
         }
     }

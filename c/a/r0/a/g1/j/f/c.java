@@ -16,7 +16,7 @@ public final class c implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f6395b;
+    public static final c f6255b;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ b a;
 
@@ -33,7 +33,7 @@ public final class c implements b {
                 return;
             }
         }
-        f6395b = new c();
+        f6255b = new c();
     }
 
     public c() {

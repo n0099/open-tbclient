@@ -31,16 +31,16 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f7753b;
+    public static final String f7584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7754c;
+    public static final boolean f7585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f7755d;
+    public static final String[] f7586d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f7756e;
+    public static String f7587e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -50,11 +50,11 @@ public class e {
 
         /* renamed from: c.a.r0.a.k2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class RunnableC0441a implements Runnable {
+        public static class RunnableC0450a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0441a() {
+            public RunnableC0450a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public class e {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0441a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0450a(), "V8SoCleaner", 3);
             }
         }
     }
@@ -99,17 +99,17 @@ public class e {
             }
         }
         a = k.a;
-        f7753b = c.a.r0.a.a1.d.g() + "/v8_so/";
-        f7754c = c.a.r0.a.c1.a.e0().b();
-        f7755d = c.a.r0.a.c1.a.e0().a();
-        f7756e = null;
+        f7584b = c.a.r0.a.a1.d.g() + "/v8_so/";
+        f7585c = c.a.r0.a.c1.a.e0().b();
+        f7586d = c.a.r0.a.c1.a.e0().a();
+        f7587e = null;
     }
 
     public static void a() {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(f7753b);
+            File file = new File(f7584b);
             if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
                 return;
             }
@@ -130,10 +130,10 @@ public class e {
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add("v8.engine");
             arrayList.add("zeusv8");
-            if (f7754c) {
+            if (f7585c) {
                 arrayList.add("com.baidu.zeus");
             }
-            String[] strArr = f7755d;
+            String[] strArr = f7586d;
             if (strArr != null && strArr.length != 0) {
                 arrayList.addAll(Arrays.asList(strArr));
             }
@@ -152,8 +152,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f7754c) {
-                return f7756e;
+            if (f7585c) {
+                return f7587e;
             }
             return null;
         }
@@ -202,13 +202,13 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, soLoader)) == null) {
-            if (f7754c) {
+            if (f7585c) {
                 File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
                 if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
                     return false;
                 }
-                f7756e = findSoFilesInLibrary.getAbsolutePath();
-                m("loadV8EngineSo: v8 dependentFile:" + f7756e);
+                f7587e = findSoFilesInLibrary.getAbsolutePath();
+                m("loadV8EngineSo: v8 dependentFile:" + f7587e);
             }
             return l(null, soLoader) && e("v8.engine", soLoader);
         }
@@ -223,10 +223,10 @@ public class e {
                 m("loadV8EngineBySystemMethod:success.");
                 return f.e();
             }
-            f k2 = k(context, soLoader);
-            if (k2.b()) {
+            f k = k(context, soLoader);
+            if (k.b()) {
                 m("loadV8EngineSoWithSystemPath:success.");
-                return k2;
+                return k;
             }
             f j2 = j(context, soLoader);
             if (!j2.b()) {
@@ -246,14 +246,14 @@ public class e {
             m("loadV8EngineSoByMap:" + hashMap);
             String str = hashMap.get("com.baidu.zeus");
             boolean z = false;
-            if (f7754c && str == null) {
+            if (f7585c && str == null) {
                 return f.d(false, false);
             }
             boolean f2 = f(hashMap.get("zeusv8"), soLoader);
             boolean l = l(hashMap, soLoader);
             boolean f3 = f(hashMap.get("v8.engine"), soLoader);
             if (f3) {
-                f7756e = str;
+                f7587e = str;
             }
             if (l && f3) {
                 z = true;
@@ -267,10 +267,10 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, soLoader)) == null) {
-            f7756e = null;
+            f7587e = null;
             HashMap hashMap = new HashMap();
             String D = q0.D();
-            File file = new File(f7753b, D);
+            File file = new File(f7584b, D);
             Iterator<String> it = b().iterator();
             while (true) {
                 boolean z = true;
@@ -326,7 +326,7 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, soLoader)) == null) {
-            f7756e = null;
+            f7587e = null;
             HashMap hashMap = new HashMap();
             Iterator<String> it = b().iterator();
             while (it.hasNext()) {
@@ -344,7 +344,7 @@ public class e {
         boolean f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, hashMap, soLoader)) == null) {
-            String[] strArr = f7755d;
+            String[] strArr = f7586d;
             boolean z = true;
             if (strArr != null && strArr.length != 0) {
                 for (String str : strArr) {

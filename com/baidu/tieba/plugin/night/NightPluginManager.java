@@ -31,7 +31,7 @@ public class NightPluginManager {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NightPluginManager f49216b;
+        public final /* synthetic */ NightPluginManager f47365b;
 
         public a(NightPluginManager nightPluginManager, int i2) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class NightPluginManager {
                     return;
                 }
             }
-            this.f49216b = nightPluginManager;
+            this.f47365b = nightPluginManager;
             this.a = i2;
         }
 
@@ -57,10 +57,10 @@ public class NightPluginManager {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
                 try {
-                    if (this.f49216b.mINightPlugin == null) {
-                        this.f49216b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
+                    if (this.f47365b.mINightPlugin == null) {
+                        this.f47365b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                     }
-                    SkinManager.setPackageName(this.f49216b.mINightPlugin.getNightPluginPackageName());
+                    SkinManager.setPackageName(this.f47365b.mINightPlugin.getNightPluginPackageName());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.a)));
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();

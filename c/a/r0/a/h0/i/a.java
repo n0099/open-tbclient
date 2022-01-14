@@ -29,17 +29,17 @@ public class a {
 
     /* renamed from: c.a.r0.a.h0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0361a implements Runnable {
+    public static class RunnableC0370a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6600e;
+        public final /* synthetic */ String f6459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f6601f;
+        public final /* synthetic */ File f6460f;
 
-        public RunnableC0361a(String str, File file) {
+        public RunnableC0370a(String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,8 +54,8 @@ public class a {
                     return;
                 }
             }
-            this.f6600e = str;
-            this.f6601f = file;
+            this.f6459e = str;
+            this.f6460f = file;
         }
 
         @Override // java.lang.Runnable
@@ -63,7 +63,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (a.class) {
-                    c.a.r0.w.d.S(this.f6600e, this.f6601f, true);
+                    c.a.r0.w.d.S(this.f6459e, this.f6460f, true);
                 }
                 a.c();
             }
@@ -277,7 +277,7 @@ public class a {
             if (d2 == null || !d2.exists()) {
                 return;
             }
-            q.k(new RunnableC0361a(str, d2), "saveLaunchTipsLog");
+            q.k(new RunnableC0370a(str, d2), "saveLaunchTipsLog");
         }
     }
 

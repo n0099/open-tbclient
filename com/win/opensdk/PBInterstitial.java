@@ -23,10 +23,10 @@ public class PBInterstitial {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public o1 f63181b;
+    public o1 f60802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBInterstitialListener f63182c;
+    public PBInterstitialListener f60803c;
 
     public PBInterstitial(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -46,17 +46,17 @@ public class PBInterstitial {
         Context applicationContext = context.getApplicationContext();
         this.a = str;
         o1 o1Var = new o1(applicationContext, str);
-        this.f63181b = o1Var;
+        this.f60802b = o1Var;
         o1Var.l = new c5(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o1 o1Var = this.f63181b;
-            o1Var.f31384i = false;
-            o1Var.f31382g = false;
-            o1Var.f31383h = false;
+            o1 o1Var = this.f60802b;
+            o1Var.f30401i = false;
+            o1Var.f30399g = false;
+            o1Var.f30400h = false;
             a5 a5Var = o1Var.m;
             if (a5Var != null) {
                 a5Var.b();
@@ -74,9 +74,9 @@ public class PBInterstitial {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o1 o1Var = this.f63181b;
+            o1 o1Var = this.f60802b;
             if (!o1Var.c()) {
-                if (!(o1Var.f31383h && !o1Var.f31384i && o1Var.e() && !o1Var.f31385j.isShown() && o1Var.f31385j.isEffective())) {
+                if (!(o1Var.f30400h && !o1Var.f30401i && o1Var.e() && !o1Var.f30402j.isShown() && o1Var.f30402j.isEffective())) {
                     return false;
                 }
             }
@@ -88,15 +88,15 @@ public class PBInterstitial {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o1 o1Var = this.f63181b;
-            if (o1Var.e() && o1Var.f31385j.isEffective() && !o1Var.f31385j.isShown()) {
-                o1Var.b(o1Var.f31385j);
+            o1 o1Var = this.f60802b;
+            if (o1Var.e() && o1Var.f30402j.isEffective() && !o1Var.f30402j.isShown()) {
+                o1Var.b(o1Var.f30402j);
                 return;
             }
             if (o1Var.m == null) {
-                o1Var.m = new a5(o1Var.f31381f, o1Var.f31380e, L.f63174b);
+                o1Var.m = new a5(o1Var.f30398f, o1Var.f30397e, L.f60795b);
             }
-            o1Var.m.f31251g = new y0(o1Var);
+            o1Var.m.f30275g = new y0(o1Var);
             o1Var.m.g();
         }
     }
@@ -104,27 +104,27 @@ public class PBInterstitial {
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
-            this.f63182c = pBInterstitialListener;
+            this.f60803c = pBInterstitialListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            o1 o1Var = this.f63181b;
-            if (!r0.H(o1Var.f31381f)) {
+            o1 o1Var = this.f60802b;
+            if (!r0.H(o1Var.f30398f)) {
                 PBInterstitialListener pBInterstitialListener = o1Var.l;
                 if (pBInterstitialListener != null) {
                     pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
                 }
             } else if (o1Var.g() && o1Var.c() && o1Var.e()) {
-                o1Var.f31382g = false;
-                v.b().d(v.c(o1Var.f31385j.getTraceid(), o1Var.f31385j.getId(), o1Var.f31385j.getPid()), o1Var.f31386k);
-                o1Var.f31385j.setShown(true);
-                r0.l(o1Var.f31381f, o1Var.f31385j);
-                m0.a().c(v.c(o1Var.f31385j.getTraceid(), o1Var.f31385j.getId(), o1Var.f31380e), o1Var.f31385j);
-                H5Activity.a(o1Var.f31381f, o1Var.f31385j, o1Var.f31380e);
-                q0.b(o1Var.f31385j.getId() + o1Var.f31380e, o1Var);
+                o1Var.f30399g = false;
+                v.b().d(v.c(o1Var.f30402j.getTraceid(), o1Var.f30402j.getId(), o1Var.f30402j.getPid()), o1Var.k);
+                o1Var.f30402j.setShown(true);
+                r0.l(o1Var.f30398f, o1Var.f30402j);
+                m0.a().c(v.c(o1Var.f30402j.getTraceid(), o1Var.f30402j.getId(), o1Var.f30397e), o1Var.f30402j);
+                H5Activity.a(o1Var.f30398f, o1Var.f30402j, o1Var.f30397e);
+                q0.b(o1Var.f30402j.getId() + o1Var.f30397e, o1Var);
             }
         }
     }

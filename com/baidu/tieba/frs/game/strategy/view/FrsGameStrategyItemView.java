@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.game.strategy.view;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.b;
 import c.a.t0.w3.p0.d;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class FrsGameStrategyItemView extends b<c.a.t0.d1.d2.a.a.b> {
+public class FrsGameStrategyItemView extends b<c.a.t0.d1.e2.a.a.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -125,12 +125,12 @@ public class FrsGameStrategyItemView extends b<c.a.t0.d1.d2.a.a.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.g0.b
     /* renamed from: q */
-    public void k(c.a.t0.d1.d2.a.a.b bVar) {
+    public void k(c.a.t0.d1.e2.a.a.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || bVar == null || bVar.getThreadData() == null) {
             return;
         }
-        d2 threadData = bVar.getThreadData();
+        e2 threadData = bVar.getThreadData();
         this.q.setText(threadData.getTitle());
         d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(threadData.g0())) {
@@ -141,7 +141,7 @@ public class FrsGameStrategyItemView extends b<c.a.t0.d1.d2.a.a.b> {
         String numberUniformFormat = StringHelper.numberUniformFormat(threadData.E1());
         String formatTimeShort = StringHelper.getFormatTimeShort(threadData.I());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f18211g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f17768g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (threadData.r1() == 40) {

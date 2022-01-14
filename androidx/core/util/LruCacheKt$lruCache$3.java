@@ -61,9 +61,9 @@ public final class LruCacheKt$lruCache$3 extends Lambda implements Function4<Boo
         return Unit.INSTANCE;
     }
 
-    public final void invoke(boolean z, K k2, V v, V v2) {
+    public final void invoke(boolean z, K k, V v, V v2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k2, v, v2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
         }
     }
 }

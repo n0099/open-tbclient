@@ -36,14 +36,14 @@ public class c {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36997b = "";
+    public static String f35780b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36998c = "";
+    public static String f35781c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f36999d;
+    public Context f35782d;
 
     /* loaded from: classes10.dex */
     public static final class a {
@@ -374,7 +374,7 @@ public class c {
             sb.append("\r\n");
             sb.append("Content-Disposition: form-data; name=\"phoneinfo\"\r\n");
             sb.append("\r\n");
-            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f36998c));
+            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f35781c));
             sb.append("\r\n");
             sb.append("--bd_map_sdk_cc");
             sb.append("\r\n");
@@ -435,17 +435,17 @@ public class c {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = f36997b) == null || str2.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = f35780b) == null || str2.isEmpty()) {
             return;
         }
-        String str3 = a + File.separator + f36997b;
+        String str3 = a + File.separator + f35780b;
         com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
         JNIHandler.registerNativeHandler(str3);
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f36999d)) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f35782d)) {
             new Thread(new d(this)).start();
         }
     }
@@ -479,9 +479,9 @@ public class c {
         }
         String[] strArr = Build.SUPPORTED_ABIS;
         if (strArr.length > 0) {
-            f36998c = strArr[0];
+            f35781c = strArr[0];
         }
-        this.f36999d = context;
+        this.f35782d = context;
         String n = i.n();
         if (n.isEmpty()) {
             return;
@@ -489,7 +489,7 @@ public class c {
         if (n.contains("_")) {
             n = n.replaceAll("_", "");
         }
-        f36997b = n + "_" + i.i() + "_";
+        f35780b = n + "_" + i.i() + "_";
         d();
         e();
         f();

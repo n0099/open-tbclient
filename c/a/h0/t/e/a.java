@@ -15,14 +15,14 @@ public class a {
 
     /* renamed from: c.a.h0.t.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0147a implements Runnable {
+    public static class RunnableC0155a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ToastLoadingView f3763e;
+        public final /* synthetic */ ToastLoadingView f3709e;
 
-        public RunnableC0147a(ToastLoadingView toastLoadingView) {
+        public RunnableC0155a(ToastLoadingView toastLoadingView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,14 +37,14 @@ public class a {
                     return;
                 }
             }
-            this.f3763e = toastLoadingView;
+            this.f3709e = toastLoadingView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.b(this.f3763e);
+                a.b(this.f3709e);
             }
         }
     }
@@ -58,7 +58,7 @@ public class a {
             viewGroup.addView(toastLoadingView, layoutParams);
             toastLoadingView.setLoading(true);
             if (j2 != -1) {
-                viewGroup.postDelayed(new RunnableC0147a(toastLoadingView), j2);
+                viewGroup.postDelayed(new RunnableC0155a(toastLoadingView), j2);
             }
         }
     }

@@ -16,16 +16,16 @@ public class b {
     public final View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f23564b;
+    public final View f22909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextView f23565c;
+    public final TextView f22910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbFragment f23566d;
+    public PbFragment f22911d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f23567e;
+    public View.OnClickListener f22912e;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -33,7 +33,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23568e;
+        public final /* synthetic */ b f22913e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -50,18 +50,18 @@ public class b {
                     return;
                 }
             }
-            this.f23568e = bVar;
+            this.f22913e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b bVar = this.f23568e;
-                if (view != bVar.f23564b || bVar.f23566d == null || this.f23568e.f23566d.getBaseFragmentActivity() == null) {
+                b bVar = this.f22913e;
+                if (view != bVar.f22909b || bVar.f22911d == null || this.f22913e.f22911d.getBaseFragmentActivity() == null) {
                     return;
                 }
-                this.f23568e.f23566d.getBaseFragmentActivity().finish();
+                this.f22913e.f22911d.getBaseFragmentActivity().finish();
             }
         }
     }
@@ -81,18 +81,18 @@ public class b {
                 return;
             }
         }
-        this.f23567e = new a(this);
-        this.f23566d = pbFragment;
-        this.f23564b = pbFragment.getBaseFragmentActivity().findViewById(i.manga_navigation_bar_back);
-        this.f23565c = (TextView) this.f23566d.getBaseFragmentActivity().findViewById(i.manga_navigation_bar_title);
-        this.a = this.f23566d.getBaseFragmentActivity().findViewById(i.manga_browser_navigation_bar);
-        this.f23564b.setOnClickListener(this.f23567e);
+        this.f22912e = new a(this);
+        this.f22911d = pbFragment;
+        this.f22909b = pbFragment.getBaseFragmentActivity().findViewById(i.manga_navigation_bar_back);
+        this.f22910c = (TextView) this.f22911d.getBaseFragmentActivity().findViewById(i.manga_navigation_bar_title);
+        this.a = this.f22911d.getBaseFragmentActivity().findViewById(i.manga_browser_navigation_bar);
+        this.f22909b.setOnClickListener(this.f22912e);
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f23565c.setText(str);
+            this.f22910c.setText(str);
         }
     }
 

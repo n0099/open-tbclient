@@ -28,36 +28,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f2857d;
+    public static String f2833d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f2858e;
+    public static String f2834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f2859f;
+    public static String f2835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f2860g;
+    public static boolean f2836g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f2861h;
+    public static String f2837h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f2862i;
+    public static String f2838i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f2863j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f2864k;
+    public static String f2839j;
+    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f2865b;
+    public c f2840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2866c;
+    public long f2841c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -78,56 +76,56 @@ public class a {
     public static void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f2857d = str;
+            f2833d = str;
         }
     }
 
     public static void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f2861h = str;
+            f2837h = str;
         }
     }
 
     public static void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f2862i = str;
+            f2838i = str;
         }
     }
 
     public static void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f2863j = str;
+            f2839j = str;
         }
     }
 
     public static void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            f2864k = str;
+            k = str;
         }
     }
 
     public static void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            f2860g = z;
+            f2836g = z;
         }
     }
 
     public static void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f2859f = str;
+            f2835f = str;
         }
     }
 
     public static void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f2858e = str;
+            f2834e = str;
         }
     }
 
@@ -143,47 +141,47 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, z) == null) || eVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(f2857d)) {
-            eVar.b().a("Cookie", f2857d);
+        if (!TextUtils.isEmpty(f2833d)) {
+            eVar.b().a("Cookie", f2833d);
         } else {
             eVar.b().a("Cookie", "");
         }
-        if (!TextUtils.isEmpty(f2859f)) {
-            eVar.b().a("client_user_token", f2859f);
+        if (!TextUtils.isEmpty(f2835f)) {
+            eVar.b().a("client_user_token", f2835f);
         }
-        if (!TextUtils.isEmpty(f2858e)) {
-            eVar.b().a("User-Agent", f2858e);
+        if (!TextUtils.isEmpty(f2834e)) {
+            eVar.b().a("User-Agent", f2834e);
         }
         if (z) {
             eVar.b().a("Accept-Encoding", "gzip");
         } else {
             eVar.b().a("Accept-Encoding", "");
         }
-        if (f2860g) {
+        if (f2836g) {
             eVar.b().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         } else {
             eVar.b().a(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
-        eVar.b().a("client_logid", String.valueOf(this.f2866c));
-        if (!TextUtils.isEmpty(f2861h)) {
-            eVar.b().a("cuid", f2861h);
+        eVar.b().a("client_logid", String.valueOf(this.f2841c));
+        if (!TextUtils.isEmpty(f2837h)) {
+            eVar.b().a("cuid", f2837h);
         }
-        if (!TextUtils.isEmpty(f2862i)) {
-            eVar.b().a("cuid_galaxy2", f2862i);
+        if (!TextUtils.isEmpty(f2838i)) {
+            eVar.b().a("cuid_galaxy2", f2838i);
         }
-        if (!TextUtils.isEmpty(f2863j)) {
-            eVar.b().a("c3_aid", f2863j);
+        if (!TextUtils.isEmpty(f2839j)) {
+            eVar.b().a("c3_aid", f2839j);
         }
-        if (TextUtils.isEmpty(f2864k)) {
+        if (TextUtils.isEmpty(k)) {
             return;
         }
-        eVar.b().a(TiebaStatic.Params.CUID_GID, f2864k);
+        eVar.b().a(TiebaStatic.Params.CUID_GID, k);
     }
 
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f2865b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f2840b) == null) {
             return;
         }
         cVar.b();
@@ -199,7 +197,7 @@ public class a {
             this.a.b().s(str);
             this.a.b().o(z4);
             c cVar = new c(this.a);
-            this.f2865b = cVar;
+            this.f2840b = cVar;
             return cVar.c(str2, hVar, i2, i3, i4, i5, z2, z3);
         }
         return invokeCommon.booleanValue;
@@ -214,7 +212,7 @@ public class a {
     public c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2865b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2840b : (c) invokeV.objValue;
     }
 
     public g g(String str, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -232,7 +230,7 @@ public class a {
             b(eVar, z);
             this.a.b().s(str);
             c cVar = new c(this.a);
-            this.f2865b = cVar;
+            this.f2840b = cVar;
             cVar.e(i2, i4, i5);
             return this.a.c();
         }
@@ -243,7 +241,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             System.setProperty("http.keepAlive", "false");
-            this.f2866c = BdStatisticsManager.getInstance().getClientLogId();
+            this.f2841c = BdStatisticsManager.getInstance().getClientLogId();
         }
     }
 
@@ -251,7 +249,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            c cVar = this.f2865b;
+            c cVar = this.f2840b;
             if (cVar != null) {
                 return cVar.l();
             }
@@ -281,7 +279,7 @@ public class a {
                 }
             }
             c cVar = new c(this.a);
-            this.f2865b = cVar;
+            this.f2840b = cVar;
             cVar.n(i2, i3, -1);
             return this.a.c();
         }
@@ -316,7 +314,7 @@ public class a {
                 }
             }
             c cVar = new c(this.a);
-            this.f2865b = cVar;
+            this.f2840b = cVar;
             cVar.n(i2, i3, -1);
             return this.a.c();
         }
@@ -326,7 +324,7 @@ public class a {
     public void m() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f2865b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f2840b) == null) {
             return;
         }
         cVar.q();

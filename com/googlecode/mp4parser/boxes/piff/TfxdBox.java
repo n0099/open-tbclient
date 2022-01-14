@@ -13,7 +13,6 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
-import kotlin.jvm.internal.ByteCompanionObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes3.dex */
@@ -129,6 +128,6 @@ public class TfxdBox extends AbstractFullBox {
     public byte[] getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new byte[]{109, 29, -101, 5, 66, -43, 68, -26, ByteCompanionObject.MIN_VALUE, -30, 20, 29, -81, -9, 87, -78} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new byte[]{109, 29, -101, 5, 66, -43, 68, -26, Byte.MIN_VALUE, -30, 20, 29, -81, -9, 87, -78} : (byte[]) invokeV.objValue;
     }
 }

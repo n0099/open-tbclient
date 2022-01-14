@@ -18,27 +18,27 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static d f1565h;
+    public static d f1549h;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1566b;
+    public File f1550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f1567c;
+    public File f1551c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f1568d;
+    public File f1552d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f1569e;
+    public File f1553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f1570f;
+    public File f1554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f1571g;
+    public File f1555g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (d.class) {
-                if (f1565h == null) {
-                    f1565h = new d();
+                if (f1549h == null) {
+                    f1549h = new d();
                 }
             }
         }
@@ -70,9 +70,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
             if (z) {
-                return d().f1570f;
+                return d().f1554f;
             }
-            return d().f1569e;
+            return d().f1553e;
         }
         return (File) invokeZ.objValue;
     }
@@ -81,10 +81,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f1565h == null) {
+            if (f1549h == null) {
                 a();
             }
-            return f1565h;
+            return f1549h;
         }
         return (d) invokeV.objValue;
     }
@@ -105,7 +105,7 @@ public class d {
     public static File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d().f1571g : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d().f1555g : (File) invokeV.objValue;
     }
 
     @SuppressLint({"NewApi"})
@@ -124,13 +124,13 @@ public class d {
     public File g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1567c : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1551c : (File) invokeV.objValue;
     }
 
     public File h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1568d : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1552d : (File) invokeV.objValue;
     }
 
     public void i(Context context) {
@@ -138,36 +138,36 @@ public class d {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.a = e(context);
             File c2 = c(context);
-            this.f1566b = c2;
+            this.f1550b = c2;
             if (c2 == null) {
-                this.f1566b = this.a;
+                this.f1550b = this.a;
             }
-            if (this.f1566b != null) {
-                this.f1567c = new File(this.f1566b, "sdk");
-                File file = new File(this.f1567c, "arsource");
-                this.f1568d = file;
+            if (this.f1550b != null) {
+                this.f1551c = new File(this.f1550b, "sdk");
+                File file = new File(this.f1551c, "arsource");
+                this.f1552d = file;
                 if (!file.exists()) {
-                    this.f1568d.mkdirs();
+                    this.f1552d.mkdirs();
                 }
             }
             if (this.a != null) {
                 new File(this.a, "sdk");
                 File file2 = new File(this.a, "sdklibs/armeabi-v7a");
-                this.f1569e = file2;
+                this.f1553e = file2;
                 if (!file2.exists()) {
-                    this.f1569e.mkdirs();
+                    this.f1553e.mkdirs();
                 }
                 File file3 = new File(this.a, "sdklibs/arm64-v8a");
-                this.f1570f = file3;
+                this.f1554f = file3;
                 if (!file3.exists()) {
-                    this.f1570f.mkdirs();
+                    this.f1554f.mkdirs();
                 }
                 File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
-                this.f1571g = file4;
+                this.f1555g = file4;
                 if (file4.exists()) {
                     return;
                 }
-                this.f1571g.mkdirs();
+                this.f1555g.mkdirs();
             }
         }
     }

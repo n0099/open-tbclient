@@ -28,16 +28,16 @@ public class HomeMainView extends LinearLayout implements b {
     public List<BaseItemLayout> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53183b;
+    public String f51137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53184c;
+    public boolean f51138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f53185d;
+    public d f51139d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53186e;
+    public String f51140e;
     public HomeCfgResponse.AllConfig mAllConfig;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class HomeMainView extends LinearLayout implements b {
             }
         }
         this.a = new ArrayList();
-        this.f53184c = false;
+        this.f51138c = false;
     }
 
     private void a() {
@@ -97,14 +97,14 @@ public class HomeMainView extends LinearLayout implements b {
     public String getAndroidPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f53183b) ? "" : this.f53183b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f51137b) ? "" : this.f51137b : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public String getPageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53186e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51140e : (String) invokeV.objValue;
     }
 
     public boolean isApp() {
@@ -117,16 +117,16 @@ public class HomeMainView extends LinearLayout implements b {
     public boolean isLoginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53184c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51138c : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.b
     public void jump(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            d dVar = this.f53185d;
+            d dVar = this.f51139d;
             if (dVar == null || !dVar.a(str, str2, str3)) {
-                com.baidu.wallet.home.a.a().a(getContext(), str, str2, str3, z, this.f53186e);
+                com.baidu.wallet.home.a.a().a(getContext(), str, str2, str3, z, this.f51140e);
             }
         }
     }
@@ -199,7 +199,7 @@ public class HomeMainView extends LinearLayout implements b {
     public void onPointShowChanged() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (dVar = this.f53185d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (dVar = this.f51139d) == null) {
             return;
         }
         dVar.a(b());
@@ -209,16 +209,16 @@ public class HomeMainView extends LinearLayout implements b {
         HomeCfgResponse.TitleItem[] titleItemArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, context, homeCfgResponse, str) == null) {
-            this.f53186e = str;
+            this.f51140e = str;
             a();
             this.mAllConfig = homeCfgResponse.layout_content;
-            this.f53183b = homeCfgResponse.android_prefix;
-            this.f53184c = homeCfgResponse.isLogin();
+            this.f51137b = homeCfgResponse.android_prefix;
+            this.f51138c = homeCfgResponse.isLogin();
             HomeCfgResponse.AllConfig allConfig = this.mAllConfig;
             if (allConfig != null && allConfig.data != null) {
                 boolean z = true;
                 for (int i2 = 0; i2 < this.mAllConfig.data.length; i2++) {
-                    BaseItemLayout a = a.a().a(context, this.mAllConfig.data[i2], this.f53183b);
+                    BaseItemLayout a = a.a().a(context, this.mAllConfig.data[i2], this.f51137b);
                     if (a != null) {
                         a.setConfigData(this.mAllConfig.data[i2], this);
                         if (a.isDataValid()) {
@@ -261,7 +261,7 @@ public class HomeMainView extends LinearLayout implements b {
     public void setClickOuterInterface(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.f53185d = dVar;
+            this.f51139d = dVar;
         }
     }
 
@@ -328,6 +328,6 @@ public class HomeMainView extends LinearLayout implements b {
             }
         }
         this.a = new ArrayList();
-        this.f53184c = false;
+        this.f51138c = false;
     }
 }

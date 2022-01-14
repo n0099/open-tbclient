@@ -38,7 +38,7 @@ public class ax implements ar {
         }
         this.f143a = aw.a(context);
         this.f142a = aw.a;
-        com.xiaomi.channel.commonutils.logger.b.m122a("create id manager is: " + this.f142a);
+        com.xiaomi.channel.commonutils.logger.b.m134a("create id manager is: " + this.f142a);
     }
 
     public static ax a(Context context) {
@@ -85,9 +85,9 @@ public class ax implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo201b = mo201b();
-        if (!TextUtils.isEmpty(mo201b)) {
-            map.put("oaid", mo201b);
+        String mo213b = mo213b();
+        if (!TextUtils.isEmpty(mo213b)) {
+            map.put("oaid", mo213b);
         }
         String c2 = c();
         if (!TextUtils.isEmpty(c2)) {
@@ -104,15 +104,15 @@ public class ax implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f143a.m203a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f143a.m215a() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo201b() {
+    public String mo213b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.f143a.mo201b()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.f143a.mo213b()) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -133,7 +133,7 @@ public class ax implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "t:" + this.f142a + " s:" + a() + " d:" + b(a()) + " | " + b(mo201b()) + " | " + b(c()) + " | " + b(d());
+            return "t:" + this.f142a + " s:" + a() + " d:" + b(a()) + " | " + b(mo213b()) + " | " + b(c()) + " | " + b(d());
         }
         return (String) invokeV.objValue;
     }

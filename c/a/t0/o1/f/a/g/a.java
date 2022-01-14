@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.n.b;
+import c.a.s0.s.j0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -22,20 +22,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements TabLayout.OnTabSelectedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TabLayout.OnTabSelectedListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f20940b;
+    public Context f20378b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TabLayout f20941c;
+    public TabLayout f20379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20942d;
+    public int f20380d;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -52,31 +52,31 @@ public class a implements TabLayout.OnTabSelectedListener {
                 return;
             }
         }
-        this.f20940b = context;
+        this.f20378b = context;
         b();
     }
 
     public TabLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20941c : (TabLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20379c : (TabLayout) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TabLayout tabLayout = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
-            this.f20941c = tabLayout;
+            this.f20379c = tabLayout;
             tabLayout.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
-            this.f20941c.setTabGravity(2);
+            this.f20379c.setTabGravity(2);
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            for (int i3 = 0; i3 < this.f20941c.getTabCount(); i3++) {
-                TabLayout.Tab tabAt = this.f20941c.getTabAt(i3);
+            for (int i3 = 0; i3 < this.f20379c.getTabCount(); i3++) {
+                TabLayout.Tab tabAt = this.f20379c.getTabAt(i3);
                 if (tabAt != null) {
                     if (tabAt.isSelected()) {
                         f(tabAt);
@@ -101,7 +101,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void e(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, frsTabInfoData) == null) {
-            h(this.f20942d, frsTabInfoData.tabList, this.f20941c);
+            h(this.f20380d, frsTabInfoData.tabList, this.f20379c);
         }
     }
 
@@ -130,7 +130,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20940b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20378b : (Context) invokeV.objValue;
     }
 
     public final void h(int i2, List<FrsTabItemData> list, TabLayout tabLayout) {
@@ -207,7 +207,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tab) == null) {
             if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-                this.f20942d = ((FrsTabItemData) tab.getTag()).tabId;
+                this.f20380d = ((FrsTabItemData) tab.getTag()).tabId;
             }
             f(tab);
             TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;

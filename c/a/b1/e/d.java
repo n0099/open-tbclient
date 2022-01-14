@@ -13,7 +13,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f1719b;
+    public static boolean f1699b;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.b1.e.f.c a;
 
@@ -30,7 +30,7 @@ public class d {
                 return;
             }
         }
-        f1719b = a.e();
+        f1699b = a.e();
     }
 
     public d(Context context) {
@@ -49,7 +49,7 @@ public class d {
             }
         }
         int a = b.a();
-        if (f1719b) {
+        if (f1699b) {
             String str = "UnionIDFactory manufacturer:" + a;
         }
         if (a == 10001) {
@@ -57,7 +57,7 @@ public class d {
         } else if (a != 10002) {
             this.a = new c.a.b1.e.g.b(context);
         } else {
-            boolean z = f1719b;
+            boolean z = f1699b;
             this.a = new c.a.b1.e.g.c(context);
         }
     }

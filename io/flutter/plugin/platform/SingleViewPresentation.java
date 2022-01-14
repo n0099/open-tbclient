@@ -22,7 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -494,7 +493,7 @@ public class SingleViewPresentation extends Presentation {
         this.state = new PresentationState();
         getWindow().setFlags(8, 8);
         if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().setType(SpeedStatsStampTable.INIT_RUKA_STAMP_KEY);
+            getWindow().setType(2030);
         }
     }
 

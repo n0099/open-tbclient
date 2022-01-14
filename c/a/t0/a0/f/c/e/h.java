@@ -14,10 +14,10 @@ public class h {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f14786b;
+    public ArrayList<a> f14434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14787c;
+    public String f14435c;
 
     /* loaded from: classes6.dex */
     public class a {
@@ -77,20 +77,20 @@ public class h {
             this.a = optJSONObject.optInt("has_follow_live") == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.f14786b = new ArrayList<>(optJSONArray.length());
+                this.f14434b = new ArrayList<>(optJSONArray.length());
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
                         a aVar = new a(this);
                         aVar.a(optJSONObject2);
-                        this.f14786b.add(aVar);
+                        this.f14434b.add(aVar);
                     }
                 }
             }
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
         if (optJSONObject3 != null) {
-            this.f14787c = optJSONObject3.optString("url");
+            this.f14435c = optJSONObject3.optString("url");
         }
     }
 }

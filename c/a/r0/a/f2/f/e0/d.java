@@ -29,16 +29,16 @@ public class d extends b {
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6011b;
+        public final /* synthetic */ CallbackHandler f5880b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6012c;
+        public final /* synthetic */ UnitedSchemeEntity f5881c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f6013d;
+        public final /* synthetic */ String f5882d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6014e;
+        public final /* synthetic */ d f5883e;
 
         public a(d dVar, c.a.r0.a.d2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -55,23 +55,23 @@ public class d extends b {
                     return;
                 }
             }
-            this.f6014e = dVar;
+            this.f5883e = dVar;
             this.a = eVar;
-            this.f6011b = callbackHandler;
-            this.f6012c = unitedSchemeEntity;
-            this.f6013d = str;
+            this.f5880b = callbackHandler;
+            this.f5881c = unitedSchemeEntity;
+            this.f5882d = str;
         }
 
         @Override // c.a.r0.a.q0.b.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f6014e.f6005d) {
+                if (this.f5883e.f5874d) {
                     c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.getApplicationContext(), h.swanapp_tip_net_unavailable);
                     f2.l(2);
                     f2.G();
                 }
-                this.f6014e.n(this.f6012c, this.f6011b, this.f6013d);
+                this.f5883e.n(this.f5881c, this.f5880b, this.f5882d);
             }
         }
 
@@ -87,13 +87,13 @@ public class d extends b {
                         e2.printStackTrace();
                     }
                 }
-                if (this.f6014e.f6005d) {
+                if (this.f5883e.f5874d) {
                     b.m("0", "btn", "success");
                     c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.getApplicationContext(), h.aiapps_cancel_fav_success);
                     f2.l(2);
                     f2.G();
                 }
-                UnitedSchemeUtility.safeCallback(this.f6011b, this.f6012c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f6013d);
+                UnitedSchemeUtility.safeCallback(this.f5880b, this.f5881c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f5882d);
             }
         }
 
@@ -101,12 +101,12 @@ public class d extends b {
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                if (this.f6014e.f6005d && !z) {
+                if (this.f5883e.f5874d && !z) {
                     c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.getApplicationContext(), h.aiapps_cancel_fav_fail);
                     f2.l(2);
                     f2.G();
                 }
-                this.f6014e.n(this.f6012c, this.f6011b, this.f6013d);
+                this.f5883e.n(this.f5881c, this.f5880b, this.f5882d);
             }
         }
     }
@@ -142,8 +142,8 @@ public class d extends b {
                 return false;
             }
             try {
-                String N = this.f6005d ? eVar.N() : new JSONObject(param).optString("appid");
-                this.f6004c = N;
+                String N = this.f5874d ? eVar.N() : new JSONObject(param).optString("appid");
+                this.f5873c = N;
                 return !TextUtils.isEmpty(N);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -157,13 +157,13 @@ public class d extends b {
     public void k(c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) {
-            if (this.f6005d) {
+            if (this.f5874d) {
                 b.m("0", "btn", "invoke");
             } else {
                 b.m("0", RetrieveTaskManager.KEY, "invoke");
             }
             SwanFavorDataManager h2 = SwanFavorDataManager.h();
-            String str2 = this.f6004c;
+            String str2 = this.f5873c;
             a aVar = new a(this, eVar, callbackHandler, unitedSchemeEntity, str);
             c.a.r0.a.n0.l.c l = c.a.r0.a.n0.l.c.l();
             l.n(3);
@@ -175,7 +175,7 @@ public class d extends b {
     public void l(c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         f0 l0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) && this.f6005d && (l0 = c.a.r0.a.c1.a.l0()) != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) && this.f5874d && (l0 = c.a.r0.a.c1.a.l0()) != null) {
             l0.e(eVar);
         }
     }

@@ -65,12 +65,12 @@ public class f extends k {
             return;
         }
         boolean z = true;
-        boolean z2 = this.t == null || this.u != this.f3146k.f32214b;
+        boolean z2 = this.t == null || this.u != this.k.f31201b;
         Rect rect2 = this.v;
         if (rect2 != null && rect2.contains(rect)) {
             z = z2;
         }
-        this.u = this.f3146k.f32214b;
+        this.u = this.k.f31201b;
         if (z) {
             this.v = rect;
             Path path = new Path();
@@ -78,7 +78,7 @@ public class f extends k {
             if (this.u) {
                 this.t.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
             } else {
-                path.addRoundRect(new RectF(rect), this.f3146k.a, Path.Direction.CW);
+                path.addRoundRect(new RectF(rect), this.k.a, Path.Direction.CW);
             }
             this.t.close();
         }

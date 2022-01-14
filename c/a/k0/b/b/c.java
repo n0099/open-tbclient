@@ -1,19 +1,22 @@
 package c.a.k0.b.b;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.h.d;
-import c.a.c0.h0.m;
-import c.a.c0.i.g;
-import c.a.c0.s.h0.o;
+import c.a.c0.k.d;
+import c.a.c0.l.g;
+import c.a.c0.v.h0.o;
 import c.a.t0.d1.y;
 import c.a.t0.e;
 import c.a.t0.e2.p.i;
 import c.a.t0.y.a.f.f;
 import c.a.v0.g0;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -84,6 +87,9 @@ public class c {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             c("Frs", "FrsService", y.class);
             c("HotTopic", "HotTopicRequest", e.class);
+            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
+            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
+            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
             c("live", "ab", c.a.t0.e2.g.a.class);
             c("live", "account", c.a.t0.e2.b.a.class);
             c("live", DI.APP_INFO_NAME, c.a.t0.e2.c.a.class);
@@ -110,18 +116,20 @@ public class c {
             c("live", DI.YYPAY.YY_PAY, c.a.t0.e2.o.a.class);
             c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
             c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
-            c("nad.core", "adRequester", c.a.c0.t.b.class);
-            c("nad.core", "browserDownload", c.a.c0.g.c.b.class);
+            c("nad.core", "adRequester", c.a.c0.w.b.class);
+            c("nad.core", "browserDownload", c.a.c0.j.c.b.class);
             c("nad.core", "cmd", c.a.t0.y.a.f.a.class);
             c("nad.core", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, c.a.t0.y.a.f.b.class);
+            c("nad.core", "deviceInfoInner", c.a.c0.d.m.a.class);
             c("nad.core", "eventbus", d.class);
             c("nad.core", "exp", g.class);
-            c("nad.core", "ipdx", c.a.c0.b.n.a.class);
-            c("nad.core", "loadImage", m.class);
+            c("nad.core", "ipdx", c.a.c0.d.n.a.class);
+            c("nad.core", "loadImage", c.a.c0.c.a.class);
             c("nad.core", "navBarTool", c.a.t0.y.a.f.d.class);
             c("nad.core", "splash.config", c.a.t0.y.a.f.e.class);
             c("nad.core", "splash.host", f.class);
             c("nad.core", "sysLoadVideo", o.class);
+            c("speed", "runtime", SpeedRuntimeProvider.class);
             c("tbadkcore", "ISoProcess", c.a.s0.k0.w.a.class);
             c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, g0.class);
         }

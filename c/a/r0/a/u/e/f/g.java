@@ -22,10 +22,10 @@ public class g extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9240e;
+        public final /* synthetic */ String f9038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f9241f;
+        public final /* synthetic */ g f9039f;
 
         public a(g gVar, String str) {
             Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class g extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f9241f = gVar;
-            this.f9240e = str;
+            this.f9039f = gVar;
+            this.f9038e = str;
         }
 
         @Override // java.lang.Runnable
@@ -53,20 +53,20 @@ public class g extends c.a.r0.a.u.e.f.a {
                 c.a.r0.a.h0.g.g V = c.a.r0.a.g1.f.U().V();
                 if (V == null) {
                     c.a.r0.a.e0.d.c("PullDownRefreshApi", "manager is null");
-                    this.f9241f.d(this.f9240e, new c.a.r0.a.u.h.b(1001));
+                    this.f9039f.d(this.f9038e, new c.a.r0.a.u.h.b(1001));
                 } else if (!(V.m() instanceof c.a.r0.a.h0.g.f)) {
                     c.a.r0.a.e0.d.c("PullDownRefreshApi", "top fragment error");
-                    this.f9241f.d(this.f9240e, new c.a.r0.a.u.h.b(1001));
+                    this.f9039f.d(this.f9038e, new c.a.r0.a.u.h.b(1001));
                 } else {
                     c.a.r0.a.h0.g.f fVar = (c.a.r0.a.h0.g.f) V.m();
                     if (fVar.j0() == null) {
                         c.a.r0.a.e0.d.c("PullDownRefreshApi", "view is null");
-                        this.f9241f.d(this.f9240e, new c.a.r0.a.u.h.b(1001));
+                        this.f9039f.d(this.f9038e, new c.a.r0.a.u.h.b(1001));
                         return;
                     }
                     fVar.j0().onPullDownRefreshComplete(false);
                     c.a.r0.a.e0.d.i("PullDownRefreshApi", "refresh complete");
-                    this.f9241f.d(this.f9240e, new c.a.r0.a.u.h.b(0));
+                    this.f9039f.d(this.f9038e, new c.a.r0.a.u.h.b(0));
                 }
             }
         }

@@ -29,25 +29,23 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewPager f42472e;
+    public ViewPager f40984e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IndicatorView f42473f;
+    public IndicatorView f40985f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42474g;
+    public int f40986g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CommonViewPagerAdapter f42475h;
+    public CommonViewPagerAdapter f40987h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42476i;
+    public int f40988i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final AdapterView.OnItemClickListener f42477j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c f42478k;
+    public final AdapterView.OnItemClickListener f40989j;
+    public c k;
 
     /* loaded from: classes11.dex */
     public class CommonViewPagerAdapter extends PagerAdapter {
@@ -56,7 +54,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         public ArrayList<View> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CommonTabContentView f42479b;
+        public final /* synthetic */ CommonTabContentView f40990b;
 
         public CommonViewPagerAdapter(CommonTabContentView commonTabContentView, ArrayList<View> arrayList) {
             Interceptable interceptable = $ic;
@@ -73,7 +71,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                     return;
                 }
             }
-            this.f42479b = commonTabContentView;
+            this.f40990b = commonTabContentView;
             this.a = new ArrayList<>();
             this.a = arrayList;
         }
@@ -136,7 +134,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonTabContentView f42480e;
+        public final /* synthetic */ CommonTabContentView f40991e;
 
         public a(CommonTabContentView commonTabContentView) {
             Interceptable interceptable = $ic;
@@ -153,19 +151,19 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                     return;
                 }
             }
-            this.f42480e = commonTabContentView;
+            this.f40991e = commonTabContentView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f42480e.f42478k == null || this.f42480e.f42475h == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f40991e.k == null || this.f40991e.f40987h == null) {
                 return;
             }
-            if (this.f42480e.f42475h.getIndexByView(adapterView) != 0) {
+            if (this.f40991e.f40987h.getIndexByView(adapterView) != 0) {
                 i2 = -1;
             }
-            this.f42480e.f42478k.a(view, i2, j2);
+            this.f40991e.k.a(view, i2, j2);
         }
     }
 
@@ -175,23 +173,23 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f42481e;
+        public final int f40992e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f42482f;
+        public final int f40993f;
 
         /* renamed from: g  reason: collision with root package name */
-        public a.InterfaceC0893a f42483g;
+        public a.InterfaceC0906a f40994g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CommonTabContentView f42484h;
+        public final /* synthetic */ CommonTabContentView f40995h;
 
-        public b(CommonTabContentView commonTabContentView, Context context, int i2, int i3, a.InterfaceC0893a interfaceC0893a) {
+        public b(CommonTabContentView commonTabContentView, Context context, int i2, int i3, a.InterfaceC0906a interfaceC0906a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {commonTabContentView, context, Integer.valueOf(i2), Integer.valueOf(i3), interfaceC0893a};
+                Object[] objArr = {commonTabContentView, context, Integer.valueOf(i2), Integer.valueOf(i3), interfaceC0906a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
@@ -201,17 +199,17 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                     return;
                 }
             }
-            this.f42484h = commonTabContentView;
-            this.f42481e = i2;
-            this.f42482f = i3;
-            this.f42483g = interfaceC0893a;
+            this.f40995h = commonTabContentView;
+            this.f40992e = i2;
+            this.f40993f = i3;
+            this.f40994g = interfaceC0906a;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42481e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40992e : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -232,7 +230,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) ? this.f42483g.getView(this.f42482f + i2, view, viewGroup) : (View) invokeILL.objValue;
+            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) ? this.f40994g.getView(this.f40993f + i2, view, viewGroup) : (View) invokeILL.objValue;
         }
     }
 
@@ -260,9 +258,9 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 return;
             }
         }
-        this.f42474g = 0;
-        this.f42476i = 0;
-        this.f42477j = new a(this);
+        this.f40986g = 0;
+        this.f40988i = 0;
+        this.f40989j = new a(this);
         c(context);
     }
 
@@ -272,38 +270,38 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.common_tab_content, (ViewGroup) this, true);
             ViewPager viewPager = (ViewPager) findViewById(R.id.privilege_tab_viewpager);
-            this.f42472e = viewPager;
+            this.f40984e = viewPager;
             viewPager.setFadingEdgeLength(0);
-            this.f42472e.setOnPageChangeListener(this);
-            this.f42473f = (IndicatorView) findViewById(R.id.privilege_tab_indicator);
+            this.f40984e.setOnPageChangeListener(this);
+            this.f40985f = (IndicatorView) findViewById(R.id.privilege_tab_indicator);
         }
     }
 
     public IndicatorView getIndicatorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42473f : (IndicatorView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40985f : (IndicatorView) invokeV.objValue;
     }
 
     public ViewPager getViewPager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42472e : (ViewPager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40984e : (ViewPager) invokeV.objValue;
     }
 
     public void jumpToItem(int i2, c.a.s0.x.b0.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, aVar) == null) || aVar == null || this.f42472e == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, aVar) == null) || aVar == null || this.f40984e == null) {
             return;
         }
-        this.f42472e.setCurrentItem(i2 / (aVar.b() * aVar.k()));
+        this.f40984e.setCurrentItem(i2 / (aVar.b() * aVar.k()));
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            for (int i3 = 0; i3 < this.f42472e.getChildCount(); i3++) {
-                View childAt = this.f42472e.getChildAt(i3);
+            for (int i3 = 0; i3 < this.f40984e.getChildCount(); i3++) {
+                View childAt = this.f40984e.getChildAt(i3);
                 if (childAt instanceof GridView) {
                     ((BaseAdapter) ((GridView) childAt).getAdapter()).notifyDataSetChanged();
                 }
@@ -322,7 +320,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
     public void onPageScrolled(int i2, float f2, int i3) {
         IndicatorView indicatorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || (indicatorView = this.f42473f) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || (indicatorView = this.f40985f) == null) {
             return;
         }
         indicatorView.setPosition(i2 + f2);
@@ -343,37 +341,37 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             return;
         }
         int c2 = aVar.c();
-        if (this.f42472e.getChildCount() > 0 && this.f42474g == c2) {
-            for (int i3 = 0; i3 < this.f42472e.getChildCount(); i3++) {
-                View childAt = this.f42472e.getChildAt(i3);
+        if (this.f40984e.getChildCount() > 0 && this.f40986g == c2) {
+            for (int i3 = 0; i3 < this.f40984e.getChildCount(); i3++) {
+                View childAt = this.f40984e.getChildAt(i3);
                 if (childAt instanceof GridView) {
                     ((BaseAdapter) ((GridView) childAt).getAdapter()).notifyDataSetChanged();
                 }
             }
             return;
         }
-        this.f42472e.setAdapter(null);
-        this.f42474g = c2;
+        this.f40984e.setAdapter(null);
+        this.f40986g = c2;
         int b2 = aVar.b();
-        int k2 = aVar.k();
-        if (c2 == 0 || b2 == 0 || k2 == 0) {
+        int k = aVar.k();
+        if (c2 == 0 || b2 == 0 || k == 0) {
             return;
         }
-        int i4 = k2 * b2;
-        this.f42476i = i4;
+        int i4 = k * b2;
+        this.f40988i = i4;
         int i5 = c2 / i4;
         if (c2 % i4 != 0) {
             i5++;
         }
         int i6 = i5;
         if (i6 > 1) {
-            this.f42473f.setVisibility(0);
-            this.f42473f.setCount(i6);
-            this.f42473f.setPosition(0.0f);
+            this.f40985f.setVisibility(0);
+            this.f40985f.setCount(i6);
+            this.f40985f.setPosition(0.0f);
         } else {
-            this.f42473f.setVisibility(4);
+            this.f40985f.setVisibility(4);
         }
-        this.f42478k = aVar.g();
+        this.k = aVar.g();
         ArrayList arrayList = new ArrayList();
         for (int i7 = 0; i7 < i6; i7++) {
             if (aVar.d() == 0) {
@@ -390,22 +388,22 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 gridView = (GridView) LayoutInflater.from(getContext()).inflate(aVar.d(), (ViewGroup) null);
             }
             GridView gridView2 = gridView;
-            if (this.f42478k != null) {
-                gridView2.setOnItemClickListener(this.f42477j);
+            if (this.k != null) {
+                gridView2.setOnItemClickListener(this.f40989j);
             }
             gridView2.setNumColumns(b2);
             int i8 = i6 - 1;
             if (i7 < i8) {
-                i2 = this.f42476i;
+                i2 = this.f40988i;
             } else {
-                i2 = c2 - (this.f42476i * i8);
+                i2 = c2 - (this.f40988i * i8);
             }
-            gridView2.setAdapter((ListAdapter) new b(this, getContext(), i2, i7 * this.f42476i, aVar.m()));
+            gridView2.setAdapter((ListAdapter) new b(this, getContext(), i2, i7 * this.f40988i, aVar.m()));
             arrayList.add(gridView2);
         }
         CommonViewPagerAdapter commonViewPagerAdapter = new CommonViewPagerAdapter(this, arrayList);
-        this.f42475h = commonViewPagerAdapter;
-        this.f42472e.setAdapter(commonViewPagerAdapter);
+        this.f40987h = commonViewPagerAdapter;
+        this.f40984e.setAdapter(commonViewPagerAdapter);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -426,9 +424,9 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 return;
             }
         }
-        this.f42474g = 0;
-        this.f42476i = 0;
-        this.f42477j = new a(this);
+        this.f40986g = 0;
+        this.f40988i = 0;
+        this.f40989j = new a(this);
         c(context);
     }
 }

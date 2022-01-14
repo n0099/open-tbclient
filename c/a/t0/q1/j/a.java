@@ -18,16 +18,16 @@ public class a {
     public BdTypeListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f22039b;
+    public c f21439b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f22040c;
+    public b f21440c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f22041d;
+    public k f21441d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f22042e;
+    public List<c.a.d.n.e.a> f21442e;
 
     public a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class a {
                 return;
             }
         }
-        this.f22042e = new ArrayList();
+        this.f21442e = new ArrayList();
         a(hotRanklistActivity, bdTypeListView);
     }
 
     public final void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hotRanklistActivity, bdTypeListView) == null) {
-            this.f22039b = new c(hotRanklistActivity, c.a.t0.q1.l.c.m);
-            this.f22040c = new b(hotRanklistActivity, c.a.t0.q1.l.b.f22123j);
-            this.f22041d = new k(hotRanklistActivity, o.f22181k);
-            this.f22042e.add(this.f22039b);
-            this.f22042e.add(this.f22040c);
-            this.f22042e.add(this.f22041d);
+            this.f21439b = new c(hotRanklistActivity, c.a.t0.q1.l.c.m);
+            this.f21440c = new b(hotRanklistActivity, c.a.t0.q1.l.b.f21522j);
+            this.f21441d = new k(hotRanklistActivity, o.k);
+            this.f21442e.add(this.f21439b);
+            this.f21442e.add(this.f21440c);
+            this.f21442e.add(this.f21441d);
             this.a = bdTypeListView;
-            bdTypeListView.addAdapters(this.f22042e);
+            bdTypeListView.addAdapters(this.f21442e);
         }
     }
 
@@ -71,11 +71,11 @@ public class a {
             } else {
                 arrayList = new ArrayList<>();
             }
-            k kVar = this.f22041d;
+            k kVar = this.f21441d;
             if (kVar != null) {
                 kVar.t0();
             }
-            c cVar = this.f22039b;
+            c cVar = this.f21439b;
             if (cVar != null) {
                 cVar.g0(str);
             }

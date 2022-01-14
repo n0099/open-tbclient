@@ -19,19 +19,19 @@ public class DownloadParams {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41036b;
+    public String f39655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41037c;
+    public String f39656c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41038d;
+    public String f39657d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41039e;
+    public String f39658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f41040f;
+    public long f39659f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -145,7 +145,7 @@ public class DownloadParams {
             }
         }
         this.a = str;
-        this.f41036b = str2;
+        this.f39655b = str2;
     }
 
     public JSONObject a() {
@@ -155,11 +155,11 @@ public class DownloadParams {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("url", this.a);
-                jSONObject.put("name", this.f41036b);
-                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f41037c);
-                jSONObject.put("contentDisposition", this.f41038d);
-                jSONObject.put("mimeType", this.f41039e);
-                jSONObject.put("contentLength", this.f41040f);
+                jSONObject.put("name", this.f39655b);
+                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f39656c);
+                jSONObject.put("contentDisposition", this.f39657d);
+                jSONObject.put("mimeType", this.f39658e);
+                jSONObject.put("contentLength", this.f39659f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -183,6 +183,6 @@ public class DownloadParams {
             }
         }
         this.a = str;
-        this.f41036b = str2;
+        this.f39655b = str2;
     }
 }

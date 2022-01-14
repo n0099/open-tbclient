@@ -54,10 +54,10 @@ public final class LruCacheKt$lruCache$2 extends Lambda implements Function1<K, 
 
     /* JADX WARN: Type inference failed for: r1v0, types: [V, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function1
-    public final V invoke(K k2) {
+    public final V invoke(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
             return null;
         }
         return invokeL.objValue;

@@ -18,34 +18,32 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28077b;
+    public boolean f27226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28078c;
+    public boolean f27227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Vector3 f28079d;
+    public final Vector3 f27228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Quaternion f28080e;
+    public final Quaternion f27229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Vector3 f28081f;
+    public final Vector3 f27230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Matrix4 f28082g;
+    public final Matrix4 f27231g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Matrix4 f28083h;
+    public final Matrix4 f27232h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.a<f> f28084i;
+    public c.b.b.q.a<f> f27233i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f28085j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final c.b.b.q.a<c> f28086k;
+    public c f27234j;
+    public final c.b.b.q.a<c> k;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -60,21 +58,21 @@ public class c {
                 return;
             }
         }
-        this.f28077b = true;
-        this.f28079d = new Vector3();
-        this.f28080e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-        this.f28081f = new Vector3(1.0f, 1.0f, 1.0f);
-        this.f28082g = new Matrix4();
-        this.f28083h = new Matrix4();
-        this.f28084i = new c.b.b.q.a<>(2);
-        this.f28086k = new c.b.b.q.a<>(2);
+        this.f27226b = true;
+        this.f27228d = new Vector3();
+        this.f27229e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        this.f27230f = new Vector3(1.0f, 1.0f, 1.0f);
+        this.f27231g = new Matrix4();
+        this.f27232h = new Matrix4();
+        this.f27233i = new c.b.b.q.a<>(2);
+        this.k = new c.b.b.q.a<>(2);
     }
 
     public static c f(c.b.b.q.a<c> aVar, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{aVar, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i2 = aVar.f28217f;
+            int i2 = aVar.f27361f;
             if (z2) {
                 for (int i3 = 0; i3 < i2; i3++) {
                     c cVar = aVar.get(i3);
@@ -92,7 +90,7 @@ public class c {
             }
             if (z) {
                 for (int i5 = 0; i5 < i2; i5++) {
-                    c f2 = f(aVar.get(i5).f28086k, str, true, z2);
+                    c f2 = f(aVar.get(i5).k, str, true, z2);
                     if (f2 != null) {
                         return f2;
                     }
@@ -115,18 +113,18 @@ public class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            a.b<f> it = this.f28084i.iterator();
+            a.b<f> it = this.f27233i.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 c.b.b.q.b<c, Matrix4> bVar = next.a;
-                if (bVar != null && (matrix4Arr = next.f28089b) != null && (i2 = bVar.f28230g) == matrix4Arr.length) {
+                if (bVar != null && (matrix4Arr = next.f27237b) != null && (i2 = bVar.f27374g) == matrix4Arr.length) {
                     for (int i3 = 0; i3 < i2; i3++) {
-                        next.f28089b[i3].set(next.a.f28228e[i3].f28083h).mul(next.a.f28229f[i3]);
+                        next.f27237b[i3].set(next.a.f27372e[i3].f27232h).mul(next.a.f27373f[i3]);
                     }
                 }
             }
             if (z) {
-                a.b<c> it2 = this.f28086k.iterator();
+                a.b<c> it2 = this.k.iterator();
                 while (it2.hasNext()) {
                     it2.next().b(true);
                 }
@@ -138,10 +136,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.f28078c) {
-                this.f28082g.set(this.f28079d, this.f28080e, this.f28081f);
+            if (!this.f27227c) {
+                this.f27231g.set(this.f27228d, this.f27229e, this.f27230f);
             }
-            return this.f28082g;
+            return this.f27231g;
         }
         return (Matrix4) invokeV.objValue;
     }
@@ -152,7 +150,7 @@ public class c {
             c();
             e();
             if (z) {
-                a.b<c> it = this.f28086k.iterator();
+                a.b<c> it = this.k.iterator();
                 while (it.hasNext()) {
                     it.next().d(true);
                 }
@@ -165,12 +163,12 @@ public class c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28077b && (cVar = this.f28085j) != null) {
-                this.f28083h.set(cVar.f28083h).mul(this.f28082g);
+            if (this.f27226b && (cVar = this.f27234j) != null) {
+                this.f27232h.set(cVar.f27232h).mul(this.f27231g);
             } else {
-                this.f28083h.set(this.f28082g);
+                this.f27232h.set(this.f27231g);
             }
-            return this.f28083h;
+            return this.f27232h;
         }
         return (Matrix4) invokeV.objValue;
     }
@@ -178,7 +176,7 @@ public class c {
     public c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28085j : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27234j : (c) invokeV.objValue;
     }
 
     public <T extends c> int h(int i2, T t) {
@@ -193,18 +191,18 @@ public class c {
             c g2 = t.g();
             if (g2 == null || g2.i(t)) {
                 if (i2 >= 0) {
-                    c.b.b.q.a<c> aVar = this.f28086k;
-                    if (i2 < aVar.f28217f) {
+                    c.b.b.q.a<c> aVar = this.k;
+                    if (i2 < aVar.f27361f) {
                         aVar.insert(i2, t);
-                        t.f28085j = this;
+                        t.f27234j = this;
                         return i2;
                     }
                 }
-                c.b.b.q.a<c> aVar2 = this.f28086k;
-                int i3 = aVar2.f28217f;
+                c.b.b.q.a<c> aVar2 = this.k;
+                int i3 = aVar2.f27361f;
                 aVar2.a(t);
                 i2 = i3;
-                t.f28085j = this;
+                t.f27234j = this;
                 return i2;
             }
             throw new GdxRuntimeException("Could not remove child from its current parent");
@@ -216,8 +214,8 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
-            if (this.f28086k.i(t, true)) {
-                t.f28085j = null;
+            if (this.k.i(t, true)) {
+                t.f27234j = null;
                 return true;
             }
             return false;

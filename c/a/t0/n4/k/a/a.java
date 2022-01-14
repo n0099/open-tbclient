@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements b.InterfaceC0019b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean o;
@@ -21,34 +21,32 @@ public abstract class a implements b.InterfaceC0019b {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20450b;
+    public boolean f19903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20451c;
+    public boolean f19904c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20452d;
+    public int f19905d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20453e;
+    public int f19906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20454f;
+    public int f19907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20455g;
+    public int f19908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20456h;
+    public int f19909h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20457i;
+    public int f19910i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f20458j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f20459k;
+    public int f19911j;
+    public int k;
     public SurfaceTexture l;
     public volatile boolean m;
     public volatile boolean n;
@@ -81,7 +79,7 @@ public abstract class a implements b.InterfaceC0019b {
                 return;
             }
         }
-        this.f20458j = -1;
+        this.f19911j = -1;
         this.m = false;
         this.n = false;
     }
@@ -120,14 +118,14 @@ public abstract class a implements b.InterfaceC0019b {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20457i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19910i : invokeV.intValue;
     }
 
     @Override // c.a.a1.p.b.InterfaceC0019b
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20456h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19909h : invokeV.intValue;
     }
 
     public boolean w() {

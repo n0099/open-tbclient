@@ -1,111 +1,39 @@
 package c.a.t0.d1.i2;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import c.a.t0.q0.a;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import c.a.d.a.f;
+import c.a.d.n.e.n;
+import c.a.t0.d1.i2.a;
+import c.a.t0.d1.i2.d.d;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f16490b;
+    public BdTypeListView f16141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f16491c;
+    public final List<c.a.d.n.e.a> f16142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.q0.b f16492d;
+    public a f16143d;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f16493e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public VelocityTracker f16494f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public a.b f16495g;
-
-    /* loaded from: classes7.dex */
-    public class a implements a.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // c.a.t0.q0.a.b
-        public void a(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3)) {
-                this.a.e(true);
-            }
-        }
-
-        @Override // c.a.t0.q0.a.b
-        public void b(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) && e(i3)) {
-                this.a.e(false);
-            }
-        }
-
-        @Override // c.a.t0.q0.a.b
-        public void c(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            }
-        }
-
-        @Override // c.a.t0.q0.a.b
-        public void d(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            }
-        }
-
-        public final boolean e(float f2) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) ? Math.abs(f2) >= 10.0f : invokeF.booleanValue;
-        }
-    }
-
-    public b(Context context, BdUniqueId bdUniqueId, boolean z) {
+    public b(f fVar, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
+            Object[] objArr = {fVar, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -115,90 +43,35 @@ public class b {
                 return;
             }
         }
-        this.f16491c = false;
-        this.f16495g = new a(this);
-        this.a = context;
-        this.f16490b = bdUniqueId;
-        this.f16493e = z;
-        if (z) {
-            c.a.t0.q0.b bVar = new c.a.t0.q0.b(context);
-            this.f16492d = bVar;
-            bVar.d(this.f16495g);
+        this.f16142c = new ArrayList();
+        this.a = fVar;
+        this.f16141b = bdTypeListView;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a aVar = new a((TbPageContext) this.a, d.l);
+            this.f16143d = aVar;
+            this.f16142c.add(aVar);
+            this.f16141b.addAdapters(this.f16142c);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
-        if (r5 != 3) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(View view, MotionEvent motionEvent) {
-        c.a.t0.q0.b bVar;
+    public void b(a.InterfaceC1034a interfaceC1034a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, motionEvent) == null) {
-            if (this.f16494f == null) {
-                this.f16494f = VelocityTracker.obtain();
-            }
-            this.f16494f.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 1) {
-                if (action == 2) {
-                    this.f16494f.computeCurrentVelocity(1000);
-                    if (Math.abs(this.f16494f.getXVelocity()) > Math.abs(this.f16494f.getYVelocity())) {
-                        this.f16493e = false;
-                    } else {
-                        this.f16493e = true;
-                    }
-                }
-                if (this.f16493e || (bVar = this.f16492d) == null) {
-                }
-                bVar.c(motionEvent);
-                return;
-            }
-            c();
-            if (this.f16493e) {
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1034a) == null) {
+            this.f16143d.b0(interfaceC1034a);
         }
     }
 
-    public final void c() {
-        VelocityTracker velocityTracker;
+    public void c(List<n> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f16494f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f16141b) == null) {
             return;
         }
-        velocityTracker.clear();
-        this.f16494f.recycle();
-        this.f16494f = null;
-    }
-
-    public final void d(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                CustomMessage customMessage = new CustomMessage(2001617);
-                customMessage.setTag(this.f16490b);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                return;
-            }
-            CustomMessage customMessage2 = new CustomMessage(2001618);
-            customMessage2.setTag(this.f16490b);
-            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
-            customResponsedMessage2.setOrginalMessage(customMessage2);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f16491c = z;
-            if (this.f16493e) {
-                d(!z, true);
-            }
-        }
+        bdTypeListView.setData(list);
     }
 }

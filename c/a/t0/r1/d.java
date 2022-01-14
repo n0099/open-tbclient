@@ -14,7 +14,7 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f22433b;
+    public Integer f21814b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class d {
     public Integer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22433b : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21814b : (Integer) invokeV.objValue;
     }
 
     public String b() {
@@ -52,7 +52,7 @@ public class d {
         String str = topicList.topic_pic;
         String str2 = topicList.topic_desc;
         Long l2 = topicList.discuss_num;
-        this.f22433b = topicList.tag;
+        this.f21814b = topicList.tag;
     }
 
     public void d(String str) {

@@ -29,25 +29,25 @@ public class a {
     public final List<n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RelateRecThreadListModel f23511b;
+    public final RelateRecThreadListModel f22859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public t0 f23512c;
+    public t0 f22860c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbModel f23513d;
+    public PbModel f22861d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.s0.n.a f23514e;
+    public final c.a.s0.n.a f22862e;
 
     /* renamed from: c.a.t0.s2.u.f.f1.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1393a implements c.a.s0.n.a {
+    public class C1408a implements c.a.s0.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1393a(a aVar) {
+        public C1408a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,27 +68,27 @@ public class a {
         @Override // c.a.s0.n.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.a.f23512c == null || this.a.f23512c.K0() == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.a.f22860c == null || this.a.f22860c.K0() == null) {
                 return;
             }
-            this.a.f23512c.K0().N();
+            this.a.f22860c.K0().N();
         }
 
         @Override // c.a.s0.n.a
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.f23513d != null && (obj instanceof DataRes)) {
+                if (this.a.f22861d != null && (obj instanceof DataRes)) {
                     DataRes dataRes = (DataRes) obj;
-                    f R0 = this.a.f23513d.R0();
+                    f R0 = this.a.f22861d.R0();
                     String first_class = R0.l() != null ? R0.l().getFirst_class() : "";
                     List<ThreadInfo> list = dataRes.recom_thread_info;
                     if (ListUtils.isEmpty(list)) {
-                        if (this.a.f23512c == null || this.a.f23512c.K0() == null) {
+                        if (this.a.f22860c == null || this.a.f22860c.K0() == null) {
                             return;
                         }
-                        this.a.f23512c.K0().v(R0.t());
-                        this.a.f23512c.K0().N();
+                        this.a.f22860c.K0().v(R0.t());
+                        this.a.f22860c.K0().N();
                         if (R0.t()) {
                             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
                             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -100,18 +100,18 @@ public class a {
                         }
                         return;
                     }
-                    this.a.a.addAll(b.b(list, first_class, this.a.f23513d.Q0()));
+                    this.a.a.addAll(b.b(list, first_class, this.a.f22861d.Q0()));
                     R0.L0(this.a.a);
                     Integer num = dataRes.rec_type;
                     R0.I0(num == null ? 0 : num.intValue());
                 }
-                if (this.a.f23512c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.f23512c.m3();
+                if (this.a.f22860c != null && !ListUtils.isEmpty(this.a.a)) {
+                    this.a.f22860c.m3();
                 }
-                if (this.a.f23512c.K0() == null || !this.a.f23512c.K0().n() || ListUtils.isEmpty(this.a.a)) {
+                if (this.a.f22860c.K0() == null || !this.a.f22860c.K0().n() || ListUtils.isEmpty(this.a.a)) {
                     return;
                 }
-                this.a.f23512c.K0().k();
+                this.a.f22860c.K0().k();
             }
         }
     }
@@ -132,30 +132,30 @@ public class a {
             }
         }
         this.a = new ArrayList();
-        this.f23514e = new C1393a(this);
-        this.f23512c = t0Var;
-        this.f23513d = pbModel;
+        this.f22862e = new C1408a(this);
+        this.f22860c = t0Var;
+        this.f22861d = pbModel;
         RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(bVar.getPageContext(), bdUniqueId);
-        this.f23511b = relateRecThreadListModel;
-        relateRecThreadListModel.D(this.f23514e);
+        this.f22859b = relateRecThreadListModel;
+        relateRecThreadListModel.D(this.f22862e);
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.f23513d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.h1()) || this.f23513d.R0() == null || this.f23513d.R0().a0()) {
+            PbModel pbModel = this.f22861d;
+            if (pbModel == null || TextUtils.isEmpty(pbModel.h1()) || this.f22861d.R0() == null || this.f22861d.R0().a0()) {
                 return false;
             }
-            int d0 = this.f23513d.d0();
-            int Q0 = this.f23513d.Q0();
+            int d0 = this.f22861d.d0();
+            int Q0 = this.f22861d.Q0();
             if (d0 == 1 || Q0 == 2 || Q0 == 3) {
-                String forumId = this.f23513d.getForumId();
-                if (TextUtils.isEmpty(forumId) && this.f23513d.R0().l() != null) {
-                    forumId = this.f23513d.R0().l().getId();
+                String forumId = this.f22861d.getForumId();
+                if (TextUtils.isEmpty(forumId) && this.f22861d.R0().l() != null) {
+                    forumId = this.f22861d.R0().l().getId();
                 }
-                return this.f23511b.C(c.a.d.f.m.b.g(forumId, 0L), c.a.d.f.m.b.g(this.f23513d.h1(), 0L), d0, Q0);
+                return this.f22859b.C(c.a.d.f.m.b.g(forumId, 0L), c.a.d.f.m.b.g(this.f22861d.h1(), 0L), d0, Q0);
             }
             return false;
         }
@@ -166,15 +166,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.clear();
-            this.f23511b.onDestroy();
+            this.f22859b.onDestroy();
         }
     }
 
     public void f(t0 t0Var, PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0Var, pbModel) == null) {
-            this.f23512c = t0Var;
-            this.f23513d = pbModel;
+            this.f22860c = t0Var;
+            this.f22861d = pbModel;
         }
     }
 }

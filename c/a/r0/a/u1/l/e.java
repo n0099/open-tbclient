@@ -12,28 +12,28 @@ public class e implements c.a.r0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f9617c = null;
+    public static Boolean f9408c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f9618d = -1;
+    public static int f9409d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f9619e = -1;
+    public static int f9410e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f9620f = -1;
+    public static int f9411f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f9621g = -1;
+    public static int f9412g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f9622h = -1;
+    public static int f9413h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f9623i = -1;
+    public static int f9414i = -1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f9624j = -1;
+    public static int f9415j = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,10 +55,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9620f == -1) {
-                f9620f = b("swanswitch_file_res_cache_option");
+            if (f9411f == -1) {
+                f9411f = b("swanswitch_file_res_cache_option");
             }
-            return f9620f == 1;
+            return f9411f == 1;
         }
         return invokeV.booleanValue;
     }
@@ -80,10 +80,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f9623i == -1) {
-                f9623i = b("swan_http_interceptor_opt");
+            if (f9414i == -1) {
+                f9414i = b("swan_http_interceptor_opt");
             }
-            return f9623i > 0;
+            return f9414i > 0;
         }
         return invokeV.booleanValue;
     }
@@ -104,10 +104,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f9624j == -1) {
-                f9624j = b("swan_js_thread_opt");
+            if (f9415j == -1) {
+                f9415j = b("swan_js_thread_opt");
             }
-            return f9624j;
+            return f9415j;
         }
         return invokeV.intValue;
     }
@@ -116,10 +116,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f9622h == -1) {
-                f9622h = b("swan_preload_slave_opt");
+            if (f9413h == -1) {
+                f9413h = b("swan_preload_slave_opt");
             }
-            return f9622h;
+            return f9413h;
         }
         return invokeV.intValue;
     }
@@ -128,10 +128,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f9618d == -1) {
-                f9618d = b("swan_http_thread_opt");
+            if (f9409d == -1) {
+                f9409d = b("swan_http_thread_opt");
             }
-            return f9618d > 0;
+            return f9409d > 0;
         }
         return invokeV.booleanValue;
     }
@@ -140,10 +140,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f9618d == -1) {
-                f9618d = b("swan_http_thread_opt");
+            if (f9409d == -1) {
+                f9409d = b("swan_http_thread_opt");
             }
-            int i2 = f9618d;
+            int i2 = f9409d;
             return i2 > 0 && i2 != 2;
         }
         return invokeV.booleanValue;
@@ -153,10 +153,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (f9621g == -1) {
-                f9621g = b("swan_ubc_samping_opt");
+            if (f9412g == -1) {
+                f9412g = b("swan_ubc_samping_opt");
             }
-            return f9621g;
+            return f9412g;
         }
         return invokeV.intValue;
     }
@@ -171,10 +171,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f9617c == null) {
-                f9617c = Boolean.valueOf(d("swan_js_thread_dispatch"));
+            if (f9408c == null) {
+                f9408c = Boolean.valueOf(d("swan_js_thread_dispatch"));
             }
-            return f9617c.booleanValue();
+            return f9408c.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -183,10 +183,10 @@ public class e implements c.a.r0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f9619e == -1) {
-                f9619e = b("swan_webview_ssl_opt");
+            if (f9410e == -1) {
+                f9410e = b("swan_webview_ssl_opt");
             }
-            return f9619e > 0;
+            return f9410e > 0;
         }
         return invokeV.booleanValue;
     }

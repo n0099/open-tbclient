@@ -24,19 +24,19 @@ public class a {
     public com.baidu.sso.o.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f4850b;
+    public Context f4745b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4851c;
+    public String f4746c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4852d;
+    public String f4747d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.n.b f4853e;
+    public c.a.p0.n.b f4748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ServiceConnection f4854f;
+    public ServiceConnection f4749f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class a {
             }
         }
         this.a = null;
-        this.f4851c = null;
-        this.f4852d = null;
-        this.f4854f = new c(this);
-        this.f4850b = context;
+        this.f4746c = null;
+        this.f4747d = null;
+        this.f4749f = new c(this);
+        this.f4745b = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
@@ -73,12 +73,12 @@ public class a {
             if (this.a != null) {
                 String str2 = null;
                 try {
-                    if (TextUtils.isEmpty(this.f4851c)) {
-                        this.f4851c = this.f4850b.getPackageName();
+                    if (TextUtils.isEmpty(this.f4746c)) {
+                        this.f4746c = this.f4745b.getPackageName();
                     }
-                    if (TextUtils.isEmpty(this.f4852d)) {
+                    if (TextUtils.isEmpty(this.f4747d)) {
                         try {
-                            packageInfo = this.f4850b.getPackageManager().getPackageInfo(this.f4851c, 64);
+                            packageInfo = this.f4745b.getPackageManager().getPackageInfo(this.f4746c, 64);
                         } catch (PackageManager.NameNotFoundException unused) {
                         }
                         if (packageInfo != null) {
@@ -94,7 +94,7 @@ public class a {
                                 } catch (NoSuchAlgorithmException unused2) {
                                 }
                             }
-                            this.f4852d = str2;
+                            this.f4747d = str2;
                         }
                         signatureArr = null;
                         if (signatureArr != null) {
@@ -104,9 +104,9 @@ public class a {
                             }
                             str2 = sb2.toString();
                         }
-                        this.f4852d = str2;
+                        this.f4747d = str2;
                     }
-                    str2 = ((a.AbstractBinderC1857a.C1858a) this.a).a(this.f4851c, this.f4852d, str);
+                    str2 = ((a.AbstractBinderC1873a.C1874a) this.a).a(this.f4746c, this.f4747d, str);
                 } catch (Throwable unused3) {
                 }
                 if (!TextUtils.isEmpty(str2)) {
@@ -124,7 +124,7 @@ public class a {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            this.f4850b.bindService(intent, this.f4854f, 1);
+            this.f4745b.bindService(intent, this.f4749f, 1);
         }
     }
 }

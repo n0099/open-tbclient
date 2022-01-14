@@ -465,7 +465,7 @@ public final class ShareUtils {
                     callbackShareModels(shareModelWithCheckCallback, shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
                     return;
                 }
-                if (SapiUtils.checkRequestPermission(s.f57425i, context)) {
+                if (SapiUtils.checkRequestPermission(s.f55248i, context)) {
                     List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, installedApps);
                     if (shareModelsFromSdCard.size() > 0) {
                         ShareLoginStat.GetShareListStat.statExtMap.put("from", "sd");
@@ -1052,7 +1052,7 @@ public final class ShareUtils {
                 int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
                 int i2 = 1;
                 Log.d(TAG, "current login env is " + ordinal);
-                if (!SapiUtils.checkRequestPermission(s.f57425i, context)) {
+                if (!SapiUtils.checkRequestPermission(s.f55248i, context)) {
                     StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_NOT_STORAGE_PERM);
                 }
                 StringBuilder sb = new StringBuilder();

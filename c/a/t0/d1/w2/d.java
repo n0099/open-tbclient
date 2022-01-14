@@ -1,5 +1,7 @@
 package c.a.t0.d1.w2;
 /* loaded from: classes7.dex */
 public interface d {
-    void d();
+    public static final b p0 = new b();
+
+    b j();
 }

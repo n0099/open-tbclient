@@ -25,25 +25,23 @@ public class x implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23743e;
+    public String f23087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23744f;
+    public int f23088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f23745g;
+    public String f23089g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f23746h;
+    public String f23090h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23747i;
+    public int f23091i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f23748j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public MetaData f23749k;
+    public long f23092j;
+    public MetaData k;
     public HashMap<String, MetaData> l;
     public boolean m;
     public String n;
@@ -93,16 +91,16 @@ public class x implements c.a.d.n.e.n {
         MetaData metaData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) && alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
-            this.f23743e = alaLiveInfo.user_info.user_name;
-            this.f23745g = alaLiveInfo.description;
+            this.f23087e = alaLiveInfo.user_info.user_name;
+            this.f23089g = alaLiveInfo.description;
             String str = alaLiveInfo.cover_wide;
-            this.f23746h = str;
+            this.f23090h = str;
             if (str == null || TextUtils.isEmpty(str)) {
-                this.f23746h = alaLiveInfo.cover;
+                this.f23090h = alaLiveInfo.cover;
             }
-            this.f23744f = alaLiveInfo.audience_count.intValue();
-            this.f23747i = alaLiveInfo.live_status.intValue();
-            this.f23748j = alaLiveInfo.live_id.longValue();
+            this.f23088f = alaLiveInfo.audience_count.intValue();
+            this.f23091i = alaLiveInfo.live_status.intValue();
+            this.f23092j = alaLiveInfo.live_id.longValue();
             this.m = alaLiveInfo.live_from.intValue() == 1;
             this.n = alaLiveInfo.third_live_type;
             this.o = alaLiveInfo.third_room_id;
@@ -112,7 +110,7 @@ public class x implements c.a.d.n.e.n {
             yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
             Long l = alaLiveInfo.user_info.user_id;
             if (l != null && l.longValue() > 0 && (hashMap = this.l) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.f23749k = metaData;
+                this.k = metaData;
                 metaData.setIsLike(metaData.hadConcerned());
             }
             List<DislikeInfo> list = alaLiveInfo.dislike_info;
@@ -128,7 +126,7 @@ public class x implements c.a.d.n.e.n {
                 c.a.s0.s.q.x0 x0Var = new c.a.s0.s.q.x0();
                 this.s = x0Var;
                 x0Var.j(sparseArray);
-                this.s.f13845g = sparseArray2;
+                this.s.f13531g = sparseArray2;
             } else {
                 this.s = null;
             }
@@ -139,13 +137,13 @@ public class x implements c.a.d.n.e.n {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f23743e = null;
-            this.f23744f = 0;
-            this.f23745g = null;
-            this.f23746h = null;
-            this.f23747i = 0;
-            this.f23748j = 0L;
-            this.f23749k = null;
+            this.f23087e = null;
+            this.f23088f = 0;
+            this.f23089g = null;
+            this.f23090h = null;
+            this.f23091i = 0;
+            this.f23092j = 0L;
+            this.k = null;
             this.l = null;
             this.m = false;
             this.n = null;

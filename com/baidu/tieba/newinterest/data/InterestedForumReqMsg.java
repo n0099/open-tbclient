@@ -46,7 +46,7 @@ public class InterestedForumReqMsg extends NetMessage {
             if (z) {
                 b0.a(builder, true);
             }
-            if (!d.E()) {
+            if (!d.B()) {
                 builder.begin_id = 1;
                 builder.pn = 0;
             }

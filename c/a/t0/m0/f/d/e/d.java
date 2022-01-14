@@ -19,7 +19,7 @@ public final class d {
     public List<? extends b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<? extends Object> f19764b;
+    public List<? extends Object> f19251b;
 
     /* loaded from: classes7.dex */
     public static final class a {
@@ -81,7 +81,7 @@ public final class d {
             }
         }
         this.a = CollectionsKt__CollectionsKt.emptyList();
-        this.f19764b = CollectionsKt__CollectionsKt.emptyList();
+        this.f19251b = CollectionsKt__CollectionsKt.emptyList();
     }
 
     public final a a(c.a.t0.m0.e.a item, c.a.t0.m0.k.b timer, c.a.t0.m0.a config) {
@@ -122,7 +122,7 @@ public final class d {
     public final List<Object> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19764b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19251b : (List) invokeV.objValue;
     }
 
     public final void d(List<? extends b> list) {
@@ -137,7 +137,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.f19764b = list;
+            this.f19251b = list;
         }
     }
 }

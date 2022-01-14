@@ -17,10 +17,10 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15359b;
+    public int f14978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f15360c;
+    public List<b> f14979c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class c {
                 return;
             }
         }
-        this.f15360c = new ArrayList();
+        this.f14979c = new ArrayList();
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f15360c == null) {
-                this.f15360c = new ArrayList();
+            if (this.f14979c == null) {
+                this.f14979c = new ArrayList();
             }
-            return this.f15360c;
+            return this.f14979c;
         }
         return (List) invokeV.objValue;
     }
@@ -60,15 +60,15 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             this.a = jSONObject.optString("mark_type_name");
-            this.f15359b = jSONObject.optInt("mark_type_wear");
+            this.f14978b = jSONObject.optInt("mark_type_wear");
             JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     b bVar = new b();
                     bVar.n(optJSONArray.optJSONObject(i2));
                     bVar.o(this.a);
-                    bVar.p(this.f15359b);
-                    this.f15360c.add(bVar);
+                    bVar.p(this.f14978b);
+                    this.f14979c.add(bVar);
                 }
             }
         }

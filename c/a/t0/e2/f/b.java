@@ -3,7 +3,7 @@ package c.a.t0.e2.f;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,12 +35,12 @@ public class b implements PayChannelService {
 
         /* renamed from: c.a.t0.e2.f.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1072a implements ITiebaPayCallback {
+        public class C1086a implements ITiebaPayCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ IPayCallback a;
 
-            public C1072a(a aVar, IPayCallback iPayCallback) {
+            public C1086a(a aVar, IPayCallback iPayCallback) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public class b implements PayChannelService {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return w0.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
+                return v0.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -119,7 +119,7 @@ public class b implements PayChannelService {
             }
             this.a.c();
             if (this.a.a != null) {
-                this.a.a.pay(hashMap.remove("channel"), hashMap, new C1072a(this, iPayCallback));
+                this.a.a.pay(hashMap.remove("channel"), hashMap, new C1086a(this, iPayCallback));
             } else if (iPayCallback != null) {
                 iPayCallback.onPayResult(2, null);
             }

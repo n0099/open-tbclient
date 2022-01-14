@@ -11,34 +11,32 @@ public class n4 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31368b;
+    public int f30386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31369c;
+    public int f30387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31370d;
+    public int f30388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31371e;
+    public boolean f30389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31372f;
+    public boolean f30390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31373g;
+    public int f30391g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31374h;
+    public int f30392h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31375i;
+    public int f30393i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31376j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int[] f31377k;
+    public int f30394j;
+    public int[] k;
 
     public n4() {
         Interceptable interceptable = $ic;

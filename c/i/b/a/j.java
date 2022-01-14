@@ -42,25 +42,23 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public a M;
 
     /* renamed from: e  reason: collision with root package name */
-    public final r[] f30709e;
+    public final r[] f29747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final s[] f30710f;
+    public final s[] f29748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.i.b.a.f0.h f30711g;
+    public final c.i.b.a.f0.h f29749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final m f30712h;
+    public final m f29750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.i.b.a.i0.q f30713i;
+    public final c.i.b.a.i0.q f29751i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Handler f30714j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final HandlerThread f30715k;
+    public final Handler f29752j;
+    public final HandlerThread k;
     public final Handler l;
     public final g m;
     public final w.c n;
@@ -84,34 +82,32 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         public final c.i.b.a.d0.k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Object f30716b;
+        public final Object f29753b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f30717c;
+        public final int f29754c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final c.i.b.a.d0.o[] f30718d;
+        public final c.i.b.a.d0.o[] f29755d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean[] f30719e;
+        public final boolean[] f29756e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f30720f;
+        public final long f29757f;
 
         /* renamed from: g  reason: collision with root package name */
-        public n.b f30721g;
+        public n.b f29758g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f30722h;
+        public boolean f29759h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f30723i;
+        public boolean f29760i;
 
         /* renamed from: j  reason: collision with root package name */
-        public a f30724j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public c.i.b.a.f0.i f30725k;
+        public a f29761j;
+        public c.i.b.a.f0.i k;
         public final r[] l;
         public final s[] m;
         public final c.i.b.a.f0.h n;
@@ -136,20 +132,20 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             }
             this.l = rVarArr;
             this.m = sVarArr;
-            this.f30720f = j2;
+            this.f29757f = j2;
             this.n = hVar;
             this.o = mVar;
             this.p = lVar;
             c.i.b.a.i0.a.e(obj);
-            this.f30716b = obj;
-            this.f30717c = i2;
-            this.f30721g = bVar;
-            this.f30718d = new c.i.b.a.d0.o[rVarArr.length];
-            this.f30719e = new boolean[rVarArr.length];
+            this.f29753b = obj;
+            this.f29754c = i2;
+            this.f29758g = bVar;
+            this.f29755d = new c.i.b.a.d0.o[rVarArr.length];
+            this.f29756e = new boolean[rVarArr.length];
             c.i.b.a.d0.k d2 = lVar.d(bVar.a, mVar.e());
-            if (bVar.f30781c != Long.MIN_VALUE) {
+            if (bVar.f29816c != Long.MIN_VALUE) {
                 c.i.b.a.d0.c cVar = new c.i.b.a.d0.c(d2, true);
-                cVar.f(0L, bVar.f30781c);
+                cVar.f(0L, bVar.f29816c);
                 d2 = cVar;
             }
             this.a = d2;
@@ -166,7 +162,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 if (i2 >= sVarArr.length) {
                     return;
                 }
-                if (sVarArr[i2].e() == 5 && this.f30725k.f30562b[i2]) {
+                if (sVarArr[i2].e() == 5 && this.k.f29603b[i2]) {
                     oVarArr[i2] = new c.i.b.a.d0.g();
                 }
                 i2++;
@@ -201,15 +197,15 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30717c == 0 ? this.f30720f : this.f30720f - this.f30721g.f30780b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29754c == 0 ? this.f29757f : this.f29757f - this.f29758g.f29815b : invokeV.longValue;
         }
 
         public void e() throws ExoPlaybackException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f30722h = true;
+                this.f29759h = true;
                 i();
-                this.f30721g = this.f30721g.b(m(this.f30721g.f30780b, false));
+                this.f29758g = this.f29758g.b(m(this.f29758g.f29815b, false));
             }
         }
 
@@ -217,13 +213,13 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
-                long c2 = !this.f30722h ? this.f30721g.f30780b : this.a.c();
+                long c2 = !this.f29759h ? this.f29758g.f29815b : this.a.c();
                 if (c2 == Long.MIN_VALUE) {
-                    n.b bVar = this.f30721g;
-                    if (bVar.f30785g) {
+                    n.b bVar = this.f29758g;
+                    if (bVar.f29820g) {
                         return true;
                     }
-                    c2 = bVar.f30783e;
+                    c2 = bVar.f29818e;
                 }
                 return this.o.d(c2 - k(j2), z);
             }
@@ -233,15 +229,15 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30722h && (!this.f30723i || this.a.c() == Long.MIN_VALUE) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29759h && (!this.f29760i || this.a.c() == Long.MIN_VALUE) : invokeV.booleanValue;
         }
 
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 try {
-                    if (this.f30721g.f30781c != Long.MIN_VALUE) {
-                        this.p.e(((c.i.b.a.d0.c) this.a).f29967e);
+                    if (this.f29758g.f29816c != Long.MIN_VALUE) {
+                        this.p.e(((c.i.b.a.d0.c) this.a).f29041e);
                     } else {
                         this.p.e(this.a);
                     }
@@ -258,7 +254,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 if (c2.a(this.q)) {
                     return false;
                 }
-                this.f30725k = c2;
+                this.k = c2;
                 return true;
             }
             return invokeV.booleanValue;
@@ -268,7 +264,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-                long d2 = !this.f30722h ? 0L : this.a.d();
+                long d2 = !this.f29759h ? 0L : this.a.d();
                 if (d2 == Long.MIN_VALUE) {
                     return false;
                 }
@@ -301,40 +297,40 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), zArr})) != null) {
                 return invokeCommon.longValue;
             }
-            c.i.b.a.f0.g gVar = this.f30725k.f30563c;
+            c.i.b.a.f0.g gVar = this.k.f29604c;
             int i2 = 0;
             while (true) {
                 boolean z2 = true;
                 if (i2 >= gVar.a) {
                     break;
                 }
-                boolean[] zArr2 = this.f30719e;
-                if (z || !this.f30725k.b(this.q, i2)) {
+                boolean[] zArr2 = this.f29756e;
+                if (z || !this.k.b(this.q, i2)) {
                     z2 = false;
                 }
                 zArr2[i2] = z2;
                 i2++;
             }
-            c(this.f30718d);
-            long e2 = this.a.e(gVar.b(), this.f30719e, this.f30718d, zArr, j2);
-            a(this.f30718d);
-            this.q = this.f30725k;
-            this.f30723i = false;
+            c(this.f29755d);
+            long e2 = this.a.e(gVar.b(), this.f29756e, this.f29755d, zArr, j2);
+            a(this.f29755d);
+            this.q = this.k;
+            this.f29760i = false;
             int i3 = 0;
             while (true) {
-                c.i.b.a.d0.o[] oVarArr = this.f30718d;
+                c.i.b.a.d0.o[] oVarArr = this.f29755d;
                 if (i3 < oVarArr.length) {
                     if (oVarArr[i3] != null) {
-                        c.i.b.a.i0.a.f(this.f30725k.f30562b[i3]);
+                        c.i.b.a.i0.a.f(this.k.f29603b[i3]);
                         if (this.m[i3].e() != 5) {
-                            this.f30723i = true;
+                            this.f29760i = true;
                         }
                     } else {
                         c.i.b.a.i0.a.f(gVar.a(i3) == null);
                     }
                     i3++;
                 } else {
-                    this.o.a(this.l, this.f30725k.a, gVar);
+                    this.o.a(this.l, this.k.a, gVar);
                     return e2;
                 }
             }
@@ -348,10 +344,10 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         public final c.i.b.a.d0.l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final w f30726b;
+        public final w f29762b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Object f30727c;
+        public final Object f29763c;
 
         public b(c.i.b.a.d0.l lVar, w wVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -369,8 +365,8 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 }
             }
             this.a = lVar;
-            this.f30726b = wVar;
-            this.f30727c = obj;
+            this.f29762b = wVar;
+            this.f29763c = obj;
         }
     }
 
@@ -381,10 +377,10 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         public final w a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30728b;
+        public final int f29764b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f30729c;
+        public final long f29765c;
 
         public c(w wVar, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -402,8 +398,8 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 }
             }
             this.a = wVar;
-            this.f30728b = i2;
-            this.f30729c = j2;
+            this.f29764b = i2;
+            this.f29765c = j2;
         }
     }
 
@@ -422,9 +418,9 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 return;
             }
         }
-        this.f30709e = rVarArr;
-        this.f30711g = hVar;
-        this.f30712h = mVar;
+        this.f29747e = rVarArr;
+        this.f29749g = hVar;
+        this.f29750h = mVar;
         this.x = z;
         this.B = i2;
         this.C = z2;
@@ -432,22 +428,22 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         this.A = 1;
         this.m = gVar;
         this.q = new o(null, null, 0, -9223372036854775807L);
-        this.f30710f = new s[rVarArr.length];
+        this.f29748f = new s[rVarArr.length];
         for (int i5 = 0; i5 < rVarArr.length; i5++) {
             rVarArr[i5].setIndex(i5);
-            this.f30710f[i5] = rVarArr[i5].p();
+            this.f29748f[i5] = rVarArr[i5].p();
         }
-        this.f30713i = new c.i.b.a.i0.q();
+        this.f29751i = new c.i.b.a.i0.q();
         this.v = new r[0];
         this.n = new w.c();
         this.o = new w.b();
         this.p = new n();
         hVar.a(this);
-        this.r = p.f30792d;
+        this.r = p.f29827d;
         HandlerThread handlerThread = new HandlerThread("ExoPlayerImplInternal:Handler", -16);
-        this.f30715k = handlerThread;
+        this.k = handlerThread;
         handlerThread.start();
-        this.f30714j = new Handler(this.f30715k.getLooper(), this);
+        this.f29752j = new Handler(this.k.getLooper(), this);
     }
 
     @NonNull
@@ -470,17 +466,17 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (interceptable == null || interceptable.invokeLZ(1048576, this, lVar, z) == null) {
             this.G++;
             G(true);
-            this.f30712h.onPrepared();
+            this.f29750h.onPrepared();
             if (z) {
                 this.q = new o(null, null, 0, -9223372036854775807L);
             } else {
                 o oVar = this.q;
-                this.q = new o(null, null, oVar.f30787c, oVar.f30790f, this.q.f30789e);
+                this.q = new o(null, null, oVar.f29822c, oVar.f29825f, this.q.f29824e);
             }
             this.u = lVar;
             lVar.a(this.m, true, this);
             a0(2);
-            this.f30714j.sendEmptyMessage(2);
+            this.f29752j.sendEmptyMessage(2);
         }
     }
 
@@ -491,7 +487,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 if (this.w) {
                     return;
                 }
-                this.f30714j.sendEmptyMessage(6);
+                this.f29752j.sendEmptyMessage(6);
                 boolean z = false;
                 while (!this.w) {
                     try {
@@ -511,9 +507,9 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             G(true);
-            this.f30712h.b();
+            this.f29750h.b();
             a0(1);
-            this.f30715k.quit();
+            this.k.quit();
             synchronized (this) {
                 this.w = true;
                 notifyAll();
@@ -526,7 +522,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             while (aVar != null) {
                 aVar.h();
-                aVar = aVar.f30724j;
+                aVar = aVar.f29761j;
             }
         }
     }
@@ -535,8 +531,8 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rVar)) == null) {
-            a aVar = this.L.f30724j;
-            return aVar != null && aVar.f30722h && rVar.f();
+            a aVar = this.L.f29761j;
+            return aVar != null && aVar.f29759h && rVar.f();
         }
         return invokeL.booleanValue;
     }
@@ -548,35 +544,35 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             return;
         }
         boolean z = true;
-        for (aVar = this.M; aVar != null && aVar.f30722h; aVar = aVar.f30724j) {
+        for (aVar = this.M; aVar != null && aVar.f29759h; aVar = aVar.f29761j) {
             if (aVar.i()) {
                 if (z) {
                     boolean z2 = this.L != this.M;
-                    D(this.M.f30724j);
+                    D(this.M.f29761j);
                     a aVar2 = this.M;
-                    aVar2.f30724j = null;
+                    aVar2.f29761j = null;
                     this.K = aVar2;
                     this.L = aVar2;
-                    boolean[] zArr = new boolean[this.f30709e.length];
-                    long n = aVar2.n(this.q.f30790f, z2, zArr);
-                    if (this.A != 4 && n != this.q.f30790f) {
+                    boolean[] zArr = new boolean[this.f29747e.length];
+                    long n = aVar2.n(this.q.f29825f, z2, zArr);
+                    if (this.A != 4 && n != this.q.f29825f) {
                         o oVar = this.q;
-                        o e2 = oVar.e(oVar.f30787c, n, oVar.f30789e);
+                        o e2 = oVar.e(oVar.f29822c, n, oVar.f29824e);
                         this.q = e2;
                         this.l.obtainMessage(4, 3, 0, e2).sendToTarget();
                         H(n);
                     }
-                    boolean[] zArr2 = new boolean[this.f30709e.length];
+                    boolean[] zArr2 = new boolean[this.f29747e.length];
                     int i2 = 0;
                     int i3 = 0;
                     while (true) {
-                        r[] rVarArr = this.f30709e;
+                        r[] rVarArr = this.f29747e;
                         if (i2 >= rVarArr.length) {
                             break;
                         }
                         r rVar = rVarArr[i2];
                         zArr2[i2] = rVar.getState() != 0;
-                        c.i.b.a.d0.o oVar2 = this.M.f30718d[i2];
+                        c.i.b.a.d0.o oVar2 = this.M.f29755d[i2];
                         if (oVar2 != null) {
                             i3++;
                         }
@@ -589,23 +585,23 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                         }
                         i2++;
                     }
-                    this.l.obtainMessage(2, aVar.f30725k).sendToTarget();
+                    this.l.obtainMessage(2, aVar.k).sendToTarget();
                     f(zArr2, i3);
                 } else {
                     this.K = aVar;
-                    for (a aVar3 = aVar.f30724j; aVar3 != null; aVar3 = aVar3.f30724j) {
+                    for (a aVar3 = aVar.f29761j; aVar3 != null; aVar3 = aVar3.f29761j) {
                         aVar3.h();
                     }
                     a aVar4 = this.K;
-                    aVar4.f30724j = null;
-                    if (aVar4.f30722h) {
-                        this.K.m(Math.max(aVar4.f30721g.f30780b, aVar4.k(this.J)), false);
+                    aVar4.f29761j = null;
+                    if (aVar4.f29759h) {
+                        this.K.m(Math.max(aVar4.f29758g.f29815b, aVar4.k(this.J)), false);
                     }
                 }
                 if (this.A != 4) {
                     s();
                     i0();
-                    this.f30714j.sendEmptyMessage(2);
+                    this.f29752j.sendEmptyMessage(2);
                     return;
                 }
                 return;
@@ -619,9 +615,9 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public final void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f30714j.removeMessages(2);
+            this.f29752j.removeMessages(2);
             this.y = false;
-            this.f30713i.e();
+            this.f29751i.e();
             this.J = 60000000L;
             for (r rVar : this.v) {
                 try {
@@ -657,7 +653,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             a aVar = this.M;
             long l = aVar == null ? j2 + 60000000 : aVar.l(j2);
             this.J = l;
-            this.f30713i.a(l);
+            this.f29751i.a(l);
             for (r rVar : this.v) {
                 rVar.l(this.J);
             }
@@ -674,21 +670,21 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 wVar2 = wVar;
             }
             try {
-                Pair<Integer, Long> i2 = wVar2.i(this.n, this.o, cVar.f30728b, cVar.f30729c);
+                Pair<Integer, Long> i2 = wVar2.i(this.n, this.o, cVar.f29764b, cVar.f29765c);
                 if (wVar == wVar2) {
                     return i2;
                 }
-                int b2 = wVar.b(wVar2.g(((Integer) i2.first).intValue(), this.o, true).f30807b);
+                int b2 = wVar.b(wVar2.g(((Integer) i2.first).intValue(), this.o, true).f29841b);
                 if (b2 != -1) {
                     return Pair.create(Integer.valueOf(b2), i2.second);
                 }
                 int J = J(((Integer) i2.first).intValue(), wVar2, wVar);
                 if (J != -1) {
-                    return k(wVar, wVar.f(J, this.o).f30808c, -9223372036854775807L);
+                    return k(wVar, wVar.f(J, this.o).f29842c, -9223372036854775807L);
                 }
                 return null;
             } catch (IndexOutOfBoundsException unused) {
-                throw new IllegalSeekPositionException(wVar, cVar.f30728b, cVar.f30729c);
+                throw new IllegalSeekPositionException(wVar, cVar.f29764b, cVar.f29765c);
             }
         }
         return (Pair) invokeL.objValue;
@@ -706,7 +702,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 if (i3 == -1) {
                     break;
                 }
-                i4 = wVar2.b(wVar.g(i3, this.o, true).f30807b);
+                i4 = wVar2.b(wVar.g(i3, this.o, true).f29841b);
             }
             return i4;
         }
@@ -716,12 +712,12 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public final void K(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f30714j.removeMessages(2);
+            this.f29752j.removeMessages(2);
             long elapsedRealtime = (j2 + j3) - SystemClock.elapsedRealtime();
             if (elapsedRealtime <= 0) {
-                this.f30714j.sendEmptyMessage(2);
+                this.f29752j.sendEmptyMessage(2);
             } else {
-                this.f30714j.sendEmptyMessageDelayed(2, elapsedRealtime);
+                this.f29752j.sendEmptyMessageDelayed(2, elapsedRealtime);
             }
         }
     }
@@ -729,7 +725,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void L(w wVar, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{wVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.f30714j.obtainMessage(3, new c(wVar, i2, j2)).sendToTarget();
+            this.f29752j.obtainMessage(3, new c(wVar, i2, j2)).sendToTarget();
         }
     }
 
@@ -746,18 +742,18 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             }
             Pair<Integer, Long> I = I(cVar);
             if (I == null) {
-                int i3 = wVar.p() ? 0 : wVar.l(wVar.a(this.C), this.n).f30821f;
+                int i3 = wVar.p() ? 0 : wVar.l(wVar.a(this.C), this.n).f29854f;
                 this.q = this.q.d(i3, -9223372036854775807L, -9223372036854775807L);
                 a0(4);
                 this.l.obtainMessage(3, 1, 0, this.q.d(i3, 0L, -9223372036854775807L)).sendToTarget();
                 G(false);
                 return;
             }
-            int i4 = cVar.f30729c == -9223372036854775807L ? 1 : 0;
+            int i4 = cVar.f29765c == -9223372036854775807L ? 1 : 0;
             int intValue = ((Integer) I.first).intValue();
             long longValue = ((Long) I.second).longValue();
-            l.b k2 = this.p.k(intValue, longValue);
-            if (k2.b()) {
+            l.b k = this.p.k(intValue, longValue);
+            if (k.b()) {
                 j2 = 0;
                 i2 = 1;
             } else {
@@ -765,16 +761,16 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 j2 = longValue;
             }
             try {
-                if (k2.equals(this.q.f30787c) && j2 / 1000 == this.q.f30790f / 1000) {
+                if (k.equals(this.q.f29822c) && j2 / 1000 == this.q.f29825f / 1000) {
                     return;
                 }
-                long N = N(k2, j2);
+                long N = N(k, j2);
                 int i5 = i2 | (j2 != N ? 1 : 0);
-                o e2 = this.q.e(k2, N, longValue);
+                o e2 = this.q.e(k, N, longValue);
                 this.q = e2;
                 this.l.obtainMessage(3, i5, 0, e2).sendToTarget();
             } finally {
-                o e3 = this.q.e(k2, j2, longValue);
+                o e3 = this.q.e(k, j2, longValue);
                 this.q = e3;
                 this.l.obtainMessage(3, i2, 0, e3).sendToTarget();
             }
@@ -804,7 +800,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                     } else {
                         aVar2.h();
                     }
-                    aVar2 = aVar2.f30724j;
+                    aVar2 = aVar2.f29761j;
                 }
             }
             a aVar4 = this.M;
@@ -816,12 +812,12 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 this.M = null;
             }
             if (aVar != null) {
-                aVar.f30724j = null;
+                aVar.f29761j = null;
                 this.K = aVar;
                 this.L = aVar;
                 V(aVar);
                 a aVar5 = this.M;
-                if (aVar5.f30723i) {
+                if (aVar5.f29760i) {
                     j2 = aVar5.a.g(j2);
                 }
                 H(j2);
@@ -832,7 +828,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 this.M = null;
                 H(j2);
             }
-            this.f30714j.sendEmptyMessage(2);
+            this.f29752j.sendEmptyMessage(2);
             return j2;
         }
         return invokeLJ.longValue;
@@ -844,7 +840,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             return;
         }
         this.D++;
-        this.f30714j.obtainMessage(11, bVarArr).sendToTarget();
+        this.f29752j.obtainMessage(11, bVarArr).sendToTarget();
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -853,10 +849,10 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (interceptable == null || interceptable.invokeL(1048591, this, bVarArr) == null) {
             try {
                 for (g.b bVar : bVarArr) {
-                    bVar.a.h(bVar.f30566b, bVar.f30567c);
+                    bVar.a.h(bVar.f29607b, bVar.f29608c);
                 }
                 if (this.A == 3 || this.A == 2) {
-                    this.f30714j.sendEmptyMessage(2);
+                    this.f29752j.sendEmptyMessage(2);
                 }
                 synchronized (this) {
                     this.E++;
@@ -884,7 +880,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f30714j.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
+            this.f29752j.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
         }
     }
 
@@ -901,9 +897,9 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             int i2 = this.A;
             if (i2 == 3) {
                 c0();
-                this.f30714j.sendEmptyMessage(2);
+                this.f29752j.sendEmptyMessage(2);
             } else if (i2 == 2) {
-                this.f30714j.sendEmptyMessage(2);
+                this.f29752j.sendEmptyMessage(2);
             }
         }
     }
@@ -911,7 +907,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void T(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, pVar) == null) {
-            this.f30714j.obtainMessage(4, pVar).sendToTarget();
+            this.f29752j.obtainMessage(4, pVar).sendToTarget();
         }
     }
 
@@ -922,7 +918,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             if (hVar != null) {
                 pVar = hVar.c(pVar);
             }
-            this.f30713i.c(pVar);
+            this.f29751i.c(pVar);
             this.r = pVar;
             this.l.obtainMessage(6, pVar).sendToTarget();
         }
@@ -933,24 +929,24 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (!(interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) || this.M == aVar) {
             return;
         }
-        boolean[] zArr = new boolean[this.f30709e.length];
+        boolean[] zArr = new boolean[this.f29747e.length];
         int i2 = 0;
         int i3 = 0;
         while (true) {
-            r[] rVarArr = this.f30709e;
+            r[] rVarArr = this.f29747e;
             if (i2 < rVarArr.length) {
                 r rVar = rVarArr[i2];
                 zArr[i2] = rVar.getState() != 0;
-                if (aVar.f30725k.f30562b[i2]) {
+                if (aVar.k.f29603b[i2]) {
                     i3++;
                 }
-                if (zArr[i2] && (!aVar.f30725k.f30562b[i2] || (rVar.j() && rVar.getStream() == this.M.f30718d[i2]))) {
+                if (zArr[i2] && (!aVar.k.f29603b[i2] || (rVar.j() && rVar.getStream() == this.M.f29755d[i2]))) {
                     b(rVar);
                 }
                 i2++;
             } else {
                 this.M = aVar;
-                this.l.obtainMessage(2, aVar.f30725k).sendToTarget();
+                this.l.obtainMessage(2, aVar.k).sendToTarget();
                 f(zArr, i3);
                 return;
             }
@@ -960,7 +956,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void W(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f30714j.obtainMessage(12, i2, 0).sendToTarget();
+            this.f29752j.obtainMessage(12, i2, 0).sendToTarget();
         }
     }
 
@@ -976,7 +972,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void Y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f30714j.obtainMessage(13, z ? 1 : 0, 0).sendToTarget();
+            this.f29752j.obtainMessage(13, z ? 1 : 0, 0).sendToTarget();
         }
     }
 
@@ -998,7 +994,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 }
                 int i2 = this.D;
                 this.D = i2 + 1;
-                this.f30714j.obtainMessage(11, bVarArr).sendToTarget();
+                this.f29752j.obtainMessage(11, bVarArr).sendToTarget();
                 boolean z = false;
                 while (this.E <= i2) {
                     try {
@@ -1039,10 +1035,10 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{bVar, Long.valueOf(j2), aVar})) == null) {
-            if (bVar.equals(aVar.f30721g.a) && aVar.f30722h) {
-                this.q.a.f(aVar.f30721g.a.a, this.o);
+            if (bVar.equals(aVar.f29758g.a) && aVar.f29759h) {
+                this.q.a.f(aVar.f29758g.a.a, this.o);
                 int d2 = this.o.d(j2);
-                return d2 == -1 || this.o.f(d2) == aVar.f30721g.f30781c;
+                return d2 == -1 || this.o.f(d2) == aVar.f29758g.f29816c;
             }
             return false;
         }
@@ -1053,7 +1049,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void c(c.i.b.a.d0.l lVar, w wVar, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048606, this, lVar, wVar, obj) == null) {
-            this.f30714j.obtainMessage(7, new b(lVar, wVar, obj)).sendToTarget();
+            this.f29752j.obtainMessage(7, new b(lVar, wVar, obj)).sendToTarget();
         }
     }
 
@@ -1061,7 +1057,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             this.y = false;
-            this.f30713i.b();
+            this.f29751i.b();
             for (r rVar : this.v) {
                 rVar.start();
             }
@@ -1083,7 +1079,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             }
             c.i.b.a.i0.t.a("doSomeWork");
             i0();
-            this.M.a.r(this.q.f30790f);
+            this.M.a.r(this.q.f29825f);
             boolean z = true;
             boolean z2 = true;
             for (r rVar : this.v) {
@@ -1103,12 +1099,12 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 p d2 = hVar.d();
                 if (!d2.equals(this.r)) {
                     this.r = d2;
-                    this.f30713i.c(d2);
+                    this.f29751i.c(d2);
                     this.l.obtainMessage(6, d2).sendToTarget();
                 }
             }
-            long j2 = this.M.f30721g.f30783e;
-            if (z2 && ((j2 == -9223372036854775807L || j2 <= this.q.f30790f) && this.M.f30721g.f30785g)) {
+            long j2 = this.M.f29758g.f29818e;
+            if (z2 && ((j2 == -9223372036854775807L || j2 <= this.q.f29825f) && this.M.f29758g.f29820g)) {
                 a0(4);
                 f0();
             } else {
@@ -1146,7 +1142,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             } else if (this.v.length != 0 && i2 != 4) {
                 K(elapsedRealtime, 1000L);
             } else {
-                this.f30714j.removeMessages(2);
+                this.f29752j.removeMessages(2);
             }
             c.i.b.a.i0.t.c();
         }
@@ -1155,23 +1151,23 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.f30714j.sendEmptyMessage(5);
+            this.f29752j.sendEmptyMessage(5);
         }
     }
 
     public final void e(int i2, boolean z, int i3) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
-            r rVar = this.f30709e[i2];
+            r rVar = this.f29747e[i2];
             this.v[i3] = rVar;
             if (rVar.getState() == 0) {
-                c.i.b.a.f0.i iVar = this.M.f30725k;
-                t tVar = iVar.f30565e[i2];
-                Format[] h2 = h(iVar.f30563c.a(i2));
+                c.i.b.a.f0.i iVar = this.M.k;
+                t tVar = iVar.f29606e[i2];
+                Format[] h2 = h(iVar.f29604c.a(i2));
                 boolean z2 = this.x && this.A == 3;
                 boolean z3 = !z && z2;
                 a aVar = this.M;
-                rVar.g(tVar, h2, aVar.f30718d[i2], this.J, z3, aVar.d());
+                rVar.g(tVar, h2, aVar.f29755d[i2], this.J, z3, aVar.d());
                 c.i.b.a.i0.h m = rVar.m();
                 if (m != null) {
                     if (this.t == null) {
@@ -1193,7 +1189,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             G(true);
-            this.f30712h.f();
+            this.f29750h.f();
             a0(1);
         }
     }
@@ -1203,8 +1199,8 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (interceptable == null || interceptable.invokeLI(1048612, this, zArr, i2) == null) {
             this.v = new r[i2];
             int i3 = 0;
-            for (int i4 = 0; i4 < this.f30709e.length; i4++) {
-                if (this.M.f30725k.f30562b[i4]) {
+            for (int i4 = 0; i4 < this.f29747e.length; i4++) {
+                if (this.M.k.f29603b[i4]) {
                     e(i4, zArr[i4], i3);
                     i3++;
                 }
@@ -1215,7 +1211,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public final void f0() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.f30713i.e();
+            this.f29751i.e();
             for (r rVar : this.v) {
                 g(rVar);
             }
@@ -1235,9 +1231,9 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048615, this, aVar, i2)) == null) {
             while (true) {
-                n.b g2 = this.p.g(aVar.f30721g, i2);
-                aVar.f30721g = g2;
-                if (g2.f30784f || (aVar2 = aVar.f30724j) == null) {
+                n.b g2 = this.p.g(aVar.f29758g, i2);
+                aVar.f29758g = g2;
+                if (g2.f29819f || (aVar2 = aVar.f29761j) == null) {
                     break;
                 }
                 aVar = aVar2;
@@ -1270,40 +1266,40 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (this.M == null) {
             return;
         }
-        while (this.x && (aVar = this.M) != this.L && this.J >= aVar.f30724j.f30720f) {
+        while (this.x && (aVar = this.M) != this.L && this.J >= aVar.f29761j.f29757f) {
             aVar.h();
-            V(this.M.f30724j);
+            V(this.M.f29761j);
             o oVar = this.q;
-            n.b bVar = this.M.f30721g;
-            this.q = oVar.e(bVar.a, bVar.f30780b, bVar.f30782d);
+            n.b bVar = this.M.f29758g;
+            this.q = oVar.e(bVar.a, bVar.f29815b, bVar.f29817d);
             i0();
             this.l.obtainMessage(4, 0, 0, this.q).sendToTarget();
         }
         a aVar3 = this.L;
-        if (aVar3.f30721g.f30785g) {
+        if (aVar3.f29758g.f29820g) {
             while (true) {
-                r[] rVarArr = this.f30709e;
+                r[] rVarArr = this.f29747e;
                 if (i2 >= rVarArr.length) {
                     return;
                 }
                 r rVar = rVarArr[i2];
-                c.i.b.a.d0.o oVar2 = this.L.f30718d[i2];
+                c.i.b.a.d0.o oVar2 = this.L.f29755d[i2];
                 if (oVar2 != null && rVar.getStream() == oVar2 && rVar.f()) {
                     rVar.n();
                 }
                 i2++;
             }
         } else {
-            a aVar4 = aVar3.f30724j;
-            if (aVar4 == null || !aVar4.f30722h) {
+            a aVar4 = aVar3.f29761j;
+            if (aVar4 == null || !aVar4.f29759h) {
                 return;
             }
             int i3 = 0;
             while (true) {
-                r[] rVarArr2 = this.f30709e;
+                r[] rVarArr2 = this.f29747e;
                 if (i3 < rVarArr2.length) {
                     r rVar2 = rVarArr2[i3];
-                    c.i.b.a.d0.o oVar3 = this.L.f30718d[i3];
+                    c.i.b.a.d0.o oVar3 = this.L.f29755d[i3];
                     if (rVar2.getStream() != oVar3) {
                         return;
                     }
@@ -1313,31 +1309,31 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                     i3++;
                 } else {
                     a aVar5 = this.L;
-                    c.i.b.a.f0.i iVar = aVar5.f30725k;
-                    a aVar6 = aVar5.f30724j;
+                    c.i.b.a.f0.i iVar = aVar5.k;
+                    a aVar6 = aVar5.f29761j;
                     this.L = aVar6;
-                    c.i.b.a.f0.i iVar2 = aVar6.f30725k;
+                    c.i.b.a.f0.i iVar2 = aVar6.k;
                     boolean z = aVar6.a.h() != -9223372036854775807L;
                     int i4 = 0;
                     while (true) {
-                        r[] rVarArr3 = this.f30709e;
+                        r[] rVarArr3 = this.f29747e;
                         if (i4 >= rVarArr3.length) {
                             return;
                         }
                         r rVar3 = rVarArr3[i4];
-                        if (iVar.f30562b[i4]) {
+                        if (iVar.f29603b[i4]) {
                             if (z) {
                                 rVar3.n();
                             } else if (!rVar3.j()) {
-                                c.i.b.a.f0.f a2 = iVar2.f30563c.a(i4);
-                                boolean z2 = iVar2.f30562b[i4];
-                                boolean z3 = this.f30710f[i4].e() == 5;
-                                t tVar = iVar.f30565e[i4];
-                                t tVar2 = iVar2.f30565e[i4];
+                                c.i.b.a.f0.f a2 = iVar2.f29604c.a(i4);
+                                boolean z2 = iVar2.f29603b[i4];
+                                boolean z3 = this.f29748f[i4].e() == 5;
+                                t tVar = iVar.f29606e[i4];
+                                t tVar2 = iVar2.f29606e[i4];
                                 if (z2 && tVar2.equals(tVar) && !z3) {
                                     Format[] h2 = h(a2);
                                     a aVar7 = this.L;
-                                    rVar3.s(h2, aVar7.f30718d[i4], aVar7.d());
+                                    rVar3.s(h2, aVar7.f29755d[i4], aVar7.d());
                                 } else {
                                     rVar3.n();
                                 }
@@ -1429,7 +1425,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (h2 != -9223372036854775807L) {
             H(h2);
             o oVar = this.q;
-            o e2 = oVar.e(oVar.f30787c, h2, oVar.f30789e);
+            o e2 = oVar.e(oVar.f29822c, h2, oVar.f29824e);
             this.q = e2;
             this.l.obtainMessage(4, 3, 0, e2).sendToTarget();
         } else {
@@ -1437,20 +1433,20 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             if (rVar != null && !rVar.b() && (this.s.isReady() || !E(this.s))) {
                 long q = this.t.q();
                 this.J = q;
-                this.f30713i.a(q);
+                this.f29751i.a(q);
             } else {
-                this.J = this.f30713i.q();
+                this.J = this.f29751i.q();
             }
             h2 = this.M.k(this.J);
         }
-        this.q.f30790f = h2;
+        this.q.f29825f = h2;
         this.F = SystemClock.elapsedRealtime() * 1000;
         long c2 = this.v.length == 0 ? Long.MIN_VALUE : this.M.a.c();
         o oVar2 = this.q;
         if (c2 == Long.MIN_VALUE) {
-            c2 = this.M.f30721g.f30783e;
+            c2 = this.M.f29758g.f29818e;
         }
-        oVar2.f30791g = c2;
+        oVar2.f29826g = c2;
     }
 
     public final void j0() throws ExoPlaybackException {
@@ -1466,40 +1462,40 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 return;
             }
             while (true) {
-                int d2 = this.q.a.d(aVar3.f30721g.a.a, this.o, this.n, this.B, this.C);
+                int d2 = this.q.a.d(aVar3.f29758g.a.a, this.o, this.n, this.B, this.C);
                 while (true) {
-                    a aVar4 = aVar3.f30724j;
-                    if (aVar4 == null || aVar3.f30721g.f30784f) {
+                    a aVar4 = aVar3.f29761j;
+                    if (aVar4 == null || aVar3.f29758g.f29819f) {
                         break;
                     }
                     aVar3 = aVar4;
                 }
-                if (d2 == -1 || (aVar2 = aVar3.f30724j) == null || aVar2.f30721g.a.a != d2) {
+                if (d2 == -1 || (aVar2 = aVar3.f29761j) == null || aVar2.f29758g.a.a != d2) {
                     break;
                 }
                 aVar3 = aVar2;
             }
-            int i2 = this.K.f30717c;
+            int i2 = this.K.f29754c;
             a aVar5 = this.L;
-            int i3 = aVar5 != null ? aVar5.f30717c : -1;
-            a aVar6 = aVar3.f30724j;
+            int i3 = aVar5 != null ? aVar5.f29754c : -1;
+            a aVar6 = aVar3.f29761j;
             if (aVar6 != null) {
                 D(aVar6);
-                aVar3.f30724j = null;
+                aVar3.f29761j = null;
             }
-            aVar3.f30721g = this.p.f(aVar3.f30721g);
+            aVar3.f29758g = this.p.f(aVar3.f29758g);
             boolean z = true;
-            if (!(i2 <= aVar3.f30717c)) {
+            if (!(i2 <= aVar3.f29754c)) {
                 this.K = aVar3;
             }
-            if (((i3 == -1 || i3 > aVar3.f30717c) ? false : false) || (aVar = this.M) == null) {
+            if (((i3 == -1 || i3 > aVar3.f29754c) ? false : false) || (aVar = this.M) == null) {
                 return;
             }
-            l.b bVar = aVar.f30721g.a;
-            long N = N(bVar, this.q.f30790f);
-            if (N != this.q.f30790f) {
+            l.b bVar = aVar.f29758g.a;
+            long N = N(bVar, this.q.f29825f);
+            if (N != this.q.f29825f) {
                 o oVar = this.q;
-                o e2 = oVar.e(bVar, N, oVar.f30789e);
+                o e2 = oVar.e(bVar, N, oVar.f29824e);
                 this.q = e2;
                 this.l.obtainMessage(4, 3, 0, e2).sendToTarget();
             }
@@ -1516,7 +1512,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void l(c.i.b.a.d0.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, kVar) == null) {
-            this.f30714j.obtainMessage(8, kVar).sendToTarget();
+            this.f29752j.obtainMessage(8, kVar).sendToTarget();
         }
     }
 
@@ -1536,7 +1532,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             if (this.M == null) {
                 a aVar2 = this.K;
                 this.L = aVar2;
-                H(aVar2.f30721g.f30780b);
+                H(aVar2.f29758g.f29815b);
                 V(this.L);
             }
             s();
@@ -1554,7 +1550,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048626, this, i2, i3) == null) {
             w wVar = this.q.a;
-            int i4 = wVar.p() ? 0 : wVar.l(wVar.a(this.C), this.n).f30821f;
+            int i4 = wVar.p() ? 0 : wVar.l(wVar.a(this.C), this.n).f29854f;
             this.q = this.q.d(i4, -9223372036854775807L, -9223372036854775807L);
             a0(4);
             x(i2, i3, this.q.d(i4, 0L, -9223372036854775807L));
@@ -1569,7 +1565,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (r3 == null) goto L99;
      */
     /* JADX WARN: Code restructure failed: missing block: B:88:0x01e8, code lost:
-        if (r3.f30717c >= r2.f30717c) goto L99;
+        if (r3.f29754c >= r2.f29754c) goto L99;
      */
     /* JADX WARN: Code restructure failed: missing block: B:89:0x01ea, code lost:
         r11 = true;
@@ -1578,13 +1574,13 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         if (r11 != false) goto L103;
      */
     /* JADX WARN: Code restructure failed: missing block: B:91:0x01ed, code lost:
-        r6 = N(r20.M.f30721g.a, r20.q.f30790f);
+        r6 = N(r20.M.f29758g.a, r20.q.f29825f);
         r4 = r20.q;
-        r20.q = r4.e(r20.M.f30721g.a, r6, r4.f30789e);
+        r20.q = r4.e(r20.M.f29758g.a, r6, r4.f29824e);
      */
     /* JADX WARN: Code restructure failed: missing block: B:92:0x020c, code lost:
         r20.K = r1;
-        r1.f30724j = null;
+        r1.f29761j = null;
         D(r2);
      */
     /*
@@ -1594,8 +1590,8 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048627, this, bVar) == null) && bVar.a == this.u) {
             w wVar = this.q.a;
-            w wVar2 = bVar.f30726b;
-            Object obj = bVar.f30727c;
+            w wVar2 = bVar.f29762b;
+            Object obj = bVar.f29763c;
             this.p.n(wVar2);
             o c2 = this.q.c(wVar2, obj);
             this.q = c2;
@@ -1614,20 +1610,20 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                     }
                     int intValue = ((Integer) I.first).intValue();
                     long longValue = ((Long) I.second).longValue();
-                    l.b k2 = this.p.k(intValue, longValue);
-                    this.q = this.q.e(k2, k2.b() ? 0L : longValue, longValue);
+                    l.b k = this.p.k(intValue, longValue);
+                    this.q = this.q.e(k, k.b() ? 0L : longValue, longValue);
                     w(i2, i3);
                     return;
-                } else if (c2.f30788d == -9223372036854775807L) {
+                } else if (c2.f29823d == -9223372036854775807L) {
                     if (wVar2.p()) {
                         p(i2, 0);
                         return;
                     }
-                    Pair<Integer, Long> k3 = k(wVar2, wVar2.a(this.C), -9223372036854775807L);
-                    int intValue2 = ((Integer) k3.first).intValue();
-                    long longValue2 = ((Long) k3.second).longValue();
-                    l.b k4 = this.p.k(intValue2, longValue2);
-                    this.q = this.q.e(k4, k4.b() ? 0L : longValue2, longValue2);
+                    Pair<Integer, Long> k2 = k(wVar2, wVar2.a(this.C), -9223372036854775807L);
+                    int intValue2 = ((Integer) k2.first).intValue();
+                    long longValue2 = ((Long) k2.second).longValue();
+                    l.b k3 = this.p.k(intValue2, longValue2);
+                    this.q = this.q.e(k3, k3.b() ? 0L : longValue2, longValue2);
                     w(i2, 0);
                     return;
                 } else {
@@ -1635,7 +1631,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                     return;
                 }
             }
-            int i4 = c2.f30787c.a;
+            int i4 = c2.f29822c.a;
             a aVar = this.M;
             if (aVar == null) {
                 aVar = this.K;
@@ -1644,28 +1640,28 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
                 v();
                 return;
             }
-            int b2 = wVar2.b(aVar == null ? wVar.g(i4, this.o, true).f30807b : aVar.f30716b);
+            int b2 = wVar2.b(aVar == null ? wVar.g(i4, this.o, true).f29841b : aVar.f29753b);
             if (b2 == -1) {
                 int J = J(i4, wVar, wVar2);
                 if (J == -1) {
                     o();
                     return;
                 }
-                Pair<Integer, Long> k5 = k(wVar2, wVar2.f(J, this.o).f30808c, -9223372036854775807L);
-                int intValue3 = ((Integer) k5.first).intValue();
-                long longValue3 = ((Long) k5.second).longValue();
+                Pair<Integer, Long> k4 = k(wVar2, wVar2.f(J, this.o).f29842c, -9223372036854775807L);
+                int intValue3 = ((Integer) k4.first).intValue();
+                long longValue3 = ((Long) k4.second).longValue();
                 wVar2.g(intValue3, this.o, true);
                 if (aVar != null) {
-                    Object obj2 = this.o.f30807b;
-                    aVar.f30721g = aVar.f30721g.a(-1);
+                    Object obj2 = this.o.f29841b;
+                    aVar.f29758g = aVar.f29758g.a(-1);
                     while (true) {
-                        aVar = aVar.f30724j;
+                        aVar = aVar.f29761j;
                         if (aVar == null) {
                             break;
-                        } else if (aVar.f30716b.equals(obj2)) {
-                            aVar.f30721g = this.p.g(aVar.f30721g, intValue3);
+                        } else if (aVar.f29753b.equals(obj2)) {
+                            aVar.f29758g = this.p.g(aVar.f29758g, intValue3);
                         } else {
-                            aVar.f30721g = aVar.f30721g.a(-1);
+                            aVar.f29758g = aVar.f29758g.a(-1);
                         }
                     }
                 }
@@ -1677,10 +1673,10 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             if (b2 != i4) {
                 this.q = this.q.b(b2);
             }
-            if (this.q.f30787c.b()) {
-                l.b k6 = this.p.k(b2, this.q.f30789e);
-                if (!k6.b() || k6.f30034c != this.q.f30787c.f30034c) {
-                    this.q = this.q.e(k6, N(k6, this.q.f30789e), k6.b() ? this.q.f30789e : -9223372036854775807L);
+            if (this.q.f29822c.b()) {
+                l.b k5 = this.p.k(b2, this.q.f29824e);
+                if (!k5.b() || k5.f29105c != this.q.f29822c.f29105c) {
+                    this.q = this.q.e(k5, N(k5, this.q.f29824e), k5.b() ? this.q.f29824e : -9223372036854775807L);
                     v();
                     return;
                 }
@@ -1692,12 +1688,12 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             a g0 = g0(aVar, b2);
             int i5 = b2;
             while (true) {
-                a aVar2 = g0.f30724j;
+                a aVar2 = g0.f29761j;
                 if (aVar2 == null) {
                     break;
                 }
                 i5 = wVar2.d(i5, this.o, this.n, this.B, this.C);
-                if (i5 == -1 || !aVar2.f30716b.equals(wVar2.g(i5, this.o, true).f30807b)) {
+                if (i5 == -1 || !aVar2.f29753b.equals(wVar2.g(i5, this.o, true).f29841b)) {
                     break;
                 }
                 g0 = g0(aVar2, i5);
@@ -1710,7 +1706,7 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
         InterceptResult invokeJ;
         a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) ? j2 == -9223372036854775807L || this.q.f30790f < j2 || ((aVar = this.M.f30724j) != null && (aVar.f30722h || aVar.f30721g.a.b())) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) ? j2 == -9223372036854775807L || this.q.f29825f < j2 || ((aVar = this.M.f29761j) != null && (aVar.f29759h || aVar.f29758g.a.b())) : invokeJ.booleanValue;
     }
 
     public final void s() {
@@ -1727,11 +1723,11 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public final void t() throws IOException {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048630, this) == null) || (aVar = this.K) == null || aVar.f30722h) {
+        if (!(interceptable == null || interceptable.invokeV(1048630, this) == null) || (aVar = this.K) == null || aVar.f29759h) {
             return;
         }
         a aVar2 = this.L;
-        if (aVar2 == null || aVar2.f30724j == aVar) {
+        if (aVar2 == null || aVar2.f29761j == aVar) {
             for (r rVar : this.v) {
                 if (!rVar.f()) {
                     return;
@@ -1748,35 +1744,35 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
             a aVar = this.K;
             if (aVar == null) {
                 e2 = this.p.a(this.q);
-            } else if (aVar.f30721g.f30785g || !aVar.g()) {
+            } else if (aVar.f29758g.f29820g || !aVar.g()) {
                 return;
             } else {
                 a aVar2 = this.K;
-                if (aVar2.f30721g.f30783e == -9223372036854775807L) {
+                if (aVar2.f29758g.f29818e == -9223372036854775807L) {
                     return;
                 }
                 a aVar3 = this.M;
-                if (aVar3 != null && aVar2.f30717c - aVar3.f30717c == 100) {
+                if (aVar3 != null && aVar2.f29754c - aVar3.f29754c == 100) {
                     return;
                 }
                 n nVar = this.p;
                 a aVar4 = this.K;
-                e2 = nVar.e(aVar4.f30721g, aVar4.d(), this.J);
+                e2 = nVar.e(aVar4.f29758g, aVar4.d(), this.J);
             }
             if (e2 == null) {
                 this.u.b();
                 return;
             }
             a aVar5 = this.K;
-            long d2 = aVar5 == null ? 60000000L : aVar5.d() + this.K.f30721g.f30783e;
+            long d2 = aVar5 == null ? 60000000L : aVar5.d() + this.K.f29758g.f29818e;
             a aVar6 = this.K;
-            a aVar7 = new a(this.f30709e, this.f30710f, d2, this.f30711g, this.f30712h, this.u, this.q.a.g(e2.a.a, this.o, true).f30807b, aVar6 == null ? 0 : aVar6.f30717c + 1, e2);
+            a aVar7 = new a(this.f29747e, this.f29748f, d2, this.f29749g, this.f29750h, this.u, this.q.a.g(e2.a.a, this.o, true).f29841b, aVar6 == null ? 0 : aVar6.f29754c + 1, e2);
             a aVar8 = this.K;
             if (aVar8 != null) {
-                aVar8.f30724j = aVar7;
+                aVar8.f29761j = aVar7;
             }
             this.K = aVar7;
-            aVar7.a.o(this, e2.f30780b);
+            aVar7.a.o(this, e2.f29815b);
             Q(true);
         }
     }
@@ -1808,14 +1804,14 @@ public final class j implements Handler.Callback, k.a, h.a, l.a {
     public void j(c.i.b.a.d0.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, kVar) == null) {
-            this.f30714j.obtainMessage(9, kVar).sendToTarget();
+            this.f29752j.obtainMessage(9, kVar).sendToTarget();
         }
     }
 
     public void z(c.i.b.a.d0.l lVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048636, this, lVar, z) == null) {
-            this.f30714j.obtainMessage(0, z ? 1 : 0, 0, lVar).sendToTarget();
+            this.f29752j.obtainMessage(0, z ? 1 : 0, 0, lVar).sendToTarget();
         }
     }
 }

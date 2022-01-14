@@ -33,7 +33,7 @@ public class f {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4343b;
+    public c f4253b;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -75,7 +75,7 @@ public class f {
             }
         }
         this.a = context;
-        this.f4343b = cVar;
+        this.f4253b = cVar;
     }
 
     public static void d(String str, String str2) {
@@ -144,17 +144,17 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            List<b> h2 = this.f4343b.h(context);
+            List<b> h2 = this.f4253b.h(context);
             e eVar = null;
             if (h2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f35136g;
+                String str = com.baidu.fsg.face.base.b.c.f34001g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f35136g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f34001g.equals(filesDir.getName())) {
                     String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
                     str = filesDir.getName();
                 }
                 for (b bVar : h2) {
-                    if (!bVar.f4338d) {
+                    if (!bVar.f4248d) {
                         File file = new File(new File(bVar.a.dataDir, str), "libcuid.so");
                         if (file.exists() && (eVar = e.a(c.a.m.m.c.a(file))) != null) {
                             break;
@@ -185,7 +185,7 @@ public class f {
     public void c(e eVar) {
         boolean j2;
         boolean e2;
-        e k2;
+        e k;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
@@ -232,10 +232,10 @@ public class f {
                     }
                     h("bd_setting_i", str);
                 }
-                if (e2 || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (k2 = k(i(""))) == null || !k2.c()) {
+                if (e2 || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (k = k(i(""))) == null || !k.c()) {
                     return;
                 }
-                d(k2.f4340b, k2.a);
+                d(k.f4250b, k.a);
                 return;
             }
             n(j3);
@@ -279,7 +279,7 @@ public class f {
             if (b2 == null) {
                 b2 = e.a(l("com.baidu.deviceid.v2"));
             }
-            boolean e2 = e(s.f57425i);
+            boolean e2 = e(s.f55248i);
             if (b2 == null && e2) {
                 b2 = f();
             }

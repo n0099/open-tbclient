@@ -12,29 +12,29 @@ public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61093b = String.valueOf(-1);
+    public String f58780b = String.valueOf(-1);
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61094c = "";
+    public String f58781c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61095d = "";
+    public String f58782d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61096e = -1;
+    public int f58783e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61097f = "";
+    public String f58784f = "";
 
     /* loaded from: classes3.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61098b;
+        public String f58785b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61099c;
+        public String f58786c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -58,7 +58,7 @@ public class e {
         }
 
         public String a() {
-            return this.f61099c;
+            return this.f58786c;
         }
 
         public void a(String str) {
@@ -66,15 +66,15 @@ public class e {
         }
 
         public void b(String str) {
-            this.f61098b = str;
+            this.f58785b = str;
         }
 
         public void c(String str) {
-            this.f61099c = str;
+            this.f58786c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.a + ExtendedMessageFormat.QUOTE + ", message='" + this.f61098b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f61099c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PublicKeyStatus{code='" + this.a + ExtendedMessageFormat.QUOTE + ", message='" + this.f58785b + ExtendedMessageFormat.QUOTE + ", publicKey='" + this.f58786c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
     }
 
@@ -194,46 +194,46 @@ public class e {
     }
 
     public void a(String str) {
-        this.f61093b = str;
+        this.f58780b = str;
     }
 
     public String b() {
-        return this.f61093b;
+        return this.f58780b;
     }
 
     public void b(int i2) {
-        this.f61096e = i2;
+        this.f58783e = i2;
     }
 
     public void b(String str) {
-        this.f61094c = str;
+        this.f58781c = str;
     }
 
     public String c() {
-        return this.f61094c;
+        return this.f58781c;
     }
 
     public void c(String str) {
-        this.f61095d = str;
+        this.f58782d = str;
     }
 
     public String d() {
-        return this.f61095d;
+        return this.f58782d;
     }
 
     public void d(String str) {
-        this.f61097f = str;
+        this.f58784f = str;
     }
 
     public int e() {
-        return this.f61096e;
+        return this.f58783e;
     }
 
     public String f() {
-        return this.f61097f;
+        return this.f58784f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f61093b + ExtendedMessageFormat.QUOTE + ", title='" + this.f61094c + ExtendedMessageFormat.QUOTE + ", content='" + this.f61095d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f61096e + ", params='" + this.f61097f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f58780b + ExtendedMessageFormat.QUOTE + ", title='" + this.f58781c + ExtendedMessageFormat.QUOTE + ", content='" + this.f58782d + ExtendedMessageFormat.QUOTE + ", clickType=" + this.f58783e + ", params='" + this.f58784f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

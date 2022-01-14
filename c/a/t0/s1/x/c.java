@@ -26,22 +26,22 @@ public class c extends d<ValidateActivity> {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f22918b;
+    public ImageView f22288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValidateActivity f22919c;
+    public ValidateActivity f22289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f22920d;
+    public BdListView f22290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.s1.x.a f22921e;
+    public c.a.t0.s1.x.a f22291e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f22922f;
+    public ProgressBar f22292f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f22923g;
+    public NavigationBar f22293g;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -49,7 +49,7 @@ public class c extends d<ValidateActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22924e;
+        public final /* synthetic */ c f22294e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class c extends d<ValidateActivity> {
                     return;
                 }
             }
-            this.f22924e = cVar;
+            this.f22294e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22924e.f22919c.finish();
+                this.f22294e.f22289c.finish();
             }
         }
     }
@@ -96,18 +96,18 @@ public class c extends d<ValidateActivity> {
                 return;
             }
         }
-        this.f22919c = validateActivity;
+        this.f22289c = validateActivity;
         f();
-        c.a.t0.s1.x.a aVar = new c.a.t0.s1.x.a(this.f22919c);
-        this.f22921e = aVar;
-        this.f22920d.setAdapter((ListAdapter) aVar);
-        this.f22920d.setOnSrollToBottomListener(this.f22919c);
+        c.a.t0.s1.x.a aVar = new c.a.t0.s1.x.a(this.f22289c);
+        this.f22291e = aVar;
+        this.f22290d.setAdapter((ListAdapter) aVar);
+        this.f22290d.setOnSrollToBottomListener(this.f22289c);
     }
 
     public ImageView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22918b : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22288b : (ImageView) invokeV.objValue;
     }
 
     @Override // c.a.d.a.d
@@ -115,33 +115,33 @@ public class c extends d<ValidateActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.destroy();
-            c.a.t0.s1.x.a aVar = this.f22921e;
+            c.a.t0.s1.x.a aVar = this.f22291e;
             if (aVar != null) {
                 aVar.a();
-                this.f22921e = null;
+                this.f22291e = null;
             }
-            this.f22919c = null;
+            this.f22289c = null;
         }
     }
 
     public c.a.t0.s1.x.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22921e : (c.a.t0.s1.x.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22291e : (c.a.t0.s1.x.a) invokeV.objValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = View.inflate(this.f22919c.getPageContext().getPageActivity(), R.layout.validate_activity, null);
+            View inflate = View.inflate(this.f22289c.getPageContext().getPageActivity(), R.layout.validate_activity, null);
             this.a = inflate;
-            this.f22919c.setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) this.f22919c.findViewById(R.id.view_navigation_bar);
-            this.f22923g = navigationBar;
-            navigationBar.setTitleText(this.f22919c.getPageContext().getString(R.string.validate));
-            this.f22923g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f22920d = (BdListView) this.a.findViewById(R.id.validate_list);
-            this.f22922f = (ProgressBar) this.a.findViewById(R.id.pro_load);
+            this.f22289c.setContentView(inflate);
+            NavigationBar navigationBar = (NavigationBar) this.f22289c.findViewById(R.id.view_navigation_bar);
+            this.f22293g = navigationBar;
+            navigationBar.setTitleText(this.f22289c.getPageContext().getString(R.string.validate));
+            this.f22293g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f22290d = (BdListView) this.a.findViewById(R.id.validate_list);
+            this.f22292f = (ProgressBar) this.a.findViewById(R.id.pro_load);
             h(false);
         }
     }
@@ -149,7 +149,7 @@ public class c extends d<ValidateActivity> {
     public void g(List<ValidateItemData> list) {
         c.a.t0.s1.x.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || (aVar = this.f22921e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || (aVar = this.f22291e) == null) {
             return;
         }
         aVar.c(list);
@@ -158,23 +158,23 @@ public class c extends d<ValidateActivity> {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f22922f.setVisibility(z ? 0 : 8);
+            this.f22292f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f22919c.getLayoutMode().k(i2 == 1);
-            this.f22919c.getLayoutMode().j(this.a);
-            this.f22923g.onChangeSkinType(this.f22919c.getPageContext(), i2);
+            this.f22289c.getLayoutMode().k(i2 == 1);
+            this.f22289c.getLayoutMode().j(this.a);
+            this.f22293g.onChangeSkinType(this.f22289c.getPageContext(), i2);
             if (i2 != 1 && i2 != 4) {
-                this.f22920d.setDivider(new ColorDrawable(this.f22919c.getResources().getColor(R.color.common_color_10241)));
-                this.f22920d.setDividerHeight(this.f22919c.getResources().getDimensionPixelSize(R.dimen.ds2));
+                this.f22290d.setDivider(new ColorDrawable(this.f22289c.getResources().getColor(R.color.common_color_10241)));
+                this.f22290d.setDividerHeight(this.f22289c.getResources().getDimensionPixelSize(R.dimen.ds2));
                 return;
             }
-            this.f22920d.setDivider(new ColorDrawable(this.f22919c.getResources().getColor(R.color.common_color_10179)));
-            this.f22920d.setDividerHeight(this.f22919c.getResources().getDimensionPixelSize(R.dimen.ds2));
+            this.f22290d.setDivider(new ColorDrawable(this.f22289c.getResources().getColor(R.color.common_color_10179)));
+            this.f22290d.setDividerHeight(this.f22289c.getResources().getDimensionPixelSize(R.dimen.ds2));
         }
     }
 }

@@ -1576,7 +1576,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
                     MediaSegment mediaSegment = this.mMediaTrackConfig.mediaTracks.get(0).superpositionHeader;
                     MediaSegment mediaSegment2 = this.mMediaTrackConfig.mediaTracks.get(0).superpositionFooter;
                     if (mediaSegment != null || mediaSegment2 != null) {
-                        int max = Math.max(c.a.b0.b.a.k.c.f1707j, (mediaSegment == null ? 0 : 1) + (mediaSegment2 == null ? 0 : 1));
+                        int max = Math.max(c.a.b0.b.a.k.c.f1687j, (mediaSegment == null ? 0 : 1) + (mediaSegment2 == null ? 0 : 1));
                         if (originalInputSize < max && originalInputSize + list.size() >= max) {
                             c.a.b0.b.a.k.c.b(inputTrack, this.mShaderConfigMap, this.mMediaTrackConfig.mediaTracks.get(0));
                             c.a.b0.b.a.k.c.c(inputTrack, this.mMediaTrackConfig);
@@ -1716,7 +1716,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             }
             MultiMediaDataTrack inputMultiMediaDataTrack = getInputMultiMediaDataTrack();
             MediaTrackConfig mediaTrackConfig = this.mMediaTrackConfig;
-            if (mediaTrackConfig != null && inputMultiMediaDataTrack != null && !h.e(mediaTrackConfig.mediaTracks) && ((this.mMediaTrackConfig.mediaTracks.get(0).superpositionHeader != null || this.mMediaTrackConfig.mediaTracks.get(0).superpositionFooter != null) && originalInputSize >= (i3 = c.a.b0.b.a.k.c.f1707j) && originalInputSize - 1 < i3)) {
+            if (mediaTrackConfig != null && inputMultiMediaDataTrack != null && !h.e(mediaTrackConfig.mediaTracks) && ((this.mMediaTrackConfig.mediaTracks.get(0).superpositionHeader != null || this.mMediaTrackConfig.mediaTracks.get(0).superpositionFooter != null) && originalInputSize >= (i3 = c.a.b0.b.a.k.c.f1687j) && originalInputSize - 1 < i3)) {
                 onReleaseMultiMedia(inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader);
                 inputMultiMediaDataTrack.multiMediaDataSuperpositionHeader = null;
                 onReleaseMultiMedia(inputMultiMediaDataTrack.multiMediaDataSuperpositionFooter);
@@ -2928,7 +2928,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             setFilter(-1, f2, str);
             Iterator<Map.Entry<String, ShaderConfig>> it = this.mShaderConfigMap.entrySet().iterator();
             while (it.hasNext()) {
-                if (it.next().getKey().contains(c.a.b0.b.a.k.c.f1701d)) {
+                if (it.next().getKey().contains(c.a.b0.b.a.k.c.f1681d)) {
                     it.remove();
                 }
             }
@@ -2945,7 +2945,7 @@ public class MultiMediaDataSource implements Animator.AnimatorListener, Handler.
             return;
         }
         MediaTrack inputTrack = getInputTrack();
-        String str2 = i2 >= 0 ? c.a.b0.b.a.k.c.f1701d + i2 : c.a.b0.b.a.k.c.f1700c;
+        String str2 = i2 >= 0 ? c.a.b0.b.a.k.c.f1681d + i2 : c.a.b0.b.a.k.c.f1680c;
         if (inputTrack != null) {
             String str3 = TextUtils.equals(str, IVlogEditManager.FILTER_ORIGINAL) ? "" : str2;
             if (c.a.b0.b.a.k.c.m(inputTrack, "input_blank")) {

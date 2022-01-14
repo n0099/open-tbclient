@@ -13,10 +13,10 @@ public abstract class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19459b;
+    public int f18959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19460c;
+    public int f18960c;
 
     public d(String str) {
         Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public abstract class d {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f19460c = i2;
+            this.f18960c = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f19459b = i2;
+            this.f18959b = i2;
         }
     }
 }

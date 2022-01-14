@@ -16,7 +16,7 @@ public class u0 extends a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.g0.o f4309j;
+    public c.a.t0.g0.o f4224j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u0(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -36,14 +36,14 @@ public class u0 extends a<c.a.s0.s.q.a> {
                 return;
             }
         }
-        this.f4309j = new c.a.t0.g0.o(tbPageContext, bdUniqueId);
+        this.f4224j = new c.a.t0.g0.o(tbPageContext, bdUniqueId);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4309j.e() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4224j.e() : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public class u0 extends a<c.a.s0.s.q.a> {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof c.a.t0.g0.f0.m)) {
-            this.f4309j.onBindDataToView((c.a.t0.g0.f0.m) aVar);
+            this.f4224j.onBindDataToView((c.a.t0.g0.f0.m) aVar);
         }
     }
 
@@ -60,7 +60,7 @@ public class u0 extends a<c.a.s0.s.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f4309j.onChangeSkinType(tbPageContext, i2);
+            this.f4224j.onChangeSkinType(tbPageContext, i2);
         }
     }
 }

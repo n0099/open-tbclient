@@ -84,7 +84,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
                 } else {
                     sb.append(obj);
                 }
-                sb.append(a.f31864h);
+                sb.append(a.f30865h);
                 Object[] objArr = getMap$kotlin_stdlib().valuesArray;
                 Intrinsics.checkNotNull(objArr);
                 Object obj2 = objArr[getLastIndex$kotlin_stdlib()];
@@ -188,7 +188,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         public String toString() {
             StringBuilder sb = new StringBuilder();
             sb.append(getKey());
-            sb.append(a.f31864h);
+            sb.append(a.f30865h);
             sb.append(getValue());
             return sb.toString();
         }
@@ -269,9 +269,9 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
                 int index$kotlin_stdlib = getIndex$kotlin_stdlib();
                 setIndex$kotlin_stdlib(index$kotlin_stdlib + 1);
                 setLastIndex$kotlin_stdlib(index$kotlin_stdlib);
-                K k2 = (K) getMap$kotlin_stdlib().keysArray[getLastIndex$kotlin_stdlib()];
+                K k = (K) getMap$kotlin_stdlib().keysArray[getLastIndex$kotlin_stdlib()];
                 initNext$kotlin_stdlib();
-                return k2;
+                return k;
             }
             throw new NoSuchElementException();
         }
@@ -379,8 +379,8 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         ensureCapacity(this.length + i2);
     }
 
-    private final int findKey(K k2) {
-        int hash = hash(k2);
+    private final int findKey(K k) {
+        int hash = hash(k);
         int i2 = this.maxProbeDistance;
         while (true) {
             int i3 = this.hashArray[hash];
@@ -389,7 +389,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
             }
             if (i3 > 0) {
                 int i4 = i3 - 1;
-                if (Intrinsics.areEqual(this.keysArray[i4], k2)) {
+                if (Intrinsics.areEqual(this.keysArray[i4], k)) {
                     return i4;
                 }
             }
@@ -426,8 +426,8 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         return this.hashArray.length;
     }
 
-    private final int hash(K k2) {
-        return ((k2 != null ? k2.hashCode() : 0) * (-1640531527)) >>> this.hashShift;
+    private final int hash(K k) {
+        return ((k != null ? k.hashCode() : 0) * (-1640531527)) >>> this.hashShift;
     }
 
     private final boolean putAllEntries(Collection<? extends Map.Entry<? extends K, ? extends V>> collection) {
@@ -539,10 +539,10 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         this.size = size() - 1;
     }
 
-    public final int addKey$kotlin_stdlib(K k2) {
+    public final int addKey$kotlin_stdlib(K k) {
         checkIsMutable$kotlin_stdlib();
         while (true) {
-            int hash = hash(k2);
+            int hash = hash(k);
             int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.maxProbeDistance * 2, getHashSize() / 2);
             int i2 = 0;
             while (true) {
@@ -554,7 +554,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
                         int i4 = this.length;
                         int i5 = i4 + 1;
                         this.length = i5;
-                        this.keysArray[i4] = k2;
+                        this.keysArray[i4] = k;
                         this.presenceArray[i4] = hash;
                         this.hashArray[hash] = i5;
                         this.size = size() + 1;
@@ -563,7 +563,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
                         }
                         return i4;
                     }
-                } else if (Intrinsics.areEqual(this.keysArray[i3 - 1], k2)) {
+                } else if (Intrinsics.areEqual(this.keysArray[i3 - 1], k)) {
                     return -i3;
                 } else {
                     i2++;
@@ -743,9 +743,9 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
     }
 
     @Override // java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         checkIsMutable$kotlin_stdlib();
-        int addKey$kotlin_stdlib = addKey$kotlin_stdlib(k2);
+        int addKey$kotlin_stdlib = addKey$kotlin_stdlib(k);
         V[] allocateValuesArray = allocateValuesArray();
         if (addKey$kotlin_stdlib < 0) {
             int i2 = (-addKey$kotlin_stdlib) - 1;
@@ -795,9 +795,9 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         return true;
     }
 
-    public final int removeKey$kotlin_stdlib(K k2) {
+    public final int removeKey$kotlin_stdlib(K k) {
         checkIsMutable$kotlin_stdlib();
-        int findKey = findKey(k2);
+        int findKey = findKey(k);
         if (findKey < 0) {
             return -1;
         }

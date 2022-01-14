@@ -8,16 +8,16 @@ public class f {
     public static String a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57581b = "curversion";
+    public static String f55396b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f57582c = "apiversion";
+    public static String f55397c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f57583d = "_enable";
+    public static String f55398d = "_enable";
 
     public static String a(Context context) {
-        return a(context, f57582c);
+        return a(context, f55397c);
     }
 
     public static String a(Context context, String str) {
@@ -57,6 +57,6 @@ public class f {
     }
 
     public static void b(Context context, String str) {
-        a(context, f57582c, str);
+        a(context, f55397c, str);
     }
 }

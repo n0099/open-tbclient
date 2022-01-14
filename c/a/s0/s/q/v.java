@@ -17,7 +17,7 @@ public class v {
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13822b;
+    public int f13509b;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class v {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13822b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13509b : invokeV.intValue;
     }
 
     public boolean c(ColorEgg colorEgg) {
@@ -52,7 +52,7 @@ public class v {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
-            this.f13822b = 0;
+            this.f13509b = 0;
             if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
                 return false;
             }
@@ -64,7 +64,7 @@ public class v {
             if (this.a.size() <= 0) {
                 return false;
             }
-            this.f13822b = colorEgg.style_flag.intValue();
+            this.f13509b = colorEgg.style_flag.intValue();
             return true;
         }
         return invokeL.booleanValue;

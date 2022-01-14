@@ -14,13 +14,13 @@ public final class p {
     public static final p a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final p f56550b;
+    public static final p f54402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final p f56551c;
+    public static final p f54403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ p[] f56552d;
+    public static final /* synthetic */ p[] f54404d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,10 +37,10 @@ public final class p {
             }
         }
         a = new p("ACCEPTED", 0);
-        f56550b = new p("CANCELLED", 1);
+        f54402b = new p("CANCELLED", 1);
         p pVar = new p("COMPLETED", 2);
-        f56551c = pVar;
-        f56552d = new p[]{a, f56550b, pVar};
+        f54403c = pVar;
+        f54404d = new p[]{a, f54402b, pVar};
     }
 
     public p(String str, int i2) {
@@ -65,6 +65,6 @@ public final class p {
     public static p[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (p[]) f56552d.clone() : (p[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (p[]) f54404d.clone() : (p[]) invokeV.objValue;
     }
 }

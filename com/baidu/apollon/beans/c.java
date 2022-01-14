@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33456b = -15;
+    public static final int f32393b = -15;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33457c = -16;
+    public static final int f32394c = -16;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f33458d = -2;
+    public static final int f32395d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33459e = -3;
+    public static final int f32396e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f33460f = -4;
+    public static final int f32397f = -4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f33461g = -5;
+    public static final int f32398g = -5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f33462h = 5003;
+    public static final int f32399h = 5003;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f33463i = -7;
+    public static final int f32400i = -7;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f33464j = -8;
+    public static final int f32401j = -8;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

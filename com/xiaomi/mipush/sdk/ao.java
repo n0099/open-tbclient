@@ -63,7 +63,7 @@ public class ao extends Handler {
             int i2 = message.arg1;
             synchronized (ae.class) {
                 context = this.a.f72a;
-                if (ae.a(context).m143a(str)) {
+                if (ae.a(context).m155a(str)) {
                     context2 = this.a.f72a;
                     if (ae.a(context2).a(str) < 10) {
                         if (at.a.ordinal() == i2) {
@@ -76,21 +76,21 @@ public class ao extends Handler {
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f63267b.ordinal() == i2) {
+                        if (at.f60886b.ordinal() == i2) {
                             context12 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context12).a(at.f63267b))) {
+                            if ("syncing".equals(ae.a(context12).a(at.f60886b))) {
                                 anVar2 = this.a;
-                                atVar2 = at.f63267b;
+                                atVar2 = at.f60886b;
                                 anVar2.a(str, atVar2, true, (HashMap<String, String>) null);
                                 context13 = this.a.f72a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f63268c.ordinal() == i2) {
+                        if (at.f60887c.ordinal() == i2) {
                             context10 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context10).a(at.f63268c))) {
+                            if ("syncing".equals(ae.a(context10).a(at.f60887c))) {
                                 anVar = this.a;
-                                atVar = at.f63268c;
+                                atVar = at.f60887c;
                                 context11 = this.a.f72a;
                                 a = i.a(context11, e.a);
                                 anVar.a(str, atVar, false, a);
@@ -98,37 +98,37 @@ public class ao extends Handler {
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f63269d.ordinal() == i2) {
+                        if (at.f60888d.ordinal() == i2) {
                             context8 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context8).a(at.f63269d))) {
+                            if ("syncing".equals(ae.a(context8).a(at.f60888d))) {
                                 anVar = this.a;
-                                atVar = at.f63269d;
+                                atVar = at.f60888d;
                                 context9 = this.a.f72a;
-                                a = i.a(context9, e.f63279b);
+                                a = i.a(context9, e.f60898b);
                                 anVar.a(str, atVar, false, a);
                                 context13 = this.a.f72a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f63270e.ordinal() == i2) {
+                        if (at.f60889e.ordinal() == i2) {
                             context6 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context6).a(at.f63270e))) {
+                            if ("syncing".equals(ae.a(context6).a(at.f60889e))) {
                                 anVar = this.a;
-                                atVar = at.f63270e;
+                                atVar = at.f60889e;
                                 context7 = this.a.f72a;
-                                a = i.a(context7, e.f63280c);
+                                a = i.a(context7, e.f60899c);
                                 anVar.a(str, atVar, false, a);
                                 context13 = this.a.f72a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f63271f.ordinal() == i2) {
+                        if (at.f60890f.ordinal() == i2) {
                             context4 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context4).a(at.f63271f))) {
+                            if ("syncing".equals(ae.a(context4).a(at.f60890f))) {
                                 anVar = this.a;
-                                atVar = at.f63271f;
+                                atVar = at.f60890f;
                                 context5 = this.a.f72a;
-                                a = i.a(context5, e.f63281d);
+                                a = i.a(context5, e.f60900d);
                                 anVar.a(str, atVar, false, a);
                             }
                         }

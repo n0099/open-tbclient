@@ -29,34 +29,32 @@ public class d {
     public PostSearchActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17654b;
+    public String f17225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17655c;
+    public String f17226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17656d;
+    public int f17227d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17657e;
+    public int f17228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17658f;
+    public int f17229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17659g;
+    public boolean f17230g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f17660h;
+    public boolean f17231h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17661i;
+    public boolean f17232i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<String> f17662j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f17663k;
+    public ArrayList<String> f17233j;
+    public int k;
     public final HttpMessageListener l;
     public CustomMessageListener m;
 
@@ -154,7 +152,7 @@ public class d {
                 return;
             }
             d dVar = this.a;
-            dVar.f17662j = (ArrayList) data;
+            dVar.f17233j = (ArrayList) data;
             dVar.a.refreshHistoryList();
         }
     }
@@ -174,13 +172,13 @@ public class d {
                 return;
             }
         }
-        this.f17656d = 1;
-        this.f17657e = 1;
-        this.f17658f = 1;
-        this.f17659g = false;
-        this.f17660h = false;
-        this.f17661i = false;
-        this.f17663k = 0;
+        this.f17227d = 1;
+        this.f17228e = 1;
+        this.f17229f = 1;
+        this.f17230g = false;
+        this.f17231h = false;
+        this.f17232i = false;
+        this.k = 0;
         this.l = new a(this, CmdConfigHttp.CMD_POST_SEARCH);
         b bVar = new b(this, 2009001);
         this.m = bVar;
@@ -193,12 +191,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 1) {
-                this.f17656d++;
+                this.f17227d++;
             } else if (i2 == 2) {
-                this.f17657e++;
+                this.f17228e++;
             } else if (i2 != 3) {
             } else {
-                this.f17658f++;
+                this.f17229f++;
             }
         }
     }
@@ -206,7 +204,7 @@ public class d {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList<String> arrayList = this.f17662j;
+            ArrayList<String> arrayList = this.f17233j;
             if (arrayList != null) {
                 arrayList.clear();
             }
@@ -219,22 +217,22 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-            httpMessage.addParam("word", this.f17654b);
+            httpMessage.addParam("word", this.f17225b);
             httpMessage.addParam("rn", 30);
             httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.a.mForumName);
-            httpMessage.setExtra(Integer.valueOf(this.f17663k));
+            httpMessage.setExtra(Integer.valueOf(this.k));
             if (i2 == 1) {
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.f17656d);
+                httpMessage.addParam("pn", this.f17227d);
             } else if (i2 == 2) {
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.f17657e);
+                httpMessage.addParam("pn", this.f17228e);
             } else if (i2 == 3) {
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam("pn", this.f17658f);
+                httpMessage.addParam("pn", this.f17229f);
             }
             return httpMessage;
         }
@@ -250,11 +248,11 @@ public class d {
                     if (i2 != 3) {
                         return 0;
                     }
-                    return this.f17658f;
+                    return this.f17229f;
                 }
-                return this.f17657e;
+                return this.f17228e;
             }
-            return this.f17656d;
+            return this.f17227d;
         }
         return invokeI.intValue;
     }
@@ -285,7 +283,7 @@ public class d {
             if (StringUtils.isNull(str)) {
                 return false;
             }
-            if (!str.equals(this.f17654b)) {
+            if (!str.equals(this.f17225b)) {
                 q();
             }
             if (i2 != 1) {
@@ -306,13 +304,13 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f17661i) {
+            if (this.f17232i) {
                 return false;
             }
-            this.f17654b = str;
-            this.f17663k = 3;
+            this.f17225b = str;
+            this.k = 3;
             this.a.sendMessage(h(3));
-            this.f17661i = true;
+            this.f17232i = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -322,13 +320,13 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.f17660h) {
+            if (this.f17231h) {
                 return false;
             }
-            this.f17654b = str;
-            this.f17663k = 2;
+            this.f17225b = str;
+            this.k = 2;
             this.a.sendMessage(h(2));
-            this.f17660h = true;
+            this.f17231h = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -338,13 +336,13 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.f17659g) {
+            if (this.f17230g) {
                 return false;
             }
-            this.f17654b = str;
-            this.f17663k = 1;
+            this.f17225b = str;
+            this.k = 1;
             this.a.sendMessage(h(1));
-            this.f17659g = true;
+            this.f17230g = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -354,12 +352,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             if (i2 == 1) {
-                this.f17659g = false;
+                this.f17230g = false;
             } else if (i2 == 2) {
-                this.f17660h = false;
+                this.f17231h = false;
             } else if (i2 != 3) {
             } else {
-                this.f17661i = false;
+                this.f17232i = false;
             }
         }
     }
@@ -367,30 +365,30 @@ public class d {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f17656d = 1;
-            this.f17657e = 1;
-            this.f17658f = 1;
+            this.f17227d = 1;
+            this.f17228e = 1;
+            this.f17229f = 1;
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || StringUtils.isNull(this.f17654b) || this.f17654b.equals(this.f17655c)) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || StringUtils.isNull(this.f17225b) || this.f17225b.equals(this.f17226c)) {
             return;
         }
-        this.a.sendMessage(new CustomMessage(2009003, this.f17654b));
-        this.f17655c = this.f17654b;
+        this.a.sendMessage(new CustomMessage(2009003, this.f17225b));
+        this.f17226c = this.f17225b;
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f17662j == null) {
-                this.f17662j = new ArrayList<>();
+            if (this.f17233j == null) {
+                this.f17233j = new ArrayList<>();
             }
-            this.f17662j.remove(this.f17654b);
-            this.f17662j.add(0, this.f17654b);
-            k(this.f17662j);
+            this.f17233j.remove(this.f17225b);
+            this.f17233j.add(0, this.f17225b);
+            k(this.f17233j);
         }
     }
 }

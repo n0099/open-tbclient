@@ -17,10 +17,10 @@ public class i {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f11239b;
+    public static volatile boolean f10990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile List<c.a.r0.a.o0.d.c> f11240c;
+    public static volatile List<c.a.r0.a.o0.d.c> f10991c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class i {
                 return;
             }
         }
-        f11240c = new ArrayList();
+        f10991c = new ArrayList();
     }
 
     public i() {
@@ -55,17 +55,17 @@ public class i {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !f11239b) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !f10990b) {
             synchronized (i.class) {
-                if (f11240c != null) {
-                    for (int i2 = 0; i2 < f11240c.size(); i2++) {
-                        c.a.r0.a.g1.f.U().m("console", f11240c.get(i2));
+                if (f10991c != null) {
+                    for (int i2 = 0; i2 < f10991c.size(); i2++) {
+                        c.a.r0.a.g1.f.U().m("console", f10991c.get(i2));
                     }
-                    f11240c.clear();
-                    f11240c = null;
+                    f10991c.clear();
+                    f10991c = null;
                 }
             }
-            f11239b = true;
+            f10990b = true;
         }
     }
 
@@ -79,9 +79,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (i.class) {
-                f11240c = new ArrayList();
+                f10991c = new ArrayList();
             }
-            f11239b = false;
+            f10990b = false;
         }
     }
 
@@ -102,10 +102,10 @@ public class i {
     public static void f(c.a.r0.a.o0.d.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, cVar) == null) {
-            if (!f11239b) {
+            if (!f10990b) {
                 synchronized (i.class) {
-                    if (f11240c != null) {
-                        f11240c.add(cVar);
+                    if (f10991c != null) {
+                        f10991c.add(cVar);
                         return;
                     }
                 }

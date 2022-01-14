@@ -14,13 +14,13 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18605b;
+    public String f18141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18606c;
+    public String f18142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f18607d;
+    public boolean f18143d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        this.f18607d = true;
+        this.f18143d = true;
     }
 
     public String a() {
@@ -47,19 +47,19 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18605b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18141b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18606c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18142c : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18607d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18143d : invokeV.booleanValue;
     }
 
     public void e(Offpack offpack) {
@@ -68,8 +68,8 @@ public class a {
             return;
         }
         this.a = offpack.src;
-        this.f18605b = offpack.md5;
-        this.f18606c = offpack.webview_version;
-        this.f18607d = offpack.is_use.intValue() == 1;
+        this.f18141b = offpack.md5;
+        this.f18142c = offpack.webview_version;
+        this.f18143d = offpack.is_use.intValue() == 1;
     }
 }

@@ -37,7 +37,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     public void O(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f46922i = tbPageContext;
+            this.f45184i = tbPageContext;
         }
     }
 
@@ -46,7 +46,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, imMessageCenterShowItemData) == null) {
             super.g(aVar, imMessageCenterShowItemData);
-            aVar.f22583b.setIsRound(true);
+            aVar.f21965b.setIsRound(true);
         }
     }
 }

@@ -33,6 +33,6 @@ public class b implements Comparator<l.a> {
     public int compare(l.a aVar, l.a aVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) ? -Integer.compare(aVar.f29319d.a, aVar2.f29319d.a) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) ? -Integer.compare(aVar.f28427d.a, aVar2.f28427d.a) : invokeLL.intValue;
     }
 }

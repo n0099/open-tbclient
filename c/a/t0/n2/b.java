@@ -40,22 +40,22 @@ public class b {
         public final /* synthetic */ c.a.t0.n2.e.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20113b;
+        public final /* synthetic */ String f19583b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.n2.f.a f20114c;
+        public final /* synthetic */ c.a.t0.n2.f.a f19584c;
 
         /* renamed from: c.a.t0.n2.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1209a extends BdAsyncTask<Void, Void, Boolean> {
+        public class C1223a extends BdAsyncTask<Void, Void, Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DownloadData a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f20115b;
+            public final /* synthetic */ a f19585b;
 
-            public C1209a(a aVar, DownloadData downloadData) {
+            public C1223a(a aVar, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class b {
                         return;
                     }
                 }
-                this.f20115b = aVar;
+                this.f19585b = aVar;
                 this.a = downloadData;
             }
 
@@ -80,10 +80,10 @@ public class b {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.f20115b.f20113b));
-                    if (b.g(this.a.getPath(), this.f20115b.f20114c)) {
-                        a aVar = this.f20115b;
-                        return Boolean.valueOf(b.f(aVar.f20114c, aVar.f20113b));
+                    FileHelper.deleteFileOrDir(new File(this.f19585b.f19583b));
+                    if (b.g(this.a.getPath(), this.f19585b.f19584c)) {
+                        a aVar = this.f19585b;
+                        return Boolean.valueOf(b.f(aVar.f19584c, aVar.f19583b));
                     }
                     return Boolean.FALSE;
                 }
@@ -96,11 +96,11 @@ public class b {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                     if (bool.booleanValue()) {
-                        a aVar = this.f20115b;
-                        aVar.a.onSuccess(aVar.f20113b);
+                        a aVar = this.f19585b;
+                        aVar.a.onSuccess(aVar.f19583b);
                         return;
                     }
-                    this.f20115b.a.onFail("fail to download");
+                    this.f19585b.a.onFail("fail to download");
                 }
             }
         }
@@ -121,8 +121,8 @@ public class b {
                 }
             }
             this.a = bVar;
-            this.f20113b = str;
-            this.f20114c = aVar;
+            this.f19583b = str;
+            this.f19584c = aVar;
         }
 
         @Override // c.a.s0.w.e
@@ -142,7 +142,7 @@ public class b {
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                new C1209a(this, downloadData).execute(new Void[0]);
+                new C1223a(this, downloadData).execute(new Void[0]);
             }
         }
 
@@ -181,23 +181,23 @@ public class b {
         List<c.a.t0.n2.f.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, aVar, bVar) == null) {
-            if (aVar == null || (list = aVar.f20143e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f20142d)) {
+            if (aVar == null || (list = aVar.f19613e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f19612d)) {
                 if (bVar != null) {
                     bVar.onFail("group data null");
                     return;
                 }
                 return;
             }
-            a aVar2 = new a(bVar, c.f20117c + aVar.a + "/", aVar);
-            new File(c.f20117c).mkdirs();
-            d(aVar, c.f20117c, aVar2);
+            a aVar2 = new a(bVar, c.f19587c + aVar.a + "/", aVar);
+            new File(c.f19587c).mkdirs();
+            d(aVar, c.f19587c, aVar2);
         }
     }
 
     public static void d(c.a.t0.n2.f.a aVar, String str, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, aVar, str, eVar) == null) {
-            if (aVar == null || TextUtils.isEmpty(aVar.f20142d)) {
+            if (aVar == null || TextUtils.isEmpty(aVar.f19612d)) {
                 if (eVar != null) {
                     eVar.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
                     return;
@@ -205,7 +205,7 @@ public class b {
                 return;
             }
             String str2 = aVar.a + ".zip";
-            DownloadData downloadData = new DownloadData(aVar.a, str2, Uri.encode(aVar.f20142d, "-![.:/,%?&=]"), eVar);
+            DownloadData downloadData = new DownloadData(aVar.a, str2, Uri.encode(aVar.f19612d, "-![.:/,%?&=]"), eVar);
             downloadData.setPath(str + str2);
             f.k().l(downloadData);
         }
@@ -243,10 +243,10 @@ public class b {
             if (file.exists() && file2.exists()) {
                 return true;
             }
-            if (new File(str + aVar.f20141c).exists()) {
+            if (new File(str + aVar.f19611c).exists()) {
                 Bitmap bitmap = null;
                 try {
-                    bitmap = BitmapFactory.decodeFile(str + aVar.f20141c);
+                    bitmap = BitmapFactory.decodeFile(str + aVar.f19611c);
                 } catch (OutOfMemoryError e2) {
                     e2.printStackTrace();
                 }

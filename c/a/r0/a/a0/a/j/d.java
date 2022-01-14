@@ -30,7 +30,7 @@ public class d extends a {
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            bVar.f5183j.reset();
+            bVar.f5075j.reset();
         }
     }
 

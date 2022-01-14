@@ -31,17 +31,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f17555b;
+    public static a f17127b;
     public transient /* synthetic */ FieldHolder $fh;
     public f a;
 
     /* renamed from: c.a.t0.e1.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1069a implements h {
+    public class C1083a implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1069a(a aVar) {
+        public C1083a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class a {
         public final /* synthetic */ h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17556b;
+        public final /* synthetic */ String f17128b;
 
         public c(a aVar, h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class a {
                 }
             }
             this.a = hVar;
-            this.f17556b = str;
+            this.f17128b = str;
         }
 
         @Override // c.a.t0.e1.a.h
@@ -155,7 +155,7 @@ public class a {
                 if (hVar != null) {
                     hVar.a(str, i2);
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f17556b).param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i2));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f17128b).param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i2));
             }
         }
 
@@ -167,7 +167,7 @@ public class a {
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f17556b).param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f17128b).param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
             }
         }
     }
@@ -179,10 +179,10 @@ public class a {
         public final /* synthetic */ h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17557b;
+        public final /* synthetic */ String f17129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f17558c;
+        public final /* synthetic */ a f17130c;
 
         public d(a aVar, h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -199,9 +199,9 @@ public class a {
                     return;
                 }
             }
-            this.f17558c = aVar;
+            this.f17130c = aVar;
             this.a = hVar;
-            this.f17557b = str;
+            this.f17129b = str;
         }
 
         @Override // c.a.t0.e1.a.h
@@ -212,7 +212,7 @@ public class a {
                 if (hVar != null) {
                     hVar.a(str, i2);
                 }
-                this.f17558c.z(0, this.f17557b, String.valueOf(1));
+                this.f17130c.z(0, this.f17129b, String.valueOf(1));
             }
         }
 
@@ -224,7 +224,7 @@ public class a {
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                this.f17558c.z(1, this.f17557b, String.valueOf(0));
+                this.f17130c.z(1, this.f17129b, String.valueOf(0));
             }
         }
     }
@@ -236,7 +236,7 @@ public class a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17559b;
+        public final /* synthetic */ String f17131b;
 
         public e(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -254,14 +254,14 @@ public class a {
                 }
             }
             this.a = str;
-            this.f17559b = str2;
+            this.f17131b = str2;
         }
 
         @Override // c.a.t0.e1.a.h
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.a, this.f17559b, null);
+                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.a, this.f17131b, null);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 0));
             }
         }
@@ -270,7 +270,7 @@ public class a {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.a, this.f17559b, "0");
+                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.a, this.f17131b, "0");
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
             }
         }
@@ -322,7 +322,7 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17560b;
+        public String f17132b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -418,7 +418,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             g gVar = new g();
             gVar.a = str;
-            gVar.f17560b = str2;
+            gVar.f17132b = str2;
             return gVar;
         }
         return (g) invokeLL.objValue;
@@ -428,17 +428,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f17555b == null) {
+            if (f17127b == null) {
                 synchronized (a.class) {
-                    if (f17555b == null) {
-                        f17555b = new a();
+                    if (f17127b == null) {
+                        f17127b = new a();
                     }
                 }
             }
-            if (f17555b.a == null && PermissionUtil.isAgreePrivacyPolicy()) {
-                f17555b = new a();
+            if (f17127b.a == null && PermissionUtil.isAgreePrivacyPolicy()) {
+                f17127b = new a();
             }
-            return f17555b;
+            return f17127b;
         }
         return (a) invokeV.objValue;
     }
@@ -460,7 +460,7 @@ public class a {
             StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a002").eventStat();
             System.currentTimeMillis();
             FunAdRecordHttpMessage.uploadRequestRecord("a002", null, null, null, null);
-            this.a.m(activity, str, new C1069a(this), gVar);
+            this.a.m(activity, str, new C1083a(this), gVar);
             return isAdReady;
         }
         return invokeLLL.booleanValue;
@@ -616,7 +616,7 @@ public class a {
             return;
         }
         z(2, str, "");
-        this.a.m(activity, "6061002410-390177882", new d(this, hVar, str), b(str, (VideoMiddleAdSwitch.isOn() && c.a.s0.b.d.j0()) ? "1" : "0"));
+        this.a.m(activity, "6061002410-390177882", new d(this, hVar, str), b(str, (VideoMiddleAdSwitch.isOn() && c.a.s0.b.d.l0()) ? "1" : "0"));
     }
 
     public void q(Activity activity, h hVar, String str) {

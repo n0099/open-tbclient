@@ -20,7 +20,7 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f24293b;
+    public boolean f23612b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class c {
                 return;
             }
         }
-        this.f24293b = false;
+        this.f23612b = false;
         i();
     }
 
@@ -89,7 +89,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             String f2 = f(i2);
-            return (!m.isEmpty(f2) && c.a.s0.s.g0.b.j().k(f2, 0) == 1) ? 1 : 0;
+            return (!m.isEmpty(f2) && c.a.s0.s.h0.b.k().l(f2, 0) == 1) ? 1 : 0;
         }
         return invokeI.intValue;
     }
@@ -124,7 +124,7 @@ public class c {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24293b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23612b : invokeV.booleanValue;
     }
 
     public boolean h() {
@@ -156,16 +156,16 @@ public class c {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = c.a.s0.s.g0.b.j().k("key_abtest_channel", 0);
+            this.a = c.a.s0.s.h0.b.k().l("key_abtest_channel", 0);
             j();
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f24293b && this.a == 1) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f23612b && this.a == 1) {
             boolean h2 = h();
-            this.f24293b = h2;
+            this.f23612b = h2;
             if (h2) {
                 return;
             }
@@ -178,7 +178,7 @@ public class c {
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             if (i2 == 1 || i2 == 0) {
                 this.a = i2;
-                c.a.s0.s.g0.b.j().v("key_abtest_channel", this.a);
+                c.a.s0.s.h0.b.k().w("key_abtest_channel", this.a);
                 j();
             }
         }

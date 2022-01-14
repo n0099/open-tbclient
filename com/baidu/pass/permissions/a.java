@@ -34,7 +34,7 @@ public class a implements View.OnClickListener {
         PermissionsCallback permissionsCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            permissionsCallback = this.a.f38957d;
+            permissionsCallback = this.a.f37671d;
             permissionsCallback.onFailure(-2);
             this.a.finish();
         }

@@ -16,19 +16,19 @@ public class jh extends ix {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63790b = 10000;
+    public static int f61392b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f63791c = 10000;
+    public static int f61393c = 10000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f63792d = 10000;
+    public static int f61394d = 10000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f63793e = 10485760;
+    public static int f61395e = 10485760;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f63794f = 104857600;
+    public static int f61396f = 104857600;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -81,7 +81,7 @@ public class jh extends ix {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jlVar)) == null) {
-                jh jhVar = new jh(jlVar, ((ix.a) this).f813a, this.f63788b);
+                jh jhVar = new jh(jlVar, ((ix.a) this).f813a, this.f61390b);
                 int i2 = ((ix.a) this).a;
                 if (i2 != 0) {
                     jhVar.b(i2);
@@ -135,7 +135,7 @@ public class jh extends ix {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             byte a2 = a();
             int a3 = a();
-            if (a3 <= f63791c) {
+            if (a3 <= f61393c) {
                 return new iz(a2, a3);
             }
             throw new jc(3, "Thrift list size " + a3 + " out of range!");
@@ -151,7 +151,7 @@ public class jh extends ix {
             byte a2 = a();
             byte a3 = a();
             int a4 = a();
-            if (a4 <= f63790b) {
+            if (a4 <= f61392b) {
                 return new ja(a2, a3, a4);
             }
             throw new jc(3, "Thrift map size " + a4 + " out of range!");
@@ -166,7 +166,7 @@ public class jh extends ix {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             byte a2 = a();
             int a3 = a();
-            if (a3 <= f63792d) {
+            if (a3 <= f61394d) {
                 return new jf(a2, a3);
             }
             throw new jc(3, "Thrift set size " + a3 + " out of range!");
@@ -180,11 +180,11 @@ public class jh extends ix {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int a2 = a();
-            if (a2 > f63793e) {
+            if (a2 > f61395e) {
                 throw new jc(3, "Thrift string size " + a2 + " out of range!");
             } else if (((jb) this).a.b() >= a2) {
                 try {
-                    String str = new String(((jb) this).a.m583a(), ((jb) this).a.a(), a2, "UTF-8");
+                    String str = new String(((jb) this).a.m595a(), ((jb) this).a.a(), a2, "UTF-8");
                     ((jb) this).a.a(a2);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
@@ -203,12 +203,12 @@ public class jh extends ix {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int a2 = a();
-            if (a2 > f63794f) {
+            if (a2 > f61396f) {
                 throw new jc(3, "Thrift binary size " + a2 + " out of range!");
             }
             c(a2);
             if (((jb) this).a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).a.m583a(), ((jb) this).a.a(), a2);
+                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).a.m595a(), ((jb) this).a.a(), a2);
                 ((jb) this).a.a(a2);
                 return wrap;
             }

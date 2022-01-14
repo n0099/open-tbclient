@@ -31,7 +31,7 @@ public class RecommendTopicData {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f41564b;
+    public List<RecommendTopicListData> f40141b;
 
     /* loaded from: classes11.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -129,9 +129,9 @@ public class RecommendTopicData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 n nVar = new n();
-                nVar.f18247c = this.tag;
+                nVar.f17802c = this.tag;
                 nVar.a = this.topicId;
-                nVar.f18246b = this.topicName;
+                nVar.f17801b = this.topicName;
                 return nVar;
             }
             return (n) invokeV.objValue;
@@ -259,7 +259,7 @@ public class RecommendTopicData {
                 return;
             }
         }
-        this.f41564b = new ArrayList();
+        this.f40141b = new ArrayList();
     }
 
     public o a() {
@@ -268,10 +268,10 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             o oVar = new o();
-            oVar.f18251g = b();
-            if (this.f41564b != null) {
+            oVar.f17805g = b();
+            if (this.f40141b != null) {
                 arrayList = new ArrayList();
-                for (RecommendTopicListData recommendTopicListData : this.f41564b) {
+                for (RecommendTopicListData recommendTopicListData : this.f40141b) {
                     if (recommendTopicListData != null) {
                         arrayList.add(recommendTopicListData.getConvertedCardData());
                     }
@@ -279,7 +279,7 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            oVar.f18252h = arrayList;
+            oVar.f17806h = arrayList;
             return oVar;
         }
         return (o) invokeV.objValue;
@@ -315,7 +315,7 @@ public class RecommendTopicData {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f41564b.add(recommendTopicListData);
+                        this.f40141b.add(recommendTopicListData);
                     }
                 }
             }

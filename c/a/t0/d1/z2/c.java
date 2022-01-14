@@ -1,208 +1,61 @@
 package c.a.t0.d1.z2;
 
-import c.a.s0.s.s.a;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import tbclient.PopInfo;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f17369b;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Void, Void, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        /* loaded from: classes7.dex */
-        public class a implements a.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // c.a.s0.s.s.a.e
-            public void onClick(c.a.s0.s.s.a aVar) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
-                    return;
-                }
-                aVar.dismiss();
-            }
-        }
-
-        /* renamed from: c.a.t0.d1.z2.c$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1062b implements a.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PopInfo f17370e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f17371f;
-
-            public C1062b(b bVar, PopInfo popInfo) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, popInfo};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f17371f = bVar;
-                this.f17370e = popInfo;
-            }
-
-            @Override // c.a.s0.s.s.a.e
-            public void onClick(c.a.s0.s.s.a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    UrlManager.getInstance().dealOneLink(this.f17371f.a.a.getPageContext(), new String[]{this.f17370e.ahead_url});
-                    if (aVar == null) {
-                        return;
-                    }
-                    aVar.dismiss();
-                }
-            }
-        }
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        public /* synthetic */ b(c cVar, a aVar) {
-            this(cVar);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                c.a.s0.s.r.a.f();
-                c.a.d.f.d.l<String> g2 = c.a.s0.s.r.a.g("tb.enter_frs_dialog_list");
-                String encode = URLEncoder.encode(this.a.a.getFrsViewData().getForum().getName());
-                if (g2.get(encode) == null) {
-                    g2.g(encode, "1");
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.a.c() && this.a.a.isAdded()) {
-                PopInfo popInfo = this.a.a.getFrsViewData().enterFrsDialogInfo;
-                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.a.a.getActivity());
-                aVar.setTitle(popInfo.title);
-                aVar.setMessage(popInfo.v_title);
-                aVar.isShowTitleAndMessage();
-                aVar.setNegativeButton(popInfo.ok_info, new a(this));
-                aVar.setPositiveButton(popInfo.ahead_info, new C1062b(this, popInfo));
-                aVar.create(this.a.a.getPageContext()).show();
-            }
-        }
-    }
-
-    public c(FrsFragment frsFragment) {
+    public static void a(c.a.t0.h.e.b bVar, ForumData forumData, List<c.a.d.n.e.n> list, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = frsFragment;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PopInfo popInfo = this.a.getFrsViewData().enterFrsDialogInfo;
-            return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.a.getFrsViewData().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        FrsFragment frsFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.getFrsViewData() == null || this.a.getFrsViewData().getForum() == null || StringUtils.isNull(this.a.getFrsViewData().getForum().getName()) || this.a.getFrsViewData().enterFrsDialogInfo == null || !c() || this.f17369b != null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{bVar, forumData, list, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        b bVar = new b(this, null);
-        this.f17369b = bVar;
-        bVar.execute(new Void[0]);
+        c.a.t0.h.f.b bVar2 = new c.a.t0.h.f.b(bVar, 5);
+        bVar2.E(list);
+        if (forumData != null) {
+            bVar2.v(forumData.getId());
+            bVar2.u(forumData.getFirst_class());
+            bVar2.C(forumData.getSecond_class());
+        }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            bVar2.z(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+        }
+        bVar2.y(z);
+        bVar2.A(i2);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
+    }
+
+    public static void b(c.a.t0.h.e.b bVar, FrsViewData frsViewData, List<c.a.d.n.e.n> list, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, bVar, frsViewData, list, i2) == null) || frsViewData == null) {
+            return;
+        }
+        a(bVar, frsViewData.getForum(), list, false, i2);
+    }
+
+    public static void c(c.a.t0.w3.j0.f fVar, List<c.a.d.n.e.n> list, List<c.a.d.n.e.n> list2) {
+        int[] iArr;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, fVar, list, list2) == null) || fVar == null || ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0) {
+            return;
+        }
+        for (int i2 : c.a.t0.w3.j0.f.f24840f) {
+            c.a.d.n.e.n nVar = (c.a.d.n.e.n) ListUtils.getItem(list, i2);
+            if (nVar != null && (indexOf = list2.indexOf(nVar)) >= 0) {
+                fVar.a(i2, indexOf);
+            }
+        }
     }
 }

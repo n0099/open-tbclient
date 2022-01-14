@@ -54,7 +54,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.u2.d, PersonCenterIntervalHolder> {
     public PersonCenterIntervalHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.f3299e).inflate(R.layout.item_person_center_list_interval, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.item_person_center_list_interval, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
     public View a0(int i2, View view, ViewGroup viewGroup, c.a.t0.u2.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
@@ -65,14 +65,14 @@ public class a extends c.a.d.n.e.a<c.a.t0.u2.d, PersonCenterIntervalHolder> {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (personCenterIntervalHolder.skinType != skinType) {
                     personCenterIntervalHolder.skinType = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.intervalView, dVar.f25114g);
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.intervalView, dVar.f24411g);
                 }
                 ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.intervalView.getLayoutParams();
-                int i3 = dVar.f25112e;
+                int i3 = dVar.f24409e;
                 if (i3 > 0) {
                     layoutParams.height = i3;
                 }
-                int i4 = dVar.f25113f;
+                int i4 = dVar.f24410f;
                 if (i4 > 0) {
                     layoutParams.width = i4;
                 }

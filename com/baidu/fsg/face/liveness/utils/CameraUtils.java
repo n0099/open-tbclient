@@ -15,7 +15,7 @@ public final class CameraUtils {
     public static final int a = 307200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f35470b = 2073600;
+    public static final int f34319b = 2073600;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CameraUtils() {

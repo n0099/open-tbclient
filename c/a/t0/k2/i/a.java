@@ -25,9 +25,7 @@ import java.util.Date;
 public class a extends c.a.s0.l0.f.a<c.a.t0.k2.h.a, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f19263k;
+    public View k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -53,7 +51,7 @@ public class a extends c.a.s0.l0.f.a<c.a.t0.k2.h.a, b> {
                 return;
             }
         }
-        this.f19263k = view;
+        this.k = view;
         this.l = (TextView) view.findViewById(R.id.title);
         TextView textView = (TextView) view.findViewById(R.id.content);
         this.m = textView;
@@ -123,7 +121,7 @@ public class a extends c.a.s0.l0.f.a<c.a.t0.k2.h.a, b> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2)) == null) {
-            SkinManager.setBackgroundResource(this.f19263k, R.drawable.list_item_selector);
+            SkinManager.setBackgroundResource(this.k, R.drawable.list_item_selector);
             SkinManager.setBackgroundResource(this.p, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1);

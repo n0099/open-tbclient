@@ -18,33 +18,33 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9464g;
+    public static final boolean f9258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile l f9465h;
+    public static volatile l f9259h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static c.a.r0.a.y0.k.g.a f9466i;
+    public static c.a.r0.a.y0.k.g.a f9260i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f9467j;
+    public static boolean f9261j;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Boolean> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c.a.r0.a.y0.k.g.a> f9468b;
+    public HashMap<String, c.a.r0.a.y0.k.g.a> f9262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9469c;
+    public int f9263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.z2.g1.c<Integer> f9470d;
+    public c.a.r0.a.z2.g1.c<Integer> f9264d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.g1.h f9471e;
+    public c.a.r0.a.g1.h f9265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.t0.a f9472f;
+    public c.a.r0.a.t0.a f9266f;
 
     /* loaded from: classes.dex */
     public class a extends c.a.r0.a.t0.a {
@@ -75,8 +75,8 @@ public class l {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, keyEvent)) == null) {
-                if (i2 == 4 && this.a.f9470d != null && this.a.g()) {
-                    this.a.f9470d.onCallback(1);
+                if (i2 == 4 && this.a.f9264d != null && this.a.g()) {
+                    this.a.f9264d.onCallback(1);
                     return true;
                 }
                 return false;
@@ -98,7 +98,7 @@ public class l {
                 return;
             }
         }
-        f9464g = c.a.r0.a.k.a;
+        f9258g = c.a.r0.a.k.a;
     }
 
     public l() {
@@ -115,25 +115,25 @@ public class l {
             }
         }
         this.a = new HashMap<>();
-        this.f9468b = new HashMap<>();
-        this.f9469c = -1;
-        this.f9470d = null;
-        this.f9471e = null;
-        this.f9472f = new a(this);
+        this.f9262b = new HashMap<>();
+        this.f9263c = -1;
+        this.f9264d = null;
+        this.f9265e = null;
+        this.f9266f = new a(this);
     }
 
     public static l e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f9465h == null) {
+            if (f9259h == null) {
                 synchronized (l.class) {
-                    if (f9465h == null) {
-                        f9465h = new l();
+                    if (f9259h == null) {
+                        f9259h = new l();
                     }
                 }
             }
-            return f9465h;
+            return f9259h;
         }
         return (l) invokeV.objValue;
     }
@@ -143,15 +143,15 @@ public class l {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.c())) {
             return;
         }
-        this.f9468b.put(aVar.c(), aVar);
+        this.f9262b.put(aVar.c(), aVar);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.r0.a.e0.d.i("SwanInlinePlayerManager", "clearCacheVideo: ");
-            f9466i = null;
-            f9467j = false;
+            f9260i = null;
+            f9261j = false;
         }
     }
 
@@ -159,10 +159,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (f9464g && f9466i != null) {
-                String str = "getCacheVideoPlayer: " + f9466i.c();
+            if (f9258g && f9260i != null) {
+                String str = "getCacheVideoPlayer: " + f9260i.c();
             }
-            return f9466i;
+            return f9260i;
         }
         return (c.a.r0.a.y0.k.g.a) invokeV.objValue;
     }
@@ -172,7 +172,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             boolean z = true;
-            z = (!(d() != null && d().f0() == null) || f9467j) ? false : false;
+            z = (!(d() != null && d().f0() == null) || f9261j) ? false : false;
             c.a.r0.a.e0.d.i("SwanInlinePlayerManager", "hasCacheVideo: " + z);
             return z;
         }
@@ -183,7 +183,7 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f9469c;
+            int i2 = this.f9263c;
             return i2 == 90 || i2 == -90;
         }
         return invokeV.booleanValue;
@@ -192,13 +192,13 @@ public class l {
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9469c == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9263c == 0 : invokeV.booleanValue;
     }
 
     public void i() {
         c.a.r0.a.z2.g1.c<Integer> cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g() && (cVar = this.f9470d) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g() && (cVar = this.f9264d) != null) {
             cVar.onCallback(0);
         }
     }
@@ -208,19 +208,19 @@ public class l {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             c.a.r0.a.h0.g.f H = c.a.r0.a.g1.f.U().H();
             if (g()) {
-                boolean z = f9464g;
+                boolean z = f9258g;
                 if (H != null) {
                     H.L3(false);
                 }
                 c.a.r0.a.c2.b.a.g();
                 c.a.r0.a.c2.b.a.m(true);
             } else if (h()) {
-                boolean z2 = f9464g;
+                boolean z2 = f9258g;
                 if (H != null) {
                     H.L3(true);
                 }
             } else {
-                boolean z3 = f9464g;
+                boolean z3 = f9258g;
                 if (H != null) {
                     H.L3(false);
                 }
@@ -232,21 +232,21 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = f9464g;
+                boolean z = f9258g;
                 return;
             }
-            HashMap<String, c.a.r0.a.y0.k.g.a> hashMap = this.f9468b;
+            HashMap<String, c.a.r0.a.y0.k.g.a> hashMap = this.f9262b;
             if (hashMap == null || hashMap.size() <= 0) {
                 return;
             }
             int i2 = 0;
-            for (String str2 : this.f9468b.keySet()) {
+            for (String str2 : this.f9262b.keySet()) {
                 if (str2.equals(str)) {
-                    if (f9464g) {
+                    if (f9258g) {
                         String str3 = "pauseOtherPlayers: skip itself." + str;
                     }
                 } else {
-                    c.a.r0.a.y0.k.g.a aVar = this.f9468b.get(str2);
+                    c.a.r0.a.y0.k.g.a aVar = this.f9262b.get(str2);
                     if (aVar != null) {
                         if (i2 < 3) {
                             if (aVar.j0()) {
@@ -277,7 +277,7 @@ public class l {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            c.a.r0.a.g1.f.U().getActivity().registerCallback(this.f9472f);
+            c.a.r0.a.g1.f.U().getActivity().registerCallback(this.f9266f);
         }
     }
 
@@ -288,10 +288,10 @@ public class l {
                 x();
                 w();
                 this.a = null;
-                this.f9468b.clear();
-                this.f9470d = null;
+                this.f9262b.clear();
+                this.f9264d = null;
             }
-            f9465h = null;
+            f9259h = null;
         }
     }
 
@@ -301,18 +301,18 @@ public class l {
             return;
         }
         if (d() == null) {
-            f9467j = false;
+            f9261j = false;
         } else if (TextUtils.equals(d().c(), aVar.c())) {
             c.a.r0.a.e0.d.i("SwanInlinePlayerManager", "releaseCacheVideo: clear cache video " + aVar.c());
-            f9466i = null;
-            f9467j = false;
+            f9260i = null;
+            f9261j = false;
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f9470d = null;
+            this.f9264d = null;
         }
     }
 
@@ -324,7 +324,7 @@ public class l {
         }
         hashMap.remove(str);
         int size = this.a.keySet().size();
-        if (f9464g) {
+        if (f9258g) {
             String str2 = "removePlayerState: last player count " + size;
         }
     }
@@ -334,38 +334,38 @@ public class l {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f9468b.remove(str);
+        this.f9262b.remove(str);
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             c.a.r0.a.e0.d.i("SwanInlinePlayerManager", "setCacheInUsed: true");
-            f9467j = true;
+            f9261j = true;
         }
     }
 
     public void t(c.a.r0.a.y0.k.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
-            if (f9464g) {
+            if (f9258g) {
                 String str = "setCacheVideo: " + aVar.toString();
             }
-            f9466i = aVar;
+            f9260i = aVar;
         }
     }
 
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f9469c = i2;
+            this.f9263c = i2;
         }
     }
 
     public void v(c.a.r0.a.z2.g1.c<Integer> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) {
-            this.f9470d = cVar;
+            this.f9264d = cVar;
         }
     }
 
@@ -373,7 +373,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             SwanAppActivity activity = c.a.r0.a.g1.f.U().getActivity();
-            c.a.r0.a.t0.a aVar = this.f9472f;
+            c.a.r0.a.t0.a aVar = this.f9266f;
             if (aVar == null || activity == null) {
                 return;
             }
@@ -384,10 +384,10 @@ public class l {
     public void x() {
         c.a.r0.a.g1.h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (hVar = this.f9471e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (hVar = this.f9265e) == null) {
             return;
         }
         c.a.r0.a.g1.i.f(hVar);
-        this.f9471e = null;
+        this.f9265e = null;
     }
 }

@@ -38,7 +38,7 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f40144e;
+    public static final boolean f38816e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -172,7 +172,7 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.b0.c.a f40145e;
+        public final /* synthetic */ c.a.r0.a.b0.c.a f38817e;
 
         public b(SwanFavorDataManager swanFavorDataManager, c.a.r0.a.b0.c.a aVar) {
             Interceptable interceptable = $ic;
@@ -189,14 +189,14 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
                     return;
                 }
             }
-            this.f40145e = aVar;
+            this.f38817e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.b0.a.b(this.f40145e);
+                c.a.r0.a.b0.a.b(this.f38817e);
             }
         }
     }
@@ -244,7 +244,7 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
                 return;
             }
         }
-        f40144e = k.a;
+        f38816e = k.a;
     }
 
     public /* synthetic */ SwanFavorDataManager(a aVar) {
@@ -260,7 +260,7 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
     public static void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            if (f40144e) {
+            if (f38816e) {
                 String str = "sendFavorStatusMsg: isAddfavor = " + z;
             }
             HashMap hashMap = new HashMap();
@@ -305,9 +305,9 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
         }
     }
 
-    public void c(String str, c.a.r0.a.q0.b.b bVar, b.C0462b c0462b) {
+    public void c(String str, c.a.r0.a.q0.b.b bVar, b.C0471b c0471b) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar, c0462b) == null) || q0.T(h.swan_app_teen_mode_add_favor_tips)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar, c0471b) == null) || q0.T(h.swan_app_teen_mode_add_favor_tips)) {
             return;
         }
         if (!SwanAppNetworkUtils.h()) {
@@ -318,7 +318,7 @@ public class SwanFavorDataManager implements c.a.r0.a.m.c {
             e.f(AppRuntime.getAppContext(), h.swan_app_follow_failed).G();
             bVar.c(true);
         } else {
-            if (c.a.r0.a.j0.b.a.g(str, bVar, c0462b)) {
+            if (c.a.r0.a.j0.b.a.g(str, bVar, c0471b)) {
                 m(str, false);
             }
             k(str, QueryResponse.Options.CANCEL);

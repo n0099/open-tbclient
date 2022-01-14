@@ -35,23 +35,23 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public void add(K k2, V v) {
+    public void add(K k, V v) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, k2, v) == null) || k2 == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, k, v) == null) || k == null) {
             return;
         }
-        if (!this.mSource.containsKey(k2)) {
-            this.mSource.put(k2, new ArrayList(2));
+        if (!this.mSource.containsKey(k)) {
+            this.mSource.put(k, new ArrayList(2));
         }
-        this.mSource.get(k2).add(v);
+        this.mSource.get(k).add(v);
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
     public void addAll(Map<K, V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            for (K k2 : map.keySet()) {
-                add((LinkedMultiValueMap<K, V>) k2, (K) map.get(k2));
+            for (K k : map.keySet()) {
+                add((LinkedMultiValueMap<K, V>) k, (K) map.get(k));
             }
         }
     }
@@ -65,18 +65,18 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public boolean containsKey(K k2) {
+    public boolean containsKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k2)) == null) ? this.mSource.containsKey(k2) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) ? this.mSource.containsKey(k) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public V getValue(K k2, int i2) {
+    public V getValue(K k, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, k2, i2)) == null) {
-            List<V> list = this.mSource.get(k2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, k, i2)) == null) {
+            List<V> list = this.mSource.get(k);
             if (list == null || i2 >= list.size()) {
                 return null;
             }
@@ -86,10 +86,10 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public List<V> getValues(K k2) {
+    public List<V> getValues(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) ? this.mSource.get(k2) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? this.mSource.get(k) : (List) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
@@ -107,18 +107,18 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public List<V> remove(K k2) {
+    public List<V> remove(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) ? this.mSource.remove(k2) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) ? this.mSource.remove(k) : (List) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public void set(K k2, V v) {
+    public void set(K k, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, k2, v) == null) {
-            this.mSource.remove(k2);
-            add((LinkedMultiValueMap<K, V>) k2, (K) v);
+        if (interceptable == null || interceptable.invokeLL(1048586, this, k, v) == null) {
+            this.mSource.remove(k);
+            add((LinkedMultiValueMap<K, V>) k, (K) v);
         }
     }
 
@@ -135,8 +135,8 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (K k2 : this.mSource.keySet()) {
-                arrayList.addAll(this.mSource.get(k2));
+            for (K k : this.mSource.keySet()) {
+                arrayList.addAll(this.mSource.get(k));
             }
             return arrayList;
         }
@@ -144,20 +144,20 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public void set(K k2, List<V> list) {
+    public void set(K k, List<V> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, k2, list) == null) {
-            this.mSource.remove(k2);
-            add((LinkedMultiValueMap<K, V>) k2, (List) list);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, k, list) == null) {
+            this.mSource.remove(k);
+            add((LinkedMultiValueMap<K, V>) k, (List) list);
         }
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public void add(K k2, List<V> list) {
+    public void add(K k, List<V> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, list) == null) {
             for (V v : list) {
-                add((LinkedMultiValueMap<K, V>) k2, (K) v);
+                add((LinkedMultiValueMap<K, V>) k, (K) v);
             }
         }
     }

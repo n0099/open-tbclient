@@ -32,39 +32,39 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f8483h;
+    public static final String f8299h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final MediaType f8484i;
+    public static final MediaType f8300i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f8485b;
+    public Map<String, String> f8301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f8486c;
+    public Map<String, String> f8302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8487d;
+    public boolean f8303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f8488e;
+    public JSONObject f8304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f8489f;
+    public b f8305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ResponseCallback<JSONObject> f8490g;
+    public ResponseCallback<JSONObject> f8306g;
 
     /* renamed from: c.a.r0.a.p1.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0500a extends ResponseCallback<JSONObject> {
+    public class C0509a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0500a(a aVar) {
+        public C0509a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,15 +88,15 @@ public class a {
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
-                if (this.a.f8489f == null) {
+                if (this.a.f8305f == null) {
                     d.i("IsBlockDomainRequest", "isblockdomain request success, but IsBlockDomainRequestCallback is empty.");
                 } else if (jSONObject == null) {
-                    this.a.f8489f.onFail("response is empty");
+                    this.a.f8305f.onFail("response is empty");
                 } else if (jSONObject.optInt("errno", -1) == 0) {
-                    this.a.f8489f.a(jSONObject.optJSONObject("data"));
+                    this.a.f8305f.a(jSONObject.optJSONObject("data"));
                 } else {
                     String optString = jSONObject.optString("tipmsg", "");
-                    b bVar = this.a.f8489f;
+                    b bVar = this.a.f8305f;
                     if (TextUtils.isEmpty(optString)) {
                         optString = "errno is non-zero";
                     }
@@ -124,8 +124,8 @@ public class a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (this.a.f8489f != null) {
-                    this.a.f8489f.onFail(exc.getMessage());
+                if (this.a.f8305f != null) {
+                    this.a.f8305f.onFail(exc.getMessage());
                     return;
                 }
                 d.i("IsBlockDomainRequest", "IsBlockDomainRequestCallback is empty and isblockdomain request failed : \n" + Log.getStackTraceString(exc));
@@ -154,8 +154,8 @@ public class a {
             }
         }
         boolean z = k.a;
-        f8483h = String.format("%s/ma/isblockdomain", c.a.r0.a.d0.a.b());
-        f8484i = f.a;
+        f8299h = String.format("%s/ma/isblockdomain", c.a.r0.a.d0.a.b());
+        f8300i = f.a;
     }
 
     public a() {
@@ -171,12 +171,12 @@ public class a {
                 return;
             }
         }
-        this.a = f8483h;
-        this.f8485b = new HashMap();
-        this.f8486c = new HashMap();
-        this.f8487d = false;
-        this.f8488e = new JSONObject();
-        this.f8490g = new C0500a(this);
+        this.a = f8299h;
+        this.f8301b = new HashMap();
+        this.f8302c = new HashMap();
+        this.f8303d = false;
+        this.f8304e = new JSONObject();
+        this.f8306g = new C0509a(this);
         e();
         f();
     }
@@ -186,21 +186,21 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
             return;
         }
-        this.f8485b.put(str, str2);
+        this.f8301b.put(str, str2);
     }
 
     public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
-            if (!this.f8487d) {
+            if (!this.f8303d) {
                 responseCallback.onFail(new InvalidParameterException("error: invalid url"));
                 return;
             }
-            this.a = o0.b(this.a, this.f8486c);
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(this.a, RequestBody.create(f8484i, this.f8488e.toString()), responseCallback);
-            aVar.f11715c = this.f8485b;
-            aVar.f11719g = true;
-            d.b("IsBlockDomainRequest", "start isblockdomain request : " + this.f8488e);
+            this.a = o0.b(this.a, this.f8302c);
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(this.a, RequestBody.create(f8300i, this.f8304e.toString()), responseCallback);
+            aVar.f11450c = this.f8301b;
+            aVar.f11454g = true;
+            d.b("IsBlockDomainRequest", "start isblockdomain request : " + this.f8304e);
             c.a.r0.p.e.a.g().e(aVar);
         }
     }
@@ -208,15 +208,15 @@ public class a {
     public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f8489f = bVar;
-            c(this.f8490g);
+            this.f8305f = bVar;
+            c(this.f8306g);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = c.a.r0.q.j.f.i(f8483h);
+            String i2 = c.a.r0.q.j.f.i(f8299h);
             this.a = i2;
             this.a = c.b(i2);
             String N = c.a.r0.a.d2.d.J().r().N();
@@ -241,8 +241,8 @@ public class a {
             return;
         }
         try {
-            this.f8488e.put("url", str);
-            this.f8487d = true;
+            this.f8304e.put("url", str);
+            this.f8303d = true;
         } catch (JSONException unused) {
             d.i("IsBlockDomainRequest", "set url need to check failed");
         }

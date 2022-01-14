@@ -15,10 +15,10 @@ public final class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f11303e;
+    public g f11051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f11304f;
+    public volatile boolean f11052f;
 
     @SuppressLint({"MobilebdThread"})
     public a() {
@@ -38,20 +38,20 @@ public final class a extends Thread {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11304f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11052f : invokeV.booleanValue;
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f11304f = z;
+            this.f11052f = z;
         }
     }
 
     public final void c(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f11303e = gVar;
+            this.f11051e = gVar;
         }
     }
 
@@ -60,21 +60,21 @@ public final class a extends Thread {
         DatagramSocket C;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.f11304f) {
+            while (this.f11052f) {
                 try {
                     DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
-                    g gVar = this.f11303e;
+                    g gVar = this.f11051e;
                     if (gVar != null && (C = gVar.C()) != null) {
                         C.receive(datagramPacket);
                     }
-                    g gVar2 = this.f11303e;
+                    g gVar2 = this.f11051e;
                     if (gVar2 != null) {
                         gVar2.z(datagramPacket);
                     }
                 } catch (InterruptedException unused) {
                     return;
                 } catch (Throwable unused2) {
-                    g gVar3 = this.f11303e;
+                    g gVar3 = this.f11051e;
                     if (gVar3 != null) {
                         gVar3.D("receive", "receive failed");
                     }

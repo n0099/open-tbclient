@@ -1,7 +1,7 @@
 package c.a.t0.d1;
 
-import c.a.s0.s.q.c2;
 import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -22,7 +22,7 @@ public class e implements n0 {
     public static final AtomicReference<n0> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n0 f16372b;
+    public static final n0 f16018b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class e implements n0 {
             }
         }
         a = new AtomicReference<>(null);
-        f16372b = new e();
+        f16018b = new e();
     }
 
     public e() {
@@ -61,13 +61,13 @@ public class e implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             n0 n0Var = a.get();
-            return n0Var == null ? f16372b : n0Var;
+            return n0Var == null ? f16018b : n0Var;
         }
         return (n0) invokeV.objValue;
     }
 
     @Override // c.a.t0.d1.n0
-    public c.a.d.n.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+    public c.a.d.n.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
@@ -89,7 +89,7 @@ public class e implements n0 {
     }
 
     @Override // c.a.t0.d1.n0
-    public c.a.d.n.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+    public c.a.d.n.e.a<? extends e2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
@@ -100,7 +100,7 @@ public class e implements n0 {
     }
 
     @Override // c.a.t0.d1.n0
-    public c.a.d.n.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    public c.a.d.n.e.a<? extends e2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {

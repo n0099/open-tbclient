@@ -56,7 +56,7 @@ public class f {
                 if (TextUtils.isEmpty(h2)) {
                     return false;
                 }
-                z = (TextUtils.equals(a2.i().c(), aVar.getContainerId()) && TextUtils.equals(h2, a0.f5660f)) ? true : true;
+                z = (TextUtils.equals(a2.i().c(), aVar.getContainerId()) && TextUtils.equals(h2, a0.f5537f)) ? true : true;
                 if (a && z) {
                     String str3 = "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch";
                 }

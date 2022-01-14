@@ -45,24 +45,24 @@ public class PushDialogLoopManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static PushDialogLoopManager f49289g;
+    public static PushDialogLoopManager f47439g;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49290b;
+    public String f47440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f49291c;
+    public boolean f47441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f49292d;
+    public boolean f47442d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49293e;
+    public boolean f47443e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlarmManager f49294f;
+    public AlarmManager f47444f;
 
     /* loaded from: classes12.dex */
     public static class PushAlarmReceiver extends BroadcastReceiver {
@@ -98,7 +98,7 @@ public class PushDialogLoopManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogLoopManager f49295e;
+        public final /* synthetic */ PushDialogLoopManager f47445e;
 
         public a(PushDialogLoopManager pushDialogLoopManager) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class PushDialogLoopManager {
                     return;
                 }
             }
-            this.f49295e = pushDialogLoopManager;
+            this.f47445e = pushDialogLoopManager;
         }
 
         @Override // android.os.Handler.Callback
@@ -126,7 +126,7 @@ public class PushDialogLoopManager {
                 if (message.what != 1) {
                     return false;
                 }
-                this.f49295e.n();
+                this.f47445e.n();
                 PushDialogLoopManager.i().l();
                 return true;
             }
@@ -172,12 +172,12 @@ public class PushDialogLoopManager {
                 } else {
                     tid = responsedMessage instanceof PullTidSocketResponseMessage ? ((PullTidSocketResponseMessage) responsedMessage).getTid() : "";
                 }
-                if (StringUtils.isNull(tid) || responsedMessage.getError() != 0 || this.a.f49290b.equals(tid) || "0".equals(tid)) {
+                if (StringUtils.isNull(tid) || responsedMessage.getError() != 0 || this.a.f47440b.equals(tid) || "0".equals(tid)) {
                     return;
                 }
-                this.a.f49290b = tid;
-                if (c.a.t0.l3.a.j().f19640d.c()) {
-                    this.a.f49291c = true;
+                this.a.f47440b = tid;
+                if (c.a.t0.l3.a.j().f19134d.c()) {
+                    this.a.f47441c = true;
                 } else {
                     this.a.p(tid);
                 }
@@ -304,27 +304,27 @@ public class PushDialogLoopManager {
                 return;
             }
         }
-        this.f49290b = "";
-        this.f49291c = false;
-        this.f49292d = false;
-        this.f49293e = false;
+        this.f47440b = "";
+        this.f47441c = false;
+        this.f47442d = false;
+        this.f47443e = false;
         Handler handler = new Handler(Looper.getMainLooper(), new a(this));
         this.a = handler;
         handler.sendEmptyMessage(1);
         MessageManager.getInstance().registerListener(new b(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         MessageManager.getInstance().registerListener(new c(this, 1003));
         MessageManager.getInstance().registerListener(new d(this, 2001371));
-        this.f49290b = c.a.s0.s.g0.b.j().p("key_push_dialog_last_show_tid", "0");
+        this.f47440b = c.a.s0.s.h0.b.k().q("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new e(null), new IntentFilter("android.intent.action.SCREEN_OFF"));
-        this.f49294f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f47444f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
             if (Build.VERSION.SDK_INT >= 21) {
                 TbadkCoreApplication.getInst().startService(new Intent().setClass(TbadkCoreApplication.getInst(), PushDialogJobService.class));
-                this.f49293e = true;
+                this.f47443e = true;
             }
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f49293e = false;
+            this.f47443e = false;
         }
     }
 
@@ -332,22 +332,22 @@ public class PushDialogLoopManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f49289g == null) {
+            if (f47439g == null) {
                 synchronized (PushDialogLoopManager.class) {
-                    if (f49289g == null) {
-                        f49289g = new PushDialogLoopManager();
+                    if (f47439g == null) {
+                        f47439g = new PushDialogLoopManager();
                     }
                 }
             }
-            return f49289g;
+            return f47439g;
         }
         return (PushDialogLoopManager) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f49291c && c.a.t0.l3.a.j().g() && !this.f49292d) {
-            if (Build.VERSION.SDK_INT >= 21 && this.f49293e) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f47441c && c.a.t0.l3.a.j().g() && !this.f47442d) {
+            if (Build.VERSION.SDK_INT >= 21 && this.f47443e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
                 } catch (Throwable th) {
@@ -357,15 +357,15 @@ public class PushDialogLoopManager {
             } else {
                 k();
             }
-            this.f49292d = true;
-            TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", this.f49290b));
+            this.f47442d = true;
+            TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", this.f47440b));
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49294f.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
+            this.f47444f.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
         }
     }
 
@@ -401,22 +401,22 @@ public class PushDialogLoopManager {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f49292d = false;
-            p(this.f49290b);
+            this.f47442d = false;
+            p(this.f47440b);
         }
     }
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.t0.l3.a.j().f19640d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.t0.l3.a.j().f19134d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
             return;
         }
-        Activity b2 = c.a.d.a.b.g().b();
+        Activity b2 = c.a.d.a.b.f().b();
         if (b2 != null && b2.getClass() != null && b2.getClass().getName().equals(ScreenLockActivity.class.getName())) {
             b2.finish();
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
-        c.a.s0.s.g0.b.j().x("key_push_dialog_last_show_tid", str);
-        this.f49291c = false;
+        c.a.s0.s.h0.b.k().y("key_push_dialog_last_show_tid", str);
+        this.f47441c = false;
     }
 }

@@ -16,25 +16,23 @@ public class z implements Animator.AnimatorListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ a0.a f29187e;
+    public final /* synthetic */ a0.a f28296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ View f29188f;
+    public final /* synthetic */ View f28297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup f29189g;
+    public final /* synthetic */ ViewGroup f28298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ float f29190h;
+    public final /* synthetic */ float f28299h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final /* synthetic */ float f29191i;
+    public final /* synthetic */ float f28300i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final /* synthetic */ int[] f29192j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup f29193k;
+    public final /* synthetic */ int[] f28301j;
+    public final /* synthetic */ ViewGroup k;
     public final /* synthetic */ a0 l;
 
     public z(a0 a0Var, a0.a aVar, View view, ViewGroup viewGroup, float f2, float f3, int[] iArr, ViewGroup viewGroup2) {
@@ -53,13 +51,13 @@ public class z implements Animator.AnimatorListener {
             }
         }
         this.l = a0Var;
-        this.f29187e = aVar;
-        this.f29188f = view;
-        this.f29189g = viewGroup;
-        this.f29190h = f2;
-        this.f29191i = f3;
-        this.f29192j = iArr;
-        this.f29193k = viewGroup2;
+        this.f28296e = aVar;
+        this.f28297f = view;
+        this.f28298g = viewGroup;
+        this.f28299h = f2;
+        this.f28300i = f3;
+        this.f28301j = iArr;
+        this.k = viewGroup2;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -73,7 +71,7 @@ public class z implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.l.a(this.f29188f, this.f29189g, this.f29190h, this.f29191i, this.f29192j, this.f29193k, this.f29187e);
+            this.l.a(this.f28297f, this.f28298g, this.f28299h, this.f28300i, this.f28301j, this.k, this.f28296e);
         }
     }
 

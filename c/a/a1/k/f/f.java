@@ -22,16 +22,16 @@ public class f implements c.a.a1.k.e.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f1271e;
+    public final String f1266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g.a f1272f;
+    public final g.a f1267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f1273g;
+    public volatile int f1268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f1274h;
+    public volatile long f1269h;
 
     public f(String str, g.a aVar) {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class f implements c.a.a1.k.e.g {
                 return;
             }
         }
-        this.f1271e = str;
-        this.f1272f = aVar;
+        this.f1266e = str;
+        this.f1267f = aVar;
     }
 
     public final void a() throws DownloadException {
@@ -81,9 +81,9 @@ public class f implements c.a.a1.k.e.g {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
-        this.f1274h = System.currentTimeMillis();
+        this.f1269h = System.currentTimeMillis();
         try {
-            URL url = new URL(this.f1271e);
+            URL url = new URL(this.f1266e);
             ?? r2 = 0;
             try {
                 try {
@@ -139,21 +139,21 @@ public class f implements c.a.a1.k.e.g {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
             switch (downloadException.getErrorCode()) {
                 case 106:
-                    synchronized (this.f1272f) {
-                        this.f1273g = 106;
-                        this.f1272f.onConnectPaused();
+                    synchronized (this.f1267f) {
+                        this.f1268g = 106;
+                        this.f1267f.onConnectPaused();
                     }
                     return;
                 case 107:
-                    synchronized (this.f1272f) {
-                        this.f1273g = 107;
-                        this.f1272f.onConnectCanceled();
+                    synchronized (this.f1267f) {
+                        this.f1268g = 107;
+                        this.f1267f.onConnectCanceled();
                     }
                     return;
                 case 108:
-                    synchronized (this.f1272f) {
-                        this.f1273g = 108;
-                        this.f1272f.b(downloadException);
+                    synchronized (this.f1267f) {
+                        this.f1268g = 108;
+                        this.f1267f.b(downloadException);
                     }
                     return;
                 default:
@@ -166,7 +166,7 @@ public class f implements c.a.a1.k.e.g {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f1273g = 107;
+            this.f1268g = 107;
         }
     }
 
@@ -192,8 +192,8 @@ public class f implements c.a.a1.k.e.g {
                 }
             }
             a();
-            this.f1273g = 103;
-            this.f1272f.onConnected(System.currentTimeMillis() - this.f1274h, contentLength, z);
+            this.f1268g = 103;
+            this.f1267f.onConnected(System.currentTimeMillis() - this.f1269h, contentLength, z);
         }
     }
 
@@ -201,21 +201,21 @@ public class f implements c.a.a1.k.e.g {
     public boolean isCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1273g == 107 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1268g == 107 : invokeV.booleanValue;
     }
 
     @Override // c.a.a1.k.e.g
     public boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1273g == 106 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1268g == 106 : invokeV.booleanValue;
     }
 
     @Override // c.a.a1.k.e.g
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f1273g = 106;
+            this.f1268g = 106;
         }
     }
 
@@ -224,8 +224,8 @@ public class f implements c.a.a1.k.e.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Process.setThreadPriority(10);
-            this.f1273g = 102;
-            this.f1272f.onConnecting();
+            this.f1268g = 102;
+            this.f1267f.onConnecting();
             try {
                 b();
             } catch (DownloadException e2) {

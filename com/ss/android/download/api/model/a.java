@@ -4,51 +4,51 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61652b;
+    public String f59316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61653c;
+    public String f59317c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61654d;
+    public String f59318d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61655e;
+    public String f59319e;
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2161a {
+    public static class C2178a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61656b;
+        public String f59320b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61657c;
+        public String f59321c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61658d;
+        public String f59322d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61659e;
+        public String f59323e;
 
-        public C2161a a(String str) {
+        public C2178a a(String str) {
             this.a = str;
             return this;
         }
 
-        public C2161a b(String str) {
-            this.f61656b = str;
+        public C2178a b(String str) {
+            this.f59320b = str;
             return this;
         }
 
-        public C2161a c(String str) {
-            this.f61658d = str;
+        public C2178a c(String str) {
+            this.f59322d = str;
             return this;
         }
 
-        public C2161a d(String str) {
-            this.f61659e = str;
+        public C2178a d(String str) {
+            this.f59323e = str;
             return this;
         }
 
@@ -57,12 +57,12 @@ public class a {
         }
     }
 
-    public a(C2161a c2161a) {
-        this.f61652b = "";
-        this.a = c2161a.a;
-        this.f61652b = c2161a.f61656b;
-        this.f61653c = c2161a.f61657c;
-        this.f61654d = c2161a.f61658d;
-        this.f61655e = c2161a.f61659e;
+    public a(C2178a c2178a) {
+        this.f59316b = "";
+        this.a = c2178a.a;
+        this.f59316b = c2178a.f59320b;
+        this.f59317c = c2178a.f59321c;
+        this.f59318d = c2178a.f59322d;
+        this.f59319e = c2178a.f59323e;
     }
 }

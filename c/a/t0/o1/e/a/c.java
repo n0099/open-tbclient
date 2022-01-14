@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
     public int q;
     public d0<l> r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends d0<l> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f20827b;
+        public final /* synthetic */ c f20269b;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
                     return;
                 }
             }
-            this.f20827b = cVar;
+            this.f20269b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,18 +71,18 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
         public void a(View view, l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) {
-                this.f20827b.c0(view, lVar);
+                this.f20269b.c0(view, lVar);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f20828e;
+        public final /* synthetic */ c f20270e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
                     return;
                 }
             }
-            this.f20828e = cVar;
+            this.f20270e = cVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -108,12 +108,12 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof l) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 l lVar = (l) nVar;
-                lVar.f18228k = 1;
-                if (this.f20828e.r != null) {
-                    this.f20828e.r.a(threadCardViewHolder.getView(), lVar);
+                lVar.k = 1;
+                if (this.f20270e.r != null) {
+                    this.f20270e.r.a(threadCardViewHolder.getView(), lVar);
                 }
                 c.a.t0.o1.e.e.a.b(lVar, view.getContext(), 18, false, c.a.l.e.a((s) viewGroup, view, i2));
-                threadCardViewHolder.getCardView().o(new a.C0186a(1));
+                threadCardViewHolder.getCardView().o(new a.C0195a(1));
             }
         }
     }
@@ -148,19 +148,19 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
             if (lVar != null) {
                 t tVar = new t();
                 tVar.a = "17";
-                tVar.f26871c = lVar.l;
+                tVar.f26074c = lVar.l;
                 if (lVar.getThreadData() != null) {
-                    tVar.f26872d = String.valueOf(lVar.getThreadData().U());
+                    tVar.f26075d = String.valueOf(lVar.getThreadData().U());
                     if (lVar.getThreadData().t1() != null) {
                         tVar.m = lVar.getThreadData().t1().video_md5;
                         tVar.p = String.valueOf(lVar.getThreadData().t1().is_vertical);
                     }
                 }
-                tVar.f26879k = lVar.k();
-                tVar.f26874f = lVar.t();
+                tVar.k = lVar.k();
+                tVar.f26077f = lVar.t();
                 tVar.l = lVar.g();
-                tVar.f26876h = lVar.E();
-                tVar.f26873e = TbadkCoreApplication.getCurrentAccount();
+                tVar.f26079h = lVar.E();
+                tVar.f26076e = TbadkCoreApplication.getCurrentAccount();
                 tVar.q = String.valueOf(lVar.q());
                 tVar.r = String.valueOf(this.q);
                 return tVar;
@@ -197,11 +197,11 @@ public class c extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> {
             this.p.t(ImageViewerConfig.FROM_GAME_VIDEO);
             this.p.x("2001");
             bVar.n(this.p);
-            l0 k2 = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.o);
-            AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k2);
+            l0 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.o);
+            AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
             autoVideoCardViewHolder.setPageId(this.n);
-            k2.p(this.r);
-            k2.r(18);
+            k.p(this.r);
+            k.r(18);
             V(new b(this));
             return autoVideoCardViewHolder;
         }

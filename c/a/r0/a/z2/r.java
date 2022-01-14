@@ -16,7 +16,7 @@ public class r {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10252b;
+    public static final String f10028b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -25,10 +25,10 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10253e;
+        public final /* synthetic */ String f10029e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f10254f;
+        public final /* synthetic */ boolean f10030f;
 
         public a(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class r {
                     return;
                 }
             }
-            this.f10253e = str;
-            this.f10254f = z;
+            this.f10029e = str;
+            this.f10030f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + r.f10252b;
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + r.f10028b;
                 if (r.a) {
-                    String str2 = "recordFeedbackExtInfo: " + this.f10253e;
+                    String str2 = "recordFeedbackExtInfo: " + this.f10029e;
                 }
-                c.a.r0.a.b1.a.b(str, this.f10253e, this.f10254f);
+                c.a.r0.a.b1.a.b(str, this.f10029e, this.f10030f);
             }
         }
     }
@@ -76,7 +76,7 @@ public class r {
             }
         }
         a = c.a.r0.a.k.a;
-        f10252b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+        f10028b = "aiapps_folder" + File.separator + "feed_back_record.txt";
     }
 
     public static void c(@NonNull String str, boolean z) {

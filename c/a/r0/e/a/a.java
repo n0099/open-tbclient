@@ -23,29 +23,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f10512d;
+    public static volatile a f10285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f10513e;
+    public static boolean f10286e;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<c.a.r0.e.a.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10514b;
+    public boolean f10287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Timer f10515c;
+    public Timer f10288c;
 
     /* renamed from: c.a.r0.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0670a extends TimerTask {
+    public class C0679a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f10516e;
+        public final /* synthetic */ a f10289e;
 
-        public C0670a(a aVar) {
+        public C0679a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,14 +60,14 @@ public class a {
                     return;
                 }
             }
-            this.f10516e = aVar;
+            this.f10289e = aVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10516e.i();
+                this.f10289e.i();
             }
         }
     }
@@ -139,9 +139,9 @@ public class a {
             }
         }
         this.a = new ArrayList();
-        long currentTimeMillis = f10513e ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = f10286e ? System.currentTimeMillis() : 0L;
         a(context.getApplicationContext());
-        if (f10513e) {
+        if (f10286e) {
             long currentTimeMillis2 = System.currentTimeMillis();
             String str = "collect booster cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
         }
@@ -150,7 +150,7 @@ public class a {
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            f10513e = z;
+            f10286e = z;
         }
     }
 
@@ -158,14 +158,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f10512d == null) {
+            if (f10285d == null) {
                 synchronized (a.class) {
-                    if (f10512d == null) {
-                        f10512d = new a(context);
+                    if (f10285d == null) {
+                        f10285d = new a(context);
                     }
                 }
             }
-            return f10512d;
+            return f10285d;
         }
         return (a) invokeL.objValue;
     }
@@ -173,7 +173,7 @@ public class a {
     public static void e(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            boolean z = f10513e;
+            boolean z = f10286e;
             d(context);
         }
     }
@@ -211,19 +211,19 @@ public class a {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && f10513e) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && f10286e) {
             int e2 = c.a.r0.e.a.h.a.e();
             StringBuilder sb = new StringBuilder(" \n\n");
             sb.append("CPU Support Freq Info:\n");
             for (int i2 = 0; i2 < e2; i2++) {
                 c.a.r0.e.a.d.a a = c.a.r0.e.a.h.a.a(i2);
                 sb.append("CPU");
-                sb.append(a.f10522e);
+                sb.append(a.f10295e);
                 sb.append(":");
                 sb.append("min-");
-                sb.append(a.f10523f / 1000);
+                sb.append(a.f10296f / 1000);
                 sb.append("mHz, max-");
-                sb.append(a.f10524g / 1000);
+                sb.append(a.f10297g / 1000);
                 sb.append("mHz\n");
             }
             sb.append("\n\n");
@@ -236,7 +236,7 @@ public class a {
                 sb.append("mHz");
                 sb.append(StringUtils.LF);
             }
-            if (f10513e) {
+            if (f10286e) {
                 sb.toString();
             }
         }
@@ -255,25 +255,25 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             synchronized (this) {
-                if (this.f10514b) {
-                    if (f10513e) {
-                        String str = "start fail -> isEnabled - true, already start - " + this.f10514b;
+                if (this.f10287b) {
+                    if (f10286e) {
+                        String str = "start fail -> isEnabled - true, already start - " + this.f10287b;
                     }
                     return;
                 }
-                boolean z = f10513e;
-                this.f10514b = true;
+                boolean z = f10286e;
+                this.f10287b = true;
                 int c2 = c(i2);
-                long currentTimeMillis = f10513e ? System.currentTimeMillis() : 0L;
+                long currentTimeMillis = f10286e ? System.currentTimeMillis() : 0L;
                 for (c.a.r0.e.a.b bVar : this.a) {
                     bVar.b(c2);
                 }
-                if (this.f10515c == null) {
+                if (this.f10288c == null) {
                     Timer timer = new Timer();
-                    this.f10515c = timer;
-                    timer.schedule(new C0670a(this), c2);
+                    this.f10288c = timer;
+                    timer.schedule(new C0679a(this), c2);
                 }
-                if (f10513e) {
+                if (f10286e) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     String str2 = "start booster cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                     f();
@@ -286,18 +286,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                if (this.f10514b) {
-                    boolean z = f10513e;
-                    long currentTimeMillis = f10513e ? System.currentTimeMillis() : 0L;
+                if (this.f10287b) {
+                    boolean z = f10286e;
+                    long currentTimeMillis = f10286e ? System.currentTimeMillis() : 0L;
                     for (c.a.r0.e.a.b bVar : this.a) {
                         bVar.a();
                     }
-                    this.f10514b = false;
-                    if (this.f10515c != null) {
-                        this.f10515c.cancel();
-                        this.f10515c = null;
+                    this.f10287b = false;
+                    if (this.f10288c != null) {
+                        this.f10288c.cancel();
+                        this.f10288c = null;
                     }
-                    if (f10513e) {
+                    if (f10286e) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         String str = "stop booster cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                     }

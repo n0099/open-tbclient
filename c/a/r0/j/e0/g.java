@@ -16,15 +16,15 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f11206c;
+    public static final boolean f10957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile g f11207d;
+    public static volatile g f10958d;
     public transient /* synthetic */ FieldHolder $fh;
     public GameRecorderController a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11208b;
+    public boolean f10959b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,8 +39,8 @@ public class g {
                 return;
             }
         }
-        f11206c = k.a;
-        f11207d = null;
+        f10957c = k.a;
+        f10958d = null;
     }
 
     public g() {
@@ -61,14 +61,14 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11207d == null) {
+            if (f10958d == null) {
                 synchronized (g.class) {
-                    if (f11207d == null) {
-                        f11207d = new g();
+                    if (f10958d == null) {
+                        f10958d = new g();
                     }
                 }
             }
-            return f11207d;
+            return f10958d;
         }
         return (g) invokeV.objValue;
     }
@@ -78,7 +78,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (f11206c) {
+            if (f10957c) {
                 String str = "getRecorderController:" + this.a;
             }
             GameRecorderController gameRecorderController = this.a;
@@ -91,10 +91,10 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (f11206c) {
-                String str = "isGamePause:" + this.f11208b;
+            if (f10957c) {
+                String str = "isGamePause:" + this.f10959b;
             }
-            return this.f11208b;
+            return this.f10959b;
         }
         return invokeV.booleanValue;
     }
@@ -102,14 +102,14 @@ public class g {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f11208b = true;
+            this.f10959b = true;
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f11208b = false;
+            this.f10959b = false;
         }
     }
 

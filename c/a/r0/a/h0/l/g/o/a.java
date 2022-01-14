@@ -25,15 +25,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6766c;
+    public static final boolean f6623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f6767d;
+    public static volatile a f6624d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<C0373a> a;
+    public final Set<C0382a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<C0373a> f6768b;
+    public final Set<C0382a> f6625b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class a {
                 return;
             }
         }
-        f6766c = k.a;
+        f6623c = k.a;
     }
 
     public a() {
@@ -64,22 +64,22 @@ public class a {
                 return;
             }
         }
-        this.a = c.a.r0.a.z2.a1.a.a(new C0373a[0]);
-        this.f6768b = c.a.r0.a.z2.a1.a.a(new C0373a[0]);
+        this.a = c.a.r0.a.z2.a1.a.a(new C0382a[0]);
+        this.f6625b = c.a.r0.a.z2.a1.a.a(new C0382a[0]);
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f6767d == null) {
+            if (f6624d == null) {
                 synchronized (a.class) {
-                    if (f6767d == null) {
-                        f6767d = new a();
+                    if (f6624d == null) {
+                        f6624d = new a();
                     }
                 }
             }
-            return f6767d;
+            return f6624d;
         }
         return (a) invokeV.objValue;
     }
@@ -94,10 +94,10 @@ public class a {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            boolean z2 = f6766c;
+            boolean z2 = f6623c;
             synchronized (this.a) {
                 this.a.clear();
-                this.f6768b.clear();
+                this.f6625b.clear();
             }
             if (z) {
                 k();
@@ -111,11 +111,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             HashSet a = c.a.r0.a.z2.a1.a.a(new String[0]);
             synchronized (this.a) {
-                for (C0373a c0373a : this.a) {
-                    a.add(c0373a.a);
+                for (C0382a c0382a : this.a) {
+                    a.add(c0382a.a);
                 }
-                for (C0373a c0373a2 : this.f6768b) {
-                    a.add(c0373a2.a);
+                for (C0382a c0382a2 : this.f6625b) {
+                    a.add(c0382a2.a);
                 }
             }
             return a;
@@ -126,29 +126,29 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6768b.size() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6625b.size() > 0 : invokeV.booleanValue;
     }
 
-    public boolean f(C0373a c0373a) {
+    public boolean f(C0382a c0382a) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, c0373a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, c0382a)) == null) {
             synchronized (this.a) {
-                contains = this.a.contains(c0373a);
+                contains = this.a.contains(c0382a);
             }
             return contains;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean g(C0373a c0373a) {
+    public boolean g(C0382a c0382a) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, c0373a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, c0382a)) == null) {
             synchronized (this.a) {
-                contains = this.f6768b.contains(c0373a);
+                contains = this.f6625b.contains(c0382a);
             }
             return contains;
         }
@@ -156,33 +156,33 @@ public class a {
     }
 
     public void h(String str) {
-        Iterator<C0373a> it;
-        Iterator<C0373a> it2;
+        Iterator<C0382a> it;
+        Iterator<C0382a> it2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && f6766c) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && f6623c) {
             synchronized (this.a) {
                 while (this.a.iterator().hasNext()) {
                     String str2 = "loaded:" + it.next();
                 }
-                while (this.f6768b.iterator().hasNext()) {
+                while (this.f6625b.iterator().hasNext()) {
                     String str3 = "loading:" + it2.next();
                 }
             }
         }
     }
 
-    public void i(C0373a c0373a, boolean z) {
+    public void i(C0382a c0382a, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048583, this, c0373a, z) == null) && c0373a != null && c0373a.a()) {
-            if (f6766c) {
+        if ((interceptable == null || interceptable.invokeLZ(1048583, this, c0382a, z) == null) && c0382a != null && c0382a.a()) {
+            if (f6623c) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("record one app status - ");
                 sb.append(z ? "loaded" : "loading");
                 sb.toString();
-                String str = "record one app - " + c0373a;
+                String str = "record one app - " + c0382a;
             }
             synchronized (this.a) {
-                (z ? this.a : this.f6768b).add(c0373a);
+                (z ? this.a : this.f6625b).add(c0382a);
             }
         }
     }
@@ -193,7 +193,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null || jSONObject.length() <= 0) {
             return;
         }
-        if (f6766c) {
+        if (f6623c) {
             String str = "get multi preload status - " + jSONObject;
         }
         synchronized (this.a) {
@@ -201,12 +201,12 @@ public class a {
             JSONArray optJSONArray = jSONObject.optJSONArray("loaded");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
                 for (int i2 = 0; i2 < length; i2++) {
-                    i(new C0373a(optJSONArray.optJSONObject(i2)), true);
+                    i(new C0382a(optJSONArray.optJSONObject(i2)), true);
                 }
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("loading");
             if (optJSONObject != null && optJSONObject.length() > 0) {
-                i(new C0373a(optJSONObject), false);
+                i(new C0382a(optJSONObject), false);
             }
         }
         k();
@@ -218,21 +218,21 @@ public class a {
             c.a.r0.a.y1.b.c w = d.P("swan_multi_preload_on_server").A("swan_multi_preload_app_ids", (String[]) d().toArray(new String[0])).w("swan_multi_preload_app_process_index", SwanAppProcessInfo.current().index);
             w.K(true);
             w.call();
-            boolean z = f6766c;
+            boolean z = f6623c;
         }
     }
 
     /* renamed from: c.a.r0.a.h0.l.g.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0373a {
+    public static class C0382a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f6769b;
+        public final String f6626b;
 
-        public C0373a(String str, long j2) {
+        public C0382a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,13 +248,13 @@ public class a {
                 }
             }
             this.a = str;
-            this.f6769b = String.valueOf(j2);
+            this.f6626b = String.valueOf(j2);
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f6769b)) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f6626b)) ? false : true : invokeV.booleanValue;
         }
 
         public boolean equals(@Nullable Object obj) {
@@ -264,9 +264,9 @@ public class a {
                 if (obj == this) {
                     return true;
                 }
-                if (obj instanceof C0373a) {
-                    C0373a c0373a = (C0373a) obj;
-                    return TextUtils.equals(this.a, c0373a.a) && TextUtils.equals(this.f6769b, c0373a.f6769b);
+                if (obj instanceof C0382a) {
+                    C0382a c0382a = (C0382a) obj;
+                    return TextUtils.equals(this.a, c0382a.a) && TextUtils.equals(this.f6626b, c0382a.f6626b);
                 }
                 return false;
             }
@@ -279,7 +279,7 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 String str = this.a;
                 int hashCode = str == null ? 0 : str.hashCode();
-                String str2 = this.f6769b;
+                String str2 = this.f6626b;
                 return (hashCode * 31) + (str2 != null ? str2.hashCode() : 0);
             }
             return invokeV.intValue;
@@ -289,12 +289,12 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Item{appKey='" + this.a + ExtendedMessageFormat.QUOTE + ", version='" + this.f6769b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "Item{appKey='" + this.a + ExtendedMessageFormat.QUOTE + ", version='" + this.f6626b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
 
-        public C0373a(JSONObject jSONObject) {
+        public C0382a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -310,12 +310,12 @@ public class a {
                 }
             }
             if (jSONObject == null) {
-                this.f6769b = null;
+                this.f6626b = null;
                 this.a = null;
                 return;
             }
             this.a = jSONObject.optString("appKey");
-            this.f6769b = jSONObject.optString("version");
+            this.f6626b = jSONObject.optString("version");
         }
     }
 }

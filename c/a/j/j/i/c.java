@@ -20,7 +20,7 @@ public final class c implements a {
     public final UBCManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.j.i.d.a f4059b;
+    public final c.a.j.j.i.d.a f3996b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public final class c implements a {
             }
         }
         this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        this.f4059b = (c.a.j.j.i.d.a) ServiceManager.getService(c.a.j.j.i.d.a.a.a());
+        this.f3996b = (c.a.j.j.i.d.a) ServiceManager.getService(c.a.j.j.i.d.a.a.a());
     }
 
     @Override // c.a.j.j.i.a
@@ -83,7 +83,7 @@ public final class c implements a {
             hashMap.put("type", "abnormal");
             Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
             hashMap.put("ext", extra);
-            c.a.j.j.i.d.a aVar = this.f4059b;
+            c.a.j.j.i.d.a aVar = this.f3996b;
             if (aVar != null) {
                 aVar.a("3677", str, extra);
             }

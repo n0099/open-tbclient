@@ -20,7 +20,7 @@ public class b {
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b1 f17632b;
+    public b1 f17203b;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -29,28 +29,28 @@ public class b {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17633b;
+        public String f17204b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f17634c;
+        public long f17205c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17635d;
+        public String f17206d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f17636e;
+        public String f17207e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f17637f;
+        public long f17208f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f17638g;
+        public int f17209g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f17639h;
+        public int f17210h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f17640i;
+        public String f17211i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class b {
             }
         }
         this.a = new ArrayList();
-        this.f17632b = new b1();
+        this.f17203b = new b1();
     }
 
     public boolean a() {
@@ -98,7 +98,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b1 b1Var = this.f17632b;
+            b1 b1Var = this.f17203b;
             return b1Var != null && b1Var.b() == 1;
         }
         return invokeV.booleanValue;
@@ -115,7 +115,7 @@ public class b {
                 return;
             }
             try {
-                this.f17632b.i(jSONObject.getJSONObject("page"));
+                this.f17203b.i(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray == null || optJSONArray.length() == 0) {
                     return;
@@ -146,14 +146,14 @@ public class b {
                         if (jSONObject2.optInt("thread_type", 0) != 33) {
                             a aVar = new a();
                             aVar.a = optLong;
-                            aVar.f17633b = optString2;
-                            aVar.f17634c = optLong2;
-                            aVar.f17635d = optString3;
-                            aVar.f17636e = optString4;
-                            aVar.f17637f = optLong3;
-                            aVar.f17638g = optInt;
-                            aVar.f17639h = optInt2;
-                            aVar.f17640i = optString;
+                            aVar.f17204b = optString2;
+                            aVar.f17205c = optLong2;
+                            aVar.f17206d = optString3;
+                            aVar.f17207e = optString4;
+                            aVar.f17208f = optLong3;
+                            aVar.f17209g = optInt;
+                            aVar.f17210h = optInt2;
+                            aVar.f17211i = optString;
                             this.a.add(aVar);
                         }
                     }

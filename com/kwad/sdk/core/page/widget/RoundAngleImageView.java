@@ -12,10 +12,10 @@ public class RoundAngleImageView extends ImageView {
     public Path a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float[] f58187b;
+    public float[] f55988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f58188c;
+    public RectF f55989c;
 
     public RoundAngleImageView(Context context) {
         this(context, null);
@@ -28,12 +28,12 @@ public class RoundAngleImageView extends ImageView {
     public RoundAngleImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.a = new Path();
-        this.f58188c = new RectF();
+        this.f55989c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        float[] fArr = this.f58187b;
+        float[] fArr = this.f55988b;
         if (fArr == null || fArr.length != 8) {
             super.onDraw(canvas);
             return;
@@ -43,15 +43,15 @@ public class RoundAngleImageView extends ImageView {
         }
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        float[] fArr2 = this.f58187b;
+        float[] fArr2 = this.f55988b;
         float f2 = fArr2[1] + fArr2[7];
         this.a.rewind();
         float f3 = measuredWidth;
         if (f3 >= fArr2[0] + fArr2[3]) {
             float f4 = measuredHeight;
             if (f4 > f2) {
-                this.f58188c.set(0.0f, 0.0f, f3, f4);
-                this.a.addRoundRect(this.f58188c, this.f58187b, Path.Direction.CW);
+                this.f55989c.set(0.0f, 0.0f, f3, f4);
+                this.a.addRoundRect(this.f55989c, this.f55988b, Path.Direction.CW);
                 canvas.clipPath(this.a);
             }
         }
@@ -59,10 +59,10 @@ public class RoundAngleImageView extends ImageView {
     }
 
     public void setRadius(float f2) {
-        this.f58187b = new float[8];
+        this.f55988b = new float[8];
         int i2 = 0;
         while (true) {
-            float[] fArr = this.f58187b;
+            float[] fArr = this.f55988b;
             if (i2 >= fArr.length) {
                 return;
             }
@@ -72,10 +72,10 @@ public class RoundAngleImageView extends ImageView {
     }
 
     public void setRadius(float[] fArr) {
-        this.f58187b = new float[8];
+        this.f55988b = new float[8];
         int i2 = 0;
         while (true) {
-            float[] fArr2 = this.f58187b;
+            float[] fArr2 = this.f55988b;
             if (i2 >= fArr2.length) {
                 return;
             }

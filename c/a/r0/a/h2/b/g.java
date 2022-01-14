@@ -27,25 +27,23 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f7196e;
+        public final /* synthetic */ boolean f7042e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7197f;
+        public final /* synthetic */ CallbackHandler f7043f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7198g;
+        public final /* synthetic */ String f7044g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Activity f7199h;
+        public final /* synthetic */ Activity f7045h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f7200i;
+        public final /* synthetic */ String f7046i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f7201j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ g f7202k;
+        public final /* synthetic */ String f7047j;
+        public final /* synthetic */ g k;
 
         public a(g gVar, boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -62,13 +60,13 @@ public class g extends z {
                     return;
                 }
             }
-            this.f7202k = gVar;
-            this.f7196e = z;
-            this.f7197f = callbackHandler;
-            this.f7198g = str;
-            this.f7199h = activity;
-            this.f7200i = str2;
-            this.f7201j = str3;
+            this.k = gVar;
+            this.f7042e = z;
+            this.f7043f = callbackHandler;
+            this.f7044g = str;
+            this.f7045h = activity;
+            this.f7046i = str2;
+            this.f7047j = str3;
         }
 
         @Override // c.a.r0.a.m.a
@@ -76,9 +74,9 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f7202k.k(this.f7196e, this.f7197f, this.f7198g, this.f7199h, this.f7200i, "snsapi_userinfo", this.f7201j);
+                    this.k.k(this.f7042e, this.f7043f, this.f7044g, this.f7045h, this.f7046i, "snsapi_userinfo", this.f7047j);
                 } else {
-                    this.f7197f.handleSchemeDispatchCallback(this.f7198g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                    this.f7043f.handleSchemeDispatchCallback(this.f7044g, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
                 }
             }
         }
@@ -90,22 +88,22 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f7203e;
+        public final /* synthetic */ Activity f7048e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f7204f;
+        public final /* synthetic */ boolean f7049f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7205g;
+        public final /* synthetic */ String f7050g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7206h;
+        public final /* synthetic */ CallbackHandler f7051h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f7207i;
+        public final /* synthetic */ String f7052i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ g f7208j;
+        public final /* synthetic */ g f7053j;
 
         public b(g gVar, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
@@ -122,12 +120,12 @@ public class g extends z {
                     return;
                 }
             }
-            this.f7208j = gVar;
-            this.f7203e = activity;
-            this.f7204f = z;
-            this.f7205g = str;
-            this.f7206h = callbackHandler;
-            this.f7207i = str2;
+            this.f7053j = gVar;
+            this.f7048e = activity;
+            this.f7049f = z;
+            this.f7050g = str;
+            this.f7051h = callbackHandler;
+            this.f7052i = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,19 +135,19 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 c.a.r0.a.e0.d.b("OpenData", "onOpenDataCallback:: ", aVar);
-                c.a.r0.a.d2.e c2 = this.f7208j.c();
-                boolean e2 = c2 != null ? c2.M().e(this.f7203e) : false;
+                c.a.r0.a.d2.e c2 = this.f7053j.c();
+                boolean e2 = c2 != null ? c2.M().e(this.f7048e) : false;
                 if (!aVar.E()) {
-                    if (!e2 && !this.f7204f) {
-                        n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 3, this.f7205g);
+                    if (!e2 && !this.f7049f) {
+                        n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 3, this.f7050g);
                     }
-                    c.a.r0.a.h2.c.d.n(aVar, this.f7206h, this.f7207i);
+                    c.a.r0.a.h2.c.d.n(aVar, this.f7051h, this.f7052i);
                     return;
                 }
-                if (e2 && !this.f7204f) {
-                    n.S("success", 3, this.f7205g);
+                if (e2 && !this.f7049f) {
+                    n.S("success", 3, this.f7050g);
                 }
-                this.f7206h.handleSchemeDispatchCallback(this.f7207i, UnitedSchemeUtility.wrapCallbackParams(aVar.f7349g, 0).toString());
+                this.f7051h.handleSchemeDispatchCallback(this.f7052i, UnitedSchemeUtility.wrapCallbackParams(aVar.f7190g, 0).toString());
             }
         }
     }

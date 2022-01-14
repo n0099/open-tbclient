@@ -18,10 +18,10 @@ public final class j {
     public static ArrayList<g> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<Integer> f11317b;
+    public static ArrayList<Integer> f11064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final j f11318c;
+    public static final j f11065c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,9 +37,9 @@ public final class j {
                 return;
             }
         }
-        f11318c = new j();
+        f11065c = new j();
         a = new ArrayList<>();
-        f11317b = new ArrayList<>();
+        f11064b = new ArrayList<>();
     }
 
     public j() {
@@ -58,10 +58,10 @@ public final class j {
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || f11317b.contains(Integer.valueOf(i2))) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || f11064b.contains(Integer.valueOf(i2))) {
             return;
         }
-        f11317b.add(Integer.valueOf(i2));
+        f11064b.add(Integer.valueOf(i2));
     }
 
     public final g b(JSRuntime jsRuntime) {
@@ -89,7 +89,7 @@ public final class j {
     public final boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f11317b.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f11064b.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
     }
 
     public final void e(g socket) {
@@ -116,7 +116,7 @@ public final class j {
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            f11317b.remove(Integer.valueOf(i2));
+            f11064b.remove(Integer.valueOf(i2));
         }
     }
 }

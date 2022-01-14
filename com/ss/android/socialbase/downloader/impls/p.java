@@ -15,13 +15,13 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.downloader.j f62537b;
+    public final com.ss.android.socialbase.downloader.downloader.j f60178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.downloader.o f62538c;
+    public final com.ss.android.socialbase.downloader.downloader.o f60179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f62539d;
+    public final boolean f60180d;
 
     public p() {
         this(false);
@@ -63,7 +63,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public long e(int i2) {
         DownloadInfo b2;
-        com.ss.android.socialbase.downloader.downloader.j jVar = this.f62537b;
+        com.ss.android.socialbase.downloader.downloader.j jVar = this.f60178b;
         if (jVar == null || (b2 = jVar.b(i2)) == null) {
             return 0L;
         }
@@ -71,7 +71,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
         if (chunkCount <= 1) {
             return b2.getCurBytes();
         }
-        List<com.ss.android.socialbase.downloader.model.b> c2 = this.f62537b.c(i2);
+        List<com.ss.android.socialbase.downloader.model.b> c2 = this.f60178b.c(i2);
         if (c2 == null || c2.size() != chunkCount) {
             return 0L;
         }
@@ -108,7 +108,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<com.ss.android.socialbase.downloader.model.b> i(int i2) {
-        return this.f62537b.c(i2);
+        return this.f60178b.c(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
@@ -140,17 +140,17 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean n(int i2) {
-        return this.f62537b.e(i2);
+        return this.f60178b.e(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void o(int i2) {
-        this.f62537b.d(i2);
+        this.f60178b.d(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean p(int i2) {
-        return this.f62537b.f(i2);
+        return this.f60178b.f(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
@@ -184,13 +184,13 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     public p(boolean z) {
         this.a = com.ss.android.socialbase.downloader.downloader.c.C();
-        this.f62537b = com.ss.android.socialbase.downloader.downloader.c.x();
+        this.f60178b = com.ss.android.socialbase.downloader.downloader.c.x();
         if (!z) {
-            this.f62538c = com.ss.android.socialbase.downloader.downloader.c.y();
+            this.f60179c = com.ss.android.socialbase.downloader.downloader.c.y();
         } else {
-            this.f62538c = com.ss.android.socialbase.downloader.downloader.c.z();
+            this.f60179c = com.ss.android.socialbase.downloader.downloader.c.z();
         }
-        this.f62539d = com.ss.android.socialbase.downloader.g.a.c().b("service_alive", false);
+        this.f60180d = com.ss.android.socialbase.downloader.g.a.c().b("service_alive", false);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
@@ -203,7 +203,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> b(String str) {
-        com.ss.android.socialbase.downloader.downloader.j jVar = this.f62537b;
+        com.ss.android.socialbase.downloader.downloader.j jVar = this.f60178b;
         if (jVar != null) {
             return jVar.b(str);
         }
@@ -212,7 +212,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> c(String str) {
-        com.ss.android.socialbase.downloader.downloader.j jVar = this.f62537b;
+        com.ss.android.socialbase.downloader.downloader.j jVar = this.f60178b;
         if (jVar != null) {
             return jVar.c(str);
         }
@@ -221,7 +221,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> d() {
-        com.ss.android.socialbase.downloader.downloader.j jVar = this.f62537b;
+        com.ss.android.socialbase.downloader.downloader.j jVar = this.f60178b;
         if (jVar != null) {
             return jVar.b();
         }
@@ -231,12 +231,12 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean g() {
         com.ss.android.socialbase.downloader.downloader.o oVar;
-        return this.f62539d && (oVar = this.f62538c) != null && oVar.a();
+        return this.f60180d && (oVar = this.f60179c) != null && oVar.a();
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void f() {
-        this.f62537b.c();
+        this.f60178b.c();
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
@@ -287,12 +287,12 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean c(DownloadInfo downloadInfo) {
-        return this.f62537b.a(downloadInfo);
+        return this.f60178b.a(downloadInfo);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> d(String str) {
-        com.ss.android.socialbase.downloader.downloader.j jVar = this.f62537b;
+        com.ss.android.socialbase.downloader.downloader.j jVar = this.f60178b;
         if (jVar != null) {
             return jVar.d(str);
         }
@@ -327,7 +327,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean e() {
-        return this.f62537b.d();
+        return this.f60178b.d();
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
@@ -353,7 +353,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean b() {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.f62538c;
+        com.ss.android.socialbase.downloader.downloader.o oVar = this.f60179c;
         if (oVar != null) {
             return oVar.b();
         }
@@ -370,7 +370,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(DownloadTask downloadTask) {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.f62538c;
+        com.ss.android.socialbase.downloader.downloader.o oVar = this.f60179c;
         if (oVar != null) {
             oVar.c(downloadTask);
         }
@@ -394,17 +394,17 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(DownloadInfo downloadInfo) {
-        this.f62537b.b(downloadInfo);
+        this.f60178b.b(downloadInfo);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        this.f62537b.b(i2, list);
+        this.f60178b.b(i2, list);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, Notification notification) {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.f62538c;
+        com.ss.android.socialbase.downloader.downloader.o oVar = this.f60179c;
         if (oVar != null) {
             oVar.a(i2, notification);
         }
@@ -412,7 +412,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(boolean z, boolean z2) {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.f62538c;
+        com.ss.android.socialbase.downloader.downloader.o oVar = this.f60179c;
         if (oVar != null) {
             oVar.a(z2);
         }
@@ -420,7 +420,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(DownloadTask downloadTask) {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.f62538c;
+        com.ss.android.socialbase.downloader.downloader.o oVar = this.f60179c;
         if (oVar != null) {
             oVar.b(downloadTask);
         } else if (downloadTask != null) {
@@ -430,27 +430,27 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        this.f62537b.a(i2, list);
+        this.f60178b.a(i2, list);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
-        this.f62537b.a(bVar);
+        this.f60178b.a(bVar);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, long j2) {
-        this.f62537b.a(i2, i3, j2);
+        this.f60178b.a(i2, i3, j2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, int i4, long j2) {
-        this.f62537b.a(i2, i3, i4, j2);
+        this.f60178b.a(i2, i3, i4, j2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, int i4, int i5) {
-        this.f62537b.a(i2, i3, i4, i5);
+        this.f60178b.a(i2, i3, i4, i5);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m

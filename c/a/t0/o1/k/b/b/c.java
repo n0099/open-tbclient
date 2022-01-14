@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends c.a.d.n.e.a<d, CardViewHolder<e>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class c extends c.a.d.n.e.a<d, CardViewHolder<e>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.f21251j);
+        super(tbPageContext.getPageActivity(), d.f20689j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class c extends c.a.d.n.e.a<d, CardViewHolder<e>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             e eVar = new e(this.m);
-            eVar.n(this.f3303i);
+            eVar.n(this.f3262i);
             return new CardViewHolder<>(eVar);
         }
         return (CardViewHolder) invokeL.objValue;

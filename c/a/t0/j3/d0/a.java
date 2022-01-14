@@ -13,10 +13,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18736b;
+    public int f18268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f18737c;
+    public boolean f18269c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class a {
             }
         }
         this.a = -1;
-        this.f18736b = -1;
-        this.f18737c = false;
+        this.f18268b = -1;
+        this.f18269c = false;
     }
 
     public int a() {
@@ -45,13 +45,13 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18736b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18268b : invokeV.intValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18737c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18269c : invokeV.booleanValue;
     }
 
     public void d(int i2) {
@@ -64,7 +64,7 @@ public class a {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f18736b = i2;
+            this.f18268b = i2;
         }
     }
 }

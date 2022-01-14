@@ -16,10 +16,10 @@ public class b {
     public final Map<String, Map<String, HybridUbcFlow>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c.a.r0.a.z2.g1.c<HybridUbcFlow>> f9542b;
+    public final Map<String, c.a.r0.a.z2.g1.c<HybridUbcFlow>> f9335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.a.z2.g1.c<HybridUbcFlow> f9543c;
+    public final c.a.r0.a.z2.g1.c<HybridUbcFlow> f9336c;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
@@ -27,7 +27,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f9544e;
+        public final /* synthetic */ b f9337e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b {
                     return;
                 }
             }
-            this.f9544e = bVar;
+            this.f9337e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +53,7 @@ public class b {
         public void onCallback(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-                this.f9544e.g(hybridUbcFlow.p);
+                this.f9337e.g(hybridUbcFlow.p);
             }
         }
     }
@@ -72,8 +72,8 @@ public class b {
             }
         }
         this.a = new HashMap();
-        this.f9542b = new HashMap();
-        this.f9543c = new a(this);
+        this.f9335b = new HashMap();
+        this.f9336c = new a(this);
     }
 
     public final HybridUbcFlow a(String str) {
@@ -81,8 +81,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.H("callback_on_submit", this.f9543c);
-            c.a.r0.a.z2.g1.c<HybridUbcFlow> cVar = this.f9542b.get(str);
+            hybridUbcFlow.H("callback_on_submit", this.f9336c);
+            c.a.r0.a.z2.g1.c<HybridUbcFlow> cVar = this.f9335b.get(str);
             if (cVar != null) {
                 cVar.onCallback(hybridUbcFlow);
             }
@@ -116,8 +116,8 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, cVar)) == null) {
-            synchronized (this.f9542b) {
-                this.f9542b.put(str, cVar);
+            synchronized (this.f9335b) {
+                this.f9335b.put(str, cVar);
             }
             return this;
         }

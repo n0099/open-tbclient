@@ -22,24 +22,24 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f7039g;
+    public static final boolean f6889g;
     public transient /* synthetic */ FieldHolder $fh;
     public SwanAppSlaveManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f7040b;
+    public volatile boolean f6890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f7041c;
+    public volatile boolean f6891c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f7042d;
+    public volatile boolean f6892d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.m1.b f7043e;
+    public c.a.r0.a.m1.b f6893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f7044f;
+    public volatile boolean f6894f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -47,7 +47,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f7045e;
+        public final /* synthetic */ b f6895e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class b {
                     return;
                 }
             }
-            this.f7045e = bVar;
+            this.f6895e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7045e.b();
+                this.f6895e.b();
             }
         }
     }
@@ -89,7 +89,7 @@ public class b {
                 return;
             }
         }
-        f7039g = k.a;
+        f6889g = k.a;
     }
 
     public b(@NonNull SwanAppSlaveManager swanAppSlaveManager) {
@@ -107,10 +107,10 @@ public class b {
                 return;
             }
         }
-        this.f7040b = false;
-        this.f7041c = false;
-        this.f7042d = false;
-        this.f7044f = false;
+        this.f6890b = false;
+        this.f6891c = false;
+        this.f6892d = false;
+        this.f6894f = false;
         this.a = swanAppSlaveManager;
     }
 
@@ -123,26 +123,26 @@ public class b {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f7041c || this.f7044f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f6891c || this.f6894f) {
             return;
         }
-        this.f7044f = true;
+        this.f6894f = true;
         c.a.r0.a.c1.a.l0().c(c.a.r0.a.d2.d.J().getAppId());
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f7041c) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f6891c) {
             SwanAppSlaveManager swanAppSlaveManager = this.a;
             SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.C;
-            i.d(this.f7043e, "realsuccess", swanAppWebViewWidget == null ? swanAppSlaveManager.L : swanAppWebViewWidget.O());
+            i.d(this.f6893e, "realsuccess", swanAppWebViewWidget == null ? swanAppSlaveManager.L : swanAppWebViewWidget.O());
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f7040b = true;
+            this.f6890b = true;
             if (this.a instanceof SwanAppWebViewWidget) {
                 return;
             }
@@ -156,9 +156,9 @@ public class b {
             if (!(this.a instanceof SwanAppWebViewWidget)) {
                 f();
             }
-            this.f7040b = false;
-            if (this.f7041c) {
-                i.d(this.f7043e, "success", null);
+            this.f6890b = false;
+            if (this.f6891c) {
+                i.d(this.f6893e, "success", null);
             }
         }
     }
@@ -166,25 +166,25 @@ public class b {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f7042d = false;
+            this.f6892d = false;
             boolean b2 = i.b();
             boolean a2 = i.a();
             if (b2) {
-                this.f7041c = false;
-            } else if (this.f7040b) {
-                this.f7041c = true;
+                this.f6891c = false;
+            } else if (this.f6890b) {
+                this.f6891c = true;
                 if (a2) {
                     return;
                 }
-                this.f7043e.f7848j = UUID.randomUUID().toString();
-                c.a.r0.a.m1.b bVar = this.f7043e;
-                bVar.f7847i = "6";
+                this.f6893e.f7677j = UUID.randomUUID().toString();
+                c.a.r0.a.m1.b bVar = this.f6893e;
+                bVar.f7676i = "6";
                 i.h(bVar);
-                if (f7039g) {
-                    String str = "mCurPageParams = " + this.f7043e;
+                if (f6889g) {
+                    String str = "mCurPageParams = " + this.f6893e;
                 }
             } else {
-                this.f7041c = !TextUtils.isEmpty(this.a.l0());
+                this.f6891c = !TextUtils.isEmpty(this.a.l0());
             }
         }
     }
@@ -192,20 +192,20 @@ public class b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (f7039g) {
-                String str = "mCurPageParams = " + this.f7043e;
+            if (f6889g) {
+                String str = "mCurPageParams = " + this.f6893e;
             }
-            if (!this.f7041c || this.f7042d) {
+            if (!this.f6891c || this.f6892d) {
                 return;
             }
-            this.f7042d = true;
+            this.f6892d = true;
             SwanAppSlaveManager swanAppSlaveManager = this.a;
             SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.C;
             c.a.r0.a.p.e.j.d O = swanAppWebViewWidget == null ? swanAppSlaveManager.L : swanAppWebViewWidget.O();
-            if (O != null && O.f8343c > 0) {
-                i.d(this.f7043e, "arrivesuccess", O);
+            if (O != null && O.f8160c > 0) {
+                i.d(this.f6893e, "arrivesuccess", O);
             } else {
-                i.d(this.f7043e, "arrivecancel", O);
+                i.d(this.f6893e, "arrivecancel", O);
             }
         }
     }
@@ -213,7 +213,7 @@ public class b {
     public void h(@NonNull c.a.r0.a.m1.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f7043e = bVar;
+            this.f6893e = bVar;
         }
     }
 }

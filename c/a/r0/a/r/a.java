@@ -48,12 +48,12 @@ public class a {
 
     /* renamed from: c.a.r0.a.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0516a extends ResponseCallback {
+    public static class C0525a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.z2.g1.c a;
 
-        public C0516a(c.a.r0.a.z2.g1.c cVar) {
+        public C0525a(c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -254,7 +254,7 @@ public class a {
                     cVar.onCallback(null);
                     return;
                 } else {
-                    p(c2.url().toString(), c2.body(), new C0516a(cVar));
+                    p(c2.url().toString(), c2.body(), new C0525a(cVar));
                     return;
                 }
             }
@@ -451,9 +451,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(str, requestBody, responseCallback);
-            aVar.f11718f = true;
-            aVar.f11719g = true;
-            aVar.f11720h = true;
+            aVar.f11453f = true;
+            aVar.f11454g = true;
+            aVar.f11455h = true;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }

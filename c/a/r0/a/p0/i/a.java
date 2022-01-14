@@ -24,20 +24,20 @@ public class a<T extends c.a.r0.a.p0.g.c.a> extends c.a.r0.a.p0.d.a<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8442b;
+    public static final boolean f8258b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.p0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0497a {
+    public static class C0506a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8443b;
+        public String f8259b;
 
-        public C0497a() {
+        public C0506a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,28 +53,28 @@ public class a<T extends c.a.r0.a.p0.g.c.a> extends c.a.r0.a.p0.d.a<T> {
             this.a = 0;
         }
 
-        public static C0497a a(int i2, String str) {
+        public static C0506a a(int i2, String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
-                C0497a c0497a = new C0497a();
-                c0497a.a = i2;
-                c0497a.f8443b = str;
-                return c0497a;
+                C0506a c0506a = new C0506a();
+                c0506a.a = i2;
+                c0506a.f8259b = str;
+                return c0506a;
             }
-            return (C0497a) invokeIL.objValue;
+            return (C0506a) invokeIL.objValue;
         }
 
-        public static C0497a b(String str) {
+        public static C0506a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(1, str) : (C0497a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(1, str) : (C0506a) invokeL.objValue;
         }
 
-        public static C0497a d() {
+        public static C0506a d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(0, "") : (C0497a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(0, "") : (C0506a) invokeV.objValue;
         }
 
         public boolean c() {
@@ -87,7 +87,7 @@ public class a<T extends c.a.r0.a.p0.g.c.a> extends c.a.r0.a.p0.d.a<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.f8443b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.f8259b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -106,7 +106,7 @@ public class a<T extends c.a.r0.a.p0.g.c.a> extends c.a.r0.a.p0.d.a<T> {
                 return;
             }
         }
-        f8442b = k.a;
+        f8258b = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,16 +157,16 @@ public class a<T extends c.a.r0.a.p0.g.c.a> extends c.a.r0.a.p0.d.a<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            boolean z = f8442b;
-            if (TextUtils.isEmpty(aVar.f8430c)) {
-                boolean z2 = f8442b;
+            boolean z = f8258b;
+            if (TextUtils.isEmpty(aVar.f8246c)) {
+                boolean z2 = f8258b;
                 return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
             }
-            C0497a i2 = i(aVar);
-            if (f8442b) {
+            C0506a i2 = i(aVar);
+            if (f8258b) {
                 r0 = "doUpdate: remote status: " + i2;
             }
-            d(aVar.f8430c);
+            d(aVar.f8246c);
             if (i2.c()) {
                 return null;
             }
@@ -203,32 +203,32 @@ public class a<T extends c.a.r0.a.p0.g.c.a> extends c.a.r0.a.p0.d.a<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? h.a().getString(this.a.e(), "0") : (String) invokeV.objValue;
     }
 
-    public final C0497a i(@NonNull c.a.r0.a.p0.g.a aVar) {
+    public final C0506a i(@NonNull c.a.r0.a.p0.g.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (f8442b) {
-                String str = "doRemoteUpdate version: " + aVar.a + " ,filePath: " + aVar.f8430c + " ,sign:" + aVar.f8431d;
+            if (f8258b) {
+                String str = "doRemoteUpdate version: " + aVar.a + " ,filePath: " + aVar.f8246c + " ,sign:" + aVar.f8247d;
             }
-            long j2 = aVar.f8429b;
+            long j2 = aVar.f8245b;
             if (j2 == 0) {
-                return C0497a.b("invalid version code : " + aVar.a);
-            } else if (!j0.a(new File(aVar.f8430c), aVar.f8431d)) {
-                return C0497a.b("sign failed.");
+                return C0506a.b("invalid version code : " + aVar.a);
+            } else if (!j0.a(new File(aVar.f8246c), aVar.f8247d)) {
+                return C0506a.b("sign failed.");
             } else {
-                if (!d.U(aVar.f8430c, b(j2).getPath())) {
-                    return C0497a.b("unzip bundle failed.");
+                if (!d.U(aVar.f8246c, b(j2).getPath())) {
+                    return C0506a.b("unzip bundle failed.");
                 }
                 c.a.r0.a.p0.j.a.b(a(), g(), j2);
                 j(j2);
                 k(aVar.a);
-                if (f8442b) {
+                if (f8258b) {
                     String str2 = "doRemoteUpdate end. version = " + j2;
                 }
-                return C0497a.d();
+                return C0506a.d();
             }
         }
-        return (C0497a) invokeL.objValue;
+        return (C0506a) invokeL.objValue;
     }
 
     public void j(long j2) {

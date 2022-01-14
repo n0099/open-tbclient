@@ -44,7 +44,7 @@ public class a {
                 return null;
             }
             String e2 = bVar.e();
-            String str = bVar.f5422g;
+            String str = bVar.f5309g;
             if (TextUtils.isEmpty(str)) {
                 d.c("Component-Finder", "find a null " + e2 + " : slaveId is empty");
                 return null;
@@ -54,10 +54,10 @@ public class a {
                 d.c("Component-Finder", "find a null " + e2 + " : null component context");
                 return null;
             }
-            String str2 = bVar.f5421f;
+            String str2 = bVar.f5308f;
             if (TextUtils.isEmpty(str2)) {
                 d.o("Component-Finder", "find " + e2 + " with a empty componentId");
-                List<c.a.r0.a.c0.b.a> list = d2.a().f5489c.get(bVar.f5420e);
+                List<c.a.r0.a.c0.b.a> list = d2.a().f5372c.get(bVar.f5307e);
                 if (list == null) {
                     d.c("Component-Finder", "find a null " + e2 + " with a empty componentId: fallbackComponents are null ");
                     return null;
@@ -69,7 +69,7 @@ public class a {
                     c2 = (C) list.get(0);
                 }
             } else {
-                c2 = (C) d2.a().f5488b.get(str2);
+                c2 = (C) d2.a().f5371b.get(str2);
             }
             if (c2 == null) {
                 d.c("Component-Finder", "find a null " + e2 + " : not exist");
@@ -93,7 +93,7 @@ public class a {
                 d.c("Component-Finder", "find a null " + str2 + " : null component context");
                 return null;
             }
-            C c2 = (C) d2.a().f5488b.get(str2);
+            C c2 = (C) d2.a().f5371b.get(str2);
             if (c2 == null) {
                 d.c("Component-Finder", "find a null " + str2 + " : not exist");
                 return null;
@@ -112,7 +112,7 @@ public class a {
                 c.a.r0.a.c0.g.a.a("Component-Finder", "find component context with a null model");
                 return null;
             }
-            return d(bVar.f5422g);
+            return d(bVar.f5309g);
         }
         return (c.a.r0.a.c0.e.a) invokeL.objValue;
     }

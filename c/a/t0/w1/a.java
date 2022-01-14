@@ -33,33 +33,33 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
     public ClientUpdater a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IClientUpdaterCallback f25423b;
+    public IClientUpdaterCallback f24711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ClientUpdateInfo f25424c;
+    public volatile ClientUpdateInfo f24712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25425d;
+    public String f24713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25426e;
+    public boolean f24714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f25427f;
+    public Handler f24715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f25428g;
+    public Runnable f24716g;
 
     /* renamed from: c.a.t0.w1.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC1485a implements Runnable {
+    public class RunnableC1500a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25429e;
+        public final /* synthetic */ a f24717e;
 
-        public RunnableC1485a(a aVar) {
+        public RunnableC1500a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,38 +74,38 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
                     return;
                 }
             }
-            this.f25429e = aVar;
+            this.f24717e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f25429e.f25424c != null && "1".equals(this.f25429e.f25424c.mStatus) && TbConfig.COULD_UPDATE) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f24717e.f24712c != null && "1".equals(this.f24717e.f24712c.mStatus) && TbConfig.COULD_UPDATE) {
                 VersionData versionData = new VersionData();
-                versionData.setForceUpdate(Integer.parseInt(this.f25429e.f25424c.mIsForceUpdate));
+                versionData.setForceUpdate(Integer.parseInt(this.f24717e.f24712c.mIsForceUpdate));
                 versionData.setStrategy(0);
-                versionData.setNewVersion(this.f25429e.f25424c.mVername);
-                versionData.setNewVersionCode(Integer.parseInt(this.f25429e.f25424c.mVercode));
-                versionData.setNewFile(this.f25429e.f25424c.mPackageName + this.f25429e.f25424c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                versionData.setHasNewVer(Integer.parseInt(this.f25429e.f25424c.mStatus));
-                versionData.setNewVersionDesc(this.f25429e.f25424c.mChangelog);
-                versionData.setUrl(this.f25429e.f25424c.mDownurl);
-                versionData.setSize(this.f25429e.f25424c.mSize);
-                versionData.setPatch(this.f25429e.f25424c.mPatchDownUrl);
-                versionData.setPatchSize(this.f25429e.f25424c.mPatchSize);
-                versionData.setTiebaIconUrl(this.f25429e.f25424c.mIconUrl);
-                versionData.setApkMD5RSA(this.f25429e.f25424c.mSignMd5);
+                versionData.setNewVersion(this.f24717e.f24712c.mVername);
+                versionData.setNewVersionCode(Integer.parseInt(this.f24717e.f24712c.mVercode));
+                versionData.setNewFile(this.f24717e.f24712c.mPackageName + this.f24717e.f24712c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                versionData.setHasNewVer(Integer.parseInt(this.f24717e.f24712c.mStatus));
+                versionData.setNewVersionDesc(this.f24717e.f24712c.mChangelog);
+                versionData.setUrl(this.f24717e.f24712c.mDownurl);
+                versionData.setSize(this.f24717e.f24712c.mSize);
+                versionData.setPatch(this.f24717e.f24712c.mPatchDownUrl);
+                versionData.setPatchSize(this.f24717e.f24712c.mPatchSize);
+                versionData.setTiebaIconUrl(this.f24717e.f24712c.mIconUrl);
+                versionData.setApkMD5RSA(this.f24717e.f24712c.mSignMd5);
                 TbadkCoreApplication.getInst().setVersionData(versionData);
                 TbadkCoreApplication.getInst().refreshNewVersion(true);
                 if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
                     if (versionData.forceUpdate()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.f25429e.f25424c, this.f25429e.f25425d)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.f24717e.f24712c, this.f24717e.f24713d)));
                         return;
                     }
                     Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
                     Long valueOf2 = Long.valueOf(new Date().getTime());
-                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || this.f25429e.f25426e) && versionData.getStrategy() == 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.f25429e.f25424c, this.f25429e.f25425d)));
+                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || this.f24717e.f24714e) && versionData.getStrategy() == 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.f24717e.f24712c, this.f24717e.f24713d)));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
                     }
                 }
@@ -140,11 +140,11 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
         @Override // com.baidu.clientupdate.IClientUpdaterCallback
         public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) == null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.f25425d)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) == null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.f24713d)) {
                 return;
             }
-            this.a.f25424c = clientUpdateInfo;
-            this.a.f25427f.post(this.a.f25428g);
+            this.a.f24712c = clientUpdateInfo;
+            this.a.f24715f.post(this.a.f24716g);
         }
 
         @Override // com.baidu.clientupdate.IClientUpdaterCallback
@@ -169,7 +169,7 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
             if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("rule")) == null || (optJSONObject2 = optJSONObject.optJSONObject("custom")) == null) {
                 return;
             }
-            this.a.f25425d = optJSONObject2.optString("apk_MD5_RSA");
+            this.a.f24713d = optJSONObject2.optString("apk_MD5_RSA");
         }
     }
 
@@ -188,15 +188,15 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
                 return;
             }
         }
-        this.f25428g = new RunnableC1485a(this);
-        this.f25426e = z;
+        this.f24716g = new RunnableC1500a(this);
+        this.f24714e = z;
         ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
         this.a = clientUpdater;
         clientUpdater.setUseCFG(false);
         this.a.setUseRSA(false);
         this.a.setFileProvider("com.baidu.tieba.fileprovider");
-        this.f25423b = new b(this);
-        this.f25427f = new Handler(Looper.getMainLooper());
+        this.f24711b = new b(this);
+        this.f24715f = new Handler(Looper.getMainLooper());
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -204,7 +204,7 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.cancel();
-            this.f25427f.removeCallbacks(this.f25428g);
+            this.f24715f.removeCallbacks(this.f24716g);
         }
     }
 
@@ -229,7 +229,7 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
                 str = "32";
             }
             clientUpdater2.addParamValue("support_abi", str);
-            this.a.checkUpdate(this.f25423b);
+            this.a.checkUpdate(this.f24711b);
             return null;
         }
         return (ClientUpdateInfo) invokeL.objValue;
@@ -240,7 +240,7 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onPreExecute();
-            this.f25427f.removeCallbacks(this.f25428g);
+            this.f24715f.removeCallbacks(this.f24716g);
         }
     }
 }

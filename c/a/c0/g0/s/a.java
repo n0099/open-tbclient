@@ -1,29 +1,16 @@
 package c.a.c0.g0.s;
 
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class a {
+public final class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f2028b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f2029c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f2030d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f2031e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f2032f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,14 +22,30 @@ public class a {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0L;
-        this.f2028b = 0L;
-        this.f2029c = 0L;
-        this.f2030d = 0L;
-        this.f2031e = 0L;
-        this.f2032f = 0L;
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
+    }
+
+    @Override // c.a.c0.g0.s.b
+    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
+        }
+    }
+
+    @Override // c.a.c0.g0.s.b
+    public void loadLibrary(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
+        }
     }
 }

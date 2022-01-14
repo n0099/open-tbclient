@@ -15,10 +15,10 @@ public class b extends HttpClient.ProtoResultCallback {
     public final /* synthetic */ d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f38993b;
+    public final /* synthetic */ Object f37706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f38994c;
+    public final /* synthetic */ a f37707c;
 
     public b(a aVar, d dVar, Object obj) {
         Interceptable interceptable = $ic;
@@ -35,16 +35,16 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f38994c = aVar;
+        this.f37707c = aVar;
         this.a = dVar;
-        this.f38993b = obj;
+        this.f37706b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f38994c.a(httpStateError, this.a, this.f38993b);
+            this.f37707c.a(httpStateError, this.a, this.f37706b);
         }
     }
 
@@ -53,13 +53,13 @@ public class b extends HttpClient.ProtoResultCallback {
         AsyncHttpClient asyncHttpClient;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String a = this.a instanceof com.baidu.platform.core.b.e ? this.f38994c.a(str) : "";
+            String a = this.a instanceof com.baidu.platform.core.b.e ? this.f37707c.a(str) : "";
             String str2 = !TextUtils.isEmpty(a) ? a : str;
-            this.f38994c.c(str2);
-            a aVar = this.f38994c;
+            this.f37707c.c(str2);
+            a aVar = this.f37707c;
             d dVar = this.a;
-            Object obj = this.f38993b;
-            asyncHttpClient = aVar.f38988b;
+            Object obj = this.f37706b;
+            asyncHttpClient = aVar.f37701b;
             aVar.a(str2, dVar, obj, asyncHttpClient, this);
         }
     }

@@ -17,25 +17,23 @@ public class w implements Comparable<w> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13828e;
+    public int f13515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13829f;
+    public int f13516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13830g;
+    public String f13517g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13831h;
+    public String f13518h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13832i;
+    public String f13519i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13833j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f13834k;
+    public String f13520j;
+    public String k;
     public String l;
     public boolean m;
     public String n;
@@ -61,8 +59,8 @@ public class w implements Comparable<w> {
                 return;
             }
         }
-        this.f13828e = i2;
-        this.f13829f = i3;
+        this.f13515e = i2;
+        this.f13516f = i3;
     }
 
     public static w b(TbLinkSpanGroup tbLinkSpanGroup, c.a.t0.j1.a aVar) {
@@ -82,14 +80,14 @@ public class w implements Comparable<w> {
             } else {
                 str = aVar.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
             }
-            wVar.f13831h = str;
-            wVar.f13830g = aVar.c();
+            wVar.f13518h = str;
+            wVar.f13517g = aVar.c();
             wVar.q = aVar.a();
             if (!ListUtils.isEmpty(aVar.b()) && aVar.b().get(0) != null) {
-                wVar.f13832i = aVar.b().get(0).a();
+                wVar.f13519i = aVar.b().get(0).a();
             }
             wVar.p = aVar.f();
-            wVar.f13833j = aVar.d();
+            wVar.f13520j = aVar.d();
             if (aVar.e() != null) {
                 wVar.n = aVar.e().a();
                 wVar.o = aVar.e().b();
@@ -100,7 +98,7 @@ public class w implements Comparable<w> {
         return (w) invokeLL.objValue;
     }
 
-    public static w c(TbLinkSpanGroup tbLinkSpanGroup, c.a.s0.s.i0.s.f fVar) {
+    public static w c(TbLinkSpanGroup tbLinkSpanGroup, c.a.s0.s.j0.s.f fVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, fVar)) == null) {
@@ -111,15 +109,15 @@ public class w implements Comparable<w> {
             if (fVar == null) {
                 return wVar;
             }
-            wVar.f13830g = fVar.f13467e;
-            wVar.f13832i = fVar.f13466d;
-            wVar.p = fVar.f13468f;
-            wVar.f13833j = fVar.f13469g;
-            wVar.f13834k = fVar.f13465c;
-            wVar.r = fVar.f13470h;
-            String str = fVar.f13471i;
-            wVar.m = fVar.f13464b == 1;
-            wVar.s = fVar.f13464b;
+            wVar.f13517g = fVar.f13156e;
+            wVar.f13519i = fVar.f13155d;
+            wVar.p = fVar.f13157f;
+            wVar.f13520j = fVar.f13158g;
+            wVar.k = fVar.f13154c;
+            wVar.r = fVar.f13159h;
+            String str = fVar.f13160i;
+            wVar.m = fVar.f13153b == 1;
+            wVar.s = fVar.f13153b;
             tbLinkSpanGroup.y(wVar);
             return wVar;
         }

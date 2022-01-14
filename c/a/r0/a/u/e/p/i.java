@@ -19,7 +19,7 @@ public class i extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f9494f;
+    public static final boolean f9288f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class i extends a {
                 return;
             }
         }
-        f9494f = c.a.r0.a.k.a;
+        f9288f = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public class i extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f9494f) {
+            if (f9288f) {
                 String str2 = "start logToFile action, params = " + str;
                 x(str);
             }

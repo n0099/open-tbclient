@@ -17,10 +17,10 @@ public class VoiceSendModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f46831e;
+    public a f45099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f46832f;
+    public b f45100f;
 
     /* loaded from: classes12.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
@@ -29,13 +29,13 @@ public class VoiceSendModel extends BdBaseModel {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ChatMessage f46833b;
+        public ChatMessage f45101b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.t0.s1.s.b f46834c;
+        public c.a.t0.s1.s.b f45102c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VoiceSendModel f46835d;
+        public final /* synthetic */ VoiceSendModel f45103d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public class VoiceSendModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f46835d = voiceSendModel;
+            this.f45103d = voiceSendModel;
             this.a = str;
-            this.f46833b = chatMessage;
-            this.f46834c = new c.a.t0.s1.s.b();
+            this.f45101b = chatMessage;
+            this.f45102c = new c.a.t0.s1.s.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class VoiceSendModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 try {
-                    return this.f46834c.a(this.a);
+                    return this.f45102c.a(this.a);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -79,8 +79,8 @@ public class VoiceSendModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((a) str);
-                if (this.f46835d.f46832f != null) {
-                    this.f46835d.f46832f.a(str, this.f46833b);
+                if (this.f45103d.f45100f != null) {
+                    this.f45103d.f45100f.a(str, this.f45101b);
                 }
             }
         }
@@ -134,7 +134,7 @@ public class VoiceSendModel extends BdBaseModel {
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f46832f = bVar;
+            this.f45100f = bVar;
         }
     }
 
@@ -142,7 +142,7 @@ public class VoiceSendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, chatMessage) == null) {
             a aVar = new a(this, str, chatMessage);
-            this.f46831e = aVar;
+            this.f45099e = aVar;
             aVar.execute(new Object[0]);
         }
     }

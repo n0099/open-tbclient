@@ -15,7 +15,7 @@ public class e {
     public volatile g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile b f60611b;
+    public volatile b f58315b;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -69,8 +69,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             if (messageSnapshot instanceof com.kwai.filedownloader.message.b) {
-                if (this.f60611b != null) {
-                    this.f60611b.a(messageSnapshot);
+                if (this.f58315b != null) {
+                    this.f58315b.a(messageSnapshot);
                 }
             } else if (this.a != null) {
                 this.a.a(messageSnapshot);
@@ -81,7 +81,7 @@ public class e {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f60611b = bVar;
+            this.f58315b = bVar;
             if (bVar == null) {
                 this.a = null;
             } else {

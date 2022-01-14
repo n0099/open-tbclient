@@ -20,21 +20,21 @@ public class i0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<ShareDialogConfig.From, Integer> f14172f;
+    public static final Map<ShareDialogConfig.From, Integer> f13840f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14173b;
+    public int f13841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14174c;
+    public String f13842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14175d;
+    public int f13843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Integer> f14176e;
+    public List<Integer> f13844e;
 
     static {
         InterceptResult invokeClinit;
@@ -50,16 +50,16 @@ public class i0 {
             }
         }
         HashMap hashMap = new HashMap();
-        f14172f = hashMap;
+        f13840f = hashMap;
         hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f14172f.put(ShareDialogConfig.From.Concern, 2);
-        f14172f.put(ShareDialogConfig.From.PB, 3);
-        f14172f.put(ShareDialogConfig.From.FRS, 4);
-        f14172f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f14172f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f14172f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f14172f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f14172f.put(ShareDialogConfig.From.HomeGameTab, 9);
+        f13840f.put(ShareDialogConfig.From.Concern, 2);
+        f13840f.put(ShareDialogConfig.From.PB, 3);
+        f13840f.put(ShareDialogConfig.From.FRS, 4);
+        f13840f.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        f13840f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        f13840f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        f13840f.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        f13840f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public i0() {
@@ -79,26 +79,26 @@ public class i0 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14175d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13843d : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14174c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13842c : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.f14173b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.f13841b) : invokeV.booleanValue;
     }
 
     public boolean d(ShareDialogConfig.From from) {
         InterceptResult invokeL;
         Integer num;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.f14176e == null || (num = f14172f.get(from)) == null || !this.f14176e.contains(num)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.f13844e == null || (num = f13840f.get(from)) == null || !this.f13844e.contains(num)) ? false : true : invokeL.booleanValue;
     }
 
     public void e(JSONObject jSONObject) {
@@ -107,9 +107,9 @@ public class i0 {
             return;
         }
         this.a = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
-        this.f14173b = jSONObject.optInt("end_time");
-        this.f14174c = jSONObject.optString("text");
-        this.f14175d = jSONObject.optInt("icon_exp");
+        this.f13841b = jSONObject.optInt("end_time");
+        this.f13842c = jSONObject.optString("text");
+        this.f13843d = jSONObject.optInt("icon_exp");
         f(jSONObject.optString("page_list"));
     }
 
@@ -122,10 +122,10 @@ public class i0 {
         for (String str2 : split) {
             int e2 = c.a.d.f.m.b.e(str2, -1);
             if (e2 != -1) {
-                if (this.f14176e == null) {
-                    this.f14176e = new ArrayList();
+                if (this.f13844e == null) {
+                    this.f13844e = new ArrayList();
                 }
-                this.f14176e.add(Integer.valueOf(e2));
+                this.f13844e.add(Integer.valueOf(e2));
             }
         }
     }

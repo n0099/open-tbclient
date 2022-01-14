@@ -14,7 +14,7 @@ public class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f4762b;
+    public Context f4659b;
 
     public a(Context context, Handler handler) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
             }
         }
         this.a = new b(context, handler);
-        this.f4762b = context;
+        this.f4659b = context;
     }
 
     public String a(String str, byte[] bArr) {

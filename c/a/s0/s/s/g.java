@@ -28,34 +28,32 @@ public class g implements i {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f13915b;
+    public j f13594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f13916c;
+    public View f13595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f13917d;
+    public EMTextView f13596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13918e;
+    public View f13597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13919f;
+    public ImageView f13598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f13920g;
+    public Drawable f13599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13921h;
+    public String f13600h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13922i;
+    public int f13601i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13923j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f13924k;
+    public int f13602j;
+    public int k;
     public j.d l;
     public boolean m;
     public boolean n;
@@ -68,7 +66,7 @@ public class g implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f13925e;
+        public final /* synthetic */ g f13603e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -85,20 +83,20 @@ public class g implements i {
                     return;
                 }
             }
-            this.f13925e = gVar;
+            this.f13603e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f13925e.l != null) {
-                    this.f13925e.l.onClick();
+                if (this.f13603e.l != null) {
+                    this.f13603e.l.onClick();
                 }
-                if (this.f13925e.f13915b == null || this.f13925e.f13915b.d() == null) {
+                if (this.f13603e.f13594b == null || this.f13603e.f13594b.d() == null) {
                     return;
                 }
-                this.f13925e.f13915b.d().onItemClick(this.f13925e.f13915b, this.f13925e.a, this.f13925e.f13917d);
+                this.f13603e.f13594b.d().onItemClick(this.f13603e.f13594b, this.f13603e.a, this.f13603e.f13596d);
             }
         }
     }
@@ -157,45 +155,45 @@ public class g implements i {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13921h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13600h : (String) invokeV.objValue;
     }
 
     public final void g() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jVar = this.f13915b) == null || jVar.getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jVar = this.f13594b) == null || jVar.getContext() == null) {
             return;
         }
-        View inflate = LayoutInflater.from(this.f13915b.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.f13915b.f(), false);
-        this.f13916c = inflate;
+        View inflate = LayoutInflater.from(this.f13594b.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.f13594b.f(), false);
+        this.f13595c = inflate;
         inflate.getLayoutParams().width = this.o ? r : q;
-        Object tag = this.f13917d.getTag();
-        EMTextView eMTextView = (EMTextView) this.f13916c.findViewById(R.id.item_view);
-        this.f13917d = eMTextView;
-        eMTextView.setText(this.f13921h);
-        this.f13917d.setGravity(this.f13924k);
-        this.f13917d.setTag(tag);
-        View findViewById = this.f13916c.findViewById(R.id.divider_line);
-        this.f13918e = findViewById;
+        Object tag = this.f13596d.getTag();
+        EMTextView eMTextView = (EMTextView) this.f13595c.findViewById(R.id.item_view);
+        this.f13596d = eMTextView;
+        eMTextView.setText(this.f13600h);
+        this.f13596d.setGravity(this.k);
+        this.f13596d.setTag(tag);
+        View findViewById = this.f13595c.findViewById(R.id.divider_line);
+        this.f13597e = findViewById;
         findViewById.setVisibility(8);
-        ImageView imageView = (ImageView) this.f13916c.findViewById(R.id.item_image);
-        this.f13919f = imageView;
-        imageView.setImageDrawable(this.f13920g);
+        ImageView imageView = (ImageView) this.f13595c.findViewById(R.id.item_image);
+        this.f13598f = imageView;
+        imageView.setImageDrawable(this.f13599g);
         onChangeSkinType();
-        this.f13916c.setOnClickListener(this.p);
+        this.f13595c.setOnClickListener(this.p);
     }
 
     @Override // c.a.s0.s.s.i
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13916c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13595c : (View) invokeV.objValue;
     }
 
     public final void h() {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.f13917d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.f13596d) == null) {
             return;
         }
         eMTextView.setOnClickListener(this.p);
@@ -204,17 +202,17 @@ public class g implements i {
     public final void i() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (jVar = this.f13915b) == null || jVar.getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (jVar = this.f13594b) == null || jVar.getContext() == null) {
             return;
         }
-        View inflate = LayoutInflater.from(this.f13915b.getContext()).inflate(R.layout.popup_dialog_view_item, this.f13915b.f(), false);
-        this.f13916c = inflate;
+        View inflate = LayoutInflater.from(this.f13594b.getContext()).inflate(R.layout.popup_dialog_view_item, this.f13594b.f(), false);
+        this.f13595c = inflate;
         EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.item_view);
-        this.f13917d = eMTextView;
-        eMTextView.setText(this.f13921h);
-        this.f13917d.setGravity(this.f13924k);
-        View findViewById = this.f13916c.findViewById(R.id.divider_line);
-        this.f13918e = findViewById;
+        this.f13596d = eMTextView;
+        eMTextView.setText(this.f13600h);
+        this.f13596d.setGravity(this.k);
+        View findViewById = this.f13595c.findViewById(R.id.divider_line);
+        this.f13597e = findViewById;
         if (this.m) {
             findViewById.setVisibility(0);
         } else {
@@ -233,7 +231,7 @@ public class g implements i {
     public void k(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            this.f13920g = drawable;
+            this.f13599g = drawable;
         }
     }
 
@@ -248,24 +246,24 @@ public class g implements i {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f13921h = str;
-            this.f13917d.setText(str);
+            this.f13600h = str;
+            this.f13596d.setText(str);
         }
     }
 
     public void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f13923j = i2;
-            SkinManager.setBackgroundResource(this.f13917d, i2);
+            this.f13602j = i2;
+            SkinManager.setBackgroundResource(this.f13596d, i2);
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f13922i = i2;
-            SkinManager.setViewTextColor(this.f13917d, i2);
+            this.f13601i = i2;
+            SkinManager.setViewTextColor(this.f13596d, i2);
         }
     }
 
@@ -273,10 +271,10 @@ public class g implements i {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            SkinManager.setBackgroundResource(this.f13917d, this.f13923j);
-            SkinManager.setViewTextColorSelector(this.f13917d, this.f13922i);
-            SkinManager.setBackgroundColor(this.f13918e, R.color.CAM_X0204);
-            MaskView.maskTextView(this.f13917d, this.n);
+            SkinManager.setBackgroundResource(this.f13596d, this.f13602j);
+            SkinManager.setViewTextColorSelector(this.f13596d, this.f13601i);
+            SkinManager.setBackgroundColor(this.f13597e, R.color.CAM_X0204);
+            MaskView.maskTextView(this.f13596d, this.n);
         }
     }
 
@@ -284,7 +282,7 @@ public class g implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.n = z;
-            MaskView.maskTextView(this.f13917d, z);
+            MaskView.maskTextView(this.f13596d, z);
         }
     }
 
@@ -303,15 +301,15 @@ public class g implements i {
                 return;
             }
         }
-        this.f13922i = R.color.CAM_X0105;
-        this.f13923j = R.color.CAM_X0204;
-        this.f13924k = 17;
+        this.f13601i = R.color.CAM_X0105;
+        this.f13602j = R.color.CAM_X0204;
+        this.k = 17;
         this.m = false;
         this.n = false;
         this.o = false;
         this.p = new a(this);
-        this.f13921h = str;
-        this.f13915b = jVar;
+        this.f13600h = str;
+        this.f13594b = jVar;
         this.a = hashCode();
         i();
         h();
@@ -332,16 +330,16 @@ public class g implements i {
                 return;
             }
         }
-        this.f13922i = R.color.CAM_X0105;
-        this.f13923j = R.color.CAM_X0204;
-        this.f13924k = 17;
+        this.f13601i = R.color.CAM_X0105;
+        this.f13602j = R.color.CAM_X0204;
+        this.k = 17;
         this.m = false;
         this.n = false;
         this.o = false;
         this.p = new a(this);
         this.a = i2;
-        this.f13921h = str;
-        this.f13915b = jVar;
+        this.f13600h = str;
+        this.f13594b = jVar;
         i();
         h();
     }

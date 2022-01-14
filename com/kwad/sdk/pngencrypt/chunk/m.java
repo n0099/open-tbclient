@@ -5,26 +5,26 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class m extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f59329h;
+    public int[] f57090h;
 
     public m(com.kwad.sdk.pngencrypt.k kVar) {
         super("hIST", kVar);
-        this.f59329h = new int[0];
+        this.f57090h = new int[0];
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (!this.f59281e.f59380g) {
+        if (!this.f57047e.f57136g) {
             throw new PngjException("only indexed images accept a HIST chunk");
         }
-        this.f59329h = new int[dVar.f59303d.length / 2];
+        this.f57090h = new int[dVar.f57067d.length / 2];
         int i2 = 0;
         while (true) {
-            int[] iArr = this.f59329h;
+            int[] iArr = this.f57090h;
             if (i2 >= iArr.length) {
                 return;
             }
-            iArr[i2] = com.kwad.sdk.pngencrypt.n.b(dVar.f59303d, i2 * 2);
+            iArr[i2] = com.kwad.sdk.pngencrypt.n.b(dVar.f57067d, i2 * 2);
             i2++;
         }
     }

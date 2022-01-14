@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.c2;
 import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -22,12 +22,12 @@ import tbclient.FrsTabInfo;
 import tbclient.HotThreadList.DataRes;
 import tbclient.HotThreadList.HotThreadListResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<n> a(List<d2> list) {
+    public static List<n> a(List<e2> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
@@ -36,63 +36,63 @@ public class c {
             }
             ArrayList arrayList = new ArrayList();
             int i2 = 0;
-            for (d2 d2Var : list) {
-                int[] h0 = d2Var.h0();
-                if (d2Var.getType() == d2.i3) {
+            for (e2 e2Var : list) {
+                int[] h0 = e2Var.h0();
+                if (e2Var.getType() == e2.i3) {
+                    e2Var.position = i2;
+                    d2 d2Var = new d2();
+                    d2Var.w = e2Var;
                     d2Var.position = i2;
-                    c2 c2Var = new c2();
-                    c2Var.w = d2Var;
-                    c2Var.position = i2;
-                    c2Var.v = true;
-                    c2Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(c2Var);
-                    c2 c2Var2 = new c2();
-                    c2Var2.w = d2Var;
-                    c2Var2.position = i2;
-                    if (d2Var.Q1()) {
-                        c2Var2.f13645j = true;
-                    } else if (d2Var.h3() == 1) {
-                        c2Var2.f13643h = true;
-                        c2Var2.x = h0[0];
-                        c2Var2.y = h0[1];
-                    } else if (d2Var.h3() >= 2) {
-                        c2Var2.f13644i = true;
-                    } else {
-                        c2Var2.f13641f = true;
-                    }
-                    c2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(c2Var2);
-                    c2 c2Var3 = new c2();
-                    c2Var3.f13646k = true;
-                    c2Var3.w = d2Var;
-                    c2Var3.position = i2;
-                    c2Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(c2Var3);
-                } else if (d2Var.getType() == d2.G3) {
-                    d2Var.position = i2;
-                    c2 c2Var4 = new c2();
-                    c2Var4.w = d2Var;
-                    c2Var4.position = i2;
-                    c2Var4.v = true;
-                    c2Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(c2Var4);
-                    c2 c2Var5 = new c2();
-                    c2Var5.w = d2Var;
-                    c2Var5.position = i2;
-                    c2Var5.m = true;
-                    c2Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(c2Var5);
-                    c2 c2Var6 = new c2();
-                    c2Var6.f13646k = true;
-                    c2Var6.w = d2Var;
-                    c2Var6.position = i2;
-                    c2Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(c2Var6);
-                } else {
+                    d2Var.v = true;
                     d2Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList.add(d2Var);
+                    d2 d2Var2 = new d2();
+                    d2Var2.w = e2Var;
+                    d2Var2.position = i2;
+                    if (e2Var.Q1()) {
+                        d2Var2.f13348j = true;
+                    } else if (e2Var.h3() == 1) {
+                        d2Var2.f13346h = true;
+                        d2Var2.x = h0[0];
+                        d2Var2.y = h0[1];
+                    } else if (e2Var.h3() >= 2) {
+                        d2Var2.f13347i = true;
+                    } else {
+                        d2Var2.f13344f = true;
+                    }
+                    d2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList.add(d2Var2);
+                    d2 d2Var3 = new d2();
+                    d2Var3.k = true;
+                    d2Var3.w = e2Var;
+                    d2Var3.position = i2;
+                    d2Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList.add(d2Var3);
+                } else if (e2Var.getType() == e2.G3) {
+                    e2Var.position = i2;
+                    d2 d2Var4 = new d2();
+                    d2Var4.w = e2Var;
+                    d2Var4.position = i2;
+                    d2Var4.v = true;
+                    d2Var4.setSupportType(BaseCardInfo.SupportType.TOP);
+                    arrayList.add(d2Var4);
+                    d2 d2Var5 = new d2();
+                    d2Var5.w = e2Var;
+                    d2Var5.position = i2;
+                    d2Var5.m = true;
+                    d2Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    arrayList.add(d2Var5);
+                    d2 d2Var6 = new d2();
+                    d2Var6.k = true;
+                    d2Var6.w = e2Var;
+                    d2Var6.position = i2;
+                    d2Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                    arrayList.add(d2Var6);
+                } else {
+                    e2Var.setSupportType(BaseCardInfo.SupportType.TOP);
                 }
                 i2++;
-                d2Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                e2Var.setSupportType(BaseCardInfo.SupportType.TOP);
             }
             return arrayList;
         }
@@ -108,11 +108,11 @@ public class c {
             }
             ArrayList arrayList = new ArrayList(list.size());
             for (ThreadInfo threadInfo : list) {
-                d2 d2Var = new d2();
-                d2Var.h2 = true;
-                d2Var.c3(threadInfo);
-                e(d2Var);
-                arrayList.add(d2Var);
+                e2 e2Var = new e2();
+                e2Var.g2 = true;
+                e2Var.c3(threadInfo);
+                e(e2Var);
+                arrayList.add(e2Var);
             }
             return a(arrayList);
         }
@@ -160,15 +160,15 @@ public class c {
         return (c.a.t0.o1.f.a.e.b) invokeL.objValue;
     }
 
-    public static void e(d2 d2Var) {
+    public static void e(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, d2Var) == null) {
-            String A0 = d2Var.A0();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(d2Var.w0() * 1000);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, e2Var) == null) {
+            String A0 = e2Var.A0();
+            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(e2Var.w0() * 1000);
             if (!TextUtils.isEmpty(A0) && !TextUtils.isEmpty(formatTimeForHomeC)) {
                 A0 = A0 + "   " + formatTimeForHomeC;
             }
-            d2Var.C4(A0);
+            e2Var.C4(A0);
         }
     }
 }

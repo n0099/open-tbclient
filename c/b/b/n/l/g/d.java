@@ -13,10 +13,10 @@ public class d {
     public c.b.b.q.a<e<Vector3>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<e<Quaternion>> f28087b;
+    public c.b.b.q.a<e<Quaternion>> f27235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.b.q.a<e<Vector3>> f28088c;
+    public c.b.b.q.a<e<Vector3>> f27236c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
             }
         }
         this.a = null;
-        this.f28087b = null;
-        this.f28088c = null;
+        this.f27235b = null;
+        this.f27236c = null;
     }
 }

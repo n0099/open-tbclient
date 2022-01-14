@@ -21,34 +21,32 @@ public class q0 {
     public static String a = "1001001";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57385b = "1001002";
+    public static String f55210b = "1001002";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f57386c = "1001003";
+    public static String f55211c = "1001003";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f57387d = "1001004";
+    public static String f55212d = "1001004";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f57388e = "1001005";
+    public static String f55213e = "1001005";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f57389f = "ANDROID";
+    public static String f55214f = "ANDROID";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f57390g = "CBH ak or sk is null";
+    public static String f55215g = "CBH ak or sk is null";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f57391h = "SDK has been initialized by host";
+    public static String f55216h = "SDK has been initialized by host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f57392i = "Plugins will be loaded";
+    public static String f55217i = "Plugins will be loaded";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f57393j = "T run has exit: ";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f57394k = "SDK will execute Plugins Upgrade handler interval: ";
+    public static String f55218j = "T run has exit: ";
+    public static String k = "SDK will execute Plugins Upgrade handler interval: ";
     public static String l = "Pull Plugins Setting Response = ";
     public static String m = "Response is null = ";
     public static String n = "Cloud Version higher than Client Plugins";

@@ -29,16 +29,16 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f64789e;
+    public Context f62359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64790f;
+    public int f62360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<f> f64791g;
+    public List<f> f62361g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayUIKitConfig f64792h;
+    public PayUIKitConfig f62362h;
 
     /* loaded from: classes4.dex */
     public class a {
@@ -47,13 +47,13 @@ public class b extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f64793b;
+        public ImageView f62363b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f64794c;
+        public ImageView f62364c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f64795d;
+        public TextView f62365d;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -87,10 +87,10 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f64791g = new ArrayList();
-        this.f64789e = context;
-        this.f64791g = list;
-        this.f64792h = payUIKitConfig;
+        this.f62361g = new ArrayList();
+        this.f62359e = context;
+        this.f62361g = list;
+        this.f62362h = payUIKitConfig;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,19 +99,19 @@ public class b extends BaseAdapter {
     public f getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f64791g.get(i2) : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f62361g.get(i2) : (f) invokeI.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64790f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62360f : invokeV.intValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f64790f = i2;
+            this.f62360f = i2;
         }
     }
 
@@ -119,7 +119,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64791g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62361g.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -136,12 +136,12 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f64789e).inflate(g.pay_ui_item_pay_way_choose, viewGroup, false);
+                view = LayoutInflater.from(this.f62359e).inflate(g.pay_ui_item_pay_way_choose, viewGroup, false);
                 aVar = new a(this);
                 aVar.a = (TextView) view.findViewById(j.a.a.e.f.way_tv_title);
-                aVar.f64794c = (ImageView) view.findViewById(j.a.a.e.f.img_select);
-                aVar.f64793b = (ImageView) view.findViewById(j.a.a.e.f.recharge_way_bg);
-                aVar.f64795d = (TextView) view.findViewById(j.a.a.e.f.tv_tips);
+                aVar.f62364c = (ImageView) view.findViewById(j.a.a.e.f.img_select);
+                aVar.f62363b = (ImageView) view.findViewById(j.a.a.e.f.recharge_way_bg);
+                aVar.f62365d = (TextView) view.findViewById(j.a.a.e.f.tv_tips);
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
@@ -150,29 +150,29 @@ public class b extends BaseAdapter {
             aVar.a.setText(item.a());
             PayType payType = item.a;
             if (PayType.ALI_PAY.equals(payType)) {
-                aVar.f64793b.setBackgroundResource(e.pay_ui_pay_channel_zhifubao_icon);
+                aVar.f62363b.setBackgroundResource(e.pay_ui_pay_channel_zhifubao_icon);
             } else if (PayType.WECHAT_PAY.equals(payType)) {
-                aVar.f64793b.setBackgroundResource(e.pay_ui_pay_channel_weixin_icon);
+                aVar.f62363b.setBackgroundResource(e.pay_ui_pay_channel_weixin_icon);
             } else if (PayType.DXM_PAY.equals(payType)) {
-                aVar.f64793b.setBackgroundResource(e.pay_ui_pay_channel_dxm_icon);
+                aVar.f62363b.setBackgroundResource(e.pay_ui_pay_channel_dxm_icon);
             } else if (PayType.DXM_PAY_KJ.equals(payType)) {
-                aVar.f64793b.setBackgroundResource(e.pay_ui_pay_channel_dxmkj_icon);
+                aVar.f62363b.setBackgroundResource(e.pay_ui_pay_channel_dxmkj_icon);
             } else if (PayType.UNION_PAY.equals(payType)) {
-                aVar.f64793b.setBackgroundResource(e.pay_ui_pay_channel_unionpay_icon);
+                aVar.f62363b.setBackgroundResource(e.pay_ui_pay_channel_unionpay_icon);
             } else if (PayType.QQ_PAY.equals(payType)) {
-                aVar.f64793b.setBackgroundResource(e.pay_ui_pay_channel_qqpay_icon);
+                aVar.f62363b.setBackgroundResource(e.pay_ui_pay_channel_qqpay_icon);
             }
-            aVar.a.setTextColor(this.f64789e.getResources().getColor(c.pay_ui_font_color_6));
-            if (this.f64790f == i2) {
-                aVar.f64794c.setBackgroundResource(o.a.b(this.f64792h) ? e.pay_ui_pay_way_item_select : e.pay_ui_pay_way_item_select_y);
+            aVar.a.setTextColor(this.f62359e.getResources().getColor(c.pay_ui_font_color_6));
+            if (this.f62360f == i2) {
+                aVar.f62364c.setBackgroundResource(o.a.b(this.f62362h) ? e.pay_ui_pay_way_item_select : e.pay_ui_pay_way_item_select_y);
             } else {
-                aVar.f64794c.setBackgroundResource(e.pay_ui_pay_way_item_unselect);
+                aVar.f62364c.setBackgroundResource(e.pay_ui_pay_way_item_unselect);
             }
-            if (TextUtils.isEmpty(item.f64779c)) {
-                aVar.f64795d.setVisibility(8);
+            if (TextUtils.isEmpty(item.f62349c)) {
+                aVar.f62365d.setVisibility(8);
             } else {
-                aVar.f64795d.setVisibility(0);
-                aVar.f64795d.setText(item.f64779c);
+                aVar.f62365d.setVisibility(0);
+                aVar.f62365d.setText(item.f62349c);
             }
             return view;
         }

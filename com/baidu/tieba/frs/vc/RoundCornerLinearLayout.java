@@ -27,23 +27,23 @@ public class RoundCornerLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f45409j;
+    public static final int f43758j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f45410e;
+    public float f43759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f45411f;
+    public Shape f43760f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f45412g;
+    public Paint f43761g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f45413h;
+    public Paint f43762h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f45414i;
+    public RectF f43763i;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
                 return;
             }
         }
-        f45409j = c1.white_alpha100;
+        f43758j = c1.white_alpha100;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -87,20 +87,20 @@ public class RoundCornerLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayerType(1, null);
             Paint paint = new Paint();
-            this.f45412g = paint;
+            this.f43761g = paint;
             paint.setAntiAlias(true);
-            this.f45412g.setColor(-7829368);
-            this.f45412g.setStyle(Paint.Style.FILL);
-            this.f45412g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.f43761g.setColor(-7829368);
+            this.f43761g.setStyle(Paint.Style.FILL);
+            this.f43761g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             Paint paint2 = new Paint();
-            this.f45413h = paint2;
+            this.f43762h = paint2;
             paint2.setAntiAlias(true);
-            this.f45413h.setColor(getResources().getColor(f45409j));
-            this.f45413h.setStyle(Paint.Style.FILL);
-            this.f45413h.setShadowLayer(getResources().getDimension(d1.tbds5), 0.0f, getResources().getDimension(d1.tbds4), getResources().getColor(f45409j));
-            this.f45413h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-            this.f45414i = new RectF();
-            this.f45410e = getResources().getDimension(d1.tbds20);
+            this.f43762h.setColor(getResources().getColor(f43758j));
+            this.f43762h.setStyle(Paint.Style.FILL);
+            this.f43762h.setShadowLayer(getResources().getDimension(d1.tbds5), 0.0f, getResources().getDimension(d1.tbds4), getResources().getColor(f43758j));
+            this.f43762h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+            this.f43763i = new RectF();
+            this.f43759e = getResources().getDimension(d1.tbds20);
             setPadding(0, 0, 0, getResources().getDimensionPixelSize(d1.tbds1));
         }
     }
@@ -112,13 +112,13 @@ public class RoundCornerLinearLayout extends LinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f45411f;
+            Shape shape = this.f43760f;
             if (shape != null) {
-                shape.draw(canvas, this.f45412g);
+                shape.draw(canvas, this.f43761g);
             }
-            RectF rectF = this.f45414i;
-            float f2 = this.f45410e;
-            canvas.drawRoundRect(rectF, f2, f2, this.f45413h);
+            RectF rectF = this.f43763i;
+            float f2 = this.f43759e;
+            canvas.drawRoundRect(rectF, f2, f2, this.f43762h);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
             }
@@ -132,7 +132,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f45411f == null) {
+                if (this.f43760f == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(d1.tbds5) ? getResources().getDimension(d1.tbds5) : getPaddingLeft();
@@ -141,11 +141,11 @@ public class RoundCornerLinearLayout extends LinearLayout {
                     float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                     RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                     float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.f45410e);
-                    this.f45411f = new RoundRectShape(fArr, rectF, fArr2);
-                    this.f45414i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
+                    Arrays.fill(fArr2, this.f43759e);
+                    this.f43760f = new RoundRectShape(fArr, rectF, fArr2);
+                    this.f43763i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
                 }
-                this.f45411f.resize(getWidth(), getHeight());
+                this.f43760f.resize(getWidth(), getHeight());
             }
         }
     }
@@ -153,7 +153,7 @@ public class RoundCornerLinearLayout extends LinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f45410e = f2;
+            this.f43759e = f2;
         }
     }
 

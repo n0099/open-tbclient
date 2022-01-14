@@ -68,7 +68,7 @@ public class a extends m {
             this.n = s;
             InputView inputView = new InputView(context, z);
             this.r = inputView;
-            this.f14538k = inputView;
+            this.k = inputView;
             RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
             ((LinearLayout.LayoutParams) layoutParams).topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds14);
             ((LinearLayout.LayoutParams) layoutParams).bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds14);
@@ -76,14 +76,14 @@ public class a extends m {
             ((LinearLayout.LayoutParams) layoutParams).rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds12);
             ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
             ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.f14538k).setLayoutParams(layoutParams);
+            ((View) this.k).setLayoutParams(layoutParams);
         }
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ((InputView) this.f14538k).setIsOnlyLocalEmotion(z);
+            ((InputView) this.k).setIsOnlyLocalEmotion(z);
         }
     }
 

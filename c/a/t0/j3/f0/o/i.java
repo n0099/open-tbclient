@@ -14,25 +14,25 @@ public class i {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18837b;
+    public int f18367b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18838c;
+    public int f18368c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18839d;
+    public String f18369d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18840e;
+    public String f18370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, List<String>> f18841f;
+    public Map<String, List<String>> f18371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f18842g;
+    public byte[] f18372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18843h;
+    public int f18373h;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class i {
             }
         }
         this.a = false;
-        this.f18837b = -1;
-        this.f18839d = "";
-        this.f18840e = "";
+        this.f18367b = -1;
+        this.f18369d = "";
+        this.f18370e = "";
     }
 
     public void a(HttpURLConnection httpURLConnection) throws Exception {
@@ -58,10 +58,10 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, httpURLConnection) == null) || httpURLConnection == null) {
             return;
         }
-        this.f18837b = httpURLConnection.getResponseCode();
-        this.f18839d = httpURLConnection.getContentEncoding();
+        this.f18367b = httpURLConnection.getResponseCode();
+        this.f18369d = httpURLConnection.getContentEncoding();
         httpURLConnection.getContentType();
-        this.f18840e = httpURLConnection.getContentLength() + "";
-        this.f18841f = httpURLConnection.getHeaderFields();
+        this.f18370e = httpURLConnection.getContentLength() + "";
+        this.f18371f = httpURLConnection.getHeaderFields();
     }
 }

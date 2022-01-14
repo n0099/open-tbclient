@@ -14,7 +14,7 @@ public class z0 {
     public final Queue<Runnable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f10284b;
+    public Runnable f10060b;
 
     public z0() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class z0 {
             }
         }
         this.a = new ArrayDeque();
-        this.f10284b = null;
+        this.f10060b = null;
     }
 
     public synchronized boolean a(Runnable runnable) {
@@ -44,15 +44,15 @@ public class z0 {
                 if (!z2) {
                     this.a.offer(runnable);
                 }
-                boolean z3 = this.f10284b == null && !this.a.isEmpty();
+                boolean z3 = this.f10060b == null && !this.a.isEmpty();
                 if (z3) {
                     while (!this.a.isEmpty()) {
                         Runnable poll = this.a.poll();
-                        this.f10284b = poll;
+                        this.f10060b = poll;
                         if (poll != null) {
                             poll.run();
                         }
-                        this.f10284b = null;
+                        this.f10060b = null;
                     }
                 }
                 z = (z2 || !z3) ? false : false;

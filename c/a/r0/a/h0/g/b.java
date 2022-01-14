@@ -14,7 +14,7 @@ public class b {
     public static int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.r0.a.o2.g.g f6480b;
+    public static c.a.r0.a.o2.g.g f6339b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,14 +50,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f6480b == null) {
+            if (f6339b == null) {
                 synchronized (b.class) {
-                    if (f6480b == null) {
-                        f6480b = new c.a.r0.a.o2.g.g("swan_about_page_sp", true);
+                    if (f6339b == null) {
+                        f6339b = new c.a.r0.a.o2.g.g("swan_about_page_sp", true);
                     }
                 }
             }
-            return f6480b;
+            return f6339b;
         }
         return (c.a.r0.a.o2.g.g) invokeV.objValue;
     }

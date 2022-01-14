@@ -71,7 +71,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48157e;
+        public final /* synthetic */ PaymentConfirmActivity f46359e;
 
         public a(PaymentConfirmActivity paymentConfirmActivity) {
             Interceptable interceptable = $ic;
@@ -88,14 +88,14 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48157e = paymentConfirmActivity;
+            this.f46359e = paymentConfirmActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PaymentConfirmActivity paymentConfirmActivity = this.f48157e;
+                PaymentConfirmActivity paymentConfirmActivity = this.f46359e;
                 paymentConfirmActivity.goToUEGValidate(2270066, paymentConfirmActivity.getResources().getString(R.string.sapi_forget_password_title));
             }
         }
@@ -107,13 +107,13 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f48158e;
+        public final /* synthetic */ int f46360e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48159f;
+        public final /* synthetic */ String f46361f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48160g;
+        public final /* synthetic */ PaymentConfirmActivity f46362g;
 
         public b(PaymentConfirmActivity paymentConfirmActivity, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -130,9 +130,9 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48160g = paymentConfirmActivity;
-            this.f48158e = i2;
-            this.f48159f = str;
+            this.f46362g = paymentConfirmActivity;
+            this.f46360e = i2;
+            this.f46361f = str;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -140,7 +140,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f48160g.goToUEGValidate(this.f48158e, this.f48159f);
+                this.f46362g.goToUEGValidate(this.f46360e, this.f46361f);
             }
         }
     }
@@ -151,7 +151,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48161e;
+        public final /* synthetic */ PaymentConfirmActivity f46363e;
 
         public c(PaymentConfirmActivity paymentConfirmActivity) {
             Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48161e = paymentConfirmActivity;
+            this.f46363e = paymentConfirmActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -186,10 +186,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48162e;
+        public final /* synthetic */ String f46364e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48163f;
+        public final /* synthetic */ PaymentConfirmActivity f46365f;
 
         public d(PaymentConfirmActivity paymentConfirmActivity, String str) {
             Interceptable interceptable = $ic;
@@ -206,8 +206,8 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48163f = paymentConfirmActivity;
-            this.f48162e = str;
+            this.f46365f = paymentConfirmActivity;
+            this.f46364e = str;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -215,7 +215,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f48163f.getPageContext().getPageActivity(), this.f48163f.getResources().getString(R.string.payment_dilaog_error_button), this.f48162e, true, true, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f46365f.getPageContext().getPageActivity(), this.f46365f.getResources().getString(R.string.payment_dilaog_error_button), this.f46364e, true, true, true)));
             }
         }
     }
@@ -226,7 +226,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48164e;
+        public final /* synthetic */ PaymentConfirmActivity f46366e;
 
         public e(PaymentConfirmActivity paymentConfirmActivity) {
             Interceptable interceptable = $ic;
@@ -243,7 +243,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48164e = paymentConfirmActivity;
+            this.f46366e = paymentConfirmActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -251,7 +251,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f48164e.closeActivity();
+                this.f46366e.closeActivity();
             }
         }
     }
@@ -262,7 +262,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48165e;
+        public final /* synthetic */ PaymentConfirmActivity f46367e;
 
         public f(PaymentConfirmActivity paymentConfirmActivity) {
             Interceptable interceptable = $ic;
@@ -279,18 +279,18 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48165e = paymentConfirmActivity;
+            this.f46367e = paymentConfirmActivity;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                c.a.s0.s.g0.b.j().t(this.f48165e.generateSharedPkey("payment_confirm_show"), !z);
+                c.a.s0.s.h0.b.k().u(this.f46367e.generateSharedPkey("payment_confirm_show"), !z);
                 if (z) {
                     return;
                 }
-                c.a.s0.s.g0.b.j().v(this.f48165e.generateSharedPkey("payment_confirm_notshow_count"), 0);
+                c.a.s0.s.h0.b.k().w(this.f46367e.generateSharedPkey("payment_confirm_notshow_count"), 0);
             }
         }
     }
@@ -301,7 +301,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48166e;
+        public final /* synthetic */ PaymentConfirmActivity f46368e;
 
         public g(PaymentConfirmActivity paymentConfirmActivity) {
             Interceptable interceptable = $ic;
@@ -318,21 +318,21 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48166e = paymentConfirmActivity;
+            this.f46368e = paymentConfirmActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f48166e.mPasswordFreeze) {
-                    this.f48166e.showPasswordInputDialog(0, null);
-                } else if (this.f48166e.scoresEnough) {
+                if (this.f46368e.mPasswordFreeze) {
+                    this.f46368e.showPasswordInputDialog(0, null);
+                } else if (this.f46368e.scoresEnough) {
                     c.a.t0.r2.d.a("c10292");
-                    this.f48166e.goToPayment();
+                    this.f46368e.goToPayment();
                 } else {
                     c.a.t0.r2.d.a("c10293");
-                    this.f48166e.goToBuyTdouActivity();
+                    this.f46368e.goToBuyTdouActivity();
                 }
             }
         }
@@ -454,7 +454,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                         } else {
                             string = this.a.getString(R.string.exchange_success);
                         }
-                        new c.a.s0.s.i0.c().c(string);
+                        new c.a.s0.s.j0.c().c(string);
                         if (!TextUtils.isEmpty(this.a.mBookId)) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001419));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001420, this.a.mBookId));
@@ -503,7 +503,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                                 return;
                             }
                         }
-                        c.a.s0.s.i0.c cVar = new c.a.s0.s.i0.c();
+                        c.a.s0.s.j0.c cVar = new c.a.s0.s.j0.c();
                         String errorString = responsePaymentPayMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
                             errorString = this.a.getResources().getString(R.string.plugin_pay_error);
@@ -609,7 +609,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48167e;
+        public final /* synthetic */ PaymentConfirmActivity f46369e;
 
         public l(PaymentConfirmActivity paymentConfirmActivity) {
             Interceptable interceptable = $ic;
@@ -626,7 +626,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48167e = paymentConfirmActivity;
+            this.f46369e = paymentConfirmActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -644,10 +644,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48168e;
+        public final /* synthetic */ String f46370e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48169f;
+        public final /* synthetic */ PaymentConfirmActivity f46371f;
 
         public m(PaymentConfirmActivity paymentConfirmActivity, String str) {
             Interceptable interceptable = $ic;
@@ -664,8 +664,8 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48169f = paymentConfirmActivity;
-            this.f48168e = str;
+            this.f46371f = paymentConfirmActivity;
+            this.f46370e = str;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -673,11 +673,11 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                String j2 = this.f48169f.mPaymentConfirmView.j();
+                String j2 = this.f46371f.mPaymentConfirmView.j();
                 if (StringUtils.isNull(j2)) {
                     return;
                 }
-                this.f48169f.goToPayment(this.f48168e, j2, null, null, null, false);
+                this.f46371f.goToPayment(this.f46370e, j2, null, null, null, false);
             }
         }
     }
@@ -688,10 +688,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f48170e;
+        public final /* synthetic */ c.a.s0.s.s.a f46372e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f48171f;
+        public final /* synthetic */ PaymentConfirmActivity f46373f;
 
         public n(PaymentConfirmActivity paymentConfirmActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -708,15 +708,15 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f48171f = paymentConfirmActivity;
-            this.f48170e = aVar;
+            this.f46373f = paymentConfirmActivity;
+            this.f46372e = aVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f48170e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
+                this.f46372e.setYesBtnClickable(!StringUtils.isNull(editable.toString()));
             }
         }
 
@@ -861,17 +861,17 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     goToBuyTdouActivity();
                     return true;
                 }
-                if (cpath.getTip_exist() == 1 && !c.a.s0.s.g0.b.j().g(generateSharedPkey("payment_confirm_show"), true)) {
-                    int k2 = c.a.s0.s.g0.b.j().k(generateSharedPkey("payment_confirm_notshow_count"), 0);
-                    if (k2 < cpath.getTip_days()) {
-                        c.a.s0.s.g0.b.j().v(generateSharedPkey("payment_confirm_notshow_count"), k2 + 1);
+                if (cpath.getTip_exist() == 1 && !c.a.s0.s.h0.b.k().h(generateSharedPkey("payment_confirm_show"), true)) {
+                    int l2 = c.a.s0.s.h0.b.k().l(generateSharedPkey("payment_confirm_notshow_count"), 0);
+                    if (l2 < cpath.getTip_days()) {
+                        c.a.s0.s.h0.b.k().w(generateSharedPkey("payment_confirm_notshow_count"), l2 + 1);
                         if (z) {
                             goToPayment();
                             return true;
                         }
                         goToBuyTdouActivity();
                         return true;
-                    } else if (k2 != 0) {
+                    } else if (l2 != 0) {
                         this.mPaymentConfirmView.k().setChecked(false);
                     }
                 }
@@ -904,7 +904,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, this) == null) {
             this.mPaymentConfirmView = new c.a.t0.r2.c(this, this.mBookType == 2, this.currency);
-            this.mPaymentConfirmView.k().setChecked(!c.a.s0.s.g0.b.j().g(generateSharedPkey("payment_confirm_show"), true));
+            this.mPaymentConfirmView.k().setChecked(!c.a.s0.s.h0.b.k().h(generateSharedPkey("payment_confirm_show"), true));
             this.mPaymentConfirmView.k().setOnCheckedChangeListener(new f(this));
             this.mPaymentConfirmView.o().setOnClickListener(new g(this));
         }

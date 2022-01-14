@@ -23,10 +23,8 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MultiImgLayout f4314j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.s0.s.q.a f4315k;
+    public MultiImgLayout f4228j;
+    public c.a.s0.s.q.a k;
     public int l;
     public String m;
 
@@ -55,14 +53,14 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0186a c0186a) {
+        public boolean a(a.C0195a c0195a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0186a)) == null) {
-                if (this.a.f4315k != null && this.a.f4315k.getThreadData() != null) {
-                    c.a.t0.g0.m.a(this.a.f4315k.getThreadData().g0());
-                    c.a.t0.g0.m.l(this.a.f4314j.mTitle, this.a.f4315k.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.t0.g0.m.l(this.a.f4314j.mAbstract, this.a.f4315k.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0195a)) == null) {
+                if (this.a.k != null && this.a.k.getThreadData() != null) {
+                    c.a.t0.g0.m.a(this.a.k.getThreadData().g0());
+                    c.a.t0.g0.m.l(this.a.f4228j.mTitle, this.a.k.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.t0.g0.m.l(this.a.f4228j.mAbstract, this.a.k.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -89,10 +87,10 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
             }
         }
         this.l = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13749g instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13749g.getParent() == null) {
-            this.f4314j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13749g;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13439g instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13439g.getParent() == null) {
+            this.f4228j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13439g;
         } else {
-            this.f4314j = new MultiImgLayout(context);
+            this.f4228j = new MultiImgLayout(context);
         }
     }
 
@@ -100,7 +98,7 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4314j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4228j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -115,7 +113,7 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
     public void k(c.a.t0.g0.d0<c.a.s0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
-            this.f4314j.setSubClickListener(d0Var);
+            this.f4228j.setSubClickListener(d0Var);
         }
     }
 
@@ -125,7 +123,7 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.l != i2) {
                 SkinManager.setBackgroundResource(f(), R.drawable.addresslist_item_bg);
-                this.f4314j.mImageGroup.onChangeSkinType();
+                this.f4228j.mImageGroup.onChangeSkinType();
             }
             this.l = i2;
         }
@@ -137,16 +135,16 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f4315k = aVar;
-            this.f4314j.setFrom(this.m);
-            this.f4314j.onBindDataToView(aVar);
+            this.k = aVar;
+            this.f4228j.setFrom(this.m);
+            this.f4228j.onBindDataToView(aVar);
         }
     }
 
     public void q(c.a.d.f.k.b<TbImageView> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.f4314j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.f4228j) == null) {
             return;
         }
         multiImgLayout.setConstrainImagePool(bVar);
@@ -155,7 +153,7 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
     public void r(c.a.d.f.k.b<ConstrainImageLayout> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.f4314j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.f4228j) == null) {
             return;
         }
         multiImgLayout.setConstrainLayoutPool(bVar);
@@ -171,21 +169,21 @@ public class w extends c.a.l.a<c.a.s0.s.q.a> {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f4314j.setFromCDN(z);
+            this.f4228j.setFromCDN(z);
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f4314j.setNeedFrsTabName(z);
+            this.f4228j.setNeedFrsTabName(z);
         }
     }
 
     public void v(c.a.d.n.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f4314j.setPreloadSizeReadyCallback(bVar);
+            this.f4228j.setPreloadSizeReadyCallback(bVar);
         }
     }
 }

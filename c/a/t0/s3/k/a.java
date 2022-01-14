@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import c.a.s0.s.q.a2;
+import c.a.s0.s.q.b2;
 import c.a.s0.s.w.b.d;
 import c.a.s0.s.w.b.e;
 import c.a.t0.s3.j.g;
@@ -36,28 +36,28 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashSet<String> f24275e;
+    public HashSet<String> f23595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<g> f24276f;
+    public ArrayList<g> f23596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CoverFlowView<g> f24277g;
+    public CoverFlowView<g> f23597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d<g> f24278h;
+    public d<g> f23598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f24279i;
+    public TbPageContext<?> f23599i;
 
     /* renamed from: c.a.t0.s3.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1423a implements d<g> {
+    public class C1438a implements d<g> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1423a(a aVar) {
+        public C1438a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,12 +80,12 @@ public class a extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i2));
-                g gVar = (g) ListUtils.getItem(this.a.f24276f, i2);
+                g gVar = (g) ListUtils.getItem(this.a.f23596f, i2);
                 String c2 = gVar != null ? gVar.c() : null;
-                if (UrlManager.getInstance().dealOneLink(this.a.f24279i, new String[]{str, null, makeStatisticsParam}) && i2 == 2 && !TextUtils.isEmpty(c2)) {
-                    TiebaStatic.eventStat(this.a.f24279i.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(c2), "obj_name", String.valueOf(c2), "obj_cpid", 0, TiebaStatic.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), UrlOcrConfig.IdCardKey.OS, "android", HttpConstants.OS_VERSION, Build.VERSION.RELEASE, "log_ver", "1.1");
+                if (UrlManager.getInstance().dealOneLink(this.a.f23599i, new String[]{str, null, makeStatisticsParam}) && i2 == 2 && !TextUtils.isEmpty(c2)) {
+                    TiebaStatic.eventStat(this.a.f23599i.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(c2), "obj_name", String.valueOf(c2), "obj_cpid", 0, TiebaStatic.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), UrlOcrConfig.IdCardKey.OS, "android", HttpConstants.OS_VERSION, Build.VERSION.RELEASE, "log_ver", "1.1");
                 }
-                Activity pageActivity = this.a.f24279i.getPageActivity();
+                Activity pageActivity = this.a.f23599i.getPageActivity();
                 TiebaStatic.eventStat(pageActivity, "square_banner_picture", "click", 1, "loc", (i2 - 1) + "");
             }
         }
@@ -99,7 +99,7 @@ public class a extends BaseAdapter {
                 return;
             }
             String c2 = gVar.c();
-            if (i2 == 2 && !TextUtils.isEmpty(c2) && this.a.f24275e.add(c2)) {
+            if (i2 == 2 && !TextUtils.isEmpty(c2) && this.a.f23595e.add(c2)) {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(c2), "obj_name", String.valueOf(c2), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), UrlOcrConfig.IdCardKey.OS, "android", HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
             }
         }
@@ -173,44 +173,44 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f24275e = new HashSet<>();
-        this.f24276f = new ArrayList<>();
-        this.f24277g = null;
-        this.f24278h = new C1423a(this);
-        this.f24279i = tbPageContext;
-        this.f24277g = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.f24277g.setCoverFlowFactory(new b(this, tbPageContext));
-        this.f24277g.setCallback(this.f24278h);
+        this.f23595e = new HashSet<>();
+        this.f23596f = new ArrayList<>();
+        this.f23597g = null;
+        this.f23598h = new C1438a(this);
+        this.f23599i = tbPageContext;
+        this.f23597g = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.f23597g.setCoverFlowFactory(new b(this, tbPageContext));
+        this.f23597g.setCallback(this.f23598h);
     }
 
     public CoverFlowView<g> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24277g : (CoverFlowView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23597g : (CoverFlowView) invokeV.objValue;
     }
 
     public void e(int i2) {
         CoverFlowView<g> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (coverFlowView = this.f24277g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (coverFlowView = this.f23597g) == null) {
             return;
         }
         coverFlowView.onChangeSkinType();
     }
 
-    public void f(ArrayList<a2> arrayList) {
+    public void f(ArrayList<b2> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             ArrayList<g> arrayList2 = new ArrayList<>();
-            Iterator<a2> it = arrayList.iterator();
+            Iterator<b2> it = arrayList.iterator();
             while (it.hasNext()) {
-                a2 next = it.next();
+                b2 next = it.next();
                 if (next != null) {
                     arrayList2.add(new g(next));
                 }
             }
-            this.f24276f = arrayList2;
-            this.f24277g.setData(arrayList2);
+            this.f23596f = arrayList2;
+            this.f23597g.setData(arrayList2);
             notifyDataSetChanged();
         }
     }
@@ -220,7 +220,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<g> arrayList = this.f24276f;
+            ArrayList<g> arrayList = this.f23596f;
             return (arrayList != null ? arrayList.size() + 0 : 0) > 0 ? 1 : 0;
         }
         return invokeV.intValue;
@@ -244,6 +244,6 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) ? this.f24277g : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) ? this.f23597g : (View) invokeILL.objValue;
     }
 }

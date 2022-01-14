@@ -30,25 +30,23 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18156e;
+    public Context f17715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.f2.h.e.g f18157f;
+    public c.a.t0.f2.h.e.g f17716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f18158g;
+    public View.OnClickListener f17717g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f18159h;
+    public View.OnClickListener f17718h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f18160i;
+    public View.OnClickListener f17719i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f18161j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.t0.f2.h.f.a<Integer> f18162k;
+    public View.OnClickListener f17720j;
+    public c.a.t0.f2.h.f.a<Integer> k;
     public c.a.t0.f2.h.f.a<Void> l;
 
     /* loaded from: classes7.dex */
@@ -57,7 +55,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18163e;
+        public final /* synthetic */ b f17721e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -74,7 +72,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f18163e = bVar;
+            this.f17721e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -82,7 +80,7 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TailManagementActivityConfig tailManagementActivityConfig = new TailManagementActivityConfig(view.getContext());
-                tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(this.f18163e.f18157f.i()));
+                tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(this.f17721e.f17716f.i()));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tailManagementActivityConfig));
             }
         }
@@ -90,14 +88,14 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.t0.f2.h.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1097b implements View.OnClickListener {
+    public class View$OnClickListenerC1111b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18164e;
+        public final /* synthetic */ b f17722e;
 
-        public View$OnClickListenerC1097b(b bVar) {
+        public View$OnClickListenerC1111b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,14 +110,14 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f18164e = bVar;
+            this.f17722e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f18164e.f18156e, 1, false, 6);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f17722e.f17715e, 1, false, 6);
                 memberPayActivityConfig.setSceneId("4009001001");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -133,7 +131,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18165e;
+        public final /* synthetic */ b f17723e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -150,7 +148,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f18165e = bVar;
+            this.f17723e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -159,13 +157,13 @@ public class b extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getTag() == null) {
                 return;
             }
-            if (!this.f18165e.f18157f.g()) {
-                b bVar = this.f18165e;
-                bVar.i(bVar.f18156e.getString(R.string.become_member_to_use));
+            if (!this.f17723e.f17716f.g()) {
+                b bVar = this.f17723e;
+                bVar.i(bVar.f17715e.getString(R.string.become_member_to_use));
                 return;
             }
             TailData b2 = ((c.a.t0.f2.h.e.e) view.getTag()).b();
-            this.f18165e.f18157f.o(b2.getId(), !b2.isSelected());
+            this.f17723e.f17716f.o(b2.getId(), !b2.isSelected());
         }
     }
 
@@ -175,7 +173,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18166e;
+        public final /* synthetic */ b f17724e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -192,7 +190,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f18166e = bVar;
+            this.f17724e = bVar;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -200,7 +198,7 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f18166e.f18156e, 1, false, 6);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f17724e.f17715e, 1, false, 6);
                 memberPayActivityConfig.setSceneId("4009001001");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -269,9 +267,9 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
                 if (z) {
-                    n.M(this.a.f18156e, str);
-                } else if (num != null && this.a.f18157f.i() != null && this.a.f18157f.i().size() != 0) {
-                    for (TailData tailData : this.a.f18157f.i()) {
+                    n.N(this.a.f17715e, str);
+                } else if (num != null && this.a.f17716f.i() != null && this.a.f17716f.i().size() != 0) {
+                    for (TailData tailData : this.a.f17716f.i()) {
                         if (tailData.getId() == num.intValue()) {
                             tailData.setSelected(!tailData.isSelected());
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(tailData.isSelected())));
@@ -316,7 +314,7 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r7}) == null) {
                 if (z) {
-                    n.M(this.a.f18156e, str);
+                    n.N(this.a.f17715e, str);
                 } else {
                     this.a.notifyDataSetChanged();
                 }
@@ -339,16 +337,16 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f18159h = new a(this);
-        this.f18160i = new View$OnClickListenerC1097b(this);
-        this.f18161j = new c(this);
-        this.f18162k = new f(this);
+        this.f17718h = new a(this);
+        this.f17719i = new View$OnClickListenerC1111b(this);
+        this.f17720j = new c(this);
+        this.k = new f(this);
         this.l = new g(this);
-        this.f18156e = context;
-        this.f18158g = onClickListener;
-        this.f18157f = gVar;
-        gVar.n(this.f18162k);
-        this.f18157f.p(this.l);
+        this.f17715e = context;
+        this.f17717g = onClickListener;
+        this.f17716f = gVar;
+        gVar.n(this.k);
+        this.f17716f.p(this.l);
     }
 
     public final View d(View view) {
@@ -360,8 +358,8 @@ public class b extends BaseAdapter {
                 cVar = (c.a.t0.f2.h.e.c) view.getTag();
             } else {
                 cVar = new c.a.t0.f2.h.e.c();
-                view = cVar.a(this.f18156e);
-                cVar.c(this.f18158g);
+                view = cVar.a(this.f17715e);
+                cVar.c(this.f17717g);
                 cVar.b();
             }
             cVar.d(3);
@@ -376,8 +374,8 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
             if (view == null || !(view.getTag() instanceof c.a.t0.f2.h.e.d)) {
                 c.a.t0.f2.h.e.d dVar = new c.a.t0.f2.h.e.d();
-                View a2 = dVar.a(this.f18156e);
-                dVar.c(this.f18159h);
+                View a2 = dVar.a(this.f17715e);
+                dVar.c(this.f17718h);
                 dVar.b();
                 return a2;
             }
@@ -393,10 +391,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 >= this.f18157f.i().size()) {
+            if (i2 >= this.f17716f.i().size()) {
                 return null;
             }
-            return this.f18157f.i().get(i2);
+            return this.f17716f.i().get(i2);
         }
         return (TailData) invokeI.objValue;
     }
@@ -413,8 +411,8 @@ public class b extends BaseAdapter {
                 eVar = (c.a.t0.f2.h.e.e) view.getTag();
             } else {
                 eVar = new c.a.t0.f2.h.e.e();
-                view = eVar.a(this.f18156e);
-                eVar.e(this.f18161j);
+                view = eVar.a(this.f17715e);
+                eVar.e(this.f17720j);
                 eVar.c();
             }
             eVar.f(tailData);
@@ -428,7 +426,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18157f.i().size() + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17716f.i().size() + 1 : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -443,10 +441,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (this.f18157f.i().size() == 0) {
+            if (this.f17716f.i().size() == 0) {
                 return 2;
             }
-            return i2 == this.f18157f.i().size() ? 1 : 0;
+            return i2 == this.f17716f.i().size() ? 1 : 0;
         }
         return invokeI.intValue;
     }
@@ -489,8 +487,8 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view)) == null) {
             if (view == null || !(view.getTag() instanceof c.a.t0.f2.h.e.f)) {
                 c.a.t0.f2.h.e.f fVar = new c.a.t0.f2.h.e.f();
-                View a2 = fVar.a(this.f18156e);
-                fVar.c(this.f18160i);
+                View a2 = fVar.a(this.f17715e);
+                fVar.c(this.f17719i);
                 fVar.b();
                 return a2;
             }
@@ -503,11 +501,11 @@ public class b extends BaseAdapter {
     public final void i(String str) {
         c.a.d.a.f<?> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (a2 = j.a(this.f18156e)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (a2 = j.a(this.f17715e)) == null) {
             return;
         }
         c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(a2.getPageActivity());
         aVar.setButtonTextColor(R.color.CAM_X0305);
-        aVar.setMessage(str).setNegativeButton(this.f18156e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f18156e.getString(R.string.open_now), new d(this)).create(a2).show();
+        aVar.setMessage(str).setNegativeButton(this.f17715e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f17715e.getString(R.string.open_now), new d(this)).create(a2).show();
     }
 }

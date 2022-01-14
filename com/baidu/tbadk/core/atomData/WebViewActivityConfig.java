@@ -33,6 +33,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_LOAD_BY_WEB_CLIENT = "tag_load_by_web_client";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
     public static final String TAG_NEED_STYLE_IMMERSIVE_STICKY = "tag_style_immersive_sticky";
+    public static final String TAG_NO_CLOSE = "tag_no_close";
     public static final String TAG_NO_MENU = "tag_nomenu";
     public static final String TAG_NO_SHARE = "tag_noshare";
     public static final String TAG_PAGE_TRANSLUCENT = "tag_page_translucent";
@@ -97,7 +98,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                n.M(getContext(), getContext().getString(R.string.web_view_corrupted));
+                n.N(getContext(), getContext().getString(R.string.web_view_corrupted));
                 return false;
             }
             return true;
@@ -137,9 +138,17 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z);
     }
 
-    public void setNoMenu(boolean z) {
+    public void setNoClose(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra(TAG_NO_CLOSE, z);
+    }
+
+    public void setNoMenu(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_NO_MENU, z);
@@ -147,7 +156,7 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setNoShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_NO_SHARE, z);
@@ -155,7 +164,7 @@ public class WebViewActivityConfig extends IntentConfig {
 
     public void setPageTranslucent(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);

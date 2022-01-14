@@ -100,7 +100,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                n.L(this, i.net_error);
+                n.M(this, i.net_error);
                 finish();
                 return;
             }
@@ -169,7 +169,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -192,15 +192,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            DanmuProgressManager.f50775b.a().b();
+            DanmuProgressManager.f48848b.a().b();
             a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();
             }
-            if (d.i0()) {
+            if (d.k0()) {
                 c.a.t0.e1.a.i().d("6061002332-203360688");
             }
-            if (d.j0()) {
+            if (d.l0()) {
                 c.a.t0.e1.a.i().c("6061002410-390177882");
             }
         }

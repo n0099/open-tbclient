@@ -41,13 +41,13 @@ public class n0 {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f10227b;
+    public static DisplayMetrics f10003b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DisplayMetrics f10228c;
+    public static final DisplayMetrics f10004c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float f10229d;
+    public static final float f10005d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,13 +65,13 @@ public class n0 {
         }
         a = c.a.r0.a.k.a;
         DisplayMetrics displayMetrics = c.a.r0.a.c1.a.c().getResources().getDisplayMetrics();
-        f10228c = displayMetrics;
-        f10229d = displayMetrics.density;
+        f10004c = displayMetrics;
+        f10005d = displayMetrics.density;
     }
 
     public static void A(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f10227b == null) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f10003b == null) {
             Application c2 = c.a.r0.a.c1.a.c();
             if (c2 != null) {
                 context = c2;
@@ -79,7 +79,7 @@ public class n0 {
             if (context == null) {
                 return;
             }
-            f10227b = context.getResources().getDisplayMetrics();
+            f10003b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -154,7 +154,7 @@ public class n0 {
     public static boolean H(@NonNull c.a.r0.a.d2.n.g gVar, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, gVar, context)) == null) ? c.a.r0.a.a3.d.b.f5309i && (TextUtils.equals(gVar.f5707j, "custom") || !f0.h(context)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, gVar, context)) == null) ? c.a.r0.a.a3.d.b.f5199i && (TextUtils.equals(gVar.f5582j, "custom") || !f0.h(context)) : invokeLL.booleanValue;
     }
 
     public static boolean I(ActivityManager.RunningAppProcessInfo runningAppProcessInfo, boolean z) {
@@ -268,14 +268,14 @@ public class n0 {
 
     public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && activity != null && c.a.r0.a.a3.d.b.f5309i) {
+        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && activity != null && c.a.r0.a.a3.d.b.f5199i) {
             new c.a.r0.a.a3.d.b(activity).n(-1, false, true, true);
         }
     }
 
     public static void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65556, null, activity) == null) && activity != null && c.a.r0.a.a3.d.b.f5309i) {
+        if ((interceptable == null || interceptable.invokeL(65556, null, activity) == null) && activity != null && c.a.r0.a.a3.d.b.f5199i) {
             new c.a.r0.a.a3.d.b(activity).n(-1, true, false, true);
         }
     }
@@ -398,7 +398,7 @@ public class n0 {
                     z4 = false;
                 }
                 z = q0.E(b2);
-                z2 = e6.f5703f;
+                z2 = e6.f5578f;
             } else {
                 z = false;
                 z2 = false;
@@ -512,7 +512,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             A(c.a.r0.a.c1.a.c());
-            DisplayMetrics displayMetrics = f10227b;
+            DisplayMetrics displayMetrics = f10003b;
             if (displayMetrics != null) {
                 return displayMetrics.density;
             }
@@ -526,7 +526,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             A(c.a.r0.a.c1.a.c());
-            DisplayMetrics displayMetrics = f10227b;
+            DisplayMetrics displayMetrics = f10003b;
             if (displayMetrics != null) {
                 return displayMetrics.densityDpi;
             }
@@ -540,7 +540,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             A(c.a.r0.a.c1.a.c());
-            DisplayMetrics displayMetrics = f10227b;
+            DisplayMetrics displayMetrics = f10003b;
             if (displayMetrics != null) {
                 return displayMetrics.heightPixels;
             }
@@ -554,7 +554,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             A(c.a.r0.a.c1.a.c());
-            DisplayMetrics displayMetrics = f10227b;
+            DisplayMetrics displayMetrics = f10003b;
             if (displayMetrics != null) {
                 return displayMetrics.widthPixels;
             }
@@ -631,7 +631,7 @@ public class n0 {
                 } catch (Exception unused) {
                 }
             }
-            return i2 == 0 ? (int) (f10229d * 25.0f) : i2;
+            return i2 == 0 ? (int) (f10005d * 25.0f) : i2;
         }
         return invokeV.intValue;
     }
@@ -647,7 +647,7 @@ public class n0 {
             }
             int n = n(context);
             int t = t();
-            int k2 = k(context);
+            int k = k(context);
             try {
                 i2 = context.getResources().getDimensionPixelSize(c.a.r0.a.d.aiapps_normal_base_action_bar_height);
             } catch (Resources.NotFoundException e2) {
@@ -673,7 +673,7 @@ public class n0 {
                 z2 = (C1 == null || !C1.i()) ? false : false;
                 z = true;
             }
-            int i3 = n - k2;
+            int i3 = n - k;
             if (!z2) {
                 i3 -= t;
             }

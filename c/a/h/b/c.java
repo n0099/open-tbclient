@@ -36,12 +36,12 @@ public class c extends m {
                 return;
             }
         }
-        this.f14531d = R.drawable.icon_pure_post_voice_n_svg;
-        this.f14532e = R.drawable.icon_mask_post_voice24_selection_svg;
-        this.f14534g = true;
+        this.f14191d = R.drawable.icon_pure_post_voice_n_svg;
+        this.f14192e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.f14194g = true;
         this.l = 6;
         this.m = true;
-        this.f14538k = VoiceRecordButton.instance(context);
+        this.k = VoiceRecordButton.instance(context);
         this.n = new int[]{1, 9};
     }
 

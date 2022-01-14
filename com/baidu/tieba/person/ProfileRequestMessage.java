@@ -73,10 +73,10 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.has_plist = get_has_plist();
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
-                int k2 = n.k(TbadkCoreApplication.getInst().getApp());
+                int k = n.k(TbadkCoreApplication.getInst().getApp());
                 int i2 = n.i(TbadkCoreApplication.getInst().getApp());
                 int e2 = k.c().e();
-                builder.scr_w = Integer.valueOf(k2);
+                builder.scr_w = Integer.valueOf(k);
                 builder.scr_h = Integer.valueOf(i2);
                 builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e2);

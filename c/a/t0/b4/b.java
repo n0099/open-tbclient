@@ -14,12 +14,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f15624c;
+    public static b f15232c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15625b;
+    public boolean f15233b;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        this.f15625b = false;
+        this.f15233b = false;
         this.a = c();
     }
 
@@ -47,14 +47,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f15624c == null) {
+            if (f15232c == null) {
                 synchronized (b.class) {
-                    if (f15624c == null) {
-                        f15624c = new b();
+                    if (f15232c == null) {
+                        f15232c = new b();
                     }
                 }
             }
-            return f15624c;
+            return f15232c;
         }
         return (b) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class b {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.s0.s.g0.b.j().k("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     public final a c() {
@@ -81,10 +81,10 @@ public class b {
     public void d(Application application) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.f15625b || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.f15233b || (aVar = this.a) == null) {
             return;
         }
         aVar.a(application);
-        this.f15625b = true;
+        this.f15233b = true;
     }
 }

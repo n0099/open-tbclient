@@ -11,7 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntime;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.view.MessageRedDotView;
@@ -34,7 +34,7 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
     public MessageRedDotView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f46920b;
+    public CustomMessageListener f45182b;
 
     /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
@@ -181,7 +181,7 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
             Intent intent = new Intent();
             intent.setAction("launcher.action.CHANGE_APPLICATION_NOTIFICATION_NUM");
             intent.putExtra("packageName", "com.baidu.tieba");
-            intent.putExtra(PushClientConstants.TAG_CLASS_NAME, SpeedRuntime.SPLASH_ACTIVITY_NAME);
+            intent.putExtra(PushClientConstants.TAG_CLASS_NAME, SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
             intent.putExtra("notificationNum", i2);
             intent.addFlags(16777216);
             context.sendBroadcast(intent);
@@ -195,11 +195,11 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = new c();
             cVar.a = new MessageCenterFragment();
-            cVar.f13111e = 3;
-            cVar.f13108b = R.string.my_message;
-            cVar.f13112f = R.raw.lottie_tab_msg;
-            cVar.f13115i = c.l;
-            cVar.f13114h = c.a.s0.i0.e.c.d().c("message");
+            cVar.f12789e = 3;
+            cVar.f12786b = R.string.my_message;
+            cVar.f12790f = R.raw.lottie_tab_msg;
+            cVar.f12793i = c.l;
+            cVar.f12792h = c.a.s0.i0.e.c.d().c("message");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -214,9 +214,9 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f42537f = tbFragmentTabIndicator;
+            aVar.f41044f = tbFragmentTabIndicator;
             aVar.a = this.a;
-            aVar.f42533b = true;
+            aVar.f41040b = true;
             tbFragmentTabIndicator.addTipWrapContent("msg", aVar);
             this.a.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
@@ -238,8 +238,8 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f46920b = new b(this, 2921002);
-            MessageManager.getInstance().registerListener(this.f46920b);
+            this.f45182b = new b(this, 2921002);
+            MessageManager.getInstance().registerListener(this.f45182b);
         }
     }
 
@@ -248,7 +248,7 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f46920b);
+            MessageManager.getInstance().unRegisterListener(this.f45182b);
         }
     }
 }

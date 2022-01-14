@@ -19,14 +19,14 @@ public class e extends c.a.r0.a.j1.c.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11091f;
+    public static final boolean f10845f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public EventTargetImpl f11092d;
+    public EventTargetImpl f10846d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11093e;
+    public b f10847e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class e extends c.a.r0.a.j1.c.f.a {
                 return;
             }
         }
-        f11091f = k.a;
+        f10845f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,24 +63,24 @@ public class e extends c.a.r0.a.j1.c.f.a {
                 return;
             }
         }
-        this.f11092d = eventTargetImpl;
+        this.f10846d = eventTargetImpl;
     }
 
     @Override // c.a.r0.a.j1.c.f.a
     public void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            String optString = this.f7488b.optString(str);
-            b bVar = this.f11093e;
+            String optString = this.f7323b.optString(str);
+            b bVar = this.f10847e;
             if (bVar != null) {
                 bVar.p(optString, jSONObject);
             }
-            if (this.f11092d.hasEventListener(optString)) {
+            if (this.f10846d.hasEventListener(optString)) {
                 JSEvent jSEvent = new JSEvent(optString);
                 if (jSONObject != null) {
                     jSEvent.data = jSONObject;
                 }
-                if (f11091f && !"onTimeUpdate".equals(str)) {
+                if (f10845f && !"onTimeUpdate".equals(str)) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("type = ");
                     sb.append(str);
@@ -88,7 +88,7 @@ public class e extends c.a.r0.a.j1.c.f.a {
                     sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
                     sb.toString();
                 }
-                this.f11092d.dispatchEvent(jSEvent);
+                this.f10846d.dispatchEvent(jSEvent);
             }
         }
     }
@@ -106,7 +106,7 @@ public class e extends c.a.r0.a.j1.c.f.a {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f11093e = bVar;
+            this.f10847e = bVar;
         }
     }
 }

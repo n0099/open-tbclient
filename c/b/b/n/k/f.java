@@ -18,10 +18,10 @@ public class f extends n<e, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27984b;
+    public a f27141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.badlogic.gdx.math.a f27985c;
+    public com.badlogic.gdx.math.a f27142c;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<e> {
@@ -29,13 +29,13 @@ public class f extends n<e, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27986b;
+        public String f27143b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27987c;
+        public int f27144c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f27988d;
+        public String[] f27145d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class f extends n<e, a> {
                     return;
                 }
             }
-            this.f27986b = "i ";
-            this.f27987c = 1024;
-            this.f27988d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
+            this.f27143b = "i ";
+            this.f27144c = 1024;
+            this.f27145d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
         }
     }
 
@@ -74,8 +74,8 @@ public class f extends n<e, a> {
                 return;
             }
         }
-        this.f27984b = new a();
-        this.f27985c = new com.badlogic.gdx.math.a();
+        this.f27141b = new a();
+        this.f27142c = new com.badlogic.gdx.math.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class f extends n<e, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar, aVar2)) == null) {
             if (aVar2 == null) {
-                aVar2 = this.f27984b;
+                aVar2 = this.f27141b;
             }
             try {
-                BufferedReader q = aVar.q(aVar2.f27987c);
+                BufferedReader q = aVar.q(aVar2.f27144c);
                 while (true) {
                     String readLine = q.readLine();
                     if (readLine != null) {
-                        if (readLine.startsWith(aVar2.f27986b)) {
-                            str2 = readLine.substring(aVar2.f27986b.length());
+                        if (readLine.startsWith(aVar2.f27143b)) {
+                            str2 = readLine.substring(aVar2.f27143b.length());
                             break;
                         }
                     } else {
@@ -105,7 +105,7 @@ public class f extends n<e, a> {
                     }
                 }
                 q.close();
-                if (str2 == null && (strArr = aVar2.f27988d) != null) {
+                if (str2 == null && (strArr = aVar2.f27145d) != null) {
                     for (String str3 : strArr) {
                         c.b.b.m.a s = aVar.s(aVar.h().concat("." + str3));
                         if (s.c()) {
@@ -162,7 +162,7 @@ public class f extends n<e, a> {
             for (int i2 = 0; i2 < length; i2++) {
                 fArr[i2] = Float.parseFloat(split[i2]);
             }
-            return new e(iVar, fArr, this.f27985c.c(fArr).f());
+            return new e(iVar, fArr, this.f27142c.c(fArr).f());
         }
         return (e) invokeLL.objValue;
     }

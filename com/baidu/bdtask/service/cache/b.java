@@ -27,18 +27,18 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f34055d;
+    public static final b f32969d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f34056e;
+    public static final a f32970e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.m.d.a<Function0<Unit>> f34057b;
+    public final c.a.j.m.d.a<Function0<Unit>> f32971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34058c;
+    public String f32972c;
 
     /* loaded from: classes10.dex */
     public static final class a {
@@ -62,7 +62,7 @@ public final class b {
         public final b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f34055d : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f32969d : (b) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -72,14 +72,14 @@ public final class b {
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class RunnableC1770b implements Runnable {
+    public static final class RunnableC1786b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f34059e;
+        public final /* synthetic */ b f32973e;
 
-        public RunnableC1770b(b bVar) {
+        public RunnableC1786b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,14 +94,14 @@ public final class b {
                     return;
                 }
             }
-            this.f34059e = bVar;
+            this.f32973e = bVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Function0 function0;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34059e.f34057b.c() || (function0 = (Function0) this.f34059e.f34057b.a()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f32973e.f32971b.c() || (function0 = (Function0) this.f32973e.f32971b.a()) == null) {
                 return;
             }
             function0.invoke();
@@ -121,8 +121,8 @@ public final class b {
                 return;
             }
         }
-        f34056e = new a(null);
-        f34055d = new b();
+        f32970e = new a(null);
+        f32969d = new b();
     }
 
     public b() {
@@ -139,15 +139,15 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.f34057b = new c.a.j.m.d.b();
-        this.f34058c = "";
+        this.f32971b = new c.a.j.m.d.b();
+        this.f32972c = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = c.a.j.h.b.b.f3958c.c().a(this.a);
+            String a2 = c.a.j.h.b.b.f3896c.c().a(this.a);
             return a2 != null ? a2 : "";
         }
         return (String) invokeV.objValue;
@@ -170,9 +170,9 @@ public final class b {
                     return;
                 }
             }
-            this.f34057b.b();
-            this.f34057b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
-            ExecutorUtilsExt.postOnSerial(new RunnableC1770b(this), "storageSync");
+            this.f32971b.b();
+            this.f32971b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
+            ExecutorUtilsExt.postOnSerial(new RunnableC1786b(this), "storageSync");
         }
     }
 

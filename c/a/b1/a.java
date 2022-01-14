@@ -15,19 +15,19 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1708b;
+    public boolean f1688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1709c;
+    public String f1689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1710d;
+    public String f1690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1711e;
+    public String f1691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1712f;
+    public int f1692f;
 
     public a(boolean z, boolean z2, String str, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class a {
             }
         }
         this.a = z;
-        this.f1708b = z2;
-        this.f1709c = str;
-        this.f1710d = str2;
-        this.f1711e = str3;
-        this.f1712f = i2;
+        this.f1688b = z2;
+        this.f1689c = str;
+        this.f1690d = str2;
+        this.f1691e = str3;
+        this.f1692f = i2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f1709c)) {
-                return this.f1709c;
+            if (TextUtils.isEmpty(this.f1689c)) {
+                return this.f1689c;
             }
-            return new c.a.b1.e.h.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f1709c.getBytes());
+            return new c.a.b1.e.h.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f1689c.getBytes());
         }
         return (String) invokeV.objValue;
     }
@@ -68,7 +68,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "UnionIDInfo{isTrackLimited=" + this.a + ", isSupport=" + this.f1708b + ", OAID='" + this.f1709c + ExtendedMessageFormat.QUOTE + ", EncodedOAID='" + a() + ExtendedMessageFormat.QUOTE + ", AAID='" + this.f1710d + ExtendedMessageFormat.QUOTE + ", VAID='" + this.f1711e + ExtendedMessageFormat.QUOTE + ", StatusCode='" + this.f1712f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "UnionIDInfo{isTrackLimited=" + this.a + ", isSupport=" + this.f1688b + ", OAID='" + this.f1689c + ExtendedMessageFormat.QUOTE + ", EncodedOAID='" + a() + ExtendedMessageFormat.QUOTE + ", AAID='" + this.f1690d + ExtendedMessageFormat.QUOTE + ", VAID='" + this.f1691e + ExtendedMessageFormat.QUOTE + ", StatusCode='" + this.f1692f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

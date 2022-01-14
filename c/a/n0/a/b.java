@@ -13,16 +13,16 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4585c;
+    public boolean f4488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4586d;
+    public long f4489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public V8ExceptionInfo f4587e;
+    public V8ExceptionInfo f4490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4588f;
+    public int f4491f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b extends c {
                 return;
             }
         }
-        this.f4585c = false;
+        this.f4488c = false;
     }
 
     @Override // c.a.n0.a.d.c
@@ -45,11 +45,11 @@ public class b extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, v8ExceptionInfo) == null) {
             synchronized (this) {
-                if (this.f4587e == null && v8ExceptionInfo != null) {
-                    this.f4587e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-                    this.f4588f = i2;
-                    if (this.f4596b != null) {
-                        this.f4596b.a();
+                if (this.f4490e == null && v8ExceptionInfo != null) {
+                    this.f4490e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+                    this.f4491f = i2;
+                    if (this.f4499b != null) {
+                        this.f4499b.a();
                     }
                 }
             }
@@ -59,9 +59,9 @@ public class b extends c {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f4587e = null;
-            this.f4586d = 0L;
-            this.f4588f = -1;
+            this.f4490e = null;
+            this.f4489d = 0L;
+            this.f4491f = -1;
         }
     }
 
@@ -69,12 +69,12 @@ public class b extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f4585c) {
+                if (this.f4488c) {
                     return;
                 }
-                if (this.f4596b != null && this.f4586d > 0 && this.f4587e != null) {
-                    if (System.currentTimeMillis() - this.f4587e.exceptionTime > this.a && this.f4587e.exceptionTime > this.f4586d) {
-                        this.f4596b.b(new c.a.n0.a.d.b(this.f4588f, this.f4587e, this.f4586d));
+                if (this.f4499b != null && this.f4489d > 0 && this.f4490e != null) {
+                    if (System.currentTimeMillis() - this.f4490e.exceptionTime > this.a && this.f4490e.exceptionTime > this.f4489d) {
+                        this.f4499b.b(new c.a.n0.a.d.b(this.f4491f, this.f4490e, this.f4489d));
                         d();
                     }
                 }
@@ -86,10 +86,10 @@ public class b extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
             synchronized (this) {
-                this.f4585c = z;
+                this.f4488c = z;
                 if (z) {
-                    this.f4586d = j2;
-                    this.f4587e = null;
+                    this.f4489d = j2;
+                    this.f4490e = null;
                 }
             }
         }

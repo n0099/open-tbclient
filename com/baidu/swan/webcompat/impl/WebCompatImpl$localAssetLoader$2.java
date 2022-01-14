@@ -53,7 +53,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         String q2;
         WebViewAssetLoader.InternalStoragePathHandler m2;
         FilePathInfo l;
-        b k2;
+        b k;
         String q3;
         String q4;
         String q5;
@@ -68,7 +68,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);
-            q = this.this$0.q(c.f35136g);
+            q = this.this$0.q(c.f34001g);
             m = this.this$0.m();
             builder.addPathHandler(q, m);
             q2 = this.this$0.q("internal_files");
@@ -83,16 +83,16 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
                 m3 = this.this$0.m();
                 builder.addPathHandler(q7, m3);
             }
-            k2 = this.this$0.k();
-            if (k2 != null) {
+            k = this.this$0.k();
+            if (k != null) {
                 q5 = this.this$0.q("external_files");
-                builder.addPathHandler(q5, k2);
+                builder.addPathHandler(q5, k);
                 j2 = this.this$0.j();
                 if (j2 != null && (it = j2.a()) != null) {
                     WebCompatImpl webCompatImpl2 = this.this$0;
                     Intrinsics.checkNotNullExpressionValue(it, "it");
                     q6 = webCompatImpl2.q(it);
-                    builder.addPathHandler(q6, k2);
+                    builder.addPathHandler(q6, k);
                 }
             }
             q3 = this.this$0.q(AssetUriLoader.ASSET_PATH_SEGMENT);

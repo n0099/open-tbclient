@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import c.a.s0.s.q.z1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,6 +29,7 @@ public class SignData implements Serializable {
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
+    public z1 mSignStampInfoData;
     public int miss_sign_num;
     public int sign_bonus_point;
     public int sign_count;
@@ -58,6 +60,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
+        this.mSignStampInfoData = new z1();
     }
 
     public void parserJson(String str) {
@@ -98,6 +101,7 @@ public class SignData implements Serializable {
                 this.blockPopInfoData.ok_info = optJSONObject2.optString("block_cancel");
             }
             this.mContriInfo.parseJson(jSONObject.optJSONObject("contri_info"));
+            this.mSignStampInfoData.c(jSONObject.optJSONObject("icon_toast"));
         }
     }
 }

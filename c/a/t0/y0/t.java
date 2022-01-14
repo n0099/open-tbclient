@@ -39,29 +39,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static t f26536b;
+    public static t f25748b;
     public transient /* synthetic */ FieldHolder $fh;
     public GetEmotionInfosModel a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f26537b;
+        public final /* synthetic */ List f25749b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f26538c;
+        public final /* synthetic */ boolean f25750c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ t f26539d;
+        public final /* synthetic */ t f25751d;
 
         public a(t tVar, l lVar, List list, boolean z) {
             Interceptable interceptable = $ic;
@@ -78,10 +78,10 @@ public class t {
                     return;
                 }
             }
-            this.f26539d = tVar;
+            this.f25751d = tVar;
             this.a = lVar;
-            this.f26537b = list;
-            this.f26538c = z;
+            this.f25749b = list;
+            this.f25750c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,36 +103,36 @@ public class t {
                         lVar.onResult(4, 0, 0);
                         return;
                     } else {
-                        c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.save_emotion_limit);
+                        c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.save_emotion_limit);
                         return;
                     }
                 }
-                while (this.f26537b.size() + num.intValue() > 300) {
-                    List list = this.f26537b;
+                while (this.f25749b.size() + num.intValue() > 300) {
+                    List list = this.f25749b;
                     list.remove(list.size() - 1);
                 }
-                this.f26539d.i(this.f26537b, this.f26538c, this.a);
+                this.f25751d.i(this.f25749b, this.f25750c, this.a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements GetEmotionInfosModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f26540b;
+        public final /* synthetic */ Map f25752b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f26541c;
+        public final /* synthetic */ List f25753c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f26542d;
+        public final /* synthetic */ boolean f25754d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f26543e;
+        public final /* synthetic */ t f25755e;
 
         public b(t tVar, l lVar, Map map, List list, boolean z) {
             Interceptable interceptable = $ic;
@@ -149,11 +149,11 @@ public class t {
                     return;
                 }
             }
-            this.f26543e = tVar;
+            this.f25755e = tVar;
             this.a = lVar;
-            this.f26540b = map;
-            this.f26541c = list;
-            this.f26542d = z;
+            this.f25752b = map;
+            this.f25753c = list;
+            this.f25754d = z;
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
@@ -162,7 +162,7 @@ public class t {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 l lVar = this.a;
                 if (lVar == null) {
-                    c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
+                    c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                 } else {
                     lVar.onResult(4, 0, 0);
                 }
@@ -176,42 +176,42 @@ public class t {
                 if (list == null || list.isEmpty()) {
                     l lVar = this.a;
                     if (lVar == null) {
-                        c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
+                        c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                     } else {
                         lVar.onResult(4, 0, 0);
                     }
                 }
                 for (c.a.s0.d0.c cVar : list) {
                     if (!u.e().f(cVar.a)) {
-                        cVar.f12604f = (String) this.f26540b.get(cVar.f12605g);
-                        this.f26541c.add(cVar);
+                        cVar.f12309f = (String) this.f25752b.get(cVar.f12310g);
+                        this.f25753c.add(cVar);
                     }
                 }
-                this.f26543e.m(this.f26541c, this.a, this.f26542d);
+                this.f25755e.m(this.f25753c, this.a, this.f25754d);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.d0.c f26544b;
+        public final /* synthetic */ c.a.s0.d0.c f25756b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f26545c;
+        public final /* synthetic */ AtomicInteger f25757c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ l f26546d;
+        public final /* synthetic */ l f25758d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f26547e;
+        public final /* synthetic */ boolean f25759e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ t f26548f;
+        public final /* synthetic */ t f25760f;
 
         public c(t tVar, List list, c.a.s0.d0.c cVar, AtomicInteger atomicInteger, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -228,19 +228,19 @@ public class t {
                     return;
                 }
             }
-            this.f26548f = tVar;
+            this.f25760f = tVar;
             this.a = list;
-            this.f26544b = cVar;
-            this.f26545c = atomicInteger;
-            this.f26546d = lVar;
-            this.f26547e = z;
+            this.f25756b = cVar;
+            this.f25757c = atomicInteger;
+            this.f25758d = lVar;
+            this.f25759e = z;
         }
 
         @Override // c.a.t0.y0.t.j
         public void onFail() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26545c.decrementAndGet() == 0) {
-                this.f26548f.f(this.a, this.f26546d, this.f26547e);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f25757c.decrementAndGet() == 0) {
+                this.f25760f.f(this.a, this.f25758d, this.f25759e);
             }
         }
 
@@ -248,25 +248,25 @@ public class t {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.add(this.f26548f.w(this.f26544b));
-                if (this.f26545c.decrementAndGet() == 0) {
-                    this.f26548f.f(this.a, this.f26546d, this.f26547e);
+                this.a.add(this.f25760f.w(this.f25756b));
+                if (this.f25757c.decrementAndGet() == 0) {
+                    this.f25760f.f(this.a, this.f25758d, this.f25759e);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d extends BdAsyncTask<Void, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f26549b;
+        public final /* synthetic */ l f25761b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f26550c;
+        public final /* synthetic */ boolean f25762c;
 
         public d(t tVar, List list, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -284,8 +284,8 @@ public class t {
                 }
             }
             this.a = list;
-            this.f26549b = lVar;
-            this.f26550c = z;
+            this.f25761b = lVar;
+            this.f25762c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -302,23 +302,23 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                 if (bool != null && bool.booleanValue()) {
-                    l lVar = this.f26549b;
+                    l lVar = this.f25761b;
                     if (lVar == null) {
-                        c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.add_success);
+                        c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.add_success);
                     } else {
                         lVar.onResult(4, 1, 0);
                     }
                     u.e().g();
-                    if (this.f26550c) {
+                    if (this.f25762c) {
                         new UserCollectModel().w();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
                     TiebaStatic.log("c12222");
                     return;
                 }
-                l lVar2 = this.f26549b;
+                l lVar2 = this.f25761b;
                 if (lVar2 == null) {
-                    c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
+                    c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                 } else {
                     lVar2.onResult(4, 0, 0);
                 }
@@ -326,17 +326,17 @@ public class t {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e extends BdAsyncTask<Void, Void, List<Integer>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f26551b;
+        public final /* synthetic */ l f25763b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f26552c;
+        public final /* synthetic */ boolean f25764c;
 
         public e(t tVar, List list, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -354,8 +354,8 @@ public class t {
                 }
             }
             this.a = list;
-            this.f26551b = lVar;
-            this.f26552c = z;
+            this.f25763b = lVar;
+            this.f25764c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -384,7 +384,7 @@ public class t {
                 }
                 for (int i3 = 0; i3 < n.size(); i3++) {
                     CollectEmotionData collectEmotionData3 = n.get(i3);
-                    if (!c.a.s0.c0.d.f12566d.equals(collectEmotionData3.sharpText)) {
+                    if (!c.a.s0.c0.d.f12272d.equals(collectEmotionData3.sharpText)) {
                         collectEmotionData3.orderId = size;
                         c.a.t0.y0.g.k().r(collectEmotionData3);
                         size--;
@@ -406,12 +406,12 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f26551b == null || list == null || list.size() != 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f25763b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f26551b.onResult(2, list.get(0).intValue(), list.get(1).intValue());
+            this.f25763b.onResult(2, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
-                if (this.f26552c) {
+                if (this.f25764c) {
                     new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
@@ -422,17 +422,17 @@ public class t {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class f extends BdAsyncTask<Void, Void, List<Integer>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f26553b;
+        public final /* synthetic */ l f25765b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f26554c;
+        public final /* synthetic */ boolean f25766c;
 
         public f(t tVar, List list, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -450,8 +450,8 @@ public class t {
                 }
             }
             this.a = list;
-            this.f26553b = lVar;
-            this.f26554c = z;
+            this.f25765b = lVar;
+            this.f25766c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -463,7 +463,7 @@ public class t {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 int i2 = 0;
                 for (CollectEmotionData collectEmotionData : this.a) {
-                    if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !c.a.s0.c0.d.f12566d.equals(collectEmotionData.sharpText)) {
+                    if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !c.a.s0.c0.d.f12272d.equals(collectEmotionData.sharpText)) {
                         c.a.t0.y0.g.k().g(collectEmotionData);
                         ImageFileInfo imageFileInfo = collectEmotionData.imageFileInfo;
                         if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
@@ -487,7 +487,7 @@ public class t {
                 List<CollectEmotionData> n = c.a.t0.y0.g.k().n(TbadkCoreApplication.getCurrentAccount());
                 for (int i3 = 0; i3 < n.size(); i3++) {
                     CollectEmotionData collectEmotionData2 = n.get(i3);
-                    if (!c.a.s0.c0.d.f12566d.equals(collectEmotionData2.getSharpText())) {
+                    if (!c.a.s0.c0.d.f12272d.equals(collectEmotionData2.getSharpText())) {
                         collectEmotionData2.orderId = (n.size() - i3) - 1;
                         c.a.t0.y0.g.k().r(collectEmotionData2);
                     }
@@ -508,12 +508,12 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f26553b == null || list == null || list.size() != 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f25765b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f26553b.onResult(1, list.get(0).intValue(), list.get(1).intValue());
+            this.f25765b.onResult(1, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
-                if (this.f26554c) {
+                if (this.f25766c) {
                     new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
@@ -524,17 +524,17 @@ public class t {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class g extends BdAsyncTask<Void, Void, List<Integer>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f26555b;
+        public final /* synthetic */ l f25767b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ t f26556c;
+        public final /* synthetic */ t f25768c;
 
         public g(t tVar, List list, l lVar) {
             Interceptable interceptable = $ic;
@@ -551,9 +551,9 @@ public class t {
                     return;
                 }
             }
-            this.f26556c = tVar;
+            this.f25768c = tVar;
             this.a = list;
-            this.f26555b = lVar;
+            this.f25767b = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -567,9 +567,9 @@ public class t {
                 for (CollectEmotionData collectEmotionData : this.a) {
                     String filePath = collectEmotionData.imageFileInfo.getFilePath();
                     File file = new File(filePath.replace("_s.jpg", "_b.jpg"));
-                    byte[] r = file.exists() ? this.f26556c.r(file) : null;
+                    byte[] r = file.exists() ? this.f25768c.r(file) : null;
                     if (r == null) {
-                        r = this.f26556c.r(new File(filePath.replace("_s.jpg", "_b.gif")));
+                        r = this.f25768c.r(new File(filePath.replace("_s.jpg", "_b.gif")));
                     }
                     if (r != null && FileHelper.saveImageFileByUser(collectEmotionData.picUrl, r, TbadkCoreApplication.getInst().getContext()) == 0) {
                         i2++;
@@ -588,10 +588,10 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f26555b == null || list == null || list.size() != 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f25767b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f26555b.onResult(3, list.get(0).intValue(), list.get(1).intValue());
+            this.f25767b.onResult(3, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
                 StatisticItem statisticItem = new StatisticItem("c12228");
                 statisticItem.param("obj_param1", list.get(0).intValue());
@@ -600,7 +600,7 @@ public class t {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class h extends BdAsyncTask<Void, Void, List<CollectEmotionData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -645,18 +645,18 @@ public class t {
                 if (collectEmotionData != null) {
                     c.a.s0.d0.c cVar = new c.a.s0.d0.c();
                     cVar.a = collectEmotionData.pid;
-                    cVar.f12604f = collectEmotionData.pkgId;
-                    cVar.f12602d = collectEmotionData.picUrl;
-                    cVar.f12603e = collectEmotionData.thumbnail;
-                    cVar.f12600b = collectEmotionData.width;
-                    cVar.f12601c = collectEmotionData.height;
+                    cVar.f12309f = collectEmotionData.pkgId;
+                    cVar.f12307d = collectEmotionData.picUrl;
+                    cVar.f12308e = collectEmotionData.thumbnail;
+                    cVar.f12305b = collectEmotionData.width;
+                    cVar.f12306c = collectEmotionData.height;
                     new k(this.a, null).execute(cVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class i implements l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -685,24 +685,24 @@ public class t {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface j {
         void onFail();
 
         void onSuccess();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class k extends BdAsyncTask<c.a.s0.d0.c, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c.a.s0.d0.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public j f26557b;
+        public j f25769b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ t f26558c;
+        public final /* synthetic */ t f25770c;
 
         public k(t tVar, j jVar) {
             Interceptable interceptable = $ic;
@@ -719,8 +719,8 @@ public class t {
                     return;
                 }
             }
-            this.f26558c = tVar;
-            this.f26557b = jVar;
+            this.f25770c = tVar;
+            this.f25769b = jVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -733,9 +733,9 @@ public class t {
                 if (cVarArr != null && cVarArr.length > 0) {
                     this.a = cVarArr[0];
                     WebClient webClient = new WebClient();
-                    byte[] downloadImageBytes = webClient.downloadImageBytes(this.a.f12602d, false);
+                    byte[] downloadImageBytes = webClient.downloadImageBytes(this.a.f12307d, false);
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
-                        String q = this.f26558c.q(this.a, true);
+                        String q = this.f25770c.q(this.a, true);
                         if (TextUtils.isEmpty(q)) {
                             return Boolean.FALSE;
                         }
@@ -746,14 +746,14 @@ public class t {
                         if (!file.getParentFile().exists()) {
                             file.getParentFile().mkdirs();
                         }
-                        if (!this.f26558c.u(file, downloadImageBytes)) {
+                        if (!this.f25770c.u(file, downloadImageBytes)) {
                             return Boolean.FALSE;
                         }
-                        byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.a.f12603e, false);
+                        byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.a.f12308e, false);
                         if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
-                            String q2 = this.f26558c.q(this.a, false);
+                            String q2 = this.f25770c.q(this.a, false);
                             if (!TextUtils.isEmpty(q2)) {
-                                if (!this.f26558c.u(new File(q2), downloadImageBytes2)) {
+                                if (!this.f25770c.u(new File(q2), downloadImageBytes2)) {
                                     return Boolean.FALSE;
                                 }
                                 return Boolean.TRUE;
@@ -775,14 +775,14 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                 if (bool != null && bool.booleanValue()) {
-                    j jVar = this.f26557b;
+                    j jVar = this.f25769b;
                     if (jVar != null) {
                         jVar.onSuccess();
                         return;
                     }
                     return;
                 }
-                j jVar2 = this.f26557b;
+                j jVar2 = this.f25769b;
                 if (jVar2 != null) {
                     jVar2.onFail();
                 }
@@ -790,7 +790,7 @@ public class t {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface l {
         void onResult(int i2, int i3, int i4);
     }
@@ -831,10 +831,10 @@ public class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f26536b == null) {
-                f26536b = new t();
+            if (f25748b == null) {
+                f25748b = new t();
             }
-            return f26536b;
+            return f25748b;
         }
         return (t) invokeV.objValue;
     }
@@ -850,12 +850,12 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             if (c.a.t0.n2.d.m().n()) {
-                c.a.d.f.p.n.L(BdBaseApplication.getInst().getApp(), R.string.face_collect_is_syncing);
+                c.a.d.f.p.n.M(BdBaseApplication.getInst().getApp(), R.string.face_collect_is_syncing);
                 return;
             }
             c.a.s0.d0.c cVar = new c.a.s0.d0.c();
-            cVar.f12602d = str;
-            cVar.f12604f = str2;
+            cVar.f12307d = str;
+            cVar.f12309f = str2;
             ArrayList arrayList = new ArrayList();
             arrayList.add(cVar);
             h(arrayList, true, null);
@@ -874,7 +874,7 @@ public class t {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), lVar}) == null) {
             if (list == null || list.isEmpty()) {
                 if (lVar == null) {
-                    c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
+                    c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                 } else {
                     lVar.onResult(4, 0, 0);
                 }
@@ -889,10 +889,10 @@ public class t {
                             arrayList.add(cVar);
                         }
                     } else {
-                        arrayList2.add(cVar.f12602d);
-                        String str2 = cVar.f12604f;
+                        arrayList2.add(cVar.f12307d);
+                        String str2 = cVar.f12309f;
                         if (str2 != null) {
-                            hashMap.put(cVar.f12602d, str2);
+                            hashMap.put(cVar.f12307d, str2);
                         }
                     }
                 }
@@ -919,14 +919,14 @@ public class t {
                 lVar.onResult(4, 0, 0);
             }
             if (c.a.t0.n2.d.m().n()) {
-                c.a.d.f.p.n.L(BdBaseApplication.getInst().getApp(), R.string.face_collect_is_syncing);
+                c.a.d.f.p.n.M(BdBaseApplication.getInst().getApp(), R.string.face_collect_is_syncing);
                 lVar.onResult(4, 0, 0);
                 return;
             }
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
                 c.a.s0.d0.c cVar = new c.a.s0.d0.c();
-                cVar.f12602d = str;
+                cVar.f12307d = str;
                 arrayList.add(cVar);
             }
             h(arrayList, true, lVar);
@@ -965,7 +965,7 @@ public class t {
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, list, lVar, z) == null) {
             if (list.size() == 0) {
                 if (lVar == null) {
-                    c.a.d.f.p.n.L(TbadkCoreApplication.getInst(), R.string.add_success);
+                    c.a.d.f.p.n.M(TbadkCoreApplication.getInst(), R.string.add_success);
                     return;
                 } else {
                     lVar.onResult(4, 1, 0);
@@ -1010,7 +1010,7 @@ public class t {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, cVar, z)) == null) {
-            if (cVar == null || TextUtils.isEmpty(cVar.f12602d) || TextUtils.isEmpty(cVar.a)) {
+            if (cVar == null || TextUtils.isEmpty(cVar.f12307d) || TextUtils.isEmpty(cVar.a)) {
                 return "";
             }
             if (z) {
@@ -1145,29 +1145,29 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cVar)) == null) {
             CollectEmotionData collectEmotionData = new CollectEmotionData();
-            StringBuilder sb = new StringBuilder(c.a.s0.c0.d.f12568f);
-            if (TextUtils.isEmpty(cVar.f12604f)) {
+            StringBuilder sb = new StringBuilder(c.a.s0.c0.d.f12274f);
+            if (TextUtils.isEmpty(cVar.f12309f)) {
                 sb.append(cVar.a);
                 sb.append(",");
             } else {
-                sb.append(cVar.f12604f);
+                sb.append(cVar.f12309f);
                 sb.append("_");
                 sb.append(cVar.a);
                 sb.append(",");
             }
-            sb.append(cVar.f12600b);
+            sb.append(cVar.f12305b);
             sb.append(",");
-            sb.append(cVar.f12601c);
+            sb.append(cVar.f12306c);
             sb.append(",");
             String lowerCase = c.a.d.f.p.t.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
             collectEmotionData.pid = cVar.a;
             collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
             collectEmotionData.sharpText = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX;
             collectEmotionData.orderId = c.a.t0.y0.g.k().i(collectEmotionData.uid) + 1;
-            collectEmotionData.width = cVar.f12600b;
-            collectEmotionData.height = cVar.f12601c;
-            collectEmotionData.picUrl = cVar.f12602d;
-            collectEmotionData.thumbnail = cVar.f12603e;
+            collectEmotionData.width = cVar.f12305b;
+            collectEmotionData.height = cVar.f12306c;
+            collectEmotionData.picUrl = cVar.f12307d;
+            collectEmotionData.thumbnail = cVar.f12308e;
             collectEmotionData.backup = "";
             return collectEmotionData;
         }

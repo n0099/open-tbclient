@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.m;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
@@ -20,10 +20,10 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f48756b;
+    public FlowLabelLayout f46934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f48757c;
+    public ThreadForumEnterButton f46935c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoTabPbFloatEnterForumViewHolder(Context context, View view) {
@@ -44,13 +44,13 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
             }
         }
         this.a = context;
-        this.f48756b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        this.f46934b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
     public void changeSkinType() {
         ThreadForumEnterButton threadForumEnterButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.f48757c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.f46935c) == null) {
             return;
         }
         threadForumEnterButton.onChangeSkinType();
@@ -59,23 +59,23 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
     public void setAfterListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f48757c.setAfterClickListener(onClickListener);
+            this.f46935c.setAfterClickListener(onClickListener);
         }
     }
 
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        this.f48756b.removeAllViews();
-        if (m.isEmpty(d2Var.a0())) {
+        this.f46934b.removeAllViews();
+        if (m.isEmpty(e2Var.a0())) {
             return;
         }
         ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
-        this.f48757c = threadForumEnterButton;
+        this.f46935c = threadForumEnterButton;
         threadForumEnterButton.isFromVideoTabPbFloat(true);
-        this.f48757c.bindData(d2Var);
-        this.f48756b.addView(this.f48757c, new ViewGroup.LayoutParams(-2, -2));
+        this.f46935c.bindData(e2Var);
+        this.f46934b.addView(this.f46935c, new ViewGroup.LayoutParams(-2, -2));
     }
 }

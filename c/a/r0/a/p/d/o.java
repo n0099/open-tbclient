@@ -47,7 +47,7 @@ public interface o {
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f8306b;
+        public static final /* synthetic */ int[] f8123b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,41 +64,41 @@ public interface o {
                 }
             }
             int[] iArr = new int[ISwanApkFetcher.FetchStates.values().length];
-            f8306b = iArr;
+            f8123b = iArr;
             try {
                 iArr[ISwanApkFetcher.FetchStates.PENDING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.FETCHING.ordinal()] = 2;
+                f8123b[ISwanApkFetcher.FetchStates.FETCHING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.FETCH_PAUSED.ordinal()] = 3;
+                f8123b[ISwanApkFetcher.FetchStates.FETCH_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.FETCHED.ordinal()] = 4;
+                f8123b[ISwanApkFetcher.FetchStates.FETCHED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.FETCH_FAILED.ordinal()] = 5;
+                f8123b[ISwanApkFetcher.FetchStates.FETCH_FAILED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.INSTALLED.ordinal()] = 6;
+                f8123b[ISwanApkFetcher.FetchStates.INSTALLED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.DELETED.ordinal()] = 7;
+                f8123b[ISwanApkFetcher.FetchStates.DELETED.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.FETCH_PREPARE.ordinal()] = 8;
+                f8123b[ISwanApkFetcher.FetchStates.FETCH_PREPARE.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f8306b[ISwanApkFetcher.FetchStates.WAITING.ordinal()] = 9;
+                f8123b[ISwanApkFetcher.FetchStates.WAITING.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             int[] iArr2 = new int[DownloadParams.SwanAppDownloadType.values().length];
@@ -139,33 +139,33 @@ public interface o {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final boolean f8307j;
+        public static final boolean f8124j;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public f f8308b;
+        public f f8125b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8309c;
+        public String f8126c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8310d;
+        public String f8127d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f8311e;
+        public String f8128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f8312f;
+        public String f8129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f8313g;
+        public String f8130g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Context f8314h;
+        public Context f8131h;
 
         /* renamed from: i  reason: collision with root package name */
-        public CallbackHandler f8315i;
+        public CallbackHandler f8132i;
 
         /* loaded from: classes.dex */
         public class a implements c.a.r0.h.i.k.f.a {
@@ -174,7 +174,7 @@ public interface o {
             public final /* synthetic */ DownloadParams.SwanAppDownloadType a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f8316b;
+            public final /* synthetic */ b f8133b;
 
             public a(b bVar, DownloadParams.SwanAppDownloadType swanAppDownloadType) {
                 Interceptable interceptable = $ic;
@@ -191,14 +191,14 @@ public interface o {
                         return;
                     }
                 }
-                this.f8316b = bVar;
+                this.f8133b = bVar;
                 this.a = swanAppDownloadType;
             }
 
             @Override // c.a.r0.h.i.k.f.a
             public void a(int i2) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && b.f8307j) {
+                if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && b.f8124j) {
                     String str = "onProgressChange:" + i2;
                 }
             }
@@ -207,7 +207,7 @@ public interface o {
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    boolean unused = b.f8307j;
+                    boolean unused = b.f8124j;
                 }
             }
 
@@ -215,27 +215,27 @@ public interface o {
             public void c(DownloadState downloadState, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i2) == null) {
-                    if (b.f8307j) {
+                    if (b.f8124j) {
                         String str = "onStateChange   onStateChange:" + downloadState + ", onProgressChange:" + i2;
                     }
                     switch (a.a[this.a.ordinal()]) {
                         case 1:
-                            this.f8316b.w(downloadState, String.valueOf(i2));
+                            this.f8133b.w(downloadState, String.valueOf(i2));
                             return;
                         case 2:
-                            this.f8316b.y(downloadState, String.valueOf(i2));
+                            this.f8133b.y(downloadState, String.valueOf(i2));
                             return;
                         case 3:
-                            this.f8316b.v(String.valueOf(i2));
+                            this.f8133b.v(String.valueOf(i2));
                             return;
                         case 4:
-                            this.f8316b.t();
+                            this.f8133b.t();
                             return;
                         case 5:
-                            this.f8316b.x(downloadState, String.valueOf(i2));
+                            this.f8133b.x(downloadState, String.valueOf(i2));
                             return;
                         case 6:
-                            this.f8316b.u();
+                            this.f8133b.u();
                             return;
                         default:
                             return;
@@ -246,7 +246,7 @@ public interface o {
             @Override // c.a.r0.h.i.k.f.a
             public void d(String str) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && b.f8307j) {
+                if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && b.f8124j) {
                     String str2 = "onPackageNameChange:" + str;
                 }
             }
@@ -256,7 +256,7 @@ public interface o {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    boolean unused = b.f8307j;
+                    boolean unused = b.f8124j;
                     return null;
                 }
                 return (String) invokeV.objValue;
@@ -265,7 +265,7 @@ public interface o {
             @Override // c.a.r0.h.i.k.f.a
             public void f(boolean z) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && b.f8307j) {
+                if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && b.f8124j) {
                     String str = "onShowButton:" + z;
                 }
             }
@@ -273,23 +273,23 @@ public interface o {
 
         /* renamed from: c.a.r0.a.p.d.o$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0486b implements c.a.r0.a.z2.g1.c<ISwanApkFetcher> {
+        public class C0495b implements c.a.r0.a.z2.g1.c<ISwanApkFetcher> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f8317e;
+            public final /* synthetic */ String f8134e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f8318f;
+            public final /* synthetic */ String f8135f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f8319g;
+            public final /* synthetic */ String f8136g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ boolean f8320h;
+            public final /* synthetic */ boolean f8137h;
 
-            public C0486b(b bVar, String str, String str2, String str3, boolean z) {
+            public C0495b(b bVar, String str, String str2, String str3, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -304,10 +304,10 @@ public interface o {
                         return;
                     }
                 }
-                this.f8317e = str;
-                this.f8318f = str2;
-                this.f8319g = str3;
-                this.f8320h = z;
+                this.f8134e = str;
+                this.f8135f = str2;
+                this.f8136g = str3;
+                this.f8137h = z;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -316,7 +316,7 @@ public interface o {
             public void onCallback(ISwanApkFetcher iSwanApkFetcher) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iSwanApkFetcher) == null) {
-                    iSwanApkFetcher.g(this.f8317e, new c.a.r0.a.p.d.s1.a().N(this.f8318f).I(this.f8319g).H(c.a.r0.a.d2.d.J().getAppId()).E(Boolean.valueOf(this.f8320h)));
+                    iSwanApkFetcher.g(this.f8134e, new c.a.r0.a.p.d.s1.a().N(this.f8135f).I(this.f8136g).H(c.a.r0.a.d2.d.J().getAppId()).E(Boolean.valueOf(this.f8137h)));
                 }
             }
         }
@@ -327,19 +327,19 @@ public interface o {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f8321e;
+            public final /* synthetic */ String f8138e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f8322f;
+            public final /* synthetic */ String f8139f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f8323g;
+            public final /* synthetic */ String f8140g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ boolean f8324h;
+            public final /* synthetic */ boolean f8141h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ Context f8325i;
+            public final /* synthetic */ Context f8142i;
 
             public c(b bVar, String str, String str2, String str3, boolean z, Context context) {
                 Interceptable interceptable = $ic;
@@ -356,25 +356,25 @@ public interface o {
                         return;
                     }
                 }
-                this.f8321e = str;
-                this.f8322f = str2;
-                this.f8323g = str3;
-                this.f8324h = z;
-                this.f8325i = context;
+                this.f8138e = str;
+                this.f8139f = str2;
+                this.f8140g = str3;
+                this.f8141h = z;
+                this.f8142i = context;
             }
 
             @Override // c.a.r0.a.v1.f
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f8321e));
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.f8138e));
                     String str2 = Environment.DIRECTORY_DOWNLOADS;
-                    String str3 = this.f8321e;
+                    String str3 = this.f8138e;
                     request.setDestinationInExternalPublicDir(str2, str3.substring(str3.lastIndexOf("/") + 1));
-                    if (!TextUtils.isEmpty(this.f8322f) && !TextUtils.isEmpty(this.f8323g)) {
+                    if (!TextUtils.isEmpty(this.f8139f) && !TextUtils.isEmpty(this.f8140g)) {
                         request.setNotificationVisibility(1);
-                        request.setTitle(this.f8322f);
-                        request.setDescription(this.f8323g);
+                        request.setTitle(this.f8139f);
+                        request.setDescription(this.f8140g);
                         request.setVisibleInDownloadsUi(true);
                         request.allowScanningByMediaScanner();
                         request.setMimeType("application/vnd.android.package-archive");
@@ -382,10 +382,10 @@ public interface o {
                     DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService("download");
                     if (downloadManager != null) {
                         downloadManager.enqueue(request);
-                        if (this.f8324h) {
+                        if (this.f8141h) {
                             return;
                         }
-                        c.a.r0.a.z2.f.g(this.f8325i, new Intent("android.intent.action.VIEW_DOWNLOADS"));
+                        c.a.r0.a.z2.f.g(this.f8142i, new Intent("android.intent.action.VIEW_DOWNLOADS"));
                     }
                 }
             }
@@ -393,7 +393,7 @@ public interface o {
             @Override // c.a.r0.a.v1.f
             public void b(int i2, String str) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && b.f8307j) {
+                if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && b.f8124j) {
                     String str2 = "onAuthorizedFailed,  errorCode: " + i2 + " errorMsg: " + str;
                 }
             }
@@ -405,13 +405,13 @@ public interface o {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f8326e;
+            public final /* synthetic */ JSONObject f8143e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ DownloadParams.SwanAppDownloadType f8327f;
+            public final /* synthetic */ DownloadParams.SwanAppDownloadType f8144f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.h.i.k.f.a f8328g;
+            public final /* synthetic */ c.a.r0.h.i.k.f.a f8145g;
 
             public d(b bVar, JSONObject jSONObject, DownloadParams.SwanAppDownloadType swanAppDownloadType, c.a.r0.h.i.k.f.a aVar) {
                 Interceptable interceptable = $ic;
@@ -428,9 +428,9 @@ public interface o {
                         return;
                     }
                 }
-                this.f8326e = jSONObject;
-                this.f8327f = swanAppDownloadType;
-                this.f8328g = aVar;
+                this.f8143e = jSONObject;
+                this.f8144f = swanAppDownloadType;
+                this.f8145g = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -439,11 +439,11 @@ public interface o {
             public void onCallback(ISwanApkFetcher iSwanApkFetcher) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iSwanApkFetcher) == null) {
-                    String optString = this.f8326e.optString("url");
-                    c.a.r0.a.p.d.s1.a G = new c.a.r0.a.p.d.s1.a().L(this.f8326e.optString("name")).H(c.a.r0.a.d2.d.J().getAppId()).F(this.f8326e.optString("contentDisposition")).K(this.f8326e.optString("mimeType")).O(this.f8326e.optString(TTDownloadField.TT_USERAGENT)).E(Boolean.valueOf(this.f8326e.optBoolean("apk_auto_install") || this.f8327f == DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP)).J(this.f8326e.optString("ext_info")).G(this.f8326e.optString("contentLength"));
-                    e eVar = new e(optString, this.f8328g, null);
+                    String optString = this.f8143e.optString("url");
+                    c.a.r0.a.p.d.s1.a G = new c.a.r0.a.p.d.s1.a().L(this.f8143e.optString("name")).H(c.a.r0.a.d2.d.J().getAppId()).F(this.f8143e.optString("contentDisposition")).K(this.f8143e.optString("mimeType")).O(this.f8143e.optString(TTDownloadField.TT_USERAGENT)).E(Boolean.valueOf(this.f8143e.optBoolean("apk_auto_install") || this.f8144f == DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP)).J(this.f8143e.optString("ext_info")).G(this.f8143e.optString("contentLength"));
+                    e eVar = new e(optString, this.f8145g, null);
                     iSwanApkFetcher.f(optString, eVar);
-                    switch (a.a[this.f8327f.ordinal()]) {
+                    switch (a.a[this.f8144f.ordinal()]) {
                         case 1:
                             iSwanApkFetcher.c(optString, G);
                             return;
@@ -512,7 +512,7 @@ public interface o {
                     return;
                 }
             }
-            f8307j = c.a.r0.a.k.a;
+            f8124j = c.a.r0.a.k.a;
         }
 
         public b() {
@@ -532,11 +532,11 @@ public interface o {
         public void A() {
             f fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f8308b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f8125b) == null) {
                 return;
             }
-            this.f8314h.unregisterReceiver(fVar);
-            this.f8308b = null;
+            this.f8131h.unregisterReceiver(fVar);
+            this.f8125b = null;
         }
 
         @Override // c.a.r0.a.p.d.o
@@ -551,14 +551,14 @@ public interface o {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler)) == null) {
-                this.f8314h = context;
-                this.f8315i = callbackHandler;
-                this.f8312f = jSONObject.optString("cb");
-                this.f8313g = jSONObject.optString("onProgressUpdate");
-                this.f8309c = jSONObject.optString("url");
-                this.f8310d = jSONObject.optString("name");
-                this.f8311e = String.valueOf(this.f8309c.hashCode());
-                if (!TextUtils.isEmpty(this.f8312f) && !TextUtils.isEmpty(this.f8309c)) {
+                this.f8131h = context;
+                this.f8132i = callbackHandler;
+                this.f8129f = jSONObject.optString("cb");
+                this.f8130g = jSONObject.optString("onProgressUpdate");
+                this.f8126c = jSONObject.optString("url");
+                this.f8127d = jSONObject.optString("name");
+                this.f8128e = String.valueOf(this.f8126c.hashCode());
+                if (!TextUtils.isEmpty(this.f8129f) && !TextUtils.isEmpty(this.f8126c)) {
                     if (swanAppDownloadType == SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP) {
                         z();
                     }
@@ -683,7 +683,7 @@ public interface o {
                 if (TextUtils.isEmpty(optString)) {
                     c.a.r0.a.c2.b.f.e.g(AppRuntime.getAppContext(), "download url is empty");
                     return false;
-                } else if (p(new C0486b(this, optString, optString2, optString3, optBoolean))) {
+                } else if (p(new C0495b(this, optString, optString2, optString3, optBoolean))) {
                     return true;
                 } else {
                     c.a.r0.a.v1.e.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new c(this, optString, optString2, optString3, optBoolean, context));
@@ -696,11 +696,11 @@ public interface o {
         public final void t() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-                this.f8315i.handleSchemeDispatchCallback(this.f8313g, l(DownloadState.DOWNLOAD_FAILED, "0", this.f8311e));
-                this.f8315i.handleSchemeDispatchCallback(this.f8312f, n(true, null));
+                this.f8132i.handleSchemeDispatchCallback(this.f8130g, l(DownloadState.DOWNLOAD_FAILED, "0", this.f8128e));
+                this.f8132i.handleSchemeDispatchCallback(this.f8129f, n(true, null));
                 String str = this.a;
                 if (str != null) {
-                    this.f8315i.handleSchemeDispatchCallback(str, n(false, "onStopped"));
+                    this.f8132i.handleSchemeDispatchCallback(str, n(false, "onStopped"));
                     this.a = null;
                 }
             }
@@ -709,29 +709,29 @@ public interface o {
         public final void u() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-                boolean z = f8307j;
+                boolean z = f8124j;
                 String concat = new File(c.a.r0.a.o.h.a.m()).getAbsolutePath().concat("/");
-                String concat2 = concat.concat(this.f8311e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                String concat2 = concat.concat(this.f8128e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                 if (new File(concat2).exists()) {
                     z();
                     if (c.a.r0.h.i.s.g.c(concat2, false)) {
                         return;
                     }
-                    this.f8315i.handleSchemeDispatchCallback(this.f8312f, n(false, "install apk error"));
+                    this.f8132i.handleSchemeDispatchCallback(this.f8129f, n(false, "install apk error"));
                     return;
                 }
-                this.f8315i.handleSchemeDispatchCallback(this.f8312f, n(false, "Apk Not Found"));
+                this.f8132i.handleSchemeDispatchCallback(this.f8129f, n(false, "Apk Not Found"));
             }
         }
 
         public final void v(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                this.f8315i.handleSchemeDispatchCallback(this.f8313g, l(DownloadState.DOWNLOAD_PAUSED, str, this.f8311e));
-                this.f8315i.handleSchemeDispatchCallback(this.f8312f, n(true, null));
+                this.f8132i.handleSchemeDispatchCallback(this.f8130g, l(DownloadState.DOWNLOAD_PAUSED, str, this.f8128e));
+                this.f8132i.handleSchemeDispatchCallback(this.f8129f, n(true, null));
                 String str2 = this.a;
                 if (str2 != null) {
-                    this.f8315i.handleSchemeDispatchCallback(str2, n(false, MissionEvent.MESSAGE_PAUSE));
+                    this.f8132i.handleSchemeDispatchCallback(str2, n(false, MissionEvent.MESSAGE_PAUSE));
                     this.a = null;
                 }
             }
@@ -740,13 +740,13 @@ public interface o {
         public final void w(@NonNull DownloadState downloadState, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048591, this, downloadState, str) == null) {
-                this.f8315i.handleSchemeDispatchCallback(this.f8313g, l(downloadState, str, this.f8311e));
+                this.f8132i.handleSchemeDispatchCallback(this.f8130g, l(downloadState, str, this.f8128e));
                 if (downloadState == DownloadState.DOWNLOADED && "-1".equals(str)) {
-                    this.f8315i.handleSchemeDispatchCallback(this.f8312f, m(downloadState, str, this.f8311e, DownloadState.DELETED.value()));
+                    this.f8132i.handleSchemeDispatchCallback(this.f8129f, m(downloadState, str, this.f8128e, DownloadState.DELETED.value()));
                 } else if (TextUtils.equals(str, HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP)) {
-                    this.f8315i.handleSchemeDispatchCallback(this.f8312f, l(DownloadState.DOWNLOADED, str, this.f8311e));
+                    this.f8132i.handleSchemeDispatchCallback(this.f8129f, l(DownloadState.DOWNLOADED, str, this.f8128e));
                 } else {
-                    this.f8315i.handleSchemeDispatchCallback(this.f8312f, l(downloadState, str, this.f8311e));
+                    this.f8132i.handleSchemeDispatchCallback(this.f8129f, l(downloadState, str, this.f8128e));
                 }
             }
         }
@@ -754,17 +754,17 @@ public interface o {
         public final void x(@NonNull DownloadState downloadState, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048592, this, downloadState, str) == null) {
-                boolean z = f8307j;
+                boolean z = f8124j;
             }
         }
 
         public final void y(@NonNull DownloadState downloadState, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048593, this, downloadState, str) == null) {
-                this.a = this.f8312f;
-                this.f8315i.handleSchemeDispatchCallback(this.f8313g, l(downloadState, str, this.f8311e));
+                this.a = this.f8129f;
+                this.f8132i.handleSchemeDispatchCallback(this.f8130g, l(downloadState, str, this.f8128e));
                 if (downloadState == DownloadState.DOWNLOADED) {
-                    this.f8315i.handleSchemeDispatchCallback(this.f8312f, n(true, "onSuccess"));
+                    this.f8132i.handleSchemeDispatchCallback(this.f8129f, n(true, "onSuccess"));
                     this.a = null;
                 }
             }
@@ -772,12 +772,12 @@ public interface o {
 
         public final void z() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.f8308b == null) {
-                this.f8308b = new f(this, null);
+            if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.f8125b == null) {
+                this.f8125b = new f(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
                 intentFilter.addDataScheme("package");
-                this.f8314h.registerReceiver(this.f8308b, intentFilter);
+                this.f8131h.registerReceiver(this.f8125b, intentFilter);
             }
         }
 
@@ -813,9 +813,9 @@ public interface o {
                 if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || intent.getData() == null || !PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
                     return;
                 }
-                if (TextUtils.equals(this.this$0.f8310d, intent.getData().getSchemeSpecificPart())) {
+                if (TextUtils.equals(this.this$0.f8127d, intent.getData().getSchemeSpecificPart())) {
                     b bVar = this.this$0;
-                    bVar.f8315i.handleSchemeDispatchCallback(bVar.f8312f, bVar.n(true, null));
+                    bVar.f8132i.handleSchemeDispatchCallback(bVar.f8129f, bVar.n(true, null));
                     this.this$0.A();
                 }
             }

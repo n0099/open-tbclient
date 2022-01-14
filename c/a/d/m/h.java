@@ -26,18 +26,18 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f3264d;
+    public static final boolean f3225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile h f3265e;
+    public static volatile h f3226e;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3266b;
+    public long f3227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3267c;
+    public int f3228c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class h {
                 return;
             }
         }
-        f3264d = a.a;
+        f3225d = a.a;
     }
 
     public h() {
@@ -69,8 +69,8 @@ public class h {
             }
         }
         this.a = -1L;
-        this.f3266b = 0L;
-        this.f3267c = 0;
+        this.f3227b = 0L;
+        this.f3228c = 0;
     }
 
     public static synchronized h d() {
@@ -79,10 +79,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (h.class) {
-                if (f3265e == null) {
-                    f3265e = new h();
+                if (f3226e == null) {
+                    f3226e = new h();
                 }
-                hVar = f3265e;
+                hVar = f3226e;
             }
             return hVar;
         }
@@ -97,7 +97,7 @@ public class h {
                 Context appContext = AppRuntime.getAppContext();
                 PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                 if (packageInfo != null) {
-                    if (f3264d) {
+                    if (f3225d) {
                         String str = "cur host version code = " + packageInfo.versionCode;
                     }
                     return packageInfo.versionCode;
@@ -125,13 +125,13 @@ public class h {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3267c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3228c : invokeV.intValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3266b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3227b : invokeV.longValue;
     }
 
     public final File f() {
@@ -163,8 +163,8 @@ public class h {
                 }
                 try {
                     this.a = dataInputStream.readLong();
-                    this.f3266b = dataInputStream.readLong();
-                    this.f3267c = dataInputStream.readInt();
+                    this.f3227b = dataInputStream.readLong();
+                    this.f3228c = dataInputStream.readInt();
                     Closeables.closeSafely(dataInputStream);
                 } catch (IOException e3) {
                     e = e3;
@@ -184,14 +184,14 @@ public class h {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f3267c = i2;
+            this.f3228c = i2;
         }
     }
 
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f3266b = j2;
+            this.f3227b = j2;
         }
     }
 
@@ -207,7 +207,7 @@ public class h {
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (f3264d) {
+            if (f3225d) {
                 String str = "updateToFile value = " + toString();
             }
             File f2 = f();
@@ -232,8 +232,8 @@ public class h {
             }
             try {
                 dataOutputStream.writeLong(this.a);
-                dataOutputStream.writeLong(this.f3266b);
-                dataOutputStream.writeInt(this.f3267c);
+                dataOutputStream.writeLong(this.f3227b);
+                dataOutputStream.writeInt(this.f3228c);
                 dataOutputStream.close();
                 f2.delete();
                 file.renameTo(f2);
@@ -267,7 +267,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "[updateVersion = " + this.a + ", lastUpdateTime = " + this.f3266b + ", hostVersionCode = " + this.f3267c + PreferencesUtil.RIGHT_MOUNT;
+            return "[updateVersion = " + this.a + ", lastUpdateTime = " + this.f3227b + ", hostVersionCode = " + this.f3228c + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

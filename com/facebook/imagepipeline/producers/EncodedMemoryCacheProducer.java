@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
@@ -24,7 +24,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final MemoryCache<CacheKey, PooledByteBuffer> mMemoryCache;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EncodedMemoryCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

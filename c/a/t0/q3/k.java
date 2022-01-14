@@ -14,7 +14,7 @@ public class k {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22396b;
+    public String f21778b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class k {
         }
         try {
             this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
-            this.f22396b = jSONObject.optString("link");
+            this.f21778b = jSONObject.optString("link");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

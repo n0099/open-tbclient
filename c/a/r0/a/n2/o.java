@@ -30,13 +30,13 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f8140e;
+        public final /* synthetic */ HashMap f7961e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f8141f;
+        public final /* synthetic */ File f7962f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8142g;
+        public final /* synthetic */ String f7963g;
 
         public a(HashMap hashMap, File file, String str) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public class o {
                     return;
                 }
             }
-            this.f8140e = hashMap;
-            this.f8141f = file;
-            this.f8142g = str;
+            this.f7961e = hashMap;
+            this.f7962f = file;
+            this.f7963g = str;
         }
 
         @Override // java.lang.Runnable
@@ -65,10 +65,10 @@ public class o {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (u = c.a.r0.a.c1.a.u()) == null) {
                 return;
             }
-            u.a(this.f8140e, this.f8141f, null, "error_js");
+            u.a(this.f7961e, this.f7962f, null, "error_js");
             if (o.a) {
-                String str = "extraData :" + this.f8140e.toString();
-                String str2 = "filePath :" + this.f8142g;
+                String str = "extraData :" + this.f7961e.toString();
+                String str2 = "filePath :" + this.f7963g;
             }
         }
     }

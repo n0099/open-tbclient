@@ -62,7 +62,7 @@ import c.a.d.f.p.o;
 import c.a.d.f.p.t;
 import c.a.s0.c0.c;
 import c.a.s0.e1.q;
-import c.a.s0.e1.t0;
+import c.a.s0.e1.s0;
 import c.a.s0.m.a;
 import c.a.s0.r0.e;
 import c.a.s0.s.d0.b;
@@ -1612,7 +1612,7 @@ public class UtilHelper {
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            c.a.s0.s.i0.j jVar = new c.a.s0.s.i0.j(bitmapDrawable);
+            c.a.s0.s.j0.j jVar = new c.a.s0.s.j0.j(bitmapDrawable);
             jVar.b(n.f(context, R.dimen.ds4));
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) " ");
@@ -1643,7 +1643,7 @@ public class UtilHelper {
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            c.a.s0.s.i0.m mVar = new c.a.s0.s.i0.m(bitmapDrawable);
+            c.a.s0.s.j0.m mVar = new c.a.s0.s.j0.m(bitmapDrawable);
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) " ");
             if (z) {
@@ -1764,16 +1764,16 @@ public class UtilHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65607, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String p = c.a.s0.s.g0.b.j().p("version_name", "");
+                String q = c.a.s0.s.h0.b.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
-                if (versionName.equals(p)) {
-                    return c.a.s0.s.g0.b.j().p("apk_md5", "");
+                if (versionName.equals(q)) {
+                    return c.a.s0.s.h0.b.k().q("apk_md5", "");
                 }
-                c.a.s0.s.g0.b.j().x("version_name", versionName);
+                c.a.s0.s.h0.b.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-                c.a.s0.s.g0.b.j().x("apk_md5", aPKMd5);
+                c.a.s0.s.h0.b.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e2) {
                 BdLog.detailException(e2);
@@ -1817,7 +1817,7 @@ public class UtilHelper {
         ComponentName componentName;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65610, null)) == null) {
-            if (c.a.d.a.b.g() == null || (b2 = c.a.d.a.b.g().b()) == null || (componentName = b2.getComponentName()) == null) {
+            if (c.a.d.a.b.f() == null || (b2 = c.a.d.a.b.f().b()) == null || (componentName = b2.getComponentName()) == null) {
                 return null;
             }
             return componentName.getClassName();
@@ -2656,7 +2656,7 @@ public class UtilHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65657, null)) == null) {
-            return g.f57225i.equalsIgnoreCase(Build.BRAND) && "ONEPLUS A6000".equalsIgnoreCase(Build.MODEL);
+            return g.f55061i.equalsIgnoreCase(Build.BRAND) && "ONEPLUS A6000".equalsIgnoreCase(Build.MODEL);
         }
         return invokeV.booleanValue;
     }
@@ -2770,7 +2770,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65667, null, str)) == null) {
-            Activity b2 = c.a.d.a.b.g().b();
+            Activity b2 = c.a.d.a.b.f().b();
             return (b2 == null || b2.getClass().getSimpleName() == null || !b2.getClass().getSimpleName().equals(str)) ? false : true;
         }
         return invokeL.booleanValue;
@@ -3324,7 +3324,7 @@ public class UtilHelper {
                     return true;
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    n.L(context, R.string.game_start_fail);
+                    n.M(context, R.string.game_start_fail);
                 }
             }
             return false;
@@ -3351,7 +3351,7 @@ public class UtilHelper {
                 intent.putExtra("isBackToLauncher", true);
                 intent.addFlags(268435456);
                 if (TbConfig.IS_START_BAIDU_KUANG_CLOSE_SELF) {
-                    c.a.d.a.b.g().p();
+                    c.a.d.a.b.f().o();
                 }
                 context.startActivity(intent);
             } catch (Exception unused) {
@@ -3462,12 +3462,12 @@ public class UtilHelper {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65713, null, activity, z)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || activity == null || !c.a.s0.s.g0.b.j().g("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+            if (Build.VERSION.SDK_INT < 19 || activity == null || !c.a.s0.s.h0.b.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
                 return false;
             }
             for (AccessibilityServiceInfo accessibilityServiceInfo : ((AccessibilityManager) activity.getSystemService("accessibility")).getEnabledAccessibilityServiceList(1)) {
                 if (!StringUtils.isNull(accessibilityServiceInfo.getSettingsActivityName()) && accessibilityServiceInfo.getSettingsActivityName().contains("talkback")) {
-                    c.a.s0.s.g0.b.j().t("switch_immersive_sticky_status", false);
+                    c.a.s0.s.h0.b.k().u("switch_immersive_sticky_status", false);
                     TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                     return false;
                 }
@@ -3478,7 +3478,7 @@ public class UtilHelper {
                 StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process();
                 return true;
             } else if (!StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process()) {
-                c.a.s0.s.g0.b.j().t("switch_immersive_sticky_status", false);
+                c.a.s0.s.h0.b.k().u("switch_immersive_sticky_status", false);
                 TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                 return false;
             } else if (Build.VERSION.SDK_INT < 21) {
@@ -3589,7 +3589,7 @@ public class UtilHelper {
                     }
                 } else if (metaData.getAuthType() == 3) {
                     if (metaData.isNewGod()) {
-                        return metaData.getNewGodData().getFieldName() + t0.c(metaData.isVideoGod());
+                        return metaData.getNewGodData().getFieldName() + s0.c(metaData.isVideoGod());
                     }
                 } else if (metaData.getAuthType() == 4 && !z && metaData.showBazhuGrade()) {
                     return StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i2, "...");
@@ -3604,7 +3604,7 @@ public class UtilHelper {
             if (!TextUtils.isEmpty("") || !metaData.isNewGod()) {
                 return (TextUtils.isEmpty("") && !z && metaData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i2, "...") : "";
             }
-            return metaData.getNewGodData().getFieldName() + t0.c(metaData.isVideoGod());
+            return metaData.getNewGodData().getFieldName() + s0.c(metaData.isVideoGod());
         }
         return (String) invokeCommon.objValue;
     }

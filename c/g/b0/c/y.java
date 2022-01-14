@@ -25,13 +25,13 @@ public class y extends ReporterPidLoader<h> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29217b;
+        public boolean f28325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ h f29218c;
+        public final /* synthetic */ h f28326c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ y f29219d;
+        public final /* synthetic */ y f28327d;
 
         public a(y yVar, h hVar) {
             Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public class y extends ReporterPidLoader<h> {
                     return;
                 }
             }
-            this.f29219d = yVar;
-            this.f29218c = hVar;
+            this.f28327d = yVar;
+            this.f28326c = hVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f29219d.onAdClicked(this.f29217b);
-                this.f29217b = true;
+                this.f28327d.onAdClicked(this.f28325b);
+                this.f28325b = true;
             }
         }
 
@@ -65,7 +65,7 @@ public class y extends ReporterPidLoader<h> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
                 LogPrinter.e("JySplashAd onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f29219d.onError(i2, str);
+                this.f28327d.onError(i2, str);
             }
         }
 
@@ -73,7 +73,7 @@ public class y extends ReporterPidLoader<h> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f29219d.onAdLoaded((y) this.f29218c);
+                this.f28327d.onAdLoaded((y) this.f28326c);
             }
         }
     }

@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0942b a;
+    public InterfaceC0955b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f15404b;
+    public HttpMessageListener f15021b;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -68,18 +68,18 @@ public class b {
 
     /* renamed from: c.a.t0.a0.l.g.d.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0942b {
+    public interface InterfaceC0955b {
         void a(String str);
 
         void b(boolean z);
     }
 
-    public b(InterfaceC0942b interfaceC0942b) {
+    public b(InterfaceC0955b interfaceC0955b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0942b};
+            Object[] objArr = {interfaceC0955b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -89,11 +89,11 @@ public class b {
                 return;
             }
         }
-        this.f15404b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
-        this.a = interfaceC0942b;
+        this.f15021b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+        this.a = interfaceC0955b;
         c.a.t0.w3.f0.a.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
-        this.f15404b.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f15404b);
+        this.f15021b.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f15021b);
     }
 
     public void b(String str, boolean z) {
@@ -106,7 +106,7 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f15404b);
+            MessageManager.getInstance().unRegisterListener(this.f15021b);
         }
     }
 }

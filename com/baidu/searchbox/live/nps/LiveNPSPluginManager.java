@@ -49,7 +49,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LIVE_SHOW_ADMIN_LIST = "LIVE_SHOW_ADMIN_LIST";
@@ -108,12 +108,12 @@ public class LiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static LiveNPSPluginManager instance;

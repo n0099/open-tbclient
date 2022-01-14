@@ -19,10 +19,10 @@ public class i {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f25474b;
+    public b f24759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f25475c;
+    public c.a.d.c.g.a f24760c;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.d.c.g.a {
@@ -87,7 +87,7 @@ public class i {
             }
         }
         this.a = false;
-        this.f25475c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
+        this.f24760c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
         f();
         e();
     }
@@ -95,14 +95,14 @@ public class i {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f25475c);
+            MessageManager.getInstance().unRegisterListener(this.f24760c);
         }
     }
 
     public final void d(boolean z, c.a.t0.w2.a aVar) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, aVar) == null) || (bVar = this.f25474b) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, aVar) == null) || (bVar = this.f24759b) == null) {
             return;
         }
         bVar.a(z, aVar);
@@ -111,7 +111,7 @@ public class i {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f25475c);
+            MessageManager.getInstance().registerListener(this.f24760c);
         }
     }
 
@@ -135,7 +135,7 @@ public class i {
     public void h(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f25474b = bVar;
+            this.f24759b = bVar;
         }
     }
 }

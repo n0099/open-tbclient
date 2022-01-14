@@ -24,21 +24,21 @@ public abstract class c<ResultDataT> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f7262f;
+    public static final boolean f7106f;
     public transient /* synthetic */ FieldHolder $fh;
     public final i<ResultDataT> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<c.a.r0.a.z2.g1.c<i<ResultDataT>>> f7263b;
+    public final Set<c.a.r0.a.z2.g1.c<i<ResultDataT>>> f7107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<e> f7264c;
+    public final LinkedList<e> f7108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7265d;
+    public boolean f7109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f7266e;
+    public boolean f7110e;
 
     /* loaded from: classes.dex */
     public class a extends e {
@@ -46,7 +46,7 @@ public abstract class c<ResultDataT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f7267g;
+        public final /* synthetic */ c f7111g;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public abstract class c<ResultDataT> {
                     return;
                 }
             }
-            this.f7267g = cVar;
+            this.f7111g = cVar;
         }
 
         @Override // c.a.r0.a.h2.c.e
@@ -71,7 +71,7 @@ public abstract class c<ResultDataT> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f7267g.k()) {
+                if (this.f7111g.k()) {
                     return true;
                 }
                 d.k("initialPrepare failed", Boolean.TRUE);
@@ -87,7 +87,7 @@ public abstract class c<ResultDataT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f7268g;
+        public final /* synthetic */ c f7112g;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public abstract class c<ResultDataT> {
                     return;
                 }
             }
-            this.f7268g = cVar;
+            this.f7112g = cVar;
         }
 
         @Override // c.a.r0.a.h2.c.e
@@ -112,11 +112,11 @@ public abstract class c<ResultDataT> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f7268g.j()) {
+                if (this.f7112g.j()) {
                     return true;
                 }
                 d.k("finalPrepare failed", Boolean.TRUE);
-                if (c.f7262f) {
+                if (c.f7106f) {
                     throw new OAuthException(10001);
                 }
                 return true;
@@ -127,17 +127,17 @@ public abstract class c<ResultDataT> {
 
     /* renamed from: c.a.r0.a.h2.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0412c implements Runnable {
+    public class RunnableC0421c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f7269e;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f7113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f7270f;
+        public final /* synthetic */ c f7114f;
 
-        public RunnableC0412c(c cVar, c.a.r0.a.z2.g1.c cVar2) {
+        public RunnableC0421c(c cVar, c.a.r0.a.z2.g1.c cVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,18 +152,18 @@ public abstract class c<ResultDataT> {
                     return;
                 }
             }
-            this.f7270f = cVar;
-            this.f7269e = cVar2;
+            this.f7114f = cVar;
+            this.f7113e = cVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.a.r0.a.z2.g1.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f7269e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f7113e) == null) {
                 return;
             }
-            cVar.onCallback(this.f7270f.a);
+            cVar.onCallback(this.f7114f.a);
         }
     }
 
@@ -180,7 +180,7 @@ public abstract class c<ResultDataT> {
                 return;
             }
         }
-        f7262f = k.a;
+        f7106f = k.a;
     }
 
     public c() {
@@ -197,10 +197,10 @@ public abstract class c<ResultDataT> {
             }
         }
         this.a = new i<>();
-        this.f7263b = new HashSet();
-        this.f7264c = new LinkedList<>();
-        this.f7265d = false;
-        this.f7266e = false;
+        this.f7107b = new HashSet();
+        this.f7108c = new LinkedList<>();
+        this.f7109d = false;
+        this.f7110e = false;
     }
 
     public final synchronized void a() {
@@ -218,7 +218,7 @@ public abstract class c<ResultDataT> {
             b bVar = new b(this);
             bVar.h(this);
             bVar.g();
-            this.f7266e = true;
+            this.f7110e = true;
         }
     }
 
@@ -247,25 +247,25 @@ public abstract class c<ResultDataT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
             if (exc instanceof OAuthException) {
-                this.a.f7322c = (OAuthException) exc;
+                this.a.f7164c = (OAuthException) exc;
             } else if (exc != null) {
                 d.t("OAuthTask#finish", exc.getMessage());
-                this.a.f7322c = new OAuthException(exc, 10001);
+                this.a.f7164c = new OAuthException(exc, 10001);
             }
-            if (!this.a.c() && f7262f && exc != null) {
+            if (!this.a.c() && f7106f && exc != null) {
                 exc.printStackTrace();
             }
             s(TaskState.FINISHED);
             d.k(toString(), Boolean.FALSE);
             g();
-            this.f7263b.clear();
+            this.f7107b.clear();
         }
     }
 
     public TaskState e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.f7321b : (TaskState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.f7163b : (TaskState) invokeV.objValue;
     }
 
     public final void f() {
@@ -274,15 +274,15 @@ public abstract class c<ResultDataT> {
             a aVar = new a(this);
             aVar.h(this);
             aVar.g();
-            this.f7265d = true;
+            this.f7109d = true;
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (c.a.r0.a.z2.g1.c<i<ResultDataT>> cVar : this.f7263b) {
-                d.l(new RunnableC0412c(this, cVar));
+            for (c.a.r0.a.z2.g1.c<i<ResultDataT>> cVar : this.f7107b) {
+                d.l(new RunnableC0421c(this, cVar));
             }
         }
     }
@@ -292,7 +292,7 @@ public abstract class c<ResultDataT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar)) == null) {
             eVar.h(this);
-            this.f7264c.offer(eVar);
+            this.f7108c.offer(eVar);
             return this;
         }
         return (c) invokeL.objValue;
@@ -335,14 +335,14 @@ public abstract class c<ResultDataT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (!TaskState.CALLING.equals(e())) {
-                if (f7262f) {
+                if (f7106f) {
                     d.k("IllegalState on prepare", Boolean.FALSE);
                 }
-            } else if (!this.f7265d) {
+            } else if (!this.f7109d) {
                 f();
-            } else if (!this.f7264c.isEmpty()) {
-                this.f7264c.poll().g();
-            } else if (!this.f7266e) {
+            } else if (!this.f7108c.isEmpty()) {
+                this.f7108c.poll().g();
+            } else if (!this.f7110e) {
                 b();
             } else {
                 a();
@@ -354,8 +354,8 @@ public abstract class c<ResultDataT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cVar)) == null) {
-            if (this.a.f7321b.isCallbackAvailable()) {
-                this.f7263b.add(cVar);
+            if (this.a.f7163b.isCallbackAvailable()) {
+                this.f7107b.add(cVar);
             }
             return this;
         }
@@ -365,9 +365,9 @@ public abstract class c<ResultDataT> {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.f7321b = TaskState.INIT;
-            this.f7265d = false;
-            this.f7266e = false;
+            this.a.f7163b = TaskState.INIT;
+            this.f7109d = false;
+            this.f7110e = false;
         }
     }
 
@@ -387,7 +387,7 @@ public abstract class c<ResultDataT> {
     public final void s(TaskState taskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
-            this.a.f7321b = taskState;
+            this.a.f7163b = taskState;
         }
     }
 }

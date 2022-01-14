@@ -36,14 +36,14 @@ public class a {
 
     /* renamed from: c.a.t0.w3.i0.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1486a implements a.e {
+    public static class C1501a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f25536e;
+        public final /* synthetic */ TbPageContext f24821e;
 
-        public C1486a(TbPageContext tbPageContext) {
+        public C1501a(TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f25536e = tbPageContext;
+            this.f24821e = tbPageContext;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -66,7 +66,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f25536e.getPageActivity(), true, 23004, "remind");
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f24821e.getPageActivity(), true, 23004, "remind");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
             }
@@ -109,24 +109,24 @@ public class a {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f25537b;
+        public final /* synthetic */ boolean f24822b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableString f25538c;
+        public final /* synthetic */ SpannableString f24823c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f25539d;
+        public final /* synthetic */ int f24824d;
 
         /* renamed from: c.a.t0.w3.i0.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1487a implements View.OnClickListener {
+        public class View$OnClickListenerC1502a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f25540e;
+            public final /* synthetic */ c f24825e;
 
-            public View$OnClickListenerC1487a(c cVar) {
+            public View$OnClickListenerC1502a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class a {
                         return;
                     }
                 }
-                this.f25540e = cVar;
+                this.f24825e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -151,7 +151,7 @@ public class a {
                     if (a.a != null) {
                         a.a.e();
                     }
-                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f25540e.a.getPageActivity(), true, 23004, "expiring");
+                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f24825e.a.getPageActivity(), true, 23004, "expiring");
                     memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                 }
@@ -174,23 +174,23 @@ public class a {
                 }
             }
             this.a = tbPageContext;
-            this.f25537b = z;
-            this.f25538c = spannableString;
-            this.f25539d = i2;
+            this.f24822b = z;
+            this.f24823c = spannableString;
+            this.f24824d = i2;
         }
 
         @Override // c.a.d.f.g.b
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25537b ? 4 : 2 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24822b ? 4 : 2 : invokeV.intValue;
         }
 
         @Override // c.a.d.f.g.b
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25537b ? 32 : 16 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24822b ? 32 : 16 : invokeV.intValue;
         }
 
         @Override // c.a.d.f.g.b
@@ -199,23 +199,23 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 TextView textView = new TextView(this.a.getPageActivity());
-                if (this.f25537b) {
+                if (this.f24822b) {
                     textView.setBackgroundResource(R.drawable.pop_float_top);
                 } else {
                     textView.setBackgroundResource(R.drawable.pop_float);
                 }
                 int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.ds32);
                 int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.ds22);
-                if (this.f25537b) {
+                if (this.f24822b) {
                     textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
                 } else {
                     textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize);
                 }
                 textView.setGravity(17);
-                textView.setText(this.f25538c);
+                textView.setText(this.f24823c);
                 textView.setCompoundDrawablePadding(dimensionPixelSize);
-                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f25539d), (Drawable) null);
-                textView.setOnClickListener(new View$OnClickListenerC1487a(this));
+                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f24824d), (Drawable) null);
+                textView.setOnClickListener(new View$OnClickListenerC1502a(this));
                 return textView;
             }
             return (View) invokeL.objValue;
@@ -225,14 +225,14 @@ public class a {
         public int getXOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25537b ? 0 : 4 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24822b ? 0 : 4 : invokeV.intValue;
         }
 
         @Override // c.a.d.f.g.b
         public int getYOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25537b ? 5 : 30 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24822b ? 5 : 30 : invokeV.intValue;
         }
     }
 
@@ -242,10 +242,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f25541e;
+        public final /* synthetic */ TbPageContext f24826e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f25542f;
+        public final /* synthetic */ boolean f24827f;
 
         public d(TbPageContext tbPageContext, boolean z) {
             Interceptable interceptable = $ic;
@@ -262,15 +262,15 @@ public class a {
                     return;
                 }
             }
-            this.f25541e = tbPageContext;
-            this.f25542f = z;
+            this.f24826e = tbPageContext;
+            this.f24827f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.d(this.f25541e.getPageActivity(), this.f25542f);
+                a.d(this.f24826e.getPageActivity(), this.f24827f);
             }
         }
     }
@@ -343,7 +343,7 @@ public class a {
                 textView2.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip2));
                 textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize32));
                 aVar.setContentView(inflate);
-                aVar.setPositiveButton(R.string.open_now, new C1486a(tbPageContext));
+                aVar.setPositiveButton(R.string.open_now, new C1501a(tbPageContext));
                 aVar.setNegativeButton(R.string.group_create_private_isee, new b());
                 aVar.create(tbPageContext);
                 aVar.show();
@@ -353,7 +353,7 @@ public class a {
             if (j2 > 3 || j2 < 0) {
                 return;
             }
-            if (System.currentTimeMillis() / 86400000 == c.a.s0.s.g0.b.j().l("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (System.currentTimeMillis() / 86400000 == c.a.s0.s.h0.b.k().m("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 return;
             }
             int i3 = R.color.CAM_X0111;
@@ -387,7 +387,7 @@ public class a {
             dVar.h(r12);
             a = dVar.b();
             new Handler().postDelayed(new d(tbPageContext, z), 1000L);
-            c.a.s0.s.g0.b.j().w("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
+            c.a.s0.s.h0.b.k().x("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
         }
     }
 

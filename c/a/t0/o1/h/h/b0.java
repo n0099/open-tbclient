@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b0 extends c.a.d.n.e.a<c.a.t0.g0.f0.p, CardViewHolder<c.a.t0.g0.u>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class b0 extends c.a.d.n.e.a<c.a.t0.g0.f0.p, CardViewHolder<c.a.t0.g0.u>>
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, pVar, cardViewHolder})) == null) {
             cardViewHolder.getCardView().k(pVar);
             cardViewHolder.getCardView().l(this.m, TbadkCoreApplication.getInst().getSkinType());
-            c.a.t0.g0.v.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(pVar.f18255e)));
+            c.a.t0.g0.v.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(pVar.f17809e)));
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

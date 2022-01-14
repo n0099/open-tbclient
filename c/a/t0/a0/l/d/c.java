@@ -21,25 +21,25 @@ public class c {
     public AlaUserInfoData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f15303b;
+    public i f14924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f15304c;
+    public q f14925c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<AlaLiveInfoData> f15305d;
+    public List<AlaLiveInfoData> f14926d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<p> f15306e;
+    public List<p> f14927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15307f;
+    public boolean f14928f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a f15308g;
+    public final a f14929g;
 
     /* renamed from: h  reason: collision with root package name */
-    public r f15309h;
+    public r f14930h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -54,19 +54,19 @@ public class c {
                 return;
             }
         }
-        this.f15307f = false;
+        this.f14928f = false;
         this.a = new AlaUserInfoData();
-        this.f15303b = new i();
-        this.f15304c = new q();
-        this.f15308g = new a();
-        this.f15305d = new ArrayList();
-        this.f15306e = new ArrayList();
+        this.f14924b = new i();
+        this.f14925c = new q();
+        this.f14929g = new a();
+        this.f14926d = new ArrayList();
+        this.f14927e = new ArrayList();
     }
 
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15308g : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14929g : (a) invokeV.objValue;
     }
 
     public AlaUserInfoData b() {
@@ -78,7 +78,7 @@ public class c {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15307f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14928f : invokeV.booleanValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -96,21 +96,21 @@ public class c {
             for (int i2 = 0; optJSONArray != null && i2 < optJSONArray.length(); i2++) {
                 p pVar = new p();
                 pVar.a(optJSONArray.getJSONObject(i2));
-                this.f15306e.add(pVar);
+                this.f14927e.add(pVar);
             }
             JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
             for (int i3 = 0; optJSONArray2 != null && optJSONArray2.length() < i3; i3++) {
                 AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                 alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i3));
-                this.f15305d.add(alaLiveInfoData);
+                this.f14926d.add(alaLiveInfoData);
             }
-            this.f15303b.a(jSONObject2.optJSONObject(VodClient.PATH_MEDIA));
-            this.f15304c.parserJson(jSONObject2.optJSONObject("privacy_set"));
-            this.f15308g.parserJson(jSONObject2.optJSONObject("authority_info"));
+            this.f14924b.a(jSONObject2.optJSONObject(VodClient.PATH_MEDIA));
+            this.f14925c.parserJson(jSONObject2.optJSONObject("privacy_set"));
+            this.f14929g.parserJson(jSONObject2.optJSONObject("authority_info"));
             JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
             if (optJSONObject2 != null) {
                 r rVar = new r();
-                this.f15309h = rVar;
+                this.f14930h = rVar;
                 rVar.a(optJSONObject2);
             }
         } catch (Exception e2) {
@@ -121,7 +121,7 @@ public class c {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f15307f = z;
+            this.f14928f = z;
         }
     }
 }

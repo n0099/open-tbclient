@@ -12,13 +12,13 @@ public final class RimAnimUtils {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f35002b;
+    public static int f33874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f35003c;
+    public static int f33875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35004d;
+    public static int f33876d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimAnimUtils() {
@@ -40,14 +40,14 @@ public final class RimAnimUtils {
         if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
             return;
         }
-        if (f35003c == 0 || f35004d == 0) {
-            f35003c = ResUtils.anim(context, "rim_base_slide_from_left");
-            f35004d = ResUtils.anim(context, "rim_base_slide_to_right");
+        if (f33875c == 0 || f33876d == 0) {
+            f33875c = ResUtils.anim(context, "rim_base_slide_from_left");
+            f33876d = ResUtils.anim(context, "rim_base_slide_to_right");
         }
         if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(f35003c, f35004d);
+            ((Activity) context).overridePendingTransition(f33875c, f33876d);
         }
-        LogUtil.v("xyz", "Rim-finishActivityAnim-context:" + context + ", mCloseEnter:" + f35003c + ", mCloseExit:" + f35004d);
+        LogUtil.v("xyz", "Rim-finishActivityAnim-context:" + context + ", mCloseEnter:" + f33875c + ", mCloseExit:" + f33876d);
     }
 
     public static void overridePendingTransitionNoAnim(Activity activity) {
@@ -63,12 +63,12 @@ public final class RimAnimUtils {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        if (a == 0 || f35002b == 0) {
+        if (a == 0 || f33874b == 0) {
             a = ResUtils.anim(context, "rim_base_slide_from_right");
-            f35002b = ResUtils.anim(context, "rim_base_slide_to_left");
+            f33874b = ResUtils.anim(context, "rim_base_slide_to_left");
         }
         if (context instanceof Activity) {
-            ((Activity) context).overridePendingTransition(a, f35002b);
+            ((Activity) context).overridePendingTransition(a, f33874b);
         }
     }
 }

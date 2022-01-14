@@ -19,22 +19,22 @@ public class d extends BitmapDrawable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f12976b;
+    public Context f12662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f12977c;
+    public Rect f12663c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12978d;
+    public String f12664d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f12979e;
+    public Matrix f12665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12980f;
+    public int f12666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12981g;
+    public int f12667g;
 
     public d(Context context, int i2) {
         Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class d extends BitmapDrawable {
             }
         }
         this.a = 0;
-        this.f12976b = null;
-        this.f12977c = null;
-        this.f12978d = null;
-        this.f12979e = null;
-        this.f12980f = 0;
-        this.f12981g = 0;
-        this.f12976b = context;
+        this.f12662b = null;
+        this.f12663c = null;
+        this.f12664d = null;
+        this.f12665e = null;
+        this.f12666f = 0;
+        this.f12667g = 0;
+        this.f12662b = context;
         this.a = i2;
-        this.f12978d = String.valueOf(i2);
+        this.f12664d = String.valueOf(i2);
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
@@ -68,46 +68,46 @@ public class d extends BitmapDrawable {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a <= 0 || this.f12976b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a <= 0 || this.f12662b == null) {
             return;
         }
-        c.a.s0.c0.c k2 = c.a.s0.c0.c.k();
-        c.a.d.n.d.a m = (k2 == null || (str2 = this.f12978d) == null) ? null : k2.m(str2);
+        c.a.s0.c0.c k = c.a.s0.c0.c.k();
+        c.a.d.n.d.a m = (k == null || (str2 = this.f12664d) == null) ? null : k.m(str2);
         if (m == null) {
-            Bitmap resBitmap = BitmapHelper.getResBitmap(this.f12976b, this.a);
+            Bitmap resBitmap = BitmapHelper.getResBitmap(this.f12662b, this.a);
             if (resBitmap != null) {
                 m = new c.a.d.n.d.a(resBitmap, false, (String) null);
             }
-            if (k2 != null && m != null && (str = this.f12978d) != null) {
-                k2.d(str, m);
+            if (k != null && m != null && (str = this.f12664d) != null) {
+                k.d(str, m);
             }
         }
         if (m != null) {
             int r = m.r();
             int m2 = m.m();
-            if (r <= 0 || m2 <= 0 || this.f12977c == null) {
+            if (r <= 0 || m2 <= 0 || this.f12663c == null) {
                 return;
             }
             canvas.save();
             canvas.clipRect(super.getBounds());
-            if (m2 <= 0 && r <= 0 && this.f12980f == 0 && this.f12981g == 0) {
+            if (m2 <= 0 && r <= 0 && this.f12666f == 0 && this.f12667g == 0) {
                 m.e(canvas, 0.0f, 0.0f, null);
             } else {
-                if (this.f12979e == null) {
+                if (this.f12665e == null) {
                     Matrix matrix = new Matrix();
-                    this.f12979e = matrix;
-                    matrix.postTranslate(this.f12980f, this.f12981g);
-                    Rect rect = this.f12977c;
+                    this.f12665e = matrix;
+                    matrix.postTranslate(this.f12666f, this.f12667g);
+                    Rect rect = this.f12663c;
                     float f2 = (rect.right - rect.left) / r;
                     float f3 = (rect.bottom - rect.top) / m2;
                     if (f2 >= f3) {
                         f2 = f3;
                     }
                     if (f2 < 1.0f) {
-                        this.f12979e.postScale(f2, f2);
+                        this.f12665e.postScale(f2, f2);
                     }
                 }
-                m.f(canvas, this.f12979e, null);
+                m.f(canvas, this.f12665e, null);
             }
             canvas.restore();
         }
@@ -117,8 +117,8 @@ public class d extends BitmapDrawable {
     public void setBounds(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            this.f12977c = new Rect(i2, i3, i4, i5);
-            this.f12979e = null;
+            this.f12663c = new Rect(i2, i3, i4, i5);
+            this.f12665e = null;
             super.setBounds(i2, i3, i4, i5);
         }
     }
@@ -127,8 +127,8 @@ public class d extends BitmapDrawable {
     public void setBounds(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
-            this.f12977c = new Rect(rect);
-            this.f12979e = null;
+            this.f12663c = new Rect(rect);
+            this.f12665e = null;
             super.setBounds(rect);
         }
     }

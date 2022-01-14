@@ -35,22 +35,22 @@ public class b {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f60402b;
+    public static Context f58112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f60403c;
+    public static a f58113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile TKConfigResultData f60404d;
+    public static volatile TKConfigResultData f58114d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f60405e;
+    public static volatile boolean f58115e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f60406f;
+    public static long f58116f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f60407g;
+    public static final String[] f58117g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -62,11 +62,11 @@ public class b {
 
     /* renamed from: com.kwad.tachikoma.config.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC2133b implements Runnable {
+    public static class RunnableC2150b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC2133b() {
+        public RunnableC2150b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,13 +83,13 @@ public class b {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || b.f60402b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || b.f58112b == null) {
                 return;
             }
-            TKConfigResultData unused = b.f60404d = b.c(b.f60402b);
-            String str = (b.f60404d == null || b.f60404d.data == null || TextUtils.isEmpty(b.f60404d.data.f60398b)) ? "1.0.0" : b.f60404d.data.f60398b;
-            if (b.f60403c != null) {
-                b.f60403c.a(b.f60404d);
+            TKConfigResultData unused = b.f58114d = b.c(b.f58112b);
+            String str = (b.f58114d == null || b.f58114d.data == null || TextUtils.isEmpty(b.f58114d.data.f58108b)) ? "1.0.0" : b.f58114d.data.f58108b;
+            if (b.f58113c != null) {
+                b.f58113c.a(b.f58114d);
             }
             b.b("2.1", str);
         }
@@ -108,24 +108,24 @@ public class b {
                 return;
             }
         }
-        f60407g = new String[]{"ksad-video-top-bar.js", "ksad-video-bottom-card.js"};
+        f58117g = new String[]{"ksad-video-top-bar.js", "ksad-video-bottom-card.js"};
     }
 
     public static TKConfigResultData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f60404d : (TKConfigResultData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f58114d : (TKConfigResultData) invokeV.objValue;
     }
 
     public static synchronized void a(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar) == null) {
             synchronized (b.class) {
-                f60402b = context;
+                f58112b = context;
                 if (!a) {
                     a = true;
-                    f60403c = aVar;
-                    i.a(new RunnableC2133b());
+                    f58113c = aVar;
+                    i.a(new RunnableC2150b());
                 }
             }
         }
@@ -134,7 +134,7 @@ public class b {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            f60406f = SystemClock.elapsedRealtime();
+            f58116f = SystemClock.elapsedRealtime();
             com.kwad.sdk.core.report.i.a("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadState(0).setTemplateId("ksad-old").setVersionCode(str));
         }
     }
@@ -149,31 +149,31 @@ public class b {
             if (context == null) {
                 return;
             }
-            a(aVar.f60398b);
+            a(aVar.f58108b);
             File file = new File(aq.e(context));
             if (!file.exists()) {
                 file.mkdirs();
             }
             File file2 = new File(file, "js.zip");
-            boolean a2 = c.a(file2, aVar.f60399c);
+            boolean a2 = c.a(file2, aVar.f58109c);
             com.kwad.sdk.core.d.a.a("TKConfigRequestManager", "downloadAndReplaceJsFile success");
             if (!a2) {
-                str = aVar.f60398b;
+                str = aVar.f58108b;
                 str2 = "net";
-            } else if (TextUtils.isEmpty(aVar.f60400d) || aVar.f60400d.equalsIgnoreCase(com.kwad.sdk.utils.c.b(file2))) {
+            } else if (TextUtils.isEmpty(aVar.f58110d) || aVar.f58110d.equalsIgnoreCase(com.kwad.sdk.utils.c.b(file2))) {
                 try {
                     File file3 = new File(aq.e(context));
                     if (!file3.exists()) {
                         file3.mkdirs();
                     }
-                    f60405e = com.kwad.tachikoma.a.a.a(new FileInputStream(file2), file3.getAbsolutePath());
-                    com.kwad.sdk.core.d.a.a("TKConfigRequestManager", "downloadAndReplaceJsFile sLoadFileFinished " + f60405e);
+                    f58115e = com.kwad.tachikoma.a.a.a(new FileInputStream(file2), file3.getAbsolutePath());
+                    com.kwad.sdk.core.d.a.a("TKConfigRequestManager", "downloadAndReplaceJsFile sLoadFileFinished " + f58115e);
                 } catch (IOException e2) {
                     com.kwad.sdk.core.d.a.b(e2);
-                    com.kwad.sdk.core.d.a.a("TKConfigRequestManager", "downloadAndReplaceJsFile IOException " + f60405e);
+                    com.kwad.sdk.core.d.a.a("TKConfigRequestManager", "downloadAndReplaceJsFile IOException " + f58115e);
                 }
-                boolean z = f60405e;
-                String str3 = aVar.f60398b;
+                boolean z = f58115e;
+                String str3 = aVar.f58108b;
                 if (z) {
                     b(str3);
                     return;
@@ -182,7 +182,7 @@ public class b {
                     return;
                 }
             } else {
-                str = aVar.f60398b;
+                str = aVar.f58108b;
                 str2 = PackageTable.MD5;
             }
             c(str2, str);
@@ -192,7 +192,7 @@ public class b {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.kwad.sdk.core.report.i.a("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadTime(f60406f > 0 ? SystemClock.elapsedRealtime() - f60406f : 0L).setDownloadState(1).setTemplateId("ksad-old").setVersionCode(str));
+            com.kwad.sdk.core.report.i.a("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadTime(f58116f > 0 ? SystemClock.elapsedRealtime() - f58116f : 0L).setDownloadState(1).setTemplateId("ksad-old").setVersionCode(str));
         }
     }
 
@@ -206,7 +206,7 @@ public class b {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f60408b;
+                public final /* synthetic */ String f58118b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -224,7 +224,7 @@ public class b {
                         }
                     }
                     this.a = str;
-                    this.f60408b = str2;
+                    this.f58118b = str2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -256,7 +256,7 @@ public class b {
                 public com.kwad.tachikoma.config.a b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.tachikoma.config.a(this.a, this.f60408b) : (com.kwad.tachikoma.config.a) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.tachikoma.config.a(this.a, this.f58118b) : (com.kwad.tachikoma.config.a) invokeV.objValue;
                 }
             }.a(new j<com.kwad.tachikoma.config.a, TKConfigResultData>() { // from class: com.kwad.tachikoma.config.b.2
                 public static /* synthetic */ Interceptable $ic;
@@ -303,46 +303,46 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048581, this, aVar, tKConfigResultData) == null) {
                         TKConfigResultData tKConfigResultData2 = new TKConfigResultData();
-                        String string = b.f60402b.getSharedPreferences("ksadsdk_JS_CONFIG", 0).getString("js_config", "");
+                        String string = b.f58112b.getSharedPreferences("ksadsdk_JS_CONFIG", 0).getString("js_config", "");
                         try {
                             if (!at.a(string)) {
                                 tKConfigResultData2.parseJson(new JSONObject(string));
                             }
                         } catch (JSONException unused) {
                         }
-                        if (tKConfigResultData.result == 1 && tKConfigResultData.data.f60401e == -1) {
+                        if (tKConfigResultData.result == 1 && tKConfigResultData.data.f58111e == -1) {
                             b.i();
-                            b.f60402b.getSharedPreferences("ksadsdk_JS_CONFIG", 0).edit().clear().apply();
-                            if (b.f60403c == null) {
+                            b.f58112b.getSharedPreferences("ksadsdk_JS_CONFIG", 0).edit().clear().apply();
+                            if (b.f58113c == null) {
                                 return;
                             }
-                        } else if (tKConfigResultData.result == 1 && !at.a(tKConfigResultData.data.f60399c)) {
-                            TKConfigResultData unused2 = b.f60404d = tKConfigResultData;
-                            String str3 = tKConfigResultData.data.f60400d;
-                            if (str3 != null && str3.equals(tKConfigResultData2.data.f60400d) && b.d(b.f60402b)) {
-                                boolean unused3 = b.f60405e = true;
-                            } else if (b.f60404d.data.f60401e == 1) {
+                        } else if (tKConfigResultData.result == 1 && !at.a(tKConfigResultData.data.f58109c)) {
+                            TKConfigResultData unused2 = b.f58114d = tKConfigResultData;
+                            String str3 = tKConfigResultData.data.f58110d;
+                            if (str3 != null && str3.equals(tKConfigResultData2.data.f58110d) && b.d(b.f58112b)) {
+                                boolean unused3 = b.f58115e = true;
+                            } else if (b.f58114d.data.f58111e == 1) {
                                 b.b(tKConfigResultData.data);
-                                b.f60402b.getSharedPreferences("ksadsdk_JS_CONFIG", 0).edit().putString("js_config", tKConfigResultData.toJson().toString()).apply();
+                                b.f58112b.getSharedPreferences("ksadsdk_JS_CONFIG", 0).edit().putString("js_config", tKConfigResultData.toJson().toString()).apply();
                             } else {
-                                boolean unused4 = b.f60405e = b.d(b.f60402b);
-                                if (!b.f60405e) {
+                                boolean unused4 = b.f58115e = b.d(b.f58112b);
+                                if (!b.f58115e) {
                                     b.b(tKConfigResultData.data);
                                 }
                             }
-                            if (b.f60403c == null) {
+                            if (b.f58113c == null) {
                                 return;
                             }
-                        } else if (tKConfigResultData2.result != 1 || tKConfigResultData2.data.f60399c == null) {
+                        } else if (tKConfigResultData2.result != 1 || tKConfigResultData2.data.f58109c == null) {
                             return;
                         } else {
-                            boolean unused5 = b.f60405e = b.d(b.f60402b);
-                            TKConfigResultData unused6 = b.f60404d = tKConfigResultData2;
-                            if (b.f60403c == null) {
+                            boolean unused5 = b.f58115e = b.d(b.f58112b);
+                            TKConfigResultData unused6 = b.f58114d = tKConfigResultData2;
+                            if (b.f58113c == null) {
                                 return;
                             }
                         }
-                        b.f60403c.b(tKConfigResultData);
+                        b.f58113c.b(tKConfigResultData);
                     }
                 }
             });
@@ -352,7 +352,7 @@ public class b {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f60405e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f58115e : invokeV.booleanValue;
     }
 
     public static TKConfigResultData c(Context context) {
@@ -378,12 +378,12 @@ public class b {
     public static void c() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (context = f60402b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (context = f58112b) == null) {
             return;
         }
         context.getSharedPreferences("ksadsdk_JS_CONFIG", 0).edit().clear().apply();
         i();
-        f60405e = false;
+        f58115e = false;
     }
 
     public static void c(String str, String str2) {
@@ -398,7 +398,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
             File file = new File(aq.e(context));
-            for (String str : f60407g) {
+            for (String str : f58117g) {
                 File file2 = new File(file.getAbsolutePath(), str);
                 if (!file2.exists() || file2.length() <= 0) {
                     return false;
@@ -413,11 +413,11 @@ public class b {
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, null) == null) {
-            f60405e = false;
+            f58115e = false;
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null) {
                 File file = new File(aq.e(context));
-                for (String str : f60407g) {
+                for (String str : f58117g) {
                     boolean delete = new File(file.getAbsolutePath(), str).delete();
                     System.out.println("Jifenglei " + str + " delete " + delete);
                 }

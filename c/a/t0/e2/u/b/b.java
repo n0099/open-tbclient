@@ -26,7 +26,7 @@ public class b implements ThirdPartWxRechargeService {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f17619b;
+    public static BroadcastReceiver f17190b;
     public transient /* synthetic */ FieldHolder $fh;
     public IWXAPI a;
 
@@ -155,13 +155,13 @@ public class b implements ThirdPartWxRechargeService {
                     hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
                     LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
                 }
-                if (f17619b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(f17619b);
+                if (f17190b != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(f17190b);
                 }
-                f17619b = new a(this, wxPayType);
+                f17190b = new a(this, wxPayType);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(f17619b, intentFilter);
+                TbadkCoreApplication.getInst().registerReceiver(f17190b, intentFilter);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

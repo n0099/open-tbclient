@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UpdateRuntime {
     public static /* synthetic */ Interceptable $ic;
+    public static DefaultPreloadContext sDefaultPreloadContext;
     public static DefaultUpdateContext sDefaultUpdateContext;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,6 +31,7 @@ public class UpdateRuntime {
             }
         }
         sDefaultUpdateContext = new DefaultUpdateContext();
+        sDefaultPreloadContext = new DefaultPreloadContext();
     }
 
     public UpdateRuntime() {
@@ -47,9 +49,16 @@ public class UpdateRuntime {
     }
 
     @Inject(force = false)
+    public static IPreloadContext getPreloadContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sDefaultPreloadContext : (IPreloadContext) invokeV.objValue;
+    }
+
+    @Inject(force = false)
     public static IUpdateContext getUpdateContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sDefaultUpdateContext : (IUpdateContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sDefaultUpdateContext : (IUpdateContext) invokeV.objValue;
     }
 }

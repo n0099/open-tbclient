@@ -27,11 +27,11 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f41182f;
+    public static final boolean f39791f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SocketTaskState f41183e;
+    public SocketTaskState f39792e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -108,7 +108,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        f41182f = k.a;
+        f39791f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -129,20 +129,20 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        this.f41183e = SocketTaskState.IDLE;
+        this.f39792e = SocketTaskState.IDLE;
     }
 
     public void onClose(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.f41183e = SocketTaskState.CLOSE;
+            this.f39792e = SocketTaskState.CLOSE;
             x(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
         }
     }
 
     public void onError(Throwable th, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f41183e == SocketTaskState.IDLE) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f39792e == SocketTaskState.IDLE) {
             x("error", new f(th.getMessage()));
         }
     }
@@ -159,7 +159,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onOpen(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.f41183e = SocketTaskState.OPEN;
+            this.f39792e = SocketTaskState.OPEN;
             x("open", new i(new JSONObject(map)));
         }
     }
@@ -167,7 +167,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public final void x(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-            if (f41182f) {
+            if (f39791f) {
                 String str2 = "dispatchEvent:" + str;
             }
             dispatchEvent(new JSEvent(str, obj));

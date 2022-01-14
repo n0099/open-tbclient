@@ -8,7 +8,7 @@ import com.kwad.a.kwai.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes3.dex */
-public class h extends c.AbstractC2070c {
+public class h extends c.AbstractC2087c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,10 +29,10 @@ public class h extends c.AbstractC2070c {
         }
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(bVar.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        long j3 = bVar.f57528c + (j2 * bVar.f57530e);
+        long j3 = bVar.f55344c + (j2 * bVar.f55346e);
         this.a = fVar.c(allocate, j3);
-        this.f57535b = fVar.b(allocate, 8 + j3);
-        this.f57536c = fVar.b(allocate, 16 + j3);
-        this.f57537d = fVar.b(allocate, j3 + 40);
+        this.f55351b = fVar.b(allocate, 8 + j3);
+        this.f55352c = fVar.b(allocate, 16 + j3);
+        this.f55353d = fVar.b(allocate, j3 + 40);
     }
 }

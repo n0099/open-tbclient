@@ -24,19 +24,19 @@ public class h {
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EMTextView f24089b;
+    public EMTextView f23416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f24090c;
+    public BdTypeRecyclerView f23417c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f24091d;
+    public View f23418d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.s2.u.c.b f24092e;
+    public c.a.t0.s2.u.c.b f23419e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.s2.u.f.b1.j f24093f;
+    public c.a.t0.s2.u.f.b1.j f23420f;
 
     public h(c.a.t0.s2.y.b bVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class h {
             }
         }
         b(bVar.getPbActivity());
-        c.a.t0.s2.u.c.b bVar2 = new c.a.t0.s2.u.c.b(bVar, bdUniqueId, this.f24090c);
-        this.f24092e = bVar2;
-        this.f24093f = new c.a.t0.s2.u.f.b1.j(this.f24090c, bVar2);
+        c.a.t0.s2.u.c.b bVar2 = new c.a.t0.s2.u.c.b(bVar, bdUniqueId, this.f23417c);
+        this.f23419e = bVar2;
+        this.f23420f = new c.a.t0.s2.u.f.b1.j(this.f23417c, bVar2);
         c();
     }
 
@@ -71,16 +71,16 @@ public class h {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(c.a.t0.s2.j.recom_thread_info_layout, (ViewGroup) null);
             this.a = linearLayout;
-            this.f24089b = (EMTextView) linearLayout.findViewById(c.a.t0.s2.i.tv_title);
+            this.f23416b = (EMTextView) linearLayout.findViewById(c.a.t0.s2.i.tv_title);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(c.a.t0.s2.i.pb_recom_info_list);
-            this.f24090c = bdTypeRecyclerView;
+            this.f23417c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-            this.f24090c.setFadingEdgeLength(0);
-            this.f24090c.setOverScrollMode(2);
+            this.f23417c.setFadingEdgeLength(0);
+            this.f23417c.setOverScrollMode(2);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(c.a.t0.s2.g.M_W_X004);
-            this.f24090c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            this.f24090c.setNestedScrollingEnabled(false);
-            this.f24091d = new View(context);
+            this.f23417c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+            this.f23417c.setNestedScrollingEnabled(false);
+            this.f23418d = new View(context);
         }
     }
 
@@ -88,31 +88,31 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this.a, c.a.t0.s2.f.CAM_X0204);
-            SkinManager.setViewTextColor(this.f24089b, c.a.t0.s2.f.CAM_X0105);
-            this.f24092e.e();
+            SkinManager.setViewTextColor(this.f23416b, c.a.t0.s2.f.CAM_X0105);
+            this.f23419e.e();
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f24090c.removeFooterView(this.f24091d);
-            this.f24091d.setLayoutParams(new ViewGroup.LayoutParams(1, i2));
-            this.f24090c.addFooterView(this.f24091d);
+            this.f23417c.removeFooterView(this.f23418d);
+            this.f23418d.setLayoutParams(new ViewGroup.LayoutParams(1, i2));
+            this.f23417c.addFooterView(this.f23418d);
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f24090c.setNestedScrollingEnabled(z);
+            this.f23417c.setNestedScrollingEnabled(z);
         }
     }
 
     public void f(c.a.t0.s2.r.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f24093f.k(fVar);
+            this.f23420f.k(fVar);
         }
     }
 }

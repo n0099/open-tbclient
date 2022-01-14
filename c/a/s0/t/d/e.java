@@ -47,7 +47,7 @@ public class e implements c.a.s0.t.d.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f14285b;
+    public static final long f13956b;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.s0.g1.q.a.f.b a;
 
@@ -58,13 +58,13 @@ public class e implements c.a.s0.t.d.a {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14286b;
+        public final /* synthetic */ TbPageContext f13957b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f14287c;
+        public final /* synthetic */ ViewGroup f13958c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f14288d;
+        public final /* synthetic */ e f13959d;
 
         public a(e eVar, Activity activity, TbPageContext tbPageContext, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -81,10 +81,10 @@ public class e implements c.a.s0.t.d.a {
                     return;
                 }
             }
-            this.f14288d = eVar;
+            this.f13959d = eVar;
             this.a = activity;
-            this.f14286b = tbPageContext;
-            this.f14287c = viewGroup;
+            this.f13957b = tbPageContext;
+            this.f13958c = viewGroup;
         }
 
         @Override // c.a.s0.g1.q.a.d.f
@@ -94,20 +94,20 @@ public class e implements c.a.s0.t.d.a {
                 return;
             }
             boolean z = false;
-            if ("frs.FrsActivity".equals(this.a.getLocalClassName()) && c.a.s0.s.g0.b.j().g("first_call_attention", true)) {
-                c.a.s0.s.g0.b.j().t("first_call_attention", false);
-                if (!NotificationManagerCompat.from(this.f14286b.getPageActivity()).areNotificationsEnabled()) {
+            if ("frs.FrsActivity".equals(this.a.getLocalClassName()) && c.a.s0.s.h0.b.k().h("first_call_attention", true)) {
+                c.a.s0.s.h0.b.k().u("first_call_attention", false);
+                if (!NotificationManagerCompat.from(this.f13957b.getPageActivity()).areNotificationsEnabled()) {
                     z = true;
                 }
             }
             if (z) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001223, date));
-                c.a.s0.t.h.a.f(this.f14286b, new boolean[]{true, false}, 2);
+                c.a.s0.t.h.a.f(this.f13957b, new boolean[]{true, false}, 2);
                 return;
             }
-            this.f14288d.i(true);
+            this.f13959d.i(true);
             d.d().V(date.getHours(), date.getMinutes());
-            this.f14288d.e(this.a, this.f14287c);
+            this.f13959d.e(this.a, this.f13958c);
         }
     }
 
@@ -118,7 +118,7 @@ public class e implements c.a.s0.t.d.a {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f14289b;
+        public final /* synthetic */ e f13960b;
 
         /* loaded from: classes6.dex */
         public class a implements View.OnTouchListener {
@@ -154,14 +154,14 @@ public class e implements c.a.s0.t.d.a {
 
         /* renamed from: c.a.s0.t.d.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0877b implements View.OnClickListener {
+        public class View$OnClickListenerC0890b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f14290e;
+            public final /* synthetic */ b f13961e;
 
-            public View$OnClickListenerC0877b(b bVar) {
+            public View$OnClickListenerC0890b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,22 +176,22 @@ public class e implements c.a.s0.t.d.a {
                         return;
                     }
                 }
-                this.f14290e = bVar;
+                this.f13961e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.f14290e.f14289b.a != null) {
-                        this.f14290e.f14289b.a.A();
-                        this.f14290e.f14289b.a.f();
+                    if (this.f13961e.f13960b.a != null) {
+                        this.f13961e.f13960b.a.A();
+                        this.f13961e.f13960b.a.f();
                     }
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_OK_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     TiebaStatic.log(statisticItem);
                     if (c.a.s0.t.h.a.e(TbadkCoreApplication.getInst(), 0)) {
-                        c.a.s0.t.h.a.g(this.f14290e.a, 5, 0L);
+                        c.a.s0.t.h.a.g(this.f13961e.a, 5, 0L);
                     }
                 }
             }
@@ -203,7 +203,7 @@ public class e implements c.a.s0.t.d.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f14291e;
+            public final /* synthetic */ b f13962e;
 
             public c(b bVar) {
                 Interceptable interceptable = $ic;
@@ -220,15 +220,15 @@ public class e implements c.a.s0.t.d.a {
                         return;
                     }
                 }
-                this.f14291e = bVar;
+                this.f13962e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.f14291e.f14289b.a != null) {
-                        this.f14291e.f14289b.a.f();
+                    if (this.f13962e.f13960b.a != null) {
+                        this.f13962e.f13960b.a.f();
                     }
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_CLOSE_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -252,7 +252,7 @@ public class e implements c.a.s0.t.d.a {
                     return;
                 }
             }
-            this.f14289b = eVar;
+            this.f13960b = eVar;
             this.a = tbPageContext;
         }
 
@@ -278,7 +278,7 @@ public class e implements c.a.s0.t.d.a {
                 a aVar = new a(this);
                 findViewById.setOnTouchListener(aVar);
                 findViewById4.setOnTouchListener(aVar);
-                textView.setOnClickListener(new View$OnClickListenerC0877b(this));
+                textView.setOnClickListener(new View$OnClickListenerC0890b(this));
                 imageView.setOnClickListener(new c(this));
             }
         }
@@ -297,7 +297,7 @@ public class e implements c.a.s0.t.d.a {
                 return;
             }
         }
-        f14285b = StringHelper.MS_TO_MIN * 1;
+        f13956b = StringHelper.MS_TO_MIN * 1;
     }
 
     public e() {
@@ -342,7 +342,7 @@ public class e implements c.a.s0.t.d.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             AlarmManager alarmManager = (AlarmManager) inst.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent k2 = k();
+            Intent k = k();
             if (a()) {
                 Calendar calendar = Calendar.getInstance();
                 int h2 = h();
@@ -356,10 +356,10 @@ public class e implements c.a.s0.t.d.a {
                 if (i2 >= h2 && (i2 != h2 || i3 >= b2)) {
                     calendar.set(6, calendar.get(6) + 1);
                 }
-                alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(inst, 0, k2, 134217728));
+                alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(inst, 0, k, 134217728));
                 return;
             }
-            PendingIntent broadcast = PendingIntent.getBroadcast(inst, 0, k2, 536870912);
+            PendingIntent broadcast = PendingIntent.getBroadcast(inst, 0, k, 536870912);
             if (broadcast != null) {
                 alarmManager.cancel(broadcast);
             }
@@ -381,7 +381,7 @@ public class e implements c.a.s0.t.d.a {
             if (i2 > 0 && j2 > 0) {
                 calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), i2, j2);
             } else {
-                calendar.setTimeInMillis(System.currentTimeMillis() + f14285b);
+                calendar.setTimeInMillis(System.currentTimeMillis() + f13956b);
             }
             c.a.s0.g1.q.a.b.a aVar = new c.a.s0.g1.q.a.b.a(pageActivity, fVar);
             aVar.g(calendar);
@@ -444,11 +444,11 @@ public class e implements c.a.s0.t.d.a {
     public void f(TbPageContext tbPageContext, ViewGroup viewGroup) {
         Activity pageActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, viewGroup) == null) || tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null || !g.e(pageActivity) || d.d().A() || c.a.s0.s.g0.b.j().k("sign_time_set_dialog", 0) > 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, viewGroup) == null) || tbPageContext == null || (pageActivity = tbPageContext.getPageActivity()) == null || !g.e(pageActivity) || d.d().A() || c.a.s0.s.h0.b.k().l("sign_time_set_dialog", 0) > 0) {
             return;
         }
         d(tbPageContext, new a(this, pageActivity, tbPageContext, viewGroup));
-        c.a.s0.s.g0.b.j().v("sign_time_set_dialog", 1);
+        c.a.s0.s.h0.b.k().w("sign_time_set_dialog", 1);
     }
 
     @Override // c.a.s0.t.d.a
@@ -507,7 +507,7 @@ public class e implements c.a.s0.t.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis() + f14285b);
+            calendar.setTimeInMillis(System.currentTimeMillis() + f13956b);
             g(calendar.get(11), calendar.get(12));
         }
     }

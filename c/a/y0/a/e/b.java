@@ -14,10 +14,10 @@ public final class b {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.InterfaceC1590a f27651b;
+    public static a.InterfaceC1606a f26819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a.InterfaceC1590a f27652c;
+    public static a.InterfaceC1606a f26820c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,11 +41,11 @@ public final class b {
             synchronized (b.class) {
                 if (!a) {
                     c.a.y0.a.f.a.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                    f27651b = new c();
-                    f27652c = new m();
+                    f26819b = new c();
+                    f26820c = new m();
                     a.a().c();
-                    a.a().d(f27652c);
-                    a.a().d(f27651b);
+                    a.a().d(f26820c);
+                    a.a().d(f26819b);
                     a.a().e(context);
                     a = true;
                     return;

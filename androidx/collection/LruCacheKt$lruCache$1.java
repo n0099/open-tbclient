@@ -55,10 +55,10 @@ public final class LruCacheKt$lruCache$1 extends Lambda implements Function2<K, 
     /* JADX WARN: Can't rename method to resolve collision */
     /* JADX WARN: Type inference failed for: r1v0, types: [int, java.lang.Integer] */
     @Override // kotlin.jvm.functions.Function2
-    public final Integer invoke(K k2, V v) {
+    public final Integer invoke(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k2, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v)) == null) {
             return 1;
         }
         return invokeLL.intValue;

@@ -13,7 +13,7 @@ public final class a {
 
     /* renamed from: c.i.d.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1666a {
+    public static /* synthetic */ class C1682a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2), roundingMode})) == null) {
             if (b.c(d2)) {
-                switch (C1666a.a[roundingMode.ordinal()]) {
+                switch (C1682a.a[roundingMode.ordinal()]) {
                     case 1:
                         e.d(a(d2));
                         return d2;

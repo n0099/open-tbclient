@@ -26,8 +26,8 @@ public final class f extends d {
             }
         }
         this.a = 32;
-        this.f5038b = i2;
-        this.f5039c = i3;
+        this.f4931b = i2;
+        this.f4932c = i3;
     }
 
     @Override // c.a.r.h.a.d

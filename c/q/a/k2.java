@@ -15,7 +15,7 @@ public class k2 implements p0 {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ u2 f31336b;
+    public final /* synthetic */ u2 f30356b;
 
     public k2(u2 u2Var, View view) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class k2 implements p0 {
                 return;
             }
         }
-        this.f31336b = u2Var;
+        this.f30356b = u2Var;
         this.a = view;
     }
 
@@ -42,7 +42,7 @@ public class k2 implements p0 {
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a == null) {
             return;
         }
-        this.f31336b.f31475f.a(z);
+        this.f30356b.f30486f.a(z);
     }
 
     @Override // c.q.a.p0
@@ -51,7 +51,7 @@ public class k2 implements p0 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
             return;
         }
-        this.f31336b.f31475f.onDisplayed();
+        this.f30356b.f30486f.onDisplayed();
     }
 
     @Override // c.q.a.p0
@@ -60,6 +60,6 @@ public class k2 implements p0 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(new h2(this), this.f31336b.f31472c.getSpet());
+        new Handler(Looper.getMainLooper()).postDelayed(new h2(this), this.f30356b.f30483c.getSpet());
     }
 }

@@ -36,34 +36,32 @@ public class c extends c.a.d.a.d<PaymentConfirmActivity> {
     public PaymentConfirmActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f22462b;
+    public ViewGroup f21843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f22463c;
+    public NavigationBar f21844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f22464d;
+    public ViewGroup f21845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f22465e;
+    public ViewGroup f21846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f22466f;
+    public TbImageView f21847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22467g;
+    public TextView f21848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f22468h;
+    public TextView f21849h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f22469i;
+    public TextView f21850i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f22470j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f22471k;
+    public TextView f21851j;
+    public TextView k;
     public TextView l;
     public CheckBox m;
     public ViewGroup n;
@@ -131,27 +129,27 @@ public class c extends c.a.d.a.d<PaymentConfirmActivity> {
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, paymentConfirmInfoData, z) == null) || paymentConfirmInfoData == null) {
             return;
         }
-        this.f22465e.setVisibility(0);
+        this.f21846e.setVisibility(0);
         PaymentConfirmInfoData.GoodsInfo goods_info = paymentConfirmInfoData.getGoods_info();
         if (goods_info != null) {
-            this.f22466f.startLoad(goods_info.getGoods_pic(), 10, false);
-            this.f22467g.setText(goods_info.getGoods_name());
+            this.f21847f.startLoad(goods_info.getGoods_pic(), 10, false);
+            this.f21848g.setText(goods_info.getGoods_name());
             String numFormatOver10000 = StringHelper.numFormatOver10000(goods_info.getGoods_num());
-            this.f22468h.setText(t(this.a.getResources().getString(R.string.payment_confirm_goods_num, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
+            this.f21849h.setText(t(this.a.getResources().getString(R.string.payment_confirm_goods_num, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
             int goods_duration = goods_info.getGoods_duration();
             if (goods_duration > 0) {
                 String numFormatOver100002 = StringHelper.numFormatOver10000(goods_duration);
-                this.f22469i.setText(t(this.a.getResources().getString(R.string.payment_confirm_goods_timelength, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
+                this.f21850i.setText(t(this.a.getResources().getString(R.string.payment_confirm_goods_timelength, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
             } else {
-                this.f22469i.setText(c(this.a.getResources().getString(R.string.payment_confirm_goods_timelength_default), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
+                this.f21850i.setText(c(this.a.getResources().getString(R.string.payment_confirm_goods_timelength_default), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
             }
-            this.f22470j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f21851j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
             if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
-                this.f22470j.setText(CurrencyHelper.getFormatOverBaiwanNum(goods_info.getCurrency(), goods_info.getTdou_num()));
+                this.f21851j.setText(CurrencyHelper.getFormatOverBaiwanNum(goods_info.getCurrency(), goods_info.getTdou_num()));
             } else {
-                this.f22470j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
+                this.f21851j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
             }
-            this.f22471k.setText(this.a.getResources().getString(R.string.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
+            this.k.setText(this.a.getResources().getString(R.string.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
             if (z) {
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
                 this.l.setText(h(goods_info.getTdou_num(), goods_info.getCurrency()));
@@ -242,7 +240,7 @@ public class c extends c.a.d.a.d<PaymentConfirmActivity> {
     public ViewGroup i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22464d : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21845d : (ViewGroup) invokeV.objValue;
     }
 
     public String j() {
@@ -299,8 +297,8 @@ public class c extends c.a.d.a.d<PaymentConfirmActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f22462b);
-            this.f22463c.onChangeSkinType(this.a.getPageContext(), i2);
+            c.a.s0.x0.a.a(this.a.getPageContext(), this.f21843b);
+            this.f21844c.onChangeSkinType(this.a.getPageContext(), i2);
         }
     }
 
@@ -313,14 +311,14 @@ public class c extends c.a.d.a.d<PaymentConfirmActivity> {
     public final void q(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, paymentConfirmActivity) == null) {
-            this.f22464d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_content);
-            this.f22465e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_operate);
-            this.f22466f = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_goods_pic);
-            this.f22467g = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name);
-            this.f22468h = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_num);
-            this.f22469i = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_timelength);
-            this.f22470j = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price);
-            this.f22471k = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name_tip);
+            this.f21845d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_content);
+            this.f21846e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_operate);
+            this.f21847f = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_goods_pic);
+            this.f21848g = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name);
+            this.f21849h = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_num);
+            this.f21850i = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_timelength);
+            this.f21851j = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price);
+            this.k = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name_tip);
             this.l = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price_tip);
             this.m = (CheckBox) paymentConfirmActivity.findViewById(R.id.payment_page_show);
             this.n = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_member_show);
@@ -333,20 +331,20 @@ public class c extends c.a.d.a.d<PaymentConfirmActivity> {
     public final void r(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, paymentConfirmActivity) == null) {
-            this.f22462b = (ViewGroup) this.a.findViewById(R.id.payment_root);
+            this.f21843b = (ViewGroup) this.a.findViewById(R.id.payment_root);
             NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.payment_navigation_bar);
-            this.f22463c = navigationBar;
+            this.f21844c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
                 if (this.w) {
-                    this.f22463c.setTitleText(this.a.getPageContext().getString(R.string.payment_ybean_confirm_buy_title));
+                    this.f21844c.setTitleText(this.a.getPageContext().getString(R.string.payment_ybean_confirm_buy_title));
                 } else {
-                    this.f22463c.setTitleText(this.a.getPageContext().getString(R.string.payment_ybean_confirm_title));
+                    this.f21844c.setTitleText(this.a.getPageContext().getString(R.string.payment_ybean_confirm_title));
                 }
             } else if (this.w) {
-                this.f22463c.setTitleText(this.a.getPageContext().getString(R.string.payment_confirm_buy_title));
+                this.f21844c.setTitleText(this.a.getPageContext().getString(R.string.payment_confirm_buy_title));
             } else {
-                this.f22463c.setTitleText(this.a.getPageContext().getString(R.string.payment_confirm_title));
+                this.f21844c.setTitleText(this.a.getPageContext().getString(R.string.payment_confirm_title));
             }
         }
     }

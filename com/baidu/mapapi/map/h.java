@@ -14,19 +14,19 @@ public class h {
     public final double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f36667b;
+    public final double f35458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f36668c;
+    public final double f35459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final double f36669d;
+    public final double f35460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final double f36670e;
+    public final double f35461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f36671f;
+    public final double f35462f;
 
     public h(double d2, double d3, double d4, double d5) {
         Interceptable interceptable = $ic;
@@ -44,23 +44,23 @@ public class h {
             }
         }
         this.a = d2;
-        this.f36667b = d4;
-        this.f36668c = d3;
-        this.f36669d = d5;
-        this.f36670e = (d2 + d3) / 2.0d;
-        this.f36671f = (d4 + d5) / 2.0d;
+        this.f35458b = d4;
+        this.f35459c = d3;
+        this.f35460d = d5;
+        this.f35461e = (d2 + d3) / 2.0d;
+        this.f35462f = (d4 + d5) / 2.0d;
     }
 
     public boolean a(double d2, double d3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) ? this.a <= d2 && d2 <= this.f36668c && this.f36667b <= d3 && d3 <= this.f36669d : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) ? this.a <= d2 && d2 <= this.f35459c && this.f35458b <= d3 && d3 <= this.f35460d : invokeCommon.booleanValue;
     }
 
     public boolean a(double d2, double d3, double d4, double d5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) ? d2 < this.f36668c && this.a < d3 && d4 < this.f36669d && this.f36667b < d5 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) ? d2 < this.f35459c && this.a < d3 && d4 < this.f35460d && this.f35458b < d5 : invokeCommon.booleanValue;
     }
 
     public boolean a(Point point) {
@@ -72,13 +72,13 @@ public class h {
     public boolean a(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hVar)) == null) ? a(hVar.a, hVar.f36668c, hVar.f36667b, hVar.f36669d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hVar)) == null) ? a(hVar.a, hVar.f35459c, hVar.f35458b, hVar.f35460d) : invokeL.booleanValue;
     }
 
     public boolean b(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) ? hVar.a >= this.a && hVar.f36668c <= this.f36668c && hVar.f36667b >= this.f36667b && hVar.f36669d <= this.f36669d : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) ? hVar.a >= this.a && hVar.f35459c <= this.f35459c && hVar.f35458b >= this.f35458b && hVar.f35460d <= this.f35460d : invokeL.booleanValue;
     }
 
     public String toString() {
@@ -87,11 +87,11 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("minX: " + this.a);
-            sb.append(" minY: " + this.f36667b);
-            sb.append(" maxX: " + this.f36668c);
-            sb.append(" maxY: " + this.f36669d);
-            sb.append(" midX: " + this.f36670e);
-            sb.append(" midY: " + this.f36671f);
+            sb.append(" minY: " + this.f35458b);
+            sb.append(" maxX: " + this.f35459c);
+            sb.append(" maxY: " + this.f35460d);
+            sb.append(" midX: " + this.f35461e);
+            sb.append(" midY: " + this.f35462f);
             return sb.toString();
         }
         return (String) invokeV.objValue;

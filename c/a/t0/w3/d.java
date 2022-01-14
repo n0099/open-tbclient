@@ -9,11 +9,11 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25493b;
+    public String f24779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25494c;
+    public int f24780c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25495d;
+    public int f24781d;
 }

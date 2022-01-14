@@ -21,7 +21,7 @@ public final class c {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final b0 f28552b;
+    public final b0 f27679b;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -30,34 +30,32 @@ public final class c {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final z f28553b;
+        public final z f27680b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final b0 f28554c;
+        public final b0 f27681c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Date f28555d;
+        public Date f27682d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28556e;
+        public String f27683e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Date f28557f;
+        public Date f27684f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f28558g;
+        public String f27685g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Date f28559h;
+        public Date f27686h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f28560i;
+        public long f27687i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f28561j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public String f28562k;
+        public long f27688j;
+        public String k;
         public int l;
 
         public a(long j2, z zVar, b0 b0Var) {
@@ -77,26 +75,26 @@ public final class c {
             }
             this.l = -1;
             this.a = j2;
-            this.f28553b = zVar;
-            this.f28554c = b0Var;
+            this.f27680b = zVar;
+            this.f27681c = b0Var;
             if (b0Var != null) {
-                this.f28560i = b0Var.s();
-                this.f28561j = b0Var.q();
+                this.f27687i = b0Var.s();
+                this.f27688j = b0Var.q();
                 r j3 = b0Var.j();
                 int g2 = j3.g();
                 for (int i4 = 0; i4 < g2; i4++) {
                     String e2 = j3.e(i4);
                     String h2 = j3.h(i4);
                     if ("Date".equalsIgnoreCase(e2)) {
-                        this.f28555d = c.d.b.e0.i.d.b(h2);
-                        this.f28556e = h2;
+                        this.f27682d = c.d.b.e0.i.d.b(h2);
+                        this.f27683e = h2;
                     } else if ("Expires".equalsIgnoreCase(e2)) {
-                        this.f28559h = c.d.b.e0.i.d.b(h2);
+                        this.f27686h = c.d.b.e0.i.d.b(h2);
                     } else if ("Last-Modified".equalsIgnoreCase(e2)) {
-                        this.f28557f = c.d.b.e0.i.d.b(h2);
-                        this.f28558g = h2;
+                        this.f27684f = c.d.b.e0.i.d.b(h2);
+                        this.f27685g = h2;
                     } else if ("ETag".equalsIgnoreCase(e2)) {
-                        this.f28562k = h2;
+                        this.k = h2;
                     } else if ("Age".equalsIgnoreCase(e2)) {
                         this.l = c.d.b.e0.i.e.d(h2, -1);
                     }
@@ -114,14 +112,14 @@ public final class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Date date = this.f28555d;
-                long max = date != null ? Math.max(0L, this.f28561j - date.getTime()) : 0L;
+                Date date = this.f27682d;
+                long max = date != null ? Math.max(0L, this.f27688j - date.getTime()) : 0L;
                 int i2 = this.l;
                 if (i2 != -1) {
                     max = Math.max(max, TimeUnit.SECONDS.toMillis(i2));
                 }
-                long j2 = this.f28561j;
-                return max + (j2 - this.f28560i) + (this.a - j2);
+                long j2 = this.f27688j;
+                return max + (j2 - this.f27687i) + (this.a - j2);
             }
             return invokeV.longValue;
         }
@@ -132,32 +130,32 @@ public final class c {
             long j3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c.d.b.d c2 = this.f28554c.c();
+                c.d.b.d c2 = this.f27681c.c();
                 if (c2.d() != -1) {
                     return TimeUnit.SECONDS.toMillis(c2.d());
                 }
-                if (this.f28559h != null) {
-                    Date date = this.f28555d;
+                if (this.f27686h != null) {
+                    Date date = this.f27682d;
                     if (date != null) {
                         j3 = date.getTime();
                     } else {
-                        j3 = this.f28561j;
+                        j3 = this.f27688j;
                     }
-                    long time = this.f28559h.getTime() - j3;
+                    long time = this.f27686h.getTime() - j3;
                     if (time > 0) {
                         return time;
                     }
                     return 0L;
-                } else if (this.f28557f == null || this.f28554c.r().h().query() != null) {
+                } else if (this.f27684f == null || this.f27681c.r().h().query() != null) {
                     return 0L;
                 } else {
-                    Date date2 = this.f28555d;
+                    Date date2 = this.f27682d;
                     if (date2 != null) {
                         j2 = date2.getTime();
                     } else {
-                        j2 = this.f28560i;
+                        j2 = this.f27687i;
                     }
-                    long time2 = j2 - this.f28557f.getTime();
+                    long time2 = j2 - this.f27684f.getTime();
                     if (time2 > 0) {
                         return time2 / 10;
                     }
@@ -172,7 +170,7 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 c d2 = d();
-                return (d2.a == null || !this.f28553b.b().j()) ? d2 : new c(null, null);
+                return (d2.a == null || !this.f27680b.b().j()) ? d2 : new c(null, null);
             }
             return (c) invokeV.objValue;
         }
@@ -181,18 +179,18 @@ public final class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f28554c == null) {
-                    return new c(this.f28553b, null);
+                if (this.f27681c == null) {
+                    return new c(this.f27680b, null);
                 }
-                if (this.f28553b.e() && this.f28554c.f() == null) {
-                    return new c(this.f28553b, null);
+                if (this.f27680b.e() && this.f27681c.f() == null) {
+                    return new c(this.f27680b, null);
                 }
-                if (!c.a(this.f28554c, this.f28553b)) {
-                    return new c(this.f28553b, null);
+                if (!c.a(this.f27681c, this.f27680b)) {
+                    return new c(this.f27680b, null);
                 }
-                c.d.b.d b2 = this.f28553b.b();
-                if (!b2.h() && !e(this.f28553b)) {
-                    c.d.b.d c2 = this.f28554c.c();
+                c.d.b.d b2 = this.f27680b.b();
+                if (!b2.h() && !e(this.f27680b)) {
+                    c.d.b.d c2 = this.f27681c.c();
                     long a = a();
                     long b3 = b();
                     if (b2.d() != -1) {
@@ -206,7 +204,7 @@ public final class c {
                     if (!c2.h()) {
                         long j3 = millis + a;
                         if (j3 < j2 + b3) {
-                            b0.a n = this.f28554c.n();
+                            b0.a n = this.f27681c.n();
                             if (j3 >= b3) {
                                 n.a("Warning", "110 HttpURLConnection \"Response is stale\"");
                             }
@@ -216,24 +214,24 @@ public final class c {
                             return new c(null, n.c());
                         }
                     }
-                    String str = this.f28562k;
+                    String str = this.k;
                     String str2 = "If-Modified-Since";
                     if (str != null) {
                         str2 = "If-None-Match";
-                    } else if (this.f28557f != null) {
-                        str = this.f28558g;
-                    } else if (this.f28555d != null) {
-                        str = this.f28556e;
+                    } else if (this.f27684f != null) {
+                        str = this.f27685g;
+                    } else if (this.f27682d != null) {
+                        str = this.f27683e;
                     } else {
-                        return new c(this.f28553b, null);
+                        return new c(this.f27680b, null);
                     }
-                    r.a f2 = this.f28553b.d().f();
+                    r.a f2 = this.f27680b.d().f();
                     c.d.b.e0.a.a.b(f2, str2, str);
-                    z.a g2 = this.f28553b.g();
+                    z.a g2 = this.f27680b.g();
                     g2.d(f2.d());
-                    return new c(g2.b(), this.f28554c);
+                    return new c(g2.b(), this.f27681c);
                 }
-                return new c(this.f28553b, null);
+                return new c(this.f27680b, null);
             }
             return (c) invokeV.objValue;
         }
@@ -241,7 +239,7 @@ public final class c {
         public final boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28554c.c().d() == -1 && this.f28559h == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27681c.c().d() == -1 && this.f27686h == null : invokeV.booleanValue;
         }
     }
 
@@ -261,7 +259,7 @@ public final class c {
             }
         }
         this.a = zVar;
-        this.f28552b = b0Var;
+        this.f27679b = b0Var;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x005a, code lost:

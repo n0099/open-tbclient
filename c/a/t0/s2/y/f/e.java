@@ -55,13 +55,13 @@ public class e extends c.a.d.n.e.a<y, VideoPbEnterForumViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f3299e);
-            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f3299e);
-            cardForumHeadLayout.setPadding(n.f(this.f3299e, c.a.t0.s2.g.tbds32), 0, 0, 0);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, n.f(this.f3299e, c.a.t0.s2.g.tbds156));
-            layoutParams.leftMargin = n.f(this.f3299e, c.a.t0.s2.g.tbds44);
-            layoutParams.rightMargin = n.f(this.f3299e, c.a.t0.s2.g.tbds44);
-            layoutParams.bottomMargin = n.f(this.f3299e, c.a.t0.s2.g.tbds76);
+            FrameLayout frameLayout = new FrameLayout(this.f3258e);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f3258e);
+            cardForumHeadLayout.setPadding(n.f(this.f3258e, c.a.t0.s2.g.tbds32), 0, 0, 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, n.f(this.f3258e, c.a.t0.s2.g.tbds156));
+            layoutParams.leftMargin = n.f(this.f3258e, c.a.t0.s2.g.tbds44);
+            layoutParams.rightMargin = n.f(this.f3258e, c.a.t0.s2.g.tbds44);
+            layoutParams.bottomMargin = n.f(this.f3258e, c.a.t0.s2.g.tbds76);
             frameLayout.addView(cardForumHeadLayout, layoutParams);
             return new VideoPbEnterForumViewHolder(frameLayout);
         }
@@ -73,7 +73,7 @@ public class e extends c.a.d.n.e.a<y, VideoPbEnterForumViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, yVar, videoPbEnterForumViewHolder})) == null) {
             if (yVar != null) {
-                videoPbEnterForumViewHolder.setData(yVar.f23106e);
+                videoPbEnterForumViewHolder.setData(yVar.f22469e);
             }
             videoPbEnterForumViewHolder.changeSkinType();
             return view;

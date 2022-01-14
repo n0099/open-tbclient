@@ -23,16 +23,16 @@ public class h extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9242e;
+        public final /* synthetic */ String f9040e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f9243f;
+        public final /* synthetic */ boolean f9041f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f9244g;
+        public final /* synthetic */ boolean f9042g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ h f9245h;
+        public final /* synthetic */ h f9043h;
 
         public a(h hVar, String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class h extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f9245h = hVar;
-            this.f9242e = str;
-            this.f9243f = z;
-            this.f9244g = z2;
+            this.f9043h = hVar;
+            this.f9040e = str;
+            this.f9041f = z;
+            this.f9042g = z2;
         }
 
         @Override // java.lang.Runnable
@@ -63,22 +63,22 @@ public class h extends c.a.r0.a.u.e.f.a {
                 c.a.r0.a.s2.b.a z = h.z();
                 if (z == null) {
                     c.a.r0.a.e0.d.c("TabBarApi", "tabBarViewController is null");
-                    this.f9245h.d(this.f9242e, new c.a.r0.a.u.h.b(1001));
+                    this.f9043h.d(this.f9040e, new c.a.r0.a.u.h.b(1001));
                     return;
                 }
-                if (this.f9243f) {
-                    j2 = z.r(this.f9244g);
+                if (this.f9041f) {
+                    j2 = z.r(this.f9042g);
                 } else {
-                    j2 = z.j(this.f9244g);
+                    j2 = z.j(this.f9042g);
                 }
                 if (!j2) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(this.f9243f ? "open" : IntentConfig.CLOSE);
+                    sb.append(this.f9041f ? "open" : IntentConfig.CLOSE);
                     sb.append("bottom bar fail");
                     c.a.r0.a.e0.d.c("TabBarApi", sb.toString());
-                    this.f9245h.d(this.f9242e, new c.a.r0.a.u.h.b(1001));
+                    this.f9043h.d(this.f9040e, new c.a.r0.a.u.h.b(1001));
                 }
-                this.f9245h.d(this.f9242e, new c.a.r0.a.u.h.b(0));
+                this.f9043h.d(this.f9040e, new c.a.r0.a.u.h.b(0));
             }
         }
     }

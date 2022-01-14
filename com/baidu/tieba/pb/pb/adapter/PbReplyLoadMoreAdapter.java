@@ -106,7 +106,7 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f3299e).inflate(j.pb_reply_load_more_item, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f3258e).inflate(j.pb_reply_load_more_item, viewGroup, false);
             inflate.findViewById(i.tv_pb_reply_more).setOnClickListener(this.s);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.onChangeSkin();

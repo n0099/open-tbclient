@@ -16,16 +16,16 @@ public abstract class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d0 f23448b;
+    public d0 f22799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC0184a f23449c;
+    public a.InterfaceC0193a f22800c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OriginalThreadInfo f23450d;
+    public OriginalThreadInfo f22801d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23451e;
+    public int f22802e;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f23451e = 3;
+        this.f22802e = 3;
         this.a = tbPageContext;
     }
 
@@ -52,17 +52,17 @@ public abstract class a {
 
     public abstract void c(OriginalThreadInfo originalThreadInfo);
 
-    public void d(a.InterfaceC0184a interfaceC0184a) {
+    public void d(a.InterfaceC0193a interfaceC0193a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0184a) == null) {
-            this.f23449c = interfaceC0184a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0193a) == null) {
+            this.f22800c = interfaceC0193a;
         }
     }
 
     public void e(d0 d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, d0Var) == null) {
-            this.f23448b = d0Var;
+            this.f22799b = d0Var;
         }
     }
 }

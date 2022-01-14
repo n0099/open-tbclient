@@ -26,7 +26,7 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f44951b;
+    public View f43323b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -50,7 +50,7 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.f44951b = view;
+        this.f43323b = view;
         initView(view);
     }
 

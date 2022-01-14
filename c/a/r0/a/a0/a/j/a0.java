@@ -36,7 +36,7 @@ public class a0 extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (cap = this.a) == null) {
             return;
         }
-        bVar.f5180g.setStrokeCap(cap);
+        bVar.f5072g.setStrokeCap(cap);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

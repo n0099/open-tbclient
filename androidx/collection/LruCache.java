@@ -48,24 +48,24 @@ public class LruCache<K, V> {
         throw new IllegalArgumentException("maxSize <= 0");
     }
 
-    private int safeSizeOf(K k2, V v) {
+    private int safeSizeOf(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, k2, v)) == null) {
-            int sizeOf = sizeOf(k2, v);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, k, v)) == null) {
+            int sizeOf = sizeOf(k, v);
             if (sizeOf >= 0) {
                 return sizeOf;
             }
-            throw new IllegalStateException("Negative size: " + k2 + "=" + v);
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
         }
         return invokeLL.intValue;
     }
 
     @Nullable
-    public V create(@NonNull K k2) {
+    public V create(@NonNull K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
             return null;
         }
         return (V) invokeL.objValue;
@@ -84,9 +84,9 @@ public class LruCache<K, V> {
         return invokeV.intValue;
     }
 
-    public void entryRemoved(boolean z, @NonNull K k2, @NonNull V v, @Nullable V v2) {
+    public void entryRemoved(boolean z, @NonNull K k, @NonNull V v, @Nullable V v2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), k2, v, v2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
         }
     }
 
@@ -111,34 +111,34 @@ public class LruCache<K, V> {
     }
 
     @Nullable
-    public final V get(@NonNull K k2) {
+    public final V get(@NonNull K k) {
         InterceptResult invokeL;
         V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k2)) == null) {
-            if (k2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            if (k != null) {
                 synchronized (this) {
-                    V v = this.map.get(k2);
+                    V v = this.map.get(k);
                     if (v != null) {
                         this.hitCount++;
                         return v;
                     }
                     this.missCount++;
-                    V create = create(k2);
+                    V create = create(k);
                     if (create == null) {
                         return null;
                     }
                     synchronized (this) {
                         this.createCount++;
-                        put = this.map.put(k2, create);
+                        put = this.map.put(k, create);
                         if (put != null) {
-                            this.map.put(k2, put);
+                            this.map.put(k, put);
                         } else {
-                            this.size += safeSizeOf(k2, create);
+                            this.size += safeSizeOf(k, create);
                         }
                     }
                     if (put != null) {
-                        entryRemoved(false, k2, create, put);
+                        entryRemoved(false, k, create, put);
                         return put;
                     }
                     trimToSize(this.maxSize);
@@ -190,22 +190,22 @@ public class LruCache<K, V> {
     }
 
     @Nullable
-    public final V put(@NonNull K k2, @NonNull V v) {
+    public final V put(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k2, v)) == null) {
-            if (k2 != null && v != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+            if (k != null && v != null) {
                 synchronized (this) {
                     this.putCount++;
-                    this.size += safeSizeOf(k2, v);
-                    put = this.map.put(k2, v);
+                    this.size += safeSizeOf(k, v);
+                    put = this.map.put(k, v);
                     if (put != null) {
-                        this.size -= safeSizeOf(k2, put);
+                        this.size -= safeSizeOf(k, put);
                     }
                 }
                 if (put != null) {
-                    entryRemoved(false, k2, put, v);
+                    entryRemoved(false, k, put, v);
                 }
                 trimToSize(this.maxSize);
                 return put;
@@ -229,20 +229,20 @@ public class LruCache<K, V> {
     }
 
     @Nullable
-    public final V remove(@NonNull K k2) {
+    public final V remove(@NonNull K k) {
         InterceptResult invokeL;
         V remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, k2)) == null) {
-            if (k2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, k)) == null) {
+            if (k != null) {
                 synchronized (this) {
-                    remove = this.map.remove(k2);
+                    remove = this.map.remove(k);
                     if (remove != null) {
-                        this.size -= safeSizeOf(k2, remove);
+                        this.size -= safeSizeOf(k, remove);
                     }
                 }
                 if (remove != null) {
-                    entryRemoved(false, k2, remove, null);
+                    entryRemoved(false, k, remove, null);
                 }
                 return remove;
             }
@@ -278,10 +278,10 @@ public class LruCache<K, V> {
         return invokeV.intValue;
     }
 
-    public int sizeOf(@NonNull K k2, @NonNull V v) {
+    public int sizeOf(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k2, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
             return 1;
         }
         return invokeLL.intValue;

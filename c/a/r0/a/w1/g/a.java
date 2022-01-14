@@ -22,20 +22,18 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
     public static final e<a> o;
     public static final f<a> p;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f9756k;
+    public boolean k;
     public long l;
     public long m;
     public int n;
 
     /* renamed from: c.a.r0.a.w1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0603a extends e<a> {
+    public static class C0612a extends e<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0603a() {
+        public C0612a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,13 +55,13 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
                 a aVar = new a();
-                aVar.f9757e = cVar.g();
-                aVar.f9758f = cVar.g();
-                aVar.f9759g = cVar.readLong();
-                aVar.f9760h = cVar.readInt();
-                aVar.f9761i = cVar.g();
-                aVar.f9762j = cVar.g();
-                aVar.f9756k = cVar.readBoolean();
+                aVar.f9545e = cVar.g();
+                aVar.f9546f = cVar.g();
+                aVar.f9547g = cVar.readLong();
+                aVar.f9548h = cVar.readInt();
+                aVar.f9549i = cVar.g();
+                aVar.f9550j = cVar.g();
+                aVar.k = cVar.readBoolean();
                 aVar.l = cVar.readLong();
                 aVar.m = cVar.readLong();
                 aVar.n = cVar.readInt();
@@ -98,13 +96,13 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
         public void a(@NonNull a aVar, @NonNull d dVar) throws Exception {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, dVar) == null) {
-                dVar.f(aVar.f9757e);
-                dVar.f(aVar.f9758f);
-                dVar.writeLong(aVar.f9759g);
-                dVar.writeInt(aVar.f9760h);
-                dVar.f(aVar.f9761i);
-                dVar.f(aVar.f9762j);
-                dVar.writeBoolean(aVar.f9756k);
+                dVar.f(aVar.f9545e);
+                dVar.f(aVar.f9546f);
+                dVar.writeLong(aVar.f9547g);
+                dVar.writeInt(aVar.f9548h);
+                dVar.f(aVar.f9549i);
+                dVar.f(aVar.f9550j);
+                dVar.writeBoolean(aVar.k);
                 dVar.writeLong(aVar.l);
                 dVar.writeLong(aVar.m);
                 dVar.writeInt(aVar.n);
@@ -125,7 +123,7 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
                 return;
             }
         }
-        o = new C0603a();
+        o = new C0612a();
         p = new b();
     }
 
@@ -142,7 +140,7 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
                 return;
             }
         }
-        this.f9756k = false;
+        this.k = false;
         this.n = 1;
     }
 
@@ -156,7 +154,7 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanDependentModel{inline=" + this.f9756k + ", minVersionCode=" + this.l + ", maxVersionCode=" + this.m + ", requireType=" + this.n + ", libName='" + this.f9757e + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f9758f + ExtendedMessageFormat.QUOTE + ", versionCode=" + this.f9759g + ", category=" + this.f9760h + ", libPath='" + this.f9761i + ExtendedMessageFormat.QUOTE + ", libConfig='" + this.f9762j + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanDependentModel{inline=" + this.k + ", minVersionCode=" + this.l + ", maxVersionCode=" + this.m + ", requireType=" + this.n + ", libName='" + this.f9545e + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f9546f + ExtendedMessageFormat.QUOTE + ", versionCode=" + this.f9547g + ", category=" + this.f9548h + ", libPath='" + this.f9549i + ExtendedMessageFormat.QUOTE + ", libConfig='" + this.f9550j + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -176,20 +174,20 @@ public class a extends c.a.r0.a.w1.g.b implements Cloneable {
                 return;
             }
         }
-        this.f9756k = false;
+        this.k = false;
         this.n = 1;
         if (jSONObject == null) {
             return;
         }
-        this.f9757e = str;
-        this.f9760h = 6;
-        this.f9758f = jSONObject.optString("version");
-        this.f9759g = jSONObject.optLong("version_code", -1L);
-        this.f9761i = jSONObject.optString("path");
-        this.f9756k = jSONObject.optBoolean(TKBase.DISPLAY_INLINE, false);
+        this.f9545e = str;
+        this.f9548h = 6;
+        this.f9546f = jSONObject.optString("version");
+        this.f9547g = jSONObject.optLong("version_code", -1L);
+        this.f9549i = jSONObject.optString("path");
+        this.k = jSONObject.optBoolean(TKBase.DISPLAY_INLINE, false);
         this.l = jSONObject.optLong("min_version_code");
         this.m = jSONObject.optLong("max_version_code");
-        this.f9762j = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+        this.f9550j = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
         this.n = jSONObject.optInt("require_type");
     }
 }

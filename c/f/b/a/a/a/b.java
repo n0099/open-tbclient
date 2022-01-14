@@ -27,7 +27,7 @@ public final class b {
 
     /* renamed from: c.f.b.a.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1625b {
+    public static class C1641b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class b {
     public static final b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1625b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1641b.a : (b) invokeV.objValue;
     }
 
     public void b(Camera.AutoFocusCallback autoFocusCallback) {
@@ -71,13 +71,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, autoFocusCallback, str) == null) {
             n();
-            Camera.Parameters k2 = k();
-            List<String> supportedFocusModes = k2.getSupportedFocusModes();
+            Camera.Parameters k = k();
+            List<String> supportedFocusModes = k.getSupportedFocusModes();
             if (supportedFocusModes == null || !supportedFocusModes.contains(str)) {
                 return;
             }
-            k2.setFocusMode(str);
-            d(k2);
+            k.setFocusMode(str);
+            d(k);
             b(autoFocusCallback);
         }
     }

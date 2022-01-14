@@ -15,21 +15,21 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile b f1103f;
+    public static volatile b f1102f;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.a1.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1104b;
+    public Context f1103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1105c;
+    public String f1104c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f1106d;
+    public c f1105d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f1107e;
+    public d f1106e;
 
     static {
         InterceptResult invokeClinit;
@@ -64,14 +64,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1103f == null) {
+            if (f1102f == null) {
                 synchronized (b.class) {
-                    if (f1103f == null) {
-                        f1103f = new b();
+                    if (f1102f == null) {
+                        f1102f = new b();
                     }
                 }
             }
-            return f1103f;
+            return f1102f;
         }
         return (b) invokeV.objValue;
     }
@@ -79,14 +79,14 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1105c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1104c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c cVar = this.f1106d;
+            c cVar = this.f1105d;
             return cVar != null ? cVar.e() : "";
         }
         return (String) invokeV.objValue;
@@ -95,20 +95,20 @@ public class b {
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1106d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1105d : (c) invokeV.objValue;
     }
 
     public d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1107e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1106e : (d) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c cVar = this.f1106d;
+            c cVar = this.f1105d;
             return cVar != null ? cVar.b() : "";
         }
         return (String) invokeV.objValue;
@@ -123,7 +123,7 @@ public class b {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1104b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1103b : (Context) invokeV.objValue;
     }
 
     public void h(Context context) {
@@ -131,7 +131,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, context) == null) || context == null) {
             return;
         }
-        this.f1104b = context.getApplicationContext();
+        this.f1103b = context.getApplicationContext();
     }
 
     public boolean i() {
@@ -146,14 +146,14 @@ public class b {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f1105c = str;
+            this.f1104c = str;
         }
     }
 
     public void k(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f1106d = cVar;
+            this.f1105d = cVar;
         }
     }
 }

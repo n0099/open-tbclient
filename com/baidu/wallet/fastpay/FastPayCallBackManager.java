@@ -105,7 +105,7 @@ public final class FastPayCallBackManager {
         if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, simpleOrderInfo}) == null) || (a = a.a().a(i2)) == null) {
             return;
         }
-        a.onFastPayFail(i2, i3, new a.C1969a(i4, str, simpleOrderInfo));
+        a.onFastPayFail(i2, i3, new a.C1986a(i4, str, simpleOrderInfo));
         a.a().b(i2);
     }
 

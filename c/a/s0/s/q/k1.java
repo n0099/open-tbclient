@@ -18,10 +18,10 @@ public class k1 {
     public PrivatePopInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrivateForumInfo f13758b;
+    public PrivateForumInfo f13444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f13759c;
+    public Integer f13445c;
 
     public k1() {
         Interceptable interceptable = $ic;
@@ -37,20 +37,20 @@ public class k1 {
             }
         }
         this.a = null;
-        this.f13758b = null;
-        this.f13759c = null;
+        this.f13444b = null;
+        this.f13445c = null;
     }
 
     public PrivateForumInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13758b : (PrivateForumInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13444b : (PrivateForumInfo) invokeV.objValue;
     }
 
     public Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13759c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13445c : (Integer) invokeV.objValue;
     }
 
     public PrivatePopInfo c() {
@@ -66,8 +66,8 @@ public class k1 {
         }
         try {
             PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.f13758b = privateForumTotalInfo.private_forum_info;
-            this.f13759c = privateForumTotalInfo.private_forum_taskpercent;
+            this.f13444b = privateForumTotalInfo.private_forum_info;
+            this.f13445c = privateForumTotalInfo.private_forum_taskpercent;
             this.a = privateForumTotalInfo.private_forum_popinfo;
         } catch (Exception e2) {
             BdLog.detailException(e2);

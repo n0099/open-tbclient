@@ -29,10 +29,10 @@ public class b extends c.a.t0.v.g.g.a<c.a.t0.v.g.g.b, AdDownloadData> implements
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public PermissionJudgePolicy f25181g;
+    public PermissionJudgePolicy f24477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d f25182h;
+    public final d f24478h;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -97,7 +97,7 @@ public class b extends c.a.t0.v.g.g.a<c.a.t0.v.g.g.b, AdDownloadData> implements
                 return;
             }
         }
-        this.f25182h = new d(this, adDownloadData);
+        this.f24478h = new d(this, adDownloadData);
     }
 
     @Override // c.a.t0.v.g.g.c
@@ -105,7 +105,7 @@ public class b extends c.a.t0.v.g.g.a<c.a.t0.v.g.g.b, AdDownloadData> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             j();
-            this.f25182h.a();
+            this.f24478h.a();
         }
     }
 
@@ -144,12 +144,12 @@ public class b extends c.a.t0.v.g.g.a<c.a.t0.v.g.g.b, AdDownloadData> implements
             if (g() == null || !(g().getRealView().getContext() instanceof Activity) || c.a.t0.a.h().u()) {
                 return true;
             }
-            if (this.f25181g == null) {
-                this.f25181g = new PermissionJudgePolicy();
+            if (this.f24477g == null) {
+                this.f24477g = new PermissionJudgePolicy();
             }
-            this.f25181g.clearRequestPermissionList();
-            this.f25181g.appendRequestPermission((Activity) g().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            return !this.f25181g.startRequestPermission((Activity) g().getRealView().getContext());
+            this.f24477g.clearRequestPermissionList();
+            this.f24477g.appendRequestPermission((Activity) g().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            return !this.f24477g.startRequestPermission((Activity) g().getRealView().getContext());
         }
         return invokeV.booleanValue;
     }
@@ -168,14 +168,14 @@ public class b extends c.a.t0.v.g.g.a<c.a.t0.v.g.g.b, AdDownloadData> implements
         if (i2 == 1) {
             if (h2 != null && m()) {
                 e.d().m(h2, null);
-                this.f25182h.a();
+                this.f24478h.a();
             }
         } else if (i2 == 2) {
             e.d().f(adDownloadData.adId());
         } else if (i2 == 3) {
             if (m()) {
                 e.d().k(adDownloadData.adId());
-                this.f25182h.a();
+                this.f24478h.a();
             }
         } else if (i2 != 4) {
             if (i2 != 5) {
@@ -226,7 +226,7 @@ public class b extends c.a.t0.v.g.g.a<c.a.t0.v.g.g.b, AdDownloadData> implements
                 AdDownloadData f2 = f();
                 long j2 = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(f2.adId(), 0L);
                 f2.setContentLength(Math.max(f().getContentLength(), j2));
-                this.f25182h.d(j2);
+                this.f24478h.d(j2);
             }
         }
     }

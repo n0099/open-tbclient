@@ -22,48 +22,46 @@ public class a {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f25943b;
+    public View f25180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Animation f25944c;
+    public Animation f25181c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation f25945d;
+    public Animation f25182d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation f25946e;
+    public Animation f25183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25947f;
+    public boolean f25184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25948g;
+    public boolean f25185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25949h;
+    public boolean f25186h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f25950i;
+    public boolean f25187i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f25951j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public LegoListFragment f25952k;
+    public boolean f25188j;
+    public LegoListFragment k;
     public h l;
     public View.OnClickListener m;
     public Runnable n;
 
     /* renamed from: c.a.t0.x1.o.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1501a implements View.OnClickListener {
+    public class View$OnClickListenerC1517a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25953e;
+        public final /* synthetic */ a f25189e;
 
-        public View$OnClickListenerC1501a(a aVar) {
+        public View$OnClickListenerC1517a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +76,14 @@ public class a {
                     return;
                 }
             }
-            this.f25953e = aVar;
+            this.f25189e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !this.f25953e.p() && this.f25953e.f25943b.getAlpha() == 0.0f) {
-                this.f25953e.l();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !this.f25189e.p() && this.f25189e.f25180b.getAlpha() == 0.0f) {
+                this.f25189e.l();
             }
         }
     }
@@ -120,7 +118,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.p()) {
                 return;
             }
-            this.a.f25949h = false;
+            this.a.f25186h = false;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -167,7 +165,7 @@ public class a {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f25950i = false;
+                this.a.f25187i = false;
                 this.a.r();
                 if (this.a.p()) {
                     return;
@@ -198,7 +196,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25954e;
+        public final /* synthetic */ a f25190e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -215,19 +213,19 @@ public class a {
                     return;
                 }
             }
-            this.f25954e = aVar;
+            this.f25190e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f25954e.f25950i = false;
-                this.f25954e.r();
-                if (this.f25954e.p()) {
+                this.f25190e.f25187i = false;
+                this.f25190e.r();
+                if (this.f25190e.p()) {
                     return;
                 }
-                this.f25954e.s(false);
+                this.f25190e.s(false);
             }
         }
     }
@@ -261,7 +259,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.k();
-                this.a.f25947f = false;
+                this.a.f25184f = false;
                 this.a.r();
             }
         }
@@ -311,7 +309,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.n();
-                this.a.f25948g = false;
+                this.a.f25185g = false;
             }
         }
 
@@ -336,7 +334,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25955e;
+        public final /* synthetic */ a f25191e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -353,17 +351,17 @@ public class a {
                     return;
                 }
             }
-            this.f25955e = aVar;
+            this.f25191e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f25955e.f25952k != null && this.f25955e.f25952k.getCurrentScrollState() == 1) {
-                    this.f25955e.r();
+                if (this.f25191e.k != null && this.f25191e.k.getCurrentScrollState() == 1) {
+                    this.f25191e.r();
                 } else {
-                    this.f25955e.o();
+                    this.f25191e.o();
                 }
             }
         }
@@ -393,21 +391,21 @@ public class a {
                 return;
             }
         }
-        this.f25947f = false;
-        this.f25948g = false;
-        this.f25949h = false;
-        this.f25950i = false;
-        this.f25951j = true;
-        this.m = new View$OnClickListenerC1501a(this);
+        this.f25184f = false;
+        this.f25185g = false;
+        this.f25186h = false;
+        this.f25187i = false;
+        this.f25188j = true;
+        this.m = new View$OnClickListenerC1517a(this);
         this.n = new g(this);
         this.a = tbPageContext;
         View findViewById = view.findViewById(R.id.cover_video);
-        this.f25943b = findViewById;
+        this.f25180b = findViewById;
         findViewById.setOnClickListener(this.m);
-        this.f25944c = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
-        this.f25945d = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.card_anim_alpha_1_to_0_duration_200_offset_200);
-        this.f25946e = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.card_anim_alpha_0_to_1_duration_2000);
-        this.f25952k = c.a.t0.x1.o.l.d.b(tbPageContext);
+        this.f25181c = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);
+        this.f25182d = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.card_anim_alpha_1_to_0_duration_200_offset_200);
+        this.f25183e = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.card_anim_alpha_0_to_1_duration_2000);
+        this.k = c.a.t0.x1.o.l.d.b(tbPageContext);
         c.a.t0.x1.o.l.d.c(tbPageContext);
     }
 
@@ -416,11 +414,11 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || p()) {
             return;
         }
-        this.f25943b.clearAnimation();
-        this.f25947f = false;
-        this.f25948g = false;
-        this.f25949h = false;
-        this.f25950i = false;
+        this.f25180b.clearAnimation();
+        this.f25184f = false;
+        this.f25185g = false;
+        this.f25186h = false;
+        this.f25187i = false;
     }
 
     public void j() {
@@ -428,15 +426,15 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || p()) {
             return;
         }
-        if (!this.f25947f) {
+        if (!this.f25184f) {
             i();
         }
-        if (this.f25947f) {
+        if (this.f25184f) {
             return;
         }
-        this.f25945d.setAnimationListener(new e(this));
-        this.f25943b.startAnimation(this.f25945d);
-        this.f25947f = true;
+        this.f25182d.setAnimationListener(new e(this));
+        this.f25180b.startAnimation(this.f25182d);
+        this.f25184f = true;
         h hVar = this.l;
         if (hVar != null) {
             hVar.c();
@@ -449,19 +447,19 @@ public class a {
             return;
         }
         i();
-        this.f25943b.setAlpha(0.0f);
+        this.f25180b.setAlpha(0.0f);
         s(false);
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || p() || this.f25950i) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || p() || this.f25187i) {
             return;
         }
         i();
-        this.f25945d.setAnimationListener(new c(this));
-        this.f25943b.postDelayed(new d(this), 200L);
-        this.f25950i = true;
+        this.f25182d.setAnimationListener(new c(this));
+        this.f25180b.postDelayed(new d(this), 200L);
+        this.f25187i = true;
         h hVar = this.l;
         if (hVar != null) {
             hVar.b();
@@ -473,16 +471,16 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || p()) {
             return;
         }
-        if (!this.f25948g) {
+        if (!this.f25185g) {
             i();
         }
-        if (this.f25948g) {
+        if (this.f25185g) {
             return;
         }
-        this.f25944c.setAnimationListener(new f(this));
-        this.f25943b.setAlpha(1.0f);
-        this.f25943b.startAnimation(this.f25944c);
-        this.f25948g = true;
+        this.f25181c.setAnimationListener(new f(this));
+        this.f25180b.setAlpha(1.0f);
+        this.f25180b.startAnimation(this.f25181c);
+        this.f25185g = true;
     }
 
     public void n() {
@@ -491,19 +489,19 @@ public class a {
             return;
         }
         i();
-        this.f25943b.setAlpha(1.0f);
+        this.f25180b.setAlpha(1.0f);
         c.a.d.f.m.e.a().removeCallbacks(this.n);
         s(true);
     }
 
     public void o() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || p() || this.f25949h) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || p() || this.f25186h) {
             return;
         }
         i();
-        this.f25946e.setAnimationListener(new b(this));
-        this.f25949h = true;
+        this.f25183e.setAnimationListener(new b(this));
+        this.f25186h = true;
         h hVar = this.l;
         if (hVar != null) {
             hVar.a();
@@ -514,7 +512,7 @@ public class a {
     public final boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25943b == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25180b == null : invokeV.booleanValue;
     }
 
     public void q() {
@@ -522,7 +520,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             i();
             s(false);
-            this.f25943b.setAlpha(0.0f);
+            this.f25180b.setAlpha(0.0f);
             c.a.d.f.m.e.a().removeCallbacks(this.n);
         }
     }
@@ -531,7 +529,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             q();
-            if (this.f25951j) {
+            if (this.f25188j) {
                 c.a.d.f.m.e.a().postDelayed(this.n, 3000L);
             }
         }
@@ -542,7 +540,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || p()) {
             return;
         }
-        this.f25943b.setClickable(z);
+        this.f25180b.setClickable(z);
     }
 
     public void t(h hVar) {
@@ -555,7 +553,7 @@ public class a {
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f25951j = z;
+            this.f25188j = z;
         }
     }
 }

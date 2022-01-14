@@ -140,7 +140,7 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
             this.mReporter.recordShowSucceed(z);
             AdRipper adRipper = this.mAdRipper;
             u0 u0Var = this.mReporter.mAdIdent;
-            adRipper.report(a, u0Var.a, u0Var.f29353c);
+            adRipper.report(a, u0Var.a, u0Var.f28460c);
         }
     }
 

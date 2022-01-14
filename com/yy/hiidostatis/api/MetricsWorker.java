@@ -124,7 +124,7 @@ public class MetricsWorker implements IMetricsAPI {
                 statisContent.put(BaseStatisContent.NTM, ArdUtil.getNtm(this.context));
                 statisContent.put("hdid", DeviceProxy.getHdid(this.context));
                 statisContent.put("imei", CommonFiller.getIMEI(this.context));
-                statisContent.put(BaseStatisContent.MAC, CommonFiller.getMacAddr(this.context));
+                statisContent.put("mac", CommonFiller.getMacAddr(this.context));
                 statisContent.put(BaseStatisContent.SJP, ArdUtil.getSjp(this.context));
                 statisContent.put(BaseStatisContent.GUID, StringUtil.geneGuid());
                 System.currentTimeMillis();

@@ -14,10 +14,10 @@ public class ap {
     public static volatile ap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60182b = false;
+    public boolean f57898b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public p.a f60183c;
+    public p.a f57899c;
 
     public static ap a() {
         if (a == null) {
@@ -55,29 +55,29 @@ public class ap {
     }
 
     private void c() {
-        p.a aVar = this.f60183c;
+        p.a aVar = this.f57899c;
         if (aVar == null) {
             return;
         }
-        if (!this.f60182b && aVar.f57840c.size() > 0) {
-            for (String str : this.f60183c.f57840c) {
+        if (!this.f57898b && aVar.f55649c.size() > 0) {
+            for (String str : this.f57899c.f55649c) {
                 boolean a2 = a(str);
-                this.f60182b = a2;
+                this.f57898b = a2;
                 if (a2) {
                     break;
                 }
             }
         }
-        if (this.f60182b) {
+        if (this.f57898b) {
             ArrayList arrayList = new ArrayList();
-            if (this.f60183c.a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f60183c.a.entrySet()) {
+            if (this.f57899c.a.size() > 0) {
+                for (Map.Entry<Integer, String> entry : this.f57899c.a.entrySet()) {
                     if (a(entry.getValue())) {
                         arrayList.add(entry.getKey());
                     }
                 }
             }
-            com.kwad.sdk.core.report.d.a(a(this.f60183c.f57839b), arrayList);
+            com.kwad.sdk.core.report.d.a(a(this.f57899c.f55648b), arrayList);
         }
     }
 
@@ -86,24 +86,24 @@ public class ap {
             SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
             if (sharedPreferences != null) {
                 b.a.aX.a(sharedPreferences);
-                this.f60183c = b.a.aX.a();
+                this.f57899c = b.a.aX.a();
             }
-            if (this.f60183c != null) {
+            if (this.f57899c != null) {
                 c();
             }
         }
     }
 
     public boolean a(KsScene ksScene, String str) {
-        boolean a2 = this.f60182b ? a(this.f60183c.f57839b) : false;
+        boolean a2 = this.f57898b ? a(this.f57899c.f55648b) : false;
         com.kwad.sdk.core.report.d.a(ksScene, a2, str);
         return a2;
     }
 
     public int b() {
-        p.a aVar = this.f60183c;
+        p.a aVar = this.f57899c;
         if (aVar != null) {
-            return aVar.f57841d;
+            return aVar.f55650d;
         }
         return 0;
     }

@@ -19,34 +19,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c.a.t0.o2.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.o2.c.b f21351e;
+        public final /* synthetic */ c.a.t0.o2.c.b f20787e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ C1287b f21352f;
+        public final /* synthetic */ C1301b f20788f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f21353g;
+        public final /* synthetic */ int f20789g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f21354h;
+        public final /* synthetic */ b f20790h;
 
-        public a(b bVar, c.a.t0.o2.c.b bVar2, C1287b c1287b, int i2) {
+        public a(b bVar, c.a.t0.o2.c.b bVar2, C1301b c1301b, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, bVar2, c1287b, Integer.valueOf(i2)};
+                Object[] objArr = {bVar, bVar2, c1301b, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -56,30 +56,30 @@ public class b extends c.a.t0.o2.a.a {
                     return;
                 }
             }
-            this.f21354h = bVar;
-            this.f21351e = bVar2;
-            this.f21352f = c1287b;
-            this.f21353g = i2;
+            this.f20790h = bVar;
+            this.f20787e = bVar2;
+            this.f20788f = c1301b;
+            this.f20789g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.o2.c.b bVar = this.f21351e;
+                c.a.t0.o2.c.b bVar = this.f20787e;
                 bVar.l(!bVar.g());
-                this.f21354h.f(this.f21352f.f21356c, this.f21351e);
-                this.f21354h.d(this.f21351e);
-                b bVar2 = this.f21354h;
-                a.InterfaceC1286a interfaceC1286a = bVar2.f21350h;
-                if (interfaceC1286a != null) {
-                    interfaceC1286a.onSelectCountChanged(bVar2.f21347e);
+                this.f20790h.f(this.f20788f.f20792c, this.f20787e);
+                this.f20790h.d(this.f20787e);
+                b bVar2 = this.f20790h;
+                a.InterfaceC1300a interfaceC1300a = bVar2.f20786h;
+                if (interfaceC1300a != null) {
+                    interfaceC1300a.onSelectCountChanged(bVar2.f20783e);
                 }
-                if (this.f21351e.g()) {
+                if (this.f20787e.g()) {
                     StatisticItem statisticItem = new StatisticItem("c13682");
                     statisticItem.param("obj_type", 2);
                     statisticItem.param("obj_locate", 1);
-                    statisticItem.param("obj_source", this.f21353g);
+                    statisticItem.param("obj_source", this.f20789g);
                     TiebaStatic.log(statisticItem);
                 }
             }
@@ -87,19 +87,19 @@ public class b extends c.a.t0.o2.a.a {
     }
 
     /* renamed from: c.a.t0.o2.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1287b {
+    /* loaded from: classes8.dex */
+    public static class C1301b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f21355b;
+        public TextView f20791b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f21356c;
+        public ImageView f20792c;
 
-        public C1287b(View view) {
+        public C1301b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,9 +115,9 @@ public class b extends c.a.t0.o2.a.a {
                 }
             }
             this.a = (ImageView) view.findViewById(R.id.interest_icon);
-            this.f21355b = (TextView) view.findViewById(R.id.interest_text);
-            this.f21356c = (ImageView) view.findViewById(R.id.select_status_view);
-            SkinManager.setViewTextColor(this.f21355b, R.color.CAM_X0105);
+            this.f20791b = (TextView) view.findViewById(R.id.interest_text);
+            this.f20792c = (ImageView) view.findViewById(R.id.select_status_view);
+            SkinManager.setViewTextColor(this.f20791b, R.color.CAM_X0105);
             SkinManager.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
@@ -159,7 +159,7 @@ public class b extends c.a.t0.o2.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<c.a.t0.o2.c.b> list = this.f21349g;
+            List<c.a.t0.o2.c.b> list = this.f20785g;
             if (list == null) {
                 return 0;
             }
@@ -191,29 +191,29 @@ public class b extends c.a.t0.o2.a.a {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1287b c1287b;
+        C1301b c1301b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f21348f).inflate(R.layout.list_item_interest_selection, viewGroup, false);
-                c1287b = new C1287b(view);
-                view.setTag(c1287b);
+                view = LayoutInflater.from(this.f20784f).inflate(R.layout.list_item_interest_selection, viewGroup, false);
+                c1301b = new C1301b(view);
+                view.setTag(c1301b);
             } else {
-                c1287b = (C1287b) view.getTag();
+                c1301b = (C1301b) view.getTag();
             }
-            c.a.t0.o2.c.b bVar = this.f21349g.get(i2);
+            c.a.t0.o2.c.b bVar = this.f20785g.get(i2);
             if (bVar == null) {
                 return view;
             }
             if (bVar.d() > 0) {
-                SkinManager.setImageResource(c1287b.a, bVar.d());
+                SkinManager.setImageResource(c1301b.a, bVar.d());
             }
-            c1287b.f21355b.setText(bVar.f());
-            f(c1287b.f21356c, bVar);
+            c1301b.f20791b.setText(bVar.f());
+            f(c1301b.f20792c, bVar);
             if (bVar.g()) {
-                this.f21347e++;
+                this.f20783e++;
             }
-            view.setOnClickListener(new a(this, bVar, c1287b, i2));
+            view.setOnClickListener(new a(this, bVar, c1301b, i2));
             return view;
         }
         return (View) invokeILL.objValue;

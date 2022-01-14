@@ -42,12 +42,12 @@ public class f extends m {
         this.m = false;
         this.l = 3;
         PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
-        this.f14538k = pbNewInputContainer;
+        this.k = pbNewInputContainer;
         pbNewInputContainer.setTransLink(!z);
-        ((PbNewInputContainer) this.f14538k).setmAtListRequestResponseCode(i2);
-        this.r = ((PbNewInputContainer) this.f14538k).getInputView();
-        ((PbNewInputContainer) this.f14538k).setHint(context.getString(R.string.say_your_point));
-        ((PbNewInputContainer) this.f14538k).updateLocationVisibility(z2);
+        ((PbNewInputContainer) this.k).setmAtListRequestResponseCode(i2);
+        this.r = ((PbNewInputContainer) this.k).getInputView();
+        ((PbNewInputContainer) this.k).setHint(context.getString(R.string.say_your_point));
+        ((PbNewInputContainer) this.k).updateLocationVisibility(z2);
         this.n = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
     }
 
@@ -61,7 +61,7 @@ public class f extends m {
     public void g(int i2) {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (nVar = this.f14538k) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (nVar = this.k) == null) {
             return;
         }
         ((PbNewInputContainer) nVar).applyType(i2);
@@ -82,24 +82,24 @@ public class f extends m {
 
     public void j(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f14538k == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.k == null || StringUtils.isNull(str)) {
             return;
         }
-        ((PbNewInputContainer) this.f14538k).setDefaultHint(str);
+        ((PbNewInputContainer) this.k).setDefaultHint(str);
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f14538k == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.k == null || StringUtils.isNull(str)) {
             return;
         }
-        ((PbNewInputContainer) this.f14538k).setHint(str);
+        ((PbNewInputContainer) this.k).setHint(str);
     }
 
     public void l(int i2) {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (nVar = this.f14538k) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (nVar = this.k) == null) {
             return;
         }
         ((PbNewInputContainer) nVar).setType(i2);

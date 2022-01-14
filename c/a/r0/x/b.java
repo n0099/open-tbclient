@@ -18,12 +18,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f12209c;
+    public static volatile b f11925c;
     public transient /* synthetic */ FieldHolder $fh;
     public final a<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12210b;
+    public String f11926b;
 
     @SuppressLint({"BDThrowableCheck"})
     public b(Context context) {
@@ -58,14 +58,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f12209c == null) {
+            if (f11925c == null) {
                 synchronized (b.class) {
-                    if (f12209c == null) {
-                        f12209c = new b(context);
+                    if (f11925c == null) {
+                        f11925c = new b(context);
                     }
                 }
             }
-            return f12209c;
+            return f11925c;
         }
         return (b) invokeL.objValue;
     }
@@ -74,16 +74,16 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f12210b)) {
+            if (TextUtils.isEmpty(this.f11926b)) {
                 synchronized (this) {
-                    if (TextUtils.isEmpty(this.f12210b)) {
+                    if (TextUtils.isEmpty(this.f11926b)) {
                         String b2 = this.a.b();
-                        this.f12210b = b2;
+                        this.f11926b = b2;
                         this.a.d(b2);
                     }
                 }
             }
-            return this.f12210b;
+            return this.f11926b;
         }
         return (String) invokeV.objValue;
     }

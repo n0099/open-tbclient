@@ -20,16 +20,14 @@ public class r1 extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13799h;
+    public String f13486h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13800i;
+    public int f13487i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13801j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ArrayList<q1> f13802k;
+    public String f13488j;
+    public ArrayList<q1> k;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +59,7 @@ public class r1 extends x {
             }
         }
         i(9);
-        this.f13802k = new ArrayList<>();
+        this.k = new ArrayList<>();
     }
 
     @Override // c.a.s0.s.q.x, c.a.s0.s.q.a
@@ -72,26 +70,26 @@ public class r1 extends x {
     }
 
     @Override // c.a.s0.s.q.x, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.f13837f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.f13523f : (BdUniqueId) invokeV.objValue;
     }
 
     public ArrayList<q1> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13802k : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (ArrayList) invokeV.objValue;
     }
 
     public void o(List<RecommendForumInfo> list) {
@@ -111,7 +109,7 @@ public class r1 extends x {
                 arrayList.add(q1Var);
             }
         }
-        this.f13802k.clear();
-        this.f13802k.addAll(ListUtils.trimToSize(arrayList, 15));
+        this.k.clear();
+        this.k.addAll(ListUtils.trimToSize(arrayList, 15));
     }
 }

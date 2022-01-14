@@ -54,13 +54,13 @@ public class j {
             Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
             int i2 = 1;
             if (matcher.find()) {
-                m1Var.f13771c = matcher.group(1);
+                m1Var.f13460c = matcher.group(1);
             }
             if (stringExtra.equals(string)) {
                 m1Var.a = 1;
             } else {
                 m1Var.a = 2;
-                m1Var.f13770b = stringExtra;
+                m1Var.f13459b = stringExtra;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, m1Var));
             if (stringExtra.equals(string)) {
@@ -73,7 +73,7 @@ public class j {
                 fVar.z().setCurrentTabByType(i2);
                 FragmentTabHost.b tabSpecByType = fVar.z().getTabSpecByType(i2);
                 if (tabSpecByType != null) {
-                    Fragment fragment = tabSpecByType.f41700c;
+                    Fragment fragment = tabSpecByType.f40268c;
                     if (fragment instanceof c.a.s0.s.g) {
                         ((c.a.s0.s.g) fragment).setCurrentSubTab(intent);
                     }

@@ -25,28 +25,28 @@ public class a {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.v2.b.a f25261b;
+    public c.a.t0.v2.b.a f24555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.v2.b.b f25262c;
+    public c.a.t0.v2.b.b f24556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f25263d;
+    public g f24557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f25264e;
+    public d f24558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.v2.b.c f25265f;
+    public c.a.t0.v2.b.c f24559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f25266g;
+    public f f24560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeListView f25267h;
+    public BdTypeListView f24561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f25268i;
+    public List<c.a.d.n.e.a> f24562i;
 
     public a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -63,51 +63,51 @@ public class a {
                 return;
             }
         }
-        this.f25268i = new ArrayList();
-        this.f25267h = bdTypeListView;
+        this.f24562i = new ArrayList();
+        this.f24561h = bdTypeListView;
         b(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25261b.Z();
+            this.f24555b.Z();
         }
     }
 
     public final void b(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
-            this.a = new e(tbPageContext, i.f25307f);
-            this.f25261b = new c.a.t0.v2.b.a(tbPageContext, c.a.t0.v2.d.d.f25277k);
-            this.f25262c = new c.a.t0.v2.b.b(tbPageContext, c.a.t0.v2.d.e.f25284e);
-            this.f25263d = new g(tbPageContext, n.f25325f);
-            this.f25264e = new d(tbPageContext, h.p);
-            this.f25266g = new f(tbPageContext, k.f25316f);
-            this.f25265f = new c.a.t0.v2.b.c(tbPageContext, c.a.t0.v2.d.g.f25295g);
-            this.f25268i.add(this.a);
-            this.f25268i.add(this.f25261b);
-            this.f25268i.add(this.f25262c);
-            this.f25268i.add(this.f25263d);
-            this.f25268i.add(this.f25264e);
-            this.f25268i.add(this.f25265f);
-            this.f25268i.add(this.f25266g);
-            bdTypeListView.addAdapters(this.f25268i);
+            this.a = new e(tbPageContext, i.f24598f);
+            this.f24555b = new c.a.t0.v2.b.a(tbPageContext, c.a.t0.v2.d.d.k);
+            this.f24556c = new c.a.t0.v2.b.b(tbPageContext, c.a.t0.v2.d.e.f24577e);
+            this.f24557d = new g(tbPageContext, n.f24616f);
+            this.f24558e = new d(tbPageContext, h.p);
+            this.f24560g = new f(tbPageContext, k.f24607f);
+            this.f24559f = new c.a.t0.v2.b.c(tbPageContext, c.a.t0.v2.d.g.f24587g);
+            this.f24562i.add(this.a);
+            this.f24562i.add(this.f24555b);
+            this.f24562i.add(this.f24556c);
+            this.f24562i.add(this.f24557d);
+            this.f24562i.add(this.f24558e);
+            this.f24562i.add(this.f24559f);
+            this.f24562i.add(this.f24560g);
+            bdTypeListView.addAdapters(this.f24562i);
         }
     }
 
     public void c() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.f25267h) != null && (bdTypeListView.getAdapter2() instanceof c.a.d.n.e.e)) {
-            this.f25267h.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.f24561h) != null && (bdTypeListView.getAdapter2() instanceof c.a.d.n.e.e)) {
+            this.f24561h.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25261b.c0();
+            this.f24555b.c0();
         }
     }
 }

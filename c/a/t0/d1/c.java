@@ -20,7 +20,7 @@ public class c {
     public v a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BawuThrones f16215b;
+    public BawuThrones f15843b;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -64,7 +64,7 @@ public class c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f16215b = null;
+            this.f15843b = null;
             v vVar = this.a;
             if (vVar != null) {
                 vVar.g();
@@ -76,7 +76,7 @@ public class c {
     public BawuThrones b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16215b : (BawuThrones) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15843b : (BawuThrones) invokeV.objValue;
     }
 
     public void d(String str, String str2) {
@@ -92,7 +92,7 @@ public class c {
     public void e(BawuThrones bawuThrones) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
-            this.f16215b = bawuThrones;
+            this.f15843b = bawuThrones;
         }
     }
 

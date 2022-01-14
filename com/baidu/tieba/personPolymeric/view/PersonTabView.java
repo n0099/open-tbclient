@@ -23,25 +23,23 @@ public class PersonTabView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49133e;
+    public Context f47288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49134f;
+    public TextView f47289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49135g;
+    public TextView f47290g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49136h;
+    public View f47291h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49137i;
+    public View f47292i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f49138j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f49139k;
+    public View f47293j;
+    public View k;
     public int l;
     public int m;
     public int n;
@@ -54,7 +52,7 @@ public class PersonTabView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonTabView f49140e;
+        public final /* synthetic */ PersonTabView f47294e;
 
         public a(PersonTabView personTabView) {
             Interceptable interceptable = $ic;
@@ -71,7 +69,7 @@ public class PersonTabView extends LinearLayout {
                     return;
                 }
             }
-            this.f49140e = personTabView;
+            this.f47294e = personTabView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -79,12 +77,12 @@ public class PersonTabView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == d.main_thread_btn) {
-                    this.f49140e.setCurrentTab(0);
+                    this.f47294e.setCurrentTab(0);
                 } else if (view.getId() == d.reply_btn) {
-                    this.f49140e.setCurrentTab(1);
+                    this.f47294e.setCurrentTab(1);
                 }
-                if (this.f49140e.o != null) {
-                    this.f49140e.o.onTabSelect(this.f49140e.l);
+                if (this.f47294e.o != null) {
+                    this.f47294e.o.onTabSelect(this.f47294e.l);
                 }
             }
         }
@@ -123,18 +121,18 @@ public class PersonTabView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f49133e = context;
+            this.f47288e = context;
             LayoutInflater.from(context).inflate(e.person_button_header_view, this);
             TextView textView = (TextView) findViewById(d.main_thread_btn);
-            this.f49134f = textView;
+            this.f47289f = textView;
             textView.setOnClickListener(this.p);
             TextView textView2 = (TextView) findViewById(d.reply_btn);
-            this.f49135g = textView2;
+            this.f47290g = textView2;
             textView2.setOnClickListener(this.p);
-            this.f49136h = findViewById(d.main_thread_divider);
-            this.f49137i = findViewById(d.reply_btn_divider);
-            this.f49138j = findViewById(d.main_thread_bottom_divider);
-            this.f49139k = findViewById(d.reply_btn_bottom_divider);
+            this.f47291h = findViewById(d.main_thread_divider);
+            this.f47292i = findViewById(d.reply_btn_divider);
+            this.f47293j = findViewById(d.main_thread_bottom_divider);
+            this.k = findViewById(d.reply_btn_bottom_divider);
             setCurrentTab(0);
         }
     }
@@ -145,17 +143,17 @@ public class PersonTabView extends LinearLayout {
             this.m = SkinManager.getColor(c.a.t0.y2.a.CAM_X0105);
             this.n = SkinManager.getColor(c.a.t0.y2.a.CAM_X0107);
             SkinManager.setBackgroundResource(this, c.item_person_header_attention_bg_selector);
-            SkinManager.setBackgroundResource(this.f49136h, c.roundline);
-            SkinManager.setBackgroundResource(this.f49137i, c.roundline);
-            SkinManager.setBackgroundColor(this.f49138j, c.a.t0.y2.a.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f49139k, c.a.t0.y2.a.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f47291h, c.roundline);
+            SkinManager.setBackgroundResource(this.f47292i, c.roundline);
+            SkinManager.setBackgroundColor(this.f47293j, c.a.t0.y2.a.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, c.a.t0.y2.a.CAM_X0204);
             int i2 = this.l;
             if (i2 == 0) {
-                this.f49134f.setTextColor(this.m);
-                this.f49135g.setTextColor(this.n);
+                this.f47289f.setTextColor(this.m);
+                this.f47290g.setTextColor(this.n);
             } else if (i2 == 1) {
-                this.f49134f.setTextColor(this.n);
-                this.f49135g.setTextColor(this.m);
+                this.f47289f.setTextColor(this.n);
+                this.f47290g.setTextColor(this.m);
             }
         }
     }
@@ -167,15 +165,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f49136h.setVisibility(0);
-            this.f49137i.setVisibility(4);
-            this.f49134f.setTextColor(this.m);
-            this.f49135g.setTextColor(this.n);
+            this.f47291h.setVisibility(0);
+            this.f47292i.setVisibility(4);
+            this.f47289f.setTextColor(this.m);
+            this.f47290g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f49136h.setVisibility(4);
-            this.f49137i.setVisibility(0);
-            this.f49134f.setTextColor(this.n);
-            this.f49135g.setTextColor(this.m);
+            this.f47291h.setVisibility(4);
+            this.f47292i.setVisibility(0);
+            this.f47289f.setTextColor(this.n);
+            this.f47290g.setTextColor(this.m);
         }
     }
 

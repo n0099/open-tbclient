@@ -29,13 +29,13 @@ public class s extends ReporterPidLoader<d> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29194b;
+        public boolean f28302b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f29195c;
+        public final /* synthetic */ d f28303c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ s f29196d;
+        public final /* synthetic */ s f28304d;
 
         public a(s sVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class s extends ReporterPidLoader<d> {
                     return;
                 }
             }
-            this.f29196d = sVar;
-            this.f29195c = dVar;
+            this.f28304d = sVar;
+            this.f28303c = dVar;
         }
 
         @Override // c.g.b0.c.n
@@ -61,7 +61,7 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 LogPrinter.e("onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f29196d.onError(i2, str);
+                this.f28304d.onError(i2, str);
             }
         }
 
@@ -70,8 +70,8 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f29196d.onAdClicked(this.f29194b);
-                this.f29194b = true;
+                this.f28304d.onAdClicked(this.f28302b);
+                this.f28302b = true;
             }
         }
 
@@ -80,7 +80,7 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f29196d.onAdShow(this.f29195c, this.a);
+                this.f28304d.onAdShow(this.f28303c, this.a);
                 this.a = true;
             }
         }
@@ -90,7 +90,7 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f29196d.onAdLoaded((s) this.f29195c);
+                this.f28304d.onAdLoaded((s) this.f28303c);
             }
         }
     }
@@ -102,19 +102,19 @@ public class s extends ReporterPidLoader<d> {
         public FunAdInteractionListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29197b;
+        public final String f28305b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final d f29198c;
+        public final d f28306c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f29199d;
+        public boolean f28307d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f29200e;
+        public boolean f28308e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ s f29201f;
+        public final /* synthetic */ s f28309f;
 
         public b(s sVar, String str, d dVar) {
             Interceptable interceptable = $ic;
@@ -131,9 +131,9 @@ public class s extends ReporterPidLoader<d> {
                     return;
                 }
             }
-            this.f29201f = sVar;
-            this.f29197b = str;
-            this.f29198c = dVar;
+            this.f28309f = sVar;
+            this.f28305b = str;
+            this.f28306c = dVar;
         }
 
         @Override // c.g.b0.c.n
@@ -141,7 +141,7 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 LogPrinter.e("onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f29201f.onError(i2, str);
+                this.f28309f.onError(i2, str);
             }
         }
 
@@ -150,11 +150,11 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 LogPrinter.d();
-                this.f29201f.onAdClicked(this.f29200e);
-                this.f29200e = true;
+                this.f28309f.onAdClicked(this.f28308e);
+                this.f28308e = true;
                 FunAdInteractionListener funAdInteractionListener = this.a;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(this.f29197b, this.f29201f.mPid.ssp.type, this.f29201f.mPid.pid);
+                    funAdInteractionListener.onAdClicked(this.f28305b, this.f28309f.mPid.ssp.type, this.f28309f.mPid.pid);
                 }
             }
         }
@@ -164,11 +164,11 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f29201f.onAdShow(this.f29198c, this.f29199d);
-                this.f29199d = true;
+                this.f28309f.onAdShow(this.f28306c, this.f28307d);
+                this.f28307d = true;
                 FunAdInteractionListener funAdInteractionListener = this.a;
                 if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(this.f29197b, this.f29201f.mPid.ssp.type, this.f29201f.mPid.pid);
+                    funAdInteractionListener.onAdShow(this.f28305b, this.f28309f.mPid.ssp.type, this.f28309f.mPid.pid);
                 }
             }
         }
@@ -178,7 +178,7 @@ public class s extends ReporterPidLoader<d> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f29201f.onAdLoaded((s) this.f29198c);
+                this.f28309f.onAdLoaded((s) this.f28306c);
             }
         }
     }

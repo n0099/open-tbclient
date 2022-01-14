@@ -20,13 +20,13 @@ public class p {
     public PbModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f23620b;
+    public BaseFragmentActivity f22963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f23621c;
+    public b f22964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HttpMessageListener f23622d;
+    public final HttpMessageListener f22965d;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -61,7 +61,7 @@ public class p {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    this.a.f23621c.a(-1, null, null);
+                    this.a.f22964c.a(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -71,7 +71,7 @@ public class p {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                this.a.f23621c.a(errorCode, errorMessage, tid);
+                this.a.f22964c.a(errorCode, errorMessage, tid);
             }
         }
     }
@@ -96,11 +96,11 @@ public class p {
                 return;
             }
         }
-        this.f23621c = null;
+        this.f22964c = null;
         a aVar = new a(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        this.f23622d = aVar;
+        this.f22965d = aVar;
         this.a = pbModel;
-        this.f23620b = baseFragmentActivity;
+        this.f22963b = baseFragmentActivity;
         baseFragmentActivity.registerListener(aVar);
     }
 
@@ -118,7 +118,7 @@ public class p {
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f23621c = bVar;
+            this.f22964c = bVar;
         }
     }
 }

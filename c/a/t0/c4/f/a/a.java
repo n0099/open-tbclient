@@ -22,7 +22,7 @@ public class a {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15975b;
+    public int f15568b;
 
     public a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -61,10 +61,10 @@ public class a {
             a = a(dressItemData);
         }
         if (a) {
-            this.f15975b = dressItemData.getPropsId();
+            this.f15568b = dressItemData.getPropsId();
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.f15975b));
-            httpMessage.addParam("bcode", String.valueOf(this.f15975b));
+            httpMessage.setExtra(Integer.valueOf(this.f15568b));
+            httpMessage.addParam("bcode", String.valueOf(this.f15568b));
             MessageManager.getInstance().sendMessage(httpMessage);
         } else if (dressItemData.getFreeUserLevel() == 100) {
             if (dressItemData.getActivityFinish() == 0) {

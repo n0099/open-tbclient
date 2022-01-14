@@ -17,10 +17,10 @@ public class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f35766b;
+    public HashMap<String, String> f34605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f35767c;
+    public a<String> f34606c;
 
     /* loaded from: classes10.dex */
     public interface a<Result> {
@@ -42,8 +42,8 @@ public class c {
                 return;
             }
         }
-        this.f35766b = null;
-        this.f35767c = null;
+        this.f34605b = null;
+        this.f34606c = null;
         this.a = context;
     }
 
@@ -82,7 +82,7 @@ public class c {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f35767c;
+            a<String> aVar = this.f34606c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -92,8 +92,8 @@ public class c {
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, aVar) == null) {
-            this.f35766b = a(hashMap);
-            this.f35767c = aVar;
+            this.f34605b = a(hashMap);
+            this.f34606c = aVar;
             new Thread(new d(this)).start();
         }
     }

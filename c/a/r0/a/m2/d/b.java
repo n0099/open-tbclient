@@ -18,7 +18,7 @@ public class b implements a<JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f7872b;
+    public JSONArray f7700b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements a<JSONObject> {
                 return;
             }
         }
-        this.f7872b = new JSONArray();
+        this.f7700b = new JSONArray();
     }
 
     public void a(String str, String str2) {
@@ -62,13 +62,13 @@ public class b implements a<JSONObject> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f7872b.put(jSONObject);
+        this.f7700b.put(jSONObject);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f7872b = new JSONArray();
+            this.f7700b = new JSONArray();
         }
     }
 
@@ -78,7 +78,7 @@ public class b implements a<JSONObject> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("launchLog", this.f7872b);
+                jSONObject.put("launchLog", this.f7700b);
             } catch (JSONException e2) {
                 if (a.a) {
                     Log.getStackTraceString(e2);

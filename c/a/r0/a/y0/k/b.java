@@ -35,14 +35,14 @@ public final class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9882i;
+    public static final boolean f9668i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a.InterfaceC0622a f9883h;
+    public final a.InterfaceC0631a f9669h;
 
     /* loaded from: classes.dex */
-    public class a implements a.InterfaceC0622a {
+    public class a implements a.InterfaceC0631a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -65,30 +65,30 @@ public final class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
             this.a = bVar;
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onStateChange", Integer.valueOf(i2));
+            this.a.f9586b.onCallback(this.a, "onStateChange", Integer.valueOf(i2));
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onInfo", Integer.valueOf(i2));
+            this.a.f9586b.onCallback(this.a, "onInfo", Integer.valueOf(i2));
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (this.a.f9800b != null) {
-                    this.a.f9800b.onCallback(this.a, "onPaused", null);
+                if (this.a.f9586b != null) {
+                    this.a.f9586b.onCallback(this.a, "onPaused", null);
                 }
                 if (TextUtils.isEmpty(str)) {
                     return;
@@ -97,68 +97,68 @@ public final class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
             }
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void d(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onNetStatus", str);
+            this.a.f9586b.onCallback(this.a, "onNetStatus", str);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                if (this.a.f9800b != null) {
-                    this.a.f9800b.onCallback(this.a, "onPlayed", null);
+                if (this.a.f9586b != null) {
+                    this.a.f9586b.onCallback(this.a, "onPlayed", null);
                 }
                 l.e().l(str, true);
                 l.e().k(str);
             }
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onVideoSizeChanged", null);
+            this.a.f9586b.onCallback(this.a, "onVideoSizeChanged", null);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onEnded() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onEnded", null);
+            this.a.f9586b.onCallback(this.a, "onEnded", null);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onError(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onError", Integer.valueOf(i2));
+            this.a.f9586b.onCallback(this.a, "onError", Integer.valueOf(i2));
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f9800b == null) {
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f9586b == null) {
                 return;
             }
-            this.a.f9800b.onCallback(this.a, "onPrepared", null);
+            this.a.f9586b.onCallback(this.a, "onPrepared", null);
         }
 
-        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0622a
+        @Override // c.a.r0.a.y0.k.g.a.InterfaceC0631a
         public void onRelease(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                if (b.f9882i) {
+                if (b.f9668i) {
                     String str2 = "onRelease: " + str;
                 }
                 l.e().q(str);
@@ -179,7 +179,7 @@ public final class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
                 return;
             }
         }
-        f9882i = k.a;
+        f9668i = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -201,7 +201,7 @@ public final class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.k.g.a> {
             }
         }
         a aVar2 = new a(this);
-        this.f9883h = aVar2;
+        this.f9669h = aVar2;
         aVar.h0(aVar2);
         this.a.a(new c.a.r0.a.y0.k.e.a());
         this.a.a(new c.a.r0.a.y0.k.e.b());

@@ -17,7 +17,7 @@ public class a {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f25852b;
+    public static final Pattern f25092b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a {
             }
         }
         a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-        f25852b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+        f25092b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     }
 
     public static int a(CharSequence charSequence) {
@@ -95,7 +95,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String replaceAll = str.replaceAll(d.f12568f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+            String replaceAll = str.replaceAll(d.f12274f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
             Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
             StringBuilder sb = new StringBuilder(replaceAll);
             int i2 = 0;

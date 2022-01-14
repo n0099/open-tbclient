@@ -16,16 +16,16 @@ public class a {
     public ArrayList<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25681b;
+    public String f24963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25682c;
+    public String f24964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25683d;
+    public String f24965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25684e;
+    public int f24966e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class a {
                         this.a.add(Integer.valueOf(optJSONArray.getInt(i2)));
                     }
                 }
-                this.f25681b = optJSONObject.optString("upload_id");
-                this.f25682c = optJSONObject.optString("video_url");
+                this.f24963b = optJSONObject.optString("upload_id");
+                this.f24964c = optJSONObject.optString("video_url");
             }
         } catch (JSONException unused) {
         }

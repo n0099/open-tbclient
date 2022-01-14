@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.w3.s0.g;
-import c.a.t0.w3.s0.h;
-import c.a.t0.w3.s0.i;
+import c.a.t0.w3.s0.b;
+import c.a.t0.w3.s0.c;
+import c.a.t0.w3.s0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -123,7 +123,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i.f25779g = new Intent(getIntent());
+            d.f25022g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -624,10 +624,10 @@ public class WriteActivityConfig extends IntentConfig {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = g.k().q();
-            h.a("发帖阻拦状态 = " + q);
+            boolean q = b.k().q();
+            c.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                n.M(currentActivity, "正在发布，请稍后");
+                n.N(currentActivity, "正在发布，请稍后");
             }
             return q;
         }

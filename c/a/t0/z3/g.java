@@ -11,7 +11,7 @@ public class g extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f26948f;
+    public Runnable f26147f;
 
     public g(Runnable runnable, int i2) {
         Interceptable interceptable = $ic;
@@ -28,15 +28,15 @@ public class g extends h {
                 return;
             }
         }
-        this.f26948f = runnable;
-        this.f26949e = i2;
+        this.f26147f = runnable;
+        this.f26148e = i2;
     }
 
     @Override // c.a.t0.z3.h
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26948f.run();
+            this.f26147f.run();
         }
     }
 
@@ -44,7 +44,7 @@ public class g extends h {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d.a = Math.max(d.a, this.f26949e + 1);
+            d.a = Math.max(d.a, this.f26148e + 1);
         }
     }
 

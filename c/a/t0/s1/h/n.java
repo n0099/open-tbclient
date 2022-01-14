@@ -19,7 +19,7 @@ public class n {
     public static int a = 1500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f22691b = 500;
+    public static int f22070b = 500;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -82,7 +82,7 @@ public class n {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.s0.s.g0.b.j().k("key_max_stranger", a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.s0.s.h0.b.k().l("key_max_stranger", a) : invokeV.intValue;
     }
 
     public static String d() {
@@ -151,11 +151,11 @@ public class n {
     public static void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65542, null, i2) == null) {
-            int i3 = f22691b;
+            int i3 = f22070b;
             if (i2 < i3) {
                 i2 = i3;
             }
-            c.a.s0.s.g0.b.j().v("key_max_stranger", i2);
+            c.a.s0.s.h0.b.k().w("key_max_stranger", i2);
         }
     }
 }

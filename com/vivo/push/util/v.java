@@ -22,14 +22,14 @@ public final class v implements d {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f63152b;
+    public static final String f60773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63153c;
+    public static String f60774c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f63154d;
+    public File f60775d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,8 +45,8 @@ public final class v implements d {
             }
         }
         a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
-        f63152b = a + File.separator + "config.txt";
-        f63153c = "SdcardCache";
+        f60773b = a + File.separator + "config.txt";
+        f60774c = "SdcardCache";
     }
 
     public v() {
@@ -72,11 +72,11 @@ public final class v implements d {
                 File file = new File(a);
                 boolean mkdirs = !file.exists() ? file.mkdirs() : true;
                 if (mkdirs) {
-                    File file2 = new File(f63152b);
-                    this.f63154d = file2;
+                    File file2 = new File(f60773b);
+                    this.f60775d = file2;
                     if (!file2.exists()) {
                         try {
-                            this.f63154d.createNewFile();
+                            this.f60775d.createNewFile();
                             return true;
                         } catch (IOException e2) {
                             e2.printStackTrace();
@@ -97,7 +97,7 @@ public final class v implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             Properties a2 = a();
-            String str3 = f63152b;
+            String str3 = f60773b;
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
@@ -165,7 +165,7 @@ public final class v implements d {
         Properties properties = new Properties();
         BufferedInputStream bufferedInputStream2 = null;
         try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(f63152b));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(f60773b));
             try {
                 try {
                     properties.load(bufferedInputStream);

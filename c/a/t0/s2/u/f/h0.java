@@ -56,11 +56,11 @@ public class h0 extends PostData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             e1 e1Var = this.I0;
-            if (e1Var == null || StringUtils.isNull(e1Var.f13675b)) {
+            if (e1Var == null || StringUtils.isNull(e1Var.f13360b)) {
                 e1 e1Var2 = this.J0;
-                if (e1Var2 == null || StringUtils.isNull(e1Var2.f13675b)) {
+                if (e1Var2 == null || StringUtils.isNull(e1Var2.f13360b)) {
                     e1 e1Var3 = this.K0;
-                    return (e1Var3 == null || StringUtils.isNull(e1Var3.f13675b)) ? false : true;
+                    return (e1Var3 == null || StringUtils.isNull(e1Var3.f13360b)) ? false : true;
                 }
                 return true;
             }

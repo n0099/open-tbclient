@@ -20,36 +20,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class u extends c.a.s0.x.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static u f26559g;
+    public static u f25771g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.s0.x.p.c> f26560e;
+    public LinkedList<c.a.s0.x.p.c> f25772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f26561f;
+    public final CustomMessageListener f25773f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u a;
 
         /* renamed from: c.a.t0.y0.u$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC1538a implements Runnable {
+        /* loaded from: classes9.dex */
+        public class RunnableC1554a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f26562e;
+            public final /* synthetic */ a f25774e;
 
-            public RunnableC1538a(a aVar) {
+            public RunnableC1554a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,14 +64,14 @@ public class u extends c.a.s0.x.p.a {
                         return;
                     }
                 }
-                this.f26562e = aVar;
+                this.f25774e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f26562e.a.g();
+                    this.f25774e.a.g();
                 }
             }
         }
@@ -103,7 +103,7 @@ public class u extends c.a.s0.x.p.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                new Thread(new RunnableC1538a(this)).start();
+                new Thread(new RunnableC1554a(this)).start();
             }
         }
     }
@@ -121,46 +121,46 @@ public class u extends c.a.s0.x.p.a {
                 return;
             }
         }
-        this.f26561f = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.f26561f);
+        this.f25773f = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.f25773f);
     }
 
     public static u e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f26559g == null) {
+            if (f25771g == null) {
                 synchronized (u.class) {
-                    if (f26559g == null) {
-                        f26559g = new u();
+                    if (f25771g == null) {
+                        f25771g = new u();
                     }
                 }
             }
-            return f26559g;
+            return f25771g;
         }
         return (u) invokeV.objValue;
     }
 
     @Override // c.a.s0.x.p.a
-    public void b(a.InterfaceC0894a interfaceC0894a) {
+    public void b(a.InterfaceC0907a interfaceC0907a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0894a) == null) && FileHelper.checkSD()) {
-            LinkedList<c.a.s0.x.p.c> linkedList = this.f26560e;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0907a) == null) && FileHelper.checkSD()) {
+            LinkedList<c.a.s0.x.p.c> linkedList = this.f25772e;
             if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<c.a.s0.x.p.c> it = this.f26560e.iterator();
+                Iterator<c.a.s0.x.p.c> it = this.f25772e.iterator();
                 while (it.hasNext()) {
                     c.a.s0.x.p.c next = it.next();
-                    if (interfaceC0894a != null) {
-                        interfaceC0894a.a(next);
+                    if (interfaceC0907a != null) {
+                        interfaceC0907a.a(next);
                     }
                 }
                 return;
             }
-            this.f26560e = new LinkedList<>();
+            this.f25772e = new LinkedList<>();
             s sVar = new s();
-            this.f26560e.add(sVar);
-            if (interfaceC0894a != null) {
-                interfaceC0894a.a(sVar);
+            this.f25772e.add(sVar);
+            if (interfaceC0907a != null) {
+                interfaceC0907a.a(sVar);
             }
         }
     }
@@ -193,7 +193,7 @@ public class u extends c.a.s0.x.p.a {
         CollectEmotionData collectEmotionData = new CollectEmotionData();
         collectEmotionData.pid = "setting_icon";
         collectEmotionData.orderId = 301;
-        collectEmotionData.sharpText = c.a.s0.c0.d.f12566d;
+        collectEmotionData.sharpText = c.a.s0.c0.d.f12272d;
         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
         g.k().a(collectEmotionData);
         EmotionGroupData emotionGroupData = new EmotionGroupData();
@@ -211,7 +211,7 @@ public class u extends c.a.s0.x.p.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<c.a.s0.x.p.c> linkedList = this.f26560e;
+            LinkedList<c.a.s0.x.p.c> linkedList = this.f25772e;
             if (linkedList == null) {
                 return false;
             }
@@ -231,10 +231,10 @@ public class u extends c.a.s0.x.p.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (this.f26560e == null) {
+                if (this.f25772e == null) {
                     return;
                 }
-                Iterator<c.a.s0.x.p.c> it = this.f26560e.iterator();
+                Iterator<c.a.s0.x.p.c> it = this.f25772e.iterator();
                 while (it.hasNext()) {
                     c.a.s0.x.p.c next = it.next();
                     if (next instanceof s) {

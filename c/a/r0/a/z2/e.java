@@ -30,20 +30,20 @@ public class e implements SlideInterceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f10178i;
+    public static final boolean f9954i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlideHelper f10179e;
+    public SlideHelper f9955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<SwanAppActivity> f10180f;
+    public WeakReference<SwanAppActivity> f9956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.a.j2.b f10181g;
+    public c.a.r0.a.j2.b f9957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BroadcastReceiver f10182h;
+    public BroadcastReceiver f9958h;
 
     /* loaded from: classes6.dex */
     public class a extends BroadcastReceiver {
@@ -77,9 +77,9 @@ public class e implements SlideInterceptor {
                 if (TextUtils.isEmpty(stringExtra)) {
                     return;
                 }
-                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.f10179e != null) {
-                    this.this$0.f10179e.closePane();
-                    this.this$0.f10179e.setCanSlide(false);
+                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.f9955e != null) {
+                    this.this$0.f9955e.closePane();
+                    this.this$0.f9955e.setCanSlide(false);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class e implements SlideInterceptor {
         public final /* synthetic */ SwanAppActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f10183b;
+        public final /* synthetic */ e f9959b;
 
         public b(e eVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class e implements SlideInterceptor {
                     return;
                 }
             }
-            this.f10183b = eVar;
+            this.f9959b = eVar;
             this.a = swanAppActivity;
         }
 
@@ -125,7 +125,7 @@ public class e implements SlideInterceptor {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 this.a.onBackPressed(3);
-                this.f10183b.h();
+                this.f9959b.h();
                 this.a.overridePendingTransition(0, 0);
                 c.a.r0.a.n1.h.e().g();
             }
@@ -135,7 +135,7 @@ public class e implements SlideInterceptor {
         public void onPanelSlide(View view, float f2) {
             View maskView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) || (maskView = this.f10183b.f10179e.getMaskView()) == null) {
+            if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) || (maskView = this.f9959b.f9955e.getMaskView()) == null) {
                 return;
             }
             maskView.setAlpha(1.0f - f2);
@@ -164,7 +164,7 @@ public class e implements SlideInterceptor {
                 return;
             }
         }
-        f10178i = c.a.r0.a.k.a;
+        f9954i = c.a.r0.a.k.a;
     }
 
     public e(SwanAppActivity swanAppActivity) {
@@ -182,16 +182,16 @@ public class e implements SlideInterceptor {
                 return;
             }
         }
-        this.f10182h = new a(this);
-        this.f10180f = new WeakReference<>(swanAppActivity);
-        this.f10179e = new SlideHelper();
+        this.f9958h = new a(this);
+        this.f9956f = new WeakReference<>(swanAppActivity);
+        this.f9955e = new SlideHelper();
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f10180f.get();
+            SwanAppActivity swanAppActivity = this.f9956f.get();
             return (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) ? false : true;
         }
         return invokeV.booleanValue;
@@ -200,25 +200,25 @@ public class e implements SlideInterceptor {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f10179e.closePane();
+            this.f9955e.closePane();
         }
     }
 
     public void f() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (swanAppActivity = this.f10180f.get()) == null || swanAppActivity.isDestroyed()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (swanAppActivity = this.f9956f.get()) == null || swanAppActivity.isDestroyed()) {
             return;
         }
-        this.f10179e.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
-        this.f10179e.attachActivity(swanAppActivity);
-        this.f10179e.setEnableReleaseWhenNoTranslucent(false);
-        this.f10179e.setFadeColor(0);
-        this.f10179e.setSlideInterceptor(this);
-        this.f10179e.setSlideListener(new b(this, swanAppActivity));
+        this.f9955e.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
+        this.f9955e.attachActivity(swanAppActivity);
+        this.f9955e.setEnableReleaseWhenNoTranslucent(false);
+        this.f9955e.setFadeColor(0);
+        this.f9955e.setSlideInterceptor(this);
+        this.f9955e.setSlideListener(new b(this, swanAppActivity));
         c.a.r0.a.p.e.b g2 = g();
         if (g2 != null) {
-            this.f10179e.setRegionFactor(g2.B());
+            this.f9955e.setRegionFactor(g2.B());
         }
     }
 
@@ -228,7 +228,7 @@ public class e implements SlideInterceptor {
         c.a.r0.a.h0.g.d m;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f10180f.get();
+            SwanAppActivity swanAppActivity = this.f9956f.get();
             if (swanAppActivity == null || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (m = swanAppFragmentManager.m()) == null || !(m instanceof c.a.r0.a.h0.g.f)) {
                 return null;
             }
@@ -240,7 +240,7 @@ public class e implements SlideInterceptor {
     public final void h() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c.a.r0.a.c1.a.M().a()) {
-            this.f10181g.c(8);
+            this.f9957g.c(8);
         }
     }
 
@@ -252,7 +252,7 @@ public class e implements SlideInterceptor {
         c.a.r0.a.p.e.b g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            SwanAppActivity swanAppActivity = this.f10180f.get();
+            SwanAppActivity swanAppActivity = this.f9956f.get();
             if (swanAppActivity == null || !swanAppActivity.hasActivedFrame() || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (g2 = g()) == null) {
                 return false;
             }
@@ -266,7 +266,7 @@ public class e implements SlideInterceptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f10180f.get();
+            SwanAppActivity swanAppActivity = this.f9956f.get();
             if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.hasActivedFrame()) {
                 c.a.r0.a.h0.g.f o = swanAppActivity.getSwanAppFragmentManager().o();
                 if (o != null) {
@@ -276,17 +276,17 @@ public class e implements SlideInterceptor {
                     }
                     if (A1.l || A1.m) {
                         c.a.r0.a.h2.c.f fVar = c.a.r0.a.p1.r.c.a.g(true).get("scope_disable_swipe_back");
-                        if (fVar == null || fVar.f7281d) {
+                        if (fVar == null || fVar.f7125d) {
                             return false;
                         }
-                        SlideHelper slideHelper = this.f10179e;
+                        SlideHelper slideHelper = this.f9955e;
                         if (slideHelper != null) {
                             slideHelper.setRegionFactor(0.1d);
                         }
                     }
                     return true;
                 }
-                boolean z = f10178i;
+                boolean z = f9954i;
             }
             return false;
         }
@@ -296,16 +296,16 @@ public class e implements SlideInterceptor {
     public void m() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (swanAppActivity = this.f10180f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (swanAppActivity = this.f9956f.get()) == null) {
             return;
         }
         c.a.r0.a.j2.b skinDecorator = swanAppActivity.getSkinDecorator();
-        this.f10181g = skinDecorator;
+        this.f9957g = skinDecorator;
         if (skinDecorator == null) {
             return;
         }
         if (c.a.r0.a.f1.c.a.c(false).booleanValue()) {
-            this.f10181g.c(0);
+            this.f9957g.c(0);
         }
         f();
     }
@@ -313,57 +313,57 @@ public class e implements SlideInterceptor {
     public void o() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (swanAppActivity = this.f10180f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (swanAppActivity = this.f9956f.get()) == null) {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        swanAppActivity.registerReceiver(this.f10182h, intentFilter);
+        swanAppActivity.registerReceiver(this.f9958h, intentFilter);
     }
 
     public void p() {
         WeakReference<SwanAppActivity> weakReference;
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.f10180f) == null || (swanAppActivity = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.f9956f) == null || (swanAppActivity = weakReference.get()) == null) {
             return;
         }
-        swanAppActivity.unregisterReceiver(this.f10182h);
+        swanAppActivity.unregisterReceiver(this.f9958h);
     }
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f10180f.get() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f9956f.get() == null) {
             return;
         }
-        this.f10179e.setCanSlide(c());
+        this.f9955e.setCanSlide(c());
     }
 
     public void r() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (swanAppActivity = this.f10180f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (swanAppActivity = this.f9956f.get()) == null) {
             return;
         }
         b.a launchInfo = swanAppActivity.getLaunchInfo();
         if ((launchInfo != null && "1230000000000000".equals(launchInfo.T())) || swanAppActivity.getFrameType() == 1) {
-            this.f10179e.setCanSlide(false);
+            this.f9955e.setCanSlide(false);
         } else {
-            this.f10179e.setCanSlide(c());
+            this.f9955e.setCanSlide(c());
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && c.a.r0.a.f1.c.a.c(true).booleanValue()) {
-            this.f10181g.c(0);
+            this.f9957g.c(0);
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f10179e.setCanSlide(z);
+            this.f9955e.setCanSlide(z);
         }
     }
 }

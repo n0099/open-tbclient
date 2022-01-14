@@ -11,13 +11,13 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f25620b;
+    public long f24903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f25621c;
+    public long f24904c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f25622d;
+    public long f24905d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -33,18 +33,18 @@ public class d {
             }
         }
         this.a = 0L;
-        this.f25620b = 0L;
-        this.f25621c = 0L;
-        this.f25622d = 0L;
+        this.f24903b = 0L;
+        this.f24904c = 0L;
+        this.f24905d = 0L;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0L;
-            this.f25620b = 0L;
-            this.f25621c = 0L;
-            this.f25622d = 0L;
+            this.f24903b = 0L;
+            this.f24904c = 0L;
+            this.f24905d = 0L;
         }
     }
 }

@@ -14,8 +14,10 @@ public interface c {
 
     void e(c.a.m0.a.h.d dVar);
 
+    void f();
+
     @NonNull
-    ViewGroup f();
+    ViewGroup g();
 
     void onAdShow();
 }

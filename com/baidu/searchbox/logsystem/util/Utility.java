@@ -51,7 +51,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -134,7 +134,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f31864h);
+            sb.append(a.f30865h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append(ExtendedMessageFormat.END_FE);

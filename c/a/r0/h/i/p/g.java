@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.UrlOcrConfig;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -91,7 +91,7 @@ public class g extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                String a = c.a.r0.f.a.b.c.f10561b.a(this.f10773b);
+                String a = c.a.r0.f.a.b.c.f10333b.a(this.f10537b);
                 return TextUtils.isEmpty(a) ? UUID.randomUUID().toString() : a;
             } catch (Exception unused) {
                 return "";
@@ -108,7 +108,7 @@ public class g extends f {
             try {
                 jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("id", this.f10780i.e());
+                jSONObject2.put("id", this.f10544i.e());
                 jSONObject2.put("name", c.a.r0.h.i.n.a.b().a());
                 jSONObject2.put("bundle", c.a.r0.h.i.s.h.k());
                 jSONObject2.put("version", c.a.r0.h.i.s.h.l());
@@ -116,28 +116,28 @@ public class g extends f {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("ua", l());
                 jSONObject3.put("imei", c.a.r0.h.i.n.a.b().s());
-                jSONObject3.put("android_id", h());
+                jSONObject3.put(HttpRequest.ANDROID_ID, h());
                 jSONObject3.put("ip", j(true));
                 jSONObject3.put("type", 1);
                 jSONObject3.put(UrlOcrConfig.IdCardKey.OS, 1);
                 jSONObject3.put(HttpConstants.OS_VERSION, c.a.r0.h.i.s.h.f());
                 jSONObject3.put("make", c.a.r0.h.i.s.h.g());
                 jSONObject3.put("model", c.a.r0.h.i.s.h.e());
-                jSONObject3.put("language", this.f10773b.getResources().getConfiguration().locale.getLanguage());
+                jSONObject3.put("language", this.f10537b.getResources().getConfiguration().locale.getLanguage());
                 jSONObject3.put("connection_type", NetworkUtils.c(true));
-                jSONObject3.put("carrier", k(this.f10773b));
-                jSONObject3.put(BaseStatisContent.MAC, NetworkUtils.e(this.f10773b));
-                jSONObject3.put("screen_width", c.a.r0.h.i.s.h.i(this.f10773b));
-                jSONObject3.put("screen_height", c.a.r0.h.i.s.h.h(this.f10773b));
-                jSONObject3.put("screen_orientation", this.f10773b.getResources().getConfiguration().orientation);
+                jSONObject3.put("carrier", k(this.f10537b));
+                jSONObject3.put("mac", NetworkUtils.e(this.f10537b));
+                jSONObject3.put("screen_width", c.a.r0.h.i.s.h.i(this.f10537b));
+                jSONObject3.put("screen_height", c.a.r0.h.i.s.h.h(this.f10537b));
+                jSONObject3.put("screen_orientation", this.f10537b.getResources().getConfiguration().orientation);
                 jSONObject.put("device", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("sid", this.f10780i.b());
+                jSONObject4.put("sid", this.f10544i.b());
                 jSONObject4.put("ad_count", this.q);
                 jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
                 jSONObject4.put("pos", this.s);
-                jSONObject4.put("width", this.f10780i.d());
-                jSONObject4.put("height", this.f10780i.a());
+                jSONObject4.put("width", this.f10544i.d());
+                jSONObject4.put("height", this.f10544i.a());
                 jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject4);
@@ -211,7 +211,7 @@ public class g extends f {
             if (TextUtils.isEmpty(this.t)) {
                 try {
                     try {
-                        this.t = WebSettings.getDefaultUserAgent(this.f10773b);
+                        this.t = WebSettings.getDefaultUserAgent(this.f10537b);
                     } catch (Exception unused) {
                         this.t = "";
                     }

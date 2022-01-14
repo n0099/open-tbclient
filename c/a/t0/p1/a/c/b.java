@@ -18,7 +18,7 @@ public class b implements a {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AbsHListView f21973b;
+    public AbsHListView f20944b;
 
     public b(AbsHListView absHListView) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f21973b = absHListView;
+        this.f20944b = absHListView;
     }
 
     @Override // c.a.t0.p1.a.c.a
@@ -44,7 +44,7 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             this.a.a(actionMode, i2, j2, z);
-            if (this.f21973b.getCheckedItemCount() == 0) {
+            if (this.f20944b.getCheckedItemCount() == 0) {
                 actionMode.finish();
             }
         }
@@ -78,7 +78,7 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
             if (this.a.onCreateActionMode(actionMode, menu)) {
-                this.f21973b.setLongClickable(false);
+                this.f20944b.setLongClickable(false);
                 return true;
             }
             return false;
@@ -92,14 +92,14 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
             this.a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.f21973b;
+            AbsHListView absHListView = this.f20944b;
             absHListView.mChoiceActionMode = null;
             absHListView.clearChoices();
-            AbsHListView absHListView2 = this.f21973b;
+            AbsHListView absHListView2 = this.f20944b;
             absHListView2.mDataChanged = true;
             absHListView2.rememberSyncState();
-            this.f21973b.requestLayout();
-            this.f21973b.setLongClickable(true);
+            this.f20944b.requestLayout();
+            this.f20944b.setLongClickable(true);
         }
     }
 

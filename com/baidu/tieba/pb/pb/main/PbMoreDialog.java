@@ -46,7 +46,7 @@ public class PbMoreDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbMoreDialog f48406e;
+        public final /* synthetic */ PbMoreDialog f46602e;
 
         public a(PbMoreDialog pbMoreDialog) {
             Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class PbMoreDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f48406e = pbMoreDialog;
+            this.f46602e = pbMoreDialog;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f48406e.dismiss();
-                this.f48406e.A.onClick(view);
+                this.f46602e.dismiss();
+                this.f46602e.A.onClick(view);
             }
         }
     }
@@ -460,7 +460,7 @@ public class PbMoreDialog extends PopupDialog {
                 getManageTextView().setVisibility(8);
                 getReportTextView().setVisibility(8);
             }
-            if (d.N()) {
+            if (d.O()) {
                 if (postData != null) {
                     SparseArray sparseArray7 = new SparseArray();
                     sparseArray7.put(i.tag_load_sub_data, postData);
@@ -506,7 +506,7 @@ public class PbMoreDialog extends PopupDialog {
         getDisagreeTextView().setVisibility(8);
         if (z2) {
         }
-        if (d.N()) {
+        if (d.O()) {
         }
         c.a.t0.s2.u.f.g1.a.l(this.w, postData, tVar);
     }
@@ -515,7 +515,7 @@ public class PbMoreDialog extends PopupDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             a aVar = new a(this);
-            if (d.N()) {
+            if (d.O()) {
                 setDefaultContentView(null, new String[]{this.z.getString(l.action_reply), this.z.getString(l.action_share), this.z.getString(l.action_dislike), this.z.getString(l.no_interesting), this.z.getString(l.save_to_emotion), this.z.getString(l.save_to_local), this.z.getString(l.copy), this.z.getString(l.mark), this.z.getString(l.report_text), this.z.getString(l.delete), this.z.getString(l.mute), this.z.getString(l.block_user)}, aVar);
                 this.x = h(getItemView(0));
                 this.y = h(getItemView(1));

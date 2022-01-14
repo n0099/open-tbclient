@@ -21,13 +21,13 @@ public abstract class a {
 
     /* renamed from: c.a.d.c.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0096a extends HttpMessageListener {
+    public class C0105a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0096a(a aVar, int i2) {
+        public C0105a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -117,7 +117,7 @@ public abstract class a {
     private void init(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65538, this, i2, i3, i4) == null) {
-            this.mHttpMessageListener = new C0096a(this, i2);
+            this.mHttpMessageListener = new C0105a(this, i2);
             this.mSocketMessageListener = new b(this, i3);
         }
     }

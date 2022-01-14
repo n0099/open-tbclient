@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.s2.r.f;
 import c.a.t0.s2.y.d;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,10 +28,10 @@ public class VideoPbViewModel extends ViewModel {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbModel f48698b;
+    public PbModel f46881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48699c;
+    public int f46882c;
 
     public VideoPbViewModel() {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class VideoPbViewModel extends ViewModel {
             }
         }
         this.a = new d();
-        this.f48699c = 0;
+        this.f46882c = 0;
     }
 
     public void bindPbModel(PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) {
-            this.f48698b = pbModel;
+            this.f46881b = pbModel;
         }
     }
 
@@ -87,7 +87,7 @@ public class VideoPbViewModel extends ViewModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.e() : (MutableLiveData) invokeV.objValue;
     }
 
-    public MutableLiveData<d2> getNextVideoData() {
+    public MutableLiveData<e2> getNextVideoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.f() : (MutableLiveData) invokeV.objValue;
@@ -105,13 +105,13 @@ public class VideoPbViewModel extends ViewModel {
         return (Rect) invokeV.objValue;
     }
 
-    public MutableLiveData<d2> getPreVideoData() {
+    public MutableLiveData<e2> getPreVideoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.h() : (MutableLiveData) invokeV.objValue;
     }
 
-    public MutableLiveData<d2> getVideoData() {
+    public MutableLiveData<e2> getVideoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.i() : (MutableLiveData) invokeV.objValue;
@@ -158,14 +158,14 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.f().getValue() == null) {
             return;
         }
-        f b0 = this.f48698b.b0(this.a.f().getValue());
+        f b0 = this.f46881b.b0(this.a.f().getValue());
         if (b0 != null) {
             this.a.j().addLast(this.a.b());
             this.a.o(b0);
             this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
             this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-            this.f48698b.p2(z ? 21 : 22);
-            this.f48698b.G1(b0);
+            this.f46881b.p2(z ? 21 : 22);
+            this.f46881b.G1(b0);
             this.a.s(true);
         }
     }
@@ -179,31 +179,31 @@ public class VideoPbViewModel extends ViewModel {
         this.a.o(pollLast);
         this.a.v(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
         this.a.x(this.a.j().peekLast() != null ? this.a.j().peekLast().O() : null);
-        this.f48698b.G1(pollLast);
+        this.f46881b.G1(pollLast);
         this.a.s(true);
     }
 
-    public void loadTargetVideo(d2 d2Var) {
+    public void loadTargetVideo(e2 e2Var) {
         f b0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, d2Var) == null) || d2Var == null || (b0 = this.f48698b.b0(d2Var)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) || e2Var == null || (b0 = this.f46881b.b0(e2Var)) == null) {
             return;
         }
         this.a.j().addLast(this.a.b());
         this.a.o(b0);
         this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
         this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-        this.f48698b.p2(20);
-        this.f48698b.G1(b0);
+        this.f46881b.p2(20);
+        this.f46881b.G1(b0);
         this.a.s(true);
     }
 
     public void saveFirstLoadData(f fVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f48699c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f46882c) {
             return;
         }
-        this.f48699c = i2;
+        this.f46882c = i2;
         this.a.p(fVar);
         if (fVar != null) {
             d dVar = this.a;

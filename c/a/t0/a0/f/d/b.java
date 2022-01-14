@@ -23,13 +23,13 @@ public class b implements c {
     public AccountManagerService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AppInfoService f14917b;
+    public AppInfoService f14559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ToastService f14918c;
+    public ToastService f14560c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RouterService f14919d;
+    public RouterService f14561d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,18 +45,18 @@ public class b implements c {
             }
         }
         this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.f14917b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.f14918c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.f14919d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+        this.f14559b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.f14560c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
+        this.f14561d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
     }
 
     @Override // c.a.x.d.b.c
     public void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || this.f14918c == null || context == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || this.f14560c == null || context == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f14918c.showNormal(context, str, 0);
+        this.f14560c.showNormal(context, str, 0);
     }
 
     @Override // c.a.x.d.b.c
@@ -86,7 +86,7 @@ public class b implements c {
         InterceptResult invokeV;
         AppInfoService appInfoService;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null || (appInfoService = this.f14917b) == null) ? "" : this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null || (appInfoService = this.f14559b) == null) ? "" : this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
     }
 
     @Override // c.a.x.d.b.c
@@ -100,7 +100,7 @@ public class b implements c {
     public void invokeScheme(Context context, String str) {
         RouterService routerService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.f14919d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.f14561d) == null) {
             return;
         }
         routerService.invokeScheme(context, str);

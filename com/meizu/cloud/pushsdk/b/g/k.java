@@ -4,15 +4,15 @@ public final class k {
     public static j a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f60926b;
+    public static long f58619b;
 
     public static j a() {
         synchronized (k.class) {
             if (a != null) {
                 j jVar = a;
-                a = jVar.f60924f;
-                jVar.f60924f = null;
-                f60926b -= 2048;
+                a = jVar.f58617f;
+                jVar.f58617f = null;
+                f58619b -= 2048;
                 return jVar;
             }
             return new j();
@@ -20,20 +20,20 @@ public final class k {
     }
 
     public static void a(j jVar) {
-        if (jVar.f60924f != null || jVar.f60925g != null) {
+        if (jVar.f58617f != null || jVar.f58618g != null) {
             throw new IllegalArgumentException();
         }
-        if (jVar.f60922d) {
+        if (jVar.f58615d) {
             return;
         }
         synchronized (k.class) {
-            if (f60926b + 2048 > 65536) {
+            if (f58619b + 2048 > 65536) {
                 return;
             }
-            f60926b += 2048;
-            jVar.f60924f = a;
-            jVar.f60921c = 0;
-            jVar.f60920b = 0;
+            f58619b += 2048;
+            jVar.f58617f = a;
+            jVar.f58614c = 0;
+            jVar.f58613b = 0;
             a = jVar;
         }
     }

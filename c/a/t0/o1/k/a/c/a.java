@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21219b;
+    public String f20658b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a {
             }
             a aVar = new a();
             aVar.a = jSONObject.optString("content");
-            aVar.f21219b = jSONObject.optString("tid");
+            aVar.f20658b = jSONObject.optString("tid");
             return aVar;
         }
         return (a) invokeL.objValue;

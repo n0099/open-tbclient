@@ -16,12 +16,12 @@ public class m implements b<a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6742c;
+    public static final boolean f6599c;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile b<a> f6743b;
+    public volatile b<a> f6600b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class m implements b<a> {
                 return;
             }
         }
-        f6742c = c.a.r0.a.k.a;
+        f6599c = c.a.r0.a.k.a;
     }
 
     public m() {
@@ -130,17 +130,17 @@ public class m implements b<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f6743b == null) {
+            if (this.f6600b == null) {
                 synchronized (this) {
-                    if (this.f6743b == null) {
-                        this.f6743b = m() ? new c.a.r0.a.h0.l.g.o.c() : new l();
-                        if (f6742c) {
-                            String str = "provider - " + this.f6743b.getClass().getSimpleName();
+                    if (this.f6600b == null) {
+                        this.f6600b = m() ? new c.a.r0.a.h0.l.g.o.c() : new l();
+                        if (f6599c) {
+                            String str = "provider - " + this.f6600b.getClass().getSimpleName();
                         }
                     }
                 }
             }
-            return this.f6743b;
+            return this.f6600b;
         }
         return (b) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class m implements b<a> {
             if (this.a == null) {
                 this.a = Boolean.valueOf(c.a.r0.a.h0.o.e.a.l() > 0 && c.a.r0.a.h0.o.e.a.i());
             }
-            if (f6742c) {
+            if (f6599c) {
                 String str = "loaded swan core version - " + c.a.r0.a.h0.u.g.U().d0();
                 String str2 = "use multi preload - " + this.a;
             }
@@ -177,7 +177,7 @@ public class m implements b<a> {
             l().reset();
             synchronized (this) {
                 this.a = null;
-                this.f6743b = null;
+                this.f6600b = null;
             }
         }
     }

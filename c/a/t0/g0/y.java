@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class y extends b<d2> implements c.a.t0.t.e {
+public class y extends b<e2> implements c.a.t0.t.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View m;
@@ -39,7 +39,7 @@ public class y extends b<d2> implements c.a.t0.t.e {
     public TextView p;
     public TextView q;
     public TextView r;
-    public d2 s;
+    public e2 s;
     public w t;
     public ConstrainImageGroup u;
 
@@ -128,13 +128,13 @@ public class y extends b<d2> implements c.a.t0.t.e {
     }
 
     public final void p() {
-        d2 d2Var;
+        e2 e2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (d2Var = this.s) == null || d2Var.J() == null || this.s.J().getName_show() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (e2Var = this.s) == null || e2Var.J() == null || this.s.J().getName_show() == null) {
             return;
         }
         long U = this.s.U();
-        OriginalForumInfo originalForumInfo = this.s.K1;
+        OriginalForumInfo originalForumInfo = this.s.J1;
         if (originalForumInfo != null) {
             U = c.a.d.f.m.b.g(originalForumInfo.id, 0L);
         }
@@ -149,31 +149,31 @@ public class y extends b<d2> implements c.a.t0.t.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.g0.b
     /* renamed from: q */
-    public void k(d2 d2Var) {
+    public void k(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, d2Var) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, e2Var) == null) {
+            if (e2Var == null) {
                 if (j() != null) {
                     j().setVisibility(8);
                     return;
                 }
                 return;
             }
-            this.s = d2Var;
+            this.s = e2Var;
             if (j() != null) {
                 j().setVisibility(0);
                 j().setOnClickListener(this);
             }
-            if (d2Var.J() != null) {
-                this.p.setText(d2Var.J().getName_show());
+            if (e2Var.J() != null) {
+                this.p.setText(e2Var.J().getName_show());
             }
-            this.q.setText(StringHelper.getFormatTime(d2Var.w0() * 1000));
-            String str = d2Var.B1() + "：";
+            this.q.setText(StringHelper.getFormatTime(e2Var.w0() * 1000));
+            String str = e2Var.B1() + "：";
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) d2Var.Z2(false, true));
+            spannableStringBuilder.append((CharSequence) e2Var.Z2(false, true));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
             this.r.setText(spannableStringBuilder);
-            ArrayList<MediaData> F0 = d2Var.F0();
+            ArrayList<MediaData> F0 = e2Var.F0();
             if (c.a.s0.s.k.c().g() && ListUtils.getCount(F0) != 0) {
                 ArrayList arrayList = new ArrayList();
                 for (int i2 = 0; i2 < F0.size(); i2++) {

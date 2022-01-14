@@ -12,9 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final int f11679k;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +28,7 @@ public class b extends a {
                 return;
             }
         }
-        f11679k = Color.parseColor("#26c56c");
+        k = Color.parseColor("#26c56c");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,6 +55,6 @@ public class b extends a {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f11679k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? k : invokeV.intValue;
     }
 }

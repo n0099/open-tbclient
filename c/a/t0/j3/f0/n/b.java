@@ -15,34 +15,32 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18794b;
+    public String f18326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f18795c;
+    public long f18327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18796d;
+    public int f18328d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18797e;
+    public long f18329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18798f;
+    public String f18330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18799g;
+    public String f18331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18800h;
+    public int f18332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f18801i;
+    public String f18333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18802j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f18803k;
+    public String f18334j;
+    public String k;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -67,7 +65,7 @@ public class b {
             }
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return TextUtils.equals(this.a, bVar.a) && TextUtils.equals(this.f18794b, bVar.f18794b);
+                return TextUtils.equals(this.a, bVar.a) && TextUtils.equals(this.f18326b, bVar.f18326b);
             }
             return false;
         }
@@ -78,7 +76,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (this.a + this.f18794b).hashCode();
+            return (this.a + this.f18326b).hashCode();
         }
         return invokeV.intValue;
     }

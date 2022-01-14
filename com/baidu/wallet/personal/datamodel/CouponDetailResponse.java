@@ -43,7 +43,7 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: android  reason: collision with root package name */
-        public int f54646android;
+        public int f52563android;
         public String url;
 
         public AppSceneService() {

@@ -1,54 +1,48 @@
 package c.a.s0.s.q;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes6.dex */
-public class c2 extends a implements c.a.d.n.e.n {
+public class c2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f13324b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f13325c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f13326d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13640e;
+    public long f13327e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13641f;
+    public long f13328f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13642g;
+    public String f13329g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13643h;
+    public int f13330h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13644i;
+    public int f13331i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13645j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f13646k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public d2 w;
-    public int x;
-    public int y;
+    public String f13332j;
 
     public c2() {
         Interceptable interceptable = $ic;
@@ -60,207 +54,145 @@ public class c2 extends a implements c.a.d.n.e.n {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f13640e = false;
-        this.f13641f = false;
-        this.f13642g = false;
-        this.f13643h = false;
-        this.f13644i = false;
-        this.f13645j = false;
-        this.f13646k = false;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.s = false;
-        this.t = false;
-        this.u = false;
-        this.v = false;
-        this.x = 0;
-        this.y = 0;
     }
 
-    @Override // c.a.s0.s.q.a
-    public x0 getNegFeedBackData() {
+    public long a() {
         InterceptResult invokeV;
-        SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d2 d2Var = this.w;
-            if (d2Var == null || (sparseArray = d2Var.m1) == null || sparseArray.size() <= 0) {
-                return null;
-            }
-            x0 x0Var = new x0();
-            x0Var.o(getThreadData().v1());
-            x0Var.k(getThreadData().U());
-            x0Var.n(getThreadData().G0());
-            x0Var.j(this.w.m1);
-            d2 d2Var2 = this.w;
-            x0Var.f13845g = d2Var2.n1;
-            x0Var.p = d2Var2.b1;
-            x0Var.f13849k = d2Var2.a1;
-            x0Var.m = d2Var2.c1;
-            x0Var.l = d2Var2.Z0;
-            x0Var.q = d2Var2.U1;
-            x0Var.o = d2Var2.R0();
-            return x0Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13328f : invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f13324b + "";
         }
-        return (x0) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.a
-    public String getRecomReason() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.w.d1 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.w : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13332j : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
-    public BdUniqueId getType() {
+    public long e() {
         InterceptResult invokeV;
-        OriginalThreadInfo originalThreadInfo;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d2 d2Var = this.w;
-            if (d2Var == null) {
-                return null;
-            }
-            if (d2Var.j0()) {
-                if (this.w.t1() != null) {
-                    return d2.G3;
-                }
-                return d2.i3;
-            }
-            int s0 = this.w.s0();
-            d2 d2Var2 = this.w;
-            int i3 = d2Var2.d0;
-            if (i3 == 63) {
-                return d2.S3;
-            }
-            if (i3 == 64) {
-                return d2.T3;
-            }
-            if (i3 == 65) {
-                return d2.y3;
-            }
-            if (d2Var2.o1() != null && this.w.d0 == 60) {
-                return d2.J3;
-            }
-            if (this.w.o1() != null && ((i2 = this.w.d0) == 49 || i2 == 69)) {
-                return d2.H3;
-            }
-            if (this.w.o1() != null && this.w.d0 == 67) {
-                return d2.K3;
-            }
-            d2 d2Var3 = this.w;
-            if (d2Var3.d0 == 51) {
-                return d2.I3;
-            }
-            if (s0 != 2 && s0 != 1) {
-                if (d2Var3.t1() != null && this.w.e2() && !this.w.i2()) {
-                    return d2.X3;
-                }
-                d2 d2Var4 = this.w;
-                if (d2Var4.B1 && (originalThreadInfo = d2Var4.A1) != null) {
-                    if (originalThreadInfo.x) {
-                        if (originalThreadInfo.r != null) {
-                            return d2.O3;
-                        }
-                        if (originalThreadInfo.g()) {
-                            return d2.N3;
-                        }
-                        return d2.M3;
-                    }
-                    return d2.L3;
-                } else if (this.w.g2()) {
-                    return d2.V3.get() ? d2.b4 : d2.i3;
-                } else if (this.w.L1() && this.w.w() == 1) {
-                    return d2.V3.get() ? d2.c4 : d2.i3;
-                } else if (this.w.h2()) {
-                    return d2.E3;
-                } else {
-                    if (this.w.E2()) {
-                        return this.w.f0() != null ? d2.R3 : d2.Q3;
-                    }
-                    c.a.t0.w3.j0.o oVar = this.w.N2;
-                    if (oVar != null && oVar.f()) {
-                        return this.w.N2.g() ? AdvertAppInfo.K4 : AdvertAppInfo.L4;
-                    } else if (this.v) {
-                        return d2.n3;
-                    } else {
-                        if (this.f13640e) {
-                            return d2.o3;
-                        }
-                        if (this.f13641f) {
-                            return d2.p3;
-                        }
-                        if (this.f13642g) {
-                            return d2.q3;
-                        }
-                        if (this.f13643h) {
-                            return d2.r3;
-                        }
-                        if (this.f13644i) {
-                            return d2.s3;
-                        }
-                        if (this.f13645j) {
-                            return d2.t3;
-                        }
-                        if (this.f13646k) {
-                            return d2.v3;
-                        }
-                        if (this.l) {
-                            return d2.w3;
-                        }
-                        if (this.m) {
-                            return d2.G3;
-                        }
-                        if (this.n) {
-                            return d2.Y3;
-                        }
-                        if (this.w.c2()) {
-                            if (this.o) {
-                                return d2.P3;
-                            }
-                            return d2.F3;
-                        } else if (this.p) {
-                            return d2.U3;
-                        } else {
-                            if (this.q) {
-                                return d2.z3;
-                            }
-                            if (this.r) {
-                                return d2.A3;
-                            }
-                            if (this.s) {
-                                return d2.B3;
-                            }
-                            if (this.t) {
-                                return d2.C3;
-                            }
-                            if (this.u) {
-                                return d2.D3;
-                            }
-                            return d2.i3;
-                        }
-                    }
-                }
-            }
-            return d2.h3;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13327e : invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f13325c + "";
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f13326d + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13331i : invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13329g : (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13330h : invokeV.intValue;
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optString("forum_name");
+            this.f13324b = jSONObject.optLong("forum_id");
+            this.f13325c = jSONObject.optLong("task_id");
+            this.f13326d = jSONObject.optLong("thread_id");
+            jSONObject.optString("bgimg");
+            this.f13327e = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+            this.f13328f = jSONObject.optLong("end_time");
+            this.f13329g = jSONObject.optString("thread_img");
+            String optString = jSONObject.optString("thread_img_size");
+            if (optString != null && optString.length() > 0) {
+                String[] split = optString.split(",");
+                if (split.length > 1) {
+                    this.f13330h = Integer.valueOf(split[0]).intValue();
+                    this.f13331i = Integer.valueOf(split[1]).intValue();
+                }
+            }
+            if (this.f13330h <= 0) {
+                this.f13330h = 1;
+            }
+            if (this.f13331i <= 0) {
+                this.f13331i = 1;
+            }
+        } catch (Exception e2) {
+            BdLog.e(e2.toString());
+        }
+    }
+
+    public void l(TaskInfo taskInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, taskInfo) == null) || taskInfo == null) {
+            return;
+        }
+        this.a = taskInfo.forum_name;
+        this.f13324b = taskInfo.forum_id.longValue();
+        Long l = taskInfo.task_id;
+        this.f13325c = l != null ? l.longValue() : -1L;
+        Long l2 = taskInfo.thread_id;
+        this.f13326d = l2 != null ? l2.longValue() : -1L;
+        String str = taskInfo.bgimg;
+        this.f13329g = taskInfo.thread_img;
+        Long l3 = taskInfo.start_time;
+        this.f13327e = l3 != null ? l3.longValue() : -1L;
+        Long l4 = taskInfo.end_time;
+        this.f13328f = l4 != null ? l4.longValue() : -1L;
+        String str2 = taskInfo.thread_img_size;
+        if (str2 != null) {
+            try {
+                String[] split = str2.split(",");
+                this.f13330h = c.a.d.f.m.b.e(split[0], 1);
+                this.f13331i = c.a.d.f.m.b.e(split[1], 1);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+        if (this.f13330h <= 0) {
+            this.f13330h = 1;
+        }
+        if (this.f13331i <= 0) {
+            this.f13331i = 1;
+        }
+        this.f13332j = taskInfo.obj_id;
     }
 }

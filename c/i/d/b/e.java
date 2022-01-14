@@ -54,10 +54,10 @@ public abstract class e<K, V> extends h0 implements c<K, V> {
     public abstract /* bridge */ /* synthetic */ Object delegate();
 
     @Override // c.i.d.b.c
-    public V get(K k2, Callable<? extends V> callable) throws ExecutionException {
+    public V get(K k, Callable<? extends V> callable) throws ExecutionException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k2, callable)) == null) ? delegate().get(k2, callable) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, callable)) == null) ? delegate().get(k, callable) : (V) invokeLL.objValue;
     }
 
     @Override // c.i.d.b.c
@@ -91,10 +91,10 @@ public abstract class e<K, V> extends h0 implements c<K, V> {
     }
 
     @Override // c.i.d.b.c
-    public void put(K k2, V v) {
+    public void put(K k, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, k2, v) == null) {
-            delegate().put(k2, v);
+        if (interceptable == null || interceptable.invokeLL(1048586, this, k, v) == null) {
+            delegate().put(k, v);
         }
     }
 

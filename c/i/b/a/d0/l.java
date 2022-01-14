@@ -27,10 +27,10 @@ public interface l {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30033b;
+        public final int f29104b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f30034c;
+        public final int f29105c;
 
         static {
             InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public interface l {
         public b a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.a == i2 ? this : new b(i2, this.f30033b, this.f30034c) : (b) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.a == i2 ? this : new b(i2, this.f29104b, this.f29105c) : (b) invokeI.objValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30033b != -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29104b != -1 : invokeV.booleanValue;
         }
 
         public boolean equals(Object obj) {
@@ -91,7 +91,7 @@ public interface l {
                     return false;
                 }
                 b bVar = (b) obj;
-                return this.a == bVar.a && this.f30033b == bVar.f30033b && this.f30034c == bVar.f30034c;
+                return this.a == bVar.a && this.f29104b == bVar.f29104b && this.f29105c == bVar.f29105c;
             }
             return invokeL.booleanValue;
         }
@@ -99,7 +99,7 @@ public interface l {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a) * 31) + this.f30033b) * 31) + this.f30034c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a) * 31) + this.f29104b) * 31) + this.f29105c : invokeV.intValue;
         }
 
         public b(int i2, int i3, int i4) {
@@ -118,8 +118,8 @@ public interface l {
                 }
             }
             this.a = i2;
-            this.f30033b = i3;
-            this.f30034c = i4;
+            this.f29104b = i3;
+            this.f29105c = i4;
         }
     }
 

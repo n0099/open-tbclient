@@ -26,20 +26,20 @@ public class a {
 
     /* renamed from: c.a.s0.t.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0880a implements a.e {
+    public static class C0893a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14365e;
+        public final /* synthetic */ int f14031e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f14366f;
+        public final /* synthetic */ Context f14032f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f14367g;
+        public final /* synthetic */ DialogInterface.OnCancelListener f14033g;
 
-        public C0880a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
+        public C0893a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,18 +54,18 @@ public class a {
                     return;
                 }
             }
-            this.f14365e = i2;
-            this.f14366f = context;
-            this.f14367g = onCancelListener;
+            this.f14031e = i2;
+            this.f14032f = context;
+            this.f14033g = onCancelListener;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                a.d(this.f14365e, this.f14366f);
+                a.d(this.f14031e, this.f14032f);
                 aVar.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.f14367g;
+                DialogInterface.OnCancelListener onCancelListener = this.f14033g;
                 if (onCancelListener != null) {
                     onCancelListener.onCancel(aVar.getDialog());
                 }
@@ -79,7 +79,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f14368e;
+        public final /* synthetic */ DialogInterface.OnCancelListener f14034e;
 
         public b(DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f14368e = onCancelListener;
+            this.f14034e = onCancelListener;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -104,7 +104,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.f14368e;
+                DialogInterface.OnCancelListener onCancelListener = this.f14034e;
                 if (onCancelListener != null) {
                     onCancelListener.onCancel(aVar.getDialog());
                 }
@@ -202,7 +202,7 @@ public class a {
         aVar.setAutoNight(false);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
-        aVar.setPositiveButton(c(i2, context), new C0880a(i2, context, onCancelListener));
+        aVar.setPositiveButton(c(i2, context), new C0893a(i2, context, onCancelListener));
         aVar.setNegativeButton(R.string.cancel, new b(onCancelListener)).create(j.a(activity));
         if (onCancelListener != null) {
             aVar.setOnCalcelListener(onCancelListener);

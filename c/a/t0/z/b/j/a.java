@@ -38,17 +38,17 @@ public final class a implements i {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f26728b;
+    public static String f25935b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.t0.z.b.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1554a implements g.b {
+    public static class C1570a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
-        public C1554a(Context context) {
+        public C1570a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public final class a implements i {
             }
         }
         a = k.a;
-        f26728b = NewUrlSchemaHelper.SCHEME;
+        f25935b = NewUrlSchemaHelper.SCHEME;
     }
 
     public a() {
@@ -139,7 +139,7 @@ public final class a implements i {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str5 + str4;
             }
-            String str7 = f26728b;
+            String str7 = f25935b;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -173,7 +173,7 @@ public final class a implements i {
             if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
                 Uri parse = Uri.parse(str);
                 if (c.a.s0.a.g.c(parse)) {
-                    c.a.s0.a.g.b().j(str, parse, new C1554a(context));
+                    c.a.s0.a.g.b().j(str, parse, new C1570a(context));
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
                     tbWebViewActivityConfig.setUri(parse);

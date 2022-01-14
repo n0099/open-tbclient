@@ -14,7 +14,7 @@ public class a {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Flow f8051b;
+    public final Flow f7874b;
 
     public a(Object obj, Flow flow) {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public class a {
             }
         }
         this.a = obj;
-        this.f8051b = flow;
+        this.f7874b = flow;
     }
 
     public Flow a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8051b : (Flow) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7874b : (Flow) invokeV.objValue;
     }
 
     public Object b() {

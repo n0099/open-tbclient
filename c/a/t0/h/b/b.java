@@ -21,14 +21,14 @@ public class b implements n, c.a.t0.h.c, o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SparseArray<BdUniqueId> f18396g;
+    public static SparseArray<BdUniqueId> f17944g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f18397e;
+    public Object f17945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18398f;
+    public int f17946f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class b implements n, c.a.t0.h.c, o0 {
                 return;
             }
         }
-        f18396g = new SparseArray<>();
+        f17944g = new SparseArray<>();
     }
 
     public b() {
@@ -62,11 +62,11 @@ public class b implements n, c.a.t0.h.c, o0 {
 
     public static void d(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || f18396g.size() > 0 || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || f17944g.size() > 0 || list == null) {
             return;
         }
         for (Integer num : list) {
-            f18396g.put(num.intValue(), BdUniqueId.gen());
+            f17944g.put(num.intValue(), BdUniqueId.gen());
         }
     }
 
@@ -75,8 +75,8 @@ public class b implements n, c.a.t0.h.c, o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < f18396g.size(); i2++) {
-                arrayList.add(f18396g.valueAt(i2));
+            for (int i2 = 0; i2 < f17944g.size(); i2++) {
+                arrayList.add(f17944g.valueAt(i2));
             }
             return arrayList;
         }
@@ -88,10 +88,10 @@ public class b implements n, c.a.t0.h.c, o0 {
         int indexOfValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
-            if (f18396g.size() == 0 || (indexOfValue = f18396g.indexOfValue(bdUniqueId)) == -1 || f18396g.size() <= indexOfValue) {
+            if (f17944g.size() == 0 || (indexOfValue = f17944g.indexOfValue(bdUniqueId)) == -1 || f17944g.size() <= indexOfValue) {
                 return -1;
             }
-            return f18396g.keyAt(indexOfValue);
+            return f17944g.keyAt(indexOfValue);
         }
         return invokeL.intValue;
     }
@@ -100,7 +100,7 @@ public class b implements n, c.a.t0.h.c, o0 {
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18397e : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17945e : invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.o0
@@ -129,27 +129,27 @@ public class b implements n, c.a.t0.h.c, o0 {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18398f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17946f : invokeV.intValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f18396g.get(this.f18398f) : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f17944g.get(this.f17946f) : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.f18397e = obj;
+            this.f17945e = obj;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f18398f = i2;
+            this.f17946f = i2;
         }
     }
 

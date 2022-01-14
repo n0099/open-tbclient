@@ -52,7 +52,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55863e;
+        public final /* synthetic */ BdMenu f53744e;
 
         public a(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55863e = bdMenu;
+            this.f53744e = bdMenu;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -79,9 +79,9 @@ public abstract class BdMenu {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 1) {
                     if (i2 == 4 || i2 == 82) {
-                        this.f55863e.dismiss();
-                        if (this.f55863e.mKeyClickListener != null) {
-                            this.f55863e.mKeyClickListener.onKey(view, i2, keyEvent);
+                        this.f53744e.dismiss();
+                        if (this.f53744e.mKeyClickListener != null) {
+                            this.f53744e.mKeyClickListener.onKey(view, i2, keyEvent);
                         }
                         return true;
                     }
@@ -171,7 +171,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55864e;
+        public final /* synthetic */ BdMenu f53745e;
 
         public d(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -188,16 +188,16 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55864e = bdMenu;
+            this.f53745e = bdMenu;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f55864e.mStateChangeListener == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53745e.mStateChangeListener == null) {
                 return;
             }
-            this.f55864e.mStateChangeListener.onDismissMenu();
+            this.f53745e.mStateChangeListener.onDismissMenu();
         }
     }
 
@@ -207,7 +207,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55865e;
+        public final /* synthetic */ BdMenu f53746e;
 
         public e(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55865e = bdMenu;
+            this.f53746e = bdMenu;
         }
 
         @Override // java.lang.Runnable
@@ -232,7 +232,7 @@ public abstract class BdMenu {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f55865e.showMenu(this.f55865e.mPopupWindow);
+                    this.f53746e.showMenu(this.f53746e.mPopupWindow);
                 } catch (Exception unused) {
                 }
             }

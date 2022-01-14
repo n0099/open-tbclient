@@ -14,16 +14,16 @@ public class g implements c.a.t0.p1.b.c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18233b;
+    public String f17788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18234c;
+    public String f17789c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f18235d;
+    public long f17790d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18236e;
+    public boolean f17791e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class g implements c.a.t0.p1.b.c {
             }
             if (obj instanceof c.a.s0.g1.g.a) {
                 c.a.s0.g1.g.a aVar = (c.a.s0.g1.g.a) obj;
-                return aVar.f12887d == this.f18235d && aVar.f12886c.equals(this.f18234c) && aVar.f12885b.equals(this.f18233b) && aVar.f12888e == this.f18236e && aVar.a == this.a;
+                return aVar.f12578d == this.f17790d && aVar.f12577c.equals(this.f17789c) && aVar.f12576b.equals(this.f17788b) && aVar.f12579e == this.f17791e && aVar.a == this.a;
             }
             return false;
         }
@@ -59,7 +59,7 @@ public class g implements c.a.t0.p1.b.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.f18233b + ",forumName=" + this.f18234c + ",forumId=" + this.f18235d + ",isLiked=" + this.f18236e + "," + PreferencesUtil.RIGHT_MOUNT;
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.f17788b + ",forumName=" + this.f17789c + ",forumId=" + this.f17790d + ",isLiked=" + this.f17791e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

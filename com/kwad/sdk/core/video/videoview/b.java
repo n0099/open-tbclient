@@ -28,34 +28,32 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f58457b;
+    public Context f56250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AudioManager f58458c;
+    public AudioManager f56251c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.video.kwai.c f58459d;
+    public com.kwad.sdk.core.video.kwai.c f56252d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f58460e;
+    public FrameLayout f56253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.video.a f58461f;
+    public com.kwad.sdk.core.video.a f56254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f58462g;
+    public c f56255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SurfaceTexture f58463h;
+    public SurfaceTexture f56256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Surface f58464i;
+    public Surface f56257i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f58465j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Map<String, String> f58466k;
+    public String f56258j;
+    public Map<String, String> k;
     public int l;
     public boolean m;
     public long n;
@@ -67,7 +65,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public c.e u;
     public c.h v;
     public c.b w;
-    public c.InterfaceC2094c x;
+    public c.InterfaceC2111c x;
     public c.d y;
     public c.a z;
 
@@ -85,11 +83,11 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             @Override // com.kwad.sdk.core.video.kwai.c.e
             public void a(com.kwad.sdk.core.video.kwai.c cVar) {
                 b.this.a = 2;
-                b.this.f58462g.a(b.this.a);
+                b.this.f56255g.a(b.this.a);
                 com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onPrepared ——> STATE_PREPARED");
                 cVar.f();
                 if (b.this.m) {
-                    cVar.a((int) as.a(b.this.f58457b, b.this.f58465j));
+                    cVar.a((int) as.a(b.this.f56250b, b.this.f56258j));
                 }
                 if (b.this.n != 0) {
                     cVar.a((int) b.this.n);
@@ -100,7 +98,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             @Override // com.kwad.sdk.core.video.kwai.c.h
             public void a(com.kwad.sdk.core.video.kwai.c cVar, int i2, int i3) {
                 if (!b.this.q || i3 <= i2) {
-                    b.this.f58461f.a(i2, i3);
+                    b.this.f56254f.a(i2, i3);
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onVideoSizeChanged ——> width：" + i2 + "， height：" + i3);
                 }
             }
@@ -110,19 +108,19 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
             public void a(com.kwad.sdk.core.video.kwai.c cVar) {
                 if (b.this.a != 9) {
                     b.this.a = 9;
-                    b.this.f58462g.a(b.this.a);
+                    b.this.f56255g.a(b.this.a);
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onCompletion ——> STATE_COMPLETED");
-                    b.this.f58460e.setKeepScreenOn(false);
+                    b.this.f56253e.setKeepScreenOn(false);
                 }
             }
         };
-        this.x = new c.InterfaceC2094c() { // from class: com.kwad.sdk.core.video.videoview.b.4
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC2094c
+        this.x = new c.InterfaceC2111c() { // from class: com.kwad.sdk.core.video.videoview.b.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC2111c
             public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i2, int i3) {
                 if (i2 != -38) {
                     b.this.a = -1;
-                    b.this.f58462g.a(i2, i3);
-                    b.this.f58462g.a(b.this.a);
+                    b.this.f56255g.a(i2, i3);
+                    b.this.f56255g.a(b.this.a);
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onError ——> STATE_ERROR ———— what：" + i2 + ", extra: " + i3);
                     return true;
                 }
@@ -137,7 +135,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                 String str2;
                 if (i2 == 3) {
                     b.this.a = 4;
-                    b.this.f58462g.a(b.this.a);
+                    b.this.f56255g.a(b.this.a);
                     str = "onInfo ——> MEDIA_INFO_VIDEO_RENDERING_START：STATE_PLAYING";
                 } else if (i2 == 701) {
                     if (b.this.a == 5 || b.this.a == 7) {
@@ -148,26 +146,26 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                         str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PLAYING";
                     }
                     com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str2);
-                    b.this.f58462g.a(b.this.a);
+                    b.this.f56255g.a(b.this.a);
                     return true;
                 } else if (i2 == 702) {
                     if (b.this.a == 6) {
                         b.this.a = 4;
-                        b.this.f58462g.a(b.this.a);
+                        b.this.f56255g.a(b.this.a);
                         com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PLAYING");
                     }
                     if (b.this.a != 7) {
                         return true;
                     }
                     b.this.a = 5;
-                    b.this.f58462g.a(b.this.a);
+                    b.this.f56255g.a(b.this.a);
                     str = "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PAUSED";
                 } else {
                     if (i2 == 10001) {
-                        if (b.this.f58461f == null) {
+                        if (b.this.f56254f == null) {
                             return true;
                         }
-                        b.this.f58461f.setRotation(i3);
+                        b.this.f56254f.setRotation(i3);
                         sb = new StringBuilder();
                         sb.append("视频旋转角度：");
                         sb.append(i3);
@@ -199,7 +197,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
                 }
             }
         };
-        this.f58457b = context;
+        this.f56250b = context;
         p();
     }
 
@@ -210,32 +208,32 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     private void p() {
         setBackgroundColor(-16777216);
         this.t = q();
-        this.f58460e = new FrameLayout(this.f58457b);
-        addView(this.f58460e, new FrameLayout.LayoutParams(-1, -1));
+        this.f56253e = new FrameLayout(this.f56250b);
+        addView(this.f56253e, new FrameLayout.LayoutParams(-1, -1));
     }
 
     private ImageView q() {
-        ImageView imageView = new ImageView(this.f58457b);
+        ImageView imageView = new ImageView(this.f56250b);
         addView(imageView, new FrameLayout.LayoutParams(-1, -1));
         return imageView;
     }
 
     private void r() {
-        if (this.f58459d == null) {
-            com.kwad.sdk.core.video.kwai.c a = com.kwad.sdk.contentalliance.detail.video.a.a(this.f58457b, false);
-            this.f58459d = a;
+        if (this.f56252d == null) {
+            com.kwad.sdk.core.video.kwai.c a = com.kwad.sdk.contentalliance.detail.video.a.a(this.f56250b, false);
+            this.f56252d = a;
             a.b(3);
             if (this.p) {
                 return;
             }
-            this.f58459d.a(0.0f, 0.0f);
+            this.f56252d.a(0.0f, 0.0f);
         }
     }
 
     private void s() {
-        if (this.f58461f == null) {
-            com.kwad.sdk.core.video.a aVar = new com.kwad.sdk.core.video.a(this.f58457b);
-            this.f58461f = aVar;
+        if (this.f56254f == null) {
+            com.kwad.sdk.core.video.a aVar = new com.kwad.sdk.core.video.a(this.f56250b);
+            this.f56254f = aVar;
             aVar.setSurfaceTextureListener(this);
         }
     }
@@ -243,37 +241,37 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     private void setPlayType(int i2) {
         VideoPlayerStatus videoPlayerStatus;
         com.kwad.sdk.contentalliance.detail.video.c cVar = this.r;
-        if (cVar == null || (videoPlayerStatus = cVar.f57770d) == null) {
+        if (cVar == null || (videoPlayerStatus = cVar.f55582d) == null) {
             return;
         }
         videoPlayerStatus.mVideoPlayerType = i2;
     }
 
     private void t() {
-        this.f58460e.removeView(this.f58461f);
-        this.f58460e.addView(this.f58461f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
+        this.f56253e.removeView(this.f56254f);
+        this.f56253e.addView(this.f56254f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
     }
 
     private void u() {
-        this.f58460e.setKeepScreenOn(true);
-        this.f58459d.a(this.u);
-        this.f58459d.a(this.v);
-        this.f58459d.a(this.w);
-        this.f58459d.a(this.x);
-        this.f58459d.a(this.y);
-        this.f58459d.a(this.z);
+        this.f56253e.setKeepScreenOn(true);
+        this.f56252d.a(this.u);
+        this.f56252d.a(this.v);
+        this.f56252d.a(this.w);
+        this.f56252d.a(this.x);
+        this.f56252d.a(this.y);
+        this.f56252d.a(this.z);
         try {
             if (this.r != null && this.s != null) {
-                this.r.f57771e = this.s;
+                this.r.f55583e = this.s;
             }
-            this.f58459d.a(this.r);
-            if (this.f58464i == null) {
-                this.f58464i = new Surface(this.f58463h);
+            this.f56252d.a(this.r);
+            if (this.f56257i == null) {
+                this.f56257i = new Surface(this.f56256h);
             }
-            this.f58459d.a(this.f58464i);
-            if (this.f58459d.e()) {
+            this.f56252d.a(this.f56257i);
+            if (this.f56252d.e()) {
                 this.a = 1;
-                this.f58462g.a(1);
+                this.f56255g.a(1);
                 com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "STATE_PREPARING");
             }
         } catch (Exception e2) {
@@ -293,14 +291,14 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         s();
         t();
         com.kwad.sdk.contentalliance.detail.video.c cVar = this.r;
-        if (cVar == null || (videoPlayerStatus = cVar.f57770d) == null) {
+        if (cVar == null || (videoPlayerStatus = cVar.f55582d) == null) {
             return;
         }
         setPlayType(videoPlayerStatus.mVideoPlayerType == 0 ? 1 : 3);
     }
 
     public void a(int i2) {
-        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f56252d;
         if (cVar != null) {
             cVar.a(i2);
         }
@@ -308,8 +306,8 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
 
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar, Map<String, String> map) {
         this.r = cVar;
-        this.f58465j = cVar.f57768b;
-        this.f58466k = map;
+        this.f56258j = cVar.f55580b;
+        this.k = map;
         a(cVar.a);
     }
 
@@ -318,18 +316,18 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         String str;
         int i2 = this.a;
         if (i2 == 5) {
-            this.f58459d.f();
+            this.f56252d.f();
             this.a = 4;
-            this.f58462g.a(4);
+            this.f56255g.a(4);
             setPlayType(2);
             str = "STATE_PLAYING";
         } else if (i2 == 7) {
-            this.f58459d.f();
+            this.f56252d.f();
             this.a = 6;
-            this.f58462g.a(6);
+            this.f56255g.a(6);
             str = "STATE_BUFFERING_PLAYING";
         } else if (i2 == 9 || i2 == -1) {
-            this.f58459d.m();
+            this.f56252d.m();
             u();
             setPlayType(3);
             return;
@@ -342,7 +340,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     @Override // com.kwad.sdk.core.video.videoview.d
     public void c() {
         String str;
-        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f56252d;
         if (cVar == null) {
             return;
         }
@@ -350,14 +348,14 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         if (i2 == 4) {
             cVar.g();
             this.a = 5;
-            this.f58462g.a(5);
+            this.f56255g.a(5);
             str = "STATE_PAUSED";
         } else if (i2 != 6) {
             return;
         } else {
             cVar.g();
             this.a = 7;
-            this.f58462g.a(7);
+            this.f56255g.a(7);
             str = "STATE_BUFFERING_PAUSED";
         }
         com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str);
@@ -387,12 +385,12 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     public c getController() {
-        return this.f58462g;
+        return this.f56255g;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public long getCurrentPosition() {
-        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f56252d;
         if (cVar != null) {
             return cVar.j();
         }
@@ -401,7 +399,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public long getDuration() {
-        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f56252d;
         if (cVar != null) {
             return cVar.k();
         }
@@ -409,7 +407,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     public int getMaxVolume() {
-        AudioManager audioManager = this.f58458c;
+        AudioManager audioManager = this.f56251c;
         if (audioManager != null) {
             return audioManager.getStreamMaxVolume(3);
         }
@@ -417,11 +415,11 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     public c getVideoController() {
-        return this.f58462g;
+        return this.f56255g;
     }
 
     public int getVolume() {
-        AudioManager audioManager = this.f58458c;
+        AudioManager audioManager = this.f56251c;
         if (audioManager != null) {
             return audioManager.getStreamVolume(3);
         }
@@ -438,26 +436,26 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     public void j() {
-        AudioManager audioManager = this.f58458c;
+        AudioManager audioManager = this.f56251c;
         if (audioManager != null) {
             audioManager.abandonAudioFocus(null);
-            this.f58458c = null;
+            this.f56251c = null;
         }
-        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f56252d;
         if (cVar != null) {
             cVar.l();
-            this.f58459d = null;
+            this.f56252d = null;
         }
-        this.f58460e.removeView(this.f58461f);
-        Surface surface = this.f58464i;
+        this.f56253e.removeView(this.f56254f);
+        Surface surface = this.f56257i;
         if (surface != null) {
             surface.release();
-            this.f58464i = null;
+            this.f56257i = null;
         }
-        SurfaceTexture surfaceTexture = this.f58463h;
+        SurfaceTexture surfaceTexture = this.f56256h;
         if (surfaceTexture != null) {
             surfaceTexture.release();
-            this.f58463h = null;
+            this.f56256h = null;
         }
         this.a = 0;
     }
@@ -469,18 +467,18 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         long currentPosition;
         if (this.m) {
             if (g() || e() || f() || h()) {
-                context = this.f58457b;
-                str = this.f58465j;
+                context = this.f56250b;
+                str = this.f56258j;
                 currentPosition = getCurrentPosition();
             } else if (i()) {
-                context = this.f58457b;
-                str = this.f58465j;
+                context = this.f56250b;
+                str = this.f56258j;
                 currentPosition = 0;
             }
             as.a(context, str, currentPosition);
         }
         j();
-        c cVar = this.f58462g;
+        c cVar = this.f56255g;
         if (cVar != null) {
             cVar.e();
         }
@@ -488,12 +486,12 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        SurfaceTexture surfaceTexture2 = this.f58463h;
+        SurfaceTexture surfaceTexture2 = this.f56256h;
         if (surfaceTexture2 != null) {
-            this.f58461f.setSurfaceTexture(surfaceTexture2);
+            this.f56254f.setSurfaceTexture(surfaceTexture2);
             return;
         }
-        this.f58463h = surfaceTexture;
+        this.f56256h = surfaceTexture;
         u();
     }
 
@@ -511,10 +509,10 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     public void setController(c cVar) {
-        this.f58460e.removeView(this.f58462g);
-        this.f58462g = cVar;
+        this.f56253e.removeView(this.f56255g);
+        this.f56255g = cVar;
         cVar.e();
-        this.f58460e.addView(this.f58462g, new FrameLayout.LayoutParams(-1, -1));
+        this.f56253e.addView(this.f56255g, new FrameLayout.LayoutParams(-1, -1));
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
@@ -528,7 +526,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
 
     public void setVideoSoundEnable(boolean z) {
         this.p = z;
-        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f56252d;
         if (cVar != null) {
             float f2 = z ? 1.0f : 0.0f;
             cVar.a(f2, f2);
@@ -536,7 +534,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     public void setVolume(int i2) {
-        AudioManager audioManager = this.f58458c;
+        AudioManager audioManager = this.f56251c;
         if (audioManager != null) {
             audioManager.setStreamVolume(3, i2, 0);
         }

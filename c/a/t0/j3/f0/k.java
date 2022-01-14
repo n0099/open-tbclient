@@ -31,21 +31,21 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static k f18789c;
+    public static k f18321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static DownloadData f18790d;
+    public static DownloadData f18322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<DownloadData> f18791e;
+    public static List<DownloadData> f18323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, Integer> f18792f;
+    public static HashMap<String, Integer> f18324f;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, m> f18793b;
+    public HashMap<String, m> f18325b;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -138,7 +138,7 @@ public class k {
                             }
                             if (downloadData.isNeedNotify()) {
                                 TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
-                                this.a.f18793b.put(downloadData.getUrl(), new m(downloadData, 0));
+                                this.a.f18325b.put(downloadData.getUrl(), new m(downloadData, 0));
                             }
                         } else {
                             if (downloadData.getDownloadStaticsData() != null) {
@@ -147,11 +147,11 @@ public class k {
                             this.a.t(downloadData);
                         }
                     }
-                    DownloadData unused = k.f18790d = null;
-                    if (c.a.t0.x1.o.k.a.e(k.f18791e)) {
+                    DownloadData unused = k.f18322d = null;
+                    if (c.a.t0.x1.o.k.a.e(k.f18323e)) {
                         return;
                     }
-                    c.a.t0.x1.o.k.a.i(k.f18791e, 0);
+                    c.a.t0.x1.o.k.a.i(k.f18323e, 0);
                     this.a.w();
                 }
             }
@@ -175,8 +175,8 @@ public class k {
                 return;
             }
         }
-        f18791e = new LinkedList();
-        f18792f = new HashMap<>();
+        f18323e = new LinkedList();
+        f18324f = new HashMap<>();
     }
 
     public k() {
@@ -193,7 +193,7 @@ public class k {
             }
         }
         this.a = null;
-        this.f18793b = new HashMap<>();
+        this.f18325b = new HashMap<>();
     }
 
     public static k j() {
@@ -201,11 +201,11 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (k.class) {
-                if (f18789c == null) {
-                    f18789c = new k();
+                if (f18321c == null) {
+                    f18321c = new k();
                 }
             }
-            return f18789c;
+            return f18321c;
         }
         return (k) invokeV.objValue;
     }
@@ -214,11 +214,11 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (f18792f.containsKey(str)) {
-                return f18792f.get(str);
+            if (f18324f.containsKey(str)) {
+                return f18324f.get(str);
             }
             Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-            f18792f.put(str, valueOf);
+            f18324f.put(str, valueOf);
             return valueOf;
         }
         return (Integer) invokeL.objValue;
@@ -276,7 +276,7 @@ public class k {
             if (downloadData == null || h2 < 0) {
                 return;
             }
-            m mVar = this.f18793b.get(downloadData.getUrl());
+            m mVar = this.f18325b.get(downloadData.getUrl());
             if (mVar == null) {
                 mVar = new m(downloadData, h2);
             }
@@ -358,7 +358,7 @@ public class k {
         }
         q(downloadData);
         c.a.t0.v.g.i.a.a.get().c().b(downloadData.getId(), StopStatus.DOWNLOAD_FAIL);
-        this.f18793b.get(downloadData.getUrl());
+        this.f18325b.get(downloadData.getUrl());
     }
 
     public void p(DownloadData downloadData) {
@@ -375,7 +375,7 @@ public class k {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadData) == null) || downloadData == null) {
             return;
         }
-        m mVar = this.f18793b.get(downloadData.getUrl());
+        m mVar = this.f18325b.get(downloadData.getUrl());
         int h2 = h(downloadData.getId(), downloadData.getName());
         if (mVar == null) {
             mVar = new m(downloadData, h2);
@@ -388,7 +388,7 @@ public class k {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, downloadData) == null) || downloadData == null) {
             return;
         }
-        m mVar = this.f18793b.get(downloadData.getUrl());
+        m mVar = this.f18325b.get(downloadData.getUrl());
         int h2 = h(downloadData.getId(), downloadData.getName());
         if (mVar == null) {
             mVar = new m(downloadData, h2);
@@ -417,7 +417,7 @@ public class k {
             int h2 = h(downloadData.getId(), downloadData.getName());
             c.a.t0.v.g.i.a.a.get().c().d(downloadData.getId(), h2);
             String str = h2 + "%";
-            m mVar = this.f18793b.get(downloadData.getUrl());
+            m mVar = this.f18325b.get(downloadData.getUrl());
             if (mVar == null) {
                 mVar = new m(downloadData, h2);
             }
@@ -446,7 +446,7 @@ public class k {
             UtilHelper.showToast(TbadkCoreApplication.getInst(), R.string.download_fail_over_max);
             return;
         }
-        c.a.t0.x1.o.k.a.a(f18791e, downloadData);
+        c.a.t0.x1.o.k.a.a(f18323e, downloadData);
         w();
     }
 
@@ -473,14 +473,14 @@ public class k {
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && f18790d == null && !c.a.t0.x1.o.k.a.e(f18791e)) {
-            DownloadData downloadData = (DownloadData) c.a.t0.x1.o.k.a.d(f18791e, 0);
-            f18790d = downloadData;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && f18322d == null && !c.a.t0.x1.o.k.a.e(f18323e)) {
+            DownloadData downloadData = (DownloadData) c.a.t0.x1.o.k.a.d(f18323e, 0);
+            f18322d = downloadData;
             if (downloadData != null) {
                 b bVar = new b(this, null);
                 this.a = bVar;
                 bVar.setPriority(3);
-                this.a.execute(f18790d);
+                this.a.execute(f18322d);
             }
         }
     }

@@ -176,12 +176,12 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
         return (EnumBiMap) invokeL.objValue;
     }
 
-    public K checkKey(K k2) {
+    public K checkKey(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
-            n.p(k2);
-            return k2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            n.p(k);
+            return k;
         }
         return (K) invokeL.objValue;
     }

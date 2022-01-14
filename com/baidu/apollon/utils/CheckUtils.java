@@ -15,22 +15,22 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33757b = 3;
+    public static final int f32685b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33758c = 12;
+    public static final int f32686c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f33759d = 4;
+    public static final int f32687d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f33760e;
+    public static long f32688e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -263,13 +263,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f33760e;
+            long j2 = currentTimeMillis - f32688e;
             LogUtil.logd("timeD=" + j2);
             if (0 < j2 && j2 < 800) {
                 LogUtil.logd("点的太快了 timeD=" + j2);
                 return true;
             }
-            f33760e = currentTimeMillis;
+            f32688e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

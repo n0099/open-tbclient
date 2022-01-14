@@ -23,38 +23,36 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final boolean f9569k;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDateFormat f9570b;
+    public SimpleDateFormat f9361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, List<c.a.r0.a.u1.k.a>> f9571c;
+    public HashMap<String, List<c.a.r0.a.u1.k.a>> f9362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f9572d;
+    public final Object f9363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9573e;
+    public String f9364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9574f;
+    public boolean f9365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9575g;
+    public boolean f9366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f9576h;
+    public long f9367h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f9577i;
+    public long f9368i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile c.a.r0.a.u1.k.j.c f9578j;
+    public volatile c.a.r0.a.u1.k.j.c f9369j;
 
     /* loaded from: classes.dex */
     public class a implements c {
@@ -88,7 +86,7 @@ public class b implements d {
                 if (aVar == null || aVar.c() < 0) {
                     return false;
                 }
-                if (b.f9569k || aVar.b() == 0) {
+                if (b.k || aVar.b() == 0) {
                     return this.a.o(aVar.e());
                 }
                 return false;
@@ -110,7 +108,7 @@ public class b implements d {
                 return;
             }
         }
-        f9569k = k.a;
+        k = k.a;
     }
 
     public b() {
@@ -126,7 +124,7 @@ public class b implements d {
                 return;
             }
         }
-        this.f9572d = new Object();
+        this.f9363d = new Object();
     }
 
     @Override // c.a.r0.a.u1.k.e
@@ -135,7 +133,7 @@ public class b implements d {
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             p();
             u();
-            this.f9576h = j2;
+            this.f9367h = j2;
             q("launch start time-" + j2);
         }
     }
@@ -144,10 +142,10 @@ public class b implements d {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f9575g = true;
-            this.f9577i = j2;
+            this.f9366g = true;
+            this.f9368i = j2;
             v(k());
-            q("launch end time-" + (this.f9576h + this.f9577i));
+            q("launch end time-" + (this.f9367h + this.f9368i));
         }
     }
 
@@ -156,7 +154,7 @@ public class b implements d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && f.j().m()) {
             p();
-            if (this.f9574f) {
+            if (this.f9365f) {
                 q("aiapp start finish");
                 return;
             }
@@ -165,16 +163,16 @@ public class b implements d {
                 String m = m(jSONObject);
                 q("Id " + m);
                 if (TextUtils.equals(m, "786")) {
-                    if (f9569k) {
+                    if (k) {
                         jSONObject.toString();
                     }
                     JSONObject l = l(jSONObject);
                     if (l != null && l.length() > 0) {
                         JSONObject optJSONObject = l.optJSONObject("ext");
                         if (optJSONObject != null && optJSONObject.length() > 0) {
-                            if (TextUtils.isEmpty(this.f9573e)) {
-                                this.f9573e = optJSONObject.optString("swan");
-                                q("current swan version " + this.f9573e);
+                            if (TextUtils.isEmpty(this.f9364e)) {
+                                this.f9364e = optJSONObject.optString("swan");
+                                q("current swan version " + this.f9364e);
                             }
                             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -204,24 +202,24 @@ public class b implements d {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f9575g && this.f9570b != null) {
+            if (this.f9366g && this.f9361b != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("----- ");
                 sb.append("launch start time ");
-                sb.append(this.f9570b.format(Long.valueOf(this.f9576h)));
+                sb.append(this.f9361b.format(Long.valueOf(this.f9367h)));
                 sb.append(StringUtils.LF);
                 sb.append("----- ");
                 sb.append("launch end time ");
-                sb.append(this.f9570b.format(Long.valueOf(this.f9576h + this.f9577i)));
+                sb.append(this.f9361b.format(Long.valueOf(this.f9367h + this.f9368i)));
                 sb.append(StringUtils.LF);
                 sb.append("----- ");
                 sb.append("swan js version ");
-                sb.append(this.f9573e);
+                sb.append(this.f9364e);
                 sb.append(StringUtils.LF);
-                synchronized (this.f9572d) {
+                synchronized (this.f9363d) {
                     i2 = 0;
                     i3 = 0;
-                    for (Map.Entry<String, List<c.a.r0.a.u1.k.a>> entry : this.f9571c.entrySet()) {
+                    for (Map.Entry<String, List<c.a.r0.a.u1.k.a>> entry : this.f9362c.entrySet()) {
                         List<c.a.r0.a.u1.k.a> value = entry.getValue();
                         if (value != null && value.size() > 0) {
                             StringBuilder sb2 = new StringBuilder();
@@ -229,10 +227,10 @@ public class b implements d {
                             for (c.a.r0.a.u1.k.a aVar : value) {
                                 if (this.a == null || this.a.a(aVar)) {
                                     sb2.append("----- start time ");
-                                    sb2.append(this.f9570b.format(Long.valueOf(aVar.e())));
+                                    sb2.append(this.f9361b.format(Long.valueOf(aVar.e())));
                                     sb2.append(StringUtils.LF);
                                     sb2.append("----- end time ");
-                                    sb2.append(this.f9570b.format(Long.valueOf(aVar.d())));
+                                    sb2.append(this.f9361b.format(Long.valueOf(aVar.d())));
                                     sb2.append(StringUtils.LF);
                                     sb2.append("----- cost time ");
                                     sb2.append(aVar.c());
@@ -290,10 +288,10 @@ public class b implements d {
 
     public final void n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) && this.f9578j == null) {
-            synchronized (this.f9572d) {
-                if (this.f9578j == null) {
-                    this.f9578j = jSONObject.has("caller") ? new c.a.r0.a.u1.k.j.b() : new c.a.r0.a.u1.k.j.a();
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) && this.f9369j == null) {
+            synchronized (this.f9363d) {
+                if (this.f9369j == null) {
+                    this.f9369j = jSONObject.has("caller") ? new c.a.r0.a.u1.k.j.b() : new c.a.r0.a.u1.k.j.a();
                 }
             }
         }
@@ -303,19 +301,19 @@ public class b implements d {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            long j3 = this.f9576h;
-            return j2 >= j3 && j2 <= j3 + this.f9577i;
+            long j3 = this.f9367h;
+            return j2 >= j3 && j2 <= j3 + this.f9368i;
         }
         return invokeJ.booleanValue;
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f9571c == null) {
-            synchronized (this.f9572d) {
-                if (this.f9571c == null) {
-                    this.f9571c = new HashMap<>();
-                    this.f9570b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f9362c == null) {
+            synchronized (this.f9363d) {
+                if (this.f9362c == null) {
+                    this.f9362c = new HashMap<>();
+                    this.f9361b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
                     this.a = new a(this);
                 }
             }
@@ -325,14 +323,14 @@ public class b implements d {
     public final void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            boolean z = f9569k;
+            boolean z = k;
         }
     }
 
     public final boolean r(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) ? this.f9575g && j2 > this.f9576h + this.f9577i : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) ? this.f9366g && j2 > this.f9367h + this.f9368i : invokeJ.booleanValue;
     }
 
     public final void s(JSONArray jSONArray) {
@@ -347,8 +345,8 @@ public class b implements d {
                     z &= !t(optJSONObject);
                 }
             }
-            this.f9574f = z;
-            q("start done " + this.f9574f);
+            this.f9365f = z;
+            q("start done " + this.f9365f);
         }
     }
 
@@ -359,22 +357,22 @@ public class b implements d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, jSONObject)) == null) {
             n(jSONObject);
             String optString = jSONObject.optString(com.alipay.sdk.cons.c.n);
-            if (TextUtils.isEmpty(optString) || (a2 = this.f9578j.a(jSONObject)) == null || a2.size() <= 0) {
+            if (TextUtils.isEmpty(optString) || (a2 = this.f9369j.a(jSONObject)) == null || a2.size() <= 0) {
                 return true;
             }
             boolean z = a2.size() > 0;
-            synchronized (this.f9572d) {
-                List<c.a.r0.a.u1.k.a> list = this.f9571c.get(optString);
+            synchronized (this.f9363d) {
+                List<c.a.r0.a.u1.k.a> list = this.f9362c.get(optString);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.f9571c.put(optString, list);
+                    this.f9362c.put(optString, list);
                 }
                 list.addAll(a2);
                 for (c.a.r0.a.u1.k.a aVar : a2) {
                     z &= r(aVar.e());
                 }
             }
-            if (f9569k) {
+            if (k) {
                 String str = "api - " + optString + ", all after fmp - " + z;
             }
             return !z;
@@ -385,16 +383,16 @@ public class b implements d {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f9571c.size() > 0) {
-                synchronized (this.f9572d) {
-                    this.f9571c.clear();
+            if (this.f9362c.size() > 0) {
+                synchronized (this.f9363d) {
+                    this.f9362c.clear();
                 }
             }
-            this.f9574f = false;
-            this.f9575g = false;
-            this.f9577i = 0L;
-            this.f9576h = 0L;
-            this.f9573e = null;
+            this.f9365f = false;
+            this.f9366g = false;
+            this.f9368i = 0L;
+            this.f9367h = 0L;
+            this.f9364e = null;
             v("===== loading... =====");
         }
     }
@@ -404,6 +402,6 @@ public class b implements d {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a.r0.a.u2.d.f9670j.update((c.a.r0.a.u2.c<String>) str);
+        c.a.r0.a.u2.d.f9461j.update((c.a.r0.a.u2.c<String>) str);
     }
 }

@@ -75,14 +75,14 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
     }
 
     @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap
-    public Collection<V> wrapCollection(K k2, Collection<V> collection) {
+    public Collection<V> wrapCollection(K k, Collection<V> collection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, k2, collection)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, k, collection)) == null) {
             if (collection instanceof NavigableSet) {
-                return new AbstractMapBasedMultimap.m(this, k2, (NavigableSet) collection, null);
+                return new AbstractMapBasedMultimap.m(this, k, (NavigableSet) collection, null);
             }
-            return new AbstractMapBasedMultimap.o(this, k2, (SortedSet) collection, null);
+            return new AbstractMapBasedMultimap.o(this, k, (SortedSet) collection, null);
         }
         return (Collection) invokeLL.objValue;
     }
@@ -124,10 +124,10 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
     }
 
     @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.q0
-    public SortedSet<V> get(K k2) {
+    public SortedSet<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k2)) == null) ? (SortedSet) super.get((AbstractSortedSetMultimap<K, V>) k2) : (SortedSet) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) ? (SortedSet) super.get((AbstractSortedSetMultimap<K, V>) k) : (SortedSet) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -139,9 +139,9 @@ public abstract class AbstractSortedSetMultimap<K, V> extends AbstractSetMultima
     }
 
     @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, c.i.d.c.c, c.i.d.c.q0
-    public SortedSet<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+    public SortedSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k2, iterable)) == null) ? (SortedSet) super.replaceValues((AbstractSortedSetMultimap<K, V>) k2, (Iterable) iterable) : (SortedSet) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k, iterable)) == null) ? (SortedSet) super.replaceValues((AbstractSortedSetMultimap<K, V>) k, (Iterable) iterable) : (SortedSet) invokeLL.objValue;
     }
 }

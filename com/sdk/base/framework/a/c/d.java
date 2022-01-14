@@ -13,7 +13,7 @@ public final class d extends h<Params, Result> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ c f61497b;
+    public /* synthetic */ c f59166b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar) {
@@ -33,7 +33,7 @@ public final class d extends h<Params, Result> {
                 return;
             }
         }
-        this.f61497b = cVar;
+        this.f59166b = cVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
@@ -45,10 +45,10 @@ public final class d extends h<Params, Result> {
         ?? a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            atomicBoolean = this.f61497b.f61495g;
+            atomicBoolean = this.f59166b.f59164g;
             atomicBoolean.set(true);
             Process.setThreadPriority(10);
-            c cVar = this.f61497b;
+            c cVar = this.f59166b;
             a = cVar.a((c) cVar.b(this.a));
             return a;
         }

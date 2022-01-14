@@ -24,7 +24,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13573b;
+    public static a f13258b;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<c.a.s0.a.d0.a> a;
 
@@ -48,14 +48,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f13573b == null) {
+            if (f13258b == null) {
                 synchronized (a.class) {
-                    if (f13573b == null) {
-                        f13573b = new a();
+                    if (f13258b == null) {
+                        f13258b = new a();
                     }
                 }
             }
-            return f13573b;
+            return f13258b;
         }
         return (a) invokeV.objValue;
     }
@@ -117,8 +117,8 @@ public class a {
                 if (jSONObject != null) {
                     c.a.s0.a.d0.a aVar = new c.a.s0.a.d0.a();
                     aVar.a = jSONObject.optInt("active_id");
-                    aVar.f12372b = jSONObject.optInt("mission_id");
-                    aVar.f12373c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+                    aVar.f12083b = jSONObject.optInt("mission_id");
+                    aVar.f12084c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
                     long d2 = d("business_update_time" + currentAccount + aVar.a);
                     if (g("business_count_hint" + currentAccount + aVar.a) && DateUtils.isToday(d2)) {
                         aVar.s = c("business_count_hint" + currentAccount + aVar.a);
@@ -196,8 +196,8 @@ public class a {
             }
             while (i2 < e2.size()) {
                 int i3 = e2.get(i2).a;
-                int i4 = e2.get(i2).f12372b;
-                int i5 = e2.get(i2).f12373c;
+                int i4 = e2.get(i2).f12083b;
+                int i5 = e2.get(i2).f12084c;
                 int c2 = c("business_count_hint" + currentAccount + i3);
                 long j2 = e2.get(i2).t;
                 long j3 = e2.get(i2).u;

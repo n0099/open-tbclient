@@ -21,7 +21,7 @@ public class a extends e<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final g.a f10463e;
+    public final g.a f10237e;
 
     public a(g.a aVar) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class a extends e<String> {
                 return;
             }
         }
-        this.f10463e = aVar;
+        this.f10237e = aVar;
     }
 
     @Override // c.a.r0.q.j.g.a
     public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) && c()) {
-            this.f10463e.a(str, str2, jSONObject);
+            this.f10237e.a(str, str2, jSONObject);
         }
     }
 
@@ -58,47 +58,47 @@ public class a extends e<String> {
             if (c.a.r0.c.a.a.a) {
                 String str2 = "BdtlsPmsRequest onSuccess=" + str;
             }
-            if (this.f10463e == null) {
+            if (this.f10237e == null) {
                 return;
             }
             c.a.r0.c.a.g l = c.a.r0.c.a.g.l();
             if (TextUtils.equals(str, "recovery")) {
                 if (l.m().b()) {
                     l.m().a();
-                    l.f10459d.i(true);
-                    c cVar = l.f10459d;
+                    l.f10233d.i(true);
+                    c cVar = l.f10233d;
                     if (cVar instanceof c.a.r0.c.a.k.a) {
                         ((c.a.r0.c.a.k.a) cVar).j();
                         return;
                     }
                     return;
                 }
-                this.f10463e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                this.f10237e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
                 return;
             }
             l.m().k();
-            c cVar2 = l.f10459d;
+            c cVar2 = l.f10233d;
             if (cVar2 instanceof c.a.r0.c.a.k.a) {
                 c.a.r0.c.a.k.a aVar = (c.a.r0.c.a.k.a) cVar2;
                 if (l.k()) {
-                    if (l.f10459d.f10497b == 1) {
+                    if (l.f10233d.f10271b == 1) {
                         f.a("application");
-                        this.f10463e.b(str, i2);
-                        aVar.f10490h = 0;
+                        this.f10237e.b(str, i2);
+                        aVar.f10264h = 0;
                         return;
                     }
-                    int i3 = aVar.f10490h;
-                    aVar.f10490h = i3 + 1;
+                    int i3 = aVar.f10264h;
+                    aVar.f10264h = i3 + 1;
                     if (i3 < 3) {
                         aVar.j();
                         return;
                     }
-                    this.f10463e.onFail(new IOException("request fail : " + str));
-                    aVar.f10490h = 0;
+                    this.f10237e.onFail(new IOException("request fail : " + str));
+                    aVar.f10264h = 0;
                     return;
                 }
-                this.f10463e.b(str, i2);
-                aVar.f10490h = 0;
+                this.f10237e.b(str, i2);
+                aVar.f10264h = 0;
             }
         }
     }
@@ -106,7 +106,7 @@ public class a extends e<String> {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10463e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10237e != null : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -126,7 +126,7 @@ public class a extends e<String> {
                 return "recovery";
             }
             if (l.k()) {
-                string = l.f10459d.g(response.body().bytes());
+                string = l.f10233d.g(response.body().bytes());
                 if (c.a.r0.c.a.a.a) {
                     String str = "BdtlsPmsRequest parseResponse=" + string;
                 }
@@ -147,7 +147,7 @@ public class a extends e<String> {
                 String str = "BdtlsPmsRequest onFail = " + exc.getMessage();
             }
             if (c()) {
-                this.f10463e.onFail(exc);
+                this.f10237e.onFail(exc);
             }
         }
     }
@@ -156,7 +156,7 @@ public class a extends e<String> {
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && c()) {
-            this.f10463e.onStart();
+            this.f10237e.onStart();
         }
     }
 }

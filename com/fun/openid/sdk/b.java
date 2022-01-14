@@ -14,7 +14,7 @@ public class b {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56335b;
+    public static boolean f54201b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -43,7 +43,7 @@ public class b {
             if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
                 return new g();
             }
-            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.f57226j)) {
+            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.f55062j)) {
                 return new l();
             }
             return null;
@@ -57,18 +57,18 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f56346b) {
-                String str = q.f56352h;
+            if (q.f54212b) {
+                String str = q.f54218h;
                 if (str != null) {
                     return str;
                 }
                 a2.a(0, null);
-                if (q.f56347c == null) {
+                if (q.f54213c == null) {
                     Context context2 = q.a;
-                    q.f56347c = new s(q.f56353i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f56347c);
+                    q.f54213c = new s(q.f54219i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f54213c);
                 }
-                return q.f56352h;
+                return q.f54218h;
             }
             return null;
         }

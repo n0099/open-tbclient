@@ -21,10 +21,10 @@ public class c extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f9849e;
+        public final /* synthetic */ List f9635e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y0.j.b f9850f;
+        public final /* synthetic */ c.a.r0.a.y0.j.b f9636f;
 
         public a(c cVar, List list, c.a.r0.a.y0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class c extends b {
                     return;
                 }
             }
-            this.f9849e = list;
-            this.f9850f = bVar;
+            this.f9635e = list;
+            this.f9636f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.f9849e) {
-                    this.f9850f.e(str);
+                for (String str : this.f9635e) {
+                    this.f9636f.e(str);
                 }
             }
         }

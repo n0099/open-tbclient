@@ -29,16 +29,16 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8374e;
+        public final /* synthetic */ CallbackHandler f8191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8375f;
+        public final /* synthetic */ UnitedSchemeEntity f8192f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f8376g;
+        public final /* synthetic */ Context f8193g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8377h;
+        public final /* synthetic */ JSONObject f8194h;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class b extends z {
                     return;
                 }
             }
-            this.f8374e = callbackHandler;
-            this.f8375f = unitedSchemeEntity;
-            this.f8376g = context;
-            this.f8377h = jSONObject;
+            this.f8191e = callbackHandler;
+            this.f8192f = unitedSchemeEntity;
+            this.f8193g = context;
+            this.f8194h = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,16 +69,16 @@ public class b extends z {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
                     try {
-                        b.l(this.f8376g, this.f8377h);
-                        UnitedSchemeUtility.callCallback(this.f8374e, this.f8375f, UnitedSchemeUtility.wrapCallbackParams(this.f8377h, 0));
+                        b.l(this.f8193g, this.f8194h);
+                        UnitedSchemeUtility.callCallback(this.f8191e, this.f8192f, UnitedSchemeUtility.wrapCallbackParams(this.f8194h, 0));
                         return;
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        this.f8375f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                        this.f8192f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
                         return;
                     }
                 }
-                c.a.r0.a.h2.c.d.p(iVar, this.f8374e, this.f8375f);
+                c.a.r0.a.h2.c.d.p(iVar, this.f8191e, this.f8192f);
             }
         }
     }
@@ -117,7 +117,7 @@ public class b extends z {
     }
 
     /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v15, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v51 */
     public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
@@ -152,9 +152,9 @@ public class b extends z {
             jSONObject.put("emitLaunchMode", k(string7, Integer.valueOf(x ? 1 : 0)));
             jSONObject.put("debugEnvData", k(context.getString(c.a.r0.a.h.aiapps_debug_game_extra_data), c.a.r0.a.x1.a.a.g()));
             String string8 = context.getString(c.a.r0.a.h.aiapps_debug_emit_replace_swan_core);
-            boolean k2 = c.a.r0.a.x1.a.a.k();
-            c.a.r0.a.p0.f.a.a(k2);
-            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k2 ? 1 : 0)));
+            boolean k = c.a.r0.a.x1.a.a.k();
+            c.a.r0.a.p0.f.a.a(k);
+            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k ? 1 : 0)));
             String string9 = context.getString(c.a.r0.a.h.aiapps_debug_emit_replace_game_core);
             boolean h2 = c.a.r0.a.x1.a.a.h();
             c.a.r0.a.p0.f.a.a(h2);
@@ -181,9 +181,9 @@ public class b extends z {
             c.a.r0.a.p0.f.a.a(a3);
             jSONObject.put("openPerformanceTesting", k(string14, Integer.valueOf(a3 ? 1 : 0)));
             String string15 = context.getString(c.a.r0.a.h.aiapps_debug_emit_replace_dependency);
-            boolean k3 = c.a.r0.a.p0.f.b.k();
-            c.a.r0.a.p0.f.a.a(k3);
-            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k3 ? 1 : 0)));
+            boolean k2 = c.a.r0.a.p0.f.b.k();
+            c.a.r0.a.p0.f.a.a(k2);
+            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k2 ? 1 : 0)));
         }
     }
 
@@ -203,7 +203,7 @@ public class b extends z {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
             JSONObject jSONObject = new JSONObject();
             c.a.r0.a.e0.d.i("getDebugConfig", "swangame getDebugConfig");
-            if (!z.f6340b) {
+            if (!z.f6201b) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             }

@@ -25,27 +25,27 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f11124g;
+    public static final boolean f10878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f11125h;
+    public static volatile b f10879h;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.j.c.i.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Long> f11126b;
+    public HashMap<String, Long> f10880b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11127c;
+    public String f10881c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f11128d;
+    public HandlerThread f10882d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f11129e;
+    public Handler f10883e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAudioPlayer f11130f;
+    public SwanAudioPlayer f10884f;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -53,7 +53,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11131e;
+        public final /* synthetic */ b f10885e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class b {
                     return;
                 }
             }
-            this.f11131e = bVar;
+            this.f10885e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11131e.f11130f = SwanAudioPlayer.getInstance();
+                this.f10885e.f10884f = SwanAudioPlayer.getInstance();
                 SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         }
@@ -85,14 +85,14 @@ public class b {
 
     /* renamed from: c.a.r0.j.c.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0727b implements Runnable {
+    public class RunnableC0736b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11132e;
+        public final /* synthetic */ b f10886e;
 
-        public RunnableC0727b(b bVar) {
+        public RunnableC0736b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,14 +107,14 @@ public class b {
                     return;
                 }
             }
-            this.f11132e = bVar;
+            this.f10886e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11132e.f11130f.pauseAll();
+                this.f10886e.f10884f.pauseAll();
             }
         }
     }
@@ -125,7 +125,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11133e;
+        public final /* synthetic */ b f10887e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class b {
                     return;
                 }
             }
-            this.f11133e = bVar;
+            this.f10887e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11133e.f11130f.resume();
+                this.f10887e.f10884f.resume();
             }
         }
     }
@@ -167,7 +167,7 @@ public class b {
                 return;
             }
         }
-        f11124g = k.a;
+        f10878g = k.a;
         c.a.r0.a.k2.d.b();
     }
 
@@ -184,9 +184,9 @@ public class b {
                 return;
             }
         }
-        this.f11126b = new HashMap<>();
-        this.f11127c = f.g();
-        this.a = new c.a.r0.j.c.i.b(this.f11127c);
+        this.f10880b = new HashMap<>();
+        this.f10881c = f.g();
+        this.a = new c.a.r0.j.c.i.b(this.f10881c);
         c();
         e().post(new a(this));
     }
@@ -195,25 +195,25 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f11125h == null) {
+            if (f10879h == null) {
                 synchronized (b.class) {
-                    if (f11125h == null) {
-                        f11125h = new b();
+                    if (f10879h == null) {
+                        f10879h = new b();
                     }
                 }
             }
-            return f11125h;
+            return f10879h;
         }
         return (b) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11128d == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10882d == null) {
             HandlerThread handlerThread = new HandlerThread("audio_thread");
-            this.f11128d = handlerThread;
+            this.f10882d = handlerThread;
             handlerThread.start();
-            this.f11129e = new Handler(this.f11128d.getLooper());
+            this.f10883e = new Handler(this.f10882d.getLooper());
         }
     }
 
@@ -223,7 +223,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
             synchronized (this) {
-                if (f11124g) {
+                if (f10878g) {
                     String str2 = "create media player src = " + str;
                 }
                 dVar = new d();
@@ -236,15 +236,15 @@ public class b {
     public Handler e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11129e : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10883e : (Handler) invokeV.objValue;
     }
 
     public long f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.f11126b.containsKey(str)) {
-                return this.f11126b.get(str).longValue();
+            if (this.f10880b.containsKey(str)) {
+                return this.f10880b.get(str).longValue();
             }
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
@@ -252,10 +252,10 @@ public class b {
                     mediaMetadataRetriever.setDataSource(str);
                     long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                     mediaMetadataRetriever.release();
-                    this.f11126b.put(str, Long.valueOf(parseLong));
+                    this.f10880b.put(str, Long.valueOf(parseLong));
                     return parseLong;
                 } catch (Exception e2) {
-                    if (f11124g) {
+                    if (f10878g) {
                         e2.printStackTrace();
                     }
                     mediaMetadataRetriever.release();
@@ -272,7 +272,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.f11127c + f.d(str);
+            return this.f10881c + f.d(str);
         }
         return (String) invokeL.objValue;
     }
@@ -281,7 +281,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SwanAudioPlayer swanAudioPlayer = this.f11130f;
+            SwanAudioPlayer swanAudioPlayer = this.f10884f;
             if (swanAudioPlayer != null) {
                 swanAudioPlayer.isAudioPlayer();
                 return false;
@@ -300,7 +300,7 @@ public class b {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f11130f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f10884f == null) {
             return;
         }
         e().post(new c(this));
@@ -308,10 +308,10 @@ public class b {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11130f == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f10884f == null) {
             return;
         }
-        e().postDelayed(new RunnableC0727b(this), 50L);
+        e().postDelayed(new RunnableC0736b(this), 50L);
     }
 
     public void m(JsArrayBuffer jsArrayBuffer, a.b bVar) {

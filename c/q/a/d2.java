@@ -35,10 +35,10 @@ public class d2 implements OnGetOaidListener {
     public void onGetOaid(String str) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(g2.f31302c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(g2.f30324c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
             return;
         }
-        g2.f31302c = str;
+        g2.f30324c = str;
         m2.z(context, str);
     }
 }

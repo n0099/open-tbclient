@@ -21,10 +21,10 @@ public class k {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4842b = "";
+    public static String f4737b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4843c = "";
+    public static String f4738c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(Context context) {
@@ -62,14 +62,14 @@ public class k {
                     if (i2 == 3 && !TextUtils.isEmpty(a)) {
                         return a;
                     }
-                    if (i2 == 1 && !TextUtils.isEmpty(f4843c)) {
-                        return f4843c;
+                    if (i2 == 1 && !TextUtils.isEmpty(f4738c)) {
+                        return f4738c;
                     }
-                    if (i2 == 2 && !TextUtils.isEmpty(f4842b)) {
-                        return f4842b;
+                    if (i2 == 2 && !TextUtils.isEmpty(f4737b)) {
+                        return f4737b;
                     }
                 }
-                if (!h.a(context, s.f57419c)) {
+                if (!h.a(context, s.f55242c)) {
                     return c(String.valueOf(-1001), z2);
                 }
                 if (!c.o(context)) {
@@ -90,9 +90,9 @@ public class k {
                 if (i2 == 3) {
                     a = str;
                 } else if (i2 == 1) {
-                    f4843c = str;
+                    f4738c = str;
                 } else if (i2 == 2) {
-                    f4842b = str;
+                    f4737b = str;
                 }
                 return str;
             } catch (Throwable th) {
@@ -136,7 +136,7 @@ public class k {
                 if (Build.VERSION.SDK_INT < 22) {
                     return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
                 }
-                if (!h.a(context, s.f57419c)) {
+                if (!h.a(context, s.f55242c)) {
                     return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
                 }
                 if (!c.o(context)) {

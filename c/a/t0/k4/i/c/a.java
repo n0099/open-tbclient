@@ -24,24 +24,24 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<PendantData> f19321e;
+    public List<PendantData> f18825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f19322f;
+    public f f18826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f19323g;
+    public b f18827g;
 
     /* renamed from: c.a.t0.k4.i.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1155a implements View.OnClickListener {
+    public class View$OnClickListenerC1169a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19324e;
+        public final /* synthetic */ a f18828e;
 
-        public View$OnClickListenerC1155a(a aVar) {
+        public View$OnClickListenerC1169a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,22 +56,22 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f19324e = aVar;
+            this.f18828e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19324e.f19323g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18828e.f18827g == null) {
                 return;
             }
             c cVar = (c) view.getTag();
-            if (cVar.f19325b.getTag() instanceof Integer) {
-                Integer num = (Integer) cVar.f19325b.getTag();
-                if (this.f19324e.f19321e.size() <= num.intValue()) {
+            if (cVar.f18829b.getTag() instanceof Integer) {
+                Integer num = (Integer) cVar.f18829b.getTag();
+                if (this.f18828e.f18825e.size() <= num.intValue()) {
                     return;
                 }
-                this.f19324e.f19323g.a(view, num.intValue(), (PendantData) this.f19324e.f19321e.get(num.intValue()));
+                this.f18828e.f18827g.a(view, num.intValue(), (PendantData) this.f18828e.f18825e.get(num.intValue()));
             }
         }
     }
@@ -88,10 +88,10 @@ public class a extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f19325b;
+        public TbImageView f18829b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ProgressBar f19326c;
+        public ProgressBar f18830c;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f19322f = fVar;
+        this.f18826f = fVar;
     }
 
     public void c(List<PendantData> list) {
@@ -133,14 +133,14 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
             return;
         }
-        this.f19321e = list;
+        this.f18825e = list;
         notifyDataSetChanged();
     }
 
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f19323g = bVar;
+            this.f18827g = bVar;
         }
     }
 
@@ -149,7 +149,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PendantData> list = this.f19321e;
+            List<PendantData> list = this.f18825e;
             if (list == null) {
                 return 0;
             }
@@ -185,53 +185,53 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f19322f.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f18826f.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
                 cVar = new c(this);
                 cVar.a = (TextView) view.findViewById(R.id.cover_text);
-                cVar.f19325b = (TbImageView) view.findViewById(R.id.pendant_image);
-                cVar.f19326c = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-                cVar.f19325b.setDefaultBgResource(R.color.transparent);
-                cVar.f19325b.setDefaultResource(R.color.CAM_X0101);
-                view.setOnClickListener(new View$OnClickListenerC1155a(this));
+                cVar.f18829b = (TbImageView) view.findViewById(R.id.pendant_image);
+                cVar.f18830c = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+                cVar.f18829b.setDefaultBgResource(R.color.transparent);
+                cVar.f18829b.setDefaultResource(R.color.CAM_X0101);
+                view.setOnClickListener(new View$OnClickListenerC1169a(this));
                 view.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
             }
-            PendantData pendantData = this.f19321e.get(i2);
+            PendantData pendantData = this.f18825e.get(i2);
             if (pendantData != null) {
-                cVar.f19325b.setTag(Integer.valueOf(i2));
+                cVar.f18829b.setTag(Integer.valueOf(i2));
                 int i3 = pendantData.pendantType;
                 if (i3 == 0) {
                     cVar.a.setVisibility(0);
-                    cVar.f19325b.setVisibility(8);
-                    cVar.f19326c.setVisibility(8);
+                    cVar.f18829b.setVisibility(8);
+                    cVar.f18830c.setVisibility(8);
                     cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
                     cVar.a.setText("No");
                     cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
                 } else if (i3 == 1) {
                     cVar.a.setVisibility(0);
-                    cVar.f19325b.setVisibility(8);
-                    cVar.f19326c.setVisibility(8);
+                    cVar.f18829b.setVisibility(8);
+                    cVar.f18830c.setVisibility(8);
                     cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
                     cVar.a.setText("T");
                     cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
                 } else if (i3 == 2) {
                     cVar.a.setVisibility(0);
-                    cVar.f19325b.setVisibility(8);
-                    cVar.f19326c.setVisibility(8);
+                    cVar.f18829b.setVisibility(8);
+                    cVar.f18830c.setVisibility(8);
                     cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
                     cVar.a.setText("T");
                     cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
                 } else if (i3 != 3) {
                     cVar.a.setVisibility(8);
-                    cVar.f19325b.setVisibility(0);
-                    cVar.f19326c.setVisibility(8);
-                    cVar.f19325b.startLoad(pendantData.img, 10, false);
+                    cVar.f18829b.setVisibility(0);
+                    cVar.f18830c.setVisibility(8);
+                    cVar.f18829b.startLoad(pendantData.img, 10, false);
                 } else {
                     cVar.a.setVisibility(0);
-                    cVar.f19325b.setVisibility(8);
-                    cVar.f19326c.setVisibility(8);
+                    cVar.f18829b.setVisibility(8);
+                    cVar.f18830c.setVisibility(8);
                     cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
                     cVar.a.setText("T");
                     cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));

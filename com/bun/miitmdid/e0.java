@@ -14,13 +14,13 @@ public class e0 {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f54975b;
+    public static boolean f52886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f54976c;
+    public static boolean f52887c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f54977d;
+    public static boolean f52888d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public class e0 {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f54976c) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f52887c) {
             String.format("[%s] %s", str, str2);
         }
     }
@@ -63,9 +63,9 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             synchronized (e0.class) {
-                f54977d = z;
-                f54976c = z;
-                f54975b = z;
+                f52888d = z;
+                f52887c = z;
+                f52886b = z;
                 a = z;
             }
         }
@@ -73,7 +73,7 @@ public class e0 {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f54977d) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f52888d) {
             String.format("[%s] %s", str, str2);
         }
     }
@@ -87,7 +87,7 @@ public class e0 {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && f54975b) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && f52886b) {
             String.format("[%s] %s", str, str2);
         }
     }

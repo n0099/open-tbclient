@@ -23,10 +23,10 @@ public abstract class PathUtils {
     public static AsyncTask<Void, Void, String[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f52089b;
+    public static Context f50076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f52090c;
+    public static String f50077c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes13.dex */
@@ -113,11 +113,11 @@ public abstract class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String[] strArr = new String[4];
-            strArr[0] = f52089b.getDir(f52090c, 0).getPath();
-            strArr[1] = f52089b.getDir("textures", 0).getPath();
-            strArr[2] = f52089b.getDatabasePath("foo").getParent();
-            if (f52089b.getCacheDir() != null) {
-                strArr[3] = f52089b.getCacheDir().getPath();
+            strArr[0] = f50076b.getDir(f50077c, 0).getPath();
+            strArr[1] = f50076b.getDir("textures", 0).getPath();
+            strArr[2] = f50076b.getDatabasePath("foo").getParent();
+            if (f50076b.getCacheDir() != null) {
+                strArr[3] = f50076b.getCacheDir().getPath();
             }
             return strArr;
         }

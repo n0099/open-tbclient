@@ -22,7 +22,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10210e;
+        public final /* synthetic */ View f9986e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class g {
                     return;
                 }
             }
-            this.f10210e = view;
+            this.f9986e = view;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.f10210e.setTranslationX(0.0f);
+                this.f9986e.setTranslationX(0.0f);
             }
         }
     }

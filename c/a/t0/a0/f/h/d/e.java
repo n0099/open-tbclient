@@ -10,7 +10,7 @@ import android.widget.TextView;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
 import c.a.s0.e1.o0;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -35,34 +35,32 @@ public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f15075b;
+    public TbPageContext<?> f14709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f15076c;
+    public c f14710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f15077d;
+    public View f14711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15078e;
+    public int f14712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15079f;
+    public String f14713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d2 f15080g;
+    public e2 f14714g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f15081h;
+    public f f14715h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f15082i;
+    public boolean f14716i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f15083j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View.OnClickListener f15084k;
+    public View.OnClickListener f14717j;
+    public View.OnClickListener k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -70,7 +68,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15085e;
+        public final /* synthetic */ e f14718e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -87,7 +85,7 @@ public class e {
                     return;
                 }
             }
-            this.f15085e = eVar;
+            this.f14718e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,13 +93,13 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (l.z()) {
-                    if (this.f15085e.f15080g == null || this.f15085e.f15080g.o1() == null || this.f15085e.f15081h == null) {
+                    if (this.f14718e.f14714g == null || this.f14718e.f14714g.o1() == null || this.f14718e.f14715h == null) {
                         return;
                     }
-                    this.f15085e.f15081h.a(this.f15085e.f15078e, this.f15085e.f15079f, this.f15085e.f15080g);
+                    this.f14718e.f14715h.a(this.f14718e.f14712e, this.f14718e.f14713f, this.f14718e.f14714g);
                     return;
                 }
-                n.J(this.f15085e.f15075b.getPageActivity(), this.f15085e.f15075b.getPageActivity().getString(R.string.no_network_guide));
+                n.K(this.f14718e.f14709b.getPageActivity(), this.f14718e.f14709b.getPageActivity().getString(R.string.no_network_guide));
             }
         }
     }
@@ -112,7 +110,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15086e;
+        public final /* synthetic */ e f14719e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -129,17 +127,17 @@ public class e {
                     return;
                 }
             }
-            this.f15086e = eVar;
+            this.f14719e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15086e.f15080g == null || this.f15086e.f15080g.J() == null || StringUtils.isNull(this.f15086e.f15080g.J().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f14719e.f14714g == null || this.f14719e.f14714g.J() == null || StringUtils.isNull(this.f14719e.f14714g.J().getUserId())) {
                 return;
             }
-            long g2 = c.a.d.f.m.b.g(this.f15086e.f15080g.J().getUserId(), 0L);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f15086e.f15075b.getPageActivity()).createNormalConfig(g2, g2 == c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), this.f15086e.f15080g.J().isBigV())));
+            long g2 = c.a.d.f.m.b.g(this.f14719e.f14714g.J().getUserId(), 0L);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f14719e.f14709b.getPageActivity()).createNormalConfig(g2, g2 == c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), this.f14719e.f14714g.J().isBigV())));
         }
     }
 
@@ -150,28 +148,28 @@ public class e {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f15087b;
+        public TbImageView f14720b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f15088c;
+        public TextView f14721c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f15089d;
+        public TextView f14722d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RelativeLayout f15090e;
+        public RelativeLayout f14723e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ClickableHeaderImageView f15091f;
+        public ClickableHeaderImageView f14724f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f15092g;
+        public TextView f14725g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f15093h;
+        public TextView f14726h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f15094i;
+        public TextView f14727i;
 
         public c(e eVar, View view) {
             Interceptable interceptable = $ic;
@@ -189,29 +187,29 @@ public class e {
                 }
             }
             this.a = view;
-            this.f15087b = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.f15088c = (TextView) view.findViewById(R.id.tvLiveFrom);
-            this.f15089d = (TextView) view.findViewById(R.id.tvLiveCount);
-            this.f15090e = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.f15091f = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
-            this.f15092g = (TextView) view.findViewById(R.id.tvUserName);
-            this.f15093h = (TextView) view.findViewById(R.id.tvSquareTitle);
-            this.f15094i = (TextView) view.findViewById(R.id.tvSquareDistance);
-            view.setOnClickListener(eVar.f15083j);
-            this.f15087b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f15087b.setDrawerType(0);
-            this.f15091f.setIsRound(true);
-            this.f15091f.setDrawBorder(true);
-            this.f15091f.setBorderColor(eVar.f15075b.getPageActivity().getResources().getColor(R.color.white_alpha100));
-            this.f15091f.setBorderWidth(eVar.f15075b.getPageActivity().getResources().getDimensionPixelOffset(R.dimen.ds1));
-            this.f15091f.setIsGod(false);
-            this.f15091f.setIsBigV(false);
-            this.f15091f.setShowV(false);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f15090e.getLayoutParams();
-            int k2 = (n.k(view.getContext()) - view.getContext().getResources().getDimensionPixelSize(R.dimen.ds2)) / 2;
-            layoutParams.width = k2;
-            layoutParams.height = k2;
-            this.f15090e.setLayoutParams(layoutParams);
+            this.f14720b = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.f14721c = (TextView) view.findViewById(R.id.tvLiveFrom);
+            this.f14722d = (TextView) view.findViewById(R.id.tvLiveCount);
+            this.f14723e = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.f14724f = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
+            this.f14725g = (TextView) view.findViewById(R.id.tvUserName);
+            this.f14726h = (TextView) view.findViewById(R.id.tvSquareTitle);
+            this.f14727i = (TextView) view.findViewById(R.id.tvSquareDistance);
+            view.setOnClickListener(eVar.f14717j);
+            this.f14720b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.f14720b.setDrawerType(0);
+            this.f14724f.setIsRound(true);
+            this.f14724f.setDrawBorder(true);
+            this.f14724f.setBorderColor(eVar.f14709b.getPageActivity().getResources().getColor(R.color.white_alpha100));
+            this.f14724f.setBorderWidth(eVar.f14709b.getPageActivity().getResources().getDimensionPixelOffset(R.dimen.ds1));
+            this.f14724f.setIsGod(false);
+            this.f14724f.setIsBigV(false);
+            this.f14724f.setShowV(false);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14723e.getLayoutParams();
+            int k = (n.k(view.getContext()) - view.getContext().getResources().getDimensionPixelSize(R.dimen.ds2)) / 2;
+            layoutParams.width = k;
+            layoutParams.height = k;
+            this.f14723e.setLayoutParams(layoutParams);
         }
     }
 
@@ -231,59 +229,59 @@ public class e {
             }
         }
         this.a = 3;
-        this.f15083j = new a(this);
-        this.f15084k = new b(this);
-        this.f15075b = tbPageContext;
+        this.f14717j = new a(this);
+        this.k = new b(this);
+        this.f14709b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.ala_sub_list_live_item_view, (ViewGroup) null, false);
-        this.f15077d = inflate;
-        this.f15076c = new c(this, inflate);
-        this.f15082i = z;
+        this.f14711d = inflate;
+        this.f14710c = new c(this, inflate);
+        this.f14716i = z;
     }
 
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15077d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14711d : (View) invokeV.objValue;
     }
 
     public void h(c.a.t0.a0.f.a.e eVar) {
-        d2 d2Var;
+        e2 e2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            if (eVar != null && (d2Var = eVar.f14693h) != null && d2Var.o1() != null) {
+            if (eVar != null && (e2Var = eVar.f14344h) != null && e2Var.o1() != null) {
                 g().setVisibility(0);
-                this.f15080g = eVar.f14693h;
-                this.f15078e = eVar.f14690e;
-                this.f15079f = !TextUtils.isEmpty(eVar.f14692g) ? eVar.f14692g : eVar.f14691f;
-                this.f15076c.f15087b.setDrawerType(0);
-                this.f15076c.f15087b.setBorderSurroundContent(true);
-                this.f15076c.f15087b.setDrawBorder(true);
-                this.f15076c.f15087b.startLoad(this.f15080g.o1().cover, 10, false);
-                this.f15076c.f15089d.setText(this.f15075b.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtra(this.f15080g.o1().audience_count)));
-                this.f15076c.f15091f.setData(this.f15080g, false);
-                this.f15076c.f15093h.setText(this.f15080g.getTitle());
-                if (this.f15080g.J() != null) {
-                    String name_show = this.f15080g.J().getName_show();
+                this.f14714g = eVar.f14344h;
+                this.f14712e = eVar.f14341e;
+                this.f14713f = !TextUtils.isEmpty(eVar.f14343g) ? eVar.f14343g : eVar.f14342f;
+                this.f14710c.f14720b.setDrawerType(0);
+                this.f14710c.f14720b.setBorderSurroundContent(true);
+                this.f14710c.f14720b.setDrawBorder(true);
+                this.f14710c.f14720b.startLoad(this.f14714g.o1().cover, 10, false);
+                this.f14710c.f14722d.setText(this.f14709b.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtra(this.f14714g.o1().audience_count)));
+                this.f14710c.f14724f.setData(this.f14714g, false);
+                this.f14710c.f14726h.setText(this.f14714g.getTitle());
+                if (this.f14714g.J() != null) {
+                    String name_show = this.f14714g.J().getName_show();
                     if (o0.d(name_show) > 10) {
                         name_show = o0.m(name_show, 10) + "...";
                     }
-                    this.f15076c.f15092g.setText(name_show);
+                    this.f14710c.f14725g.setText(name_show);
                 }
-                String str = this.f15080g.o1().label_name;
-                if (this.f15082i && !StringUtils.isNull(str)) {
-                    this.f15076c.f15088c.setText(str);
-                    this.f15076c.f15088c.setVisibility(0);
+                String str = this.f14714g.o1().label_name;
+                if (this.f14716i && !StringUtils.isNull(str)) {
+                    this.f14710c.f14721c.setText(str);
+                    this.f14710c.f14721c.setVisibility(0);
                 } else {
-                    this.f15076c.f15088c.setVisibility(8);
+                    this.f14710c.f14721c.setVisibility(8);
                 }
-                if (eVar.f14695j) {
-                    this.f15076c.f15094i.setText(this.f15075b.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, StringHelper.numberUniformFormatExtra((long) (this.f15080g.o1().distance / 1000.0d))));
-                    this.f15076c.f15094i.setVisibility(0);
+                if (eVar.f14346j) {
+                    this.f14710c.f14727i.setText(this.f14709b.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, StringHelper.numberUniformFormatExtra((long) (this.f14714g.o1().distance / 1000.0d))));
+                    this.f14710c.f14727i.setVisibility(0);
                 } else {
-                    this.f15076c.f15094i.setVisibility(8);
+                    this.f14710c.f14727i.setVisibility(8);
                 }
-                this.f15076c.f15092g.setOnClickListener(this.f15084k);
-                i(this.f15075b, TbadkCoreApplication.getInst().getSkinType());
+                this.f14710c.f14725g.setOnClickListener(this.k);
+                i(this.f14709b, TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             g().setVisibility(4);
@@ -295,18 +293,18 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.a == i2) {
             return;
         }
-        SkinManager.setBackgroundResource(this.f15076c.f15090e, R.drawable.addresslist_item_bg);
-        SkinManager.setViewTextColor(this.f15076c.f15089d, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f15076c.f15092g, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f15076c.f15093h, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f15076c.f15094i, R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(this.f14710c.f14723e, R.drawable.addresslist_item_bg);
+        SkinManager.setViewTextColor(this.f14710c.f14722d, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f14710c.f14725g, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f14710c.f14726h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f14710c.f14727i, R.color.CAM_X0109);
         this.a = i2;
     }
 
     public void j(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f15081h = fVar;
+            this.f14715h = fVar;
         }
     }
 }

@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.n.e.w;
 import c.a.d.n.e.x;
-import c.a.s0.s.i0.f;
-import c.a.s0.t.c.m0;
-import c.a.t0.d1.r2.a.c;
+import c.a.s0.s.j0.f;
+import c.a.s0.t.c.n0;
+import c.a.t0.d1.s2.a.c;
 import c.a.t0.g0.d0;
 import c.a.t0.t1.b.p.e;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -58,7 +58,7 @@ import java.util.ArrayList;
 public class n extends c.a.d.a.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.d1.r2.a.c A;
+    public c.a.t0.d1.s2.a.c A;
     public DataModel<MessageCenterActivity> B;
     public NewWriteModel.g C;
     public Runnable D;
@@ -67,34 +67,32 @@ public class n extends c.a.d.a.d {
     public final ReplyMessageFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbListView f24460b;
+    public PbListView f23773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NoDataView f24461c;
+    public NoDataView f23774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.t1.b.p.d f24462d;
+    public c.a.t0.t1.b.p.d f23775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdSwipeRefreshLayout f24463e;
+    public BdSwipeRefreshLayout f23776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeRecyclerView f24464f;
+    public BdTypeRecyclerView f23777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBarShadowView f24465g;
+    public NavigationBarShadowView f23778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f24466h;
+    public ViewGroup f23779h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.s.i0.g f24467i;
+    public c.a.s0.s.j0.g f23780i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.t1.b.p.e f24468j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f24469k;
+    public c.a.t0.t1.b.p.e f23781j;
+    public boolean k;
     public ReplyPrivacyCheckController l;
     public AttentionHostData m;
     public int n;
@@ -136,9 +134,9 @@ public class n extends c.a.d.a.d {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, m0 m0Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, n0 n0Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m0Var, writeData, antiData}) == null) || this.a.a.getBaseFragmentActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n0Var, writeData, antiData}) == null) || this.a.a.getBaseFragmentActivity() == null) {
                 return;
             }
             this.a.a.getBaseFragmentActivity().hideProgressBar();
@@ -146,7 +144,7 @@ public class n extends c.a.d.a.d {
             if (!z && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 238010) {
                 this.a.l.setLikeUserData(this.a.m);
                 this.a.l.showAttentionDialog(postWriteCallBackData.getReplyPrivacyTip());
-            } else if (postWriteCallBackData == null || m0Var != null || AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString()) || postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278) {
+            } else if (postWriteCallBackData == null || n0Var != null || AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString()) || postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278) {
             } else {
                 this.a.a.showToast(postWriteCallBackData.getErrorString());
             }
@@ -193,7 +191,7 @@ public class n extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f24470e;
+        public final /* synthetic */ n f23782e;
 
         public c(n nVar) {
             Interceptable interceptable = $ic;
@@ -210,16 +208,16 @@ public class n extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f24470e = nVar;
+            this.f23782e = nVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24470e.u == null || this.f24470e.u.t() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23782e.u == null || this.f23782e.u.t() == null) {
                 return;
             }
-            c.a.d.f.p.n.K(this.f24470e.getPageContext().getPageActivity(), this.f24470e.u.t().h());
+            c.a.d.f.p.n.L(this.f23782e.getPageContext().getPageActivity(), this.f23782e.u.t().h());
         }
     }
 
@@ -285,14 +283,14 @@ public class n extends c.a.d.a.d {
             this.a = nVar;
         }
 
-        @Override // c.a.t0.d1.r2.a.c.d
+        @Override // c.a.t0.d1.s2.a.c.d
         public void a(boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             }
         }
 
-        @Override // c.a.t0.d1.r2.a.c.d
+        @Override // c.a.t0.d1.s2.a.c.d
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && z) {
@@ -310,7 +308,7 @@ public class n extends c.a.d.a.d {
             }
         }
 
-        @Override // c.a.t0.d1.r2.a.c.d
+        @Override // c.a.t0.d1.s2.a.c.d
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -360,7 +358,7 @@ public class n extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f24471e;
+        public final /* synthetic */ n f23783e;
 
         public g(n nVar) {
             Interceptable interceptable = $ic;
@@ -377,19 +375,19 @@ public class n extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f24471e = nVar;
+            this.f23783e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24471e.f24460b == null || this.f24471e.a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23783e.f23773b == null || this.f23783e.a == null) {
                 return;
             }
-            this.f24471e.f24460b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f24471e.f24460b.C(null);
-            this.f24471e.f24460b.R();
-            this.f24471e.a.loadmore();
+            this.f23783e.f23773b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f23783e.f23773b.C(null);
+            this.f23783e.f23773b.R();
+            this.f23783e.a.loadmore();
         }
     }
 
@@ -399,7 +397,7 @@ public class n extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f24472e;
+        public final /* synthetic */ n f23784e;
 
         public h(n nVar) {
             Interceptable interceptable = $ic;
@@ -416,19 +414,19 @@ public class n extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f24472e = nVar;
+            this.f23784e = nVar;
         }
 
-        @Override // c.a.s0.s.i0.f.g
+        @Override // c.a.s0.s.j0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (c.a.d.f.p.l.z()) {
-                    if (this.f24472e.a != null) {
-                        this.f24472e.a.pullRefresh();
+                    if (this.f23784e.a != null) {
+                        this.f23784e.a.pullRefresh();
                     }
-                } else if (this.f24472e.f24463e != null) {
-                    this.f24472e.f24463e.setRefreshing(false);
+                } else if (this.f23784e.f23776e != null) {
+                    this.f23784e.f23776e.setRefreshing(false);
                 }
             }
         }
@@ -465,12 +463,12 @@ public class n extends c.a.d.a.d {
                 super.onScrollStateChanged(recyclerView, i2);
                 if (i2 != 0) {
                     if (i2 == 1 || i2 == 2) {
-                        this.a.f24465g.show();
+                        this.a.f23778g.show();
                     }
                 } else if (recyclerView.canScrollVertically(-1)) {
-                    this.a.f24465g.show();
+                    this.a.f23778g.show();
                 } else {
-                    this.a.f24465g.hide();
+                    this.a.f23778g.hide();
                 }
             }
         }
@@ -515,7 +513,7 @@ public class n extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ n f24473b;
+        public final /* synthetic */ n f23785b;
 
         public k(n nVar) {
             Interceptable interceptable = $ic;
@@ -532,7 +530,7 @@ public class n extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f24473b = nVar;
+            this.f23785b = nVar;
         }
 
         @Override // c.a.t0.g0.d0
@@ -543,26 +541,26 @@ public class n extends c.a.d.a.d {
                 c.a.t0.t1.b.p.a aVar = (c.a.t0.t1.b.p.a) baseCardInfo;
                 if (aVar.E() && view.getId() != R.id.photo && view.getId() != R.id.user_name) {
                     aVar.I(false);
-                    this.f24473b.H();
+                    this.f23785b.H();
                 }
                 if (view.getId() == R.id.message_bottom_reply_container) {
-                    this.f24473b.v = aVar;
+                    this.f23785b.v = aVar;
                     if (aVar.F()) {
                         g2 = c.a.d.f.m.b.g(aVar.t(), 0L);
                     } else {
                         g2 = c.a.d.f.m.b.g(aVar.q(), 0L);
                     }
                     long j2 = g2;
-                    if (this.f24473b.u != null) {
-                        this.f24473b.u.T(this.f24473b.v.q());
+                    if (this.f23785b.u != null) {
+                        this.f23785b.u.T(this.f23785b.v.q());
                     }
-                    if (this.f24473b.m == null) {
-                        this.f24473b.m = new AttentionHostData();
+                    if (this.f23785b.m == null) {
+                        this.f23785b.m = new AttentionHostData();
                     }
-                    if (this.f24473b.v != null) {
-                        this.f24473b.m.parserWithMetaData(this.f24473b.v.z());
+                    if (this.f23785b.v != null) {
+                        this.f23785b.m.parserWithMetaData(this.f23785b.v.z());
                     }
-                    this.f24473b.t.z(j2, 2, aVar.i(), aVar.B(), this.f24473b.v != null ? this.f24473b.v.g() : null);
+                    this.f23785b.t.z(j2, 2, aVar.i(), aVar.B(), this.f23785b.v != null ? this.f23785b.v.g() : null);
                     if (aVar.x() != null) {
                         StatisticItem param = new StatisticItem(aVar.x()).param("obj_locate", 3);
                         if (aVar.getType() == c.a.t0.t1.b.p.a.B) {
@@ -616,7 +614,7 @@ public class n extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f24474e;
+        public final /* synthetic */ n f23786e;
 
         public m(n nVar) {
             Interceptable interceptable = $ic;
@@ -633,30 +631,30 @@ public class n extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f24474e = nVar;
+            this.f23786e = nVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24474e.f24460b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23786e.f23773b == null) {
                 return;
             }
-            this.f24474e.f24460b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f24474e.f24460b.C(null);
-            this.f24474e.f24460b.O();
-            this.f24474e.a.loadmore();
+            this.f23786e.f23773b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f23786e.f23773b.C(null);
+            this.f23786e.f23773b.O();
+            this.f23786e.a.loadmore();
         }
     }
 
     /* renamed from: c.a.t0.t1.b.n$n  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1433n implements e.b {
+    public class C1448n implements e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n a;
 
-        public C1433n(n nVar) {
+        public C1448n(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -677,10 +675,10 @@ public class n extends c.a.d.a.d {
         @Override // c.a.t0.t1.b.p.e.b
         public void onClose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f24468j == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f23781j == null) {
                 return;
             }
-            this.a.f24464f.removeHeaderView(this.a.f24468j.e());
+            this.a.f23777f.removeHeaderView(this.a.f23781j.e());
             this.a.o = false;
         }
     }
@@ -691,7 +689,7 @@ public class n extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f24475e;
+        public final /* synthetic */ n f23787e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o(n nVar, c.a.d.a.f fVar) {
@@ -711,7 +709,7 @@ public class n extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f24475e = nVar;
+            this.f23787e = nVar;
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -750,21 +748,21 @@ public class n extends c.a.d.a.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 WriteData writeData = new WriteData();
-                writeData.setForumId(this.f24475e.w);
-                writeData.setForumName(this.f24475e.x);
-                writeData.setThreadId(this.f24475e.v.B());
+                writeData.setForumId(this.f23787e.w);
+                writeData.setForumName(this.f23787e.x);
+                writeData.setThreadId(this.f23787e.v.B());
                 writeData.setIsAd(false);
                 writeData.setFloorNum(0);
-                if (this.f24475e.v.F()) {
-                    writeData.setFloor(this.f24475e.y > 0 ? String.valueOf(this.f24475e.y) : this.f24475e.v.o().n);
+                if (this.f23787e.v.F()) {
+                    writeData.setFloor(this.f23787e.y > 0 ? String.valueOf(this.f23787e.y) : this.f23787e.v.o().n);
                 } else {
-                    writeData.setFloor(this.f24475e.v.q());
+                    writeData.setFloor(this.f23787e.v.q());
                 }
-                if (this.f24475e.z > 0) {
-                    writeData.setRepostId(String.valueOf(this.f24475e.z));
+                if (this.f23787e.z > 0) {
+                    writeData.setRepostId(String.valueOf(this.f23787e.z));
                 }
-                if (this.f24475e.v != null) {
-                    writeData.setBaijiahaoData(this.f24475e.v.g());
+                if (this.f23787e.v != null) {
+                    writeData.setBaijiahaoData(this.f23787e.v.g());
                 }
                 writeData.setType(2);
                 return writeData;
@@ -816,7 +814,7 @@ public class n extends c.a.d.a.d {
         public String getForumId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24475e.w : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23787e.w : (String) invokeV.objValue;
         }
 
         @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -844,8 +842,8 @@ public class n extends c.a.d.a.d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                if (this.f24475e.v != null) {
-                    return this.f24475e.v.q();
+                if (this.f23787e.v != null) {
+                    return this.f23787e.v.q();
                 }
                 return null;
             }
@@ -857,8 +855,8 @@ public class n extends c.a.d.a.d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (this.f24475e.v != null) {
-                    return this.f24475e.v.B();
+                if (this.f23787e.v != null) {
+                    return this.f23787e.v.B();
                 }
                 return null;
             }
@@ -889,7 +887,7 @@ public class n extends c.a.d.a.d {
         this.p = new g(this);
         this.q = new h(this);
         this.r = new i(this);
-        this.s = new C1433n(this);
+        this.s = new C1448n(this);
         this.t = null;
         this.D = new c(this);
         this.E = new d(this);
@@ -902,7 +900,7 @@ public class n extends c.a.d.a.d {
 
     public final void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24464f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23777f == null) {
             return;
         }
         boolean areNotificationsEnabled = NotificationManagerCompat.from(this.a.getFragmentActivity()).areNotificationsEnabled();
@@ -910,25 +908,25 @@ public class n extends c.a.d.a.d {
         statisticItem.param("obj_type", areNotificationsEnabled ? 1 : 2);
         TiebaStatic.log(statisticItem);
         if (areNotificationsEnabled) {
-            c.a.t0.t1.b.p.e eVar = this.f24468j;
+            c.a.t0.t1.b.p.e eVar = this.f23781j;
             if (eVar != null) {
-                this.f24464f.removeHeaderView(eVar.e());
+                this.f23777f.removeHeaderView(eVar.e());
                 this.o = false;
                 return;
             }
             return;
         }
-        long l2 = c.a.s0.s.g0.b.j().l("key_im_open_notification_close_time", 0L);
+        long m2 = c.a.s0.s.h0.b.k().m("key_im_open_notification_close_time", 0L);
         if (this.o) {
             return;
         }
-        if (l2 == 0 || System.currentTimeMillis() - l2 > 604800000) {
-            if (this.f24468j == null) {
+        if (m2 == 0 || System.currentTimeMillis() - m2 > 604800000) {
+            if (this.f23781j == null) {
                 c.a.t0.t1.b.p.e eVar2 = new c.a.t0.t1.b.p.e(this.a.getPageContext());
-                this.f24468j = eVar2;
+                this.f23781j = eVar2;
                 eVar2.g(this.s);
             }
-            this.f24464f.addHeaderView(this.f24468j.e(), 0);
+            this.f23777f.addHeaderView(this.f23781j.e(), 0);
             this.o = true;
         }
     }
@@ -936,7 +934,7 @@ public class n extends c.a.d.a.d {
     public void B(int i2) {
         c.a.t0.t1.b.p.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (dVar = this.f24462d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (dVar = this.f23775d) == null) {
             return;
         }
         dVar.a(i2);
@@ -945,7 +943,7 @@ public class n extends c.a.d.a.d {
     public BdSwipeRefreshLayout C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24463e : (BdSwipeRefreshLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23776e : (BdSwipeRefreshLayout) invokeV.objValue;
     }
 
     public final void D(int i2, Intent intent) {
@@ -967,7 +965,7 @@ public class n extends c.a.d.a.d {
                 this.u.B(writeData);
                 this.u.c0(pbEditorData.getVoiceModel());
                 c.a.s0.x.m findToolById = this.u.a().findToolById(6);
-                if (findToolById != null && (nVar = findToolById.f14538k) != null) {
+                if (findToolById != null && (nVar = findToolById.k) != null) {
                     nVar.onAction(new c.a.s0.x.a(52, 0, pbEditorData.getVoiceModel()));
                 }
                 if (i2 == -1) {
@@ -995,7 +993,7 @@ public class n extends c.a.d.a.d {
             if (this.u.a() != null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams.addRule(12);
-                this.f24466h.addView(this.u.a(), layoutParams);
+                this.f23779h.addView(this.u.a(), layoutParams);
                 this.u.a().hide();
             }
             this.u.U(new b(this));
@@ -1021,7 +1019,7 @@ public class n extends c.a.d.a.d {
     public void H() {
         c.a.t0.t1.b.p.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (dVar = this.f24462d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (dVar = this.f23775d) == null) {
             return;
         }
         dVar.c();
@@ -1069,50 +1067,50 @@ public class n extends c.a.d.a.d {
             if (viewGroup == null) {
                 return null;
             }
-            this.f24466h = viewGroup;
-            this.f24465g = (NavigationBarShadowView) viewGroup.findViewById(R.id.navi_shadow_view_reply_me);
-            if (this.f24467i == null) {
-                c.a.s0.s.i0.g gVar = new c.a.s0.s.i0.g(this.a.getPageContext());
-                this.f24467i = gVar;
+            this.f23779h = viewGroup;
+            this.f23778g = (NavigationBarShadowView) viewGroup.findViewById(R.id.navi_shadow_view_reply_me);
+            if (this.f23780i == null) {
+                c.a.s0.s.j0.g gVar = new c.a.s0.s.j0.g(this.a.getPageContext());
+                this.f23780i = gVar;
                 gVar.a(this.q);
             }
-            this.f24467i.V(this.a.getUniqueId());
-            if (this.f24460b == null) {
+            this.f23780i.V(this.a.getUniqueId());
+            if (this.f23773b == null) {
                 PbListView pbListView = new PbListView(this.a.getContext());
-                this.f24460b = pbListView;
+                this.f23773b = pbListView;
                 pbListView.b();
             }
-            this.f24460b.p(R.color.CAM_X0205);
-            this.f24460b.s();
-            this.f24460b.t(c.a.d.f.p.n.f(this.a.getContext(), R.dimen.tbds182));
-            this.f24460b.y();
-            this.f24460b.H(R.dimen.tbfontsize33);
-            this.f24460b.F(SkinManager.getColor(R.color.CAM_X0109));
-            this.f24460b.B(R.color.CAM_X0110);
-            this.f24460b.C(this.p);
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f24466h.findViewById(R.id.reply_me_pull_refresh_layout);
-            this.f24463e = bdSwipeRefreshLayout;
-            bdSwipeRefreshLayout.setProgressView(this.f24467i);
-            this.f24464f = (BdTypeRecyclerView) this.f24466h.findViewById(R.id.replyme_lv);
-            c.a.t0.t1.b.p.d dVar = new c.a.t0.t1.b.p.d(this.a.getPageContext(), this.f24464f);
-            this.f24462d = dVar;
+            this.f23773b.p(R.color.CAM_X0205);
+            this.f23773b.s();
+            this.f23773b.t(c.a.d.f.p.n.f(this.a.getContext(), R.dimen.tbds182));
+            this.f23773b.y();
+            this.f23773b.H(R.dimen.tbfontsize33);
+            this.f23773b.F(SkinManager.getColor(R.color.CAM_X0109));
+            this.f23773b.B(R.color.CAM_X0110);
+            this.f23773b.C(this.p);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f23779h.findViewById(R.id.reply_me_pull_refresh_layout);
+            this.f23776e = bdSwipeRefreshLayout;
+            bdSwipeRefreshLayout.setProgressView(this.f23780i);
+            this.f23777f = (BdTypeRecyclerView) this.f23779h.findViewById(R.id.replyme_lv);
+            c.a.t0.t1.b.p.d dVar = new c.a.t0.t1.b.p.d(this.a.getPageContext(), this.f23777f);
+            this.f23775d = dVar;
             dVar.h(new k(this));
-            ((DefaultItemAnimator) this.f24464f.getItemAnimator()).setSupportsChangeAnimations(false);
-            this.f24464f.setLayoutManager(new LinearLayoutManager(this.mContext.getContext()));
-            this.f24464f.setFadingEdgeLength(0);
-            this.f24464f.setOverScrollMode(2);
-            this.f24464f.addItemDecoration(new DeviderLineDecoration());
-            this.f24464f.setRecyclerListener(new l(this));
-            this.f24464f.setOnSrollToBottomListener(new m(this));
-            this.f24464f.setOnScrollListener(this.F);
-            this.f24464f.addOnScrollListener(this.r);
+            ((DefaultItemAnimator) this.f23777f.getItemAnimator()).setSupportsChangeAnimations(false);
+            this.f23777f.setLayoutManager(new LinearLayoutManager(this.mContext.getContext()));
+            this.f23777f.setFadingEdgeLength(0);
+            this.f23777f.setOverScrollMode(2);
+            this.f23777f.addItemDecoration(new DeviderLineDecoration());
+            this.f23777f.setRecyclerListener(new l(this));
+            this.f23777f.setOnSrollToBottomListener(new m(this));
+            this.f23777f.setOnScrollListener(this.F);
+            this.f23777f.addOnScrollListener(this.r);
             G();
             ReplyMeModel replyMeModel = new ReplyMeModel(this.a.getPageContext());
             this.t = replyMeModel;
             replyMeModel.A(this.E);
             F();
             E(false);
-            return this.f24466h;
+            return this.f23779h;
         }
         return (View) invokeL.objValue;
     }
@@ -1132,47 +1130,47 @@ public class n extends c.a.d.a.d {
 
     public void N(boolean z, ArrayList<c.a.d.n.e.n> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048589, this, z, arrayList) == null) || this.f24464f == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048589, this, z, arrayList) == null) || this.f23777f == null) {
             return;
         }
-        this.f24463e.setVisibility(0);
+        this.f23776e.setVisibility(0);
         R(false);
         if (z) {
-            this.f24460b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f24460b.f();
-            this.f24460b.C(this.p);
+            this.f23773b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f23773b.f();
+            this.f23773b.C(this.p);
         } else {
-            this.f24460b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f24460b.f();
-            this.f24460b.D(this.mContext.getResources().getString(R.string.list_no_more));
-            this.f24460b.C(null);
+            this.f23773b.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f23773b.f();
+            this.f23773b.D(this.mContext.getResources().getString(R.string.list_no_more));
+            this.f23773b.C(null);
         }
         if (ListUtils.isEmpty(arrayList)) {
-            if (this.f24461c == null) {
-                this.f24461c = NoDataViewFactory.a(this.mContext.getContext(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, (int) this.mContext.getResources().getDimension(R.dimen.ds80)), NoDataViewFactory.e.d(null, this.mContext.getResources().getString(R.string.mention_replyme_nodata)), null);
-                this.f24461c.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                SkinManager.setBackgroundColor(this.f24461c, R.color.CAM_X0201);
+            if (this.f23774c == null) {
+                this.f23774c = NoDataViewFactory.a(this.mContext.getContext(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, (int) this.mContext.getResources().getDimension(R.dimen.ds80)), NoDataViewFactory.e.d(null, this.mContext.getResources().getString(R.string.mention_replyme_nodata)), null);
+                this.f23774c.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                SkinManager.setBackgroundColor(this.f23774c, R.color.CAM_X0201);
             }
-            if (this.f24461c.getParent() == null && !this.f24469k) {
-                this.f24469k = true;
-                this.f24464f.addHeaderView(this.f24461c);
-                this.f24461c.setVisibility(0);
-                this.f24461c.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.f23774c.getParent() == null && !this.k) {
+                this.k = true;
+                this.f23777f.addHeaderView(this.f23774c);
+                this.f23774c.setVisibility(0);
+                this.f23774c.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
             }
-            this.f24464f.setNextPage(null);
+            this.f23777f.setNextPage(null);
             if (arrayList != null) {
-                this.f24462d.f(arrayList);
+                this.f23775d.f(arrayList);
             }
             this.n = R.color.CAM_X0205;
         } else {
-            this.f24464f.removeHeaderView(this.f24461c);
-            this.f24469k = false;
-            c.a.t0.t1.b.p.d dVar = this.f24462d;
+            this.f23777f.removeHeaderView(this.f23774c);
+            this.k = false;
+            c.a.t0.t1.b.p.d dVar = this.f23775d;
             if (dVar != null) {
                 dVar.f(arrayList);
-                this.f24462d.c();
+                this.f23775d.c();
             }
-            this.f24464f.setNextPage(this.f24460b);
+            this.f23777f.setNextPage(this.f23773b);
             this.n = R.color.CAM_X0204;
         }
         A();
@@ -1201,7 +1199,7 @@ public class n extends c.a.d.a.d {
                 }
             }
             if (this.A == null) {
-                c.a.t0.d1.r2.a.c cVar = new c.a.t0.d1.r2.a.c(this.a.getPageContext());
+                c.a.t0.d1.s2.a.c cVar = new c.a.t0.d1.s2.a.c(this.a.getPageContext());
                 this.A = cVar;
                 cVar.i(new e(this));
             }
@@ -1212,7 +1210,7 @@ public class n extends c.a.d.a.d {
     public void P(x xVar) {
         c.a.t0.t1.b.p.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, xVar) == null) || (dVar = this.f24462d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, xVar) == null) || (dVar = this.f23775d) == null) {
             return;
         }
         dVar.g(xVar);
@@ -1221,7 +1219,7 @@ public class n extends c.a.d.a.d {
     public void Q(w wVar) {
         c.a.t0.t1.b.p.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, wVar) == null) || (dVar = this.f24462d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, wVar) == null) || (dVar = this.f23775d) == null) {
             return;
         }
         dVar.e(wVar);
@@ -1230,13 +1228,13 @@ public class n extends c.a.d.a.d {
     public void R(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.f24463e == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.f23776e == null) {
             return;
         }
-        if (z && (bdTypeRecyclerView = this.f24464f) != null && bdTypeRecyclerView.getFirstVisiblePosition() != 0) {
-            this.f24464f.setSelection(0);
+        if (z && (bdTypeRecyclerView = this.f23777f) != null && bdTypeRecyclerView.getFirstVisiblePosition() != 0) {
+            this.f23777f.setSelection(0);
         }
-        this.f24463e.setRefreshing(z);
+        this.f23776e.setRefreshing(z);
     }
 
     @Override // c.a.d.a.d
@@ -1271,24 +1269,24 @@ public class n extends c.a.d.a.d {
             if (hVar != null && hVar.a() != null) {
                 this.u.a().onChangeSkinType(i2);
             }
-            PbListView pbListView = this.f24460b;
+            PbListView pbListView = this.f23773b;
             if (pbListView != null) {
                 pbListView.F(SkinManager.getColor(R.color.CAM_X0109));
-                this.f24460b.d(i2);
+                this.f23773b.d(i2);
             }
-            c.a.s0.s.i0.g gVar = this.f24467i;
+            c.a.s0.s.j0.g gVar = this.f23780i;
             if (gVar != null) {
                 gVar.C(i2);
             }
-            NoDataView noDataView = this.f24461c;
+            NoDataView noDataView = this.f23774c;
             if (noDataView != null) {
                 noDataView.onChangeSkinType(this.mContext, i2);
-                SkinManager.setBackgroundColor(this.f24461c, R.color.CAM_X0201);
+                SkinManager.setBackgroundColor(this.f23774c, R.color.CAM_X0201);
             }
             H();
-            SkinManager.setBackgroundColor(this.f24464f, this.n);
-            SkinManager.setBackgroundColor(this.f24463e, R.color.CAM_X0205);
-            c.a.t0.t1.b.p.e eVar = this.f24468j;
+            SkinManager.setBackgroundColor(this.f23777f, this.n);
+            SkinManager.setBackgroundColor(this.f23776e, R.color.CAM_X0205);
+            c.a.t0.t1.b.p.e eVar = this.f23781j;
             if (eVar != null) {
                 eVar.f(i2);
             }

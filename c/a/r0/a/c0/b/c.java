@@ -13,7 +13,7 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5427b;
+    public String f5313b;
 
     public c(int i2, @NonNull String str) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class c {
             }
         }
         this.a = i2;
-        this.f5427b = str;
+        this.f5313b = str;
     }
 
     public boolean a() {

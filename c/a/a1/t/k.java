@@ -20,10 +20,10 @@ public class k {
     public static Toast a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f1484b = -1;
+    public static int f1472b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f1485c = -1;
+    public static int f1473c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -72,7 +72,7 @@ public class k {
     public static void e(String str, int i2, String str2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3)}) == null) {
-            if (f1484b != -1 && f1485c != -1) {
+            if (f1472b != -1 && f1473c != -1) {
                 Toast toast = a;
                 if (toast != null) {
                     toast.cancel();
@@ -84,8 +84,8 @@ public class k {
                 }
                 a.setDuration(i2);
                 try {
-                    View inflate = LayoutInflater.from(c.a.a1.b.c().getContext()).inflate(f1484b, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(f1485c);
+                    View inflate = LayoutInflater.from(c.a.a1.b.c().getContext()).inflate(f1472b, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(f1473c);
                     if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(c.a.a1.b.c().getContext().getResources().getColor(c.a.a1.o.a.app_theme_color)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);

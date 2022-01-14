@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class o extends c.a.s0.x.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static o f26521f;
+    public static o f25733f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.s0.x.p.c> f26522e;
+    public LinkedList<c.a.s0.x.p.c> f25734e;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -37,39 +37,39 @@ public class o extends c.a.s0.x.p.a {
                 return;
             }
         }
-        this.f26522e = new LinkedList<>();
+        this.f25734e = new LinkedList<>();
     }
 
     public static o e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f26521f == null) {
+            if (f25733f == null) {
                 synchronized (o.class) {
-                    if (f26521f == null) {
-                        f26521f = new o();
+                    if (f25733f == null) {
+                        f25733f = new o();
                     }
                 }
             }
-            return f26521f;
+            return f25733f;
         }
         return (o) invokeV.objValue;
     }
 
     @Override // c.a.s0.x.p.a
-    public void b(a.InterfaceC0894a interfaceC0894a) {
+    public void b(a.InterfaceC0907a interfaceC0907a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0894a) == null) && FileHelper.checkSD()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0907a) == null) && FileHelper.checkSD()) {
             List<MyEmotionGroupData> h2 = a.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.f26522e.clear();
+            this.f25734e.clear();
             for (MyEmotionGroupData myEmotionGroupData : h2) {
                 EmotionGroupData j2 = g.k().j(myEmotionGroupData.getGroupId());
                 if (j2 != null) {
                     c cVar = new c(j2);
                     if (cVar.d() != null) {
-                        this.f26522e.add(cVar);
-                        if (interfaceC0894a != null) {
-                            interfaceC0894a.a(cVar);
+                        this.f25734e.add(cVar);
+                        if (interfaceC0907a != null) {
+                            interfaceC0907a.a(cVar);
                         }
                     }
                 }

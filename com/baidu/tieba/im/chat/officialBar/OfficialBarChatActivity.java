@@ -108,7 +108,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         public final /* synthetic */ UserData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarChatActivity f46580b;
+        public final /* synthetic */ OfficialBarChatActivity f44859b;
 
         public b(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                     return;
                 }
             }
-            this.f46580b = officialBarChatActivity;
+            this.f44859b = officialBarChatActivity;
             this.a = userData;
         }
 
@@ -150,7 +150,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         public final /* synthetic */ UserData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarChatActivity f46581b;
+        public final /* synthetic */ OfficialBarChatActivity f44860b;
 
         public c(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
             Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                     return;
                 }
             }
-            this.f46581b = officialBarChatActivity;
+            this.f44860b = officialBarChatActivity;
             this.a = userData;
         }
 
@@ -534,7 +534,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                 this.mCurrentMsgListView.m();
             }
             this.mListView.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-            long longValue = c.a.t0.s1.s.a.f22857i.longValue();
+            long longValue = c.a.t0.s1.s.a.f22227i.longValue();
             MsglistModel msglistModel = this.mListModel;
             if ((msglistModel instanceof OfficialBarMsglistModel) && (user = ((OfficialBarMsglistModel) msglistModel).getUser()) != null) {
                 String userName = !TextUtils.isEmpty(user.getUserName()) ? user.getUserName() : "";
@@ -567,7 +567,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong() + "", ForumDetailActivityConfig.FromType.BAR)));
                 }
-            } else if (view == this.mCurrentMsgListView.k()[0].f46620b || view == this.mCurrentMsgListView.k()[1].f46620b || view == this.mCurrentMsgListView.k()[2].f46620b) {
+            } else if (view == this.mCurrentMsgListView.k()[0].f44897b || view == this.mCurrentMsgListView.k()[1].f44897b || view == this.mCurrentMsgListView.k()[2].f44897b) {
                 TiebaStatic.log("service_bt_ck");
                 int j2 = this.mCurrentMsgListView.j(view);
                 for (int i2 = 0; i2 < 3; i2++) {

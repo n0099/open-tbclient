@@ -16,7 +16,7 @@ public class b {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f4536b;
+    public static volatile b f4441b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,8 +32,8 @@ public class b {
                 return;
             }
         }
-        a = e.f4537b ? 2 : 4;
-        f4536b = null;
+        a = e.f4442b ? 2 : 4;
+        f4441b = null;
     }
 
     public b() {
@@ -54,14 +54,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4536b == null) {
+            if (f4441b == null) {
                 synchronized (b.class) {
-                    if (f4536b == null) {
-                        f4536b = new b();
+                    if (f4441b == null) {
+                        f4441b = new b();
                     }
                 }
             }
-            return f4536b;
+            return f4441b;
         }
         return (b) invokeV.objValue;
     }

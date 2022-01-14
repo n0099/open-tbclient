@@ -16,7 +16,7 @@ public class b {
     public Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f10518b;
+    public Object f10291b;
 
     public b(Class<?> cls) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b {
             return;
         }
         try {
-            this.f10518b = c.a.r0.k.a.a.c.a.m(cls);
+            this.f10291b = c.a.r0.k.a.a.c.a.m(cls);
             Method i4 = c.a.r0.k.a.a.c.a.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
             this.a = i4;
             if (i4 != null) {
@@ -65,7 +65,7 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f10518b == null || this.a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f10291b == null || this.a == null) ? false : true : invokeV.booleanValue;
     }
 
     public int c(int i2, String str, int... iArr) {
@@ -74,7 +74,7 @@ public class b {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, iArr)) == null) {
             if (b()) {
                 try {
-                    Object invoke = this.a.invoke(this.f10518b, Integer.valueOf(i2), str, iArr);
+                    Object invoke = this.a.invoke(this.f10291b, Integer.valueOf(i2), str, iArr);
                     if (invoke == null) {
                         return -1;
                     }

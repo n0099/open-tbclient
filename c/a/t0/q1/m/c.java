@@ -2,7 +2,7 @@ package c.a.t0.q1.m;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.k;
 import c.a.t0.g0.a0;
 import c.a.t0.g0.d0;
@@ -25,22 +25,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class c extends k<d2, CardViewHolder<y>> implements a0 {
+public class c extends k<e2, CardViewHolder<y>> implements a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.d.f.k.b<ConstrainImageLayout> A;
     public c.a.d.f.k.b<TbImageView> B;
     public TbPageContext x;
     public String y;
-    public d0<d2> z;
+    public d0<e2> z;
 
     /* loaded from: classes8.dex */
-    public class a extends d0<d2> {
+    public class a extends d0<e2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f22195b;
+        public final /* synthetic */ c f21587b;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -57,22 +57,22 @@ public class c extends k<d2, CardViewHolder<y>> implements a0 {
                     return;
                 }
             }
-            this.f22195b = cVar;
+            this.f21587b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.t0.g0.d0
         /* renamed from: d */
-        public void b(View view, d2 d2Var, Object obj) {
+        public void b(View view, e2 e2Var, Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var, obj) == null) || view == null || d2Var == null || d2Var.J() == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var, obj) == null) || view == null || e2Var == null || e2Var.J() == null) {
                 return;
             }
-            if ("c13010".equals(this.f22195b.y)) {
-                TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 4).param("fid", d2Var.U()).param("tid", d2Var.v1()));
+            if ("c13010".equals(this.f21587b.y)) {
+                TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 4).param("fid", e2Var.U()).param("tid", e2Var.v1()));
             }
             if (view.getId() == e.card_root_layout) {
-                TiebaStatic.log(new StatisticItem("c13020").param("fid", d2Var.U()).param("obj_name", d2Var.J().getName_show()).param("tid", d2Var.v1()));
+                TiebaStatic.log(new StatisticItem("c13020").param("fid", e2Var.U()).param("obj_name", e2Var.J().getName_show()).param("tid", e2Var.v1()));
             }
         }
     }
@@ -153,12 +153,12 @@ public class c extends k<d2, CardViewHolder<y>> implements a0 {
 
     /* renamed from: c.a.t0.q1.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1326c implements c.a.d.f.k.c<TbImageView> {
+    public class C1340c implements c.a.d.f.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public C1326c(c cVar) {
+        public C1340c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,7 +260,7 @@ public class c extends k<d2, CardViewHolder<y>> implements a0 {
         }
         this.z = new a(this);
         this.A = new c.a.d.f.k.b<>(new b(this), 6, 0);
-        this.B = new c.a.d.f.k.b<>(new C1326c(this), 12, 0);
+        this.B = new c.a.d.f.k.b<>(new C1340c(this), 12, 0);
         this.x = tbPageContext;
     }
 
@@ -277,9 +277,9 @@ public class c extends k<d2, CardViewHolder<y>> implements a0 {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f3299e = tbPageContext.getPageActivity();
+        this.f3258e = tbPageContext.getPageActivity();
         this.x = tbPageContext;
-        this.f3303i = bdUniqueId;
+        this.f3262i = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -300,18 +300,18 @@ public class c extends k<d2, CardViewHolder<y>> implements a0 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.d1.k, c.a.d.n.e.a
     /* renamed from: p0 */
-    public View S(int i2, View view, ViewGroup viewGroup, d2 d2Var, CardViewHolder<y> cardViewHolder) {
+    public View S(int i2, View view, ViewGroup viewGroup, e2 e2Var, CardViewHolder<y> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, e2Var, cardViewHolder})) == null) {
             if (cardViewHolder == null || cardViewHolder.getCardView() == null) {
                 return null;
             }
             cardViewHolder.getCardView().m(this.z);
-            cardViewHolder.getCardView().k(d2Var);
-            if (d2Var != null && d2Var.J() != null) {
+            cardViewHolder.getCardView().k(e2Var);
+            if (e2Var != null && e2Var.J() != null) {
                 StatisticItem statisticItem = new StatisticItem("c13019");
-                statisticItem.param("tid", d2Var.v1()).param("fid", d2Var.U()).param("obj_name", d2Var.J().getName_show());
+                statisticItem.param("tid", e2Var.v1()).param("fid", e2Var.U()).param("obj_name", e2Var.J().getName_show());
                 v.b().a(statisticItem);
             }
             return cardViewHolder.getView();

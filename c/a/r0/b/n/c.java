@@ -27,10 +27,10 @@ public class c extends c.a.r0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10321e;
+        public final /* synthetic */ String f10097e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f10322f;
+        public final /* synthetic */ c f10098f;
 
         public a(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class c extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f10322f = cVar;
-            this.f10321e = str;
+            this.f10098f = cVar;
+            this.f10097e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,12 +58,12 @@ public class c extends c.a.r0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f10322f.C(this.f10321e);
+                    this.f10098f.C(this.f10097e);
                     return;
                 }
                 int b2 = iVar.b();
                 c.a.r0.a.h2.c.d.f(b2);
-                this.f10322f.d(this.f10321e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                this.f10098f.d(this.f10097e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
             }
         }
     }
@@ -75,7 +75,7 @@ public class c extends c.a.r0.a.u.c.d {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10323b;
+        public final /* synthetic */ c f10099b;
 
         /* loaded from: classes6.dex */
         public class a implements e {
@@ -107,11 +107,11 @@ public class c extends c.a.r0.a.u.c.d {
                 if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                     if (i2 == 0) {
                         b bVar = this.a;
-                        bVar.f10323b.d(bVar.a, new c.a.r0.a.u.h.b(0));
+                        bVar.f10099b.d(bVar.a, new c.a.r0.a.u.h.b(0));
                         return;
                     }
                     b bVar2 = this.a;
-                    bVar2.f10323b.d(bVar2.a, new c.a.r0.a.u.h.b(10004, "user not logged in"));
+                    bVar2.f10099b.d(bVar2.a, new c.a.r0.a.u.h.b(10004, "user not logged in"));
                 }
             }
         }
@@ -131,7 +131,7 @@ public class c extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f10323b = cVar;
+            this.f10099b = cVar;
             this.a = str;
         }
 
@@ -140,7 +140,7 @@ public class c extends c.a.r0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 if (quickLoginInfo == null) {
-                    this.f10323b.d(this.a, new c.a.r0.a.u.h.b(1001));
+                    this.f10099b.d(this.a, new c.a.r0.a.u.h.b(1001));
                     return;
                 }
                 boolean z = quickLoginInfo.supportQuickLogin;
@@ -148,7 +148,7 @@ public class c extends c.a.r0.a.u.c.d {
                 if (z) {
                     f.e(c.a.r0.a.d2.d.J().x(), i2, new a(this));
                 } else {
-                    this.f10323b.d(this.a, new c.a.r0.a.u.h.b(10004, "user not logged in"));
+                    this.f10099b.d(this.a, new c.a.r0.a.u.h.b(10004, "user not logged in"));
                 }
             }
         }
@@ -156,17 +156,17 @@ public class c extends c.a.r0.a.u.c.d {
 
     /* renamed from: c.a.r0.b.n.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0654c implements c.a.r0.a.z2.g1.c<i<b.e>> {
+    public class C0663c implements c.a.r0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10324e;
+        public final /* synthetic */ String f10100e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f10325f;
+        public final /* synthetic */ c f10101f;
 
-        public C0654c(c cVar, String str) {
+        public C0663c(c cVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,8 +181,8 @@ public class c extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f10325f = cVar;
-            this.f10324e = str;
+            this.f10101f = cVar;
+            this.f10100e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,12 +192,12 @@ public class c extends c.a.r0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f10325f.B(this.f10324e);
+                    this.f10101f.B(this.f10100e);
                     return;
                 }
                 int b2 = iVar.b();
                 c.a.r0.a.h2.c.d.f(b2);
-                this.f10325f.d(this.f10324e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                this.f10101f.d(this.f10100e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
             }
         }
     }
@@ -209,7 +209,7 @@ public class c extends c.a.r0.a.u.c.d {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10326b;
+        public final /* synthetic */ c f10102b;
 
         public d(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -226,7 +226,7 @@ public class c extends c.a.r0.a.u.c.d {
                     return;
                 }
             }
-            this.f10326b = cVar;
+            this.f10102b = cVar;
             this.a = str;
         }
 
@@ -235,9 +235,9 @@ public class c extends c.a.r0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 if (quickLoginInfo == null) {
-                    this.f10326b.D(this.a);
+                    this.f10102b.D(this.a);
                 } else {
-                    this.f10326b.E(this.a, quickLoginInfo);
+                    this.f10102b.E(this.a, quickLoginInfo);
                 }
             }
         }
@@ -320,7 +320,7 @@ public class c extends c.a.r0.a.u.c.d {
                 if (a0 == null) {
                     return new c.a.r0.a.u.h.b(1001);
                 }
-                a0.d0().g(getContext(), "scope_quick_login", new C0654c(this, optString));
+                a0.d0().g(getContext(), "scope_quick_login", new C0663c(this, optString));
                 return new c.a.r0.a.u.h.b(0);
             }
             c.a.r0.a.e0.d.c("QuickLoginApi", "parse fail");

@@ -17,16 +17,16 @@ public class o {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f26085b;
+    public l f25315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f26086c;
+    public g f25316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.u2.g.a f26087d;
+    public c.a.t0.u2.g.a f25317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f26088e;
+    public List<c.a.d.n.e.a> f25318e;
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
@@ -43,16 +43,16 @@ public class o {
                 return;
             }
         }
-        this.f26088e = new ArrayList();
-        this.a = new f(tbPageContext, c.a.t0.x2.e.o.f26233g);
-        this.f26085b = new l(tbPageContext);
-        this.f26086c = new g(tbPageContext, c.a.t0.x2.e.h.f26211g);
-        this.f26087d = new c.a.t0.u2.g.a(tbPageContext.getPageActivity(), c.a.t0.u2.d.f25111h);
-        this.f26088e.add(this.a);
-        this.f26088e.add(this.f26085b);
-        this.f26088e.add(this.f26086c);
-        this.f26088e.add(this.f26087d);
-        hTypeListView.addAdapters(this.f26088e);
+        this.f25318e = new ArrayList();
+        this.a = new f(tbPageContext, c.a.t0.x2.e.o.f25454g);
+        this.f25315b = new l(tbPageContext);
+        this.f25316c = new g(tbPageContext, c.a.t0.x2.e.h.f25432g);
+        this.f25317d = new c.a.t0.u2.g.a(tbPageContext.getPageActivity(), c.a.t0.u2.d.f24408h);
+        this.f25318e.add(this.a);
+        this.f25318e.add(this.f25315b);
+        this.f25318e.add(this.f25316c);
+        this.f25318e.add(this.f25317d);
+        hTypeListView.addAdapters(this.f25318e);
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -65,7 +65,7 @@ public class o {
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f26086c.b0(onClickListener);
+            this.f25316c.b0(onClickListener);
         }
     }
 }

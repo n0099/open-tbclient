@@ -115,7 +115,7 @@ public class SapiDeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission(s.f57419c, context)) {
+                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission(s.f55242c, context)) {
                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                     return deviceId == null ? "" : deviceId;
                 }

@@ -23,12 +23,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f18944c;
+    public static b f18470c;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap<String, List<JSONObject>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f18945b;
+    public ConcurrentHashMap<String, Integer> f18471b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b {
             }
         }
         this.a = new ConcurrentHashMap<>();
-        this.f18945b = new ConcurrentHashMap<>();
+        this.f18471b = new ConcurrentHashMap<>();
     }
 
     public static JSONObject b(ThreadInfo threadInfo) {
@@ -111,14 +111,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f18944c == null) {
+            if (f18470c == null) {
                 synchronized (b.class) {
-                    if (f18944c == null) {
-                        f18944c = new b();
+                    if (f18470c == null) {
+                        f18470c = new b();
                     }
                 }
             }
-            return f18944c;
+            return f18470c;
         }
         return (b) invokeV.objValue;
     }
@@ -140,7 +140,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Integer num = this.f18945b.get(str);
+            Integer num = this.f18471b.get(str);
             if (num == null) {
                 return 0;
             }
@@ -183,7 +183,7 @@ public class b {
     public void i(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-            this.f18945b.put(str, Integer.valueOf(i2));
+            this.f18471b.put(str, Integer.valueOf(i2));
         }
     }
 }

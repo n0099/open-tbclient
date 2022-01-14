@@ -12,7 +12,7 @@ public class n {
     public c.a.t0.v2.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f26232b;
+    public Bundle f25453b;
 
     public n() {
         Interceptable interceptable = $ic;

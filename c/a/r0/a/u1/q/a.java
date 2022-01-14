@@ -28,7 +28,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Pair<String, Pair<String, String>>> f9646b;
+    public static List<Pair<String, Pair<String, String>>> f9437b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,15 +48,15 @@ public class a {
         a = z;
         if (z) {
             ArrayList arrayList = new ArrayList();
-            f9646b = arrayList;
+            f9437b = arrayList;
             arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            f9646b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            f9646b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            f9646b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            f9646b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            f9646b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            f9646b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            f9646b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            f9437b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            f9437b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            f9437b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            f9437b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            f9437b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            f9437b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            f9437b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
@@ -90,7 +90,7 @@ public class a {
         }
         b.f(c2, jSONObject.toString());
         b.c(c2);
-        b(str, list, f9646b);
+        b(str, list, f9437b);
     }
 
     @SuppressLint({"SwanDebugLog", "LogConditional"})

@@ -14,13 +14,13 @@ public final class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27495b;
+    public final int f26671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f27496c;
+    public final boolean f26672c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f27497d;
+    public final String f26673d;
 
     public a(String packageName, int i2, boolean z, String str) {
         Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public final class a {
         }
         Intrinsics.checkNotNullParameter(packageName, "packageName");
         this.a = packageName;
-        this.f27495b = i2;
-        this.f27496c = z;
-        this.f27497d = str;
+        this.f26671b = i2;
+        this.f26672c = z;
+        this.f26673d = str;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27495b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26671b : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -57,7 +57,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && this.f27495b == aVar.f27495b && this.f27496c == aVar.f27496c && Intrinsics.areEqual(this.f27497d, aVar.f27497d);
+                    return Intrinsics.areEqual(this.a, aVar.a) && this.f26671b == aVar.f26671b && this.f26672c == aVar.f26672c && Intrinsics.areEqual(this.f26673d, aVar.f26673d);
                 }
                 return false;
             }
@@ -73,14 +73,14 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.f27495b) * 31;
-            boolean z = this.f27496c;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.f26671b) * 31;
+            boolean z = this.f26672c;
             int i2 = z;
             if (z != 0) {
                 i2 = 1;
             }
             int i3 = (hashCode + i2) * 31;
-            String str2 = this.f27497d;
+            String str2 = this.f26673d;
             return i3 + (str2 != null ? str2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -90,7 +90,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "YYPluginBundleInfo { packageName=" + this.a + " versionCode=" + this.f27495b + " needUpdate=" + this.f27496c + " ext=" + this.f27497d + " }";
+            return "YYPluginBundleInfo { packageName=" + this.a + " versionCode=" + this.f26671b + " needUpdate=" + this.f26672c + " ext=" + this.f26673d + " }";
         }
         return (String) invokeV.objValue;
     }

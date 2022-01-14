@@ -27,28 +27,28 @@ public class a implements c {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f59000b;
+    public final AdTemplate f56777b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final AdInfo f59001c;
+    public final AdInfo f56778c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f59002d;
+    public KsAppDownloadListener f56779d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59003e;
+    public boolean f56780e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f59004f;
+    public final boolean f56781f;
 
     public a(@NonNull AdTemplate adTemplate, KsAppDownloadListener ksAppDownloadListener) {
-        this.f59000b = adTemplate;
-        this.f59001c = d.j(adTemplate);
-        DownloadStatusManager.a().a(this, this.f59000b);
-        DownloadStatusManager.a().a(this.f59000b);
-        this.f59004f = d.j(this.f59000b).downloadSafeInfo.downloadPauseEnable;
-        this.f59002d = ksAppDownloadListener;
+        this.f56777b = adTemplate;
+        this.f56778c = d.j(adTemplate);
+        DownloadStatusManager.a().a(this, this.f56777b);
+        DownloadStatusManager.a().a(this.f56777b);
+        this.f56781f = d.j(this.f56777b).downloadSafeInfo.downloadPauseEnable;
+        this.f56779d = ksAppDownloadListener;
     }
 
     private int b(Context context) {
@@ -57,11 +57,11 @@ public class a implements c {
     }
 
     private void f() {
-        KsAppDownloadListener ksAppDownloadListener = this.f59002d;
+        KsAppDownloadListener ksAppDownloadListener = this.f56779d;
         if (ksAppDownloadListener == null) {
             return;
         }
-        AdInfo adInfo = this.f59001c;
+        AdInfo adInfo = this.f56778c;
         int i2 = adInfo.progress;
         int i3 = adInfo.status;
         if (i3 == 0) {
@@ -95,37 +95,37 @@ public class a implements c {
 
     private void g() {
         AdDownloadProxy proxyForDownload;
-        String str = this.f59001c.adBaseInfo.appPackageName;
+        String str = this.f56778c.adBaseInfo.appPackageName;
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
         }
         if (ag.a(context, str)) {
-            this.f59001c.status = 12;
+            this.f56778c.status = 12;
             return;
         }
-        AdInfo adInfo = this.f59001c;
+        AdInfo adInfo = this.f56778c;
         if (adInfo.status == 12) {
             adInfo.status = 0;
             adInfo.progress = 0;
         }
-        AdInfo adInfo2 = this.f59001c;
+        AdInfo adInfo2 = this.f56778c;
         if (adInfo2.status == 8) {
             String str2 = adInfo2.downloadFilePath;
             if (TextUtils.isEmpty(str2) || !new File(str2).exists()) {
-                AdInfo adInfo3 = this.f59001c;
+                AdInfo adInfo3 = this.f56778c;
                 adInfo3.status = 0;
                 adInfo3.progress = 0;
             }
         }
-        if (this.f59001c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+        if (this.f56778c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
             return;
         }
-        String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transform(this.f59001c));
+        String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transform(this.f56778c));
         if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
             return;
         }
-        AdInfo adInfo4 = this.f59001c;
+        AdInfo adInfo4 = this.f56778c;
         adInfo4.downloadFilePath = downloadFilePath;
         adInfo4.status = 8;
     }
@@ -136,7 +136,7 @@ public class a implements c {
             return;
         }
         if (b.a(context)) {
-            com.kwad.sdk.core.download.d.a(context, this.f59001c, Build.VERSION.SDK_INT >= 26 && an.a());
+            com.kwad.sdk.core.download.d.a(context, this.f56778c, Build.VERSION.SDK_INT >= 26 && an.a());
         } else {
             com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "no network while download app");
         }
@@ -147,14 +147,14 @@ public class a implements c {
         if (context == null) {
             return;
         }
-        com.kwad.sdk.core.download.d.a(context, this.f59001c.downloadId);
+        com.kwad.sdk.core.download.d.a(context, this.f56778c.downloadId);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public int a(Context context) {
         int i2;
         g();
-        switch (this.f59001c.status) {
+        switch (this.f56778c.status) {
             case 0:
             case 1:
             case 4:
@@ -165,7 +165,7 @@ public class a implements c {
                 break;
             case 2:
             case 3:
-                if (!this.f59003e || !this.f59004f) {
+                if (!this.f56780e || !this.f56781f) {
                     i2 = 1;
                     break;
                 } else {
@@ -189,19 +189,19 @@ public class a implements c {
                 i2 = 0;
                 break;
         }
-        this.f59003e = false;
+        this.f56780e = false;
         return i2;
     }
 
     @Override // com.kwad.sdk.core.download.c
     public String a() {
-        return this.f59001c.downloadId;
+        return this.f56778c.downloadId;
     }
 
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, int i2, int i3, int i4) {
-        if (this.f59001c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f59001c;
+        if (this.f56778c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f56778c;
             adInfo.status = 3;
             adInfo.progress = i2;
             adInfo.soFarBytes = i3;
@@ -215,19 +215,19 @@ public class a implements c {
         i.a(new Runnable() { // from class: com.kwad.sdk.ec.download.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.home.download.a.a().b(a.this.f59000b);
-                com.kwad.sdk.home.download.a.a().c(a.this.f59000b);
+                com.kwad.sdk.home.download.a.a().b(a.this.f56777b);
+                com.kwad.sdk.home.download.a.a().c(a.this.f56777b);
             }
         });
-        com.kwad.sdk.core.a.a().d(d.j(this.f59000b).downloadId);
-        this.f59001c.status = 12;
+        com.kwad.sdk.core.a.a().d(d.j(this.f56777b).downloadId);
+        this.f56778c.status = 12;
         f();
     }
 
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, int i2, String str2, f fVar) {
-        if (this.f59001c.downloadId.equals(str)) {
-            this.f59001c.status = 7;
+        if (this.f56778c.downloadId.equals(str)) {
+            this.f56778c.status = 7;
             this.a = str2;
             f();
         }
@@ -235,8 +235,8 @@ public class a implements c {
 
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, f fVar) {
-        if (this.f59001c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f59001c;
+        if (this.f56778c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f56778c;
             if (adInfo.status != 1) {
                 adInfo.status = 1;
             }
@@ -246,8 +246,8 @@ public class a implements c {
 
     @Override // com.kwad.sdk.core.download.c
     public void a(String str, String str2, f fVar) {
-        if (this.f59001c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f59001c;
+        if (this.f56778c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f56778c;
             adInfo.downloadFilePath = str2;
             adInfo.progress = 100;
             adInfo.status = 8;
@@ -274,13 +274,13 @@ public class a implements c {
 
     @Override // com.kwad.sdk.core.download.c
     public String b() {
-        return this.f59001c.adBaseInfo.appPackageName;
+        return this.f56778c.adBaseInfo.appPackageName;
     }
 
     @Override // com.kwad.sdk.core.download.c
     public void b(String str, f fVar) {
-        if (this.f59001c.downloadId.equals(str)) {
-            this.f59001c.status = 4;
+        if (this.f56778c.downloadId.equals(str)) {
+            this.f56778c.status = 4;
             f();
         }
     }
@@ -289,24 +289,24 @@ public class a implements c {
         i.a(new Runnable() { // from class: com.kwad.sdk.ec.download.a.2
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.home.download.a.a().d(a.this.f59000b);
+                com.kwad.sdk.home.download.a.a().d(a.this.f56777b);
             }
         });
-        if (ag.c(KsAdSDKImpl.get().getContext(), com.kwad.sdk.core.response.a.a.v(this.f59001c))) {
-            com.kwad.sdk.core.report.a.e(this.f59000b);
+        if (ag.c(KsAdSDKImpl.get().getContext(), com.kwad.sdk.core.response.a.a.v(this.f56778c))) {
+            com.kwad.sdk.core.report.a.e(this.f56777b);
         }
     }
 
     @Override // com.kwad.sdk.core.download.c
     public void c(String str, f fVar) {
-        if (this.f59001c.downloadId.equals(str)) {
-            this.f59001c.status = 2;
+        if (this.f56778c.downloadId.equals(str)) {
+            this.f56778c.status = 2;
             f();
         }
     }
 
     public void d() {
-        String str = this.f59001c.downloadFilePath;
+        String str = this.f56778c.downloadFilePath;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
             if (a(context, str)) {
@@ -320,14 +320,14 @@ public class a implements c {
 
     @Override // com.kwad.sdk.core.download.c
     public void d(String str, f fVar) {
-        if (this.f59001c.downloadId.equals(str)) {
-            this.f59001c.status = 5;
+        if (this.f56778c.downloadId.equals(str)) {
+            this.f56778c.status = 5;
             f();
         }
     }
 
     public void e() {
-        this.f59002d = null;
+        this.f56779d = null;
         DownloadStatusManager.a().a(this);
     }
 

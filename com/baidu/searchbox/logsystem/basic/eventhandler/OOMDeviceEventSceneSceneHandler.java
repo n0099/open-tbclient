@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class OOMDeviceEventSceneSceneHandler extends DeviceEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EGL_BAD_ALLOC = "EGL_BAD_ALLOC";

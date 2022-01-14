@@ -14,13 +14,13 @@ public class f {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f4538b = false;
+    public static boolean f4443b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4539c = false;
+    public static boolean f4444c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f4540d = true;
+    public static boolean f4445d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,13 +59,13 @@ public class f {
                 return false;
             }
             if ("permission_location".equalsIgnoreCase(str)) {
-                return f4538b;
+                return f4443b;
             }
             if ("permission_storage".equalsIgnoreCase(str)) {
-                return f4539c;
+                return f4444c;
             }
             if ("permission_app_list".equalsIgnoreCase(str)) {
-                return f4540d;
+                return f4445d;
             }
             if ("permission_read_phone_state".equalsIgnoreCase(str)) {
                 return a;

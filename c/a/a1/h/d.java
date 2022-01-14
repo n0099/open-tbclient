@@ -18,19 +18,19 @@ public class d implements a.InterfaceC0011a {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f1144b;
+    public b f1142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread f1145c;
+    public Thread f1143c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.a1.h.f.a> f1146d;
+    public List<c.a.a1.h.f.a> f1144d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1147e;
+    public int f1145e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1148f;
+    public int f1146f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -38,7 +38,7 @@ public class d implements a.InterfaceC0011a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f1149e;
+        public final /* synthetic */ d f1147e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -55,27 +55,27 @@ public class d implements a.InterfaceC0011a {
                     return;
                 }
             }
-            this.f1149e = dVar;
+            this.f1147e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d dVar = this.f1149e;
+                d dVar = this.f1147e;
                 if (dVar.j(dVar.a)) {
-                    if (h.e(this.f1149e.f1146d)) {
-                        this.f1149e.m(" start mix chains error:mMixtureChains empty ");
+                    if (h.e(this.f1147e.f1144d)) {
+                        this.f1147e.m(" start mix chains error:mMixtureChains empty ");
                         return;
                     } else {
-                        ((c.a.a1.h.f.a) this.f1149e.f1146d.get(0)).d(this.f1149e.a);
+                        ((c.a.a1.h.f.a) this.f1147e.f1144d.get(0)).d(this.f1147e.a);
                         return;
                     }
                 }
-                d dVar2 = this.f1149e;
+                d dVar2 = this.f1147e;
                 StringBuilder sb = new StringBuilder();
                 sb.append(" start mix chains error:initChainConfig ");
-                sb.append(this.f1149e.a == null);
+                sb.append(this.f1147e.a == null);
                 dVar2.m(sb.toString());
             }
         }
@@ -108,7 +108,7 @@ public class d implements a.InterfaceC0011a {
             }
         }
         this.a = cVar;
-        this.f1146d = new ArrayList();
+        this.f1144d = new ArrayList();
     }
 
     @Override // c.a.a1.h.f.a.InterfaceC0011a
@@ -123,15 +123,15 @@ public class d implements a.InterfaceC0011a {
     public void b(c.a.a1.h.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            int k2 = this.f1147e + aVar.k();
-            this.f1147e = k2;
-            n(k2);
+            int k = this.f1145e + aVar.k();
+            this.f1145e = k;
+            n(k);
             if (aVar == null || !aVar.m()) {
                 return;
             }
-            c.a.a1.h.b k3 = k(aVar.n());
-            if (k3 != null) {
-                o(k3);
+            c.a.a1.h.b k2 = k(aVar.n());
+            if (k2 != null) {
+                o(k2);
             } else {
                 m("onChainFinished result error");
             }
@@ -142,11 +142,11 @@ public class d implements a.InterfaceC0011a {
     public void c(int i2, int i3) {
         int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (i4 = (int) (this.f1147e + (((i2 * 1.0f) / 100.0f) * i3))) <= this.f1148f) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (i4 = (int) (this.f1145e + (((i2 * 1.0f) / 100.0f) * i3))) <= this.f1146f) {
             return;
         }
         n(i4);
-        this.f1148f = i4;
+        this.f1146f = i4;
     }
 
     @Override // c.a.a1.h.f.a.InterfaceC0011a
@@ -160,12 +160,12 @@ public class d implements a.InterfaceC0011a {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!h.e(this.f1146d)) {
-                for (c.a.a1.h.f.a aVar : this.f1146d) {
+            if (!h.e(this.f1144d)) {
+                for (c.a.a1.h.f.a aVar : this.f1144d) {
                     aVar.b();
                 }
             }
-            Thread thread = this.f1145c;
+            Thread thread = this.f1143c;
             if (thread != null) {
                 thread.interrupt();
             }
@@ -197,8 +197,8 @@ public class d implements a.InterfaceC0011a {
                                     bVar = aVar.a();
                                 }
                                 if (bVar != null) {
-                                    int k2 = bVar.k(aVar.a());
-                                    z2 = ((c.a.a1.h.b.f1131g & k2) == 0 && (c.a.a1.h.b.f1133i & k2) == 0 && (k2 & c.a.a1.h.b.f1132h) == 0) ? false : true;
+                                    int k = bVar.k(aVar.a());
+                                    z2 = ((c.a.a1.h.b.f1129g & k) == 0 && (c.a.a1.h.b.f1131i & k) == 0 && (k & c.a.a1.h.b.f1130h) == 0) ? false : true;
                                 }
                                 if (aVar.b().mSpeed != 1.0f) {
                                     z = true;
@@ -226,17 +226,17 @@ public class d implements a.InterfaceC0011a {
                 c.a.a1.h.f.c cVar2 = new c.a.a1.h.f.c();
                 cVar2.c(z2 ? 50 : 90);
                 cVar2.e(this);
-                this.f1146d.add(cVar2);
+                this.f1144d.add(cVar2);
                 c.a.a1.h.f.b bVar2 = new c.a.a1.h.f.b();
                 bVar2.c(z2 ? 50 : 10);
                 bVar2.e(this);
-                this.f1146d.add(bVar2);
+                this.f1144d.add(bVar2);
                 cVar2.f(bVar2);
             } else {
                 c.a.a1.h.f.b bVar3 = new c.a.a1.h.f.b();
                 bVar3.c(100);
                 bVar3.e(this);
-                this.f1146d.add(bVar3);
+                this.f1144d.add(bVar3);
             }
             return true;
         }
@@ -262,7 +262,7 @@ public class d implements a.InterfaceC0011a {
     public final void l() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.f1144b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.f1142b) == null) {
             return;
         }
         bVar.onAudioMixtureCancel();
@@ -271,7 +271,7 @@ public class d implements a.InterfaceC0011a {
     public final void m(String str) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.f1144b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.f1142b) == null) {
             return;
         }
         bVar.onAudioMixtureFail(str);
@@ -280,7 +280,7 @@ public class d implements a.InterfaceC0011a {
     public final void n(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (bVar = this.f1144b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (bVar = this.f1142b) == null) {
             return;
         }
         bVar.onAudioMixtureProgress(i2);
@@ -289,19 +289,19 @@ public class d implements a.InterfaceC0011a {
     public final void o(c.a.a1.h.b bVar) {
         b bVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) || (bVar2 = this.f1144b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) || (bVar2 = this.f1142b) == null) {
             return;
         }
         bVar2.onAudioMixtureProgress(100);
-        this.f1144b.onAudioMixtureSuccess(bVar);
+        this.f1142b.onAudioMixtureSuccess(bVar);
     }
 
     public void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || h.e(this.f1146d)) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || h.e(this.f1144d)) {
             return;
         }
-        for (c.a.a1.h.f.a aVar : this.f1146d) {
+        for (c.a.a1.h.f.a aVar : this.f1144d) {
             aVar.h();
         }
     }
@@ -309,28 +309,28 @@ public class d implements a.InterfaceC0011a {
     public void q(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.f1144b = bVar;
+            this.f1142b = bVar;
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f1146d.clear();
-            this.f1147e = 0;
-            this.f1148f = 0;
-            c.a.a1.h.b k2 = k(this.a);
-            if (k2 != null && k2.i()) {
-                o(k2);
+            this.f1144d.clear();
+            this.f1145e = 0;
+            this.f1146f = 0;
+            c.a.a1.h.b k = k(this.a);
+            if (k != null && k.i()) {
+                o(k);
                 return;
             }
-            Thread thread = this.f1145c;
+            Thread thread = this.f1143c;
             if (thread != null) {
                 thread.interrupt();
-                this.f1145c = null;
+                this.f1143c = null;
             }
             Thread thread2 = new Thread(new a(this));
-            this.f1145c = thread2;
+            this.f1143c = thread2;
             thread2.start();
         }
     }

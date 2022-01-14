@@ -75,7 +75,7 @@ public class d extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> implements c.a.t0
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f26095e;
+        public final /* synthetic */ d f25325e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class d extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> implements c.a.t0
                     return;
                 }
             }
-            this.f26095e = dVar;
+            this.f25325e = dVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -101,12 +101,12 @@ public class d extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> implements c.a.t0
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 k kVar = (k) nVar;
-                kVar.f18228k = 1;
-                if (this.f26095e.s != null) {
-                    this.f26095e.s.a(threadCardViewHolder.getView(), kVar);
+                kVar.k = 1;
+                if (this.f25325e.s != null) {
+                    this.f25325e.s.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.s0.s.q.a) kVar, view.getContext(), 4, false);
-                threadCardViewHolder.getCardView().o(new a.C0186a(1));
+                threadCardViewHolder.getCardView().o(new a.C0195a(1));
             }
         }
     }
@@ -159,8 +159,8 @@ public class d extends c.a.d.n.e.a<k, ThreadCardViewHolder<k>> implements c.a.t0
             bVar.h(new c.a.l.k(this.n.getPageActivity()));
             n0 n0Var = new n0(this.n.getPageActivity());
             c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-            fVar.f13685b = 3;
-            fVar.f13691h = 3;
+            fVar.f13371b = 3;
+            fVar.f13377h = 3;
             n0Var.u(fVar);
             n0Var.v(8);
             n0Var.z(6);

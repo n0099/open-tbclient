@@ -17,7 +17,7 @@ public final class h {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ f f63949b;
+    public /* synthetic */ f f61550b;
 
     public h(f fVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class h {
                 return;
             }
         }
-        this.f63949b = fVar;
+        this.f61550b = fVar;
         this.a = "iphonesubinfo";
     }
 
@@ -51,16 +51,16 @@ public final class h {
             }
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
-            a = this.f63949b.a(str2);
+            a = this.f61550b.a(str2);
             if (TextUtils.isEmpty(a)) {
                 return "";
             }
             obtain.writeInterfaceToken(a);
             if (Build.VERSION.SDK_INT >= 23) {
-                context = f.f63944b;
+                context = f.f61545b;
                 obtain.writeString(context.getPackageName());
             }
-            a2 = this.f63949b.a(str2, str, obtain, obtain2);
+            a2 = this.f61550b.a(str2, str, obtain, obtain2);
             if (a2 != null) {
                 try {
                     obtain2.readException();

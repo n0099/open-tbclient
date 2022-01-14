@@ -26,22 +26,22 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
     public final List<e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4475b;
+    public final String f4383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<c.a.m0.a.d.c<File>, byte[]> f4476c;
+    public HashMap<c.a.m0.a.d.c<File>, byte[]> f4384c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4477d;
+    public long f4385d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f4478e;
+    public volatile boolean f4386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4479f;
+    public int f4387f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f4480g;
+    public long f4388g;
 
     /* loaded from: classes.dex */
     public static class a extends c.a.m0.a.m.b {
@@ -49,10 +49,10 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4481g;
+        public final /* synthetic */ String f4389g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f4482h;
+        public final /* synthetic */ d f4390h;
 
         public a(String str, d dVar) {
             Interceptable interceptable = $ic;
@@ -69,8 +69,8 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
                     return;
                 }
             }
-            this.f4481g = str;
-            this.f4482h = dVar;
+            this.f4389g = str;
+            this.f4390h = dVar;
         }
 
         @Override // c.a.m0.a.m.b
@@ -80,14 +80,14 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    File file = new File(this.f4481g);
+                    File file = new File(this.f4389g);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
-                    this.f4482h.r(file.listFiles(), currentTimeMillis);
+                    this.f4390h.r(file.listFiles(), currentTimeMillis);
                     return null;
                 } catch (Exception e2) {
-                    this.f4482h.f4478e = true;
+                    this.f4390h.f4386e = true;
                     c.a.m0.a.l.b i2 = c.a.m0.a.l.b.i();
                     i2.a("Disk cache initialize failed for " + e2.getMessage());
                     return null;
@@ -103,13 +103,13 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f4483g;
+        public final /* synthetic */ byte[] f4391g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.m0.a.d.c f4484h;
+        public final /* synthetic */ c.a.m0.a.d.c f4392h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f4485i;
+        public final /* synthetic */ d f4393i;
 
         public b(d dVar, byte[] bArr, c.a.m0.a.d.c cVar) {
             Interceptable interceptable = $ic;
@@ -126,9 +126,9 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
                     return;
                 }
             }
-            this.f4485i = dVar;
-            this.f4483g = bArr;
-            this.f4484h = cVar;
+            this.f4393i = dVar;
+            this.f4391g = bArr;
+            this.f4392h = cVar;
         }
 
         @Override // c.a.m0.a.m.b
@@ -138,23 +138,23 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    c.a.m0.a.l.d.b(this.f4483g, (File) this.f4484h.a());
-                    this.f4485i.put(((File) this.f4484h.a()).getName(), this.f4484h);
-                    d.b(this.f4485i);
-                    if (!this.f4485i.a.isEmpty()) {
-                        for (e eVar : this.f4485i.a) {
-                            eVar.c(((File) this.f4484h.a()).getName(), this.f4484h);
+                    c.a.m0.a.l.d.b(this.f4391g, (File) this.f4392h.a());
+                    this.f4393i.put(((File) this.f4392h.a()).getName(), this.f4392h);
+                    d.b(this.f4393i);
+                    if (!this.f4393i.a.isEmpty()) {
+                        for (e eVar : this.f4393i.a) {
+                            eVar.c(((File) this.f4392h.a()).getName(), this.f4392h);
                         }
                     }
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    d dVar = this.f4485i;
-                    dVar.m("File saved using " + currentTimeMillis2 + "ms: " + ((File) this.f4484h.a()).getName() + "\nStatus:" + this.f4485i.t());
-                    this.f4485i.g();
+                    d dVar = this.f4393i;
+                    dVar.m("File saved using " + currentTimeMillis2 + "ms: " + ((File) this.f4392h.a()).getName() + "\nStatus:" + this.f4393i.t());
+                    this.f4393i.g();
                     return null;
                 } catch (Throwable th) {
-                    if (!this.f4485i.a.isEmpty()) {
-                        for (e eVar2 : this.f4485i.a) {
-                            eVar2.b(((File) this.f4484h.a()).getName(), this.f4484h);
+                    if (!this.f4393i.a.isEmpty()) {
+                        for (e eVar2 : this.f4393i.a) {
+                            eVar2.b(((File) this.f4392h.a()).getName(), this.f4392h);
                         }
                     }
                     c.a.m0.a.l.b i2 = c.a.m0.a.l.b.i();
@@ -172,10 +172,10 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.m0.a.d.c f4486g;
+        public final /* synthetic */ c.a.m0.a.d.c f4394g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f4487h;
+        public final /* synthetic */ d f4395h;
 
         public c(d dVar, c.a.m0.a.d.c cVar) {
             Interceptable interceptable = $ic;
@@ -192,8 +192,8 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
                     return;
                 }
             }
-            this.f4487h = dVar;
-            this.f4486g = cVar;
+            this.f4395h = dVar;
+            this.f4394g = cVar;
         }
 
         @Override // c.a.m0.a.m.b
@@ -202,16 +202,16 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    if (this.f4486g != null) {
+                    if (this.f4394g != null) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        String name = ((File) this.f4486g.a()).getName();
-                        d.c(this.f4487h);
-                        this.f4486g.e();
+                        String name = ((File) this.f4394g.a()).getName();
+                        d.c(this.f4395h);
+                        this.f4394g.e();
                         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                        d dVar = this.f4487h;
+                        d dVar = this.f4395h;
                         dVar.m("File deleted using " + currentTimeMillis2 + "ms: " + name);
                     }
-                    this.f4487h.g();
+                    this.f4395h.g();
                     return null;
                 } catch (Throwable th) {
                     c.a.m0.a.l.b i2 = c.a.m0.a.l.b.i();
@@ -225,11 +225,11 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
 
     /* renamed from: c.a.m0.a.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0193d implements Comparator<File> {
+    public class C0202d implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0193d(d dVar) {
+        public C0202d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -297,22 +297,22 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
             }
         }
         this.a = new ArrayList();
-        this.f4478e = false;
-        this.f4479f = 0;
-        this.f4480g = 2592000000L;
-        this.f4475b = str;
-        this.f4476c = new HashMap<>();
+        this.f4386e = false;
+        this.f4387f = 0;
+        this.f4388g = 2592000000L;
+        this.f4383b = str;
+        this.f4384c = new HashMap<>();
     }
 
     public static /* synthetic */ int b(d dVar) {
-        int i2 = dVar.f4479f;
-        dVar.f4479f = i2 + 1;
+        int i2 = dVar.f4387f;
+        dVar.f4387f = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int c(d dVar) {
-        int i2 = dVar.f4479f;
-        dVar.f4479f = i2 - 1;
+        int i2 = dVar.f4387f;
+        dVar.f4387f = i2 - 1;
         return i2;
     }
 
@@ -321,7 +321,7 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i2)) == null) {
             d dVar = new d(i2, str);
-            dVar.f4478e = false;
+            dVar.f4386e = false;
             c.a.m0.a.m.c.a().c(new a(str, dVar));
             return dVar;
         }
@@ -347,19 +347,19 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (System.currentTimeMillis() - this.f4477d < this.f4480g) {
+                if (System.currentTimeMillis() - this.f4385d < this.f4388g) {
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 Map snapshot = super.snapshot();
-                this.f4477d = System.currentTimeMillis();
+                this.f4385d = System.currentTimeMillis();
                 for (String str : snapshot.keySet()) {
                     c.a.m0.a.d.c cVar = (c.a.m0.a.d.c) snapshot.get(str);
-                    if (cVar.d(this.f4480g)) {
+                    if (cVar.d(this.f4388g)) {
                         ((File) ((c.a.m0.a.d.c) super.remove(str)).a()).delete();
-                        this.f4479f--;
-                    } else if (((File) cVar.a()).lastModified() < this.f4477d) {
-                        this.f4477d = ((File) cVar.a()).lastModified();
+                        this.f4387f--;
+                    } else if (((File) cVar.a()).lastModified() < this.f4385d) {
+                        this.f4385d = ((File) cVar.a()).lastModified();
                     }
                 }
                 m("Clear cache using " + (System.currentTimeMillis() - currentTimeMillis) + "ms: ");
@@ -415,7 +415,7 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4475b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4383b : (String) invokeV.objValue;
     }
 
     public long l() {
@@ -434,13 +434,13 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                this.f4478e = true;
-                if (this.f4476c != null) {
-                    for (c.a.m0.a.d.c<File> cVar : this.f4476c.keySet()) {
-                        v(cVar, this.f4476c.get(cVar));
+                this.f4386e = true;
+                if (this.f4384c != null) {
+                    for (c.a.m0.a.d.c<File> cVar : this.f4384c.keySet()) {
+                        v(cVar, this.f4384c.get(cVar));
                     }
-                    this.f4476c.clear();
-                    this.f4476c = null;
+                    this.f4384c.clear();
+                    this.f4384c = null;
                 }
             }
         }
@@ -450,7 +450,7 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048587, this, str, file) == null) && file.exists()) {
             super.put(str, new c.a.m0.a.d.c(file));
-            this.f4479f++;
+            this.f4387f++;
         }
     }
 
@@ -471,11 +471,11 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048590, this, fileArr, j2) == null) {
             if (fileArr != null && fileArr.length > 0) {
-                PriorityQueue priorityQueue = new PriorityQueue(11, new C0193d(this));
+                PriorityQueue priorityQueue = new PriorityQueue(11, new C0202d(this));
                 if (priorityQueue.size() > 0) {
-                    this.f4477d = ((File) priorityQueue.peek()).lastModified();
+                    this.f4385d = ((File) priorityQueue.peek()).lastModified();
                 } else {
-                    this.f4477d = System.currentTimeMillis();
+                    this.f4385d = System.currentTimeMillis();
                 }
                 priorityQueue.addAll(Arrays.asList(fileArr));
                 while (!priorityQueue.isEmpty()) {
@@ -508,7 +508,7 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             int hitCount = hitCount() + missCount();
-            return String.format(Locale.CHINA, "LruDiskCache[count=%d,size=%d/%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f4479f), Integer.valueOf(size()), Integer.valueOf(maxSize()), Integer.valueOf(hitCount()), Integer.valueOf(missCount()), Integer.valueOf(hitCount != 0 ? (hitCount() * 100) / hitCount : 0));
+            return String.format(Locale.CHINA, "LruDiskCache[count=%d,size=%d/%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f4387f), Integer.valueOf(size()), Integer.valueOf(maxSize()), Integer.valueOf(hitCount()), Integer.valueOf(missCount()), Integer.valueOf(hitCount != 0 ? (hitCount() * 100) / hitCount : 0));
         }
         return (String) invokeV.objValue;
     }
@@ -528,10 +528,10 @@ public class d extends LruCache<String, c.a.m0.a.d.c<File>> {
         if (!(interceptable == null || interceptable.invokeLL(1048595, this, bArr, cVar) == null) || cVar == null) {
             return;
         }
-        if (this.f4478e) {
+        if (this.f4386e) {
             v(cVar, bArr);
         } else {
-            this.f4476c.put(cVar, bArr);
+            this.f4384c.put(cVar, bArr);
         }
     }
 

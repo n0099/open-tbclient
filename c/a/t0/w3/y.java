@@ -16,7 +16,7 @@ public class y {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TiebaPlusInfo f25808b;
+    public TiebaPlusInfo f25049b;
 
     public y() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class y {
     public TiebaPlusInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25808b : (TiebaPlusInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25049b : (TiebaPlusInfo) invokeV.objValue;
     }
 
     public boolean b() {
@@ -59,7 +59,7 @@ public class y {
             builder.app_package = businessPromot.download_package_name;
             builder.app_id = businessPromot.download_appid;
             builder.item_id = businessPromot.download_item_id;
-            this.f25808b = builder.build(true);
+            this.f25049b = builder.build(true);
         }
     }
 
@@ -78,7 +78,7 @@ public class y {
             builder.app_package = headImgs.download_package_name;
             builder.app_id = headImgs.download_appid;
             builder.item_id = String.valueOf(headImgs.download_item_id);
-            this.f25808b = builder.build(true);
+            this.f25049b = builder.build(true);
         }
     }
 }

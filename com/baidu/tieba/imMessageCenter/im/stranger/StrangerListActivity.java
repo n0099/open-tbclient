@@ -53,16 +53,16 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f47008e;
+        public final /* synthetic */ PopupDialog f45266e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f47009f;
+        public final /* synthetic */ int f45267f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f47010g;
+        public final /* synthetic */ ImMessageCenterShowItemData f45268g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f47011h;
+        public final /* synthetic */ StrangerListActivity f45269h;
 
         public a(StrangerListActivity strangerListActivity, PopupDialog popupDialog, int i2, ImMessageCenterShowItemData imMessageCenterShowItemData) {
             Interceptable interceptable = $ic;
@@ -79,24 +79,24 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f47011h = strangerListActivity;
-            this.f47008e = popupDialog;
-            this.f47009f = i2;
-            this.f47010g = imMessageCenterShowItemData;
+            this.f45269h = strangerListActivity;
+            this.f45266e = popupDialog;
+            this.f45267f = i2;
+            this.f45268g = imMessageCenterShowItemData;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                PopupDialog popupDialog = this.f47008e;
+                PopupDialog popupDialog = this.f45266e;
                 if (popupDialog != null && popupDialog.isShowing()) {
-                    this.f47008e.dismiss();
+                    this.f45266e.dismiss();
                 }
-                if (this.f47009f == 1) {
-                    this.f47011h.mModel.w(this.f47011h.IProcessImpl);
+                if (this.f45267f == 1) {
+                    this.f45269h.mModel.w(this.f45269h.IProcessImpl);
                 } else {
-                    this.f47011h.mModel.asyncDeleteItem(this.f47010g, this.f47011h.IProcessImpl);
+                    this.f45269h.mModel.asyncDeleteItem(this.f45268g, this.f45269h.IProcessImpl);
                 }
             }
         }
@@ -108,7 +108,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f47012e;
+        public final /* synthetic */ StrangerListActivity f45270e;
 
         public b(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -125,15 +125,15 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f47012e = strangerListActivity;
+            this.f45270e = strangerListActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f47012e.mDelAllDialog.dismiss();
-                this.f47012e.mModel.w(this.f47012e.IProcessImpl);
+                this.f45270e.mDelAllDialog.dismiss();
+                this.f45270e.mModel.w(this.f45270e.IProcessImpl);
             }
         }
     }
@@ -144,7 +144,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f47013e;
+        public final /* synthetic */ StrangerListActivity f45271e;
 
         public c(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -161,14 +161,14 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f47013e = strangerListActivity;
+            this.f45271e = strangerListActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f47013e.mDelAllDialog.dismiss();
+                this.f45271e.mDelAllDialog.dismiss();
             }
         }
     }

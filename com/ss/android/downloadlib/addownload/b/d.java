@@ -15,36 +15,36 @@ public class d {
     public static volatile d a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f61797c = {"com", "android", "ss"};
+    public static final String[] f59457c = {"com", "android", "ss"};
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f61798d = {3101, 3102, 3103, 3201, 3202, 3203};
+    public static final int[] f59458d = {3101, 3102, 3103, 3201, 3202, 3203};
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<a> f61799b = new LinkedList<>();
+    public final LinkedList<a> f59459b = new LinkedList<>();
 
     /* loaded from: classes3.dex */
     public static class a {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f61800b;
+        public final int f59460b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f61801c;
+        public final String f59461c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f61802d;
+        public final String f59462d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f61803e;
+        public final long f59463e;
 
         public a(String str, int i2, String str2, String str3, long j2) {
             this.a = str;
-            this.f61800b = i2;
-            this.f61801c = str2 != null ? str2.toLowerCase() : null;
-            this.f61802d = str3 != null ? str3.toLowerCase() : null;
-            this.f61803e = j2;
+            this.f59460b = i2;
+            this.f59461c = str2 != null ? str2.toLowerCase() : null;
+            this.f59462d = str3 != null ? str3.toLowerCase() : null;
+            this.f59463e = j2;
         }
     }
 
@@ -78,8 +78,8 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (this.f61799b) {
-            Iterator<a> it = this.f61799b.iterator();
+        synchronized (this.f59459b) {
+            Iterator<a> it = this.f59459b.iterator();
             while (it.hasNext()) {
                 if (str.equals(it.next().a)) {
                     it.remove();
@@ -95,8 +95,8 @@ public class d {
         if (TextUtils.isEmpty(str) || (c2 = c(str)) == null) {
             return;
         }
-        synchronized (this.f61799b) {
-            this.f61799b.add(c2);
+        synchronized (this.f59459b) {
+            this.f59459b.add(c2);
         }
     }
 
@@ -117,24 +117,24 @@ public class d {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if (this.f61799b.isEmpty()) {
+        if (this.f59459b.isEmpty()) {
             return null;
         }
         String N = bVar.N();
         String e2 = bVar.e();
         String J = bVar.J();
         int I = bVar.I();
-        int length = f61798d.length;
+        int length = f59458d.length;
         a[] aVarArr = new a[length];
-        synchronized (this.f61799b) {
-            Iterator<a> it = this.f61799b.iterator();
+        synchronized (this.f59459b) {
+            Iterator<a> it = this.f59459b.iterator();
             PackageInfo packageInfo = null;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 next = it.next();
-                if (next.f61803e >= bVar.C()) {
+                if (next.f59463e >= bVar.C()) {
                     if (TextUtils.isEmpty(N)) {
                         if (packageInfo == null) {
                             packageInfo = l.a(bVar);
@@ -146,12 +146,12 @@ public class d {
                             }
                         }
                     }
-                    if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f61802d)) {
+                    if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f59462d)) {
                         N = N.toLowerCase();
-                        if (N.equals(next.f61802d)) {
+                        if (N.equals(next.f59462d)) {
                             aVarArr[0] = next;
                             break;
-                        } else if (N.contains(next.f61802d) || next.f61802d.contains(N)) {
+                        } else if (N.contains(next.f59462d) || next.f59462d.contains(N)) {
                             break;
                         }
                     }
@@ -182,9 +182,9 @@ public class d {
                                 J = packageInfo.versionName;
                             }
                         }
-                        if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f61801c)) {
+                        if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f59461c)) {
                             J = J.toLowerCase();
-                            if (J.equals(next.f61801c)) {
+                            if (J.equals(next.f59461c)) {
                                 aVarArr[4] = next;
                             }
                         }
@@ -197,7 +197,7 @@ public class d {
                                     I = packageInfo.versionCode;
                                 }
                             }
-                            if (I == next.f61800b) {
+                            if (I == next.f59460b) {
                                 aVarArr[5] = next;
                             }
                         }
@@ -208,7 +208,7 @@ public class d {
         }
         for (i2 = 0; i2 < length; i2++) {
             if (aVarArr[i2] != null) {
-                return new Pair<>(aVarArr[i2], Integer.valueOf(f61798d[i2]));
+                return new Pair<>(aVarArr[i2], Integer.valueOf(f59458d[i2]));
             }
         }
         return null;
@@ -219,11 +219,11 @@ public class d {
             return null;
         }
         b();
-        synchronized (this.f61799b) {
-            Iterator<a> it = this.f61799b.iterator();
+        synchronized (this.f59459b) {
+            Iterator<a> it = this.f59459b.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next.f61803e > bVar.C()) {
+                if (next.f59463e > bVar.C()) {
                     return next;
                 }
             }
@@ -245,7 +245,7 @@ public class d {
             int i2 = 0;
             int i3 = 0;
             for (String str3 : split) {
-                String[] strArr = f61797c;
+                String[] strArr = f59457c;
                 int length = strArr.length;
                 int i4 = 0;
                 while (true) {
@@ -289,9 +289,9 @@ public class d {
 
     private void b() {
         long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.f61799b) {
-            Iterator<a> it = this.f61799b.iterator();
-            while (it.hasNext() && currentTimeMillis - it.next().f61803e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+        synchronized (this.f59459b) {
+            Iterator<a> it = this.f59459b.iterator();
+            while (it.hasNext() && currentTimeMillis - it.next().f59463e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
                 it.remove();
             }
         }

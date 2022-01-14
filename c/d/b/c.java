@@ -27,10 +27,10 @@ public final class c implements Closeable, Flushable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e0.g.e f28501e;
+    public final c.d.b.e0.g.e f27630e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.d.b.e0.g.d f28502f;
+    public final c.d.b.e0.g.d f27631f;
 
     /* loaded from: classes9.dex */
     public static class a extends c0 {
@@ -38,14 +38,14 @@ public final class c implements Closeable, Flushable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.c f28503e;
+        public final d.c f27632e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final BufferedSource f28504f;
+        public final BufferedSource f27633f;
         @Nullable
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f28505g;
+        public final String f27634g;
 
         @Override // c.d.b.c0
         public long c() {
@@ -53,8 +53,8 @@ public final class c implements Closeable, Flushable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    if (this.f28505g != null) {
-                        return Long.parseLong(this.f28505g);
+                    if (this.f27634g != null) {
+                        return Long.parseLong(this.f27634g);
                     }
                     return -1L;
                 } catch (NumberFormatException unused) {
@@ -68,47 +68,45 @@ public final class c implements Closeable, Flushable {
         public BufferedSource f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28504f : (BufferedSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27633f : (BufferedSource) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: k  reason: collision with root package name */
-        public static final String f28506k;
+        public static final String k;
         public static final String l;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final r f28507b;
+        public final r f27635b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28508c;
+        public final String f27636c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Protocol f28509d;
+        public final Protocol f27637d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f28510e;
+        public final int f27638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f28511f;
+        public final String f27639f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final r f28512g;
+        public final r f27640g;
         @Nullable
 
         /* renamed from: h  reason: collision with root package name */
-        public final q f28513h;
+        public final q f27641h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final long f28514i;
+        public final long f27642i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final long f28515j;
+        public final long f27643j;
 
         static {
             InterceptResult invokeClinit;
@@ -123,7 +121,7 @@ public final class c implements Closeable, Flushable {
                     return;
                 }
             }
-            f28506k = c.d.b.e0.n.g.m().n() + "-Sent-Millis";
+            k = c.d.b.e0.n.g.m().n() + "-Sent-Millis";
             l = c.d.b.e0.n.g.m().n() + "-Received-Millis";
         }
 
@@ -143,15 +141,15 @@ public final class c implements Closeable, Flushable {
                 }
             }
             this.a = b0Var.r().h().toString();
-            this.f28507b = c.d.b.e0.i.e.k(b0Var);
-            this.f28508c = b0Var.r().f();
-            this.f28509d = b0Var.p();
-            this.f28510e = b0Var.code();
-            this.f28511f = b0Var.l();
-            this.f28512g = b0Var.j();
-            this.f28513h = b0Var.f();
-            this.f28514i = b0Var.s();
-            this.f28515j = b0Var.q();
+            this.f27635b = c.d.b.e0.i.e.k(b0Var);
+            this.f27636c = b0Var.r().f();
+            this.f27637d = b0Var.p();
+            this.f27638e = b0Var.code();
+            this.f27639f = b0Var.l();
+            this.f27640g = b0Var.j();
+            this.f27641h = b0Var.f();
+            this.f27642i = b0Var.s();
+            this.f27643j = b0Var.q();
         }
 
         public final boolean a() {
@@ -180,26 +178,26 @@ public final class c implements Closeable, Flushable {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 BufferedSink buffer = Okio.buffer(aVar.d(0));
                 buffer.writeUtf8(this.a).writeByte(10);
-                buffer.writeUtf8(this.f28508c).writeByte(10);
-                buffer.writeDecimalLong(this.f28507b.g()).writeByte(10);
-                int g2 = this.f28507b.g();
+                buffer.writeUtf8(this.f27636c).writeByte(10);
+                buffer.writeDecimalLong(this.f27635b.g()).writeByte(10);
+                int g2 = this.f27635b.g();
                 for (int i2 = 0; i2 < g2; i2++) {
-                    buffer.writeUtf8(this.f28507b.e(i2)).writeUtf8(": ").writeUtf8(this.f28507b.h(i2)).writeByte(10);
+                    buffer.writeUtf8(this.f27635b.e(i2)).writeUtf8(": ").writeUtf8(this.f27635b.h(i2)).writeByte(10);
                 }
-                buffer.writeUtf8(new c.d.b.e0.i.k(this.f28509d, this.f28510e, this.f28511f).toString()).writeByte(10);
-                buffer.writeDecimalLong(this.f28512g.g() + 2).writeByte(10);
-                int g3 = this.f28512g.g();
+                buffer.writeUtf8(new c.d.b.e0.i.k(this.f27637d, this.f27638e, this.f27639f).toString()).writeByte(10);
+                buffer.writeDecimalLong(this.f27640g.g() + 2).writeByte(10);
+                int g3 = this.f27640g.g();
                 for (int i3 = 0; i3 < g3; i3++) {
-                    buffer.writeUtf8(this.f28512g.e(i3)).writeUtf8(": ").writeUtf8(this.f28512g.h(i3)).writeByte(10);
+                    buffer.writeUtf8(this.f27640g.e(i3)).writeUtf8(": ").writeUtf8(this.f27640g.h(i3)).writeByte(10);
                 }
-                buffer.writeUtf8(f28506k).writeUtf8(": ").writeDecimalLong(this.f28514i).writeByte(10);
-                buffer.writeUtf8(l).writeUtf8(": ").writeDecimalLong(this.f28515j).writeByte(10);
+                buffer.writeUtf8(k).writeUtf8(": ").writeDecimalLong(this.f27642i).writeByte(10);
+                buffer.writeUtf8(l).writeUtf8(": ").writeDecimalLong(this.f27643j).writeByte(10);
                 if (a()) {
                     buffer.writeByte(10);
-                    buffer.writeUtf8(this.f28513h.a().d()).writeByte(10);
-                    b(buffer, this.f28513h.e());
-                    b(buffer, this.f28513h.c());
-                    buffer.writeUtf8(this.f28513h.g().javaName()).writeByte(10);
+                    buffer.writeUtf8(this.f27641h.a().d()).writeByte(10);
+                    b(buffer, this.f27641h.e());
+                    b(buffer, this.f27641h.c());
+                    buffer.writeUtf8(this.f27641h.g().javaName()).writeByte(10);
                 }
                 buffer.close();
             }
@@ -221,14 +219,14 @@ public final class c implements Closeable, Flushable {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28502f.close();
+            this.f27631f.close();
         }
     }
 
     public void delete() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28502f.delete();
+            this.f27631f.delete();
         }
     }
 
@@ -236,7 +234,7 @@ public final class c implements Closeable, Flushable {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f28502f.flush();
+            this.f27631f.flush();
         }
     }
 
@@ -248,7 +246,7 @@ public final class c implements Closeable, Flushable {
         }
         b bVar = new b(b0Var2);
         try {
-            aVar = ((a) b0Var.a()).f28503e.a();
+            aVar = ((a) b0Var.a()).f27632e.a();
             if (aVar != null) {
                 try {
                     bVar.c(aVar);

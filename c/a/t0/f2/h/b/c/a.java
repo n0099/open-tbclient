@@ -18,16 +18,16 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f18118e;
+    public TbPageContext<?> f17678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f18119f;
+    public c f17679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f18120g;
+    public View.OnClickListener f17680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f18121h;
+    public List<String> f17681h;
 
     public a(TbPageContext<?> tbPageContext, c cVar, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f18118e = tbPageContext;
-        this.f18121h = new ArrayList();
-        this.f18119f = cVar;
-        this.f18121h = cVar.a();
-        this.f18120g = onClickListener;
+        this.f17678e = tbPageContext;
+        this.f17681h = new ArrayList();
+        this.f17679f = cVar;
+        this.f17681h = cVar.a();
+        this.f17680g = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,14 +57,14 @@ public class a extends BaseAdapter {
     public String getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f18121h.get(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f17681h.get(i2) : (String) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18121h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17681h.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -83,16 +83,16 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 bVar = new b();
-                view2 = bVar.a(this.f18118e.getPageActivity());
-                bVar.e(this.f18120g);
-                bVar.c(this.f18118e);
+                view2 = bVar.a(this.f17678e.getPageActivity());
+                bVar.e(this.f17680g);
+                bVar.c(this.f17678e);
             } else {
                 view2 = view;
                 bVar = (b) view.getTag();
             }
-            String str = this.f18121h.get(i2);
+            String str = this.f17681h.get(i2);
             bVar.d(str);
-            bVar.f(this.f18119f.b().equals(str));
+            bVar.f(this.f17679f.b().equals(str));
             return view2;
         }
         return (View) invokeILL.objValue;

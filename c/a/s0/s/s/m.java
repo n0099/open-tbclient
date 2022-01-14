@@ -39,34 +39,32 @@ public class m {
     public final AlertDialog.Builder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f13954b;
+    public final Activity f13630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13955c;
+    public boolean f13631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlertDialog f13956d;
+    public AlertDialog f13632d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13957e;
+    public View f13633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f13958f;
+    public CharSequence f13634f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CharSequence f13959g;
+    public CharSequence f13635g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f13960h;
+    public CharSequence f13636h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13961i;
+    public int f13637i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13962j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public MovementMethod f13963k;
+    public boolean f13638j;
+    public MovementMethod k;
     public View l;
     public TBAlertConfig.b m;
     public boolean n;
@@ -80,10 +78,10 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f13964e;
+        public final /* synthetic */ TextView f13639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f13965f;
+        public final /* synthetic */ View f13640f;
 
         public a(m mVar, TextView textView, View view) {
             Interceptable interceptable = $ic;
@@ -100,15 +98,15 @@ public class m {
                     return;
                 }
             }
-            this.f13964e = textView;
-            this.f13965f = view;
+            this.f13639e = textView;
+            this.f13640f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && UtilHelper.getDimenPixelSize(R.dimen.tbds868) == this.f13964e.getHeight()) {
-                this.f13965f.setVisibility(0);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && UtilHelper.getDimenPixelSize(R.dimen.tbds868) == this.f13639e.getHeight()) {
+                this.f13640f.setVisibility(0);
             }
         }
     }
@@ -119,7 +117,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f13966e;
+        public final /* synthetic */ m f13641e;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -136,16 +134,16 @@ public class m {
                     return;
                 }
             }
-            this.f13966e = mVar;
+            this.f13641e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13966e.f13956d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13641e.f13632d == null) {
                 return;
             }
-            this.f13966e.f13956d.dismiss();
+            this.f13641e.f13632d.dismiss();
         }
     }
 
@@ -155,7 +153,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f13967e;
+        public final /* synthetic */ m f13642e;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -172,18 +170,18 @@ public class m {
                     return;
                 }
             }
-            this.f13967e = mVar;
+            this.f13642e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f13967e.f13956d != null) {
-                    this.f13967e.f13956d.dismiss();
+                if (this.f13642e.f13632d != null) {
+                    this.f13642e.f13632d.dismiss();
                 }
-                if (this.f13967e.q != null) {
-                    this.f13967e.q.onClick(view);
+                if (this.f13642e.q != null) {
+                    this.f13642e.q.onClick(view);
                 }
             }
         }
@@ -204,9 +202,9 @@ public class m {
                 return;
             }
         }
-        this.f13961i = 17;
-        this.f13963k = ScrollingMovementMethod.getInstance();
-        this.f13954b = activity;
+        this.f13637i = 17;
+        this.k = ScrollingMovementMethod.getInstance();
+        this.f13630b = activity;
         this.a = new AlertDialog.Builder(activity);
     }
 
@@ -242,12 +240,12 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f13955c) {
-                this.f13955c = true;
+            if (!this.f13631c) {
+                this.f13631c = true;
                 t();
-                this.f13956d = this.a.create();
+                this.f13632d = this.a.create();
             }
-            return this.f13956d;
+            return this.f13632d;
         }
         return (AlertDialog) invokeV.objValue;
     }
@@ -286,7 +284,7 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) {
-            this.f13957e = view;
+            this.f13633e = view;
             return this;
         }
         return (m) invokeL.objValue;
@@ -296,7 +294,7 @@ public class m {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f13960h = TbadkCoreApplication.getInst().getResources().getString(i2);
+            this.f13636h = TbadkCoreApplication.getInst().getResources().getString(i2);
             return this;
         }
         return (m) invokeI.objValue;
@@ -306,7 +304,7 @@ public class m {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f13961i = i2;
+            this.f13637i = i2;
             return this;
         }
         return (m) invokeI.objValue;
@@ -316,7 +314,7 @@ public class m {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f13962j = z;
+            this.f13638j = z;
             return this;
         }
         return (m) invokeZ.objValue;
@@ -326,7 +324,7 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, movementMethod)) == null) {
-            this.f13963k = movementMethod;
+            this.k = movementMethod;
             return this;
         }
         return (m) invokeL.objValue;
@@ -336,7 +334,7 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.f13960h = charSequence;
+            this.f13636h = charSequence;
             return this;
         }
         return (m) invokeL.objValue;
@@ -373,7 +371,7 @@ public class m {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.f13959g = TbadkCoreApplication.getInst().getResources().getString(i2);
+            this.f13635g = TbadkCoreApplication.getInst().getResources().getString(i2);
             return this;
         }
         return (m) invokeI.objValue;
@@ -383,7 +381,7 @@ public class m {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            this.f13958f = TbadkCoreApplication.getInst().getResources().getString(i2);
+            this.f13634f = TbadkCoreApplication.getInst().getResources().getString(i2);
             return this;
         }
         return (m) invokeI.objValue;
@@ -393,7 +391,7 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
-            this.f13958f = charSequence;
+            this.f13634f = charSequence;
             return this;
         }
         return (m) invokeL.objValue;
@@ -402,50 +400,50 @@ public class m {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f13954b);
+            LinearLayout linearLayout = new LinearLayout(this.f13630b);
             linearLayout.setOrientation(1);
             linearLayout.setGravity(17);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            View view = this.f13957e;
+            View view = this.f13633e;
             if (view != null) {
                 if (view.getLayoutParams() == null) {
-                    linearLayout.addView(this.f13957e, new ViewGroup.LayoutParams(-1, -2));
+                    linearLayout.addView(this.f13633e, new ViewGroup.LayoutParams(-1, -2));
                 } else {
-                    linearLayout.addView(this.f13957e);
+                    linearLayout.addView(this.f13633e);
                 }
             }
-            LinearLayout linearLayout2 = new LinearLayout(this.f13954b);
+            LinearLayout linearLayout2 = new LinearLayout(this.f13630b);
             linearLayout2.setOrientation(1);
             linearLayout2.setGravity(17);
             linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(linearLayout2);
-            d2.m(this.f13957e == null ? 0 : 2);
+            d2.m(this.f13633e == null ? 0 : 2);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            TextView k2 = n.k(this.f13954b);
-            k2.setText(this.f13958f);
-            k2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-            linearLayout2.addView(k2);
-            CharSequence charSequence = this.f13959g;
+            TextView k = n.k(this.f13630b);
+            k.setText(this.f13634f);
+            k.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
+            linearLayout2.addView(k);
+            CharSequence charSequence = this.f13635g;
             if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
-                k2.setPadding(k2.getPaddingLeft(), k2.getPaddingTop(), k2.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                TextView k3 = n.k(this.f13954b);
-                k3.setText(this.f13959g);
-                k3.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-                linearLayout2.addView(k3);
+                k.setPadding(k.getPaddingLeft(), k.getPaddingTop(), k.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+                TextView k2 = n.k(this.f13630b);
+                k2.setText(this.f13635g);
+                k2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
+                linearLayout2.addView(k2);
             }
-            if (!TextUtils.isEmpty(this.f13960h)) {
-                RelativeLayout relativeLayout = new RelativeLayout(this.f13954b);
+            if (!TextUtils.isEmpty(this.f13636h)) {
+                RelativeLayout relativeLayout = new RelativeLayout(this.f13630b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = n.b(this.f13954b, this.f13962j);
-                b2.setText(this.f13960h);
-                b2.setGravity(this.f13961i);
+                TextView b2 = n.b(this.f13630b, this.f13638j);
+                b2.setText(this.f13636h);
+                b2.setGravity(this.f13637i);
                 b2.setId(R.id.desc);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
-                b2.setMovementMethod(this.f13963k);
+                b2.setMovementMethod(this.k);
                 relativeLayout.addView(b2, new ViewGroup.LayoutParams(-1, -2));
-                View view2 = new View(this.f13954b);
+                View view2 = new View(this.f13630b);
                 view2.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
                 layoutParams.addRule(8, R.id.desc);
@@ -462,11 +460,11 @@ public class m {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                linearLayout2.addView(n.i(this.f13954b, this.m, this.p));
+                linearLayout2.addView(n.i(this.f13630b, this.m, this.p));
             }
             linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {
-                ImageView imageView = new ImageView(this.f13954b);
+                ImageView imageView = new ImageView(this.f13630b);
                 imageView.setImageResource(R.drawable.icon_mask_pop_close);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds104), c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds105));
                 layoutParams2.setMargins(0, c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);

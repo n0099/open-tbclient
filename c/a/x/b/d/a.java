@@ -28,31 +28,31 @@ public class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f27393b;
+    public final boolean f26573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27394c;
+    public String f26574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f27395d;
+    public b f26575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f27396e;
+    public Context f26576e;
 
     /* renamed from: c.a.x.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1576a implements c.a.x.g.d.a<c> {
+    public class C1592a implements c.a.x.g.d.a<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f27397b;
+        public final /* synthetic */ int f26577b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f27398c;
+        public final /* synthetic */ a f26578c;
 
-        public C1576a(a aVar, String str, int i2) {
+        public C1592a(a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,9 +67,9 @@ public class a {
                     return;
                 }
             }
-            this.f27398c = aVar;
+            this.f26578c = aVar;
             this.a = str;
-            this.f27397b = i2;
+            this.f26577b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,25 +98,25 @@ public class a {
                 long currentTimeMillis = System.currentTimeMillis();
                 String str8 = "";
                 if (netResponse == null) {
-                    String string = this.f27398c.f27396e.getResources().getString(e.live_feed_net_error);
-                    this.f27398c.f27395d.b(-100, string, map);
+                    String string = this.f26578c.f26576e.getResources().getString(e.live_feed_net_error);
+                    this.f26578c.f26575d.b(-100, string, map);
                     str = "";
                     str2 = string;
                     i2 = -100;
                 } else if (!netResponse.isSuccessful() || cVar == null) {
-                    this.f27398c.f27395d.b(netResponse.netErrorCode, netResponse.exception, map);
+                    this.f26578c.f26575d.b(netResponse.netErrorCode, netResponse.exception, map);
                     int i3 = netResponse.netErrorCode;
                     str2 = netResponse.exception;
                     str = "";
                     i2 = i3;
                 } else {
-                    this.f27398c.f27395d.a(cVar, map);
+                    this.f26578c.f26575d.a(cVar, map);
                     c.a.x.b.f.b.a(list);
                     i2 = cVar.a;
-                    str2 = cVar.f27403b;
-                    str = cVar.f27404c;
+                    str2 = cVar.f26583b;
+                    str = cVar.f26584c;
                 }
-                String str9 = this.f27398c.f27393b ? "chenjinshi" : "zhibopindao";
+                String str9 = this.f26578c.f26573b ? "chenjinshi" : "zhibopindao";
                 if (map != null) {
                     String str10 = map.get("tab");
                     String str11 = map.get("subtab");
@@ -133,10 +133,10 @@ public class a {
                         if (str4.contains("tab")) {
                             str7 = "";
                         } else {
-                            str7 = (cVar == null || (gVar = cVar.f27408g) == null || (list2 = gVar.f27422c) == null || list2.isEmpty()) ? "1" : "0";
+                            str7 = (cVar == null || (gVar = cVar.f26588g) == null || (list2 = gVar.f26602c) == null || list2.isEmpty()) ? "1" : "0";
                         }
                         str8 = URLEncoder.encode(str4, "UTF-8");
-                        c.a.x.b.c.a.r(this.f27398c.f27396e, this.f27398c.a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                        c.a.x.b.c.a.r(this.f26578c.f26576e, this.f26578c.a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
                     }
                     str3 = str10;
                     str5 = str11;
@@ -151,7 +151,7 @@ public class a {
                 if (str4.contains("tab")) {
                 }
                 str8 = URLEncoder.encode(str4, "UTF-8");
-                c.a.x.b.c.a.r(this.f27398c.f27396e, this.f27398c.a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                c.a.x.b.c.a.r(this.f26578c.f26576e, this.f26578c.a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
             }
         }
 
@@ -165,7 +165,7 @@ public class a {
                 c cVar = new c();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
                     try {
-                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.a, this.f27397b);
+                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.a, this.f26577b);
                     } catch (JSONException e2) {
                         LiveFeedPageSdk.m(e2.getMessage());
                         if (TextUtils.equals("banner,tab,feed,follow,config", this.a)) {
@@ -201,10 +201,10 @@ public class a {
                 return;
             }
         }
-        this.f27396e = context;
+        this.f26576e = context;
         this.a = str;
-        this.f27393b = z;
-        this.f27394c = z ? "immer" : "tab";
+        this.f26573b = z;
+        this.f26574c = z ? "immer" : "tab";
     }
 
     public final void e(String str, String str2, int i2, String str3, String str4, String str5, int i3, String str6, List<String> list) {
@@ -212,7 +212,7 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3), str6, list}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("resource", str);
-            hashMap.put("scene", this.f27394c);
+            hashMap.put("scene", this.f26574c);
             if (str2 == null) {
                 str2 = "";
             }
@@ -224,7 +224,7 @@ public class a {
             hashMap.put("upload_ids", str6);
             hashMap.put("refresh_index", String.valueOf(i3));
             hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, System.currentTimeMillis() + "");
-            c.a.x.g.d.b.f("https://tiebac.baidu.com/livefeed/feed", hashMap, new C1576a(this, str, i2), 0, 0, null, list);
+            c.a.x.g.d.b.f("https://tiebac.baidu.com/livefeed/feed", hashMap, new C1592a(this, str, i2), 0, 0, null, list);
         }
     }
 
@@ -238,21 +238,21 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.x.b.f.b.b(), c.a.x.b.f.b.f27446b);
+            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.x.b.f.b.b(), c.a.x.b.f.b.f26624b);
         }
     }
 
     public void h(String str, String str2, int i2, String str3, String str4, String str5, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3)}) == null) {
-            e(str, str2, i2, str3, str4, str5, i3, c.a.x.b.f.b.b(), c.a.x.b.f.b.f27446b);
+            e(str, str2, i2, str3, str4, str5, i3, c.a.x.b.f.b.b(), c.a.x.b.f.b.f26624b);
         }
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f27395d = bVar;
+            this.f26575d = bVar;
         }
     }
 }

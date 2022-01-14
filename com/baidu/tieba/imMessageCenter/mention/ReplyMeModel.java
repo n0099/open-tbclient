@@ -23,13 +23,13 @@ public class ReplyMeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f47048e;
+    public TbPageContext f45305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f47049f;
+    public b f45306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f47050g;
+    public c.a.d.c.g.a f45307g;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -79,12 +79,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.f47048e.showToast(R.string.neterror);
+                this.a.f45305e.showToast(R.string.neterror);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.a.f47048e.showToast(responsedMessage.getErrorString());
+                    this.a.f45305e.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.f47048e.showToast(R.string.neterror);
+                    this.a.f45305e.showToast(R.string.neterror);
                 }
             } else {
                 if (z) {
@@ -109,16 +109,16 @@ public class ReplyMeModel extends BdBaseModel {
                         long j5 = repostId;
                         String str = forumName;
                         if (postState != 1) {
-                            if (this.a.f47049f != null) {
-                                this.a.f47049f.a(j3, j4, j5, str, j2);
+                            if (this.a.f45306f != null) {
+                                this.a.f45306f.a(j3, j4, j5, str, j2);
                                 return;
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.f47048e.showToast(R.string.thread_delete_tip);
+                            this.a.f45305e.showToast(R.string.thread_delete_tip);
                             return;
                         } else if (postState == -1) {
-                            this.a.f47048e.showToast(R.string.thread_shield_tip);
+                            this.a.f45305e.showToast(R.string.thread_shield_tip);
                             return;
                         } else {
                             return;
@@ -177,14 +177,14 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47048e = tbPageContext;
+        this.f45305e = tbPageContext;
         y();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f47049f = bVar;
+            this.f45306f = bVar;
         }
     }
 
@@ -210,21 +210,21 @@ public class ReplyMeModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f47050g == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f45307g == null) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f47050g);
+        MessageManager.getInstance().unRegisterListener(this.f45307g);
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a aVar = new a(this, CmdConfigHttp.CMD_CHECK_POST, 303010);
-            this.f47050g = aVar;
-            aVar.setTag(this.f47048e.getUniqueId());
-            this.f47050g.getHttpMessageListener().setSelfListener(true);
-            this.f47050g.getSocketMessageListener().setSelfListener(true);
-            this.f47048e.registerListener(this.f47050g);
+            this.f45307g = aVar;
+            aVar.setTag(this.f45305e.getUniqueId());
+            this.f45307g.getHttpMessageListener().setSelfListener(true);
+            this.f45307g.getSocketMessageListener().setSelfListener(true);
+            this.f45305e.registerListener(this.f45307g);
         }
     }
 
@@ -236,7 +236,7 @@ public class ReplyMeModel extends BdBaseModel {
             checkPostRequestMessage.setPostType(i2);
             checkPostRequestMessage.setForumName(str);
             checkPostRequestMessage.setTid(c.a.d.f.m.b.g(str2, 0L));
-            checkPostRequestMessage.setTag(this.f47048e.getUniqueId());
+            checkPostRequestMessage.setTag(this.f45305e.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;
                 checkPostRequestMessage.ori_ugc_tid = baijiahaoData.oriUgcTid;

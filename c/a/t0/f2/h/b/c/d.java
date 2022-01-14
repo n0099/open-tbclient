@@ -34,9 +34,9 @@ public class d extends m {
                 return;
             }
         }
-        this.f14531d = R.drawable.tail_edit_tool_color_selector;
-        this.f14533f = R.drawable.icon_pure_post_more_bubble64;
-        this.f14538k = new TailEditColorToolHost(tbPageContext, str);
+        this.f14191d = R.drawable.tail_edit_tool_color_selector;
+        this.f14193f = R.drawable.icon_pure_post_more_bubble64;
+        this.k = new TailEditColorToolHost(tbPageContext, str);
         this.m = true;
         this.l = 6;
         this.n = new int[]{1};

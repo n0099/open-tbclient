@@ -23,34 +23,34 @@ public class a {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f6564b;
+    public final String f6423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f6565c;
+    public final String f6424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SwanAppAlertDialog f6566d;
+    public SwanAppAlertDialog f6425d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f6567e;
+    public TextView f6426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f6568f;
+    public TextView f6427f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f6569g;
+    public f f6428g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f6570h;
+    public e f6429h;
 
     /* renamed from: c.a.r0.a.h0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0358a implements TextView.OnEditorActionListener {
+    public class C0367a implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0358a(a aVar) {
+        public C0367a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6571e;
+        public final /* synthetic */ a f6430e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -109,16 +109,16 @@ public class a {
                     return;
                 }
             }
-            this.f6571e = aVar;
+            this.f6430e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f6571e.f6570h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f6430e.f6429h == null) {
                 return;
             }
-            this.f6571e.f6570h.onCancel();
+            this.f6430e.f6429h.onCancel();
         }
     }
 
@@ -128,7 +128,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6572e;
+        public final /* synthetic */ a f6431e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -145,16 +145,16 @@ public class a {
                     return;
                 }
             }
-            this.f6572e = aVar;
+            this.f6431e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || this.f6572e.f6570h == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || this.f6431e.f6429h == null) {
                 return;
             }
-            this.f6572e.f6570h.onCancel();
+            this.f6431e.f6429h.onCancel();
         }
     }
 
@@ -164,7 +164,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6573e;
+        public final /* synthetic */ a f6432e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -181,14 +181,14 @@ public class a {
                     return;
                 }
             }
-            this.f6573e = aVar;
+            this.f6432e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f6573e.f();
+                this.f6432e.f();
             }
         }
     }
@@ -219,8 +219,8 @@ public class a {
             }
         }
         this.a = context;
-        this.f6564b = str;
-        this.f6565c = str2;
+        this.f6423b = str;
+        this.f6424c = str2;
         c();
     }
 
@@ -228,11 +228,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(g.aiapps_browser_http_authentication, (ViewGroup) null);
-            this.f6567e = (TextView) inflate.findViewById(c.a.r0.a.f.username_edit);
+            this.f6426e = (TextView) inflate.findViewById(c.a.r0.a.f.username_edit);
             TextView textView = (TextView) inflate.findViewById(c.a.r0.a.f.password_edit);
-            this.f6568f = textView;
-            textView.setOnEditorActionListener(new C0358a(this));
-            String replace = this.a.getText(h.aiapps_sign_in_to).toString().replace("[(s1)]", this.f6564b).replace("[(s2)]", this.f6565c);
+            this.f6427f = textView;
+            textView.setOnEditorActionListener(new C0367a(this));
+            String replace = this.a.getText(h.aiapps_sign_in_to).toString().replace("[(s1)]", this.f6423b).replace("[(s2)]", this.f6424c);
             SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.a);
             aVar.V(replace);
             aVar.u(17301543);
@@ -241,7 +241,7 @@ public class a {
             aVar.B(h.aiapps_cancel, new c(this));
             aVar.K(new b(this));
             SwanAppAlertDialog c2 = aVar.c();
-            this.f6566d = c2;
+            this.f6425d = c2;
             c2.getWindow().setSoftInputMode(4);
         }
     }
@@ -249,43 +249,43 @@ public class a {
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6568f.getText().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6427f.getText().toString() : (String) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6567e.getText().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6426e.getText().toString() : (String) invokeV.objValue;
     }
 
     public final void f() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fVar = this.f6569g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fVar = this.f6428g) == null) {
             return;
         }
-        fVar.a(this.f6564b, this.f6565c, e(), d());
+        fVar.a(this.f6423b, this.f6424c, e(), d());
     }
 
     public void g(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f6570h = eVar;
+            this.f6429h = eVar;
         }
     }
 
     public void h(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f6569g = fVar;
+            this.f6428g = fVar;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f6566d.show();
-            this.f6567e.requestFocus();
+            this.f6425d.show();
+            this.f6426e.requestFocus();
         }
     }
 }

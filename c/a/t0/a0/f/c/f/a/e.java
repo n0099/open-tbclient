@@ -33,7 +33,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f14802b;
+        public final /* synthetic */ e f14450b;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
                     return;
                 }
             }
-            this.f14802b = eVar;
+            this.f14450b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,14 +59,14 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
         public void a(View view, c.a.t0.a0.f.c.f.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, bVar) == null) {
-                this.f14802b.a0(bVar);
+                this.f14450b.a0(bVar);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.f.b.b.f14804k);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.f.b.b.k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
-        String str = bVar.f14805e;
+        String str = bVar.f14452e;
         if (StringUtils.isNull(str) || c.a.d.f.m.b.g(str, 0L) == 0) {
             return;
         }

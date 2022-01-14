@@ -14,7 +14,7 @@ public class i implements SensorEventListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f26831e;
+    public a f26036e;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -36,7 +36,7 @@ public class i implements SensorEventListener {
                 return;
             }
         }
-        this.f26831e = aVar;
+        this.f26036e = aVar;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -64,7 +64,7 @@ public class i implements SensorEventListener {
             if (round < 0) {
                 round += 360;
             }
-            a aVar = this.f26831e;
+            a aVar = this.f26036e;
             if (aVar != null) {
                 aVar.a(round);
             }

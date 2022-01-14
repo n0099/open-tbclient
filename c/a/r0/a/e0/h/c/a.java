@@ -41,48 +41,46 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f5869e;
+    public InputStream f5740e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OutputStream f5870f;
+    public OutputStream f5741f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.a.e0.h.d.a f5871g;
+    public c.a.r0.a.e0.h.d.a f5742g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinkedBlockingQueue<String> f5872h;
+    public LinkedBlockingQueue<String> f5743h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InspectorNativeClient f5873i;
+    public InspectorNativeClient f5744i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.a.l0.a f5874j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public a.b f5875k;
+    public c.a.r0.a.l0.a f5745j;
+    public a.b k;
 
     /* renamed from: c.a.r0.a.e0.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0297a implements a.InterfaceC0301a {
+    public class C0306a implements a.InterfaceC0310a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* renamed from: c.a.r0.a.e0.h.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0298a implements Runnable {
+        public class RunnableC0307a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0297a f5876e;
+            public final /* synthetic */ C0306a f5746e;
 
-            public RunnableC0298a(C0297a c0297a) {
+            public RunnableC0307a(C0306a c0306a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0297a};
+                    Object[] objArr = {c0306a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -92,18 +90,18 @@ public class a implements Runnable {
                         return;
                     }
                 }
-                this.f5876e = c0297a;
+                this.f5746e = c0306a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.f5876e.a.f5872h.poll();
+                    String str = (String) this.f5746e.a.f5743h.poll();
                     while (str != null) {
-                        this.f5876e.a.f5873i.dispatchProtocolMessage(str);
-                        this.f5876e.d(str);
-                        str = (String) this.f5876e.a.f5872h.poll();
+                        this.f5746e.a.f5744i.dispatchProtocolMessage(str);
+                        this.f5746e.d(str);
+                        str = (String) this.f5746e.a.f5743h.poll();
                     }
                 }
             }
@@ -116,14 +114,14 @@ public class a implements Runnable {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0297a f5877e;
+            public final /* synthetic */ C0306a f5747e;
 
-            public b(C0297a c0297a) {
+            public b(C0306a c0306a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0297a};
+                    Object[] objArr = {c0306a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -133,21 +131,21 @@ public class a implements Runnable {
                         return;
                     }
                 }
-                this.f5877e = c0297a;
+                this.f5747e = c0306a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f5877e.a.f5875k.onConnected();
-                    this.f5877e.a.f5875k = null;
+                    this.f5747e.a.k.onConnected();
+                    this.f5747e.a.k = null;
                     int unused = a.m = 2;
                 }
             }
         }
 
-        public C0297a(a aVar) {
+        public C0306a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,16 +163,16 @@ public class a implements Runnable {
             this.a = aVar;
         }
 
-        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0301a
+        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0310a
         public void a(WebSocketFrame webSocketFrame) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
-                this.a.f5872h.offer(webSocketFrame.g());
-                this.a.f5874j.postOnJSThread(new RunnableC0298a(this));
+                this.a.f5743h.offer(webSocketFrame.g());
+                this.a.f5745j.postOnJSThread(new RunnableC0307a(this));
             }
         }
 
-        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0301a
+        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0310a
         public void b(IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
@@ -185,7 +183,7 @@ public class a implements Runnable {
 
         public final void d(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || this.a.f5875k == null || a.m == 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || this.a.k == null || a.m == 2) {
                 return;
             }
             try {
@@ -201,7 +199,7 @@ public class a implements Runnable {
             }
         }
 
-        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0301a
+        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0310a
         public void onClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -210,21 +208,21 @@ public class a implements Runnable {
             }
         }
 
-        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0301a
+        @Override // c.a.r0.a.e0.h.d.a.InterfaceC0310a
         public void onOpen() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 c.a.r0.a.e0.d.i("ClientHandler", "V8 inspector opened");
                 c.a.r0.a.h0.l.a W = g.U().W();
                 if (W instanceof e) {
-                    this.a.f5874j = (c.a.r0.a.l0.a) W.g();
+                    this.a.f5745j = (c.a.r0.a.l0.a) W.g();
                 }
-                if (this.a.f5874j != null) {
-                    if (this.a.f5873i != null) {
-                        this.a.f5873i.destroy();
+                if (this.a.f5745j != null) {
+                    if (this.a.f5744i != null) {
+                        this.a.f5744i.destroy();
                     }
                     a aVar = this.a;
-                    aVar.f5873i = aVar.f5874j.t0(new b(this.a));
+                    aVar.f5744i = aVar.f5745j.t0(new b(this.a));
                     int unused = a.m = 1;
                     return;
                 }
@@ -265,7 +263,7 @@ public class a implements Runnable {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 boolean unused = a.l;
                 try {
-                    return (String) this.a.f5872h.take();
+                    return (String) this.a.f5743h.take();
                 } catch (InterruptedException unused2) {
                     boolean unused3 = a.l;
                     return "";
@@ -279,7 +277,7 @@ public class a implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 try {
-                    this.a.f5871g.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
+                    this.a.f5742g.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
                 } catch (Exception unused) {
                     boolean unused2 = a.l;
                 }
@@ -318,9 +316,9 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f5872h = new LinkedBlockingQueue<>();
-        this.f5869e = inputStream;
-        this.f5870f = outputStream;
+        this.f5743h = new LinkedBlockingQueue<>();
+        this.f5740e = inputStream;
+        this.f5741f = outputStream;
     }
 
     public static String n(String str) {
@@ -340,28 +338,28 @@ public class a implements Runnable {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinkedBlockingQueue<String> linkedBlockingQueue = this.f5872h;
+            LinkedBlockingQueue<String> linkedBlockingQueue = this.f5743h;
             if (linkedBlockingQueue != null) {
                 linkedBlockingQueue.clear();
-                this.f5872h = null;
+                this.f5743h = null;
             }
-            InspectorNativeClient inspectorNativeClient = this.f5873i;
+            InspectorNativeClient inspectorNativeClient = this.f5744i;
             if (inspectorNativeClient != null) {
                 inspectorNativeClient.destroy();
-                this.f5873i = null;
+                this.f5744i = null;
             }
-            InputStream inputStream = this.f5869e;
+            InputStream inputStream = this.f5740e;
             if (inputStream != null) {
                 c.a.r0.w.d.d(inputStream);
-                this.f5869e = null;
+                this.f5740e = null;
             }
-            OutputStream outputStream = this.f5870f;
+            OutputStream outputStream = this.f5741f;
             if (outputStream != null) {
                 c.a.r0.w.d.d(outputStream);
-                this.f5870f = null;
+                this.f5741f = null;
             }
-            this.f5871g = null;
-            this.f5874j = null;
+            this.f5742g = null;
+            this.f5745j = null;
             m = 3;
         }
     }
@@ -377,13 +375,13 @@ public class a implements Runnable {
                 }
                 StringTokenizer stringTokenizer = new StringTokenizer(readLine);
                 if (stringTokenizer.hasMoreTokens()) {
-                    aVar.f5892b = stringTokenizer.nextToken();
+                    aVar.f5762b = stringTokenizer.nextToken();
                     if (stringTokenizer.hasMoreTokens()) {
-                        aVar.f5893c = n(stringTokenizer.nextToken());
+                        aVar.f5763c = n(stringTokenizer.nextToken());
                         if (stringTokenizer.hasMoreTokens()) {
-                            aVar.f5894d = stringTokenizer.nextToken();
+                            aVar.f5764d = stringTokenizer.nextToken();
                         } else {
-                            aVar.f5894d = "HTTP/1.1";
+                            aVar.f5764d = "HTTP/1.1";
                             boolean z = l;
                         }
                         String readLine2 = bufferedReader.readLine();
@@ -411,7 +409,7 @@ public class a implements Runnable {
     public void o(a.b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && m == 0) {
-            this.f5875k = bVar;
+            this.k = bVar;
         }
     }
 
@@ -421,26 +419,26 @@ public class a implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f5869e));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f5740e));
                     c.a aVar = new c.a();
                     m(bufferedReader, aVar);
-                    d.a(aVar).e(this.f5870f);
-                    if (aVar.f5895e) {
+                    d.a(aVar).e(this.f5741f);
+                    if (aVar.f5765e) {
                         if (m != 0 && m != 3) {
                             c.a.r0.a.c2.b.f.e.f(c.a.r0.a.c1.a.c(), h.aiapps_debug_inspect_doing).G();
                             return;
                         }
                         c.a.r0.a.e0.h.d.a aVar2 = new c.a.r0.a.e0.h.d.a();
-                        this.f5871g = aVar2;
-                        aVar2.k(new C0297a(this));
-                        this.f5871g.h(this.f5869e, this.f5870f);
+                        this.f5742g = aVar2;
+                        aVar2.k(new C0306a(this));
+                        this.f5742g.h(this.f5740e, this.f5741f);
                     }
                 } catch (RuntimeException unused) {
                     boolean z = l;
                 }
             } finally {
-                c.a.r0.w.d.d(this.f5869e);
-                c.a.r0.w.d.d(this.f5870f);
+                c.a.r0.w.d.d(this.f5740e);
+                c.a.r0.w.d.d(this.f5741f);
             }
         }
     }

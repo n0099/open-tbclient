@@ -28,25 +28,25 @@ public class g0 extends q<TTRewardVideoAd> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g0 f29069b;
+        public final /* synthetic */ g0 f28180b;
 
         /* renamed from: c.g.b0.a.g0$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1630a implements TTRewardVideoAd.RewardAdInteractionListener {
+        public class C1646a implements TTRewardVideoAd.RewardAdInteractionListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public boolean a;
 
             /* renamed from: b  reason: collision with root package name */
-            public boolean f29070b;
+            public boolean f28181b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ TTRewardVideoAd f29071c;
+            public final /* synthetic */ TTRewardVideoAd f28182c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f29072d;
+            public final /* synthetic */ a f28183d;
 
-            public C1630a(a aVar, TTRewardVideoAd tTRewardVideoAd) {
+            public C1646a(a aVar, TTRewardVideoAd tTRewardVideoAd) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,8 +61,8 @@ public class g0 extends q<TTRewardVideoAd> {
                         return;
                     }
                 }
-                this.f29072d = aVar;
-                this.f29071c = tTRewardVideoAd;
+                this.f28183d = aVar;
+                this.f28182c = tTRewardVideoAd;
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
@@ -70,7 +70,7 @@ public class g0 extends q<TTRewardVideoAd> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     LogPrinter.d("second adClose", new Object[0]);
-                    this.f29072d.f29069b.onAdClose();
+                    this.f28183d.f28180b.onAdClose();
                 }
             }
 
@@ -79,7 +79,7 @@ public class g0 extends q<TTRewardVideoAd> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     LogPrinter.d("second adshow", new Object[0]);
-                    this.f29072d.f29069b.onAdShow(this.f29071c, this.a);
+                    this.f28183d.f28180b.onAdShow(this.f28182c, this.a);
                     this.a = true;
                 }
             }
@@ -89,8 +89,8 @@ public class g0 extends q<TTRewardVideoAd> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                     LogPrinter.d("second Adclick", new Object[0]);
-                    this.f29072d.f29069b.onAdClicked(this.f29070b);
-                    this.f29070b = true;
+                    this.f28183d.f28180b.onAdClicked(this.f28181b);
+                    this.f28181b = true;
                 }
             }
 
@@ -99,7 +99,7 @@ public class g0 extends q<TTRewardVideoAd> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
                     LogPrinter.d("second onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i2), str, Integer.valueOf(i3), str2);
-                    this.f29072d.f29069b.onRewardedVideo(z);
+                    this.f28183d.f28180b.onRewardedVideo(z);
                 }
             }
 
@@ -124,7 +124,7 @@ public class g0 extends q<TTRewardVideoAd> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                     LogPrinter.d("second onVideoError", new Object[0]);
-                    this.f29072d.f29069b.onAdError(0, "second:onVideoError");
+                    this.f28183d.f28180b.onAdError(0, "second:onVideoError");
                 }
             }
         }
@@ -144,7 +144,7 @@ public class g0 extends q<TTRewardVideoAd> {
                     return;
                 }
             }
-            this.f29069b = g0Var;
+            this.f28180b = g0Var;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
@@ -155,7 +155,7 @@ public class g0 extends q<TTRewardVideoAd> {
                 if (this.a) {
                     return;
                 }
-                this.f29069b.onError(i2, str);
+                this.f28180b.onError(i2, str);
             }
         }
 
@@ -165,8 +165,8 @@ public class g0 extends q<TTRewardVideoAd> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
                 this.a = true;
                 LogPrinter.d();
-                this.f29069b.onAdLoaded((g0) tTRewardVideoAd);
-                tTRewardVideoAd.setRewardPlayAgainInteractionListener(new C1630a(this, tTRewardVideoAd));
+                this.f28180b.onAdLoaded((g0) tTRewardVideoAd);
+                tTRewardVideoAd.setRewardPlayAgainInteractionListener(new C1646a(this, tTRewardVideoAd));
             }
         }
 
@@ -221,7 +221,7 @@ public class g0 extends q<TTRewardVideoAd> {
             super.loadInternal(context, funAdSlot);
             AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setRewardName("Coin").setRewardAmount(1).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setUserID(null).setOrientation(this.mPid.isHorizontal ? 2 : 1).setMediaExtra("media_extra").build();
             onLoadStart(funAdSlot);
-            this.f29107h.loadRewardVideoAd(build, new a(this));
+            this.f28217h.loadRewardVideoAd(build, new a(this));
         }
     }
 

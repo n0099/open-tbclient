@@ -34,16 +34,16 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f50915e;
+    public TextView f48977e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f50916f;
+    public ImageView f48978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f50917g;
+    public TBSpecificationBtn f48979g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f50918h;
+    public a f48980h;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -79,31 +79,31 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
             View findViewById = inflate.findViewById(f.attention_emotion_pic);
             if (findViewById != null) {
-                this.f50916f = (ImageView) findViewById;
+                this.f48978f = (ImageView) findViewById;
                 View findViewById2 = inflate.findViewById(f.attention_not_login_text);
                 if (findViewById2 != null) {
-                    this.f50915e = (TextView) findViewById2;
+                    this.f48977e = (TextView) findViewById2;
                     View findViewById3 = inflate.findViewById(f.attention_login_btn);
                     if (findViewById3 != null) {
-                        this.f50917g = (TBSpecificationBtn) findViewById3;
-                        c.a.s0.s.i0.n.a aVar = new c.a.s0.s.i0.n.a();
-                        TBSpecificationBtn tBSpecificationBtn = this.f50917g;
+                        this.f48979g = (TBSpecificationBtn) findViewById3;
+                        c.a.s0.s.j0.n.a aVar = new c.a.s0.s.j0.n.a();
+                        TBSpecificationBtn tBSpecificationBtn = this.f48979g;
                         if (tBSpecificationBtn != null) {
                             tBSpecificationBtn.setText(context.getString(i.click_here_to_login));
                         }
-                        TBSpecificationBtn tBSpecificationBtn2 = this.f50917g;
+                        TBSpecificationBtn tBSpecificationBtn2 = this.f48979g;
                         if (tBSpecificationBtn2 != null) {
                             tBSpecificationBtn2.setTextSize(d.T_X06);
                         }
-                        TBSpecificationBtn tBSpecificationBtn3 = this.f50917g;
+                        TBSpecificationBtn tBSpecificationBtn3 = this.f48979g;
                         if (tBSpecificationBtn3 != null) {
                             tBSpecificationBtn3.setTextHorizontalCenter(true);
                         }
-                        TBSpecificationBtn tBSpecificationBtn4 = this.f50917g;
+                        TBSpecificationBtn tBSpecificationBtn4 = this.f48979g;
                         if (tBSpecificationBtn4 != null) {
                             tBSpecificationBtn4.setConfig(aVar);
                         }
-                        TBSpecificationBtn tBSpecificationBtn5 = this.f50917g;
+                        TBSpecificationBtn tBSpecificationBtn5 = this.f48979g;
                         if (tBSpecificationBtn5 == null) {
                             return;
                         }
@@ -121,15 +121,15 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final a getOnAttentionLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50918h : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48980h : (a) invokeV.objValue;
     }
 
     public final void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setImageResource(this.f50916f, e.new_pic_emotion_09, 4);
-            SkinManager.setViewTextColor(this.f50915e, c.CAM_X0107, 1, 4);
-            TBSpecificationBtn tBSpecificationBtn = this.f50917g;
+            SkinManager.setImageResource(this.f48978f, e.new_pic_emotion_09, 4);
+            SkinManager.setViewTextColor(this.f48977e, c.CAM_X0107, 1, 4);
+            TBSpecificationBtn tBSpecificationBtn = this.f48979g;
             if (tBSpecificationBtn == null) {
                 return;
             }
@@ -147,7 +147,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                 if (!checkUpIsLogin) {
                     TbSingleton.loginFrom = 1;
                 }
-                a aVar = this.f50918h;
+                a aVar = this.f48980h;
                 if (aVar == null) {
                     return;
                 }
@@ -159,7 +159,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final void setOnAttentionLogin(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f50918h = aVar;
+            this.f48980h = aVar;
         }
     }
 

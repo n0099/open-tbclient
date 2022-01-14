@@ -13,20 +13,20 @@ public class a extends BasePendingOperation {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC0583a f9518e;
+    public InterfaceC0592a f9312e;
 
     /* renamed from: c.a.r0.a.u.f.b.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0583a {
+    public interface InterfaceC0592a {
         void a();
     }
 
-    public a(InterfaceC0583a interfaceC0583a) {
+    public a(InterfaceC0592a interfaceC0592a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0583a};
+            Object[] objArr = {interfaceC0592a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,7 +36,7 @@ public class a extends BasePendingOperation {
                 return;
             }
         }
-        this.f9518e = interfaceC0583a;
+        this.f9312e = interfaceC0592a;
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
@@ -58,11 +58,11 @@ public class a extends BasePendingOperation {
 
     @Override // java.lang.Runnable
     public void run() {
-        InterfaceC0583a interfaceC0583a;
+        InterfaceC0592a interfaceC0592a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0583a = this.f9518e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0592a = this.f9312e) == null) {
             return;
         }
-        interfaceC0583a.a();
+        interfaceC0592a.a();
     }
 }

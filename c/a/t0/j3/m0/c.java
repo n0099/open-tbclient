@@ -31,13 +31,11 @@ public class c extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f18973i;
+    public RelativeLayout f18496i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RoundTbImageView f18974j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f18975k;
+    public RoundTbImageView f18497j;
+    public TextView k;
     public TextView l;
     public ApkDownloadView m;
     public TextView n;
@@ -81,7 +79,7 @@ public class c extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18976e;
+        public final /* synthetic */ c f18498e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -98,34 +96,34 @@ public class c extends g {
                     return;
                 }
             }
-            this.f18976e = cVar;
+            this.f18498e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             View.OnClickListener onClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f18976e.f18998h) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f18498e.f18518h) == null) {
                 return;
             }
             onClickListener.onClick(view);
-            this.f18976e.o.countStop();
+            this.f18498e.o.countStop();
         }
     }
 
     /* renamed from: c.a.t0.j3.m0.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1139c implements View.OnClickListener {
+    public class View$OnClickListenerC1153c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.j3.i0.b.g f18977e;
+        public final /* synthetic */ c.a.t0.j3.i0.b.g f18499e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18978f;
+        public final /* synthetic */ c f18500f;
 
-        public View$OnClickListenerC1139c(c cVar, c.a.t0.j3.i0.b.g gVar) {
+        public View$OnClickListenerC1153c(c cVar, c.a.t0.j3.i0.b.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,8 +138,8 @@ public class c extends g {
                     return;
                 }
             }
-            this.f18978f = cVar;
-            this.f18977e = gVar;
+            this.f18500f = cVar;
+            this.f18499e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -149,22 +147,22 @@ public class c extends g {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f18977e.f18880d;
-                if (z.C(this.f18978f.f18994d, str)) {
+                String str = this.f18499e.f18410d;
+                if (z.C(this.f18500f.f18514d, str)) {
                     i2 = 3;
                 } else {
-                    AdvertAppInfo advertAppInfo = this.f18978f.f18994d;
-                    i2 = z.e(this.f18978f.f18996f, str, advertAppInfo.V4() ? this.f18978f.f18994d.getDownloadId() : this.f18978f.f18994d.f4, advertAppInfo.m4, this.f18977e.f18886j);
+                    AdvertAppInfo advertAppInfo = this.f18500f.f18514d;
+                    i2 = z.e(this.f18500f.f18516f, str, advertAppInfo.V4() ? this.f18500f.f18514d.getDownloadId() : this.f18500f.f18514d.f4, advertAppInfo.m4, this.f18499e.f18416j);
                 }
                 if (i2 == 0) {
                     return;
                 }
-                AdvertAppInfo advertAppInfo2 = this.f18978f.f18994d;
+                AdvertAppInfo advertAppInfo2 = this.f18500f.f18514d;
                 c.a.t0.j3.l0.c b2 = c.a.t0.j3.l0.g.b(advertAppInfo2, 2, advertAppInfo2.position);
                 b2.h("VIDEO_FLOW_TAIL");
                 c.a.t0.j3.l0.e.b().d(b2);
-                c.a.t0.x1.o.h.c.h(c.a.t0.x1.o.h.c.e(this.f18978f.f18994d));
-                this.f18978f.o.countStop();
+                c.a.t0.x1.o.h.c.h(c.a.t0.x1.o.h.c.e(this.f18500f.f18514d));
+                this.f18500f.o.countStop();
             }
         }
     }
@@ -198,8 +196,8 @@ public class c extends g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                c.a.t0.v.a.a(this.a.f18997g.getButtonCmdScheme());
-                c.a.t0.x1.o.h.c.h(c.a.t0.x1.o.h.c.e(this.a.f18994d));
+                c.a.t0.v.a.a(this.a.f18517g.getButtonCmdScheme());
+                c.a.t0.x1.o.h.c.h(c.a.t0.x1.o.h.c.e(this.a.f18514d));
                 return false;
             }
             return invokeL.booleanValue;
@@ -236,18 +234,18 @@ public class c extends g {
             if (gVar == null) {
                 return;
             }
-            this.f18974j.startLoad(gVar.f18879c, 30, false);
-            this.f18975k.setText(gVar.f18878b);
-            this.l.setText(gVar.f18885i);
+            this.f18497j.startLoad(gVar.f18409c, 30, false);
+            this.k.setText(gVar.f18408b);
+            this.l.setText(gVar.f18415i);
             this.n.setOnClickListener(new b(this));
-            this.o.setFormatString(this.f18996f.getResources().getString(R.string.ad_video_flow_count_down));
-            this.f18973i.setOnClickListener(new View$OnClickListenerC1139c(this, gVar));
-            AdvertAppInfo advertAppInfo = this.f18994d;
-            if (advertAppInfo == null || this.f18997g == null || !advertAppInfo.V4()) {
+            this.o.setFormatString(this.f18516f.getResources().getString(R.string.ad_video_flow_count_down));
+            this.f18496i.setOnClickListener(new View$OnClickListenerC1153c(this, gVar));
+            AdvertAppInfo advertAppInfo = this.f18514d;
+            if (advertAppInfo == null || this.f18517g == null || !advertAppInfo.V4()) {
                 return;
             }
-            this.p.setAd(this.f18994d);
-            this.p.setAppInfo(this.f18994d.n4.getAppInfoModel());
+            this.p.setAd(this.f18514d);
+            this.p.setAppInfo(this.f18514d.n4.getAppInfoModel());
             q();
             r();
         }
@@ -261,7 +259,7 @@ public class c extends g {
             this.o.update(5);
             this.o.startCountDown();
             s();
-            AdvertAppInfo advertAppInfo = this.f18994d;
+            AdvertAppInfo advertAppInfo = this.f18514d;
             c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.b(advertAppInfo, 103, advertAppInfo.position));
         }
     }
@@ -296,14 +294,14 @@ public class c extends g {
         if (z.r(b2.getPkgName())) {
             b2.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
         }
-        AdCard adCard = this.f18997g;
+        AdCard adCard = this.f18517g;
         if (adCard != null && adCard.getAdvertAppInfo() != null) {
-            String str = this.f18997g.getAdvertAppInfo().p4;
-            b2.setExtInfo(this.f18997g.getAdvertAppInfo().m4);
-            b2.setDownloadKey(this.f18997g.getDownloadKey());
+            String str = this.f18517g.getAdvertAppInfo().p4;
+            b2.setExtInfo(this.f18517g.getAdvertAppInfo().m4);
+            b2.setDownloadKey(this.f18517g.getDownloadKey());
             b2.setPage(str);
-            b2.setDeeplinkUrl(this.f18997g.scheme);
-            b2.setCmdScheme(this.f18997g.cmdScheme);
+            b2.setDeeplinkUrl(this.f18517g.scheme);
+            b2.setCmdScheme(this.f18517g.cmdScheme);
         }
         c.a.t0.v.g.e d2 = c.a.t0.v.g.e.d();
         ApkDownloadView apkDownloadView = this.m;
@@ -319,10 +317,10 @@ public class c extends g {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f18992b.setOnClickListener(new a(this));
-            this.f18973i = (RelativeLayout) b(R.id.ad_container);
-            this.f18974j = (RoundTbImageView) b(R.id.user_head);
-            this.f18975k = (TextView) b(R.id.user_name);
+            this.f18512b.setOnClickListener(new a(this));
+            this.f18496i = (RelativeLayout) b(R.id.ad_container);
+            this.f18497j = (RoundTbImageView) b(R.id.user_head);
+            this.k = (TextView) b(R.id.user_name);
             this.l = (TextView) b(R.id.user_content);
             this.m = (ApkDownloadView) b(R.id.download_btn);
             this.n = (TextView) b(R.id.replay_btn);
@@ -341,13 +339,13 @@ public class c extends g {
     public final void q() {
         AdCard adCard;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (adCard = this.f18997g) == null || adCard.downloadInfo == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (adCard = this.f18517g) == null || adCard.downloadInfo == null) {
             return;
         }
-        this.m.setInitText(adCard.operate.f18860b);
-        AdCard adCard2 = this.f18997g;
+        this.m.setInitText(adCard.operate.f18390b);
+        AdCard adCard2 = this.f18517g;
         String str = adCard2.downloadInfo.a;
-        DownloadData t = t(this.f18997g, adCard2.getPosition());
+        DownloadData t = t(this.f18517g, adCard2.getPosition());
         if (z.r(str)) {
             t.setStatus(8);
         } else {
@@ -361,7 +359,7 @@ public class c extends g {
         DownloadCacheKey i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            AdCard adCard = this.f18997g;
+            AdCard adCard = this.f18517g;
             String str = adCard.scheme;
             String downloadId = adCard.getDownloadId();
             if (!TextUtils.isEmpty(downloadId)) {
@@ -370,8 +368,8 @@ public class c extends g {
                 i2 = c.a.t0.v.g.e.d().i(str);
             }
             if (i2 == null) {
-                c.a.t0.j3.i0.b.b bVar = this.f18997g.downloadInfo;
-                i2 = DownloadCacheKey.create(downloadId, bVar.f18863b, bVar.a);
+                c.a.t0.j3.i0.b.b bVar = this.f18517g.downloadInfo;
+                i2 = DownloadCacheKey.create(downloadId, bVar.f18393b, bVar.a);
                 c.a.t0.v.g.e.d().j(i2, null);
             }
             o(i2);
@@ -391,7 +389,7 @@ public class c extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, adCard, i2)) == null) {
             DownloadData downloadData = new DownloadData(adCard.getDownloadId());
-            downloadData.setUrl(adCard.downloadInfo.f18863b);
+            downloadData.setUrl(adCard.downloadInfo.f18393b);
             downloadData.setName(adCard.userName);
             downloadData.setPosition(i2);
             downloadData.setNotifyId(c.a.d.f.m.b.e(adCard.adId, 0));

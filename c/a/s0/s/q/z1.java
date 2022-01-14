@@ -7,40 +7,144 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
-public class z1 implements c.a.s0.s.i0.o.c.b {
+public class z1 implements c.a.t0.t3.h.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13864b;
+    public List<a> f13549b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f13865c;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f13866d;
+        /* renamed from: b  reason: collision with root package name */
+        public int f13550b;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f13867e;
+        /* renamed from: c  reason: collision with root package name */
+        public String f13551c;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f13868f;
+        /* renamed from: d  reason: collision with root package name */
+        public String f13552d;
 
-    /* renamed from: g  reason: collision with root package name */
-    public e0 f13869g;
+        /* renamed from: e  reason: collision with root package name */
+        public int f13553e;
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f13870h;
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f13554f;
 
-    /* renamed from: i  reason: collision with root package name */
-    public int f13871i;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    /* renamed from: j  reason: collision with root package name */
-    public String f13872j;
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13550b : invokeV.intValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13552d : (String) invokeV.objValue;
+        }
+
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13551c : (String) invokeV.objValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13553e : invokeV.intValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13554f : invokeV.booleanValue;
+        }
+
+        public void g(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("icon_name");
+            this.f13550b = jSONObject.optInt("icon_level");
+            this.f13551c = jSONObject.optString("icon_small_pic");
+            this.f13552d = jSONObject.optString("icon_pic");
+            this.f13553e = jSONObject.optInt("light_up");
+        }
+
+        public void h(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+                this.f13550b = i2;
+            }
+        }
+
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        public void j(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+                this.f13552d = str;
+            }
+        }
+
+        public void k(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+                this.f13551c = str;
+            }
+        }
+
+        public void l(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+                this.f13553e = i2;
+            }
+        }
+
+        public void m(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+                this.f13554f = z;
+            }
+        }
+    }
 
     public z1() {
         Interceptable interceptable = $ic;
@@ -56,102 +160,48 @@ public class z1 implements c.a.s0.s.i0.o.c.b {
         }
     }
 
-    @Override // c.a.s0.s.i0.o.c.b
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f13867e = z;
-        }
-    }
-
-    public String b() {
+    public List<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13865c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13549b : (List) invokeV.objValue;
     }
 
-    public int c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13868f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13867e : invokeV.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = String.valueOf(jSONObject.optLong("id", 0L));
-        this.f13864b = jSONObject.optString("name");
-        this.f13865c = jSONObject.optString("avatar");
-        this.f13868f = jSONObject.optInt("level_id");
-        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
-        if (optJSONObject != null) {
-            e0 e0Var = new e0();
-            this.f13869g = e0Var;
-            e0Var.a(optJSONObject);
+        this.a = jSONObject.optInt("levelup");
+        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
+        if (optJSONArray != null) {
+            this.f13549b = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                if (optJSONArray.optJSONObject(i2) != null) {
+                    a aVar = new a();
+                    aVar.g(optJSONArray.optJSONObject(i2));
+                    this.f13549b.add(aVar);
+                }
+            }
         }
-        int optInt = jSONObject.optInt("memberNum", 0);
-        this.f13871i = optInt;
-        if (optInt == 0) {
-            this.f13871i = jSONObject.optInt("member_num", 0);
+    }
+
+    public void d(List<a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.f13549b = list;
         }
-        this.f13870h = jSONObject.optInt("post_num", 0);
     }
 
-    public void f(SimpleForum simpleForum) {
+    public void e(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, simpleForum) == null) || simpleForum == null) {
-            return;
-        }
-        this.a = String.valueOf(simpleForum.id);
-        this.f13864b = simpleForum.name;
-        this.f13865c = simpleForum.avatar;
-        this.f13866d = simpleForum.is_liked.intValue() == 1;
-        this.f13868f = simpleForum.level_id.intValue();
-        if (simpleForum.multi_forum_perm != null) {
-            e0 e0Var = new e0();
-            this.f13869g = e0Var;
-            e0Var.b(simpleForum.multi_forum_perm);
-        }
-        simpleForum.is_brand_forum.intValue();
-        this.f13871i = simpleForum.member_num.intValue();
-        this.f13870h = simpleForum.post_num.intValue();
-        this.f13872j = simpleForum.first_class;
-    }
-
-    @Override // c.a.s0.s.i0.o.c.b
-    public String getForumId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // c.a.s0.s.i0.o.c.b
-    public String getForumName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13864b : (String) invokeV.objValue;
-    }
-
-    @Override // c.a.s0.s.i0.o.a
-    public boolean getIsLike() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13866d : invokeV.booleanValue;
-    }
-
-    @Override // c.a.s0.s.i0.o.a
-    public void setIsLike(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f13866d = z;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.a = i2;
         }
     }
 }

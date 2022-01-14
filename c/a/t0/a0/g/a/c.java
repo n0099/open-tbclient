@@ -3,7 +3,7 @@ package c.a.t0.a0.g.a;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -69,10 +69,10 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.j.b.a, AlaGameFrsGameLiveDoubleView
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, alaGameFrsGameLiveDoubleViewHolder})) == null) {
             alaGameFrsGameLiveDoubleViewHolder.mView.k(aVar);
             alaGameFrsGameLiveDoubleViewHolder.mView.t(this.n);
-            c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f15224e.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f15224e.o1().appId) ? aVar.f15224e.o1().appId : ""));
-            d2 d2Var = aVar.f15225f;
-            if (d2Var != null) {
-                c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f15225f.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(d2Var.o1().appId) ? "" : aVar.f15225f.o1().appId));
+            c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f14848e.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f14848e.o1().appId) ? aVar.f14848e.o1().appId : ""));
+            e2 e2Var = aVar.f14849f;
+            if (e2Var != null) {
+                c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f14849f.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(e2Var.o1().appId) ? "" : aVar.f14849f.o1().appId));
             }
             return alaGameFrsGameLiveDoubleViewHolder.getView();
         }

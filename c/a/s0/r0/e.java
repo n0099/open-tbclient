@@ -148,7 +148,7 @@ public class e {
     public final void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            n.L(TbadkCoreApplication.getInst().getContext(), i2);
+            n.M(TbadkCoreApplication.getInst().getContext(), i2);
         }
     }
 }

@@ -6,7 +6,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.i0.s.e;
+import c.a.s0.s.j0.s.e;
 import c.a.s0.u.p;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
@@ -137,7 +137,7 @@ public class a {
     public static void h(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, pVar) == null) {
-            int i2 = pVar.f14493b;
+            int i2 = pVar.f14155b;
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
         }
     }

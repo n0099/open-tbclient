@@ -38,22 +38,22 @@ public class HotRankEntryView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45517e;
+    public int f43857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f45518f;
+    public ImageView f43858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageOverlayView f45519g;
+    public ImageOverlayView f43859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45520h;
+    public TextView f43860h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f45521i;
+    public ImageView f43861i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f45522j;
+    public boolean f43862j;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -61,10 +61,10 @@ public class HotRankEntryView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f45523e;
+        public final /* synthetic */ Context f43863e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HotRankEntryView f45524f;
+        public final /* synthetic */ HotRankEntryView f43864f;
 
         public a(HotRankEntryView hotRankEntryView, Context context) {
             Interceptable interceptable = $ic;
@@ -81,15 +81,15 @@ public class HotRankEntryView extends RelativeLayout {
                     return;
                 }
             }
-            this.f45524f = hotRankEntryView;
-            this.f45523e = context;
+            this.f43864f = hotRankEntryView;
+            this.f43863e = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.f45523e)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.f43863e)));
             }
         }
     }
@@ -119,17 +119,17 @@ public class HotRankEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.hot_rank_entry, (ViewGroup) this, true);
-            this.f45518f = (ImageView) findViewById(f1.first_tag);
+            this.f43858f = (ImageView) findViewById(f1.first_tag);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds62);
             int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds1);
             int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d1.tbds20);
             ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(f1.image_group);
-            this.f45519g = imageOverlayView;
+            this.f43859g = imageOverlayView;
             imageOverlayView.init(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, c1.CAM_X0618, dimensionPixelOffset3);
-            this.f45519g.setStrokeStyle(1);
-            this.f45519g.setLoadImageType(12);
-            this.f45520h = (TextView) findViewById(f1.entry_describe);
-            this.f45521i = (ImageView) findViewById(f1.arrow);
+            this.f43859g.setStrokeStyle(1);
+            this.f43859g.setLoadImageType(12);
+            this.f43860h = (TextView) findViewById(f1.entry_describe);
+            this.f43861i = (ImageView) findViewById(f1.arrow);
             setOnClickListener(new a(this, context));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -137,15 +137,15 @@ public class HotRankEntryView extends RelativeLayout {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f45517e) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f43857e) {
             return;
         }
-        this.f45517e = i2;
-        SkinManager.setBackgroundResource(this, this.f45522j ? e1.frs_red_list_entrance_bg_black : e1.frs_red_list_entrance_bg_white);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f45518f, e1.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-        this.f45519g.onChangeSkinType();
-        SkinManager.setViewTextColor(this.f45520h, c1.CAM_X0101);
-        WebPManager.setPureDrawable(this.f45521i, e1.icon_pure_arrow12_right, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.f43857e = i2;
+        SkinManager.setBackgroundResource(this, this.f43862j ? e1.frs_red_list_entrance_bg_black : e1.frs_red_list_entrance_bg_white);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f43858f, e1.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+        this.f43859g.onChangeSkinType();
+        SkinManager.setViewTextColor(this.f43860h, c1.CAM_X0101);
+        WebPManager.setPureDrawable(this.f43861i, e1.icon_pure_arrow12_right, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
     }
 
     public void setData(HotUserRankEntry hotUserRankEntry, boolean z) {
@@ -160,9 +160,9 @@ public class HotRankEntryView extends RelativeLayout {
                 arrayList.add(shortUserInfo.portrait);
             }
         }
-        this.f45519g.setData(arrayList);
-        this.f45522j = z;
-        this.f45520h.setText(!m.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(i1.hot_rank));
+        this.f43859g.setData(arrayList);
+        this.f43862j = z;
+        this.f43860h.setText(!m.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(i1.hot_rank));
         SkinManager.setBackgroundResource(this, z ? e1.frs_red_list_entrance_bg_black : e1.frs_red_list_entrance_bg_white);
     }
 
@@ -185,7 +185,7 @@ public class HotRankEntryView extends RelativeLayout {
                 return;
             }
         }
-        this.f45517e = 3;
+        this.f43857e = 3;
         a(context);
     }
 }

@@ -21,25 +21,25 @@ public class c {
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1289b;
+    public String f1284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaMuxer f1290c;
+    public MediaMuxer f1285c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1291d;
+    public int f1286d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1292e;
+    public int f1287e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaFormat f1293f;
+    public MediaFormat f1288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaFormat f1294g;
+    public MediaFormat f1289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.a1.p.a f1295h;
+    public c.a.a1.p.a f1290h;
 
     public c(List<String> list, String str, c.a.a1.p.a aVar) {
         Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class c {
         }
         c.a.a1.t.c.e("VideoComposer", list.size() + " composer to " + str);
         this.a = list;
-        this.f1289b = str;
-        this.f1295h = aVar;
+        this.f1284b = str;
+        this.f1290h = aVar;
     }
 
     public final long a(long j2, String str) throws IOException {
@@ -84,7 +84,7 @@ public class c {
                 bVar4.j();
                 bVar4 = null;
             } else {
-                bVar4.l(this.f1292e);
+                bVar4.l(this.f1287e);
             }
             b bVar6 = new b();
             bVar6.m(str, "audio/");
@@ -92,7 +92,7 @@ public class c {
             if (d3 < 0) {
                 bVar6.j();
             } else {
-                bVar6.l(this.f1291d);
+                bVar6.l(this.f1286d);
                 bVar5 = bVar6;
             }
             boolean z = bVar4 == null;
@@ -104,12 +104,12 @@ public class c {
                     break;
                 }
                 if (!z2 && (z || bVar5.e() - bVar4.e() <= 50000)) {
-                    i2 = this.f1291d;
+                    i2 = this.f1286d;
                     i4 = d3;
                     i3 = i4;
                     bVar = bVar5;
                 } else {
-                    i2 = this.f1292e;
+                    i2 = this.f1287e;
                     i3 = d3;
                     bVar = bVar4;
                     i4 = d2;
@@ -150,7 +150,7 @@ public class c {
                     }
                     str2 = str3;
                     h2.presentationTimeUs += j2;
-                    this.f1290c.writeSampleData(i2, bVar8.c(), h2);
+                    this.f1285c.writeSampleData(i2, bVar8.c(), h2);
                     bVar8.a();
                 }
                 str3 = str2;
@@ -160,7 +160,7 @@ public class c {
                 bVar5 = bVar3;
             }
             long max = j2 + Math.max(j3, j4) + 10000;
-            c.a.a1.p.a aVar = this.f1295h;
+            c.a.a1.p.a aVar = this.f1290h;
             if (aVar != null) {
                 aVar.b(max);
             }
@@ -189,7 +189,7 @@ public class c {
                         bVar.m(str, FileUtils.VIDEO_FILE_START);
                         if (!z) {
                             MediaFormat mediaFormat = bVar.g().a;
-                            this.f1294g = mediaFormat;
+                            this.f1289g = mediaFormat;
                             if (mediaFormat == null) {
                                 c.a.a1.t.c.e("VideoComposer", "No video track found in " + str);
                             } else {
@@ -198,7 +198,7 @@ public class c {
                         }
                         if (!z2) {
                             MediaFormat mediaFormat2 = bVar.b().a;
-                            this.f1293f = mediaFormat2;
+                            this.f1288f = mediaFormat2;
                             if (mediaFormat2 == null) {
                                 c.a.a1.t.c.e("VideoComposer", "No audio track found in " + str);
                             } else {
@@ -221,27 +221,27 @@ public class c {
                     return false;
                 }
             }
-            MediaMuxer mediaMuxer = new MediaMuxer(this.f1289b, 0);
-            this.f1290c = mediaMuxer;
+            MediaMuxer mediaMuxer = new MediaMuxer(this.f1284b, 0);
+            this.f1285c = mediaMuxer;
             if (z) {
-                this.f1292e = mediaMuxer.addTrack(this.f1294g);
+                this.f1287e = mediaMuxer.addTrack(this.f1289g);
             }
             if (z2) {
-                this.f1291d = this.f1290c.addTrack(this.f1293f);
+                this.f1286d = this.f1285c.addTrack(this.f1288f);
             }
-            this.f1290c.start();
+            this.f1285c.start();
             long j2 = 0;
             for (String str2 : this.a) {
                 j2 = a(j2, str2);
             }
-            if (this.f1290c != null) {
+            if (this.f1285c != null) {
                 try {
-                    this.f1290c.stop();
-                    this.f1290c.release();
+                    this.f1285c.stop();
+                    this.f1285c.release();
                 } catch (Exception unused) {
                     c.a.a1.t.c.e("VideoComposer", "Muxer close error. No data was written");
                 }
-                this.f1290c = null;
+                this.f1285c = null;
             }
             c.a.a1.t.c.j("VideoComposer", "video join finished");
             return true;

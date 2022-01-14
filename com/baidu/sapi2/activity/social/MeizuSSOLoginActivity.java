@@ -47,7 +47,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthError) == null) {
                 MeizuSSOLoginActivity meizuSSOLoginActivity = this.a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f39350g);
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f38049g);
             }
         }
 
@@ -61,7 +61,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
                 MeizuSSOLoginActivity meizuSSOLoginActivity = this.a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f39350g);
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f38049g);
             }
         }
     }

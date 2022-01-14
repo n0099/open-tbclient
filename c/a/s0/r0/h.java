@@ -13,28 +13,28 @@ public class h {
     public Long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13298b;
+    public int f12978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Long f13299c;
+    public Long f12979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13300d;
+    public int f12980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13301e;
+    public String f12981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13302f;
+    public String f12982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13303g;
+    public int f12983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Long f13304h;
+    public Long f12984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13305i;
+    public int f12985i;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "YYPayResult{amount=" + this.a + ", appid=" + this.f13298b + ", currencyAmount=" + this.f13299c + ", currencyType=" + this.f13300d + ", expand='" + this.f13301e + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f13302f + ExtendedMessageFormat.QUOTE + ", status=" + this.f13303g + ", uid=" + this.f13304h + ", usedChannel=" + this.f13305i + ExtendedMessageFormat.END_FE;
+            return "YYPayResult{amount=" + this.a + ", appid=" + this.f12978b + ", currencyAmount=" + this.f12979c + ", currencyType=" + this.f12980d + ", expand='" + this.f12981e + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f12982f + ExtendedMessageFormat.QUOTE + ", status=" + this.f12983g + ", uid=" + this.f12984h + ", usedChannel=" + this.f12985i + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -67,8 +67,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             e eVar = new e();
-            eVar.f8157b = "beforeConfigRequest";
-            eVar.f8160e = str;
+            eVar.f7977b = "beforeConfigRequest";
+            eVar.f7980e = str;
             n.g(eVar);
         }
     }
@@ -81,9 +81,9 @@ public class b {
             String str6 = z != null ? z.targetAppPackageId : "";
             String str7 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8157b = str;
-            eVar.f8162g = "gbview";
-            eVar.f8160e = str2;
+            eVar.f7977b = str;
+            eVar.f7982g = "gbview";
+            eVar.f7980e = str2;
             eVar.a("gameAppkey", str3);
             eVar.a("gamePosition", str4);
             eVar.a("configName", str5);
@@ -101,8 +101,8 @@ public class b {
             String str3 = z != null ? z.targetAppPackageId : "";
             String str4 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8157b = str;
-            eVar.f8162g = "gbview";
+            eVar.f7977b = str;
+            eVar.f7982g = "gbview";
             eVar.a("configName", str2);
             eVar.a("targetPackageName", str3);
             eVar.a("targetDownloadUrl", str4);
@@ -121,8 +121,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) {
             e eVar = new e();
-            eVar.f8157b = "request";
-            eVar.f8162g = "wdview";
+            eVar.f7977b = "request";
+            eVar.f7982g = "wdview";
             eVar.a("requestStatus", str);
             eVar.a("isFromNet", z ? "0" : "1");
             eVar.a("errMsg", str2);
@@ -144,9 +144,9 @@ public class b {
                 str6 = str9;
             }
             e eVar = new e();
-            eVar.f8157b = str;
-            eVar.f8162g = str2;
-            eVar.f8160e = str3;
+            eVar.f7977b = str;
+            eVar.f7982g = str2;
+            eVar.f7980e = str3;
             eVar.a("gameAppkey", str4);
             eVar.a("gamePosition", str5);
             eVar.a("configName", str7);
@@ -162,9 +162,9 @@ public class b {
             JSONObject d2 = w.d(str3);
             c cVar = new c();
             cVar.g(aVar);
-            cVar.f8157b = str;
-            cVar.f8162g = d2.optString("from_view");
-            cVar.f8160e = d2.optString("from_value");
+            cVar.f7977b = str;
+            cVar.f7982g = d2.optString("from_view");
+            cVar.f7980e = d2.optString("from_value");
             cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
             cVar.a("targetPackageName", str2);
             cVar.a("targetDownloadUrl", str4);
@@ -180,9 +180,9 @@ public class b {
             long elapsedRealtime = optLong != 0 ? SystemClock.elapsedRealtime() - optLong : 0L;
             c cVar = new c();
             cVar.g(aVar);
-            cVar.f8160e = d2.optString("from_value");
-            cVar.f8157b = str;
-            cVar.f8162g = d2.optString("from_view");
+            cVar.f7980e = d2.optString("from_value");
+            cVar.f7977b = str;
+            cVar.f7982g = d2.optString("from_view");
             cVar.a("error_code", Integer.valueOf(i2));
             cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
             if (elapsedRealtime != 0) {
@@ -218,8 +218,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8157b = "guideClick";
-            eVar.f8162g = "wdview";
+            eVar.f7977b = "guideClick";
+            eVar.f7982g = "wdview";
             eVar.a("guideViewNum", String.valueOf(i2));
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
@@ -236,9 +236,9 @@ public class b {
             String str3 = z != null ? z.targetAppPackageId : "";
             String str4 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8157b = "wdDialogClick";
-            eVar.f8162g = "wdview";
-            eVar.f8160e = str;
+            eVar.f7977b = "wdDialogClick";
+            eVar.f7982g = "wdview";
+            eVar.f7980e = str;
             eVar.a("coinsThisTime", String.valueOf(i2));
             eVar.a("coinsTotal", String.valueOf(i3));
             eVar.a("configName", str2);
@@ -256,8 +256,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8157b = "wdDialogShow";
-            eVar.f8162g = "wdview";
+            eVar.f7977b = "wdDialogShow";
+            eVar.f7982g = "wdview";
             eVar.a("coinsThisTime", String.valueOf(i2));
             eVar.a("coinsTotal", String.valueOf(i3));
             eVar.a("configName", str);
@@ -282,8 +282,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8157b = "guideShow";
-            eVar.f8162g = "wdview";
+            eVar.f7977b = "guideShow";
+            eVar.f7982g = "wdview";
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
             eVar.a("targetDownloadUrl", str3);
@@ -299,8 +299,8 @@ public class b {
             String str4 = z != null ? z.targetAppPackageId : "";
             String str5 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f8162g = str;
-            eVar.f8160e = str2;
+            eVar.f7982g = str;
+            eVar.f7980e = str2;
             eVar.a("configName", str3);
             eVar.a("targetPackageName", str4);
             eVar.a("targetDownloadUrl", str5);

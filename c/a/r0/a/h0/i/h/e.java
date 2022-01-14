@@ -21,18 +21,18 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f6673e;
+    public static final boolean f6532e;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.r0.a.h0.i.g.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.a.h0.i.g.d.b f6674b;
+    public final c.a.r0.a.h0.i.g.d.b f6533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.a.h0.i.g.a.c f6675c;
+    public final c.a.r0.a.h0.i.g.a.c f6534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6676d;
+    public String f6535d;
 
     /* loaded from: classes.dex */
     public class a implements a.b {
@@ -41,13 +41,13 @@ public class e {
         public final /* synthetic */ SceneType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.i.g.d.d f6677b;
+        public final /* synthetic */ c.a.r0.a.h0.i.g.d.d f6536b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.i.g.a.e f6678c;
+        public final /* synthetic */ c.a.r0.a.h0.i.g.a.e f6537c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f6679d;
+        public final /* synthetic */ e f6538d;
 
         public a(e eVar, SceneType sceneType, c.a.r0.a.h0.i.g.d.d dVar, c.a.r0.a.h0.i.g.a.e eVar2) {
             Interceptable interceptable = $ic;
@@ -64,30 +64,30 @@ public class e {
                     return;
                 }
             }
-            this.f6679d = eVar;
+            this.f6538d = eVar;
             this.a = sceneType;
-            this.f6677b = dVar;
-            this.f6678c = eVar2;
+            this.f6536b = dVar;
+            this.f6537c = eVar2;
         }
 
         @Override // c.a.r0.a.h0.i.g.b.a.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                c.a.r0.a.h0.i.c.b(this.f6679d.f6676d);
+                c.a.r0.a.h0.i.c.b(this.f6538d.f6535d);
                 c.a.r0.a.h0.i.f.i(1);
-                c.a.r0.a.h0.i.e.e(this.a.getType(), networkStatus.getStatus(), this.f6677b.e().getStatus(), this.f6677b.g(), this.f6677b.b(), this.f6677b.f(), this.f6677b.a());
+                c.a.r0.a.h0.i.e.e(this.a.getType(), networkStatus.getStatus(), this.f6536b.e().getStatus(), this.f6536b.g(), this.f6536b.b(), this.f6536b.f(), this.f6536b.a());
                 StringBuilder sb = new StringBuilder();
                 sb.append(this.a.getScene());
-                sb.append(this.f6678c.a());
-                sb.append(this.f6677b.d());
+                sb.append(this.f6537c.a());
+                sb.append(this.f6536b.d());
                 sb.append(networkStatus.getDesc());
-                sb.append(this.f6677b.c());
+                sb.append(this.f6536b.c());
                 c.a.r0.a.h0.i.f.g(sb.toString());
-                if (e.f6673e) {
+                if (e.f6532e) {
                     String str = ">> " + sb.toString();
                 }
-                this.f6679d.h(networkStatus, this.f6678c, this.f6677b);
+                this.f6538d.h(networkStatus, this.f6537c, this.f6536b);
             }
         }
     }
@@ -139,7 +139,7 @@ public class e {
                 return;
             }
         }
-        f6673e = k.a;
+        f6532e = k.a;
     }
 
     public e() {
@@ -155,15 +155,15 @@ public class e {
                 return;
             }
         }
-        this.f6675c = c.a.r0.a.h0.i.g.a.c.d();
+        this.f6534c = c.a.r0.a.h0.i.g.a.c.d();
         this.a = new c.a.r0.a.h0.i.g.b.a();
-        this.f6674b = c.a.r0.a.h0.i.g.d.b.d();
+        this.f6533b = c.a.r0.a.h0.i.g.d.b.d();
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = f6673e;
+            boolean z = f6532e;
             this.a.a(new b(this));
         }
     }
@@ -178,13 +178,13 @@ public class e {
     public void f(SceneType sceneType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
-            if (q0.I(this.f6676d) && q0.H()) {
-                boolean z = f6673e;
+            if (q0.I(this.f6535d) && q0.H()) {
+                boolean z = f6532e;
                 c.a.r0.a.h0.i.g.d.b.d().j();
                 c.a.r0.a.h0.i.g.a.c.d().j();
-                this.a.a(new a(this, sceneType, this.f6674b.f(), this.f6675c.f()));
-            } else if (f6673e) {
-                String str = "path is not first page: " + this.f6676d;
+                this.a.a(new a(this, sceneType, this.f6533b.f(), this.f6534c.f()));
+            } else if (f6532e) {
+                String str = "path is not first page: " + this.f6535d;
             }
         }
     }
@@ -192,7 +192,7 @@ public class e {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f6676d = str;
+            this.f6535d = str;
         }
     }
 

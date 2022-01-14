@@ -28,17 +28,17 @@ public class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f22942b;
+        public String f22312b;
 
         /* renamed from: c  reason: collision with root package name */
-        public InterfaceC1370b f22943c;
+        public InterfaceC1385b f22313c;
 
-        public a(String str, String str2, InterfaceC1370b interfaceC1370b) {
+        public a(String str, String str2, InterfaceC1385b interfaceC1385b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, interfaceC1370b};
+                Object[] objArr = {str, str2, interfaceC1385b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -49,8 +49,8 @@ public class b {
                 }
             }
             this.a = str;
-            this.f22942b = str2;
-            this.f22943c = interfaceC1370b;
+            this.f22312b = str2;
+            this.f22313c = interfaceC1385b;
             setPriority(3);
         }
 
@@ -63,7 +63,7 @@ public class b {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 NetWork netWork = new NetWork(b.a);
                 netWork.addPostData("forum_id", this.a);
-                netWork.addPostData("user_id", this.f22942b);
+                netWork.addPostData("user_id", this.f22312b);
                 String postNetData = netWork.postNetData();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     try {
@@ -90,12 +90,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
                 super.onPostExecute(forbidTplData);
-                if (this.f22943c != null) {
+                if (this.f22313c != null) {
                     ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
                     if (errorInfo.errno == 0 && m.isEmpty(errorInfo.errMsg)) {
-                        this.f22943c.b(forbidTplData);
+                        this.f22313c.b(forbidTplData);
                     } else {
-                        this.f22943c.a(forbidTplData);
+                        this.f22313c.a(forbidTplData);
                     }
                 }
             }
@@ -104,7 +104,7 @@ public class b {
 
     /* renamed from: c.a.t0.s2.p.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1370b {
+    public interface InterfaceC1385b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
@@ -126,10 +126,10 @@ public class b {
         a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
     }
 
-    public static void b(String str, String str2, InterfaceC1370b interfaceC1370b) {
+    public static void b(String str, String str2, InterfaceC1385b interfaceC1385b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, interfaceC1370b) == null) {
-            new a(str, str2, interfaceC1370b).execute(new String[0]);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, interfaceC1385b) == null) {
+            new a(str, str2, interfaceC1385b).execute(new String[0]);
         }
     }
 }

@@ -2,7 +2,7 @@ package c.a.t0.a0.k.a;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.k;
 import c.a.t0.g0.b0;
 import c.a.t0.w3.g;
@@ -88,9 +88,9 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements b0 {
             if (gVar != null) {
                 FrsViewData frsViewData = this.n;
                 int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-                List<d2> list = gVar.f25515e;
+                List<e2> list = gVar.f24801e;
                 if (list != null && list.get(0) != null) {
-                    gVar.f25515e.get(0).U1 = (i2 + 1) - topThreadSize;
+                    gVar.f24801e.get(0).T1 = (i2 + 1) - topThreadSize;
                 }
                 frsPageAlaInsertRecLiveHolder.mView.a(this.x);
                 frsPageAlaInsertRecLiveHolder.mView.k(gVar);

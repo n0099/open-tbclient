@@ -52,13 +52,13 @@ public class LookMoreReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
-                int k2 = n.k(TbadkCoreApplication.getInst());
+                int k = n.k(TbadkCoreApplication.getInst());
                 int i2 = n.i(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);
                 builder.post_id = this.post_id;
-                builder.scr_w = Integer.valueOf(k2);
+                builder.scr_w = Integer.valueOf(k);
                 builder.scr_h = Integer.valueOf(i2);
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);

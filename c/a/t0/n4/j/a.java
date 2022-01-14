@@ -17,42 +17,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RectF a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f20441b;
+    public Path f19894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f20442c;
+    public Paint f19895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f20443d;
+    public Path f19896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f20444e;
+    public Paint f19897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f20445f;
+    public float f19898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20446g;
+    public float f19899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f20447h;
+    public float f19900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f20448i;
+    public float f19901i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f20449j;
+    public float f19902j;
 
     /* renamed from: c.a.t0.n4.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1233a {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class C1247a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,57 +106,57 @@ public class a extends Drawable {
                 return;
             }
         }
-        this.f20441b = new Path();
+        this.f19894b = new Path();
         Paint paint = new Paint(1);
-        this.f20442c = paint;
+        this.f19895c = paint;
         this.a = rectF;
-        this.f20445f = f2;
-        this.f20446g = f3;
-        this.f20447h = f4;
-        this.f20448i = f5;
-        this.f20449j = f6;
+        this.f19898f = f2;
+        this.f19899g = f3;
+        this.f19900h = f4;
+        this.f19901i = f5;
+        this.f19902j = f6;
         paint.setColor(i3);
         if (f6 > 0.0f) {
             Paint paint2 = new Paint(1);
-            this.f20444e = paint2;
+            this.f19897e = paint2;
             paint2.setColor(i2);
-            this.f20443d = new Path();
-            e(arrowDirection, this.f20441b, f6);
-            e(arrowDirection, this.f20443d, 0.0f);
+            this.f19896d = new Path();
+            e(arrowDirection, this.f19894b, f6);
+            e(arrowDirection, this.f19896d, 0.0f);
             return;
         }
-        e(arrowDirection, this.f20441b, 0.0f);
+        e(arrowDirection, this.f19894b, 0.0f);
     }
 
     public final void a(RectF rectF, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
-            path.moveTo(rectF.left + this.f20446g + f2, rectF.top + f2);
-            path.lineTo((rectF.width() - this.f20446g) - f2, rectF.top + f2);
+            path.moveTo(rectF.left + this.f19899g + f2, rectF.top + f2);
+            path.lineTo((rectF.width() - this.f19899g) - f2, rectF.top + f2);
             float f3 = rectF.right;
-            float f4 = this.f20446g;
+            float f4 = this.f19899g;
             float f5 = rectF.top;
             path.arcTo(new RectF(f3 - f4, f5 + f2, f3 - f2, f4 + f5), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f2, ((rectF.bottom - this.f20447h) - this.f20446g) - f2);
+            path.lineTo(rectF.right - f2, ((rectF.bottom - this.f19900h) - this.f19899g) - f2);
             float f6 = rectF.right;
-            float f7 = this.f20446g;
+            float f7 = this.f19899g;
             float f8 = rectF.bottom;
-            float f9 = this.f20447h;
+            float f9 = this.f19900h;
             path.arcTo(new RectF(f6 - f7, (f8 - f7) - f9, f6 - f2, (f8 - f9) - f2), 0.0f, 90.0f);
             float f10 = f2 / 2.0f;
-            path.lineTo(((rectF.left + this.f20445f) + this.f20448i) - f10, (rectF.bottom - this.f20447h) - f2);
-            path.lineTo(rectF.left + this.f20448i + (this.f20445f / 2.0f), (rectF.bottom - f2) - f2);
-            path.lineTo(rectF.left + this.f20448i + f10, (rectF.bottom - this.f20447h) - f2);
-            path.lineTo(rectF.left + Math.min(this.f20446g, this.f20448i) + f2, (rectF.bottom - this.f20447h) - f2);
+            path.lineTo(((rectF.left + this.f19898f) + this.f19901i) - f10, (rectF.bottom - this.f19900h) - f2);
+            path.lineTo(rectF.left + this.f19901i + (this.f19898f / 2.0f), (rectF.bottom - f2) - f2);
+            path.lineTo(rectF.left + this.f19901i + f10, (rectF.bottom - this.f19900h) - f2);
+            path.lineTo(rectF.left + Math.min(this.f19899g, this.f19901i) + f2, (rectF.bottom - this.f19900h) - f2);
             float f11 = rectF.left;
             float f12 = rectF.bottom;
-            float f13 = this.f20446g;
-            float f14 = this.f20447h;
+            float f13 = this.f19899g;
+            float f14 = this.f19900h;
             path.arcTo(new RectF(f11 + f2, (f12 - f13) - f14, f13 + f11, (f12 - f14) - f2), 90.0f, 90.0f);
-            path.lineTo(rectF.left + f2, rectF.top + this.f20446g + f2);
+            path.lineTo(rectF.left + f2, rectF.top + this.f19899g + f2);
             float f15 = rectF.left;
             float f16 = rectF.top;
-            float f17 = this.f20446g;
+            float f17 = this.f19899g;
             path.arcTo(new RectF(f15 + f2, f2 + f16, f15 + f17, f17 + f16), 180.0f, 90.0f);
             path.close();
         }
@@ -167,13 +167,13 @@ public class a extends Drawable {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
             path.moveTo(rectF.left + f2, rectF.top + f2);
             path.lineTo(rectF.right - f2, rectF.top + f2);
-            path.lineTo(rectF.right - f2, (rectF.bottom - this.f20447h) - f2);
+            path.lineTo(rectF.right - f2, (rectF.bottom - this.f19900h) - f2);
             float f3 = f2 / 2.0f;
-            path.lineTo(((rectF.left + this.f20445f) + this.f20448i) - f3, (rectF.bottom - this.f20447h) - f2);
-            path.lineTo(rectF.left + this.f20448i + (this.f20445f / 2.0f), (rectF.bottom - f2) - f2);
-            path.lineTo(rectF.left + this.f20448i + f3, (rectF.bottom - this.f20447h) - f2);
-            path.lineTo(rectF.left + this.f20448i + f2, (rectF.bottom - this.f20447h) - f2);
-            path.lineTo(rectF.left + f2, (rectF.bottom - this.f20447h) - f2);
+            path.lineTo(((rectF.left + this.f19898f) + this.f19901i) - f3, (rectF.bottom - this.f19900h) - f2);
+            path.lineTo(rectF.left + this.f19901i + (this.f19898f / 2.0f), (rectF.bottom - f2) - f2);
+            path.lineTo(rectF.left + this.f19901i + f3, (rectF.bottom - this.f19900h) - f2);
+            path.lineTo(rectF.left + this.f19901i + f2, (rectF.bottom - this.f19900h) - f2);
+            path.lineTo(rectF.left + f2, (rectF.bottom - this.f19900h) - f2);
             path.lineTo(rectF.left + f2, rectF.top + f2);
             path.close();
         }
@@ -182,32 +182,32 @@ public class a extends Drawable {
     public final void c(RectF rectF, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
-            path.moveTo(this.f20445f + rectF.left + this.f20446g + f2, rectF.top + f2);
-            path.lineTo((rectF.width() - this.f20446g) - f2, rectF.top + f2);
+            path.moveTo(this.f19898f + rectF.left + this.f19899g + f2, rectF.top + f2);
+            path.lineTo((rectF.width() - this.f19899g) - f2, rectF.top + f2);
             float f3 = rectF.right;
-            float f4 = this.f20446g;
+            float f4 = this.f19899g;
             float f5 = rectF.top;
             path.arcTo(new RectF(f3 - f4, f5 + f2, f3 - f2, f4 + f5), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f2, (rectF.bottom - this.f20446g) - f2);
+            path.lineTo(rectF.right - f2, (rectF.bottom - this.f19899g) - f2);
             float f6 = rectF.right;
-            float f7 = this.f20446g;
+            float f7 = this.f19899g;
             float f8 = rectF.bottom;
             path.arcTo(new RectF(f6 - f7, f8 - f7, f6 - f2, f8 - f2), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f20445f + this.f20446g + f2, rectF.bottom - f2);
+            path.lineTo(rectF.left + this.f19898f + this.f19899g + f2, rectF.bottom - f2);
             float f9 = rectF.left;
-            float f10 = this.f20445f;
+            float f10 = this.f19898f;
             float f11 = rectF.bottom;
-            float f12 = this.f20446g;
+            float f12 = this.f19899g;
             path.arcTo(new RectF(f9 + f10 + f2, f11 - f12, f12 + f9 + f10, f11 - f2), 90.0f, 90.0f);
             float f13 = f2 / 2.0f;
-            path.lineTo(rectF.left + this.f20445f + f2, (this.f20447h + this.f20448i) - f13);
-            path.lineTo(rectF.left + f2 + f2, this.f20448i + (this.f20447h / 2.0f));
-            path.lineTo(rectF.left + this.f20445f + f2, this.f20448i + f13);
-            path.lineTo(rectF.left + this.f20445f + f2, rectF.top + this.f20446g + f2);
+            path.lineTo(rectF.left + this.f19898f + f2, (this.f19900h + this.f19901i) - f13);
+            path.lineTo(rectF.left + f2 + f2, this.f19901i + (this.f19900h / 2.0f));
+            path.lineTo(rectF.left + this.f19898f + f2, this.f19901i + f13);
+            path.lineTo(rectF.left + this.f19898f + f2, rectF.top + this.f19899g + f2);
             float f14 = rectF.left;
-            float f15 = this.f20445f;
+            float f15 = this.f19898f;
             float f16 = rectF.top;
-            float f17 = this.f20446g;
+            float f17 = this.f19899g;
             path.arcTo(new RectF(f14 + f15 + f2, f2 + f16, f14 + f17 + f15, f17 + f16), 180.0f, 90.0f);
             path.close();
         }
@@ -216,15 +216,15 @@ public class a extends Drawable {
     public final void d(RectF rectF, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
-            path.moveTo(this.f20445f + rectF.left + f2, rectF.top + f2);
+            path.moveTo(this.f19898f + rectF.left + f2, rectF.top + f2);
             path.lineTo(rectF.width() - f2, rectF.top + f2);
             path.lineTo(rectF.right - f2, rectF.bottom - f2);
-            path.lineTo(rectF.left + this.f20445f + f2, rectF.bottom - f2);
+            path.lineTo(rectF.left + this.f19898f + f2, rectF.bottom - f2);
             float f3 = f2 / 2.0f;
-            path.lineTo(rectF.left + this.f20445f + f2, (this.f20447h + this.f20448i) - f3);
-            path.lineTo(rectF.left + f2 + f2, this.f20448i + (this.f20447h / 2.0f));
-            path.lineTo(rectF.left + this.f20445f + f2, this.f20448i + f3);
-            path.lineTo(rectF.left + this.f20445f + f2, rectF.top + f2);
+            path.lineTo(rectF.left + this.f19898f + f2, (this.f19900h + this.f19901i) - f3);
+            path.lineTo(rectF.left + f2 + f2, this.f19901i + (this.f19900h / 2.0f));
+            path.lineTo(rectF.left + this.f19898f + f2, this.f19901i + f3);
+            path.lineTo(rectF.left + this.f19898f + f2, rectF.top + f2);
             path.close();
         }
     }
@@ -233,19 +233,19 @@ public class a extends Drawable {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.f20449j > 0.0f) {
-                canvas.drawPath(this.f20443d, this.f20444e);
+            if (this.f19902j > 0.0f) {
+                canvas.drawPath(this.f19896d, this.f19897e);
             }
-            canvas.drawPath(this.f20441b, this.f20442c);
+            canvas.drawPath(this.f19894b, this.f19895c);
         }
     }
 
     public final void e(ArrowDirection arrowDirection, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{arrowDirection, path, Float.valueOf(f2)}) == null) {
-            int i2 = C1233a.a[arrowDirection.ordinal()];
+            int i2 = C1247a.a[arrowDirection.ordinal()];
             if (i2 == 1) {
-                float f3 = this.f20446g;
+                float f3 = this.f19899g;
                 if (f3 <= 0.0f) {
                     d(this.a, path, f2);
                 } else if (f2 > 0.0f && f2 > f3) {
@@ -254,7 +254,7 @@ public class a extends Drawable {
                     c(this.a, path, f2);
                 }
             } else if (i2 == 2) {
-                float f4 = this.f20446g;
+                float f4 = this.f19899g;
                 if (f4 <= 0.0f) {
                     i(this.a, path, f2);
                 } else if (f2 > 0.0f && f2 > f4) {
@@ -263,7 +263,7 @@ public class a extends Drawable {
                     h(this.a, path, f2);
                 }
             } else if (i2 == 3) {
-                float f5 = this.f20446g;
+                float f5 = this.f19899g;
                 if (f5 <= 0.0f) {
                     g(this.a, path, f2);
                 } else if (f2 > 0.0f && f2 > f5) {
@@ -273,7 +273,7 @@ public class a extends Drawable {
                 }
             } else if (i2 != 4) {
             } else {
-                float f6 = this.f20446g;
+                float f6 = this.f19899g;
                 if (f6 <= 0.0f) {
                     b(this.a, path, f2);
                 } else if (f2 > 0.0f && f2 > f6) {
@@ -288,31 +288,31 @@ public class a extends Drawable {
     public final void f(RectF rectF, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
-            path.moveTo(rectF.left + this.f20446g + f2, rectF.top + f2);
-            path.lineTo(((rectF.width() - this.f20446g) - this.f20445f) - f2, rectF.top + f2);
+            path.moveTo(rectF.left + this.f19899g + f2, rectF.top + f2);
+            path.lineTo(((rectF.width() - this.f19899g) - this.f19898f) - f2, rectF.top + f2);
             float f3 = rectF.right;
-            float f4 = this.f20446g;
-            float f5 = this.f20445f;
+            float f4 = this.f19899g;
+            float f5 = this.f19898f;
             float f6 = rectF.top;
             path.arcTo(new RectF((f3 - f4) - f5, f6 + f2, (f3 - f5) - f2, f4 + f6), 270.0f, 90.0f);
             float f7 = f2 / 2.0f;
-            path.lineTo((rectF.right - this.f20445f) - f2, this.f20448i + f7);
-            path.lineTo((rectF.right - f2) - f2, this.f20448i + (this.f20447h / 2.0f));
-            path.lineTo((rectF.right - this.f20445f) - f2, (this.f20448i + this.f20447h) - f7);
-            path.lineTo((rectF.right - this.f20445f) - f2, (rectF.bottom - this.f20446g) - f2);
+            path.lineTo((rectF.right - this.f19898f) - f2, this.f19901i + f7);
+            path.lineTo((rectF.right - f2) - f2, this.f19901i + (this.f19900h / 2.0f));
+            path.lineTo((rectF.right - this.f19898f) - f2, (this.f19901i + this.f19900h) - f7);
+            path.lineTo((rectF.right - this.f19898f) - f2, (rectF.bottom - this.f19899g) - f2);
             float f8 = rectF.right;
-            float f9 = this.f20446g;
-            float f10 = this.f20445f;
+            float f9 = this.f19899g;
+            float f10 = this.f19898f;
             float f11 = rectF.bottom;
             path.arcTo(new RectF((f8 - f9) - f10, f11 - f9, (f8 - f10) - f2, f11 - f2), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f20445f + f2, rectF.bottom - f2);
+            path.lineTo(rectF.left + this.f19898f + f2, rectF.bottom - f2);
             float f12 = rectF.left;
             float f13 = rectF.bottom;
-            float f14 = this.f20446g;
+            float f14 = this.f19899g;
             path.arcTo(new RectF(f12 + f2, f13 - f14, f14 + f12, f13 - f2), 90.0f, 90.0f);
             float f15 = rectF.left;
             float f16 = rectF.top;
-            float f17 = this.f20446g;
+            float f17 = this.f19899g;
             path.arcTo(new RectF(f15 + f2, f2 + f16, f15 + f17, f17 + f16), 180.0f, 90.0f);
             path.close();
         }
@@ -322,12 +322,12 @@ public class a extends Drawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
             path.moveTo(rectF.left + f2, rectF.top + f2);
-            path.lineTo((rectF.width() - this.f20445f) - f2, rectF.top + f2);
+            path.lineTo((rectF.width() - this.f19898f) - f2, rectF.top + f2);
             float f3 = f2 / 2.0f;
-            path.lineTo((rectF.right - this.f20445f) - f2, this.f20448i + f3);
-            path.lineTo((rectF.right - f2) - f2, this.f20448i + (this.f20447h / 2.0f));
-            path.lineTo((rectF.right - this.f20445f) - f2, (this.f20448i + this.f20447h) - f3);
-            path.lineTo((rectF.right - this.f20445f) - f2, rectF.bottom - f2);
+            path.lineTo((rectF.right - this.f19898f) - f2, this.f19901i + f3);
+            path.lineTo((rectF.right - f2) - f2, this.f19901i + (this.f19900h / 2.0f));
+            path.lineTo((rectF.right - this.f19898f) - f2, (this.f19901i + this.f19900h) - f3);
+            path.lineTo((rectF.right - this.f19898f) - f2, rectF.bottom - f2);
             path.lineTo(rectF.left + f2, rectF.bottom - f2);
             path.lineTo(rectF.left + f2, rectF.top + f2);
             path.close();
@@ -361,34 +361,34 @@ public class a extends Drawable {
     public final void h(RectF rectF, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
-            path.moveTo(rectF.left + Math.min(this.f20448i, this.f20446g) + f2, rectF.top + this.f20447h + f2);
+            path.moveTo(rectF.left + Math.min(this.f19901i, this.f19899g) + f2, rectF.top + this.f19900h + f2);
             float f3 = f2 / 2.0f;
-            path.lineTo(rectF.left + this.f20448i + f3, rectF.top + this.f20447h + f2);
-            path.lineTo(rectF.left + (this.f20445f / 2.0f) + this.f20448i, rectF.top + f2 + f2);
-            path.lineTo(((rectF.left + this.f20445f) + this.f20448i) - f3, rectF.top + this.f20447h + f2);
-            path.lineTo((rectF.right - this.f20446g) - f2, rectF.top + this.f20447h + f2);
+            path.lineTo(rectF.left + this.f19901i + f3, rectF.top + this.f19900h + f2);
+            path.lineTo(rectF.left + (this.f19898f / 2.0f) + this.f19901i, rectF.top + f2 + f2);
+            path.lineTo(((rectF.left + this.f19898f) + this.f19901i) - f3, rectF.top + this.f19900h + f2);
+            path.lineTo((rectF.right - this.f19899g) - f2, rectF.top + this.f19900h + f2);
             float f4 = rectF.right;
-            float f5 = this.f20446g;
+            float f5 = this.f19899g;
             float f6 = rectF.top;
-            float f7 = this.f20447h;
+            float f7 = this.f19900h;
             path.arcTo(new RectF(f4 - f5, f6 + f7 + f2, f4 - f2, f5 + f6 + f7), 270.0f, 90.0f);
-            path.lineTo(rectF.right - f2, (rectF.bottom - this.f20446g) - f2);
+            path.lineTo(rectF.right - f2, (rectF.bottom - this.f19899g) - f2);
             float f8 = rectF.right;
-            float f9 = this.f20446g;
+            float f9 = this.f19899g;
             float f10 = rectF.bottom;
             path.arcTo(new RectF(f8 - f9, f10 - f9, f8 - f2, f10 - f2), 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.f20446g + f2, rectF.bottom - f2);
+            path.lineTo(rectF.left + this.f19899g + f2, rectF.bottom - f2);
             float f11 = rectF.left;
             float f12 = rectF.bottom;
-            float f13 = this.f20446g;
+            float f13 = this.f19899g;
             path.arcTo(new RectF(f11 + f2, f12 - f13, f13 + f11, f12 - f2), 90.0f, 90.0f);
-            path.lineTo(rectF.left + f2, rectF.top + this.f20447h + this.f20446g + f2);
+            path.lineTo(rectF.left + f2, rectF.top + this.f19900h + this.f19899g + f2);
             float f14 = rectF.left;
             float f15 = f14 + f2;
             float f16 = rectF.top;
-            float f17 = this.f20447h;
+            float f17 = this.f19900h;
             float f18 = f16 + f17 + f2;
-            float f19 = this.f20446g;
+            float f19 = this.f19899g;
             path.arcTo(new RectF(f15, f18, f14 + f19, f19 + f16 + f17), 180.0f, 90.0f);
             path.close();
         }
@@ -397,16 +397,16 @@ public class a extends Drawable {
     public final void i(RectF rectF, Path path, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{rectF, path, Float.valueOf(f2)}) == null) {
-            path.moveTo(rectF.left + this.f20448i + f2, rectF.top + this.f20447h + f2);
+            path.moveTo(rectF.left + this.f19901i + f2, rectF.top + this.f19900h + f2);
             float f3 = f2 / 2.0f;
-            path.lineTo(rectF.left + this.f20448i + f3, rectF.top + this.f20447h + f2);
-            path.lineTo(rectF.left + (this.f20445f / 2.0f) + this.f20448i, rectF.top + f2 + f2);
-            path.lineTo(((rectF.left + this.f20445f) + this.f20448i) - f3, rectF.top + this.f20447h + f2);
-            path.lineTo(rectF.right - f2, rectF.top + this.f20447h + f2);
+            path.lineTo(rectF.left + this.f19901i + f3, rectF.top + this.f19900h + f2);
+            path.lineTo(rectF.left + (this.f19898f / 2.0f) + this.f19901i, rectF.top + f2 + f2);
+            path.lineTo(((rectF.left + this.f19898f) + this.f19901i) - f3, rectF.top + this.f19900h + f2);
+            path.lineTo(rectF.right - f2, rectF.top + this.f19900h + f2);
             path.lineTo(rectF.right - f2, rectF.bottom - f2);
             path.lineTo(rectF.left + f2, rectF.bottom - f2);
-            path.lineTo(rectF.left + f2, rectF.top + this.f20447h + f2);
-            path.lineTo(rectF.left + this.f20448i + f2, rectF.top + this.f20447h + f2);
+            path.lineTo(rectF.left + f2, rectF.top + this.f19900h + f2);
+            path.lineTo(rectF.left + this.f19901i + f2, rectF.top + this.f19900h + f2);
             path.close();
         }
     }
@@ -423,7 +423,7 @@ public class a extends Drawable {
     public void setAlpha(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f20442c.setAlpha(i2);
+            this.f19895c.setAlpha(i2);
         }
     }
 
@@ -431,7 +431,7 @@ public class a extends Drawable {
     public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
-            this.f20442c.setColorFilter(colorFilter);
+            this.f19895c.setColorFilter(colorFilter);
         }
     }
 }

@@ -52,7 +52,7 @@ public class p extends b<c.a.t0.g0.f0.o> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f18299e;
+        public final /* synthetic */ p f17851e;
 
         public a(p pVar) {
             Interceptable interceptable = $ic;
@@ -69,16 +69,16 @@ public class p extends b<c.a.t0.g0.f0.o> {
                     return;
                 }
             }
-            this.f18299e = pVar;
+            this.f17851e = pVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.s0.u0.a.b(this.f18299e.i())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.s0.u0.a.b(this.f17851e.i())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(this.f18299e.i().getPageActivity()).createNormalConfig("homepage", "all")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(this.f17851e.i().getPageActivity()).createNormalConfig("homepage", "all")));
         }
     }
 
@@ -114,7 +114,7 @@ public class p extends b<c.a.t0.g0.f0.o> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f18209e != i2) {
+            if (this.f17766e != i2) {
                 SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1);
@@ -136,7 +136,7 @@ public class p extends b<c.a.t0.g0.f0.o> {
                 q(this.v, 2);
                 q(this.w, 3);
             }
-            this.f18209e = i2;
+            this.f17766e = i2;
         }
     }
 
@@ -146,12 +146,12 @@ public class p extends b<c.a.t0.g0.f0.o> {
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             int e2 = c.a.d.f.m.b.e((String) view.getTag(), -1);
             c.a.t0.g0.f0.o oVar = this.C;
-            if (oVar == null || ListUtils.getItem(oVar.f18252h, e2) == null) {
+            if (oVar == null || ListUtils.getItem(oVar.f17806h, e2) == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem(this.D).param("obj_locate", String.valueOf(this.C.f18254j)).param("obj_name", this.C.f18252h.get(e2).f18246b));
+            TiebaStatic.log(new StatisticItem(this.D).param("obj_locate", String.valueOf(this.C.f17808j)).param("obj_name", this.C.f17806h.get(e2).f17801b));
             if (e2 >= 0 && !c.a.s0.u0.a.b(i())) {
-                i().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(i().getPageActivity()).createNormalConfig(String.valueOf(this.C.f18252h.get(e2).a), this.C.f18252h.get(e2).f18246b, "")));
+                i().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(i().getPageActivity()).createNormalConfig(String.valueOf(this.C.f17806h.get(e2).a), this.C.f17806h.get(e2).f17801b, "")));
             }
         }
     }
@@ -187,10 +187,10 @@ public class p extends b<c.a.t0.g0.f0.o> {
         c.a.t0.g0.f0.o oVar;
         c.a.t0.g0.f0.n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, textView, i2) == null) || (oVar = this.C) == null || ListUtils.getCount(oVar.f18252h) < 4 || (nVar = (c.a.t0.g0.f0.n) ListUtils.getItem(this.C.f18252h, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, textView, i2) == null) || (oVar = this.C) == null || ListUtils.getCount(oVar.f17806h) < 4 || (nVar = (c.a.t0.g0.f0.n) ListUtils.getItem(this.C.f17806h, i2)) == null) {
             return;
         }
-        int i3 = nVar.f18247c;
+        int i3 = nVar.f17802c;
         if (i3 == 1) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_new), (Drawable) null);
         } else if (i3 == 2) {
@@ -207,14 +207,14 @@ public class p extends b<c.a.t0.g0.f0.o> {
     public void k(c.a.t0.g0.f0.o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, oVar) == null) {
-            if (oVar != null && !StringUtils.isNull(oVar.f18251g) && ListUtils.getCount(oVar.f18252h) >= 4) {
+            if (oVar != null && !StringUtils.isNull(oVar.f17805g) && ListUtils.getCount(oVar.f17806h) >= 4) {
                 if (this.m.getVisibility() != 0) {
                     this.m.setVisibility(0);
                 }
                 this.C = oVar;
-                this.A.setVisibility(oVar.f18249e ? 0 : 8);
-                w(this.C.f18250f);
-                this.n.setText(this.C.f18251g.trim());
+                this.A.setVisibility(oVar.f17803e ? 0 : 8);
+                w(this.C.f17804f);
+                this.n.setText(this.C.f17805g.trim());
                 v(this.t, 0);
                 v(this.u, 1);
                 v(this.v, 2);
@@ -248,11 +248,11 @@ public class p extends b<c.a.t0.g0.f0.o> {
     public final void v(TextView textView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, textView, i2) == null) {
-            c.a.t0.g0.f0.n nVar = this.C.f18252h.get(i2);
-            if (StringUtils.isNull(nVar.f18246b)) {
+            c.a.t0.g0.f0.n nVar = this.C.f17806h.get(i2);
+            if (StringUtils.isNull(nVar.f17801b)) {
                 return;
             }
-            textView.setText(nVar.f18246b.trim());
+            textView.setText(nVar.f17801b.trim());
         }
     }
 

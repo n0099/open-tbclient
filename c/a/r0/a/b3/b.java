@@ -18,30 +18,30 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile b f5390i;
+    public static volatile b f5277i;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.u2.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5391b;
+    public String f5278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5392c;
+    public String f5279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.m1.b f5393d;
+    public c.a.r0.a.m1.b f5280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f5394e;
+    public d f5281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f5395f;
+    public boolean f5282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f5396g;
+    public String f5283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f5397h;
+    public String f5284h;
 
     static {
         InterceptResult invokeClinit;
@@ -72,22 +72,22 @@ public class b {
                 return;
             }
         }
-        this.f5395f = true;
-        this.f5396g = "-1";
+        this.f5282f = true;
+        this.f5283g = "-1";
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5390i == null) {
+            if (f5277i == null) {
                 synchronized (b.class) {
-                    if (f5390i == null) {
-                        f5390i = new b();
+                    if (f5277i == null) {
+                        f5277i = new b();
                     }
                 }
             }
-            return f5390i;
+            return f5277i;
         }
         return (b) invokeV.objValue;
     }
@@ -95,31 +95,31 @@ public class b {
     public c.a.r0.a.m1.b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5393d : (c.a.r0.a.m1.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5280d : (c.a.r0.a.m1.b) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5392c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5279c : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5395f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5282f : invokeV.booleanValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5397h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5284h : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5396g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5283g : (String) invokeV.objValue;
     }
 
     public long g() {
@@ -139,8 +139,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.r0.a.e0.d.i("SwanWebModeController", "getWebViewId: " + this.f5391b);
-            return this.f5391b;
+            c.a.r0.a.e0.d.i("SwanWebModeController", "getWebViewId: " + this.f5278b);
+            return this.f5278b;
         }
         return (String) invokeV.objValue;
     }
@@ -149,38 +149,38 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a = null;
-            this.f5391b = "";
-            this.f5392c = "";
-            this.f5393d = null;
-            this.f5395f = true;
+            this.f5278b = "";
+            this.f5279c = "";
+            this.f5280d = null;
+            this.f5282f = true;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f5392c = str;
+            this.f5279c = str;
         }
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f5395f = z;
+            this.f5282f = z;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f5397h = str;
+            this.f5284h = str;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f5396g = str;
+            this.f5283g = str;
         }
     }
 
@@ -194,7 +194,7 @@ public class b {
     public void o(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f5394e = dVar;
+            this.f5281e = dVar;
         }
     }
 
@@ -202,7 +202,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             c.a.r0.a.e0.d.i("SwanWebModeController", "setWebViewId: " + str);
-            this.f5391b = str;
+            this.f5278b = str;
         }
     }
 
@@ -213,13 +213,13 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            c.a.r0.a.m1.b bVar = this.f5393d;
+            c.a.r0.a.m1.b bVar = this.f5280d;
             if (bVar == null) {
-                this.f5393d = c.a.r0.a.m1.b.e(str, str);
+                this.f5280d = c.a.r0.a.m1.b.e(str, str);
                 return;
             }
-            bVar.f7843e = o0.f(str);
-            this.f5393d.f7844f = o0.o(str);
+            bVar.f7672e = o0.f(str);
+            this.f5280d.f7673f = o0.o(str);
         }
     }
 }

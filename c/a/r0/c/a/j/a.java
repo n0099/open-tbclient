@@ -180,7 +180,7 @@ public class a {
                 newBuilder8.n((Bdtls$Extension) it.next());
             }
             newBuilder8.C(build);
-            newBuilder8.m(ByteString.copyFrom(c.a.r0.c.a.b.f10454c));
+            newBuilder8.m(ByteString.copyFrom(c.a.r0.c.a.b.f10228c));
             byte[] byteArray = newBuilder8.build().toByteArray();
             ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
             allocate.put((byte) 1);

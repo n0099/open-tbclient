@@ -47,7 +47,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -62,7 +62,7 @@ public class a extends z {
         boolean optBoolean;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
             if (!c.a.r0.a.e0.a.a() && !c.a.r0.a.e0.d.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {

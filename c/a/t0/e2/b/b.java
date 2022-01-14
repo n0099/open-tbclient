@@ -28,7 +28,7 @@ public class b implements AccountManagerService {
     public AccountManagerService.AccountStatusChangedListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountManagerService.LoginResultListener f17567b;
+    public AccountManagerService.LoginResultListener f17139b;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -62,8 +62,8 @@ public class b implements AccountManagerService {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.a.f17567b != null) {
-                    this.a.f17567b.onResult(this.a.isLogin(2) ? 0 : -2);
+                if (this.a.f17139b != null) {
+                    this.a.f17139b.onResult(this.a.isLogin(2) ? 0 : -2);
                 }
                 if (this.a.a != null) {
                     this.a.a.onAccountStatusChanged(this.a.isLogin(2));
@@ -176,7 +176,7 @@ public class b implements AccountManagerService {
     public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.f17567b = loginResultListener;
+            this.f17139b = loginResultListener;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
         }
     }

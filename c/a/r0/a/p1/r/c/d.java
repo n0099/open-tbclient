@@ -24,7 +24,7 @@ public final class d {
         public final /* synthetic */ Function1 a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8504b;
+        public final /* synthetic */ String f8320b;
 
         public a(Function1 function1, String str) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class d {
                 }
             }
             this.a = function1;
-            this.f8504b = str;
+            this.f8320b = str;
         }
 
         @Override // c.a.r0.a.p1.r.b.a
@@ -53,7 +53,7 @@ public final class d {
                 if (c2 != null && c2.length() != 0) {
                     int length = c2.length();
                     for (int i2 = 0; i2 < length; i2++) {
-                        if (Intrinsics.areEqual(this.f8504b, c2.get(i2))) {
+                        if (Intrinsics.areEqual(this.f8320b, c2.get(i2))) {
                             Function1 function1 = this.a;
                             if (function1 != null) {
                                 Unit unit = (Unit) function1.invoke(Boolean.TRUE);

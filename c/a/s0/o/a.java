@@ -12,22 +12,22 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13261b;
+    public int f12942b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13262c;
+    public int f12943c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13263d;
+    public int f12944d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13264e;
+    public int f12945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13265f;
+    public int f12946f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13266g;
+    public boolean f12947g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,12 +43,12 @@ public class a {
             }
         }
         this.a = 300;
-        this.f13261b = 5000;
-        this.f13262c = 10000;
-        this.f13263d = 1500;
-        this.f13264e = 3000;
-        this.f13265f = 6000;
-        this.f13266g = true;
+        this.f12942b = 5000;
+        this.f12943c = 10000;
+        this.f12944d = 1500;
+        this.f12945e = 3000;
+        this.f12946f = 6000;
+        this.f12947g = true;
     }
 
     public void a(JSONObject jSONObject) {
@@ -63,29 +63,29 @@ public class a {
             }
             int optInt2 = jSONObject.optInt("threeGSlow", -1);
             if (optInt2 > 0) {
-                this.f13261b = optInt2;
+                this.f12942b = optInt2;
             }
             int optInt3 = jSONObject.optInt("twoGSlow", -1);
             if (optInt3 > 0) {
-                this.f13262c = optInt3;
+                this.f12943c = optInt3;
             }
             int optInt4 = jSONObject.optInt("wifiLog", -1);
             if (optInt4 > 0) {
-                this.f13263d = optInt4;
+                this.f12944d = optInt4;
             }
             int optInt5 = jSONObject.optInt("threeGLog", -1);
             if (optInt5 > 0) {
-                this.f13264e = optInt5;
+                this.f12945e = optInt5;
             }
             int optInt6 = jSONObject.optInt("twoGLog", -1);
             if (optInt6 > 0) {
-                this.f13265f = optInt6;
+                this.f12946f = optInt6;
             }
             boolean z = true;
             if (jSONObject.optInt("mobile_cdn_switch", 1) != 1) {
                 z = false;
             }
-            this.f13266g = z;
+            this.f12947g = z;
         } catch (Exception unused) {
         }
     }

@@ -20,19 +20,19 @@ public class k implements j.a.a.e.q.g.c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64760b;
+    public int f62330b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f64761c;
+    public Activity f62331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IYYPayWayView f64762d;
+    public IYYPayWayView f62332d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AbsViewEventHandler f64763e;
+    public AbsViewEventHandler f62333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j.a.a.e.m.f f64764f;
+    public j.a.a.e.m.f f62334f;
 
     public k(int i2, int i3, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, j.a.a.e.m.f fVar) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public class k implements j.a.a.e.q.g.c {
         }
         RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i2 + " userChannel:" + i3);
         this.a = i2;
-        this.f64760b = i3;
-        this.f64761c = activity;
-        this.f64762d = iYYPayWayView;
-        this.f64763e = absViewEventHandler;
-        this.f64764f = fVar;
+        this.f62330b = i3;
+        this.f62331c = activity;
+        this.f62332d = iYYPayWayView;
+        this.f62333e = absViewEventHandler;
+        this.f62334f = fVar;
     }
 
     @Override // j.a.a.e.q.g.c
@@ -63,9 +63,9 @@ public class k implements j.a.a.e.q.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
-            this.f64764f.i();
-            this.f64764f.c(cancelType, this.f64763e);
-            n.b(this.a, this.f64760b, cancelType);
+            this.f62334f.i();
+            this.f62334f.c(cancelType, this.f62333e);
+            n.b(this.a, this.f62330b, cancelType);
         }
     }
 
@@ -73,6 +73,6 @@ public class k implements j.a.a.e.q.g.c {
     public boolean b(DialogInterface dialogInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f64764f.m(this.f64761c, this.f64762d, this.f64763e) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f62334f.m(this.f62331c, this.f62332d, this.f62333e) : invokeL.booleanValue;
     }
 }

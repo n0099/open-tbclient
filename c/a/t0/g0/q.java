@@ -27,25 +27,23 @@ public final class q implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f18300e;
+    public final int f17852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f18301f;
+    public final Context f17853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18302g;
+    public View f17854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f18303h;
+    public RelativeLayout f17855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f18304i;
+    public RelativeLayout f17856i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f18305j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f18306k;
+    public ImageView f17857j;
+    public TextView k;
     public ImageView l;
 
     public q(Context context) {
@@ -64,8 +62,8 @@ public final class q implements View.OnClickListener {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f18300e = 3;
-        this.f18301f = context;
+        this.f17852e = 3;
+        this.f17853f = context;
         c();
     }
 
@@ -87,7 +85,7 @@ public final class q implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.f18302g;
+            View view = this.f17854g;
             if (view == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mView");
                 return null;
@@ -101,41 +99,41 @@ public final class q implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RelativeLayout relativeLayout = null;
-            View inflate = LayoutInflater.from(this.f18301f).inflate(R.layout.card_interest_view, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f17853f).inflate(R.layout.card_interest_view, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(mContext).inflate(R…card_interest_view, null)");
-            this.f18302g = inflate;
+            this.f17854g = inflate;
             if (inflate == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mView");
                 inflate = null;
             }
             View findViewById = inflate.findViewById(R.id.card_interest_root);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mView.findViewById(R.id.card_interest_root)");
-            this.f18303h = (RelativeLayout) findViewById;
-            View view = this.f18302g;
+            this.f17855h = (RelativeLayout) findViewById;
+            View view = this.f17854g;
             if (view == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mView");
                 view = null;
             }
             View findViewById2 = view.findViewById(R.id.card_interest_insind);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mView.findViewById(R.id.card_interest_insind)");
-            this.f18304i = (RelativeLayout) findViewById2;
-            View view2 = this.f18302g;
+            this.f17856i = (RelativeLayout) findViewById2;
+            View view2 = this.f17854g;
             if (view2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mView");
                 view2 = null;
             }
             View findViewById3 = view2.findViewById(R.id.card_interest_add);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mView.findViewById(R.id.card_interest_add)");
-            this.f18305j = (ImageView) findViewById3;
-            View view3 = this.f18302g;
+            this.f17857j = (ImageView) findViewById3;
+            View view3 = this.f17854g;
             if (view3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mView");
                 view3 = null;
             }
             View findViewById4 = view3.findViewById(R.id.card_interest_content);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mView.findViewById(R.id.card_interest_content)");
-            this.f18306k = (TextView) findViewById4;
-            View view4 = this.f18302g;
+            this.k = (TextView) findViewById4;
+            View view4 = this.f17854g;
             if (view4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mView");
                 view4 = null;
@@ -143,7 +141,7 @@ public final class q implements View.OnClickListener {
             View findViewById5 = view4.findViewById(R.id.card_interest_close);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mView.findViewById(R.id.card_interest_close)");
             this.l = (ImageView) findViewById5;
-            RelativeLayout relativeLayout2 = this.f18304i;
+            RelativeLayout relativeLayout2 = this.f17856i;
             if (relativeLayout2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mCardInterestInsind");
             } else {
@@ -156,10 +154,10 @@ public final class q implements View.OnClickListener {
 
     public final void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f18300e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f17852e == i2) {
             return;
         }
-        RelativeLayout relativeLayout = this.f18303h;
+        RelativeLayout relativeLayout = this.f17855h;
         ImageView imageView = null;
         if (relativeLayout == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mCardInterestRoot");
@@ -168,13 +166,13 @@ public final class q implements View.OnClickListener {
         c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(relativeLayout);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0201);
-        ImageView imageView2 = this.f18305j;
+        ImageView imageView2 = this.f17857j;
         if (imageView2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mCardInterestAdd");
             imageView2 = null;
         }
         WebPManager.setPureDrawable(imageView2, R.drawable.icon_card_interest_add, R.color.CAM_X0304, null);
-        TextView textView = this.f18306k;
+        TextView textView = this.k;
         if (textView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mCardInterestContent");
             textView = null;
@@ -197,7 +195,7 @@ public final class q implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048580, this, v) == null) {
             Intrinsics.checkNotNullParameter(v, "v");
             if (v.getId() == R.id.card_interest_insind) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.f18301f, 5)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.f17853f, 5)));
                 c.a.t0.o1.h.n.b.a(1);
             }
         }

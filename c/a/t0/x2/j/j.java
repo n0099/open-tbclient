@@ -34,7 +34,7 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f26306e;
+        public final /* synthetic */ j f25525e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
                     return;
                 }
             }
-            this.f26306e = jVar;
+            this.f25525e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f26306e.q();
+                this.f25525e.q();
             }
         }
     }
@@ -88,7 +88,7 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
         this.o = (TextView) j2.findViewById(c.a.t0.y2.d.card_person_vedio_list_title);
         HTypeListView hTypeListView = (HTypeListView) this.n.findViewById(c.a.t0.y2.d.card_person_vedio_view_pager);
         this.p = hTypeListView;
-        this.q = new c.a.t0.x2.c.o(this.f18210f, hTypeListView);
+        this.q = new c.a.t0.x2.c.o(this.f17767f, hTypeListView);
     }
 
     @Override // c.a.t0.g0.b
@@ -101,10 +101,10 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
     @Override // c.a.t0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || i2 == this.f18209e) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || i2 == this.f17766e) {
             return;
         }
-        this.f18209e = i2;
+        this.f17766e = i2;
         SkinManager.setBackgroundColor(this.n, c.a.t0.y2.a.CAM_X0201);
         SkinManager.setViewTextColor(this.o, c.a.t0.y2.a.CAM_X0109);
     }
@@ -119,7 +119,7 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.f18211g).createNormalCfg(this.m, "personal")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.f17768g).createNormalCfg(this.m, "personal")));
         }
     }
 
@@ -129,10 +129,10 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
     public void k(c.a.t0.x2.e.m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) {
-            if (mVar != null && !ListUtils.isEmpty(mVar.f26231f)) {
-                this.m = mVar.f26230e;
+            if (mVar != null && !ListUtils.isEmpty(mVar.f25452f)) {
+                this.m = mVar.f25451e;
                 this.o.setText(c.a.t0.y2.g.video_title_str);
-                this.p.setData(t(mVar.f26231f));
+                this.p.setData(t(mVar.f25452f));
                 this.q.b(this.r);
                 return;
             }
@@ -149,13 +149,13 @@ public class j extends c.a.t0.g0.b<c.a.t0.x2.e.m> {
                 return list;
             }
             List<c.a.d.n.e.n> arrayList = new ArrayList<>(list);
-            int f2 = c.a.d.f.p.n.f(this.f18210f.getPageActivity(), c.a.t0.y2.b.ds490);
-            int f3 = c.a.d.f.p.n.f(this.f18210f.getPageActivity(), c.a.t0.y2.b.ds32);
+            int f2 = c.a.d.f.p.n.f(this.f17767f.getPageActivity(), c.a.t0.y2.b.ds490);
+            int f3 = c.a.d.f.p.n.f(this.f17767f.getPageActivity(), c.a.t0.y2.b.ds32);
             if (count > 3) {
                 arrayList = arrayList.subList(0, 3);
                 c.a.t0.x2.e.h hVar = new c.a.t0.x2.e.h();
-                hVar.f26212e = c.a.d.f.p.n.f(this.f18210f.getPageActivity(), c.a.t0.y2.b.ds120);
-                hVar.f26213f = c.a.d.f.p.n.f(this.f18210f.getPageActivity(), c.a.t0.y2.b.ds396);
+                hVar.f25433e = c.a.d.f.p.n.f(this.f17767f.getPageActivity(), c.a.t0.y2.b.ds120);
+                hVar.f25434f = c.a.d.f.p.n.f(this.f17767f.getPageActivity(), c.a.t0.y2.b.ds396);
                 ListUtils.add(arrayList, hVar);
             }
             c.a.t0.u2.d dVar = new c.a.t0.u2.d(f3, f2);

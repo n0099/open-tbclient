@@ -54,12 +54,12 @@ public abstract class b extends z {
             if (eVar == null) {
                 c.a.r0.a.e0.d.c("componentFullScreen", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             } else if (context == null) {
                 c.a.r0.a.e0.d.c("componentFullScreen", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);

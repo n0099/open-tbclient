@@ -55,7 +55,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSDKShareEmptyActivity f47461e;
+        public final /* synthetic */ AlaSDKShareEmptyActivity f45699e;
 
         public a(AlaSDKShareEmptyActivity alaSDKShareEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -72,16 +72,16 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                     return;
                 }
             }
-            this.f47461e = alaSDKShareEmptyActivity;
+            this.f45699e = alaSDKShareEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f47461e.mShareItem == null || !this.f47461e.mShareItem.d()) {
+                if (this.f45699e.mShareItem == null || !this.f45699e.mShareItem.d()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921550, 3));
-                    this.f47461e.finish();
+                    this.f45699e.finish();
                 }
             }
         }
@@ -93,7 +93,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSDKShareEmptyActivity f47462e;
+        public final /* synthetic */ AlaSDKShareEmptyActivity f45700e;
 
         public b(AlaSDKShareEmptyActivity alaSDKShareEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                     return;
                 }
             }
-            this.f47462e = alaSDKShareEmptyActivity;
+            this.f45700e = alaSDKShareEmptyActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47462e.shareInBar();
+                this.f45700e.shareInBar();
             }
         }
     }
@@ -128,7 +128,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSDKShareEmptyActivity f47463e;
+        public final /* synthetic */ AlaSDKShareEmptyActivity f45701e;
 
         public c(AlaSDKShareEmptyActivity alaSDKShareEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -145,19 +145,19 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                     return;
                 }
             }
-            this.f47463e = alaSDKShareEmptyActivity;
+            this.f45701e = alaSDKShareEmptyActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47463e.shareByCopyLink();
-                if (this.f47463e.mShareItem != null) {
+                this.f45701e.shareByCopyLink();
+                if (this.f45701e.mShareItem != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE);
-                    statisticItem.addParam("obj_type", this.f47463e.mShareItem.V);
+                    statisticItem.addParam("obj_type", this.f45701e.mShareItem.V);
                     statisticItem.addParam(TiebaStatic.Params.TIEBA_PARAMS, "copylink");
-                    statisticItem.addParam("room_id", this.f47463e.mShareItem.U);
+                    statisticItem.addParam("room_id", this.f45701e.mShareItem.U);
                     statisticItem.eventStat();
                 }
             }
@@ -223,7 +223,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             return;
         }
         c.a.d.f.p.c.a(shareItem.t);
-        n.M(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
+        n.N(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

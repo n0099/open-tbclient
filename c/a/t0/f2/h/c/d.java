@@ -32,25 +32,25 @@ public class d {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f18143b;
+    public boolean f17702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<TailData> f18144c;
+    public List<TailData> f17703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.f2.h.f.a<Void> f18145d;
+    public c.a.t0.f2.h.f.a<Void> f17704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.f2.h.f.a<Integer> f18146e;
+    public c.a.t0.f2.h.f.a<Integer> f17705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f18147f;
+    public c.a.d.c.g.a f17706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f18148g;
+    public c.a.d.c.g.a f17707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f18149h;
+    public CustomMessageListener f17708h;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.d.c.g.a {
@@ -84,7 +84,7 @@ public class d {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             c.a.t0.f2.h.a.d resultData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f18145d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f17704d == null) {
                 return;
             }
             if (responsedMessage instanceof GetTailsHttpResponseMessage) {
@@ -93,9 +93,9 @@ public class d {
                 resultData = responsedMessage instanceof GetTailsSocketResponseMessage ? ((GetTailsSocketResponseMessage) responsedMessage).getResultData() : null;
             }
             if (resultData != null) {
-                this.a.f18144c = resultData.b();
+                this.a.f17703c = resultData.b();
             }
-            this.a.f18145d.a(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
+            this.a.f17704d.a(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
         }
     }
 
@@ -131,7 +131,7 @@ public class d {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             c.a.t0.f2.h.a.c resultData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f18146e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f17705e == null) {
                 return;
             }
             if (responsedMessage instanceof DeleteTailHttpResponseMessage) {
@@ -139,7 +139,7 @@ public class d {
             } else {
                 resultData = responsedMessage instanceof DeleteTailSocketResponseMessage ? ((DeleteTailSocketResponseMessage) responsedMessage).getResultData() : null;
             }
-            this.a.f18146e.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
+            this.a.f17705e.a(responsedMessage.hasError(), responsedMessage.getErrorString(), resultData != null ? Integer.valueOf(resultData.a()) : null);
         }
     }
 
@@ -176,9 +176,9 @@ public class d {
                 boolean z = false;
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.a.f18144c.size()) {
+                    if (i2 >= this.a.f17703c.size()) {
                         break;
-                    } else if (((TailData) this.a.f18144c.get(i2)).getId() == eVar.f18100b.getId()) {
+                    } else if (((TailData) this.a.f17703c.get(i2)).getId() == eVar.f17660b.getId()) {
                         z = true;
                         break;
                     } else {
@@ -188,7 +188,7 @@ public class d {
                 if (z) {
                     return;
                 }
-                this.a.f18144c.add(eVar.f18100b);
+                this.a.f17703c.add(eVar.f17660b);
             }
         }
 
@@ -196,11 +196,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
                 boolean z = false;
-                for (int i2 = 0; i2 < this.a.f18144c.size(); i2++) {
-                    if (((TailData) this.a.f18144c.get(i2)).getId() == eVar.f18100b.getId()) {
-                        this.a.f18144c.remove(i2);
-                        if (this.a.f18144c.size() != 0) {
-                            Iterator it = this.a.f18144c.iterator();
+                for (int i2 = 0; i2 < this.a.f17703c.size(); i2++) {
+                    if (((TailData) this.a.f17703c.get(i2)).getId() == eVar.f17660b.getId()) {
+                        this.a.f17703c.remove(i2);
+                        if (this.a.f17703c.size() != 0) {
+                            Iterator it = this.a.f17703c.iterator();
                             while (true) {
                                 if (it.hasNext()) {
                                     if (((TailData) it.next()).isSelected()) {
@@ -222,11 +222,11 @@ public class d {
         public final void c(c.a.t0.f2.h.a.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-                for (int i2 = 0; i2 < this.a.f18144c.size(); i2++) {
-                    if (((TailData) this.a.f18144c.get(i2)).getId() == eVar.f18100b.getId()) {
-                        ((TailData) this.a.f18144c.get(i2)).setContent(eVar.f18100b.getContent());
-                        ((TailData) this.a.f18144c.get(i2)).setFontColor(eVar.f18100b.getFontColor());
-                        ((TailData) this.a.f18144c.get(i2)).setSelected(eVar.f18100b.isSelected());
+                for (int i2 = 0; i2 < this.a.f17703c.size(); i2++) {
+                    if (((TailData) this.a.f17703c.get(i2)).getId() == eVar.f17660b.getId()) {
+                        ((TailData) this.a.f17703c.get(i2)).setContent(eVar.f17660b.getContent());
+                        ((TailData) this.a.f17703c.get(i2)).setFontColor(eVar.f17660b.getFontColor());
+                        ((TailData) this.a.f17703c.get(i2)).setSelected(eVar.f17660b.isSelected());
                         return;
                     }
                 }
@@ -237,11 +237,11 @@ public class d {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof c.a.t0.f2.h.a.e) || this.a.f18145d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof c.a.t0.f2.h.a.e) || this.a.f17704d == null) {
                 return;
             }
             c.a.t0.f2.h.a.e eVar = (c.a.t0.f2.h.a.e) customResponsedMessage.getData();
-            if (eVar.f18100b == null || this.a.f18144c == null) {
+            if (eVar.f17660b == null || this.a.f17703c == null) {
                 return;
             }
             int i2 = eVar.a;
@@ -252,7 +252,7 @@ public class d {
             } else if (i2 == 2) {
                 c(eVar);
             }
-            this.a.f18145d.a(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
+            this.a.f17704d.a(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
         }
     }
 
@@ -271,15 +271,15 @@ public class d {
                 return;
             }
         }
-        this.f18143b = false;
-        this.f18147f = new a(this, CmdConfigHttp.CMD_TAIL_GET, 305001);
-        this.f18148g = new b(this, CmdConfigHttp.CMD_TAIL_DELETE, 305103);
-        this.f18149h = new c(this, 2001340);
+        this.f17702b = false;
+        this.f17706f = new a(this, CmdConfigHttp.CMD_TAIL_GET, 305001);
+        this.f17707g = new b(this, CmdConfigHttp.CMD_TAIL_DELETE, 305103);
+        this.f17708h = new c(this, 2001340);
         this.a = tbPageContext;
-        this.f18144c = new ArrayList();
-        this.a.registerListener(this.f18147f);
-        this.a.registerListener(this.f18148g);
-        this.a.registerListener(this.f18149h);
+        this.f17703c = new ArrayList();
+        this.a.registerListener(this.f17706f);
+        this.a.registerListener(this.f17707g);
+        this.a.registerListener(this.f17708h);
     }
 
     public void e(int i2) {
@@ -292,19 +292,19 @@ public class d {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? 3 - this.f18144c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? 3 - this.f17703c.size() : invokeV.intValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18143b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17702b : invokeV.booleanValue;
     }
 
     public List<TailData> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18144c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17703c : (List) invokeV.objValue;
     }
 
     public boolean i(Serializable serializable) {
@@ -312,7 +312,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, serializable)) == null) {
             if (serializable != null && (serializable instanceof TailDataList)) {
-                this.f18144c = ((TailDataList) serializable).getTails();
+                this.f17703c = ((TailDataList) serializable).getTails();
                 return true;
             }
             j();
@@ -331,21 +331,21 @@ public class d {
     public void k(c.a.t0.f2.h.f.a<Integer> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f18146e = aVar;
+            this.f17705e = aVar;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f18143b = z;
+            this.f17702b = z;
         }
     }
 
     public void m(c.a.t0.f2.h.f.a<Void> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f18145d = aVar;
+            this.f17704d = aVar;
         }
     }
 
@@ -353,9 +353,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             if (list == null) {
-                this.f18144c.clear();
+                this.f17703c.clear();
             } else {
-                this.f18144c = list;
+                this.f17703c = list;
             }
         }
     }

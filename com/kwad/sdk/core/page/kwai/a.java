@@ -17,13 +17,13 @@ public class a extends Presenter {
         final e eVar = (e) p();
         KsAdVideoPlayConfig build = new KsAdVideoPlayConfig.Builder().videoSoundEnable(true).build();
         k kVar = (k) m();
-        kVar.a(eVar.f58185c);
+        kVar.a(eVar.f55986c);
         kVar.a(build, eVar.a);
         kVar.setVisibility(0);
         kVar.setOnEndBtnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.kwai.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.a.a.B(com.kwad.sdk.core.response.a.d.j(eVar.f58185c))) {
+                if (com.kwad.sdk.core.response.a.a.B(com.kwad.sdk.core.response.a.d.j(eVar.f55986c))) {
                     com.kwad.sdk.core.download.a.b bVar = eVar.a;
                     if (bVar != null) {
                         bVar.a((Context) a.this.o(), false);
@@ -31,22 +31,22 @@ public class a extends Presenter {
                     }
                     return;
                 }
-                RecyclerView recyclerView = eVar.f58184b;
-                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f58184b.getAdapter().getItemCount() <= 1) {
+                RecyclerView recyclerView = eVar.f55985b;
+                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f55985b.getAdapter().getItemCount() <= 1) {
                     return;
                 }
-                eVar.f58184b.scrollToPosition(1);
+                eVar.f55985b.scrollToPosition(1);
             }
         });
         kVar.setWindowFullScreenListener(new k.a() { // from class: com.kwad.sdk.core.page.kwai.a.2
             @Override // com.kwad.sdk.feed.widget.k.a
             public void a() {
-                a.this.a = eVar.f58184b.computeVerticalScrollOffset();
+                a.this.a = eVar.f55985b.computeVerticalScrollOffset();
             }
 
             @Override // com.kwad.sdk.feed.widget.k.a
             public void b() {
-                eVar.f58184b.scrollToPosition(a.this.a);
+                eVar.f55985b.scrollToPosition(a.this.a);
             }
         });
     }

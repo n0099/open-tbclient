@@ -22,33 +22,33 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f1131g = 2;
+    public static int f1129g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f1132h = 4;
+    public static int f1130h = 4;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f1133i = 8;
+    public static int f1131i = 8;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f1134j = 16;
+    public static int f1132j = 16;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1135b;
+    public int f1133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1136c;
+    public int f1134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1137d;
+    public int f1135d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1138e;
+    public long f1136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1139f;
+    public String f1137f;
 
     /* loaded from: classes.dex */
     public class a implements j {
@@ -56,10 +56,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean[] f1140e;
+        public final /* synthetic */ boolean[] f1138e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f1141f;
+        public final /* synthetic */ b f1139f;
 
         public a(b bVar, boolean[] zArr) {
             Interceptable interceptable = $ic;
@@ -76,16 +76,16 @@ public class b {
                     return;
                 }
             }
-            this.f1141f = bVar;
-            this.f1140e = zArr;
+            this.f1139f = bVar;
+            this.f1138e = zArr;
         }
 
         @Override // c.a.a1.i.j
         public void a(MediaFormat mediaFormat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaFormat) == null) {
-                this.f1140e[0] = true;
-                this.f1141f.l(mediaFormat);
+                this.f1138e[0] = true;
+                this.f1139f.l(mediaFormat);
             }
         }
     }
@@ -129,10 +129,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             b bVar = new b("");
-            bVar.f1136c = 2;
-            bVar.f1139f = "audio/mp4a-latm";
-            bVar.f1135b = 44100;
-            bVar.f1137d = 16;
+            bVar.f1134c = 2;
+            bVar.f1137f = "audio/mp4a-latm";
+            bVar.f1133b = 44100;
+            bVar.f1135d = 16;
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -141,19 +141,19 @@ public class b {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1137d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1135d : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1136c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1134c : invokeV.intValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1138e / 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1136e / 1000 : invokeV.longValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -165,13 +165,13 @@ public class b {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1139f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1137f : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1135b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1133b : invokeV.intValue;
     }
 
     public String h() {
@@ -184,8 +184,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.f1137d + this.f1135b + this.f1136c;
-            String str = this.f1139f;
+            int i2 = this.f1135d + this.f1133b + this.f1134c;
+            String str = this.f1137f;
             return i2 + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -194,7 +194,7 @@ public class b {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f1139f) || this.f1135b == 0 || this.f1136c == 0 || this.f1137d == 0 || this.f1138e == 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f1137f) || this.f1133b == 0 || this.f1134c == 0 || this.f1135d == 0 || this.f1136e == 0) ? false : true : invokeV.booleanValue;
     }
 
     public final void j(String str) {
@@ -225,14 +225,14 @@ public class b {
             if (bVar == null) {
                 return 0;
             }
-            int i2 = bVar.f1137d != this.f1137d ? 0 | f1131g : 0;
-            if (bVar.f1135b != this.f1135b) {
-                i2 |= f1132h;
+            int i2 = bVar.f1135d != this.f1135d ? 0 | f1129g : 0;
+            if (bVar.f1133b != this.f1133b) {
+                i2 |= f1130h;
             }
-            if (bVar.f1136c != this.f1136c) {
-                i2 |= f1133i;
+            if (bVar.f1134c != this.f1134c) {
+                i2 |= f1131i;
             }
-            return !TextUtils.equals(bVar.f1139f, this.f1139f) ? i2 | f1134j : i2;
+            return !TextUtils.equals(bVar.f1137f, this.f1137f) ? i2 | f1132j : i2;
         }
         return invokeL.intValue;
     }
@@ -242,8 +242,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mediaFormat)) == null) {
             try {
-                this.f1135b = mediaFormat.getInteger("sample-rate");
-                this.f1136c = mediaFormat.getInteger("channel-count");
+                this.f1133b = mediaFormat.getInteger("sample-rate");
+                this.f1134c = mediaFormat.getInteger("channel-count");
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -275,14 +275,14 @@ public class b {
                         if (mediaFormat == null) {
                             return false;
                         }
-                        this.f1139f = mediaFormat.getString("mime");
-                        this.f1135b = mediaFormat.getInteger("sample-rate");
-                        this.f1136c = mediaFormat.getInteger("channel-count");
-                        this.f1138e = mediaFormat.getLong("durationUs");
+                        this.f1137f = mediaFormat.getString("mime");
+                        this.f1133b = mediaFormat.getInteger("sample-rate");
+                        this.f1134c = mediaFormat.getInteger("channel-count");
+                        this.f1136e = mediaFormat.getLong("durationUs");
                         if (mediaFormat.containsKey("bit-width")) {
-                            this.f1137d = mediaFormat.getInteger("bit-width");
+                            this.f1135d = mediaFormat.getInteger("bit-width");
                         } else {
-                            this.f1137d = 16;
+                            this.f1135d = 16;
                         }
                         if (mediaFormat.containsKey("aac-profile")) {
                             if (mediaFormat.getInteger("aac-profile") != 2) {

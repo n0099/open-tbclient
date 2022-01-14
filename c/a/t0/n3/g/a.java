@@ -57,7 +57,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
@@ -69,25 +69,23 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f20308e;
+    public final Context f19769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final View f20309f;
+    public final View f19770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f20310g;
+    public final TextView f19771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TextView f20311h;
+    public final TextView f19772h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ShareGridLayout f20312i;
+    public ShareGridLayout f19773i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final List<View> f20313j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View.OnClickListener f20314k;
+    public final List<View> f19774j;
+    public View.OnClickListener k;
     public DialogInterface.OnDismissListener l;
     public AlertDialog m;
     public final SparseArray<ShareItem> n;
@@ -96,15 +94,15 @@ public class a implements View.OnClickListener {
     public SparseArray<j0> q;
 
     /* renamed from: c.a.t0.n3.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1224a implements CustomMessageTask.CustomRunnable<Object> {
+    /* loaded from: classes8.dex */
+    public class C1238a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20315e;
+        public final /* synthetic */ a f19775e;
 
-        public C1224a(a aVar) {
+        public C1238a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +117,7 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f20315e = aVar;
+            this.f19775e = aVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -127,23 +125,23 @@ public class a implements View.OnClickListener {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (this.f20315e.m == null || !this.f20315e.m.isShowing()) {
+                if (this.f19775e.m == null || !this.f19775e.m.isShowing()) {
                     return null;
                 }
-                this.f20315e.f();
+                this.f19775e.f();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20316e;
+        public final /* synthetic */ a f19776e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -160,15 +158,15 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f20316e = aVar;
+            this.f19776e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f20316e.l != null) {
-                    this.f20316e.l.onDismiss(dialogInterface);
+                if (this.f19776e.l != null) {
+                    this.f19776e.l.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001277);
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
@@ -176,16 +174,16 @@ public class a implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View.OnClickListener f20317e;
+        public View.OnClickListener f19777e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f20318f;
+        public final /* synthetic */ a f19778f;
 
         public c(a aVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -202,16 +200,16 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f20318f = aVar;
-            this.f20317e = onClickListener;
+            this.f19778f = aVar;
+            this.f19777e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20318f.f();
-                View.OnClickListener onClickListener = this.f20317e;
+                this.f19778f.f();
+                View.OnClickListener onClickListener = this.f19777e;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
@@ -257,28 +255,28 @@ public class a implements View.OnClickListener {
         }
         this.n = new SparseArray<>(8);
         this.o = false;
-        this.f20308e = context;
-        this.f20313j = new ArrayList();
+        this.f19769e = context;
+        this.f19774j = new ArrayList();
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.ala_share_dialog_content, (ViewGroup) null);
-        this.f20309f = inflate;
-        this.f20311h = (TextView) inflate.findViewById(R.id.share_dialog_title);
+        this.f19770f = inflate;
+        this.f19772h = (TextView) inflate.findViewById(R.id.share_dialog_title);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
-            this.f20311h.setText(sharePanelText);
+            this.f19772h.setText(sharePanelText);
         }
-        ShareGridLayout shareGridLayout = (ShareGridLayout) this.f20309f.findViewById(R.id.share_grid_layout);
-        this.f20312i = shareGridLayout;
+        ShareGridLayout shareGridLayout = (ShareGridLayout) this.f19770f.findViewById(R.id.share_grid_layout);
+        this.f19773i = shareGridLayout;
         ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             int i5 = ShareGridLayout.DEFAULT_MARGIN_LEFT_RIGHT;
             marginLayoutParams.leftMargin = i5;
             marginLayoutParams.rightMargin = i5;
-            this.f20312i.setLayoutParams(marginLayoutParams);
+            this.f19773i.setLayoutParams(marginLayoutParams);
         }
-        this.f20312i.setItemParams(r, s);
-        TextView textView = (TextView) this.f20309f.findViewById(R.id.btnShareCancel);
-        this.f20310g = textView;
+        this.f19773i.setItemParams(r, s);
+        TextView textView = (TextView) this.f19770f.findViewById(R.id.btnShareCancel);
+        this.f19771g = textView;
         textView.setOnClickListener(this);
         if (!o(i2)) {
             m(new SvgMaskType(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
@@ -295,7 +293,7 @@ public class a implements View.OnClickListener {
         if (g.n()) {
             return;
         }
-        this.f20312i.setVisibility(8);
+        this.f19773i.setVisibility(8);
     }
 
     public final void A(ShareItem shareItem, int i2) {
@@ -303,16 +301,16 @@ public class a implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, shareItem, i2) == null) || shareItem == null || shareItem.q == null) {
             return;
         }
-        if (shareItem.f42233b) {
+        if (shareItem.f40762b) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.q).param("obj_type", i2));
-        } else if (!shareItem.f42234c && !shareItem.f42237f) {
-            if (shareItem.f42235d) {
+        } else if (!shareItem.f40763c && !shareItem.f40766f) {
+            if (shareItem.f40764d) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.q).param("obj_type", i2));
             } else if (shareItem.a) {
                 z(i2, shareItem.C);
-            } else if (shareItem.f42236e) {
+            } else if (shareItem.f40765e) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i2).param("fid", shareItem.q));
-            } else if (shareItem.f42238g) {
+            } else if (shareItem.f40767g) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i2);
                 if (!m.isEmpty(shareItem.t) && shareItem.t.contains("worldcup")) {
                     param.param("obj_param1", 9);
@@ -326,10 +324,10 @@ public class a implements View.OnClickListener {
 
     public void c(View view, int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2, onClickListener) == null) || i2 > this.f20313j.size() || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2, onClickListener) == null) || i2 > this.f19774j.size() || i2 < 0) {
             return;
         }
-        this.f20313j.add(i2, view);
+        this.f19774j.add(i2, view);
         if (onClickListener != null) {
             view.setOnClickListener(new c(this, onClickListener));
         }
@@ -338,8 +336,8 @@ public class a implements View.OnClickListener {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int i2 = 0; i2 < this.f20313j.size(); i2++) {
-                this.f20312i.addView(this.f20313j.get(i2), new ViewGroup.LayoutParams(r, s));
+            for (int i2 = 0; i2 < this.f19774j.size(); i2++) {
+                this.f19773i.addView(this.f19774j.get(i2), new ViewGroup.LayoutParams(r, s));
             }
         }
     }
@@ -358,7 +356,7 @@ public class a implements View.OnClickListener {
             return;
         }
         this.o = false;
-        Context context = this.f20308e;
+        Context context = this.f19769e;
         if (context instanceof Activity) {
             c.a.d.f.m.g.a(alertDialog, (Activity) context);
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
@@ -369,7 +367,7 @@ public class a implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<View> list = this.f20313j;
+            List<View> list = this.f19774j;
             if (list == null) {
                 return 0;
             }
@@ -417,10 +415,10 @@ public class a implements View.OnClickListener {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i2, i3)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f20308e);
+            LinearLayout linearLayout = new LinearLayout(this.f19769e);
             linearLayout.setOrientation(1);
             linearLayout.setTag(Integer.valueOf(i3));
-            ImageView imageView = new ImageView(this.f20308e);
+            ImageView imageView = new ImageView(this.f19769e);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(imageView);
             int i4 = t;
@@ -429,14 +427,14 @@ public class a implements View.OnClickListener {
             layoutParams.bottomMargin = v;
             layoutParams.gravity = 1;
             linearLayout.addView(imageView, layoutParams);
-            TextView textView = new TextView(this.f20308e);
+            TextView textView = new TextView(this.f19769e);
             textView.setTextSize(0, w);
             textView.setText(i2);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 1;
             linearLayout.addView(textView, layoutParams2);
             imageView.setImageResource(i3);
-            textView.setTextColor(this.f20308e.getResources().getColorStateList(R.color.share_channel_item_txt_selector));
+            textView.setTextColor(this.f19769e.getResources().getColorStateList(R.color.share_channel_item_txt_selector));
             return linearLayout;
         }
         return (LinearLayout) invokeII.objValue;
@@ -447,10 +445,10 @@ public class a implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeLII(1048587, this, absSvgType, i2, i3) == null) || absSvgType == null) {
             return;
         }
-        LinearLayout linearLayout = new LinearLayout(this.f20308e);
+        LinearLayout linearLayout = new LinearLayout(this.f19769e);
         linearLayout.setOrientation(1);
         linearLayout.setTag(Integer.valueOf(i3));
-        ImageView imageView = new ImageView(this.f20308e);
+        ImageView imageView = new ImageView(this.f19769e);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         if (absSvgType instanceof SvgPureType) {
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(imageView);
@@ -461,16 +459,16 @@ public class a implements View.OnClickListener {
         layoutParams.bottomMargin = v;
         layoutParams.gravity = 1;
         linearLayout.addView(imageView, layoutParams);
-        TextView textView = new TextView(this.f20308e);
+        TextView textView = new TextView(this.f19769e);
         textView.setTextSize(0, w);
         textView.setText(i2);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 1;
         linearLayout.addView(textView, layoutParams2);
         imageView.setImageDrawable(absSvgType.getDrawable());
-        textView.setTextColor(this.f20308e.getResources().getColorStateList(R.color.share_channel_item_txt_selector));
+        textView.setTextColor(this.f19769e.getResources().getColorStateList(R.color.share_channel_item_txt_selector));
         linearLayout.setOnClickListener(this);
-        this.f20313j.add(linearLayout);
+        this.f19774j.add(linearLayout);
     }
 
     public final boolean n(int i2) {
@@ -496,7 +494,7 @@ public class a implements View.OnClickListener {
             }
             if (view.getId() == R.id.btnShareCancel || !this.o) {
                 this.o = true;
-                g gVar = new g(this.f20308e, null);
+                g gVar = new g(this.f19769e, null);
                 ShareItem j2 = j(1);
                 if (id == R.id.btnShareCancel) {
                     v("share_cancel", new Object[0]);
@@ -508,7 +506,7 @@ public class a implements View.OnClickListener {
                 }
                 if (intValue == 4) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
                     v("share_to_weixin", new Object[0]);
@@ -520,7 +518,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (intValue == 3) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
                     v("share_to_pyq", new Object[0]);
@@ -528,16 +526,16 @@ public class a implements View.OnClickListener {
                     ShareItem j4 = j(2);
                     A(j4, 3);
                     if (j4 != null) {
-                        if (j4.f42233b) {
+                        if (j4.f40762b) {
                             j4.s = "【" + j4.r + "】 " + j4.s;
                         }
                         gVar.u(j4);
                     }
                 } else if (intValue == 5) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
-                    } else if (b0.b(this.f20308e, "com.tencent.mobileqq")) {
+                    } else if (b0.b(this.f19769e, "com.tencent.mobileqq")) {
                         v("share_to_qzone", new Object[0]);
                         w(4);
                         ShareItem j5 = j(4);
@@ -546,12 +544,12 @@ public class a implements View.OnClickListener {
                             gVar.p(j5);
                         }
                     } else {
-                        Context context = this.f20308e;
+                        Context context = this.f19769e;
                         BdToast.c(context, context.getText(R.string.share_qq_not_install)).q();
                     }
                 } else if (intValue == 6) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
                     v("share_to_qweibo", new Object[0]);
@@ -566,7 +564,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (intValue == 7) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
                     v("share_to_sweibo", new Object[0]);
@@ -581,7 +579,7 @@ public class a implements View.OnClickListener {
                     }
                 } else if (intValue == 8) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
                     v("share_to_renren", new Object[0]);
@@ -596,9 +594,9 @@ public class a implements View.OnClickListener {
                     }
                 } else if (intValue == 9) {
                     if (!l.z()) {
-                        n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                        n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
-                    } else if (b0.b(this.f20308e, "com.tencent.mobileqq")) {
+                    } else if (b0.b(this.f19769e, "com.tencent.mobileqq")) {
                         v("share_to_qq_friend", new Object[0]);
                         w(8);
                         ShareItem j9 = j(8);
@@ -607,17 +605,17 @@ public class a implements View.OnClickListener {
                             gVar.o(j9);
                         }
                     } else {
-                        Context context2 = this.f20308e;
+                        Context context2 = this.f19769e;
                         BdToast.c(context2, context2.getText(R.string.share_qq_not_install)).q();
                     }
                 } else if (intValue == 10) {
                     A(j2, 10);
-                    View.OnClickListener onClickListener = this.f20314k;
+                    View.OnClickListener onClickListener = this.k;
                     if (onClickListener != null) {
                         onClickListener.onClick(view);
                     } else {
                         c.a.d.f.p.c.a(j2.t);
-                        n.M(this.f20308e.getApplicationContext(), this.f20308e.getResources().getString(R.string.copy_pb_url_success));
+                        n.N(this.f19769e.getApplicationContext(), this.f19769e.getResources().getString(R.string.copy_pb_url_success));
                     }
                     y(j2);
                     if (j2 != null && j2.a) {
@@ -644,7 +642,7 @@ public class a implements View.OnClickListener {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001277, new C1224a(this));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001277, new C1238a(this));
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -655,7 +653,7 @@ public class a implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f20314k = onClickListener;
+        this.k = onClickListener;
     }
 
     public void t(ShareItem shareItem, boolean z) {
@@ -673,24 +671,24 @@ public class a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             if (!l.z()) {
-                n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-                Context context = this.f20308e;
+                n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                Context context = this.f19769e;
                 if (context instanceof Activity) {
                     ((Activity) context).finish();
                 }
             } else if (!g.n()) {
-                n.L(TbadkCoreApplication.getInst().getContext(), R.string.plugin_share_install_failure);
+                n.M(TbadkCoreApplication.getInst().getContext(), R.string.plugin_share_install_failure);
             } else {
                 d();
-                AlertDialog create = new AlertDialog.Builder(this.f20308e, R.style.DialogTheme).create();
+                AlertDialog create = new AlertDialog.Builder(this.f19769e, R.style.DialogTheme).create();
                 this.m = create;
                 create.setCanceledOnTouchOutside(true);
                 this.m.setOnDismissListener(new b(this));
-                Context context2 = this.f20308e;
+                Context context2 = this.f19769e;
                 if (context2 instanceof Activity) {
                     c.a.d.f.m.g.i(this.m, (Activity) context2);
                 }
-                this.f20309f.setBackgroundResource(R.drawable.transmit_share_dialog_background);
+                this.f19770f.setBackgroundResource(R.drawable.transmit_share_dialog_background);
                 Window window = this.m.getWindow();
                 window.addFlags(512);
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -699,7 +697,7 @@ public class a implements View.OnClickListener {
                 window.setWindowAnimations(R.style.share_dialog_style);
                 window.setGravity(80);
                 window.setLayout(-1, -2);
-                window.setContentView(this.f20309f);
+                window.setContentView(this.f19770f);
                 e();
                 r();
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
@@ -710,7 +708,7 @@ public class a implements View.OnClickListener {
     public final void v(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, str, objArr) == null) {
-            TiebaStatic.eventStat(this.f20308e, str, "click", 1, objArr);
+            TiebaStatic.eventStat(this.f19769e, str, "click", 1, objArr);
         }
     }
 
@@ -777,7 +775,7 @@ public class a implements View.OnClickListener {
     public final void z(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048601, this, i2, str) == null) {
-            TiebaStatic.eventStat(this.f20308e, "pb_new_share", null, 1, "loc", Integer.valueOf(i2), PbChosenActivityConfig.KEY_TID, str);
+            TiebaStatic.eventStat(this.f19769e, "pb_new_share", null, 1, "loc", Integer.valueOf(i2), PbChosenActivityConfig.KEY_TID, str);
         }
     }
 }

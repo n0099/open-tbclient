@@ -106,10 +106,10 @@ public final class Util {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f32262b;
+        public String f31247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f32263c;
+        public int f31248c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public final class Util {
                 }
             }
             this.a = false;
-            this.f32262b = null;
-            this.f32263c = 0;
+            this.f31247b = null;
+            this.f31248c = 0;
         }
     }
 
@@ -189,7 +189,7 @@ public final class Util {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f32262b = e.toString();
+                    aVar.f31247b = e.toString();
                     c.a.d.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -201,7 +201,7 @@ public final class Util {
                 c.a.d.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f32262b = "illegal_param";
+            aVar.f31247b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;

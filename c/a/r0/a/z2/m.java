@@ -27,13 +27,13 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f10223e;
+        public final /* synthetic */ int f9999e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f10224f;
+        public final /* synthetic */ long f10000f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f10225g;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f10001g;
 
         public a(int i2, long j2, c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class m {
                     return;
                 }
             }
-            this.f10223e = i2;
-            this.f10224f = j2;
-            this.f10225g = cVar;
+            this.f9999e = i2;
+            this.f10000f = j2;
+            this.f10001g = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -61,11 +61,11 @@ public class m {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    m.f(jSONObject, c.a.r0.a.p1.l.a(), this.f10223e, this.f10224f);
+                    m.f(jSONObject, c.a.r0.a.p1.l.a(), this.f9999e, this.f10000f);
                 } catch (Exception e2) {
                     w.f(jSONObject, "errorMsg", e2.getMessage());
                 }
-                this.f10225g.onCallback(jSONObject);
+                this.f10001g.onCallback(jSONObject);
             }
         }
     }
@@ -133,7 +133,7 @@ public class m {
             w.f(jSONObject, "model", Build.MODEL);
             w.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
             w.f(jSONObject, "netStatus", Integer.valueOf(i2));
-            a.C0522a a2 = c.a.r0.a.r2.c.a.a(c.a.r0.a.c1.a.c());
+            a.C0531a a2 = c.a.r0.a.r2.c.a.a(c.a.r0.a.c1.a.c());
             w.f(jSONObject, "batteryLevel", Integer.valueOf(a2 == null ? -1 : a2.a));
             w.f(jSONObject, "appCurVersion", q0.D());
             w.f(jSONObject, "startupType", String.valueOf(i3));

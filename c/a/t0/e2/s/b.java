@@ -87,14 +87,14 @@ public class b implements ShareChannelService {
                 if (b2) {
                     return b2;
                 }
-                n.M(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_weixin_not_installed_yet));
+                n.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_weixin_not_installed_yet));
                 return b2;
             } else if (i2 == 6) {
                 boolean b3 = b0.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (b3) {
                     return b3;
                 }
-                n.M(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_weibo_not_installed_yet));
+                n.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_weibo_not_installed_yet));
                 return b3;
             } else if (i2 != 8) {
                 return false;
@@ -103,7 +103,7 @@ public class b implements ShareChannelService {
                 if (b4) {
                     return b4;
                 }
-                n.M(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_qq_not_installed_yet));
+                n.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_qq_not_installed_yet));
                 return b4;
             }
         }

@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC1262a f20886b;
+    public InterfaceC1276a f20325b;
 
     /* renamed from: c.a.t0.o1.e.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1262a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1276a {
         void a();
     }
 
@@ -55,10 +55,10 @@ public class a extends PopupWindow {
         }
     }
 
-    public void b(InterfaceC1262a interfaceC1262a) {
+    public void b(InterfaceC1276a interfaceC1276a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1262a) == null) {
-            this.f20886b = interfaceC1262a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1276a) == null) {
+            this.f20325b = interfaceC1276a;
         }
     }
 
@@ -66,9 +66,9 @@ public class a extends PopupWindow {
     public void dismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            InterfaceC1262a interfaceC1262a = this.f20886b;
-            if (interfaceC1262a != null) {
-                interfaceC1262a.a();
+            InterfaceC1276a interfaceC1276a = this.f20325b;
+            if (interfaceC1276a != null) {
+                interfaceC1276a.a();
             } else {
                 super.dismiss();
             }

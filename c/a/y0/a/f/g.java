@@ -8,7 +8,6 @@ import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +32,7 @@ public final class g {
                 jSONObject2.put("osVersion", bVar.n().getOsVersion());
                 jSONObject2.put("brandName", bVar.n().r());
                 jSONObject2.put("deviceType", bVar.n().s());
-                jSONObject2.put(BaseStatisContent.MAC, bVar.n().t());
+                jSONObject2.put("mac", bVar.n().t());
                 jSONObject2.put(CommandMessage.SDK_VERSION, bVar.n().u());
                 jSONObject2.put("testEnable", bVar.n().v());
                 jSONObject2.put("appVersion", bVar.n().w());

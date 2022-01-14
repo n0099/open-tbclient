@@ -22,53 +22,51 @@ public class a implements c.b.b.q.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final C1598a f27948e;
+    public final C1614a f27108e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.b.b.q.a<i> f27949f;
+    public c.b.b.q.a<i> f27109f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27950g;
+    public boolean f27110g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27951h;
+    public boolean f27111h;
 
     /* renamed from: c.b.b.n.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1598a {
+    public static class C1614a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f27952b;
+        public String[] f27112b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.b.b.m.a f27953c;
+        public c.b.b.m.a f27113c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f27954d;
+        public boolean f27114d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f27955e;
+        public float f27115e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f27956f;
+        public float f27116f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f27957g;
+        public float f27117g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f27958h;
+        public float f27118h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f27959i;
+        public float f27119i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f27960j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public float f27961k;
+        public float f27120j;
+        public float k;
         public float l;
         public float m;
         public float n;
@@ -81,7 +79,7 @@ public class a implements c.b.b.q.h {
         public char[] u;
         public char[] v;
 
-        public C1598a(c.b.b.m.a aVar, boolean z) {
+        public C1614a(c.b.b.m.a aVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,15 +94,15 @@ public class a implements c.b.b.q.h {
                     return;
                 }
             }
-            this.f27960j = 1.0f;
+            this.f27120j = 1.0f;
             this.n = 1.0f;
             this.o = 1.0f;
             this.q = new b[128];
             this.t = 1.0f;
             this.u = new char[]{'x', 'e', 'a', 'o', 'n', 's', 'r', 'c', 'u', 'm', 'v', 'w', 'z'};
             this.v = new char[]{'M', 'N', 'B', 'D', 'C', 'E', 'F', 'K', 'A', 'G', 'H', 'I', 'J', 'L', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-            this.f27953c = aVar;
-            this.f27954d = z;
+            this.f27113c = aVar;
+            this.f27114d = z;
             e(aVar, z);
         }
 
@@ -116,7 +114,7 @@ public class a implements c.b.b.q.h {
                 for (b[] bVarArr2 : this.q) {
                     if (bVarArr2 != null) {
                         for (b bVar : bVarArr2) {
-                            if (bVar != null && bVar.f27965e != 0 && bVar.f27964d != 0) {
+                            if (bVar != null && bVar.f27124e != 0 && bVar.f27123d != 0) {
                                 return bVar;
                             }
                         }
@@ -144,13 +142,13 @@ public class a implements c.b.b.q.h {
         public String c(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f27952b[i2] : (String) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f27112b[i2] : (String) invokeI.objValue;
         }
 
         public String[] d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27952b : (String[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27112b : (String[]) invokeV.objValue;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:118:0x02d5 A[Catch: Exception -> 0x0452, all -> 0x0476, TryCatch #1 {all -> 0x0476, blocks: (B:137:0x0348, B:140:0x0357, B:142:0x0371, B:145:0x0379, B:147:0x03c1, B:149:0x03da, B:151:0x03ed, B:152:0x03f0, B:154:0x03f6, B:155:0x0400, B:157:0x0404, B:159:0x0408, B:148:0x03cc, B:144:0x0376, B:116:0x02c9, B:106:0x02a5, B:108:0x02a9, B:110:0x02af, B:113:0x02b4, B:115:0x02c2, B:180:0x045d, B:181:0x0475, B:119:0x02dc, B:121:0x02eb, B:123:0x02f3, B:118:0x02d5, B:127:0x0307, B:133:0x032e, B:135:0x0340, B:160:0x0416, B:161:0x041f, B:162:0x0420, B:163:0x0429, B:164:0x042a, B:165:0x0433, B:166:0x0434, B:167:0x043d, B:168:0x043e, B:169:0x0447, B:170:0x0448, B:171:0x0451), top: B:193:0x0020 }] */
@@ -199,7 +197,7 @@ public class a implements c.b.b.q.h {
             b b3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048580, this, aVar, z) == null) {
-                if (this.f27952b == null) {
+                if (this.f27112b == null) {
                     this.a = aVar.h();
                     BufferedReader bufferedReader3 = new BufferedReader(new InputStreamReader(aVar.m()), 512);
                     try {
@@ -209,18 +207,18 @@ public class a implements c.b.b.q.h {
                                 if (readLine3 != null) {
                                     String substring = readLine3.substring(readLine3.indexOf("padding=") + 8);
                                     if (substring.substring(0, substring.indexOf(32)).split(",", 4).length == 4) {
-                                        this.f27955e = Integer.parseInt(split[0]);
+                                        this.f27115e = Integer.parseInt(split[0]);
                                         boolean z2 = true;
-                                        this.f27956f = Integer.parseInt(split[1]);
-                                        this.f27957g = Integer.parseInt(split[2]);
-                                        this.f27958h = Integer.parseInt(split[3]);
-                                        float f8 = this.f27955e + this.f27957g;
+                                        this.f27116f = Integer.parseInt(split[1]);
+                                        this.f27117g = Integer.parseInt(split[2]);
+                                        this.f27118h = Integer.parseInt(split[3]);
+                                        float f8 = this.f27115e + this.f27117g;
                                         String readLine4 = bufferedReader3.readLine();
                                         if (readLine4 != null) {
                                             String[] split2 = readLine4.split(" ", 9);
                                             if (split2.length >= 3) {
                                                 if (split2[1].startsWith("lineHeight=")) {
-                                                    this.f27959i = Integer.parseInt(split2[1].substring(11));
+                                                    this.f27119i = Integer.parseInt(split2[1].substring(11));
                                                     if (split2[2].startsWith("base=")) {
                                                         float parseInt2 = Integer.parseInt(split2[2].substring(5));
                                                         if (split2.length >= 6 && split2[5] != null && split2[5].startsWith("pages=")) {
@@ -228,7 +226,7 @@ public class a implements c.b.b.q.h {
                                                                 i2 = Math.max(1, Integer.parseInt(split2[5].substring(6)));
                                                             } catch (NumberFormatException unused) {
                                                             }
-                                                            this.f27952b = new String[i2];
+                                                            this.f27112b = new String[i2];
                                                             for (i3 = 0; i3 < i2; i3++) {
                                                                 String readLine5 = bufferedReader3.readLine();
                                                                 if (readLine5 != null) {
@@ -245,7 +243,7 @@ public class a implements c.b.b.q.h {
                                                                     }
                                                                     Matcher matcher2 = Pattern.compile(".*file=\"?([^\"]+)\"?").matcher(readLine5);
                                                                     if (matcher2.find()) {
-                                                                        this.f27952b[i3] = aVar.i().a(matcher2.group(1)).j().replaceAll("\\\\", "/");
+                                                                        this.f27112b[i3] = aVar.i().a(matcher2.group(1)).j().replaceAll("\\\\", "/");
                                                                     } else {
                                                                         throw new GdxRuntimeException("Missing: file");
                                                                     }
@@ -274,20 +272,20 @@ public class a implements c.b.b.q.h {
                                                                     }
                                                                     bVar4.a = parseInt3;
                                                                     stringTokenizer2.nextToken();
-                                                                    bVar4.f27962b = Integer.parseInt(stringTokenizer2.nextToken());
+                                                                    bVar4.f27121b = Integer.parseInt(stringTokenizer2.nextToken());
                                                                     stringTokenizer2.nextToken();
-                                                                    bVar4.f27963c = Integer.parseInt(stringTokenizer2.nextToken());
+                                                                    bVar4.f27122c = Integer.parseInt(stringTokenizer2.nextToken());
                                                                     stringTokenizer2.nextToken();
-                                                                    bVar4.f27964d = Integer.parseInt(stringTokenizer2.nextToken());
+                                                                    bVar4.f27123d = Integer.parseInt(stringTokenizer2.nextToken());
                                                                     stringTokenizer2.nextToken();
-                                                                    bVar4.f27965e = Integer.parseInt(stringTokenizer2.nextToken());
+                                                                    bVar4.f27124e = Integer.parseInt(stringTokenizer2.nextToken());
                                                                     stringTokenizer2.nextToken();
-                                                                    bVar4.f27970j = Integer.parseInt(stringTokenizer2.nextToken());
+                                                                    bVar4.f27129j = Integer.parseInt(stringTokenizer2.nextToken());
                                                                     stringTokenizer2.nextToken();
                                                                     if (z) {
-                                                                        bVar4.f27971k = Integer.parseInt(stringTokenizer2.nextToken());
+                                                                        bVar4.k = Integer.parseInt(stringTokenizer2.nextToken());
                                                                     } else {
-                                                                        bVar4.f27971k = -(bVar4.f27965e + Integer.parseInt(stringTokenizer2.nextToken()));
+                                                                        bVar4.k = -(bVar4.f27124e + Integer.parseInt(stringTokenizer2.nextToken()));
                                                                     }
                                                                     stringTokenizer2.nextToken();
                                                                     bVar4.l = Integer.parseInt(stringTokenizer2.nextToken());
@@ -300,13 +298,13 @@ public class a implements c.b.b.q.h {
                                                                         } catch (NumberFormatException unused2) {
                                                                         }
                                                                     }
-                                                                    if (bVar4.f27964d > 0 && bVar4.f27965e > 0) {
-                                                                        this.l = Math.min(bVar4.f27971k + parseInt2, this.l);
+                                                                    if (bVar4.f27123d > 0 && bVar4.f27124e > 0) {
+                                                                        this.l = Math.min(bVar4.k + parseInt2, this.l);
                                                                     }
                                                                 }
                                                                 bufferedReader3 = bufferedReader4;
                                                             }
-                                                            this.l += this.f27957g;
+                                                            this.l += this.f27117g;
                                                             while (true) {
                                                                 readLine2 = bufferedReader3.readLine();
                                                                 if (readLine2 != null || !readLine2.startsWith("kerning ")) {
@@ -367,9 +365,9 @@ public class a implements c.b.b.q.h {
                                                                 b2.l = b4.l;
                                                                 f(32, b2);
                                                             }
-                                                            if (b2.f27964d == 0) {
-                                                                b2.f27964d = (int) (this.f27958h + b2.l + this.f27956f);
-                                                                b2.f27970j = (int) (-this.f27958h);
+                                                            if (b2.f27123d == 0) {
+                                                                b2.f27123d = (int) (this.f27118h + b2.l + this.f27116f);
+                                                                b2.f27129j = (int) (-this.f27118h);
                                                             }
                                                             this.s = b2.l;
                                                             char[] cArr = this.u;
@@ -388,7 +386,7 @@ public class a implements c.b.b.q.h {
                                                             if (bVar == null) {
                                                                 bVar = a();
                                                             }
-                                                            this.t = bVar.f27965e - f8;
+                                                            this.t = bVar.f27124e - f8;
                                                             char[] cArr2 = this.v;
                                                             length2 = cArr2.length;
                                                             i5 = 0;
@@ -422,8 +420,8 @@ public class a implements c.b.b.q.h {
                                                                             b bVar5 = bVarArr4[i10];
                                                                             if (bVar5 != null) {
                                                                                 bVarArr2 = bVarArr4;
-                                                                                if (bVar5.f27965e != 0 && bVar5.f27964d != 0) {
-                                                                                    this.f27960j = Math.max(this.f27960j, bVar5.f27965e);
+                                                                                if (bVar5.f27124e != 0 && bVar5.f27123d != 0) {
+                                                                                    this.f27120j = Math.max(this.f27120j, bVar5.f27124e);
                                                                                 }
                                                                             } else {
                                                                                 bVarArr2 = bVarArr4;
@@ -441,24 +439,24 @@ public class a implements c.b.b.q.h {
                                                                 bufferedReader = bufferedReader3;
                                                             } else {
                                                                 bufferedReader = bufferedReader3;
-                                                                this.f27960j = bVar3.f27965e;
+                                                                this.f27120j = bVar3.f27124e;
                                                             }
-                                                            float f10 = this.f27960j - f8;
-                                                            this.f27960j = f10;
+                                                            float f10 = this.f27120j - f8;
+                                                            this.f27120j = f10;
                                                             float f11 = parseInt2 - f10;
-                                                            this.f27961k = f11;
-                                                            float f12 = -this.f27959i;
+                                                            this.k = f11;
+                                                            float f12 = -this.f27119i;
                                                             this.m = f12;
                                                             if (z) {
-                                                                this.f27961k = -f11;
+                                                                this.k = -f11;
                                                                 this.m = -f12;
                                                             }
                                                             if (z2) {
-                                                                this.f27961k = f9;
+                                                                this.k = f9;
                                                                 this.l = f3;
                                                                 this.m = f4;
-                                                                this.f27960j = f5;
-                                                                this.f27959i = f6;
+                                                                this.f27120j = f5;
+                                                                this.f27119i = f6;
                                                                 this.s = f7;
                                                                 this.t = f2;
                                                             }
@@ -466,7 +464,7 @@ public class a implements c.b.b.q.h {
                                                             return;
                                                         }
                                                         i2 = 1;
-                                                        this.f27952b = new String[i2];
+                                                        this.f27112b = new String[i2];
                                                         while (i3 < i2) {
                                                         }
                                                         float f92 = 0.0f;
@@ -482,7 +480,7 @@ public class a implements c.b.b.q.h {
                                                             }
                                                             bufferedReader3 = bufferedReader42;
                                                         }
-                                                        this.l += this.f27957g;
+                                                        this.l += this.f27117g;
                                                         while (true) {
                                                             readLine2 = bufferedReader3.readLine();
                                                             if (readLine2 != null) {
@@ -516,7 +514,7 @@ public class a implements c.b.b.q.h {
                                                         b2 = b(' ');
                                                         if (b2 == null) {
                                                         }
-                                                        if (b2.f27964d == 0) {
+                                                        if (b2.f27123d == 0) {
                                                         }
                                                         this.s = b2.l;
                                                         char[] cArr3 = this.u;
@@ -527,7 +525,7 @@ public class a implements c.b.b.q.h {
                                                         }
                                                         if (bVar == null) {
                                                         }
-                                                        this.t = bVar.f27965e - f8;
+                                                        this.t = bVar.f27124e - f8;
                                                         char[] cArr22 = this.v;
                                                         length2 = cArr22.length;
                                                         i5 = 0;
@@ -536,11 +534,11 @@ public class a implements c.b.b.q.h {
                                                         }
                                                         if (bVar2 != null) {
                                                         }
-                                                        float f102 = this.f27960j - f8;
-                                                        this.f27960j = f102;
+                                                        float f102 = this.f27120j - f8;
+                                                        this.f27120j = f102;
                                                         float f112 = parseInt2 - f102;
-                                                        this.f27961k = f112;
-                                                        float f122 = -this.f27959i;
+                                                        this.k = f112;
+                                                        float f122 = -this.f27119i;
                                                         this.m = f122;
                                                         if (z) {
                                                         }
@@ -614,43 +612,43 @@ public class a implements c.b.b.q.h {
             Texture f4 = iVar.f();
             float x = 1.0f / f4.x();
             float u = 1.0f / f4.u();
-            float f5 = iVar.f28021b;
-            float f6 = iVar.f28022c;
+            float f5 = iVar.f27174b;
+            float f6 = iVar.f27175c;
             float c2 = iVar.c();
             float b2 = iVar.b();
             float f7 = 0.0f;
             if (iVar instanceof h.a) {
                 h.a aVar = (h.a) iVar;
-                f2 = aVar.f27997j;
-                f3 = (aVar.o - aVar.m) - aVar.f27998k;
+                f2 = aVar.f27153j;
+                f3 = (aVar.o - aVar.m) - aVar.k;
             } else {
                 f2 = 0.0f;
                 f3 = 0.0f;
             }
-            int i2 = bVar.f27962b;
+            int i2 = bVar.f27121b;
             float f8 = i2;
-            int i3 = bVar.f27964d;
+            int i3 = bVar.f27123d;
             float f9 = i2 + i3;
-            int i4 = bVar.f27963c;
+            int i4 = bVar.f27122c;
             float f10 = i4;
-            float f11 = i4 + bVar.f27965e;
+            float f11 = i4 + bVar.f27124e;
             if (f2 > 0.0f) {
                 f8 -= f2;
                 if (f8 < 0.0f) {
-                    bVar.f27964d = (int) (i3 + f8);
-                    bVar.f27970j = (int) (bVar.f27970j - f8);
+                    bVar.f27123d = (int) (i3 + f8);
+                    bVar.f27129j = (int) (bVar.f27129j - f8);
                     f8 = 0.0f;
                 }
                 f9 -= f2;
                 if (f9 > c2) {
-                    bVar.f27964d = (int) (bVar.f27964d - (f9 - c2));
+                    bVar.f27123d = (int) (bVar.f27123d - (f9 - c2));
                     if (f3 > 0.0f) {
                         float f12 = f10 - f3;
                         if (f12 < 0.0f) {
-                            int i5 = (int) (bVar.f27965e + f12);
-                            bVar.f27965e = i5;
+                            int i5 = (int) (bVar.f27124e + f12);
+                            bVar.f27124e = i5;
                             if (i5 < 0) {
-                                bVar.f27965e = 0;
+                                bVar.f27124e = 0;
                             }
                         } else {
                             f7 = f12;
@@ -658,26 +656,26 @@ public class a implements c.b.b.q.h {
                         f11 -= f3;
                         if (f11 > b2) {
                             float f13 = f11 - b2;
-                            bVar.f27965e = (int) (bVar.f27965e - f13);
-                            bVar.f27971k = (int) (bVar.f27971k + f13);
+                            bVar.f27124e = (int) (bVar.f27124e - f13);
+                            bVar.k = (int) (bVar.k + f13);
                             f10 = f7;
-                            bVar.f27966f = (f8 * x) + f5;
-                            bVar.f27968h = f5 + (c2 * x);
-                            if (this.f27954d) {
-                                bVar.f27967g = (f10 * u) + f6;
-                                bVar.f27969i = f6 + (b2 * u);
+                            bVar.f27125f = (f8 * x) + f5;
+                            bVar.f27127h = f5 + (c2 * x);
+                            if (this.f27114d) {
+                                bVar.f27126g = (f10 * u) + f6;
+                                bVar.f27128i = f6 + (b2 * u);
                                 return;
                             }
-                            bVar.f27969i = (f10 * u) + f6;
-                            bVar.f27967g = f6 + (b2 * u);
+                            bVar.f27128i = (f10 * u) + f6;
+                            bVar.f27126g = f6 + (b2 * u);
                             return;
                         }
                         f10 = f7;
                     }
                     b2 = f11;
-                    bVar.f27966f = (f8 * x) + f5;
-                    bVar.f27968h = f5 + (c2 * x);
-                    if (this.f27954d) {
+                    bVar.f27125f = (f8 * x) + f5;
+                    bVar.f27127h = f5 + (c2 * x);
+                    if (this.f27114d) {
                     }
                 }
             }
@@ -685,9 +683,9 @@ public class a implements c.b.b.q.h {
             if (f3 > 0.0f) {
             }
             b2 = f11;
-            bVar.f27966f = (f8 * x) + f5;
-            bVar.f27968h = f5 + (c2 * x);
-            if (this.f27954d) {
+            bVar.f27125f = (f8 * x) + f5;
+            bVar.f27127h = f5 + (c2 * x);
+            if (this.f27114d) {
             }
         }
 
@@ -707,17 +705,17 @@ public class a implements c.b.b.q.h {
                 if (f3 != 0.0f) {
                     float f4 = f2 / this.n;
                     float f5 = f3 / this.o;
-                    this.f27959i *= f5;
+                    this.f27119i *= f5;
                     this.s *= f4;
                     this.t *= f5;
-                    this.f27960j *= f5;
-                    this.f27961k *= f5;
+                    this.f27120j *= f5;
+                    this.k *= f5;
                     this.l *= f5;
                     this.m *= f5;
-                    this.f27958h *= f4;
-                    this.f27956f *= f4;
-                    this.f27955e *= f5;
-                    this.f27957g *= f5;
+                    this.f27118h *= f4;
+                    this.f27116f *= f4;
+                    this.f27115e *= f5;
+                    this.f27117g *= f5;
                     this.n = f2;
                     this.o = f3;
                     return;
@@ -744,34 +742,32 @@ public class a implements c.b.b.q.h {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27962b;
+        public int f27121b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27963c;
+        public int f27122c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27964d;
+        public int f27123d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f27965e;
+        public int f27124e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f27966f;
+        public float f27125f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f27967g;
+        public float f27126g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f27968h;
+        public float f27127h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f27969i;
+        public float f27128i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f27970j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int f27971k;
+        public int f27129j;
+        public int k;
         public int l;
         public byte[][] m;
         public int n;
@@ -818,7 +814,7 @@ public class a implements c.b.b.q.h {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a() {
-        this(c.b.b.f.f27771d.f("com/badlogic/gdx/utils/arial-15.fnt"), c.b.b.f.f27771d.f("com/badlogic/gdx/utils/arial-15.png"), false, true);
+        this(c.b.b.f.f26938d.f("com/badlogic/gdx/utils/arial-15.fnt"), c.b.b.f.f26938d.f("com/badlogic/gdx/utils/arial-15.png"), false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -838,19 +834,19 @@ public class a implements c.b.b.q.h {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27948e.f27960j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27108e.f27120j : invokeV.floatValue;
     }
 
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.f27951h) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.f27111h) {
             return;
         }
         int i2 = 0;
         while (true) {
-            c.b.b.q.a<i> aVar = this.f27949f;
-            if (i2 >= aVar.f28217f) {
+            c.b.b.q.a<i> aVar = this.f27109f;
+            if (i2 >= aVar.f27361f) {
                 return;
             }
             aVar.get(i2).f().dispose();
@@ -858,28 +854,28 @@ public class a implements c.b.b.q.h {
         }
     }
 
-    public C1598a f() {
+    public C1614a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27948e : (C1598a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27108e : (C1614a) invokeV.objValue;
     }
 
-    public void g(C1598a c1598a) {
+    public void g(C1614a c1614a) {
         b[][] bVarArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c1598a) == null) {
-            for (b[] bVarArr2 : c1598a.q) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, c1614a) == null) {
+            for (b[] bVarArr2 : c1614a.q) {
                 if (bVarArr2 != null) {
                     for (b bVar : bVarArr2) {
                         if (bVar != null) {
-                            c1598a.g(bVar, this.f27949f.get(bVar.n));
+                            c1614a.g(bVar, this.f27109f.get(bVar.n));
                         }
                     }
                 }
             }
-            b bVar2 = c1598a.r;
+            b bVar2 = c1614a.r;
             if (bVar2 != null) {
-                c1598a.g(bVar2, this.f27949f.get(bVar2.n));
+                c1614a.g(bVar2, this.f27109f.get(bVar2.n));
             }
         }
     }
@@ -887,14 +883,14 @@ public class a implements c.b.b.q.h {
     public c.b.b.n.k.b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new c.b.b.n.k.b(this, this.f27950g) : (c.b.b.n.k.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new c.b.b.n.k.b(this, this.f27110g) : (c.b.b.n.k.b) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String str = this.f27948e.a;
+            String str = this.f27108e.a;
             return str != null ? str : super.toString();
         }
         return (String) invokeV.objValue;
@@ -923,7 +919,7 @@ public class a implements c.b.b.q.h {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(c.b.b.m.a aVar, i iVar, boolean z) {
-        this(new C1598a(aVar, z), iVar, true);
+        this(new C1614a(aVar, z), iVar, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -934,7 +930,7 @@ public class a implements c.b.b.q.h {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((C1598a) objArr2[0], (i) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((C1614a) objArr2[0], (i) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -944,7 +940,7 @@ public class a implements c.b.b.q.h {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(c.b.b.m.a aVar, boolean z) {
-        this(new C1598a(aVar, z), (i) null, true);
+        this(new C1614a(aVar, z), (i) null, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -955,7 +951,7 @@ public class a implements c.b.b.q.h {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((C1598a) objArr2[0], (i) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((C1614a) objArr2[0], (i) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -986,7 +982,7 @@ public class a implements c.b.b.q.h {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(c.b.b.m.a aVar, c.b.b.m.a aVar2, boolean z, boolean z2) {
-        this(new C1598a(aVar, z), new i(new Texture(aVar2, false)), z2);
+        this(new C1614a(aVar, z), new i(new Texture(aVar2, false)), z2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -997,29 +993,29 @@ public class a implements c.b.b.q.h {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((C1598a) objArr2[0], (i) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((C1614a) objArr2[0], (i) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f27951h = true;
+        this.f27111h = true;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(C1598a c1598a, i iVar, boolean z) {
-        this(c1598a, iVar != null ? c.b.b.q.a.n(iVar) : null, z);
+    public a(C1614a c1614a, i iVar, boolean z) {
+        this(c1614a, iVar != null ? c.b.b.q.a.n(iVar) : null, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c1598a, iVar, Boolean.valueOf(z)};
+            Object[] objArr = {c1614a, iVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65542, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((C1598a) objArr2[0], (c.b.b.q.a) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((C1614a) objArr2[0], (c.b.b.q.a) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65542, newInitContext);
                 return;
@@ -1027,13 +1023,13 @@ public class a implements c.b.b.q.h {
         }
     }
 
-    public a(C1598a c1598a, c.b.b.q.a<i> aVar, boolean z) {
+    public a(C1614a c1614a, c.b.b.q.a<i> aVar, boolean z) {
         c.b.b.m.a d2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c1598a, aVar, Boolean.valueOf(z)};
+            Object[] objArr = {c1614a, aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65543, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -1043,32 +1039,32 @@ public class a implements c.b.b.q.h {
                 return;
             }
         }
-        boolean z2 = c1598a.f27954d;
-        this.f27948e = c1598a;
-        this.f27950g = z;
-        if (aVar != null && aVar.f28217f != 0) {
-            this.f27949f = aVar;
-            this.f27951h = false;
+        boolean z2 = c1614a.f27114d;
+        this.f27108e = c1614a;
+        this.f27110g = z;
+        if (aVar != null && aVar.f27361f != 0) {
+            this.f27109f = aVar;
+            this.f27111h = false;
         } else {
-            String[] strArr = c1598a.f27952b;
+            String[] strArr = c1614a.f27112b;
             if (strArr != null) {
                 int length = strArr.length;
-                this.f27949f = new c.b.b.q.a<>(length);
+                this.f27109f = new c.b.b.q.a<>(length);
                 for (int i4 = 0; i4 < length; i4++) {
-                    c.b.b.m.a aVar2 = c1598a.f27953c;
+                    c.b.b.m.a aVar2 = c1614a.f27113c;
                     if (aVar2 == null) {
-                        d2 = c.b.b.f.f27771d.a(c1598a.f27952b[i4]);
+                        d2 = c.b.b.f.f26938d.a(c1614a.f27112b[i4]);
                     } else {
-                        d2 = c.b.b.f.f27771d.d(c1598a.f27952b[i4], aVar2.t());
+                        d2 = c.b.b.f.f26938d.d(c1614a.f27112b[i4], aVar2.t());
                     }
-                    this.f27949f.a(new i(new Texture(d2, false)));
+                    this.f27109f.a(new i(new Texture(d2, false)));
                 }
-                this.f27951h = true;
+                this.f27111h = true;
             } else {
                 throw new IllegalArgumentException("If no regions are specified, the font data must have an images path.");
             }
         }
         h();
-        g(c1598a);
+        g(c1614a);
     }
 }

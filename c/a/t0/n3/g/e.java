@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.p.n;
+import c.a.t0.t3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context C;
-    public c.a.t0.t3.c D;
+    public g D;
     public RoundRelativeLayout E;
     public TbImageView F;
     public TextView G;
@@ -40,13 +41,13 @@ public class e extends d {
     public ImageView M;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, boolean z, int i2, c.a.t0.t3.c cVar) {
+    public e(Context context, boolean z, int i2, g gVar) {
         super(context, z, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2), cVar};
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2), gVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -59,7 +60,7 @@ public class e extends d {
             }
         }
         this.C = context;
-        this.D = cVar;
+        this.D = gVar;
         Y();
         K(2);
     }
@@ -76,7 +77,7 @@ public class e extends d {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20321f.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
+            this.f19780f.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
             if (this.D != null) {
                 Z(this.F);
                 this.J.setImageBitmap(this.D.a());
@@ -87,8 +88,8 @@ public class e extends d {
             c.a.s0.s.u.c.d(this.L).v(R.color.CAM_X0101);
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.G);
             d2.A(R.string.F_X02);
-            d2.v(R.color.CAM_X0101);
-            c.a.s0.s.u.c.d(this.H).v(R.color.CAM_X0104);
+            d2.v(R.color.CAM_X0102);
+            c.a.s0.s.u.c.d(this.H).v(R.color.CAM_X0103);
             super.O();
         }
     }
@@ -110,15 +111,15 @@ public class e extends d {
     public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.E = (RoundRelativeLayout) this.f20321f.findViewById(R.id.stamp_share_card_container);
-            this.F = (TbImageView) this.f20321f.findViewById(R.id.stamp_icon);
-            this.I = (RoundRelativeLayout) this.f20321f.findViewById(R.id.layout_stamp_share_qr);
-            this.J = (TbImageView) this.f20321f.findViewById(R.id.stamp_share_qr);
-            this.G = (TextView) this.f20321f.findViewById(R.id.stamp_share_card_title);
-            this.H = (TextView) this.f20321f.findViewById(R.id.stamp_share_card_tip);
-            this.K = (TextView) this.f20321f.findViewById(R.id.tv_stamp_scan_tip_top);
-            this.L = (TextView) this.f20321f.findViewById(R.id.tv_stamp_scan_tip_down);
-            this.M = (ImageView) this.f20321f.findViewById(R.id.img_stamp_scan_tip);
+            this.E = (RoundRelativeLayout) this.f19780f.findViewById(R.id.stamp_share_card_container);
+            this.F = (TbImageView) this.f19780f.findViewById(R.id.stamp_icon);
+            this.I = (RoundRelativeLayout) this.f19780f.findViewById(R.id.layout_stamp_share_qr);
+            this.J = (TbImageView) this.f19780f.findViewById(R.id.stamp_share_qr);
+            this.G = (TextView) this.f19780f.findViewById(R.id.stamp_share_card_title);
+            this.H = (TextView) this.f19780f.findViewById(R.id.stamp_share_card_tip);
+            this.K = (TextView) this.f19780f.findViewById(R.id.tv_stamp_scan_tip_top);
+            this.L = (TextView) this.f19780f.findViewById(R.id.tv_stamp_scan_tip_down);
+            this.M = (ImageView) this.f19780f.findViewById(R.id.img_stamp_scan_tip);
             a0();
             this.E.setRoundLayoutRadius(c.a.s0.s.u.a.y(R.string.J_X06));
             this.I.setRoundLayoutRadius(c.a.s0.s.u.a.y(R.string.J_X04));
@@ -146,15 +147,15 @@ public class e extends d {
     public final void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int k2 = (n.k(TbadkCoreApplication.getInst()) * 879) / 1076;
-            int i2 = (k2 * 1342) / 879;
+            int k = (n.k(TbadkCoreApplication.getInst()) * 879) / 1076;
+            int i2 = (k * 1342) / 879;
             ViewGroup.LayoutParams layoutParams = this.E.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = k2;
+                layoutParams.width = k;
                 layoutParams.height = i2;
             }
             this.E.setLayoutParams(layoutParams);
-            int i3 = (k2 * 416) / 879;
+            int i3 = (k * 416) / 879;
             ViewGroup.LayoutParams layoutParams2 = this.F.getLayoutParams();
             if (layoutParams2 != null) {
                 layoutParams2.width = i3;

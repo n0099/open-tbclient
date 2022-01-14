@@ -15,10 +15,10 @@ public abstract class l implements Runnable {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63089b;
+    public int f60711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f63090c;
+    public o f60712c;
 
     public l(o oVar) {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public abstract class l implements Runnable {
                 return;
             }
         }
-        this.f63089b = -1;
-        this.f63090c = oVar;
+        this.f60711b = -1;
+        this.f60712c = oVar;
         int b2 = oVar.b();
-        this.f63089b = b2;
+        this.f60711b = b2;
         if (b2 >= 0) {
             this.a = e.a().h();
             return;
@@ -49,7 +49,7 @@ public abstract class l implements Runnable {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63089b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60711b : invokeV.intValue;
     }
 
     public abstract void a(o oVar);
@@ -59,10 +59,10 @@ public abstract class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Context context = this.a;
-            if (context != null && !(this.f63090c instanceof com.vivo.push.b.n)) {
-                com.vivo.push.util.p.a(context, "[执行指令]" + this.f63090c);
+            if (context != null && !(this.f60712c instanceof com.vivo.push.b.n)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f60712c);
             }
-            a(this.f63090c);
+            a(this.f60712c);
         }
     }
 
@@ -73,7 +73,7 @@ public abstract class l implements Runnable {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
             sb.append(StringUtil.ARRAY_START);
-            o oVar = this.f63090c;
+            o oVar = this.f60712c;
             sb.append(oVar == null ? "[null]" : oVar.toString());
             sb.append("}");
             return sb.toString();

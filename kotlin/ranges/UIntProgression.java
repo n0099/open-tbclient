@@ -30,7 +30,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         }
 
         /* renamed from: fromClosedRange-Nkh28Cs  reason: not valid java name */
-        public final UIntProgression m1909fromClosedRangeNkh28Cs(int i2, int i3, int i4) {
+        public final UIntProgression m1921fromClosedRangeNkh28Cs(int i2, int i3, int i4) {
             return new UIntProgression(i2, i3, i4, null);
         }
 
@@ -56,12 +56,12 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
     }
 
     /* renamed from: getFirst-pVg5ArA  reason: not valid java name */
-    public final int m1907getFirstpVg5ArA() {
+    public final int m1919getFirstpVg5ArA() {
         return this.first;
     }
 
     /* renamed from: getLast-pVg5ArA  reason: not valid java name */
-    public final int m1908getLastpVg5ArA() {
+    public final int m1920getLastpVg5ArA() {
         return this.last;
     }
 
@@ -97,16 +97,16 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         int i2;
         if (this.step > 0) {
             sb = new StringBuilder();
-            sb.append(UInt.m841toStringimpl(this.first));
+            sb.append(UInt.m853toStringimpl(this.first));
             sb.append(IStringUtil.TOP_PATH);
-            sb.append(UInt.m841toStringimpl(this.last));
+            sb.append(UInt.m853toStringimpl(this.last));
             sb.append(" step ");
             i2 = this.step;
         } else {
             sb = new StringBuilder();
-            sb.append(UInt.m841toStringimpl(this.first));
+            sb.append(UInt.m853toStringimpl(this.first));
             sb.append(" downTo ");
-            sb.append(UInt.m841toStringimpl(this.last));
+            sb.append(UInt.m853toStringimpl(this.last));
             sb.append(" step ");
             i2 = -this.step;
         }
@@ -120,7 +120,7 @@ public class UIntProgression implements Iterable<UInt>, KMappedMarker {
         }
         if (i4 != Integer.MIN_VALUE) {
             this.first = i2;
-            this.last = UProgressionUtilKt.m1893getProgressionLastElementNkh28Cs(i2, i3, i4);
+            this.last = UProgressionUtilKt.m1905getProgressionLastElementNkh28Cs(i2, i3, i4);
             this.step = i4;
             return;
         }

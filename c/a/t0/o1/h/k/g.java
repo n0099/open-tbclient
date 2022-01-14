@@ -8,7 +8,6 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.LaunchUpPrefetchSwitch;
 import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,37 +19,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static final g f21131i;
+    /* renamed from: h  reason: collision with root package name */
+    public static final g f20566h;
     public transient /* synthetic */ FieldHolder $fh;
     public DataRes a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataRes f21132b;
+    public DataRes f20567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21133c;
+    public int f20568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21134d;
+    public String f20569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21135e;
+    public boolean f20570e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21136f;
+    public boolean f20571f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21137g;
+    public boolean f20572g;
 
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f21138h;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements RecPersonalizePageModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +74,9 @@ public class g {
         public void a(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.a.f21132b = dataRes;
-                this.a.f21135e = z;
-                this.a.f21136f = z2;
+                this.a.f20567b = dataRes;
+                this.a.f20570e = z;
+                this.a.f20571f = z2;
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
             }
         }
@@ -89,8 +85,8 @@ public class g {
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.a.f21133c = i2;
-                this.a.f21134d = str;
+                this.a.f20568c = i2;
+                this.a.f20569d = str;
             }
         }
     }
@@ -108,7 +104,7 @@ public class g {
                 return;
             }
         }
-        f21131i = new g();
+        f20566h = new g();
     }
 
     public g() {
@@ -124,46 +120,39 @@ public class g {
                 return;
             }
         }
-        this.f21133c = 0;
-        this.f21137g = LaunchUpPrefetchSwitch.getIsOn();
-        this.f21138h = false;
+        this.f20568c = 0;
+        this.f20572g = false;
     }
 
     public static g h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f21131i : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f20566h : (g) invokeV.objValue;
     }
 
     public DataRes f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f21137g) {
-                j();
-            }
-            return this.a;
-        }
-        return (DataRes) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (DataRes) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f21138h) {
-                this.f21138h = false;
+            if (this.f20572g) {
+                this.f20572g = false;
                 RecPersonalizePageModel.c f2 = RecPersonalizePageModel.g().f();
                 if (f2 != null) {
-                    if (this.f21133c == 0 && this.f21132b == null) {
+                    if (this.f20568c == 0 && this.f20567b == null) {
                         return true;
                     }
-                    int i2 = this.f21133c;
+                    int i2 = this.f20568c;
                     if (i2 == 0) {
-                        f2.a(this.f21132b, this.f21135e, this.f21136f);
+                        f2.a(this.f20567b, this.f20570e, this.f20571f);
                         return true;
                     }
-                    f2.onLoadError(i2, this.f21134d);
+                    f2.onLoadError(i2, this.f20569d);
                     return true;
                 }
                 return true;
@@ -177,10 +166,10 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long l = c.a.s0.s.g0.b.j().l("recommend_frs_cache_time", 1800L) * 1000;
-            c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-            long l2 = j2.l("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            return l2 == 0 || Math.abs(System.currentTimeMillis() - l2) > l;
+            long m = c.a.s0.s.h0.b.k().m("recommend_frs_cache_time", 1800L) * 1000;
+            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            long m2 = k.m("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            return m2 == 0 || Math.abs(System.currentTimeMillis() - m2) > m;
         }
         return invokeV.booleanValue;
     }
@@ -191,12 +180,15 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
-                c.a.s0.s.l.b.s().z();
+                c.a.s0.s.l.b.t().A();
             }
             if (TbSingleton.getInstance().getForceRefreshHomeRecommend()) {
                 TbSingleton.getInstance().setForceRefreshHomeRecommend(false);
-            } else if (i() || (e2 = c.a.s0.s.r.a.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) == null || (bArr = e2.get("0")) == null || bArr.length == 0) {
+            } else if (i()) {
             } else {
+                if ((c.a.s0.s.f0.a.q().u() && c.a.s0.s.f0.a.q().o() >= c.a.s0.s.f0.a.q().p()) || (e2 = c.a.s0.s.r.a.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) == null || (bArr = e2.get("0")) == null || bArr.length == 0) {
+                    return;
+                }
                 try {
                     DataRes dataRes = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
                     if (dataRes == null || dataRes.thread_list == null || dataRes.thread_list.size() <= 0) {
@@ -212,15 +204,15 @@ public class g {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && this.f21137g) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             j();
             if (this.a == null) {
                 RecPersonalizePageModel.g().q(new a(this));
                 c.a.s0.e1.g gVar = new c.a.s0.e1.g();
-                gVar.f12663b = "";
+                gVar.f12366b = "";
                 gVar.a = 0;
                 RecPersonalizePageModel.g().n(1, 0, gVar, 1, 0);
-                this.f21138h = true;
+                this.f20572g = true;
                 return;
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_CACHE_KEY);

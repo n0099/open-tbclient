@@ -22,25 +22,25 @@ public class d {
     public BdTypeRecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f24502b;
+    public ArrayList<n> f23812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f24503c;
+    public List<c.a.d.n.e.a> f23813c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f24504d;
+    public b f23814d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f24505e;
+    public b f23815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f24506f;
+    public b f23816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f24507g;
+    public b f23817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f24508h;
+    public b f23818h;
 
     public d(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class d {
                 return;
             }
         }
-        this.f24503c = new LinkedList();
+        this.f23813c = new LinkedList();
         if (tbPageContext == null || bdTypeRecyclerView == null) {
             return;
         }
@@ -78,26 +78,26 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
             b bVar = new b(tbPageContext, a.x);
-            this.f24504d = bVar;
+            this.f23814d = bVar;
             bVar.b0(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
             b bVar2 = new b(tbPageContext, a.y);
-            this.f24505e = bVar2;
+            this.f23815e = bVar2;
             bVar2.b0(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
             b bVar3 = new b(tbPageContext, a.B);
-            this.f24506f = bVar3;
+            this.f23816f = bVar3;
             bVar3.b0(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
             b bVar4 = new b(tbPageContext, a.A);
-            this.f24507g = bVar4;
+            this.f23817g = bVar4;
             bVar4.b0(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
             b bVar5 = new b(tbPageContext, a.z);
-            this.f24508h = bVar5;
+            this.f23818h = bVar5;
             bVar5.b0(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            this.f24503c.add(this.f24504d);
-            this.f24503c.add(this.f24505e);
-            this.f24503c.add(this.f24506f);
-            this.f24503c.add(this.f24507g);
-            this.f24503c.add(this.f24508h);
-            this.a.addAdapters(this.f24503c);
+            this.f23813c.add(this.f23814d);
+            this.f23813c.add(this.f23815e);
+            this.f23813c.add(this.f23816f);
+            this.f23813c.add(this.f23817g);
+            this.f23813c.add(this.f23818h);
+            this.a.addAdapters(this.f23813c);
         }
     }
 
@@ -111,7 +111,7 @@ public class d {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (c.a.d.n.e.a aVar : this.f24503c) {
+            for (c.a.d.n.e.a aVar : this.f23813c) {
             }
         }
     }
@@ -119,7 +119,7 @@ public class d {
     public void e(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, wVar) == null) {
-            for (c.a.d.n.e.a aVar : this.f24503c) {
+            for (c.a.d.n.e.a aVar : this.f23813c) {
                 if (aVar != null) {
                     aVar.V(wVar);
                 }
@@ -131,14 +131,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setData(arrayList);
-            this.f24502b = arrayList;
+            this.f23812b = arrayList;
         }
     }
 
     public void g(x xVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, xVar) == null) {
-            for (c.a.d.n.e.a aVar : this.f24503c) {
+            for (c.a.d.n.e.a aVar : this.f23813c) {
                 if (aVar != null) {
                     aVar.W(xVar);
                 }
@@ -149,9 +149,9 @@ public class d {
     public void h(d0 d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, d0Var) == null) {
-            this.f24508h.c0(d0Var);
-            this.f24507g.c0(d0Var);
-            this.f24506f.c0(d0Var);
+            this.f23818h.c0(d0Var);
+            this.f23817g.c0(d0Var);
+            this.f23816f.c0(d0Var);
         }
     }
 }

@@ -11,12 +11,12 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.b.e;
-import c.a.c0.b.h;
-import c.a.c0.g.f.d;
-import c.a.c0.p.b;
-import c.a.c0.p.o;
-import c.a.c0.s.p;
+import c.a.c0.d.e;
+import c.a.c0.d.h;
+import c.a.c0.j.f.d;
+import c.a.c0.s.b;
+import c.a.c0.s.o;
+import c.a.c0.v.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
@@ -39,7 +39,7 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
     public int mActivitySystemUIVisible;
     public boolean mDislikeClicked;
     public NadRewardOperateView mOperateBar;
-    public c.a.c0.h0.e0.a mRewardMediaListener;
+    public c.a.c0.k0.z.a mRewardMediaListener;
     public NadRewardCountDownView mSkipButton;
 
     /* loaded from: classes10.dex */
@@ -161,7 +161,7 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (weakReference = this.mActivityRef) == null || weakReference.get() == null) {
             return;
         }
-        c.a.c0.d0.p.a(this.mActivityRef.get().getWindow());
+        c.a.c0.g0.p.a(this.mActivityRef.get().getWindow());
     }
 
     public abstract void initInflate(LayoutInflater layoutInflater, o oVar);
@@ -215,7 +215,7 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
         }
     }
 
-    public void setRewardMediaListener(c.a.c0.h0.e0.a aVar) {
+    public void setRewardMediaListener(c.a.c0.k0.z.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.mRewardMediaListener = aVar;
@@ -260,11 +260,11 @@ public abstract class NadRewardBaseView extends AdFeedBaseView {
         }
         this.mOperateBar.update(adBaseModel);
         this.mOperateBar.bindContainer(viewGroup);
-        c.a.c0.h0.c0.a aVar = this.mNadDownloadListener;
+        c.a.c0.k0.x.a aVar = this.mNadDownloadListener;
         if (aVar != null) {
             this.mOperateBar.setViewDownloadListener(aVar);
         }
-        c.a.c0.h0.c0.b bVar = this.mFeedListener;
+        c.a.c0.k0.x.b bVar = this.mFeedListener;
         if (bVar != null) {
             this.mOperateBar.setFeedListener(bVar);
         }

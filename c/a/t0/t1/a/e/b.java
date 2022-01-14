@@ -26,22 +26,22 @@ public class b extends d<StrangerListActivity> {
     public BdListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StrangerListAdapter f24390b;
+    public StrangerListAdapter f23706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f24391c;
+    public NavigationBar f23707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public StrangerListActivity f24392d;
+    public StrangerListActivity f23708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f24393e;
+    public ViewGroup f23709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f24394f;
+    public NoNetworkView f23710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f24395g;
+    public ImageView f23711g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(StrangerListActivity strangerListActivity) {
@@ -62,7 +62,7 @@ public class b extends d<StrangerListActivity> {
             }
         }
         strangerListActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.f24392d = strangerListActivity;
+        this.f23708d = strangerListActivity;
         e(strangerListActivity);
         f(strangerListActivity);
     }
@@ -70,28 +70,28 @@ public class b extends d<StrangerListActivity> {
     public StrangerListAdapter c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24390b : (StrangerListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23706b : (StrangerListAdapter) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24395g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23711g : (View) invokeV.objValue;
     }
 
     public final void e(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strangerListActivity) == null) {
             NavigationBar navigationBar = (NavigationBar) strangerListActivity.findViewById(R.id.view_navigation_bar);
-            this.f24391c = navigationBar;
+            this.f23707c = navigationBar;
             navigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.stranger_list_activity_title));
-            this.f24391c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f24391c.showBottomLine();
-            this.f24395g = (ImageView) this.f24391c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.f24392d);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f24395g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f23707c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f23707c.showBottomLine();
+            this.f23711g = (ImageView) this.f23707c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.f23708d);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f23711g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             ViewGroup viewGroup = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
-            this.f24393e = viewGroup;
-            this.f24394f = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
+            this.f23709e = viewGroup;
+            this.f23710f = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
         }
     }
 
@@ -103,7 +103,7 @@ public class b extends d<StrangerListActivity> {
             bdListView.setOnItemClickListener(strangerListActivity);
             this.a.setOnItemLongClickListener(strangerListActivity);
             StrangerListAdapter strangerListAdapter = new StrangerListAdapter(strangerListActivity);
-            this.f24390b = strangerListAdapter;
+            this.f23706b = strangerListAdapter;
             this.a.setAdapter((ListAdapter) strangerListAdapter);
         }
     }
@@ -111,12 +111,12 @@ public class b extends d<StrangerListActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f24392d.getLayoutMode().k(i2 == 1);
-            this.f24392d.getLayoutMode().j(this.f24393e);
-            this.f24391c.onChangeSkinType(this.f24392d.getPageContext(), i2);
-            this.f24394f.onChangeSkinType(this.f24392d.getPageContext(), i2);
-            this.f24390b.notifyDataSetChanged();
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f24395g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f23708d.getLayoutMode().k(i2 == 1);
+            this.f23708d.getLayoutMode().j(this.f23709e);
+            this.f23707c.onChangeSkinType(this.f23708d.getPageContext(), i2);
+            this.f23710f.onChangeSkinType(this.f23708d.getPageContext(), i2);
+            this.f23706b.notifyDataSetChanged();
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f23711g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import c.a.l.a;
 import c.a.l.o;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import c.a.t0.g0.d0;
 import com.baidu.adp.BdUniqueId;
@@ -24,19 +24,19 @@ public class f extends c.a.t0.s2.u.f.e1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f23472f;
+    public LinearLayout f22823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemCardView f23473g;
+    public ItemCardView f22824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f23474h;
+    public e2 f22825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.s.q.a f23475i;
+    public c.a.s0.s.q.a f22826i;
 
     /* renamed from: j  reason: collision with root package name */
-    public o f23476j;
+    public o f22827j;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.s0.s.q.a {
@@ -44,7 +44,7 @@ public class f extends c.a.t0.s2.u.f.e1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f23477e;
+        public final /* synthetic */ f f22828e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class f extends c.a.t0.s2.u.f.e1.a {
                     return;
                 }
             }
-            this.f23477e = fVar;
+            this.f22828e = fVar;
         }
 
         @Override // c.a.s0.s.q.a
@@ -75,10 +75,10 @@ public class f extends c.a.t0.s2.u.f.e1.a {
         }
 
         @Override // c.a.s0.s.q.a
-        public d2 getThreadData() {
+        public e2 getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23477e.f23474h : (d2) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22828e.f22825h : (e2) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -98,7 +98,7 @@ public class f extends c.a.t0.s2.u.f.e1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f23478e;
+        public final /* synthetic */ f f22829e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -115,18 +115,18 @@ public class f extends c.a.t0.s2.u.f.e1.a {
                     return;
                 }
             }
-            this.f23478e = fVar;
+            this.f22829e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f fVar;
-            a.InterfaceC0184a interfaceC0184a;
+            a.InterfaceC0193a interfaceC0193a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0184a = (fVar = this.f23478e).f23449c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0193a = (fVar = this.f22829e).f22800c) == null) {
                 return;
             }
-            interfaceC0184a.a(fVar.f23475i);
+            interfaceC0193a.a(fVar.f22826i);
         }
     }
 
@@ -155,40 +155,40 @@ public class f extends c.a.t0.s2.u.f.e1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f23472f == null) {
+            if (this.f22823f == null) {
                 LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-                this.f23472f = linearLayout;
+                this.f22823f = linearLayout;
                 linearLayout.setClipChildren(false);
-                this.f23472f.setClipToPadding(false);
-                SkinManager.setBackgroundColor(this.f23472f, c.a.t0.s2.f.CAM_X0206);
-                this.f23472f.setOrientation(1);
-                this.f23472f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                this.f22823f.setClipToPadding(false);
+                SkinManager.setBackgroundColor(this.f22823f, c.a.t0.s2.f.CAM_X0206);
+                this.f22823f.setOrientation(1);
+                this.f22823f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
-            this.f23472f.removeAllViews();
-            if (this.f23476j == null) {
+            this.f22823f.removeAllViews();
+            if (this.f22827j == null) {
                 o oVar = new o(this.a.getPageActivity());
-                this.f23476j = oVar;
+                this.f22827j = oVar;
                 oVar.m(Boolean.TRUE);
-                this.f23476j.w("pb");
-                this.f23476j.y(0);
-                this.f23476j.D(this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_W_X007), this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_H_X005), this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_W_X007), 0);
-                this.f23476j.E(false);
-                this.f23476j.C(true);
+                this.f22827j.w("pb");
+                this.f22827j.y(0);
+                this.f22827j.D(this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_W_X007), this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_H_X005), this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_W_X007), 0);
+                this.f22827j.E(false);
+                this.f22827j.C(true);
             }
-            this.f23472f.addView(this.f23476j.f());
-            if (this.f23473g == null) {
+            this.f22823f.addView(this.f22827j.f());
+            if (this.f22824g == null) {
                 ItemCardView itemCardView = new ItemCardView(this.a.getPageActivity());
-                this.f23473g = itemCardView;
+                this.f22824g = itemCardView;
                 itemCardView.setIsShowRightBtn(true);
             }
-            this.f23473g.setBackGroundColor(c.a.t0.s2.f.CAM_X0205);
+            this.f22824g.setBackGroundColor(c.a.t0.s2.f.CAM_X0205);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_H_X004);
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_W_X007);
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_W_X007);
             layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(c.a.t0.s2.g.M_H_X005);
-            this.f23472f.addView(this.f23473g, layoutParams);
-            return this.f23472f;
+            this.f22823f.addView(this.f22824g, layoutParams);
+            return this.f22823f;
         }
         return (View) invokeV.objValue;
     }
@@ -196,16 +196,16 @@ public class f extends c.a.t0.s2.u.f.e1.a {
     @Override // c.a.t0.s2.u.f.e1.a
     public void b(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f23451e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f22802e == i2) {
             return;
         }
-        this.f23451e = i2;
-        SkinManager.setBackgroundColor(this.f23472f, c.a.t0.s2.f.CAM_X0206);
-        o oVar = this.f23476j;
+        this.f22802e = i2;
+        SkinManager.setBackgroundColor(this.f22823f, c.a.t0.s2.f.CAM_X0206);
+        o oVar = this.f22827j;
         if (oVar != null) {
             oVar.onChangeSkinType(tbPageContext, i2);
         }
-        ItemCardView itemCardView = this.f23473g;
+        ItemCardView itemCardView = this.f22824g;
         if (itemCardView != null) {
             itemCardView.onChangeSkinType();
         }
@@ -215,30 +215,30 @@ public class f extends c.a.t0.s2.u.f.e1.a {
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.f23450d = originalThreadInfo;
-            this.f23474h = originalThreadInfo == null ? null : originalThreadInfo.a();
-            this.f23475i = new a(this);
-            ItemCardView itemCardView = this.f23473g;
+            this.f22801d = originalThreadInfo;
+            this.f22825h = originalThreadInfo == null ? null : originalThreadInfo.a();
+            this.f22826i = new a(this);
+            ItemCardView itemCardView = this.f22824g;
             if (itemCardView != null && originalThreadInfo != null) {
-                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f41554f);
+                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f40132f);
             }
-            o oVar = this.f23476j;
+            o oVar = this.f22827j;
             if (oVar != null) {
-                oVar.onBindDataToView(this.f23475i);
+                oVar.onBindDataToView(this.f22826i);
             }
         }
     }
 
     @Override // c.a.t0.s2.u.f.e1.a
-    public void d(a.InterfaceC0184a interfaceC0184a) {
+    public void d(a.InterfaceC0193a interfaceC0193a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0184a) == null) {
-            super.d(interfaceC0184a);
-            o oVar = this.f23476j;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0193a) == null) {
+            super.d(interfaceC0193a);
+            o oVar = this.f22827j;
             if (oVar != null) {
-                oVar.z(interfaceC0184a);
+                oVar.z(interfaceC0193a);
             }
-            LinearLayout linearLayout = this.f23472f;
+            LinearLayout linearLayout = this.f22823f;
             if (linearLayout != null) {
                 linearLayout.setOnClickListener(new b(this));
             }
@@ -250,9 +250,9 @@ public class f extends c.a.t0.s2.u.f.e1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, d0Var) == null) {
             super.e(d0Var);
-            o oVar = this.f23476j;
+            o oVar = this.f22827j;
             if (oVar != null) {
-                oVar.k(this.f23448b);
+                oVar.k(this.f22799b);
             }
         }
     }

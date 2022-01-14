@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20811b;
+    public boolean f20253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20812c;
+    public boolean f20254c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class b {
             }
         }
         this.a = -1;
-        this.f20811b = false;
-        this.f20812c = false;
+        this.f20253b = false;
+        this.f20254c = false;
     }
 
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f20811b = true;
+            this.f20253b = true;
             int i2 = this.a;
-            if (i2 == -1 || !this.f20812c) {
+            if (i2 == -1 || !this.f20254c) {
                 return;
             }
             fVar.a(i2);
@@ -52,7 +52,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, fVar) == null) {
             this.a = i2;
-            if (this.f20811b && this.f20812c) {
+            if (this.f20253b && this.f20254c) {
                 fVar.a(i2);
             }
         }

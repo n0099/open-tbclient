@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.c, CardViewHolder<c.a.t0.o1.k.c.d.b>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.c, CardViewHolder<c.a.t0.o1.k
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.o1.k.c.c.c.f21294g);
+        super(tbPageContext.getPageActivity(), c.a.t0.o1.k.c.c.c.f20731g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.c, CardViewHolder<c.a.t0.o1.k
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             c.a.t0.o1.k.c.d.b bVar = new c.a.t0.o1.k.c.d.b(this.m);
-            bVar.n(this.f3303i);
+            bVar.n(this.f3262i);
             CardViewHolder<c.a.t0.o1.k.c.d.b> cardViewHolder = new CardViewHolder<>(bVar);
             int f2 = n.f(this.m.getPageActivity(), R.dimen.tbds44);
             cardViewHolder.getView().setPadding(f2, 0, f2, 0);

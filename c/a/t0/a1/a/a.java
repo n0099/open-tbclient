@@ -12,13 +12,13 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15405b;
+    public String f15022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15406c;
+    public String f15023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15407d;
+    public String f15024d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a {
             return;
         }
         this.a = jSONObject.optLong("id");
-        this.f15405b = jSONObject.optString("name");
-        this.f15406c = jSONObject.optString("name_show");
-        this.f15407d = jSONObject.optString("portrait");
+        this.f15022b = jSONObject.optString("name");
+        this.f15023c = jSONObject.optString("name_show");
+        this.f15024d = jSONObject.optString("portrait");
     }
 }

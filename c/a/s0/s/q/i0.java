@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes6.dex */
-public class i0 extends d2 {
+public class i0 extends e2 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId f4;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class i0 extends d2 {
         String str4 = recommendBook.link_url;
     }
 
-    @Override // c.a.s0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // c.a.s0.s.q.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

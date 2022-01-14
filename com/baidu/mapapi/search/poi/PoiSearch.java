@@ -15,7 +15,7 @@ public class PoiSearch extends l {
     public com.baidu.platform.core.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36781b;
+    public boolean f35571b;
 
     public PoiSearch() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class PoiSearch extends l {
                 return;
             }
         }
-        this.f36781b = false;
+        this.f35571b = false;
         this.a = new com.baidu.platform.core.c.f();
     }
 
@@ -46,10 +46,10 @@ public class PoiSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36781b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35571b) {
             return;
         }
-        this.f36781b = true;
+        this.f35571b = true;
         this.a.a();
         BMapManager.destroy();
     }

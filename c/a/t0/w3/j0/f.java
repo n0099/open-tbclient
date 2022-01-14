@@ -14,21 +14,21 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f25552c;
+    public static final int[] f24837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f25553d;
+    public static final int[] f24838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f25554e;
+    public static final int[] f24839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f25555f;
+    public static final int[] f24840f;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseIntArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f25556b;
+    public final int[] f24841b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,10 +43,10 @@ public class f {
                 return;
             }
         }
-        f25552c = new int[]{3, 8, 13};
-        f25553d = new int[]{2, 12};
-        f25554e = new int[]{20};
-        f25555f = new int[]{3, 13, 23};
+        f24837c = new int[]{3, 8, 13};
+        f24838d = new int[]{2, 12};
+        f24839e = new int[]{20};
+        f24840f = new int[]{3, 13, 23};
     }
 
     public f(String str, int[] iArr) {
@@ -64,7 +64,7 @@ public class f {
                 return;
             }
         }
-        this.f25556b = iArr;
+        this.f24841b = iArr;
         this.a = new SparseIntArray();
     }
 
@@ -115,7 +115,7 @@ public class f {
             SparseIntArray sparseIntArray = this.a;
             if (sparseIntArray != null) {
                 sparseIntArray.clear();
-                int[] iArr = this.f25556b;
+                int[] iArr = this.f24841b;
                 if (iArr != null) {
                     for (int i3 : iArr) {
                         if (i3 >= 0) {

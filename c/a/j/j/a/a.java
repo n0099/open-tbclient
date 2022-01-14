@@ -31,7 +31,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            c.a.j.h.b.b.f3958c.h().c(activity);
+            c.a.j.h.b.b.f3896c.h().c(activity);
         }
     }
 
@@ -53,7 +53,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            c.a.j.h.b.b.f3958c.h().c(activity);
+            c.a.j.h.b.b.f3896c.h().c(activity);
         }
     }
 

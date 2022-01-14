@@ -34,13 +34,13 @@ public final class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f7968b;
+    public static final String f7793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, e> f7969c;
+    public static final Map<String, e> f7794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f7970d;
+    public static final c f7795d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -50,10 +50,10 @@ public final class c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Ref.ObjectRef f7971b;
+        public final /* synthetic */ Ref.ObjectRef f7796b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Function1 f7972c;
+        public final /* synthetic */ Function1 f7797c;
 
         public a(String str, Ref.ObjectRef objectRef, Function1 function1) {
             Interceptable interceptable = $ic;
@@ -71,36 +71,36 @@ public final class c {
                 }
             }
             this.a = str;
-            this.f7971b = objectRef;
-            this.f7972c = function1;
+            this.f7796b = objectRef;
+            this.f7797c = function1;
         }
 
         @Override // c.a.r0.q.m.b.a
         public final void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                c cVar = c.f7970d;
+                c cVar = c.f7795d;
                 if (c.a) {
                     String str = "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.a;
                 }
                 if (z) {
-                    c.f7970d.A(this.a, ((j) this.f7971b.element).f11763i);
-                    c cVar2 = c.f7970d;
+                    c.f7795d.A(this.a, ((j) this.f7796b.element).f11496i);
+                    c cVar2 = c.f7795d;
                     String str2 = this.a;
-                    String str3 = ((j) this.f7971b.element).f11764j;
+                    String str3 = ((j) this.f7796b.element).f11497j;
                     Intrinsics.checkNotNullExpressionValue(str3, "soPkg.versionName");
                     cVar2.B(str2, str3);
-                    c cVar3 = c.f7970d;
+                    c cVar3 = c.f7795d;
                     String str4 = this.a;
-                    AbiType abiType = ((j) this.f7971b.element).q;
+                    AbiType abiType = ((j) this.f7796b.element).q;
                     Intrinsics.checkNotNullExpressionValue(abiType, "soPkg.abi");
                     cVar3.y(str4, abiType);
-                    c.f7970d.z(this.a, true);
-                    this.f7972c.invoke(null);
+                    c.f7795d.z(this.a, true);
+                    this.f7797c.invoke(null);
                     return;
                 }
-                c.f7970d.z(this.a, false);
-                this.f7972c.invoke(null);
+                c.f7795d.z(this.a, false);
+                this.f7797c.invoke(null);
             }
         }
     }
@@ -110,7 +110,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f7973e;
+        public static final b f7798e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -126,7 +126,7 @@ public final class c {
                     return;
                 }
             }
-            f7973e = new b();
+            f7798e = new b();
         }
 
         public b() {
@@ -149,7 +149,7 @@ public final class c {
         public final void onCallback(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                c cVar = c.f7970d;
+                c cVar = c.f7795d;
                 if (c.a) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("main updatePmsPkg pmsUpdateSo end with e: ");
@@ -178,10 +178,10 @@ public final class c {
                 return;
             }
         }
-        f7970d = new c();
+        f7795d = new c();
         a = k.a;
-        f7968b = "swan" + File.separator + "libs" + File.separator + "so";
-        f7969c = new LinkedHashMap();
+        f7793b = "swan" + File.separator + "libs" + File.separator + "so";
+        f7794c = new LinkedHashMap();
     }
 
     public c() {
@@ -219,7 +219,7 @@ public final class c {
             if (a) {
                 String str = "main updatePmsPkg start args: " + config;
             }
-            config.e(b.f7973e);
+            config.e(b.f7798e);
             f fVar = new f(new i(5), config);
             if (a) {
                 String str2 = "main updatePmsPkg pmsUpdateSo start requester: " + fVar;
@@ -232,7 +232,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, libName) == null) {
             Intrinsics.checkNotNullParameter(libName, "libName");
-            f7969c.remove(libName);
+            f7794c.remove(libName);
         }
     }
 
@@ -247,7 +247,7 @@ public final class c {
             Intrinsics.checkNotNullExpressionValue(str, "so.libName");
             AbiType abiType = jVar.q;
             Intrinsics.checkNotNullExpressionValue(abiType, "so.abi");
-            return h(str, abiType, jVar.f11763i);
+            return h(str, abiType, jVar.f11496i);
         }
         return (String) invokeL.objValue;
     }
@@ -277,7 +277,7 @@ public final class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Context appContext = AppRuntime.getAppContext();
             Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
-            return new File(appContext.getFilesDir(), f7968b);
+            return new File(appContext.getFilesDir(), f7793b);
         }
         return (File) invokeV.objValue;
     }
@@ -287,7 +287,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, libName)) == null) {
             Intrinsics.checkNotNullParameter(libName, "libName");
-            return f7969c.get(libName);
+            return f7794c.get(libName);
         }
         return (e) invokeL.objValue;
     }
@@ -386,7 +386,7 @@ public final class c {
             e j2 = j(libName);
             if (j2 == null) {
                 e eVar = new e(updater, libName);
-                f7969c.put(libName, eVar);
+                f7794c.put(libName, eVar);
                 return eVar;
             }
             return j2;
@@ -446,7 +446,7 @@ public final class c {
                 objectRef.element = t;
                 if (((j) t) != null && ((j) t).a() && AbiType.currentAbi().compat(((j) objectRef.element).q)) {
                     AbiType q = q(libName);
-                    if (l(libName, ((j) objectRef.element).f11763i) && q != null && q.compat(((j) objectRef.element).q)) {
+                    if (l(libName, ((j) objectRef.element).f11496i) && q != null && q.compat(((j) objectRef.element).q)) {
                         if (a) {
                             String str3 = "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + libName + " soPkg=" + ((j) objectRef.element);
                         }

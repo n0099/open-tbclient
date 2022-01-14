@@ -22,37 +22,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f20229g = 3;
+    public static int f19696g = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20230e;
+    public Context f19697e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BazhuInfoData.BaInfo> f20231f;
+    public List<BazhuInfoData.BaInfo> f19698f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f20232b;
+        public CheckBox f19699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BarImageView f20233c;
+        public BarImageView f19700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f20234d;
+        public int f19701d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Drawable f20235e;
+        public Drawable f19702e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -69,23 +69,23 @@ public class i extends BaseAdapter {
                     return;
                 }
             }
-            this.f20234d = 3;
+            this.f19701d = 3;
             if (view == null) {
                 return;
             }
             this.a = (TextView) view.findViewById(R.id.transmit_forum_name);
-            this.f20232b = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.f20233c = (BarImageView) view.findViewById(R.id.forum_avatar);
+            this.f19699b = (CheckBox) view.findViewById(R.id.transmit_check_box);
+            this.f19700c = (BarImageView) view.findViewById(R.id.forum_avatar);
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (i.f20229g != this.f20234d) {
+                if (i.f19696g != this.f19701d) {
                     SkinManager.setViewTextColor(this.a, R.color.CAM_X0105);
-                    this.f20235e = SkinManager.getDrawable(R.drawable.transmit_check_box);
+                    this.f19702e = SkinManager.getDrawable(R.drawable.transmit_check_box);
                 }
-                this.f20234d = i.f20229g;
+                this.f19701d = i.f19696g;
             }
         }
 
@@ -95,9 +95,9 @@ public class i extends BaseAdapter {
                 return;
             }
             this.a.setText(baInfo.forum_name);
-            this.f20232b.setChecked(baInfo.isChecked);
-            this.f20233c.startLoad(baInfo.forum_Avatar, 10, false);
-            this.f20232b.setButtonDrawable(this.f20235e);
+            this.f19699b.setChecked(baInfo.isChecked);
+            this.f19700c.startLoad(baInfo.forum_Avatar, 10, false);
+            this.f19699b.setButtonDrawable(this.f19702e);
         }
     }
 
@@ -131,15 +131,15 @@ public class i extends BaseAdapter {
                 return;
             }
         }
-        this.f20231f = new ArrayList();
-        this.f20230e = context;
+        this.f19698f = new ArrayList();
+        this.f19697e = context;
     }
 
     public void b(List<BazhuInfoData.BaInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f20231f.clear();
-            this.f20231f.addAll(list);
+            this.f19698f.clear();
+            this.f19698f.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -147,10 +147,10 @@ public class i extends BaseAdapter {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (f20229g != i2) {
+            if (f19696g != i2) {
                 notifyDataSetChanged();
             }
-            f20229g = i2;
+            f19696g = i2;
         }
     }
 
@@ -158,7 +158,7 @@ public class i extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20231f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19698f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -188,7 +188,7 @@ public class i extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             a aVar = null;
             if (view == null) {
-                view = LayoutInflater.from(this.f20230e).inflate(R.layout.layout_select__single_forum_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f19697e).inflate(R.layout.layout_select__single_forum_item, (ViewGroup) null);
                 aVar = new a(view);
                 view.setTag(aVar);
             } else {
@@ -199,7 +199,7 @@ public class i extends BaseAdapter {
             }
             if (aVar != null) {
                 aVar.a();
-                aVar.b(this.f20231f.get(i2));
+                aVar.b(this.f19698f.get(i2));
             }
             return view;
         }

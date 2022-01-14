@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes10.dex */
 public final class LoadState {
@@ -31,7 +32,7 @@ public final class LoadState {
                 return;
             }
         }
-        INIT = new LoadState("INIT", 0);
+        INIT = new LoadState(TornadoLiteRuntime.STATE_INIT, 0);
         LOADING = new LoadState("LOADING", 1);
         SUCCEED = new LoadState("SUCCEED", 2);
         LoadState loadState = new LoadState("FAILED", 3);

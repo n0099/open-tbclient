@@ -27,13 +27,13 @@ import org.json.JSONObject;
 public class TrustSubjectManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.C0241a a;
+    public a.C0250a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35746b;
+    public Context f34585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TrustSubject f35747c;
+    public TrustSubject f34586c;
 
     /* loaded from: classes10.dex */
     public static class IntegrationException extends RuntimeException {
@@ -109,7 +109,7 @@ public class TrustSubjectManager {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.r.h.d.a f35748b;
+        public c.a.r.h.d.a f34587b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class TrustSubjectManager {
         public List<TrustSubject> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TrustSubject f35749b;
+        public TrustSubject f34588b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -340,7 +340,7 @@ public class TrustSubjectManager {
     public final c.a.r.h.b.e.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.r.h.b.c.a(c.a.r.l.a.a.a, c.a.r.l.a.a.f5152b) : (c.a.r.h.b.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.r.h.b.c.a(c.a.r.l.a.a.a, c.a.r.l.a.a.f5044b) : (c.a.r.h.b.e.a) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:88:0x0178, code lost:
@@ -358,7 +358,7 @@ public class TrustSubjectManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             d dVar = new d();
-            TrustSubject trustSubject2 = this.f35747c;
+            TrustSubject trustSubject2 = this.f34586c;
             if (trustSubject2.r()) {
                 HashMap hashMap = new HashMap();
                 hashMap.put(trustSubject2.a, trustSubject2);
@@ -390,7 +390,7 @@ public class TrustSubjectManager {
                         }
                         String next = it.next();
                         if (!hashMap.containsKey(next)) {
-                            TrustSubject trustSubject5 = trustSubject2.a.equals(next) ? trustSubject2 : new TrustSubject(next, this.f35746b, this.a);
+                            TrustSubject trustSubject5 = trustSubject2.a.equals(next) ? trustSubject2 : new TrustSubject(next, this.f34585b, this.a);
                             hashMap.put(next, trustSubject5);
                             if (trustSubject5.s()) {
                                 trustSubject5.l();
@@ -421,7 +421,7 @@ public class TrustSubjectManager {
                         }
                     }
                     long j4 = j3;
-                    Collections.sort(arrayList2, TrustSubject.f35732h);
+                    Collections.sort(arrayList2, TrustSubject.f34571h);
                     Iterator it2 = arrayList2.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -469,11 +469,11 @@ public class TrustSubjectManager {
                 if (trustSubject3 != null) {
                     e(arrayList3, trustSubject3);
                 }
-                Collections.sort(arrayList3, TrustSubject.f35731g);
+                Collections.sort(arrayList3, TrustSubject.f34570g);
                 dVar.a = arrayList3;
                 if (trustSubject3 != null) {
                     trustSubject3.t();
-                    dVar.f35749b = trustSubject3;
+                    dVar.f34588b = trustSubject3;
                 }
                 return dVar;
             }
@@ -512,9 +512,9 @@ public class TrustSubjectManager {
         }
         Iterator<TrustSubject> it = list.iterator();
         while (it.hasNext()) {
-            Set<String> k2 = it.next().k();
-            if (k2 != null && k2.size() > 0) {
-                Iterator<String> it2 = k2.iterator();
+            Set<String> k = it.next().k();
+            if (k != null && k.size() > 0) {
+                Iterator<String> it2 = k.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -530,8 +530,8 @@ public class TrustSubjectManager {
     public void f(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f35746b = aVar.a;
-            a.C0241a f2 = aVar.f35748b.d().f("tz");
+            this.f34585b = aVar.a;
+            a.C0250a f2 = aVar.f34587b.d().f("tz");
             this.a = f2;
             f2.a();
         }
@@ -549,16 +549,16 @@ public class TrustSubjectManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
             d dVar = new d();
-            List<ResolveInfo> queryBroadcastReceivers = this.f35746b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
+            List<ResolveInfo> queryBroadcastReceivers = this.f34585b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
             ArrayList arrayList = new ArrayList();
             HashSet hashSet = new HashSet();
             ArrayList arrayList2 = new ArrayList();
             if (queryBroadcastReceivers != null) {
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    if (resolveInfo.activityInfo.packageName.equals(this.f35747c.a)) {
-                        trustSubject = this.f35747c;
+                    if (resolveInfo.activityInfo.packageName.equals(this.f34586c.a)) {
+                        trustSubject = this.f34586c;
                     } else {
-                        TrustSubject trustSubject2 = new TrustSubject(resolveInfo.activityInfo.packageName, this.f35746b, this.a);
+                        TrustSubject trustSubject2 = new TrustSubject(resolveInfo.activityInfo.packageName, this.f34585b, this.a);
                         trustSubject2.l();
                         trustSubject = trustSubject2;
                     }
@@ -579,7 +579,7 @@ public class TrustSubjectManager {
                 }
             }
             TrustSubject trustSubject3 = null;
-            Collections.sort(arrayList, TrustSubject.f35732h);
+            Collections.sort(arrayList, TrustSubject.f34571h);
             Iterator it = arrayList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -622,11 +622,11 @@ public class TrustSubjectManager {
             if (trustSubject3 != null) {
                 e(arrayList3, trustSubject3);
             }
-            Collections.sort(arrayList3, TrustSubject.f35731g);
+            Collections.sort(arrayList3, TrustSubject.f34570g);
             dVar.a = arrayList3;
             if (trustSubject3 != null) {
                 trustSubject3.t();
-                dVar.f35749b = trustSubject3;
+                dVar.f34588b = trustSubject3;
             }
             return dVar;
         }
@@ -636,7 +636,7 @@ public class TrustSubjectManager {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TrustSubject trustSubject = new TrustSubject(this.f35746b.getPackageName(), this.f35746b, this.a);
+            TrustSubject trustSubject = new TrustSubject(this.f34585b.getPackageName(), this.f34585b, this.a);
             trustSubject.l();
             boolean q = trustSubject.q();
             boolean z = true;
@@ -657,7 +657,7 @@ public class TrustSubjectManager {
             }
             trustSubject.w();
             trustSubject.u();
-            this.f35747c = trustSubject;
+            this.f34586c = trustSubject;
         }
     }
 

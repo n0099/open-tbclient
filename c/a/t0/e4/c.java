@@ -19,7 +19,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f17692b;
+    public a f17262b;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
             }
         }
         this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.f17692b = aVar;
+        this.f17262b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,17 +84,17 @@ public class c extends BdAsyncTask<String, String, Integer> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.f17692b == null || num == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.f17262b == null || num == null) {
             return;
         }
         if (num.intValue() == -1) {
-            this.f17692b.onError(null);
+            this.f17262b.onError(null);
         } else if (num.intValue() == 1) {
-            this.f17692b.c();
+            this.f17262b.c();
         } else if (num.intValue() != 2 && num.intValue() != 0) {
-            this.f17692b.a();
+            this.f17262b.a();
         } else {
-            this.f17692b.b();
+            this.f17262b.b();
         }
     }
 }

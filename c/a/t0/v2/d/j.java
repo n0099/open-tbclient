@@ -12,25 +12,25 @@ public class j {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25309b;
+    public String f24600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25310c;
+    public String f24601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25311d;
+    public String f24602d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f25312e;
+    public Drawable f24603e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f25313f;
+    public Drawable f24604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f25314g;
+    public Drawable f24605g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25315h;
+    public boolean f24606h;
 
     public j() {
         Interceptable interceptable = $ic;

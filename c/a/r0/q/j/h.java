@@ -16,7 +16,7 @@ public class h extends e<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final g.a f11776e;
+    public final g.a f11508e;
 
     public h(g.a aVar) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class h extends e<String> {
                 return;
             }
         }
-        this.f11776e = aVar;
+        this.f11508e = aVar;
     }
 
     @Override // c.a.r0.q.j.g.a
     public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) && c()) {
-            this.f11776e.a(str, str2, jSONObject);
+            this.f11508e.a(str, str2, jSONObject);
         }
     }
 
@@ -50,14 +50,14 @@ public class h extends e<String> {
     public void onSuccess(String str, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) && c()) {
-            this.f11776e.b(str, i2);
+            this.f11508e.b(str, i2);
         }
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11776e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11508e != null : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,7 +85,7 @@ public class h extends e<String> {
     public void onFail(Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && c()) {
-            this.f11776e.onFail(exc);
+            this.f11508e.onFail(exc);
         }
     }
 
@@ -93,7 +93,7 @@ public class h extends e<String> {
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && c()) {
-            this.f11776e.onStart();
+            this.f11508e.onStart();
         }
     }
 }

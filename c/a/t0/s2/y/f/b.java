@@ -100,24 +100,24 @@ public class b extends a {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.r = new j(this.f23947b.getVideoPbFragment(), PostData.z0);
-            this.n = new a0(this.f23947b.getVideoPbFragment(), k.f23055g, this.f23947b.getUniqueId());
-            this.o = new b0(this.f23947b.getVideoPbFragment(), l.f23058e);
-            this.m = new i0(this.f23947b.getVideoPbFragment(), n.O0);
-            z0 z0Var = new z0(this.f23947b.getVideoPbFragment(), PostData.A0);
+            this.r = new j(this.f23281b.getVideoPbFragment(), PostData.z0);
+            this.n = new a0(this.f23281b.getVideoPbFragment(), k.f22420g, this.f23281b.getUniqueId());
+            this.o = new b0(this.f23281b.getVideoPbFragment(), l.f22423e);
+            this.m = new i0(this.f23281b.getVideoPbFragment(), n.O0);
+            z0 z0Var = new z0(this.f23281b.getVideoPbFragment(), PostData.A0);
             this.p = z0Var;
-            z0Var.R0(this.f23947b.getVideoPbFragment());
-            this.p.N0(this.f23947b.getVideoPbFragment().getFromVideoPageType());
-            this.q = new PbReplyLoadMoreAdapter(this.f23947b.getVideoPbFragment(), PostData.G0);
-            this.s = new i(this.f23947b.getContext(), x.f23103f, this.f23947b.getVideoPbFragment());
-            this.f23950e.add(this.r);
-            this.f23950e.add(this.s);
-            this.f23950e.add(this.m);
-            this.f23950e.add(this.n);
-            this.f23950e.add(this.o);
-            this.f23950e.add(this.p);
-            this.f23950e.add(this.q);
-            this.f23948c.addAdapters(this.f23950e);
+            z0Var.R0(this.f23281b.getVideoPbFragment());
+            this.p.N0(this.f23281b.getVideoPbFragment().getFromVideoPageType());
+            this.q = new PbReplyLoadMoreAdapter(this.f23281b.getVideoPbFragment(), PostData.G0);
+            this.s = new i(this.f23281b.getContext(), x.f22466f, this.f23281b.getVideoPbFragment());
+            this.f23284e.add(this.r);
+            this.f23284e.add(this.s);
+            this.f23284e.add(this.m);
+            this.f23284e.add(this.n);
+            this.f23284e.add(this.o);
+            this.f23284e.add(this.p);
+            this.f23284e.add(this.q);
+            this.f23282c.addAdapters(this.f23284e);
         }
     }
 
@@ -155,10 +155,10 @@ public class b extends a {
     public void k() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bdTypeRecyclerView = this.f23948c) == null || bdTypeRecyclerView.getAdapter() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bdTypeRecyclerView = this.f23282c) == null || bdTypeRecyclerView.getAdapter() == null) {
             return;
         }
-        this.f23948c.getListAdapter().notifyDataSetChanged();
+        this.f23282c.getListAdapter().notifyDataSetChanged();
     }
 
     @Override // c.a.t0.s2.y.f.a

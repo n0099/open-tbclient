@@ -68,12 +68,12 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         public final EntryStateObserver<K> observer;
         public final CloseableReference<V> valueRef;
 
-        public Entry(K k2, CloseableReference<V> closeableReference, @Nullable EntryStateObserver<K> entryStateObserver) {
+        public Entry(K k, CloseableReference<V> closeableReference, @Nullable EntryStateObserver<K> entryStateObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, closeableReference, entryStateObserver};
+                Object[] objArr = {k, closeableReference, entryStateObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -83,7 +83,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
                     return;
                 }
             }
-            this.key = (K) Preconditions.checkNotNull(k2);
+            this.key = (K) Preconditions.checkNotNull(k);
             this.valueRef = (CloseableReference) Preconditions.checkNotNull(CloseableReference.cloneOrNull(closeableReference));
             this.clientCount = 0;
             this.isOrphan = false;
@@ -91,16 +91,16 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         }
 
         @VisibleForTesting
-        public static <K, V> Entry<K, V> of(K k2, CloseableReference<V> closeableReference, @Nullable EntryStateObserver<K> entryStateObserver) {
+        public static <K, V> Entry<K, V> of(K k, CloseableReference<V> closeableReference, @Nullable EntryStateObserver<K> entryStateObserver) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, k2, closeableReference, entryStateObserver)) == null) ? new Entry<>(k2, closeableReference, entryStateObserver) : (Entry) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, k, closeableReference, entryStateObserver)) == null) ? new Entry<>(k, closeableReference, entryStateObserver) : (Entry) invokeLLL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
     public interface EntryStateObserver<K> {
-        void onExclusivityChanged(K k2, boolean z);
+        void onExclusivityChanged(K k, boolean z);
     }
 
     static {
@@ -436,10 +436,10 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public CloseableReference<V> cache(K k2, CloseableReference<V> closeableReference) {
+    public CloseableReference<V> cache(K k, CloseableReference<V> closeableReference) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k2, closeableReference)) == null) ? cache(k2, closeableReference, null) : (CloseableReference) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, closeableReference)) == null) ? cache(k, closeableReference, null) : (CloseableReference) invokeLL.objValue;
     }
 
     public void clear() {
@@ -474,16 +474,16 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
     @Nullable
-    public CloseableReference<V> get(K k2) {
+    public CloseableReference<V> get(K k) {
         InterceptResult invokeL;
         Entry<K, V> remove;
         CloseableReference<V> newClientReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k2)) == null) {
-            Preconditions.checkNotNull(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            Preconditions.checkNotNull(k);
             synchronized (this) {
-                remove = this.mExclusiveEntries.remove(k2);
-                Entry<K, V> entry = this.mCachedEntries.get(k2);
+                remove = this.mExclusiveEntries.remove(k);
+                Entry<K, V> entry = this.mCachedEntries.get(k);
                 newClientReference = entry != null ? newClientReference(entry) : null;
             }
             maybeNotifyExclusiveEntryRemoval(remove);
@@ -594,19 +594,19 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @Nullable
-    public CloseableReference<V> reuse(K k2) {
+    public CloseableReference<V> reuse(K k) {
         InterceptResult invokeL;
         Entry<K, V> remove;
         boolean z;
         CloseableReference<V> closeableReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k2)) == null) {
-            Preconditions.checkNotNull(k2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k)) == null) {
+            Preconditions.checkNotNull(k);
             synchronized (this) {
-                remove = this.mExclusiveEntries.remove(k2);
+                remove = this.mExclusiveEntries.remove(k);
                 z = true;
                 if (remove != null) {
-                    Entry<K, V> remove2 = this.mCachedEntries.remove(k2);
+                    Entry<K, V> remove2 = this.mCachedEntries.remove(k);
                     Preconditions.checkNotNull(remove2);
                     Preconditions.checkState(remove2.clientCount == 0);
                     closeableReference = remove2.valueRef;
@@ -641,19 +641,19 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @Nullable
-    public CloseableReference<V> cache(K k2, CloseableReference<V> closeableReference, EntryStateObserver<K> entryStateObserver) {
+    public CloseableReference<V> cache(K k, CloseableReference<V> closeableReference, EntryStateObserver<K> entryStateObserver) {
         InterceptResult invokeLLL;
         Entry<K, V> remove;
         CloseableReference<V> closeableReference2;
         CloseableReference<V> closeableReference3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2, closeableReference, entryStateObserver)) == null) {
-            Preconditions.checkNotNull(k2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, closeableReference, entryStateObserver)) == null) {
+            Preconditions.checkNotNull(k);
             Preconditions.checkNotNull(closeableReference);
             maybeUpdateCacheParams();
             synchronized (this) {
-                remove = this.mExclusiveEntries.remove(k2);
-                Entry<K, V> remove2 = this.mCachedEntries.remove(k2);
+                remove = this.mExclusiveEntries.remove(k);
+                Entry<K, V> remove2 = this.mCachedEntries.remove(k);
                 closeableReference2 = null;
                 if (remove2 != null) {
                     makeOrphan(remove2);
@@ -662,8 +662,8 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
                     closeableReference3 = null;
                 }
                 if (canCacheNewValue(closeableReference.get())) {
-                    Entry<K, V> of = Entry.of(k2, closeableReference, entryStateObserver);
-                    this.mCachedEntries.put(k2, of);
+                    Entry<K, V> of = Entry.of(k, closeableReference, entryStateObserver);
+                    this.mCachedEntries.put(k, of);
                     closeableReference2 = newClientReference(of);
                 }
             }
@@ -676,13 +676,13 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public synchronized boolean contains(K k2) {
+    public synchronized boolean contains(K k) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
             synchronized (this) {
-                contains = this.mCachedEntries.contains(k2);
+                contains = this.mCachedEntries.contains(k);
             }
             return contains;
         }

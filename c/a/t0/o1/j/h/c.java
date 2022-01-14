@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.HotTopic;
 import tbclient.RecomTopicList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends c.a.t0.o1.f.a.e.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21202f;
+    public String f20642f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class c extends c.a.t0.o1.f.a.e.d {
                 return;
             }
         }
-        this.f21202f = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
+        this.f20642f = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
     }
 
     public void k(HotTopic hotTopic) {

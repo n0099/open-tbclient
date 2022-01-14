@@ -13,7 +13,7 @@ public class a {
     public c.a.s0.t.f.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f24314b;
+    public long f23633b;
 
     public a(c.a.s0.t.f.b bVar, long j2) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a {
             }
         }
         this.a = bVar;
-        this.f24314b = j2;
+        this.f23633b = j2;
     }
 
     public c.a.s0.t.f.b a() {
@@ -43,6 +43,6 @@ public class a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24314b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23633b : invokeV.longValue;
     }
 }

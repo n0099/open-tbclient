@@ -49,7 +49,7 @@ public class h extends g {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(c.a.r0.a.d2.e eVar) {
-        super(eVar.f5660f);
+        super(eVar.f5537f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,10 +76,10 @@ public class h extends g {
         }
         c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
         fVar.a = c.a.r0.a.n2.n.n(bVar.G());
-        fVar.f8161f = bVar.H();
-        fVar.f8158c = bVar.T();
-        fVar.f8157b = "launch";
-        fVar.f8160e = "success";
+        fVar.f7981f = bVar.H();
+        fVar.f7978c = bVar.T();
+        fVar.f7977b = "launch";
+        fVar.f7980e = "success";
         fVar.a("status", "1");
         if (aVar != null) {
             fVar.a("errcode", String.valueOf(aVar.a()));
@@ -281,7 +281,7 @@ public class h extends g {
             return;
         }
         try {
-            PMSAppInfo a = c.a.r0.q.p.f.a(new JSONObject(bVar.f11752c));
+            PMSAppInfo a = c.a.r0.q.p.f.a(new JSONObject(bVar.f11485c));
             a.appId = a.appKey;
             c.a.r0.a.d2.d.J().r().M0(a);
             c.a.r0.a.e0.d.i("PkgSyncDownloadCallback", "onFetchError: pms info:" + a.toString());
@@ -367,22 +367,22 @@ public class h extends g {
                 boolean z2 = J;
                 c.a.r0.a.f1.e.b J0 = J0();
                 c.a.r0.q.i.e eVar = this.p;
-                if (eVar != null && eVar.f11762h == 0) {
+                if (eVar != null && eVar.f11495h == 0) {
                     J0.Z0(c.a.r0.a.q2.b.e(0));
                     J0.E(1);
                 }
                 c.a.r0.q.i.e eVar2 = this.p;
-                if (eVar2 != null && eVar2.f11762h == 1) {
+                if (eVar2 != null && eVar2.f11495h == 1) {
                     J0.Z0(c.a.r0.a.q2.b.e(1));
                     J0.E(1);
                 }
                 c.a.r0.q.i.c cVar = this.q;
-                if (cVar != null && cVar.f11762h == 0) {
+                if (cVar != null && cVar.f11495h == 0) {
                     J0.C0(c.a.r0.a.p0.b.c(0));
                     J0.E(2);
                 }
                 c.a.r0.q.i.c cVar2 = this.q;
-                if (cVar2 != null && cVar2.f11762h == 1) {
+                if (cVar2 != null && cVar2.f11495h == 1) {
                     J0.C0(c.a.r0.a.p0.b.c(1));
                     J0.E(2);
                 }

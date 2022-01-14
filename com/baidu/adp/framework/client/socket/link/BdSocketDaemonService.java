@@ -32,7 +32,7 @@ public class BdSocketDaemonService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f32160e;
+        public final /* synthetic */ BdSocketDaemonService f31149e;
 
         public a(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class BdSocketDaemonService extends BdBaseService {
                     return;
                 }
             }
-            this.f32160e = bdSocketDaemonService;
+            this.f31149e = bdSocketDaemonService;
         }
 
         @Override // android.content.ServiceConnection
@@ -64,7 +64,7 @@ public class BdSocketDaemonService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
                 if (BdSocketDaemonService.sCallBack != null) {
-                    BdSocketDaemonService.sCallBack.a();
+                    BdSocketDaemonService.sCallBack.onLinkServiceDisconnect();
                 } else {
                     BdSocketLinkService.startService(false, "restart");
                 }
@@ -78,7 +78,7 @@ public class BdSocketDaemonService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f32161e;
+        public final /* synthetic */ BdSocketDaemonService f31150e;
 
         public b(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class BdSocketDaemonService extends BdBaseService {
                     return;
                 }
             }
-            this.f32161e = bdSocketDaemonService;
+            this.f31150e = bdSocketDaemonService;
         }
     }
 

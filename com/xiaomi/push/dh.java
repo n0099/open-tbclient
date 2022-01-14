@@ -20,7 +20,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public String f242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63357b;
+    public String f60976b;
 
     public dh(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             if (TextUtils.isEmpty(this.f242a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
-            this.f63357b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f63357b, localClassName)) {
+            this.f60976b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f60976b, localClassName)) {
                 this.f242a = "";
                 return;
             }
             a(this.a.getPackageName() + "|" + localClassName + ":" + this.f242a + "," + String.valueOf(System.currentTimeMillis() / 1000));
             this.f242a = "";
-            this.f63357b = "";
+            this.f60976b = "";
         }
     }
 
@@ -90,8 +90,8 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.f63357b)) {
-                this.f63357b = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f60976b)) {
+                this.f60976b = activity.getLocalClassName();
             }
             this.f242a = String.valueOf(System.currentTimeMillis() / 1000);
         }

@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ImageProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "ImageProcessor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33551b = -1;
+    public static final int f32486b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33552c;
+    public final int f32487c;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class ImageProcessor {
                 return;
             }
         }
-        this.f33552c = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
+        this.f32487c = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
     }
 
     public static int a(BitmapFactory.Options options, int i2, int i3) {
@@ -115,7 +115,7 @@ public class ImageProcessor {
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFile(file.getPath(), options);
                     if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                        options.inSampleSize = a(options, -1, this.f33552c);
+                        options.inSampleSize = a(options, -1, this.f32487c);
                         options.inJustDecodeBounds = false;
                         options.inDensity = i2;
                         options.inDither = false;
@@ -141,7 +141,7 @@ public class ImageProcessor {
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
                     if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                        options.inSampleSize = a(options, -1, this.f33552c);
+                        options.inSampleSize = a(options, -1, this.f32487c);
                         options.inJustDecodeBounds = false;
                         options.inDensity = i2;
                         options.inDither = false;

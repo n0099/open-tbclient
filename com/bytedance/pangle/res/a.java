@@ -34,7 +34,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f55204b;
+    public LinkedHashMap<String, Integer> f53107b;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +73,7 @@ public final class a {
             }
         }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        this.f55204b = linkedHashMap;
+        this.f53107b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
@@ -191,8 +191,8 @@ public final class a {
             } else {
                 a2 = a(assetManager, str);
             }
-            synchronized (this.f55204b) {
-                this.f55204b.put(str, 0);
+            synchronized (this.f53107b) {
+                this.f53107b.put(str, 0);
             }
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + h.b(a2));
             return a2;
@@ -209,7 +209,7 @@ public final class a {
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
-                if (!a.containsKey(str2) && !this.f55204b.containsKey(str2) && !str2.equals(str)) {
+                if (!a.containsKey(str2) && !this.f53107b.containsKey(str2) && !str2.equals(str)) {
                     arrayList.add(str2);
                 }
             }
@@ -221,8 +221,8 @@ public final class a {
                     assetManager2 = (AssetManager) AssetManager.class.newInstance();
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.f55204b) {
-                    for (Map.Entry<String, Integer> entry : this.f55204b.entrySet()) {
+                synchronized (this.f53107b) {
+                    for (Map.Entry<String, Integer> entry : this.f53107b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
                             sb.append(entry.getKey());
                             b(assetManager2, entry.getKey(), false);

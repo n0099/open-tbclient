@@ -23,28 +23,26 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11791k;
+    public static final c.a.r0.q.p.a k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f11792e;
+    public e f11523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public T f11793f;
+    public T f11524f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f11794g;
+    public File f11525g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicBoolean f11795h;
+    public AtomicBoolean f11526h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c<T> f11796i;
+    public c<T> f11527i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f11797j;
+    public boolean f11528j;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +57,7 @@ public class f<T> implements Runnable {
                 return;
             }
         }
-        f11791k = c.a.r0.q.p.a.e();
+        k = c.a.r0.q.p.a.e();
     }
 
     public f(e eVar, T t, c<T> cVar) {
@@ -77,10 +75,10 @@ public class f<T> implements Runnable {
                 return;
             }
         }
-        this.f11795h = new AtomicBoolean(false);
-        this.f11792e = eVar;
-        this.f11793f = t;
-        this.f11796i = cVar;
+        this.f11526h = new AtomicBoolean(false);
+        this.f11523e = eVar;
+        this.f11524f = t;
+        this.f11527i = cVar;
     }
 
     public final void a(int i2, c.a.r0.q.i.f fVar) {
@@ -95,22 +93,22 @@ public class f<T> implements Runnable {
             try {
                 jSONObject.put("response", fVar.toString());
             } catch (JSONException e2) {
-                f11791k.g("PMSDownloadTask", "#addStatistic json put data出错", e2);
+                k.g("PMSDownloadTask", "#addStatistic json put data出错", e2);
             }
         }
         if (fVar instanceof c.a.r0.q.i.g) {
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, fVar.f11761g);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, fVar.f11494g);
         }
-        c.a.r0.q.n.a.a(fVar.f11762h, "pkg_download", null, i2, jSONObject);
+        c.a.r0.q.n.a.a(fVar.f11495h, "pkg_download", null, i2, jSONObject);
     }
 
     public boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            c.a.r0.q.i.f fVar = this.f11792e.f11790b;
-            if (fVar.f11759e != i2) {
-                fVar.f11759e = i2;
+            c.a.r0.q.i.f fVar = this.f11523e.f11522b;
+            if (fVar.f11492e != i2) {
+                fVar.f11492e = i2;
                 if (i2 != 2 && i2 != 3 && i2 != 10) {
                     s(false);
                 } else {
@@ -127,25 +125,25 @@ public class f<T> implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.f11792e.f11790b.a)) {
-                f11791k.i("PMSDownloadTask", "#checkAndCreateFile mParam.pmsPackage.filePath 为空");
+            if (!TextUtils.isEmpty(this.f11523e.f11522b.a)) {
+                k.i("PMSDownloadTask", "#checkAndCreateFile mParam.pmsPackage.filePath 为空");
                 return true;
             }
-            File c2 = c.a.r0.q.p.e.c(this.f11796i.d(this.f11793f), this.f11792e.f11790b.l);
-            this.f11794g = c2;
+            File c2 = c.a.r0.q.p.e.c(this.f11527i.d(this.f11524f), this.f11523e.f11522b.l);
+            this.f11525g = c2;
             if (c2 == null) {
                 String absolutePath = c.a.r0.p.b.b().getAppContext().getCacheDir().getAbsolutePath();
-                c.a.r0.q.p.a aVar = f11791k;
+                c.a.r0.q.p.a aVar = k;
                 aVar.i("PMSDownloadTask", "#checkAndCreateFile mLocalFile=null cacheDir=" + absolutePath);
-                this.f11794g = c.a.r0.q.p.e.c(absolutePath, this.f11792e.f11790b.l);
+                this.f11525g = c.a.r0.q.p.e.c(absolutePath, this.f11523e.f11522b.l);
             }
-            File file = this.f11794g;
+            File file = this.f11525g;
             if (file == null) {
-                f11791k.i("PMSDownloadTask", "#checkAndCreateFile generateFilePath=null");
-                this.f11796i.e(this.f11793f, new c.a.r0.q.i.b(2203, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH));
+                k.i("PMSDownloadTask", "#checkAndCreateFile generateFilePath=null");
+                this.f11527i.e(this.f11524f, new c.a.r0.q.i.b(2203, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH));
                 return false;
             }
-            this.f11792e.f11790b.a = file.getAbsolutePath();
+            this.f11523e.f11522b.a = file.getAbsolutePath();
             return true;
         }
         return invokeV.booleanValue;
@@ -158,13 +156,13 @@ public class f<T> implements Runnable {
         e eVar2;
         c.a.r0.q.i.f fVar3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) ? (fVar == null || (eVar = fVar.f11792e) == null || (fVar2 = eVar.f11790b) == null || (eVar2 = this.f11792e) == null || (fVar3 = eVar2.f11790b) == null || !fVar3.equals(fVar2)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) ? (fVar == null || (eVar = fVar.f11523e) == null || (fVar2 = eVar.f11522b) == null || (eVar2 = this.f11523e) == null || (fVar3 = eVar2.f11522b) == null || !fVar3.equals(fVar2)) ? false : true : invokeL.booleanValue;
     }
 
     public c.a.r0.q.f.e<T> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11796i : (c.a.r0.q.f.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11527i : (c.a.r0.q.f.e) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -185,20 +183,20 @@ public class f<T> implements Runnable {
     public T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11793f : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11524f : (T) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new c.a.r0.q.j.i.d.a().a(this.f11796i.k()).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new c.a.r0.q.j.i.d.a().a(this.f11527i.k()).intValue() : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            c<T> cVar = this.f11796i;
+            c<T> cVar = this.f11527i;
             if (cVar != null) {
                 return cVar.g();
             }
@@ -210,13 +208,13 @@ public class f<T> implements Runnable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Objects.hash(this.f11792e.f11790b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Objects.hash(this.f11523e.f11522b) : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f11792e.f11790b.f11759e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f11523e.f11522b.f11492e : invokeV.intValue;
     }
 
     @SuppressLint({"ObsoleteSdkInt"})
@@ -224,7 +222,7 @@ public class f<T> implements Runnable {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            String d2 = this.f11796i.d(this.f11793f);
+            String d2 = this.f11527i.d(this.f11524f);
             if (d2 == null) {
                 return false;
             }
@@ -232,7 +230,7 @@ public class f<T> implements Runnable {
                 StatFs statFs = new StatFs(d2);
                 return Build.VERSION.SDK_INT >= 18 ? statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong() > j2 : ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j2;
             } catch (Throwable th) {
-                f11791k.g("PMSDownloadTask", "#hasSpaceToWrite 异常或者磁盘空间不足", th);
+                k.g("PMSDownloadTask", "#hasSpaceToWrite 异常或者磁盘空间不足", th);
                 return false;
             }
         }
@@ -242,13 +240,13 @@ public class f<T> implements Runnable {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f11797j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f11528j : invokeV.booleanValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f11796i.a(this.f11793f);
+            this.f11527i.a(this.f11524f);
         }
     }
 
@@ -256,7 +254,7 @@ public class f<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             b(3);
-            this.f11796i.e(this.f11793f, this.f11792e.a);
+            this.f11527i.e(this.f11524f, this.f11523e.a);
         }
     }
 
@@ -264,14 +262,14 @@ public class f<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             b(10);
-            this.f11796i.i(this.f11793f);
+            this.f11527i.i(this.f11524f);
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f11797j = true;
+            this.f11528j = true;
             s(true);
         }
     }
@@ -280,7 +278,7 @@ public class f<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             b(1);
-            this.f11796i.c(this.f11793f);
+            this.f11527i.c(this.f11524f);
         }
     }
 
@@ -288,7 +286,7 @@ public class f<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             b(2);
-            this.f11796i.j(this.f11793f);
+            this.f11527i.j(this.f11524f);
         }
     }
 
@@ -296,11 +294,11 @@ public class f<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             if (z) {
-                this.f11792e.f11790b.f11756b = 0L;
+                this.f11523e.f11522b.f11489b = 0L;
             }
             b(0);
             s(false);
-            this.f11797j = false;
+            this.f11528j = false;
         }
     }
 
@@ -310,45 +308,45 @@ public class f<T> implements Runnable {
         if (interceptable != null && interceptable.invokeV(1048596, this) != null) {
             return;
         }
-        String fVar = this.f11792e.f11790b.toString();
-        f11791k.i("PMSDownloadTask", "#run 开始下包 pkg=" + fVar);
+        String fVar = this.f11523e.f11522b.toString();
+        k.i("PMSDownloadTask", "#run 开始下包 pkg=" + fVar);
         j jVar = new j(this, h());
         while (true) {
-            c.a.r0.q.i.b bVar = this.f11792e.a;
+            c.a.r0.q.i.b bVar = this.f11523e.a;
             if (bVar != null && bVar.a == 2200) {
                 return;
             }
-            if (this.f11795h.get()) {
-                f11791k.i("PMSDownloadTask", "#run 已经取消下包 pkg=" + fVar);
+            if (this.f11526h.get()) {
+                k.i("PMSDownloadTask", "#run 已经取消下包 pkg=" + fVar);
                 q();
                 return;
             }
             jVar.b();
-            c.a.r0.q.i.b bVar2 = this.f11792e.a;
+            c.a.r0.q.i.b bVar2 = this.f11523e.a;
             if (bVar2 != null) {
                 if (bVar2.a != 2200) {
-                    if (this.f11795h.get()) {
-                        f11791k.i("PMSDownloadTask", "#run 运行中取消下包 pkg=" + fVar);
+                    if (this.f11526h.get()) {
+                        k.i("PMSDownloadTask", "#run 运行中取消下包 pkg=" + fVar);
                         q();
                         return;
                     }
-                    this.f11796i.f11788f++;
-                    f11791k.i("PMSDownloadTask", "#run 下载出错 pkg=" + fVar + " retryCount=" + this.f11796i.f11788f);
-                    if (this.f11796i.f11788f < 3) {
+                    this.f11527i.f11520f++;
+                    k.i("PMSDownloadTask", "#run 下载出错 pkg=" + fVar + " retryCount=" + this.f11527i.f11520f);
+                    if (this.f11527i.f11520f < 3) {
                         try {
-                            if (!this.f11795h.get()) {
-                                Thread.sleep(this.f11796i.f11788f * 1000);
+                            if (!this.f11526h.get()) {
+                                Thread.sleep(this.f11527i.f11520f * 1000);
                             }
                         } catch (InterruptedException unused) {
                         }
                     } else {
                         m();
-                        e eVar = this.f11792e;
-                        a(eVar.a.a, eVar.f11790b);
+                        e eVar = this.f11523e;
+                        a(eVar.a.a, eVar.f11522b);
                         return;
                     }
                 } else {
-                    f11791k.i("PMSDownloadTask", "#run 下包成功 pkg=" + fVar);
+                    k.i("PMSDownloadTask", "#run 下包成功 pkg=" + fVar);
                     n();
                     return;
                 }
@@ -358,17 +356,17 @@ public class f<T> implements Runnable {
 
     public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || this.f11795h.get() == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || this.f11526h.get() == z) {
             return;
         }
-        this.f11795h.set(z);
+        this.f11526h.set(z);
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "downloadUrl:" + this.f11792e.f11790b.n + ",versionName:" + this.f11792e.f11790b.f11764j + ",versionCode:" + this.f11792e.f11790b.f11763i + "md5:" + this.f11792e.f11790b.l + "bundleId:" + this.f11792e.f11790b.f11761g;
+            return "downloadUrl:" + this.f11523e.f11522b.n + ",versionName:" + this.f11523e.f11522b.f11497j + ",versionCode:" + this.f11523e.f11522b.f11496i + "md5:" + this.f11523e.f11522b.l + "bundleId:" + this.f11523e.f11522b.f11494g;
         }
         return (String) invokeV.objValue;
     }

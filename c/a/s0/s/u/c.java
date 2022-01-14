@@ -19,7 +19,7 @@ public class c {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Drawable f13984b;
+    public Drawable f13658b;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -27,10 +27,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f13985e;
+        public final /* synthetic */ int f13659e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f13986f;
+        public final /* synthetic */ c f13660f;
 
         public a(c cVar, int i2) {
             Interceptable interceptable = $ic;
@@ -47,17 +47,17 @@ public class c {
                     return;
                 }
             }
-            this.f13986f = cVar;
-            this.f13985e = i2;
+            this.f13660f = cVar;
+            this.f13659e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c cVar = this.f13986f;
-                cVar.f13984b = c.a.s0.s.u.a.C(cVar.f13984b, this.f13985e, this.f13986f.a.getMeasuredHeight());
-                this.f13986f.a.setBackgroundDrawable(this.f13986f.f13984b);
+                c cVar = this.f13660f;
+                cVar.f13658b = c.a.s0.s.u.a.C(cVar.f13658b, this.f13659e, this.f13660f.a.getMeasuredHeight());
+                this.f13660f.a.setBackgroundDrawable(this.f13660f.f13658b);
             }
         }
     }
@@ -68,13 +68,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f13987e;
+        public final /* synthetic */ int f13661e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f13988f;
+        public final /* synthetic */ int f13662f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f13989g;
+        public final /* synthetic */ c f13663g;
 
         public b(c cVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -91,18 +91,18 @@ public class c {
                     return;
                 }
             }
-            this.f13989g = cVar;
-            this.f13987e = i2;
-            this.f13988f = i3;
+            this.f13663g = cVar;
+            this.f13661e = i2;
+            this.f13662f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c cVar = this.f13989g;
-                cVar.f13984b = c.a.s0.s.u.a.D(cVar.f13984b, this.f13987e, this.f13988f, this.f13989g.a.getMeasuredHeight());
-                this.f13989g.a.setBackgroundDrawable(this.f13989g.f13984b);
+                c cVar = this.f13663g;
+                cVar.f13658b = c.a.s0.s.u.a.D(cVar.f13658b, this.f13661e, this.f13662f, this.f13663g.a.getMeasuredHeight());
+                this.f13663g.a.setBackgroundDrawable(this.f13663g.f13658b);
             }
         }
     }
@@ -123,7 +123,7 @@ public class c {
             }
         }
         this.a = view;
-        this.f13984b = c.a.s0.s.u.a.d(view);
+        this.f13658b = c.a.s0.s.u.a.d(view);
     }
 
     public static c d(View view) {
@@ -153,7 +153,7 @@ public class c {
             if (this.a == null) {
                 return this;
             }
-            this.f13984b = c.a.s0.s.u.a.b(this.f13984b, i2);
+            this.f13658b = c.a.s0.s.u.a.b(this.f13658b, i2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -162,20 +162,20 @@ public class c {
     public void f(int i2) {
         Drawable i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.a == null || (i3 = c.a.s0.s.u.a.i(this.f13984b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.a == null || (i3 = c.a.s0.s.u.a.i(this.f13658b, i2)) == null) {
             return;
         }
-        this.f13984b = i3;
+        this.f13658b = i3;
         this.a.setBackgroundDrawable(i3);
     }
 
     public void g(int i2) {
         Drawable w;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.a == null || (w = c.a.s0.s.u.a.w(this.f13984b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.a == null || (w = c.a.s0.s.u.a.w(this.f13658b, i2)) == null) {
             return;
         }
-        this.f13984b = w;
+        this.f13658b = w;
         this.a.setBackgroundDrawable(w);
     }
 
@@ -202,10 +202,10 @@ public class c {
         Drawable e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (this.a == null || (e2 = c.a.s0.s.u.a.e(this.f13984b, i2)) == null) {
+            if (this.a == null || (e2 = c.a.s0.s.u.a.e(this.f13658b, i2)) == null) {
                 return this;
             }
-            this.f13984b = e2;
+            this.f13658b = e2;
             this.a.setBackgroundDrawable(e2);
             return this;
         }
@@ -217,10 +217,10 @@ public class c {
         Drawable f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (this.a == null || (f2 = c.a.s0.s.u.a.f(this.f13984b, i2)) == null) {
+            if (this.a == null || (f2 = c.a.s0.s.u.a.f(this.f13658b, i2)) == null) {
                 return this;
             }
-            this.f13984b = f2;
+            this.f13658b = f2;
             this.a.setBackgroundDrawable(f2);
             return this;
         }
@@ -234,7 +234,7 @@ public class c {
             if (this.a == null) {
                 return this;
             }
-            this.f13984b = c.a.s0.s.u.a.g(this.f13984b, i2);
+            this.f13658b = c.a.s0.s.u.a.g(this.f13658b, i2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -247,7 +247,7 @@ public class c {
             if (this.a == null) {
                 return this;
             }
-            this.f13984b = c.a.s0.s.u.a.l(this.f13984b, i2);
+            this.f13658b = c.a.s0.s.u.a.l(this.f13658b, i2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -260,7 +260,7 @@ public class c {
             if (this.a == null) {
                 return this;
             }
-            this.f13984b = c.a.s0.s.u.a.k(this.f13984b, i2);
+            this.f13658b = c.a.s0.s.u.a.k(this.f13658b, i2);
             return this;
         }
         return (c) invokeI.objValue;
@@ -269,20 +269,20 @@ public class c {
     public void o(int[] iArr) {
         Drawable p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, iArr) == null) || this.a == null || (p = c.a.s0.s.u.a.p(this.f13984b, Direction.BOTTOM, iArr)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, iArr) == null) || this.a == null || (p = c.a.s0.s.u.a.p(this.f13658b, Direction.BOTTOM, iArr)) == null) {
             return;
         }
-        this.f13984b = p;
+        this.f13658b = p;
         this.a.setBackgroundDrawable(p);
     }
 
     public void p(int[] iArr, Direction direction) {
         Drawable p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, iArr, direction) == null) || this.a == null || (p = c.a.s0.s.u.a.p(this.f13984b, direction, iArr)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, iArr, direction) == null) || this.a == null || (p = c.a.s0.s.u.a.p(this.f13658b, direction, iArr)) == null) {
             return;
         }
-        this.f13984b = p;
+        this.f13658b = p;
         this.a.setBackgroundDrawable(p);
     }
 
@@ -317,10 +317,10 @@ public class c {
     public void s(int i2) {
         Drawable t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.a == null || (t = c.a.s0.s.u.a.t(this.f13984b, c.a.s0.s.u.a.F(i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.a == null || (t = c.a.s0.s.u.a.t(this.f13658b, c.a.s0.s.u.a.F(i2))) == null) {
             return;
         }
-        this.f13984b = t;
+        this.f13658b = t;
         this.a.setBackgroundDrawable(t);
     }
 
@@ -329,10 +329,10 @@ public class c {
         Drawable v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            if (this.a == null || (v = c.a.s0.s.u.a.v(this.f13984b, i2)) == null) {
+            if (this.a == null || (v = c.a.s0.s.u.a.v(this.f13658b, i2)) == null) {
                 return this;
             }
-            this.f13984b = v;
+            this.f13658b = v;
             this.a.setBackgroundDrawable(v);
             return this;
         }
@@ -345,10 +345,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
             View view = this.a;
-            if (view == null || (A = c.a.s0.s.u.a.A(view, this.f13984b, c.a.s0.s.u.a.F(i2))) == null) {
+            if (view == null || (A = c.a.s0.s.u.a.A(view, this.f13658b, c.a.s0.s.u.a.F(i2))) == null) {
                 return this;
             }
-            this.f13984b = A;
+            this.f13658b = A;
             this.a.setBackgroundDrawable(A);
             q(1);
             return this;

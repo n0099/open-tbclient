@@ -16,59 +16,57 @@ import com.kwad.sdk.reward.j;
 public class b extends g implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f59613b;
+    public View f57361b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f59615d;
+    public boolean f57363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f59616e;
+    public long f57364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f59617f;
+    public AdTemplate f57365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f59618g;
+    public AdInfo f57366g;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f59614c = new Handler(Looper.getMainLooper());
+    public Handler f57362c = new Handler(Looper.getMainLooper());
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f59619h = 0;
+    public volatile long f57367h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f59620i = false;
+    public volatile boolean f57368i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public d f59621j = new e() { // from class: com.kwad.sdk.reward.presenter.a.a.b.1
+    public d f57369j = new e() { // from class: com.kwad.sdk.reward.presenter.a.a.b.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(long j2, long j3) {
             super.a(j2, j3);
-            b.this.f59619h = j3;
-            b.this.f59620i = j2 - j3 < 800;
+            b.this.f57367h = j3;
+            b.this.f57368i = j2 - j3 < 800;
         }
     };
-
-    /* renamed from: k  reason: collision with root package name */
-    public f f59622k = new f() { // from class: com.kwad.sdk.reward.presenter.a.a.b.2
+    public f k = new f() { // from class: com.kwad.sdk.reward.presenter.a.a.b.2
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
             if (((g) b.this).a.x) {
                 return;
             }
-            long j2 = b.this.f59616e;
-            if (j2 == 0 || !b.this.f59615d) {
+            long j2 = b.this.f57364e;
+            if (j2 == 0 || !b.this.f57363d) {
                 b.this.e();
             } else {
-                b.this.f59614c.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.presenter.a.a.b.2.1
+                b.this.f57362c.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.presenter.a.a.b.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (b.this.o() == null || b.this.o().isFinishing()) {
                             return;
                         }
                         b.this.e();
-                        b.this.f59613b.setAlpha(0.0f);
-                        b.this.f59613b.animate().alpha(1.0f).setDuration(500L).start();
+                        b.this.f57361b.setAlpha(0.0f);
+                        b.this.f57361b.animate().alpha(1.0f).setDuration(500L).start();
                     }
                 }, j2);
             }
@@ -76,93 +74,93 @@ public class b extends g implements View.OnClickListener {
     };
 
     public b(long j2) {
-        this.f59616e = j2;
+        this.f57364e = j2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f59613b.setVisibility(0);
-        this.f59613b.setOnClickListener(this);
+        this.f57361b.setVisibility(0);
+        this.f57361b.setOnClickListener(this);
     }
 
     private void i() {
-        AdTemplate adTemplate = this.f59617f;
+        AdTemplate adTemplate = this.f57365f;
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        j.a(((g) this).a.f59456h, this.f59617f, j.a(adTemplate, (String) null, aVar.y, aVar.z), new j.c() { // from class: com.kwad.sdk.reward.presenter.a.a.b.3
+        j.a(((g) this).a.f57208h, this.f57365f, j.a(adTemplate, (String) null, aVar.y, aVar.z), new j.c() { // from class: com.kwad.sdk.reward.presenter.a.a.b.3
             @Override // com.kwad.sdk.reward.j.c, com.kwad.sdk.reward.j.b
             public void a() {
-                com.kwad.sdk.core.report.a.c(b.this.f59617f, Opcodes.FCMPL, null);
+                com.kwad.sdk.core.report.a.c(b.this.f57365f, Opcodes.FCMPL, null);
             }
 
             @Override // com.kwad.sdk.reward.j.c, com.kwad.sdk.reward.j.b
             public void b() {
-                com.kwad.sdk.core.report.a.a(((g) b.this).a.f59455g, (int) (b.this.f59616e / 1000), (int) (b.this.f59619h / 1000));
-                com.kwad.sdk.core.report.a.f(b.this.f59617f, (int) Opcodes.DCMPL);
+                com.kwad.sdk.core.report.a.a(((g) b.this).a.f57207g, (int) (b.this.f57364e / 1000), (int) (b.this.f57367h / 1000));
+                com.kwad.sdk.core.report.a.f(b.this.f57365f, (int) Opcodes.DCMPL);
                 b.this.r();
                 b.this.h();
             }
 
             @Override // com.kwad.sdk.reward.j.c, com.kwad.sdk.reward.j.b
             public void c() {
-                com.kwad.sdk.core.report.a.f(b.this.f59617f, 150);
+                com.kwad.sdk.core.report.a.f(b.this.f57365f, 150);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        ((g) this).a.f59450b.a(false);
+        ((g) this).a.f57202b.a(false);
     }
 
     private void s() {
-        ((g) this).a.f59450b.e();
+        ((g) this).a.f57202b.e();
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f59619h = 0L;
-        this.f59620i = false;
-        AdTemplate adTemplate = ((g) this).a.f59455g;
-        this.f59617f = adTemplate;
-        this.f59618g = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        ((g) this).a.a(this.f59622k);
-        ((g) this).a.f59459k.a(this.f59621j);
+        this.f57367h = 0L;
+        this.f57368i = false;
+        AdTemplate adTemplate = ((g) this).a.f57207g;
+        this.f57365f = adTemplate;
+        this.f57366g = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        ((g) this).a.a(this.k);
+        ((g) this).a.k.a(this.f57369j);
     }
 
     public b b(boolean z) {
-        this.f59615d = z;
+        this.f57363d = z;
         return this;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((g) this).a.b(this.f59622k);
-        this.f59614c.removeCallbacksAndMessages(null);
-        ((g) this).a.f59459k.b(this.f59621j);
-        this.f59613b.setVisibility(8);
+        ((g) this).a.b(this.k);
+        this.f57362c.removeCallbacksAndMessages(null);
+        ((g) this).a.k.b(this.f57369j);
+        this.f57361b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f59613b = a(R.id.ksad_end_close_btn);
+        this.f57361b = a(R.id.ksad_end_close_btn);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void d_() {
         super.d_();
-        this.f59614c.removeCallbacksAndMessages(null);
+        this.f57362c.removeCallbacksAndMessages(null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f59613b) {
+        if (view == this.f57361b) {
             boolean z = false;
             boolean z2 = true;
             if (f() || g()) {
-                com.kwad.sdk.core.report.a.a(this.f59617f, 69, (int) (this.f59616e / 1000), (int) (this.f59619h / 1000));
+                com.kwad.sdk.core.report.a.a(this.f57365f, 69, (int) (this.f57364e / 1000), (int) (this.f57367h / 1000));
                 if (!((g) this).a.v && com.kwad.sdk.core.config.b.R() && !((g) this).a.u) {
                     z = true;
                 }
@@ -171,9 +169,9 @@ public class b extends g implements View.OnClickListener {
                     return;
                 }
             } else {
-                long p = com.kwad.sdk.core.response.a.a.p(this.f59618g);
+                long p = com.kwad.sdk.core.response.a.a.p(this.f57366g);
                 if (p >= 0) {
-                    z2 = (this.f59620i || this.f59619h >= p) ? true : true;
+                    z2 = (this.f57368i || this.f57367h >= p) ? true : true;
                 }
                 if (z2) {
                     s();

@@ -26,13 +26,13 @@ public class CloudMusicListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.n4.l.j.a<CloudMusicData.MusicTagList> f51269e;
+    public c.a.t0.n4.l.j.a<CloudMusicData.MusicTagList> f49302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51270f;
+    public int f49303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f51271g;
+    public final HttpMessageListener f49304g;
 
     /* loaded from: classes12.dex */
     public static class VideoCloudMusicListResponseMessage extends JsonHttpResponsedMessage {
@@ -104,11 +104,11 @@ public class CloudMusicListModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && this.a.f51269e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && this.a.f49302e != null) {
                 if (httpResponsedMessage.hasError() && httpResponsedMessage.getError() != 0) {
                     CloudMusicListModel.x(this.a);
                 }
-                this.a.f51269e.a(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
+                this.a.f49302e.a(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
             }
         }
     }
@@ -131,24 +131,24 @@ public class CloudMusicListModel extends BdBaseModel {
                 return;
             }
         }
-        this.f51270f = 1;
-        this.f51271g = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
+        this.f49303f = 1;
+        this.f49304g = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
         z();
-        this.f51271g.setTag(getUniqueId());
-        this.f51271g.setSelfListener(true);
-        registerListener(this.f51271g);
+        this.f49304g.setTag(getUniqueId());
+        this.f49304g.setSelfListener(true);
+        registerListener(this.f49304g);
     }
 
     public static /* synthetic */ int x(CloudMusicListModel cloudMusicListModel) {
-        int i2 = cloudMusicListModel.f51270f;
-        cloudMusicListModel.f51270f = i2 - 1;
+        int i2 = cloudMusicListModel.f49303f;
+        cloudMusicListModel.f49303f = i2 - 1;
         return i2;
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f51270f = 1;
+            this.f49303f = 1;
         }
     }
 
@@ -179,13 +179,13 @@ public class CloudMusicListModel extends BdBaseModel {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
-        int i3 = this.f51270f + 1;
-        this.f51270f = i3;
+        int i3 = this.f49303f + 1;
+        this.f49303f = i3;
         httpMessage.addParam("pn", i3);
         httpMessage.addParam("rn", 10);
         httpMessage.addParam(TiebaStatic.Params.TAG_ID, i2);
         sendMessage(httpMessage);
-        this.f51269e = aVar;
+        this.f49302e = aVar;
     }
 
     public final void z() {

@@ -42,7 +42,6 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import kotlin.jvm.internal.ByteCompanionObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.webrtc.MediaStreamTrack;
@@ -105,7 +104,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 } else if (i2 == 1) {
                     this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | StandardMessageCodec.LIST);
                 } else if (i2 == 2) {
-                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | ByteCompanionObject.MIN_VALUE);
+                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 128);
                 } else if (i2 == 3) {
                     this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 8);
                 } else if (i2 == 6) {
@@ -362,7 +361,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             } else {
                                 i3 = b3 | 192;
                                 b3 = (byte) i3;
-                                i4 = b4 | ByteCompanionObject.MIN_VALUE;
+                                i4 = b4 | 128;
                                 b4 = (byte) i4;
                                 if (entry.lfeon == 1) {
                                 }
@@ -381,7 +380,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                             } else {
                                 i3 = b3 | 224;
                                 b3 = (byte) i3;
-                                i4 = b4 | ByteCompanionObject.MIN_VALUE;
+                                i4 = b4 | 128;
                                 b4 = (byte) i4;
                                 if (entry.lfeon == 1) {
                                 }

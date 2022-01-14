@@ -43,12 +43,12 @@ public final class a {
 
     /* renamed from: c.a.r0.b.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0649a implements DelegateListener {
+    public static class C0658a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.m.a a;
 
-        public C0649a(c.a.r0.a.m.a aVar) {
+        public C0658a(c.a.r0.a.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b.c f10291c;
+        public final /* synthetic */ b.c f10067c;
 
         public b(b.c cVar) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public final class a {
                     return;
                 }
             }
-            this.f10291c = cVar;
+            this.f10067c = cVar;
         }
 
         @Override // c.a.r0.a.y1.a.b.c.b, c.a.r0.a.y1.a.b.c.a
@@ -128,7 +128,7 @@ public final class a {
                 } else {
                     str = bVar.a().getString("result");
                 }
-                this.f10291c.a(str);
+                this.f10067c.a(str);
             }
         }
     }
@@ -139,7 +139,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f10292c;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f10068c;
 
         public c(c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public final class a {
                     return;
                 }
             }
-            this.f10292c = cVar;
+            this.f10068c = cVar;
         }
 
         @Override // c.a.r0.a.y1.a.b.c.b, c.a.r0.a.y1.a.b.c.a
@@ -184,7 +184,7 @@ public final class a {
                 } else {
                     boolean unused2 = a.a;
                 }
-                this.f10292c.onCallback(bundle);
+                this.f10068c.onCallback(bundle);
             }
         }
     }
@@ -225,11 +225,11 @@ public final class a {
         public void b(l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-                if (lVar.a != 0 || lVar.f10300b == null) {
+                if (lVar.a != 0 || lVar.f10076b == null) {
                     this.a.onCallback(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : lVar.f10300b.entrySet()) {
+                for (Map.Entry<String, String> entry : lVar.f10076b.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -303,7 +303,7 @@ public final class a {
         public final /* synthetic */ Bundle a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f10293b;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f10069b;
 
         public f(Bundle bundle, c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
@@ -321,7 +321,7 @@ public final class a {
                 }
             }
             this.a = bundle;
-            this.f10293b = cVar;
+            this.f10069b = cVar;
         }
 
         @Override // c.a.r0.b.l.b0
@@ -332,7 +332,7 @@ public final class a {
                     String str = "callbackkey=" + zVar.a;
                 }
                 this.a.putString("callbackKey", zVar.a);
-                c.a.r0.a.z2.g1.c cVar = this.f10293b;
+                c.a.r0.a.z2.g1.c cVar = this.f10069b;
                 if (cVar != null) {
                     cVar.onCallback(this.a);
                 }
@@ -347,7 +347,7 @@ public final class a {
                     String str2 = "onFailure=" + str;
                 }
                 this.a.putString("failMsg", str);
-                c.a.r0.a.z2.g1.c cVar = this.f10293b;
+                c.a.r0.a.z2.g1.c cVar = this.f10069b;
                 if (cVar != null) {
                     cVar.onCallback(this.a);
                 }
@@ -398,13 +398,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f10294e;
+        public final /* synthetic */ Activity f10070e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10295f;
+        public final /* synthetic */ String f10071f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10296g;
+        public final /* synthetic */ String f10072g;
 
         public h(Activity activity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -421,16 +421,16 @@ public final class a {
                     return;
                 }
             }
-            this.f10294e = activity;
-            this.f10295f = str;
-            this.f10296g = str2;
+            this.f10070e = activity;
+            this.f10071f = str;
+            this.f10072g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.O(this.f10294e, this.f10295f, this.f10296g);
+                a.O(this.f10070e, this.f10071f, this.f10072g);
             }
         }
     }
@@ -441,7 +441,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f10297e;
+        public final /* synthetic */ Activity f10073e;
 
         public i(Activity activity) {
             Interceptable interceptable = $ic;
@@ -458,14 +458,14 @@ public final class a {
                     return;
                 }
             }
-            this.f10297e = activity;
+            this.f10073e = activity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                a.M(this.f10297e, true, null, null);
+                a.M(this.f10073e, true, null, null);
             }
         }
     }
@@ -506,7 +506,7 @@ public final class a {
             if (callOnMainWithContentProvider.isOk()) {
                 a0 a0Var = new a0();
                 a0Var.a = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
-                a0Var.f10298b = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
+                a0Var.f10074b = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
                 return a0Var;
             }
             return null;
@@ -638,7 +638,7 @@ public final class a {
             Bundle bundle2 = new Bundle();
             bundle2.putBoolean("key_login_force", z);
             bundle2.putBundle("key_login_params", bundle);
-            DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, k.class, bundle2, new C0649a(aVar));
+            DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, k.class, bundle2, new C0658a(aVar));
         }
     }
 

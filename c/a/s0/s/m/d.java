@@ -31,26 +31,26 @@ public final class d {
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f13554b = 2;
+    public static final int f13239b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f13555c = 3;
+    public static final int f13240c = 3;
     @JvmField
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f13556d = 2;
+    public static final int f13241d = 2;
     @JvmField
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f13557e = 3;
+    public static final int f13242e = 3;
     @JvmField
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f13558f = 4;
+    public static final int f13243f = 4;
     @JvmField
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f13559g = 6;
+    public static final int f13244g = 6;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -76,7 +76,7 @@ public final class d {
             this();
         }
 
-        public static final void h(IntentConfig config) {
+        public static final void g(IntentConfig config) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, null, config) == null) {
                 Intrinsics.checkNotNullParameter(config, "$config");
@@ -87,53 +87,18 @@ public final class d {
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f13554b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f13239b : invokeV.intValue;
         }
 
         public final int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f13555c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f13240c : invokeV.intValue;
         }
 
-        public final void c(int i2, Context mContext, String str, String str2, String str3, String str4, Integer num, boolean z) {
+        public final void c(int i2, Context mContext, String str, String str2, String str3, String str4, Integer num, boolean z, String str5, String str6, String str7) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), mContext, str, str2, str3, str4, num, Boolean.valueOf(z)}) == null) {
-                Intrinsics.checkNotNullParameter(mContext, "mContext");
-                if (i2 == a()) {
-                    WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(mContext, a());
-                    if (!z && str3 != null && str4 != null) {
-                        workPublishActivityConfig.setCanChangeBar(z);
-                        workPublishActivityConfig.setBarId(str3);
-                        workPublishActivityConfig.setBarName(str4);
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishActivityConfig));
-                    return;
-                }
-                AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(mContext, "", true, true);
-                albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-                albumFloatActivityConfig.setAlbumThread(0);
-                albumFloatActivityConfig.setCanSelectVideo(true);
-                albumFloatActivityConfig.setCanSelectOnlyVideo(true);
-                albumFloatActivityConfig.setCanEditImage(false);
-                albumFloatActivityConfig.setFromWrite(4);
-                albumFloatActivityConfig.setCallFrom("2");
-                albumFloatActivityConfig.setRedirectToWorkPublishPage(i2);
-                albumFloatActivityConfig.setBarID(str3);
-                albumFloatActivityConfig.setBarName(str4);
-                albumFloatActivityConfig.setCanChangeBarName(z);
-                albumFloatActivityConfig.setVideoAbstract(str2);
-                albumFloatActivityConfig.setVideoTitle(str);
-                if (g((Activity) mContext, albumFloatActivityConfig)) {
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
-            }
-        }
-
-        public final void d(int i2, Context mContext, String str, String str2, String str3, String str4, Integer num, boolean z, String str5, String str6) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), mContext, str, str2, str3, str4, num, Boolean.valueOf(z), str5, str6}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), mContext, str, str2, str3, str4, num, Boolean.valueOf(z), str5, str6, str7}) == null) {
                 Intrinsics.checkNotNullParameter(mContext, "mContext");
                 if (i2 == a()) {
                     WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(mContext, a());
@@ -144,6 +109,7 @@ public final class d {
                     }
                     workPublishActivityConfig.setTopic(str5);
                     workPublishActivityConfig.setTopicId(str6);
+                    workPublishActivityConfig.setIsVideo(str7);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishActivityConfig));
                     return;
                 }
@@ -163,16 +129,17 @@ public final class d {
                 albumFloatActivityConfig.setVideoTitle(str);
                 albumFloatActivityConfig.setTopic(str5);
                 albumFloatActivityConfig.setTopicId(str6);
-                if (g((Activity) mContext, albumFloatActivityConfig)) {
+                albumFloatActivityConfig.setIsVideo(str7);
+                if (f((Activity) mContext, albumFloatActivityConfig)) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
             }
         }
 
-        public final void e(WriteData writeData, Context mContext) {
+        public final void d(WriteData writeData, Context mContext) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, writeData, mContext) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, writeData, mContext) == null) {
                 Intrinsics.checkNotNullParameter(writeData, "writeData");
                 Intrinsics.checkNotNullParameter(mContext, "mContext");
                 WorkPublishActivityConfig workPublishActivityConfig = new WorkPublishActivityConfig(mContext, b());
@@ -181,10 +148,10 @@ public final class d {
             }
         }
 
-        public final boolean f(Intent intent, VideoInfo videoInfo, Activity mContext, boolean z, boolean z2) {
+        public final boolean e(Intent intent, VideoInfo videoInfo, Activity mContext, boolean z, boolean z2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{intent, videoInfo, mContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{intent, videoInfo, mContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
                 Intrinsics.checkNotNullParameter(intent, "intent");
                 Intrinsics.checkNotNullParameter(videoInfo, "videoInfo");
                 Intrinsics.checkNotNullParameter(mContext, "mContext");
@@ -204,10 +171,10 @@ public final class d {
             return invokeCommon.booleanValue;
         }
 
-        public final boolean g(Activity activity, final IntentConfig intentConfig) {
+        public final boolean f(Activity activity, final IntentConfig intentConfig) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, activity, intentConfig)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, activity, intentConfig)) == null) {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -219,7 +186,7 @@ public final class d {
                     public final void onPermissionsGranted() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.a.h(IntentConfig.this);
+                            d.a.g(IntentConfig.this);
                         }
                     }
                 });

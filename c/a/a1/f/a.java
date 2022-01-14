@@ -25,12 +25,12 @@ public class a {
                 if (aVar != null) {
                     arrayList = new ArrayList();
                     arrayList.add(new AbstractMap.SimpleEntry("sft", aVar.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", aVar.f1120b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", aVar.f1124f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", aVar.f1121c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", aVar.f1122d + ""));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", aVar.f1118b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", aVar.f1122f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", aVar.f1119c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", aVar.f1120d + ""));
                 }
-                g2.a("perf_record_arperf", str, bVar.a, bVar.f1126b, bVar.f1127c, bVar.f1128d, bVar.f1129e, null, arrayList);
+                g2.a("perf_record_arperf", str, bVar.a, bVar.f1124b, bVar.f1125c, bVar.f1126d, bVar.f1127e, null, arrayList);
             }
         }
     }

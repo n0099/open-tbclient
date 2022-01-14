@@ -15,10 +15,10 @@ public class g0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14165b;
+    public long f13833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14166c;
+    public long f13834c;
 
     public g0() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class g0 {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14166c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13834c : invokeV.longValue;
     }
 
     public String b() {
@@ -49,7 +49,7 @@ public class g0 {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14165b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13833b : invokeV.longValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -58,7 +58,7 @@ public class g0 {
             return;
         }
         this.a = jSONObject.optString("link_url", "");
-        this.f14165b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
-        this.f14166c = jSONObject.optLong("end_time", 0L);
+        this.f13833b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
+        this.f13834c = jSONObject.optLong("end_time", 0L);
     }
 }

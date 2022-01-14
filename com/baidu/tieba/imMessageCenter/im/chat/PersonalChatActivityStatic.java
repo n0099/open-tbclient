@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
 import c.a.s0.e1.s;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import c.a.t0.s1.h.m;
 import c.a.t0.t1.b.j;
 import com.baidu.adp.framework.MessageManager;
@@ -69,7 +69,7 @@ public class PersonalChatActivityStatic {
     public static c.a.t0.t1.a.b.b.e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f46906b;
+    public static CustomMessageListener f45169b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -148,12 +148,12 @@ public class PersonalChatActivityStatic {
 
         /* renamed from: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1909b implements s<Void> {
+        public class C1925b implements s<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
 
-            public C1909b(b bVar, CustomMessage customMessage) {
+            public C1925b(b bVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,7 +211,7 @@ public class PersonalChatActivityStatic {
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                n0.c(new a(this, linkedList), new C1909b(this, customMessage));
+                n0.c(new a(this, linkedList), new C1925b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -246,9 +246,9 @@ public class PersonalChatActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
                         if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst().getContext())) {
-                            String c2 = w0.c(str, "userid=");
-                            String c3 = w0.c(str, "username=");
-                            String c4 = w0.c(str, "portrait=");
+                            String c2 = v0.c(str, "userid=");
+                            String c3 = v0.c(str, "username=");
+                            String c4 = v0.c(str, "portrait=");
                             if (c2 != null && c2.length() > 0) {
                                 try {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(c2), c3, c3, c4, 0)));
@@ -337,12 +337,12 @@ public class PersonalChatActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f46527b == null || (tbPageContext = aVar.a) == null) {
+            if (aVar.f44808b == null || (tbPageContext = aVar.a) == null) {
                 return;
             }
             MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_REPLY_CARD);
             msgReplyCardViewItemAdapter.d0(true);
-            aVar.f46527b.add(msgReplyCardViewItemAdapter);
+            aVar.f44808b.add(msgReplyCardViewItemAdapter);
         }
     }
 
@@ -475,7 +475,7 @@ public class PersonalChatActivityStatic {
                 return;
             }
         }
-        f46906b = new a(2005016);
+        f45169b = new a(2005016);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalMsgImageActivityConfig.class, PersonalMsgImageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
@@ -498,7 +498,7 @@ public class PersonalChatActivityStatic {
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         c();
-        MessageManager.getInstance().registerListener(f46906b);
+        MessageManager.getInstance().registerListener(f45169b);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

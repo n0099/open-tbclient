@@ -82,7 +82,7 @@ public class g extends b {
     public void c(c cVar) {
         ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f22297d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f21685d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
             return;
         }
         this.q.startLoad(storageModel.url, 10, false);

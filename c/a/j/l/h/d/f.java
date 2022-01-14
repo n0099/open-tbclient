@@ -24,13 +24,13 @@ public class f extends c.a.j.l.h.d.c {
     public static View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Runnable f4123b;
+    public static Runnable f4058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static View f4124c;
+    public static View f4059c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f4125d;
+    public static boolean f4060d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -39,19 +39,19 @@ public class f extends c.a.j.l.h.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f4126e;
+        public final /* synthetic */ View f4061e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f4127f;
+        public final /* synthetic */ Context f4062f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f4128g;
+        public final /* synthetic */ View f4063g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FrameLayout.LayoutParams f4129h;
+        public final /* synthetic */ FrameLayout.LayoutParams f4064h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Animation f4130i;
+        public final /* synthetic */ Animation f4065i;
 
         public a(View view, Context context, View view2, FrameLayout.LayoutParams layoutParams, Animation animation) {
             Interceptable interceptable = $ic;
@@ -68,45 +68,45 @@ public class f extends c.a.j.l.h.d.c {
                     return;
                 }
             }
-            this.f4126e = view;
-            this.f4127f = context;
-            this.f4128g = view2;
-            this.f4129h = layoutParams;
-            this.f4130i = animation;
+            this.f4061e = view;
+            this.f4062f = context;
+            this.f4063g = view2;
+            this.f4064h = layoutParams;
+            this.f4065i = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.f4125d && this.f4126e != null) {
-                    if (f.f4124c != null && (f.f4124c.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) f.f4124c.getParent()).removeView(f.f4124c);
+                if (f.f4060d && this.f4061e != null) {
+                    if (f.f4059c != null && (f.f4059c.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) f.f4059c.getParent()).removeView(f.f4059c);
                     }
-                    Context context = this.f4127f;
+                    Context context = this.f4062f;
                     if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                         return;
                     }
-                    FrameLayout frameLayout = new FrameLayout(this.f4127f);
+                    FrameLayout frameLayout = new FrameLayout(this.f4062f);
                     frameLayout.setClickable(true);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    layoutParams.topMargin = c.a.j.l.h.d.b.m(this.f4127f);
-                    View view = this.f4126e;
+                    layoutParams.topMargin = c.a.j.l.h.d.b.m(this.f4062f);
+                    View view = this.f4061e;
                     if (view instanceof ViewGroup) {
                         ((ViewGroup) view).addView(frameLayout, layoutParams);
-                        View unused = f.f4124c = frameLayout;
+                        View unused = f.f4059c = frameLayout;
                     }
                 }
                 if (f.a != null && (f.a.getParent() instanceof ViewGroup)) {
                     ((ViewGroup) f.a.getParent()).removeView(f.a);
                 }
-                Context context2 = this.f4127f;
+                Context context2 = this.f4062f;
                 if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
                     return;
                 }
-                ((ViewGroup) this.f4126e).addView(this.f4128g, this.f4129h);
-                this.f4128g.startAnimation(this.f4130i);
-                View unused2 = f.a = this.f4128g;
+                ((ViewGroup) this.f4061e).addView(this.f4063g, this.f4064h);
+                this.f4063g.startAnimation(this.f4065i);
+                View unused2 = f.a = this.f4063g;
             }
         }
     }
@@ -146,10 +146,10 @@ public class f extends c.a.j.l.h.d.c {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f4131b;
+        public final /* synthetic */ View f4066b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f4132c;
+        public final /* synthetic */ int f4067c;
 
         public c(int i2, View view, int i3) {
             Interceptable interceptable = $ic;
@@ -167,8 +167,8 @@ public class f extends c.a.j.l.h.d.c {
                 }
             }
             this.a = i2;
-            this.f4131b = view;
-            this.f4132c = i3;
+            this.f4066b = view;
+            this.f4067c = i3;
         }
 
         @Override // c.a.j.l.h.d.c.e
@@ -178,7 +178,7 @@ public class f extends c.a.j.l.h.d.c {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 81;
                 layoutParams.bottomMargin = this.a;
-                f.k(this.f4131b, viewGroup, this.f4132c, layoutParams, c.a.j.l.a.sdk_toast_enter);
+                f.k(this.f4066b, viewGroup, this.f4067c, layoutParams, c.a.j.l.a.sdk_toast_enter);
             }
         }
     }
@@ -226,10 +226,10 @@ public class f extends c.a.j.l.h.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f4133e;
+        public final /* synthetic */ View f4068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f4134f;
+        public final /* synthetic */ View f4069f;
 
         /* loaded from: classes.dex */
         public class a implements Animation.AnimationListener {
@@ -239,14 +239,14 @@ public class f extends c.a.j.l.h.d.c {
 
             /* renamed from: c.a.j.l.h.d.f$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class RunnableC0181a implements Runnable {
+            public class RunnableC0190a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f4135e;
+                public final /* synthetic */ a f4070e;
 
-                public RunnableC0181a(a aVar) {
+                public RunnableC0190a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,16 +261,16 @@ public class f extends c.a.j.l.h.d.c {
                             return;
                         }
                     }
-                    this.f4135e = aVar;
+                    this.f4070e = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4135e.a.f4133e.getParent() == null) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4070e.a.f4068e.getParent() == null) {
                         return;
                     }
-                    ((ViewGroup) this.f4135e.a.f4133e.getParent()).removeView(this.f4135e.a.f4133e);
+                    ((ViewGroup) this.f4070e.a.f4068e.getParent()).removeView(this.f4070e.a.f4068e);
                 }
             }
 
@@ -280,7 +280,7 @@ public class f extends c.a.j.l.h.d.c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f4136e;
+                public final /* synthetic */ a f4071e;
 
                 public b(a aVar) {
                     Interceptable interceptable = $ic;
@@ -297,17 +297,17 @@ public class f extends c.a.j.l.h.d.c {
                             return;
                         }
                     }
-                    this.f4136e = aVar;
+                    this.f4071e = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     View view;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f4136e.a.f4134f) == null || view.getParent() == null || !(this.f4136e.a.f4134f.getParent() instanceof ViewGroup)) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f4071e.a.f4069f) == null || view.getParent() == null || !(this.f4071e.a.f4069f.getParent() instanceof ViewGroup)) {
                         return;
                     }
-                    ((ViewGroup) this.f4136e.a.f4134f.getParent()).removeView(this.f4136e.a.f4134f);
+                    ((ViewGroup) this.f4071e.a.f4069f.getParent()).removeView(this.f4071e.a.f4069f);
                 }
             }
 
@@ -333,10 +333,10 @@ public class f extends c.a.j.l.h.d.c {
             public void onAnimationEnd(Animation animation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    if (this.a.f4133e.getParent() instanceof ViewGroup) {
-                        this.a.f4133e.post(new RunnableC0181a(this));
+                    if (this.a.f4068e.getParent() instanceof ViewGroup) {
+                        this.a.f4068e.post(new RunnableC0190a(this));
                     }
-                    View view = this.a.f4134f;
+                    View view = this.a.f4069f;
                     if (view != null) {
                         view.post(new b(this));
                     }
@@ -373,17 +373,17 @@ public class f extends c.a.j.l.h.d.c {
                     return;
                 }
             }
-            this.f4133e = view;
-            this.f4134f = view2;
+            this.f4068e = view;
+            this.f4069f = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f4133e.getContext(), c.a.j.l.a.sdk_toast_exit);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f4068e.getContext(), c.a.j.l.a.sdk_toast_exit);
                 loadAnimation.setAnimationListener(new a(this));
-                this.f4133e.startAnimation(loadAnimation);
+                this.f4068e.startAnimation(loadAnimation);
             }
         }
     }
@@ -420,11 +420,11 @@ public class f extends c.a.j.l.h.d.c {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (f.class) {
                 if (a != null) {
-                    a.post(new e(a, f4124c));
-                    a.removeCallbacks(f4123b);
+                    a.post(new e(a, f4059c));
+                    a.removeCallbacks(f4058b);
                     a = null;
-                    f4123b = null;
-                    f4124c = null;
+                    f4058b = null;
+                    f4059c = null;
                 }
             }
         }
@@ -457,10 +457,10 @@ public class f extends c.a.j.l.h.d.c {
         view2.setClickable(true);
         if (view instanceof ViewGroup) {
             view.post(new a(view, context, view2, layoutParams, animation));
-            if (f4123b == null) {
-                f4123b = new b();
+            if (f4058b == null) {
+                f4058b = new b();
             }
-            view.postDelayed(f4123b, i2 * 1000);
+            view.postDelayed(f4058b, i2 * 1000);
         }
     }
 

@@ -3,8 +3,8 @@ package c.a.t0.q1.j;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
 import c.a.s0.s.q.e2;
+import c.a.s0.s.q.f2;
 import c.a.t0.g0.d0;
 import c.a.t0.g0.x;
 import c.a.t0.q1.l.n;
@@ -33,15 +33,15 @@ public class h extends c.a.d.n.e.a<c.a.t0.g0.f0.k, CardViewHolder<x>> {
     public BdUniqueId n;
     public c.a.t0.g0.f0.k o;
     public x p;
-    public d0<e2> q;
+    public d0<f2> q;
 
     /* loaded from: classes8.dex */
-    public class a extends d0<e2> {
+    public class a extends d0<f2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f22057b;
+        public final /* synthetic */ h f21457b;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -58,26 +58,26 @@ public class h extends c.a.d.n.e.a<c.a.t0.g0.f0.k, CardViewHolder<x>> {
                     return;
                 }
             }
-            this.f22057b = hVar;
+            this.f21457b = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.t0.g0.d0
         /* renamed from: d */
-        public void a(View view, e2 e2Var) {
+        public void a(View view, f2 f2Var) {
             c.a.t0.g0.f0.k kVar;
-            d2 d2Var;
+            e2 e2Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var) == null) || (kVar = this.f22057b.o) == null || (d2Var = kVar.f18222e) == null || StringUtils.isNull(d2Var.v1())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, f2Var) == null) || (kVar = this.f21457b.o) == null || (e2Var = kVar.f17778e) == null || StringUtils.isNull(e2Var.v1())) {
                 return;
             }
             int i2 = 1;
-            if ((this.f22057b.p.v() == null || view.getId() != this.f22057b.p.v().getId()) && (this.f22057b.p.w() == null || view.getId() != this.f22057b.p.w().getId())) {
-                i2 = (this.f22057b.p.q == null || view.getId() != this.f22057b.p.q.getId()) ? 2 : 3;
+            if ((this.f21457b.p.v() == null || view.getId() != this.f21457b.p.v().getId()) && (this.f21457b.p.w() == null || view.getId() != this.f21457b.p.w().getId())) {
+                i2 = (this.f21457b.p.q == null || view.getId() != this.f21457b.p.q.getId()) ? 2 : 3;
             }
-            String topicName = ((HotTopicActivity) this.f22057b.m.getOrignalPage()).getTopicName();
-            String hotTopicId = ((HotTopicActivity) this.f22057b.m.getOrignalPage()).getHotTopicId();
-            d2 threadData = kVar.getThreadData();
+            String topicName = ((HotTopicActivity) this.f21457b.m.getOrignalPage()).getTopicName();
+            String hotTopicId = ((HotTopicActivity) this.f21457b.m.getOrignalPage()).getHotTopicId();
+            e2 threadData = kVar.getThreadData();
             TiebaStatic.log(new StatisticItem("c12941").param("obj_type", i2).param("tid", threadData.g0()));
             if ("c10814".equals(kVar.C())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
@@ -150,9 +150,9 @@ public class h extends c.a.d.n.e.a<c.a.t0.g0.f0.k, CardViewHolder<x>> {
                 return null;
             }
             this.o = kVar;
-            cardViewHolder.getCardView().k(new e2(kVar.getThreadData()));
+            cardViewHolder.getCardView().k(new f2(kVar.getThreadData()));
             cardViewHolder.getCardView().m(this.q);
-            ((x) ((CardViewHolder) this.f3305k).getCardView()).D(!(z(i2 + 1) instanceof n));
+            ((x) ((CardViewHolder) this.k).getCardView()).D(!(z(i2 + 1) instanceof n));
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

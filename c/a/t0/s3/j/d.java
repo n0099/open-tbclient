@@ -16,16 +16,16 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24206b;
+    public String f23529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24207c;
+    public String f23530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24208d;
+    public String f23531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d> f24209e;
+    public ArrayList<d> f23532e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             this.a = jSONObject.optString("menu_type");
-            this.f24206b = jSONObject.optString(ForumListActivity.KEY_MENU_NAME);
-            this.f24207c = jSONObject.optString(ForumListActivity.KEY_MENU_ID);
+            this.f23529b = jSONObject.optString(ForumListActivity.KEY_MENU_NAME);
+            this.f23530c = jSONObject.optString(ForumListActivity.KEY_MENU_ID);
             String optString = jSONObject.optString("default_logo_url", null);
-            this.f24208d = optString;
-            this.f24208d = optString != null ? this.f24208d + "?v=2" : null;
+            this.f23531d = optString;
+            this.f23531d = optString != null ? this.f23531d + "?v=2" : null;
             if (jSONObject.has("child_menu_list")) {
                 ArrayList<d> arrayList = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
@@ -58,7 +58,7 @@ public class d {
                     dVar.a(optJSONArray.getJSONObject(i2));
                     arrayList.add(dVar);
                 }
-                this.f24209e = arrayList;
+                this.f23532e = arrayList;
             }
         }
     }

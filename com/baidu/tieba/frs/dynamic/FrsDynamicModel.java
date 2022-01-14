@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.dynamic;
 
 import c.a.s0.l0.b.g;
-import c.a.t0.d1.x1.a;
+import c.a.t0.d1.y1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;

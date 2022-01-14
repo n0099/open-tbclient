@@ -15,19 +15,19 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25544b;
+    public int f24829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25545c;
+    public int f24830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25546d;
+    public String f24831d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25547e;
+    public String f24832e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25548f;
+    public String f24833f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25548f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24833f : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25545c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24830c : invokeV.intValue;
     }
 
     public String c() {
@@ -64,19 +64,19 @@ public class a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25544b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24829b : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25546d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24831d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25547e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24832e : (String) invokeV.objValue;
     }
 
     public void g(ActHot actHot) {
@@ -88,22 +88,22 @@ public class a {
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f25544b = c.a.d.f.m.b.e(split[0], 1);
-                this.f25545c = c.a.d.f.m.b.e(split[1], 1);
+                this.f24829b = c.a.d.f.m.b.e(split[0], 1);
+                this.f24830c = c.a.d.f.m.b.e(split[1], 1);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f25544b <= 0) {
-            this.f25544b = 1;
+        if (this.f24829b <= 0) {
+            this.f24829b = 1;
         }
-        if (this.f25545c <= 0) {
-            this.f25545c = 1;
+        if (this.f24830c <= 0) {
+            this.f24830c = 1;
         }
         this.a = actHot.img_src;
-        this.f25546d = actHot.link;
-        this.f25547e = actHot.author_name;
-        this.f25548f = actHot.img_des;
+        this.f24831d = actHot.link;
+        this.f24832e = actHot.author_name;
+        this.f24833f = actHot.img_des;
         actHot.img_type.intValue();
     }
 }

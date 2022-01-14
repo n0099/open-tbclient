@@ -4,15 +4,15 @@ public final class a {
     public static final Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f57544b;
+    public static final Boolean f55360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Boolean f57545c;
+    public static final Boolean f55361c;
 
     static {
         Boolean bool = Boolean.TRUE;
         a = bool;
-        f57544b = bool;
-        f57545c = Boolean.FALSE;
+        f55360b = bool;
+        f55361c = Boolean.FALSE;
     }
 }

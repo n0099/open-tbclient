@@ -21,7 +21,7 @@ public class l implements f {
     public final LinkedBlockingQueue<IBinder> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ServiceConnection f56343b;
+    public ServiceConnection f54209b;
 
     /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
@@ -81,7 +81,7 @@ public class l implements f {
             }
         }
         this.a = new LinkedBlockingQueue<>(1);
-        this.f56343b = new a(this);
+        this.f54209b = new a(this);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0018  */
@@ -105,7 +105,7 @@ public class l implements f {
             }
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f56343b, 1)) {
+            if (context.bindService(intent, this.f54209b, 1)) {
                 try {
                     IBinder take = this.a.take();
                     Parcel obtain = Parcel.obtain();

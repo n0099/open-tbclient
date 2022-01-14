@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ExceptionPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTIVE_UPLOAD_TYPE = "1";

@@ -11,34 +11,32 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10795b;
+    public String f10558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10796c;
+    public String f10559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10797d;
+    public String f10560d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10798e;
+    public String f10561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10799f;
+    public String f10562f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10800g;
+    public String f10563g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10801h;
+    public String f10564h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10802i;
+    public String f10565i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f10803j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f10804k;
+    public String f10566j;
+    public String k;
     public String l;
     public String m;
     public String n;

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoPlayerUbcConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UBC_PLAY_PERFORMANCE_ID = "515";

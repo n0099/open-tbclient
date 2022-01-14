@@ -137,8 +137,8 @@ public class CurrencyJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, cVar, str, l, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             g gVar = new g(context, 0, str, l, cVar);
-            gVar.f13297g = z;
-            gVar.f13296f = i2;
+            gVar.f12977g = z;
+            gVar.f12976f = i2;
             MessageManager.getInstance().runTask(2921546, String.class, gVar);
         }
     }

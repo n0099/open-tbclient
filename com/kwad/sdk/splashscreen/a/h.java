@@ -9,7 +9,7 @@ public class h extends Presenter {
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.c f60074b;
+    public com.kwad.sdk.core.download.a.c f57795b;
 
     public static String b(Context context) {
         try {
@@ -64,15 +64,15 @@ public class h extends Presenter {
             public void onProgressUpdate(int i2) {
             }
         };
-        this.f60074b = cVar;
-        this.a.f60161g.a(cVar);
+        this.f57795b = cVar;
+        this.a.f57878g.a(cVar);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
-        com.kwad.sdk.core.download.a.c cVar = this.f60074b;
+        com.kwad.sdk.core.download.a.c cVar = this.f57795b;
         if (cVar != null) {
-            this.a.f60161g.b(cVar);
+            this.a.f57878g.b(cVar);
         }
     }
 }

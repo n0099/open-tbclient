@@ -18,19 +18,19 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13993b;
+    public int f13667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13994c;
+    public int f13668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13995d;
+    public int f13669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13996e;
+    public int f13670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13997f;
+    public int f13671f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -49,19 +49,19 @@ public class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13993b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13667b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13994c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13668c : invokeV.intValue;
     }
 
     public final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f13993b = i2;
+            this.f13667b = i2;
         }
     }
 
@@ -75,28 +75,28 @@ public class c {
     public final void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13996e = i2;
+            this.f13670e = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f13997f = i2;
+            this.f13671f = i2;
         }
     }
 
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f13994c = i2;
+            this.f13668c = i2;
         }
     }
 
     public final void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f13995d = i2;
+            this.f13669d = i2;
         }
     }
 
@@ -106,15 +106,15 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) == null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
             return;
         }
-        int i2 = this.f13995d;
+        int i2 = this.f13669d;
         if (i2 > 0) {
             indicatorView.setSpacing(resources.getDimensionPixelSize(i2));
         }
-        int i3 = this.f13993b;
+        int i3 = this.f13667b;
         if (i3 > 0) {
             indicatorView.setDrawable(resources.getDrawable(i3));
         }
-        int i4 = this.f13994c;
+        int i4 = this.f13668c;
         if (i4 > 0) {
             indicatorView.setSelector(resources.getDrawable(i4));
         }
@@ -122,11 +122,11 @@ public class c {
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
             layoutParams2.gravity = this.a;
-            int i5 = this.f13996e;
+            int i5 = this.f13670e;
             if (i5 > 0) {
                 layoutParams2.bottomMargin = resources.getDimensionPixelSize(i5);
             }
-            int i6 = this.f13997f;
+            int i6 = this.f13671f;
             if (i6 > 0) {
                 layoutParams2.rightMargin = resources.getDimensionPixelSize(i6);
             }

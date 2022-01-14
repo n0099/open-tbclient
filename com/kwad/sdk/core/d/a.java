@@ -6,7 +6,7 @@ public class a {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57843b;
+    public static boolean f55652b;
 
     public static String a() {
         return "KSAdSDK";
@@ -48,7 +48,7 @@ public class a {
     public static String b() {
         String str;
         int i2;
-        if (f57843b) {
+        if (f55652b) {
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
             if (stackTrace.length > 3) {
                 str = stackTrace[3].getFileName();

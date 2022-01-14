@@ -14,7 +14,7 @@ public class d {
     public UserData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlaInfoData f14970b;
+    public AlaInfoData f14610b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class d {
             }
         }
         this.a = new UserData();
-        this.f14970b = new AlaInfoData();
+        this.f14610b = new AlaInfoData();
     }
 
     public void a(JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, jSONObject2) == null) {
             this.a.parserJson(jSONObject);
-            this.f14970b.parserJson(jSONObject2);
+            this.f14610b.parserJson(jSONObject2);
         }
     }
 }

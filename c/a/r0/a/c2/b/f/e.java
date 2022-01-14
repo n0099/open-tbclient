@@ -33,34 +33,32 @@ public class e {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f5605b;
+    public CharSequence f5484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f5606c;
+    public CharSequence f5485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f5607d;
+    public CharSequence f5486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f5608e;
+    public Drawable f5487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f5609f;
+    public Drawable f5488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Uri f5610g;
+    public Uri f5489g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f5611h;
+    public int f5490h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f5612i;
+    public int f5491i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f5613j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f5614k;
+    public c f5492j;
+    public int k;
     public b l;
     public boolean m;
     public View n;
@@ -152,13 +150,13 @@ public class e {
                 return;
             }
         }
-        this.f5614k = 2;
+        this.k = 2;
         this.o = ToastRightAreaStyle.JUMP;
         this.r = ToastLocation.MIDDLE;
         this.s = ToastTemplate.T1;
         this.t = false;
         this.a = context;
-        this.f5611h = 2;
+        this.f5490h = 2;
     }
 
     public static void a() {
@@ -192,7 +190,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
             e eVar = new e(context);
-            eVar.f5605b = context.getText(i2);
+            eVar.f5484b = context.getText(i2);
             return eVar;
         }
         return (e) invokeLI.objValue;
@@ -203,7 +201,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, charSequence)) == null) {
             e eVar = new e(context);
-            eVar.f5605b = charSequence;
+            eVar.f5484b = charSequence;
             return eVar;
         }
         return (e) invokeLL.objValue;
@@ -216,11 +214,11 @@ public class e {
             if (!z) {
                 Context context = this.a;
                 if (context instanceof Activity) {
-                    f.m((Activity) context, this.f5605b, this.f5611h, this.m);
+                    f.m((Activity) context, this.f5484b, this.f5490h, this.m);
                     return;
                 }
             }
-            c.a.r0.a.c2.b.f.a.i(this.a, this.f5605b, this.f5611h, this.m);
+            c.a.r0.a.c2.b.f.a.i(this.a, this.f5484b, this.f5490h, this.m);
         }
     }
 
@@ -238,11 +236,11 @@ public class e {
             if (!z) {
                 Context context = this.a;
                 if (context instanceof Activity) {
-                    f.n((Activity) context, this.f5605b, this.f5608e, this.n, this.f5611h, this.m);
+                    f.n((Activity) context, this.f5484b, this.f5487e, this.n, this.f5490h, this.m);
                     return;
                 }
             }
-            c.a.r0.a.c2.b.f.a.j(this.a, this.f5605b, this.f5608e, this.n, this.f5611h, this.m);
+            c.a.r0.a.c2.b.f.a.j(this.a, this.f5484b, this.f5487e, this.n, this.f5490h, this.m);
         }
     }
 
@@ -260,36 +258,36 @@ public class e {
         if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && b()) {
             a();
             if (z) {
-                y(this.a, this.f5606c);
+                y(this.a, this.f5485c);
             } else if (this.a instanceof Activity) {
                 b bVar = this.l;
                 if (bVar != null) {
                     f.l(bVar);
                     this.l = null;
                 }
-                if (1 == this.f5614k) {
+                if (1 == this.k) {
                     this.o = ToastRightAreaStyle.JUMP;
                 } else {
                     this.o = ToastRightAreaStyle.BUTTON;
                 }
-                if (TextUtils.isEmpty(this.f5607d)) {
-                    f.o((Activity) this.a, null, null, null, this.f5605b, null, this.f5611h, this.r, this.f5613j, this.m);
+                if (TextUtils.isEmpty(this.f5486d)) {
+                    f.o((Activity) this.a, null, null, null, this.f5484b, null, this.f5490h, this.r, this.f5492j, this.m);
                     return;
                 }
-                CharSequence charSequence = this.f5606c;
-                CharSequence charSequence2 = this.f5605b;
-                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.f5605b)) {
-                    charSequence = this.f5605b;
+                CharSequence charSequence = this.f5485c;
+                CharSequence charSequence2 = this.f5484b;
+                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.f5484b)) {
+                    charSequence = this.f5484b;
                     charSequence2 = "";
                 }
-                f.p((Activity) this.a, this.f5610g, null, null, charSequence, charSequence2, this.f5607d, this.o, this.f5611h, false, this.f5613j);
+                f.p((Activity) this.a, this.f5489g, null, null, charSequence, charSequence2, this.f5486d, this.o, this.f5490h, false, this.f5492j);
             } else {
                 b bVar2 = this.l;
                 if (bVar2 != null) {
                     c.a.r0.a.c2.b.f.a.f(bVar2);
                     this.l = null;
                 }
-                y(this.a, this.f5606c);
+                y(this.a, this.f5485c);
             }
         }
     }
@@ -298,7 +296,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && b()) {
             a();
-            c.a.r0.a.c2.b.f.a.h(this.a, this.f5605b, this.f5611h, false, this.f5612i, this.m);
+            c.a.r0.a.c2.b.f.a.h(this.a, this.f5484b, this.f5490h, false, this.f5491i, this.m);
         }
     }
 
@@ -325,7 +323,7 @@ public class e {
                     f.l(bVar);
                     this.l = null;
                 }
-                f.o((Activity) this.a, null, null, null, this.f5605b, null, this.f5611h, this.r, this.f5613j, this.m);
+                f.o((Activity) this.a, null, null, null, this.f5484b, null, this.f5490h, this.r, this.f5492j, this.m);
                 return;
             }
             b bVar2 = this.l;
@@ -333,7 +331,7 @@ public class e {
                 c.a.r0.a.c2.b.f.a.f(bVar2);
                 this.l = null;
             }
-            y(this.a, this.f5605b);
+            y(this.a, this.f5484b);
         }
     }
 
@@ -351,11 +349,11 @@ public class e {
             if (!z) {
                 Context context = this.a;
                 if (context instanceof Activity) {
-                    f.o((Activity) context, null, null, null, this.f5605b, null, this.f5611h, ToastLocation.BOTTOM, this.f5613j, this.m);
+                    f.o((Activity) context, null, null, null, this.f5484b, null, this.f5490h, ToastLocation.BOTTOM, this.f5492j, this.m);
                     return;
                 }
             }
-            y(this.a, this.f5605b);
+            y(this.a, this.f5484b);
         }
     }
 
@@ -369,7 +367,7 @@ public class e {
                     throw new IllegalArgumentException("UniversalToast mContext is null!!!");
                 }
                 return false;
-            } else if (this.f5605b == null) {
+            } else if (this.f5484b == null) {
                 if (u) {
                     throw new IllegalArgumentException("UniversalToast toast text is null!!!");
                 }
@@ -399,7 +397,7 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            this.f5614k = i2;
+            this.k = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -409,7 +407,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
-            this.f5607d = charSequence;
+            this.f5486d = charSequence;
             return this;
         }
         return (e) invokeL.objValue;
@@ -419,7 +417,7 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            this.f5611h = Math.max(i2, 1);
+            this.f5490h = Math.max(i2, 1);
             return this;
         }
         return (e) invokeI.objValue;
@@ -431,7 +429,7 @@ public class e {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
             Context context = this.a;
             if (context != null && context.getResources() != null) {
-                this.f5608e = this.a.getResources().getDrawable(i2);
+                this.f5487e = this.a.getResources().getDrawable(i2);
             }
             return this;
         }
@@ -442,7 +440,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
-            this.f5608e = drawable;
+            this.f5487e = drawable;
             return this;
         }
         return (e) invokeL.objValue;
@@ -452,7 +450,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
-            this.f5610g = uri;
+            this.f5489g = uri;
             return this;
         }
         return (e) invokeL.objValue;
@@ -472,7 +470,7 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            this.f5612i = i2;
+            this.f5491i = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -482,7 +480,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, charSequence)) == null) {
-            this.f5605b = charSequence;
+            this.f5484b = charSequence;
             return this;
         }
         return (e) invokeL.objValue;
@@ -502,7 +500,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, charSequence)) == null) {
-            this.f5606c = charSequence;
+            this.f5485c = charSequence;
             return this;
         }
         return (e) invokeL.objValue;
@@ -512,7 +510,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, cVar)) == null) {
-            this.f5613j = cVar;
+            this.f5492j = cVar;
             return this;
         }
         return (e) invokeL.objValue;
@@ -521,45 +519,45 @@ public class e {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            if (this.a != null && (!TextUtils.isEmpty(this.f5605b) || !TextUtils.isEmpty(this.f5606c))) {
+            if (this.a != null && (!TextUtils.isEmpty(this.f5484b) || !TextUtils.isEmpty(this.f5485c))) {
                 a();
                 if (this.a instanceof Activity) {
                     int i2 = a.a[this.s.ordinal()];
                     if (i2 == 2) {
-                        if (TextUtils.isEmpty(this.f5605b)) {
+                        if (TextUtils.isEmpty(this.f5484b)) {
                             return;
                         }
-                        f.o((Activity) this.a, this.f5610g, this.f5609f, this.n, this.f5605b, this.q, this.f5611h, this.r, this.f5613j, this.m);
+                        f.o((Activity) this.a, this.f5489g, this.f5488f, this.n, this.f5484b, this.q, this.f5490h, this.r, this.f5492j, this.m);
                         return;
                     } else if (i2 == 3) {
-                        if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.f5605b)) {
-                            f.o((Activity) this.a, this.f5610g, this.f5609f, this.n, this.f5605b, this.q, this.f5611h, this.r, this.f5613j, this.m);
+                        if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.f5484b)) {
+                            f.o((Activity) this.a, this.f5489g, this.f5488f, this.n, this.f5484b, this.q, this.f5490h, this.r, this.f5492j, this.m);
                             return;
-                        } else if (TextUtils.isEmpty(this.f5606c)) {
+                        } else if (TextUtils.isEmpty(this.f5485c)) {
                             return;
                         } else {
-                            f.p((Activity) this.a, this.f5610g, this.f5609f, this.n, this.f5606c, this.p, this.q, this.o, this.f5611h, this.t, this.f5613j);
+                            f.p((Activity) this.a, this.f5489g, this.f5488f, this.n, this.f5485c, this.p, this.q, this.o, this.f5490h, this.t, this.f5492j);
                             return;
                         }
                     } else if (i2 != 4) {
-                        if (TextUtils.isEmpty(this.f5605b)) {
+                        if (TextUtils.isEmpty(this.f5484b)) {
                             return;
                         }
-                        f.o((Activity) this.a, null, null, null, this.f5605b, null, this.f5611h, this.r, null, this.m);
+                        f.o((Activity) this.a, null, null, null, this.f5484b, null, this.f5490h, this.r, null, this.m);
                         return;
-                    } else if (TextUtils.isEmpty(this.f5605b)) {
+                    } else if (TextUtils.isEmpty(this.f5484b)) {
                         return;
                     } else {
-                        f.n((Activity) this.a, this.f5605b, this.f5608e, this.n, this.f5611h, this.m);
+                        f.n((Activity) this.a, this.f5484b, this.f5487e, this.n, this.f5490h, this.m);
                         return;
                     }
                 } else if (a.a[this.s.ordinal()] != 4) {
-                    y(this.a, TextUtils.isEmpty(this.f5605b) ? this.f5606c : this.f5605b);
+                    y(this.a, TextUtils.isEmpty(this.f5484b) ? this.f5485c : this.f5484b);
                     return;
-                } else if (TextUtils.isEmpty(this.f5605b)) {
+                } else if (TextUtils.isEmpty(this.f5484b)) {
                     return;
                 } else {
-                    c.a.r0.a.c2.b.f.a.j(this.a, this.f5605b, this.f5608e, this.n, this.f5611h, this.m);
+                    c.a.r0.a.c2.b.f.a.j(this.a, this.f5484b, this.f5487e, this.n, this.f5490h, this.m);
                     return;
                 }
             }
@@ -586,10 +584,10 @@ public class e {
                     f.l(bVar);
                     this.l = null;
                 }
-                if (TextUtils.isEmpty(this.f5607d)) {
-                    this.f5607d = c.a.r0.a.c1.a.c().getResources().getText(h.aiapps_check_action_text);
+                if (TextUtils.isEmpty(this.f5486d)) {
+                    this.f5486d = c.a.r0.a.c1.a.c().getResources().getText(h.aiapps_check_action_text);
                 }
-                f.o((Activity) this.a, null, null, null, this.f5605b, this.f5607d, this.f5611h, ToastLocation.BOTTOM, this.f5613j, this.m);
+                f.o((Activity) this.a, null, null, null, this.f5484b, this.f5486d, this.f5490h, ToastLocation.BOTTOM, this.f5492j, this.m);
                 return;
             }
             b bVar2 = this.l;
@@ -597,7 +595,7 @@ public class e {
                 c.a.r0.a.c2.b.f.a.f(bVar2);
                 this.l = null;
             }
-            y(this.a, this.f5605b);
+            y(this.a, this.f5484b);
         }
     }
 
@@ -606,7 +604,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLL(1048604, this, context, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        c.a.r0.a.c2.b.f.a.k(context, null, null, null, charSequence, null, this.f5611h, this.r, null, this.m);
+        c.a.r0.a.c2.b.f.a.k(context, null, null, null, charSequence, null, this.f5490h, this.r, null, this.m);
     }
 
     public void z() {

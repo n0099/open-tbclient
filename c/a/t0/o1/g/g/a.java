@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.o1.g.a f20974b;
+    public c.a.t0.o1.g.a f20412b;
 
     public a(c cVar) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a implements b {
             }
         }
         this.a = cVar;
-        this.f20974b = new c.a.t0.o1.g.f.a(this);
+        this.f20412b = new c.a.t0.o1.g.f.a(this);
     }
 
     @Override // c.a.t0.o1.g.b
@@ -44,7 +44,7 @@ public class a implements b {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            c.a.t0.o1.g.a aVar = this.f20974b;
+            c.a.t0.o1.g.a aVar = this.f20412b;
             if (aVar != null) {
                 return aVar.a(bdUniqueId, str, str2, str3);
             }

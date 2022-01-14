@@ -10,13 +10,13 @@ public class g {
     public Object a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<b> f62450b = new ConcurrentLinkedQueue();
+    public Queue<b> f60093b = new ConcurrentLinkedQueue();
 
     /* renamed from: c  reason: collision with root package name */
-    public a f62451c;
+    public a f60094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f62452d;
+    public Handler f60095d;
 
     /* loaded from: classes3.dex */
     public class a extends HandlerThread {
@@ -29,11 +29,11 @@ public class g {
             super.onLooperPrepared();
             Looper looper = getLooper();
             synchronized (g.this.a) {
-                g.this.f62452d = new Handler(looper);
+                g.this.f60095d = new Handler(looper);
             }
-            while (!g.this.f62450b.isEmpty()) {
-                b bVar = (b) g.this.f62450b.poll();
-                g.this.f62452d.postDelayed(bVar.a, bVar.f62453b);
+            while (!g.this.f60093b.isEmpty()) {
+                b bVar = (b) g.this.f60093b.poll();
+                g.this.f60095d.postDelayed(bVar.a, bVar.f60096b);
             }
         }
     }
@@ -43,24 +43,24 @@ public class g {
         public Runnable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f62453b;
+        public long f60096b;
 
         public b(Runnable runnable, long j2) {
             this.a = runnable;
-            this.f62453b = j2;
+            this.f60096b = j2;
         }
     }
 
     public g(String str) {
-        this.f62451c = new a(str);
+        this.f60094c = new a(str);
     }
 
     public void b() {
-        this.f62451c.quit();
+        this.f60094c.quit();
     }
 
     public void a() {
-        this.f62451c.start();
+        this.f60094c.start();
     }
 
     public void a(Runnable runnable) {
@@ -68,14 +68,14 @@ public class g {
     }
 
     public void a(Runnable runnable, long j2) {
-        if (this.f62452d == null) {
+        if (this.f60095d == null) {
             synchronized (this.a) {
-                if (this.f62452d == null) {
-                    this.f62450b.add(new b(runnable, j2));
+                if (this.f60095d == null) {
+                    this.f60093b.add(new b(runnable, j2));
                     return;
                 }
             }
         }
-        this.f62452d.postDelayed(runnable, j2);
+        this.f60095d.postDelayed(runnable, j2);
     }
 }

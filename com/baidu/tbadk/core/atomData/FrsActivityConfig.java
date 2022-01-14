@@ -7,13 +7,12 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import c.a.s0.b.d;
 import c.a.s0.b.g.a;
 import c.a.s0.e1.h0;
-import c.a.s0.s.q.d2;
-import c.a.t0.d1.y2.k;
+import c.a.s0.s.q.e2;
+import c.a.t0.d1.z2.m;
 import c.a.t0.j3.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -200,20 +199,20 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.s() && a.f12553c != a.d()) {
-                frsRequestData.H(k.d(a.d()));
+            if (d.p() && a.f12259c != a.d()) {
+                frsRequestData.H(m.d(a.d()));
             }
-            frsRequestData.setSortType(k.d(i2));
+            frsRequestData.setSortType(m.d(i2));
             if (i2 == 5) {
                 frsRequestData.K(1);
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", m.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", c.a.d.f.p.m.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            k.e(i2, frsRequestData);
+            m.e(i2, frsRequestData);
             frsRequestData.S("2");
             frsRequestData.T(StatHelper.SENSOR_ERR_2);
             frsRequestData.M(stringExtra);
@@ -234,9 +233,9 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.I(longExtra);
-            k.e(i2, frsRequestData);
+            m.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (d2.W3.get() && y.q().b() != null) {
+            if (e2.W3.get() && y.q().b() != null) {
                 int d2 = y.q().b().d(stringExtra, false);
                 int e2 = y.q().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

@@ -21,25 +21,23 @@ public class k implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25587e;
+    public String f24872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25588f;
+    public int f24873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25589g;
+    public String f24874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f25590h;
+    public String f24875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f25591i;
+    public String f24876i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f25592j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f25593k;
+    public int f24877j;
+    public int k;
 
     static {
         InterceptResult invokeClinit;
@@ -74,25 +72,25 @@ public class k implements c.a.d.n.e.n {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25593k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25590h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24875h : (String) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25592j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24877j : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25587e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24872e : (String) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
@@ -105,19 +103,19 @@ public class k implements c.a.d.n.e.n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25591i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24876i : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25589g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24874g : (String) invokeV.objValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25588f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24873f : invokeV.intValue;
     }
 
     public void l(StarEnter starEnter) {
@@ -131,18 +129,18 @@ public class k implements c.a.d.n.e.n {
             u(starEnter.weight.intValue());
             p(starEnter.rank_num.intValue());
             n(starEnter.bazhu_mark.intValue());
-            if (StringUtils.isNull(this.f25587e) && this.f25593k == 1) {
-                this.f25587e = l;
+            if (StringUtils.isNull(this.f24872e) && this.k == 1) {
+                this.f24872e = l;
             }
-            this.f25590h = starEnter.obj_id;
-            this.f25591i = starEnter.text;
+            this.f24875h = starEnter.obj_id;
+            this.f24876i = starEnter.text;
         }
     }
 
     public void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f25593k = i2;
+            this.k = i2;
         }
     }
 
@@ -155,7 +153,7 @@ public class k implements c.a.d.n.e.n {
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f25592j = i2;
+            this.f24877j = i2;
         }
     }
 
@@ -168,14 +166,14 @@ public class k implements c.a.d.n.e.n {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f25587e = str;
+            this.f24872e = str;
         }
     }
 
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f25589g = str;
+            this.f24874g = str;
         }
     }
 
@@ -188,7 +186,7 @@ public class k implements c.a.d.n.e.n {
     public void v(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f25588f = i2;
+            this.f24873f = i2;
         }
     }
 }

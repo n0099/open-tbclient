@@ -28,7 +28,7 @@ public class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f10805b;
+    public JSONObject f10567b;
 
     /* loaded from: classes6.dex */
     public class a extends ResponseCallback {
@@ -89,16 +89,16 @@ public class c {
             }
         }
         this.a = context;
-        this.f10805b = jSONObject;
+        this.f10567b = jSONObject;
     }
 
     public final void a(@NonNull Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(request.url().toString(), new a(this));
-            aVar.f11718f = true;
-            aVar.f11719g = false;
-            aVar.f11720h = false;
+            aVar.f11453f = true;
+            aVar.f11454g = false;
+            aVar.f11455h = false;
             c.a.r0.p.e.a.g().d(aVar);
         }
     }
@@ -140,7 +140,7 @@ public class c {
                 hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "MINIAPP");
             }
             hashMap.put("play_mode", String.valueOf((NetworkUtils.g(this.a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-            JSONObject jSONObject = this.f10805b;
+            JSONObject jSONObject = this.f10567b;
             JSONArray optJSONArray = jSONObject != null ? jSONObject.optJSONArray(str) : null;
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {

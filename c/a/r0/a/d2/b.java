@@ -19,14 +19,14 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5639g;
+    public static final boolean f5517g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, c.a.r0.a.z2.g1.c<i.a>> f5640e;
+    public final Map<String, c.a.r0.a.z2.g1.c<i.a>> f5518e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<c.a.r0.a.z2.g1.e<i.a, Boolean>> f5641f;
+    public final List<c.a.r0.a.z2.g1.e<i.a, Boolean>> f5519f;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<String> {
@@ -34,10 +34,10 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f5642e;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f5520e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f5643f;
+        public final /* synthetic */ b f5521f;
 
         public a(b bVar, c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
                     return;
                 }
             }
-            this.f5643f = bVar;
-            this.f5642e = cVar;
+            this.f5521f = bVar;
+            this.f5520e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,20 +66,20 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f5643f.f5640e.put(str, this.f5642e);
+            this.f5521f.f5518e.put(str, this.f5520e);
         }
     }
 
     /* renamed from: c.a.r0.a.d2.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0283b implements c.a.r0.a.z2.g1.c<String> {
+    public class C0292b implements c.a.r0.a.z2.g1.c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f5644e;
+        public final /* synthetic */ b f5522e;
 
-        public C0283b(b bVar) {
+        public C0292b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
                     return;
                 }
             }
-            this.f5644e = bVar;
+            this.f5522e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
         public void onCallback(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f5644e.f5640e.remove(str);
+                this.f5522e.f5518e.remove(str);
             }
         }
     }
@@ -121,7 +121,7 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
                 return;
             }
         }
-        f5639g = c.a.r0.a.k.a;
+        f5517g = c.a.r0.a.k.a;
     }
 
     public b() {
@@ -137,8 +137,8 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
                 return;
             }
         }
-        this.f5640e = new HashMap();
-        this.f5641f = new ArrayList();
+        this.f5518e = new HashMap();
+        this.f5519f = new ArrayList();
     }
 
     public b b(c.a.r0.a.z2.g1.e<i.a, Boolean> eVar) {
@@ -146,7 +146,7 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (eVar != null) {
-                this.f5641f.add(eVar);
+                this.f5519f.add(eVar);
             }
             return this;
         }
@@ -160,7 +160,7 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
             if (aVar == null) {
                 return false;
             }
-            for (c.a.r0.a.z2.g1.e<i.a, Boolean> eVar : this.f5641f) {
+            for (c.a.r0.a.z2.g1.e<i.a, Boolean> eVar : this.f5519f) {
                 if (eVar != null && !eVar.a(aVar).booleanValue()) {
                     return false;
                 }
@@ -177,10 +177,10 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
         c.a.r0.a.z2.g1.c<i.a> cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (f5639g) {
+            if (f5517g) {
                 String str = "handle: " + aVar;
             }
-            if (!c(aVar) || (cVar = this.f5640e.get(aVar.f5667f)) == null) {
+            if (!c(aVar) || (cVar = this.f5518e.get(aVar.f5543f)) == null) {
                 return;
             }
             cVar.onCallback(aVar);
@@ -204,7 +204,7 @@ public final class b implements c.a.r0.a.z2.g1.c<i.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
             if (strArr != null && strArr.length > 0) {
-                c.a.r0.a.z2.g1.b.d(new C0283b(this), strArr);
+                c.a.r0.a.z2.g1.b.d(new C0292b(this), strArr);
             }
             return this;
         }

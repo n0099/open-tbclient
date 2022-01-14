@@ -26,39 +26,39 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.s.s.a f26265b;
+    public c.a.s0.s.s.a f25485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26266c;
+    public boolean f25486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f26267d;
+    public View f25487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f26268e;
+    public TbImageView f25488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f26269f;
+    public TextView f25489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f26270g;
+    public TextView f25490g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f26271h;
+    public TextView f25491h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View.OnClickListener f26272i;
+    public final View.OnClickListener f25492i;
 
     /* renamed from: c.a.t0.x2.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1516a implements View.OnClickListener {
+    public class View$OnClickListenerC1532a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f26273e;
+        public final /* synthetic */ a f25493e;
 
-        public View$OnClickListenerC1516a(a aVar) {
+        public View$OnClickListenerC1532a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,16 +73,16 @@ public class a {
                     return;
                 }
             }
-            this.f26273e = aVar;
+            this.f25493e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26273e.f26265b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25493e.f25485b == null) {
                 return;
             }
-            this.f26273e.f26265b.dismiss();
+            this.f25493e.f25485b.dismiss();
         }
     }
 
@@ -101,28 +101,28 @@ public class a {
                 return;
             }
         }
-        this.f26272i = new View$OnClickListenerC1516a(this);
+        this.f25492i = new View$OnClickListenerC1532a(this);
         this.a = tbPageContext;
-        this.f26266c = c.a.s0.s.g0.b.j().g("key_person_dynamic_tab_guide_has_shown", false);
+        this.f25486c = c.a.s0.s.h0.b.k().h("key_person_dynamic_tab_guide_has_shown", false);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(e.person_center_dynamic_tab_guide, (ViewGroup) null);
-            this.f26267d = inflate;
+            this.f25487d = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(d.id_person_center_dynamic_tab_guide_img);
-            this.f26268e = tbImageView;
+            this.f25488e = tbImageView;
             e(tbImageView);
-            this.f26268e.setAutoChangeStyle(true);
-            this.f26268e.setRadius(n.f(this.a.getPageActivity(), c.a.t0.y2.b.tbds24));
-            this.f26268e.setConrers(3);
-            this.f26268e.setIsBitmapPic(true);
-            this.f26269f = (TextView) this.f26267d.findViewById(d.id_person_center_dynamic_tab_guide_tip);
-            this.f26270g = (TextView) this.f26267d.findViewById(d.id_person_center_dynamic_tab_guide_title);
-            TextView textView = (TextView) this.f26267d.findViewById(d.id_person_center_dynamic_tab_guide_close);
-            this.f26271h = textView;
-            textView.setOnClickListener(this.f26272i);
+            this.f25488e.setAutoChangeStyle(true);
+            this.f25488e.setRadius(n.f(this.a.getPageActivity(), c.a.t0.y2.b.tbds24));
+            this.f25488e.setConrers(3);
+            this.f25488e.setIsBitmapPic(true);
+            this.f25489f = (TextView) this.f25487d.findViewById(d.id_person_center_dynamic_tab_guide_tip);
+            this.f25490g = (TextView) this.f25487d.findViewById(d.id_person_center_dynamic_tab_guide_title);
+            TextView textView = (TextView) this.f25487d.findViewById(d.id_person_center_dynamic_tab_guide_close);
+            this.f25491h = textView;
+            textView.setOnClickListener(this.f25492i);
             d();
         }
     }
@@ -130,16 +130,16 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26266c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25486c : invokeV.booleanValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.f26268e, c.pic_person_center_dynamic_guide);
-            SkinManager.setViewTextColor(this.f26269f, c.a.t0.y2.a.CAM_X0107);
-            SkinManager.setViewTextColor(this.f26270g, c.a.t0.y2.a.CAM_X0105);
-            SkinManager.setViewTextColor(this.f26271h, c.a.t0.y2.a.CAM_X0302);
+            SkinManager.setImageResource(this.f25488e, c.pic_person_center_dynamic_guide);
+            SkinManager.setViewTextColor(this.f25489f, c.a.t0.y2.a.CAM_X0107);
+            SkinManager.setViewTextColor(this.f25490g, c.a.t0.y2.a.CAM_X0105);
+            SkinManager.setViewTextColor(this.f25491h, c.a.t0.y2.a.CAM_X0302);
         }
     }
 
@@ -149,26 +149,26 @@ public class a {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
-        int k2 = n.k(this.a.getPageActivity()) - (n.f(this.a.getPageActivity(), c.a.t0.y2.b.ds40) * 2);
-        layoutParams.width = k2;
-        layoutParams.height = (k2 * w0.c0) / 380;
+        int k = n.k(this.a.getPageActivity()) - (n.f(this.a.getPageActivity(), c.a.t0.y2.b.ds40) * 2);
+        layoutParams.width = k;
+        layoutParams.height = (k * w0.c0) / 380;
         tbImageView.setLayoutParams(layoutParams);
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f26266c) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f25486c) {
             return;
         }
-        this.f26266c = true;
-        c.a.s0.s.g0.b.j().t("key_person_dynamic_tab_guide_has_shown", true);
+        this.f25486c = true;
+        c.a.s0.s.h0.b.k().u("key_person_dynamic_tab_guide_has_shown", true);
         b();
         c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.a.getPageActivity());
-        this.f26265b = aVar;
+        this.f25485b = aVar;
         aVar.setContentViewSize(1);
-        this.f26265b.setCancelable(true);
-        this.f26265b.setCanceledOnTouchOutside(false);
-        this.f26265b.setContentView(this.f26267d);
-        this.f26265b.create(this.a).show();
+        this.f25485b.setCancelable(true);
+        this.f25485b.setCanceledOnTouchOutside(false);
+        this.f25485b.setContentView(this.f25487d);
+        this.f25485b.create(this.a).show();
     }
 }

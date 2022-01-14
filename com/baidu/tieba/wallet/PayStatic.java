@@ -2,7 +2,11 @@ package com.baidu.tieba.wallet;
 
 import android.app.Activity;
 import c.a.s0.e.a;
+import c.a.s0.r0.c;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.PayCallBack;
 import com.baidu.fsg.base.router.LocalRouter;
@@ -69,8 +73,8 @@ public class PayStatic {
                     try {
                         a aVar = new a();
                         aVar.a = activity;
-                        aVar.f12635b = str;
-                        aVar.f12636c = false;
+                        aVar.f12338b = str;
+                        aVar.f12339c = false;
                         iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                     } catch (Exception e2) {
                         iAlipayProxyCallback.onFail(e2.getMessage());
@@ -186,6 +190,40 @@ public class PayStatic {
         } catch (Throwable th) {
             th.printStackTrace();
         }
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921661, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.wallet.PayStatic.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<?> run(CustomMessage<c> customMessage) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
+                    if (customMessage == null || customMessage.getData() == null) {
+                        return null;
+                    }
+                    PayActivityStatic.destoryYyPayCallback(customMessage.getData());
+                    return null;
+                }
+                return (CustomResponsedMessage) invokeL.objValue;
+            }
+        });
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public PayStatic() {

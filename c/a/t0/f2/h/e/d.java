@@ -21,7 +21,7 @@ public class d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f18170b;
+    public TextView f17728b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_edit_item, (ViewGroup) null);
             this.a = inflate;
-            this.f18170b = (TextView) inflate.findViewById(R.id.tail_tool_edit_item_btn);
+            this.f17728b = (TextView) inflate.findViewById(R.id.tail_tool_edit_item_btn);
             this.a.setTag(this);
             return this.a;
         }
@@ -54,8 +54,8 @@ public class d {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.f18170b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setViewTextColor(this.f18170b, R.color.CAM_X0302, 1);
+            SkinManager.setBackgroundResource(this.f17728b, R.drawable.tail_tool_add_button_bg);
+            SkinManager.setViewTextColor(this.f17728b, R.color.CAM_X0302, 1);
         }
     }
 

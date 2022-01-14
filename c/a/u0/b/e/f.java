@@ -14,13 +14,13 @@ public abstract class f extends OutputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public IOException f27140e;
+    public IOException f26333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27141f;
+    public boolean f26334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27142g;
+    public boolean f26335g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public abstract class f extends OutputStream {
     public void a() throws IOException {
         IOException iOException;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.f27140e) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.f26333e) != null) {
             throw iOException;
         }
     }
@@ -47,8 +47,8 @@ public abstract class f extends OutputStream {
     public void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.f27142g) {
-                if (this.f27141f) {
+            if (!this.f26335g) {
+                if (this.f26334f) {
                     throw new IOException("Stream has been closed.");
                 }
                 return;
@@ -62,7 +62,7 @@ public abstract class f extends OutputStream {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27141f = true;
+            this.f26334f = true;
         }
     }
 
@@ -75,8 +75,8 @@ public abstract class f extends OutputStream {
     public void h(IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-            this.f27140e = iOException;
-            this.f27142g = true;
+            this.f26333e = iOException;
+            this.f26335g = true;
         }
     }
 }

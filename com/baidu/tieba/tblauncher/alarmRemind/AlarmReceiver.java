@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import c.a.d.f.p.l;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.t0.z3.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbadkSettings;
@@ -36,7 +36,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && l.z() && a.e() && !a.f(b.j().l("tieba_last_active_time", 0L))) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && l.z() && a.e() && !a.f(b.k().m("tieba_last_active_time", 0L))) {
             RemindRecommendMessage a = a.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
             if (a != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(a);

@@ -25,26 +25,26 @@ public class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BlockingQueue<Runnable> f11777b;
+    public BlockingQueue<Runnable> f11509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f11778c;
+    public ThreadPoolExecutor f11510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f11779d;
+    public f f11511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f11780e;
+    public final AtomicBoolean f11512e;
     @SuppressLint({"SyntheticAccessor"})
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.r0.q.j.i.g.b f11781f;
+    public final c.a.r0.q.j.i.g.b f11513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final l f11782g;
+    public final l f11514g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.q.j.i.g.a f11783h;
+    public c.a.r0.q.j.i.g.a f11515h;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.r0.q.j.i.g.b {
@@ -74,27 +74,27 @@ public class b {
         public <T> void a(f<T> fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.a.f11779d = fVar;
+                this.a.f11511d = fVar;
             }
         }
 
         @Override // c.a.r0.q.j.i.g.b
         public <T> void b(f<T> fVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) && this.a.f11779d == fVar) {
-                this.a.f11779d = null;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) && this.a.f11511d == fVar) {
+                this.a.f11511d = null;
             }
         }
     }
 
     /* renamed from: c.a.r0.q.j.i.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0786b implements c.a.r0.q.j.i.g.a {
+    public class C0795b implements c.a.r0.q.j.i.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0786b(b bVar) {
+        public C0795b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,20 +133,20 @@ public class b {
                 return;
             }
         }
-        this.f11780e = new AtomicBoolean(false);
-        this.f11781f = new a(this);
-        this.f11782g = new l(this.f11781f);
-        this.f11783h = new C0786b(this);
+        this.f11512e = new AtomicBoolean(false);
+        this.f11513f = new a(this);
+        this.f11514g = new l(this.f11513f);
+        this.f11515h = new C0795b(this);
         this.a = new c();
-        this.f11777b = new LinkedBlockingQueue();
-        this.f11778c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.f11777b);
+        this.f11509b = new LinkedBlockingQueue();
+        this.f11510c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.f11509b);
         c(this.a);
     }
 
     public void c(c.a.r0.q.j.i.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f11782g.c(bVar);
+            this.f11514g.c(bVar);
         }
     }
 
@@ -172,15 +172,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             synchronized (this) {
-                if (this.f11779d == null) {
+                if (this.f11511d == null) {
                     return false;
                 }
-                Object f2 = this.f11779d.f();
+                Object f2 = this.f11511d.f();
                 if (f2 instanceof g) {
-                    return TextUtils.equals(((g) f2).f11761g, str);
+                    return TextUtils.equals(((g) f2).f11494g, str);
                 }
                 if (f2 instanceof b.a) {
-                    return TextUtils.equals(((b.a) f2).f11820b, str);
+                    return TextUtils.equals(((b.a) f2).f11551b, str);
                 }
                 return false;
             }
@@ -199,10 +199,10 @@ public class b {
                     if (next != null) {
                         Object f3 = next.f();
                         if (f3 instanceof g) {
-                            if (TextUtils.equals(((g) f3).f11761g, str)) {
+                            if (TextUtils.equals(((g) f3).f11494g, str)) {
                                 return true;
                             }
-                        } else if ((f3 instanceof b.a) && TextUtils.equals(((b.a) f3).f11820b, str)) {
+                        } else if ((f3 instanceof b.a) && TextUtils.equals(((b.a) f3).f11551b, str)) {
                             return true;
                         }
                     }
@@ -235,7 +235,7 @@ public class b {
     public void i(c.a.r0.q.j.i.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f11782g.d(bVar);
+            this.f11514g.d(bVar);
         }
     }
 
@@ -243,8 +243,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                if (this.f11777b.size() < 1) {
-                    this.f11778c.execute(new c.a.r0.q.j.i.g.g(this.f11780e, this.f11782g, this.f11783h));
+                if (this.f11509b.size() < 1) {
+                    this.f11510c.execute(new c.a.r0.q.j.i.g.g(this.f11512e, this.f11514g, this.f11515h));
                 }
             }
         }

@@ -13,34 +13,32 @@ public class r1 {
     public static final String a = "123456";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57408b = "2.8.3";
+    public static final String f55232b = "2.8.3";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f57409c = false;
+    public static final boolean f55233c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57410d = "com.kuaishou.weapon";
+    public static final String f55234d = "com.kuaishou.weapon";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f57411e = "com.kuaishou.weapon";
+    public static final String f55235e = "com.kuaishou.weapon";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f57412f = ".WeaponEngineImpl";
+    public static final String f55236f = ".WeaponEngineImpl";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f57413g = ".WeaponExt";
+    public static final String f55237g = ".WeaponExt";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f57414h = "wp_local.cfg";
+    public static final String f55238h = "wp_local.cfg";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f57415i = ".tmp";
+    public static final String f55239i = ".tmp";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f57416j = ".bud";
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String f57417k = "/.";
+    public static final String f55240j = ".bud";
+    public static final String k = "/.";
     public static final String l = "w.db";
     public static final String m = "wp";
     public static final String n = "wc";

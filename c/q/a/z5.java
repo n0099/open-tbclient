@@ -11,7 +11,7 @@ public class z5 implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ d1 f31533e;
+    public final /* synthetic */ d1 f30542e;
 
     public z5(d1 d1Var) {
         Interceptable interceptable = $ic;
@@ -28,17 +28,17 @@ public class z5 implements View.OnClickListener {
                 return;
             }
         }
-        this.f31533e = d1Var;
+        this.f30542e = d1Var;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            d1 d1Var = this.f31533e;
-            if (d1Var.f31281e != null) {
-                d1Var.f31282f = true;
-                this.f31533e.f31281e.a();
+            d1 d1Var = this.f30542e;
+            if (d1Var.f30304e != null) {
+                d1Var.f30305f = true;
+                this.f30542e.f30304e.a();
             }
         }
     }

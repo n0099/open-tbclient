@@ -10,50 +10,50 @@ public class k {
     public static final AtomicBoolean a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f60238b;
+    public static volatile k f57952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f60239c;
+    public Context f57953c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f60240d;
+    public a f57954d;
 
     public k(Context context) {
-        this.f60239c = context.getApplicationContext();
+        this.f57953c = context.getApplicationContext();
     }
 
     public static k a(@NonNull Context context) {
-        if (f60238b == null) {
+        if (f57952b == null) {
             synchronized (k.class) {
-                if (f60238b == null) {
-                    f60238b = new k(context);
+                if (f57952b == null) {
+                    f57952b = new k(context);
                 }
             }
         }
-        return f60238b;
+        return f57952b;
     }
 
     private void c() {
         Context context;
-        if (!a.get() || (context = this.f60239c) == null) {
+        if (!a.get() || (context = this.f57953c) == null) {
             return;
         }
-        context.unregisterReceiver(this.f60240d);
+        context.unregisterReceiver(this.f57954d);
         a.set(false);
     }
 
     public void a() {
-        if (this.f60239c == null || a.get()) {
+        if (this.f57953c == null || a.get()) {
             return;
         }
-        if (this.f60240d == null) {
-            this.f60240d = new a();
+        if (this.f57954d == null) {
+            this.f57954d = new a();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        this.f60239c.registerReceiver(this.f60240d, intentFilter);
+        this.f57953c.registerReceiver(this.f57954d, intentFilter);
         a.set(true);
     }
 

@@ -40,7 +40,7 @@ public class i extends c.a.d.n.e.a<CardPersonDynamicThreadData, CardViewHolder<t
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i f26074b;
+        public final /* synthetic */ i f25305b;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class i extends c.a.d.n.e.a<CardPersonDynamicThreadData, CardViewHolder<t
                     return;
                 }
             }
-            this.f26074b = iVar;
+            this.f25305b = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class i extends c.a.d.n.e.a<CardPersonDynamicThreadData, CardViewHolder<t
         public void a(View view, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, cardPersonDynamicThreadData) == null) {
-                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.f26074b.n ? 1 : 2));
+                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.f25305b.n ? 1 : 2));
             }
         }
     }

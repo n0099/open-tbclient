@@ -38,7 +38,7 @@ public class PbPrivateTitleAdapter extends n<p, PbPrivateTitleViewHolder> {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f48415b;
+        public TextView f46611b;
         public int mSkinType;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,14 +64,14 @@ public class PbPrivateTitleAdapter extends n<p, PbPrivateTitleViewHolder> {
                 return;
             }
             this.a = view.findViewById(i.background);
-            this.f48415b = (TextView) view.findViewById(i.title);
+            this.f46611b = (TextView) view.findViewById(i.title);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(l.pb_private_block_title));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(h.icon_pure_barrules_careful12, f.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.f(c.a.d.f.p.n.f(tbPageContext.getContext(), g.tbds31));
             eMRichTextAnyIconSpan.d(c.a.d.f.p.n.f(tbPageContext.getContext(), g.M_W_X002));
             eMRichTextAnyIconSpan.b(0);
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.f48415b.setText(spannableStringBuilder);
+            this.f46611b.setText(spannableStringBuilder);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
 
@@ -79,7 +79,7 @@ public class PbPrivateTitleAdapter extends n<p, PbPrivateTitleViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (this.mSkinType != i2) {
-                    c d2 = c.d(this.f48415b);
+                    c d2 = c.d(this.f46611b);
                     d2.v(f.CAM_X0109);
                     d2.A(l.F_X01);
                     c d3 = c.d(this.a);
@@ -93,7 +93,7 @@ public class PbPrivateTitleAdapter extends n<p, PbPrivateTitleViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbPrivateTitleAdapter(b bVar) {
-        super(bVar, p.f23071e);
+        super(bVar, p.f22436e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class PbPrivateTitleAdapter extends n<p, PbPrivateTitleViewHolder> {
     public PbPrivateTitleViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPrivateTitleViewHolder(this.m.getPageContext(), LayoutInflater.from(this.f3299e).inflate(j.pb_private_title_layout, viewGroup, false)) : (PbPrivateTitleViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPrivateTitleViewHolder(this.m.getPageContext(), LayoutInflater.from(this.f3258e).inflate(j.pb_private_title_layout, viewGroup, false)) : (PbPrivateTitleViewHolder) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, p pVar, PbPrivateTitleViewHolder pbPrivateTitleViewHolder) {

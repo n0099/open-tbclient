@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PrefetchPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRELINNK_TAG = "PreLink";

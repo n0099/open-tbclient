@@ -24,12 +24,12 @@ public class a extends c.a.s0.x.b0.a {
 
     /* renamed from: c.a.t0.f2.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1096a implements a.InterfaceC0893a {
+    public class C1110a implements a.InterfaceC0906a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1096a(a aVar) {
+        public C1110a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class a extends c.a.s0.x.b0.a {
             this.a = aVar;
         }
 
-        @Override // c.a.s0.x.b0.a.InterfaceC0893a
+        @Override // c.a.s0.x.b0.a.InterfaceC0906a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class a extends c.a.s0.x.b0.a {
             q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
             t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
             u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            x(new C1096a(this));
+            x(new C1110a(this));
             h().b(this);
         }
     }

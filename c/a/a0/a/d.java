@@ -15,16 +15,16 @@ public abstract class d implements b {
     public b.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a f1090b;
+    public b.a f1089b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.e f1091c;
+    public b.e f1090c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.InterfaceC0009b f1092d;
+    public b.InterfaceC0009b f1091d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.c f1093e;
+    public b.c f1092e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public abstract class d implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = null;
-            this.f1090b = null;
-            this.f1091c = null;
-            this.f1092d = null;
-            this.f1093e = null;
+            this.f1089b = null;
+            this.f1090c = null;
+            this.f1091d = null;
+            this.f1092e = null;
         }
     }
 
@@ -55,7 +55,7 @@ public abstract class d implements b {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            b.InterfaceC0009b interfaceC0009b = this.f1092d;
+            b.InterfaceC0009b interfaceC0009b = this.f1091d;
             return interfaceC0009b != null && interfaceC0009b.d(this, i2, i3);
         }
         return invokeII.booleanValue;
@@ -65,7 +65,7 @@ public abstract class d implements b {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-            b.c cVar = this.f1093e;
+            b.c cVar = this.f1092e;
             return cVar != null && cVar.e(this, i2, i3, obj);
         }
         return invokeIIL.booleanValue;
@@ -83,7 +83,7 @@ public abstract class d implements b {
     public final void c() {
         b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f1090b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f1089b) == null) {
             return;
         }
         aVar.b(this);
@@ -92,7 +92,7 @@ public abstract class d implements b {
     public final void d() {
         b.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f1091c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f1090c) == null) {
             return;
         }
         eVar.a(this);
@@ -101,21 +101,21 @@ public abstract class d implements b {
     public final void setOnCompletionListener(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f1090b = aVar;
+            this.f1089b = aVar;
         }
     }
 
     public final void setOnErrorListener(b.InterfaceC0009b interfaceC0009b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0009b) == null) {
-            this.f1092d = interfaceC0009b;
+            this.f1091d = interfaceC0009b;
         }
     }
 
     public final void setOnInfoListener(b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f1093e = cVar;
+            this.f1092e = cVar;
         }
     }
 
@@ -129,7 +129,7 @@ public abstract class d implements b {
     public final void setOnTerminalListener(b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
-            this.f1091c = eVar;
+            this.f1090c = eVar;
         }
     }
 }

@@ -15,7 +15,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f18598b;
+    public static c f18134b;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap<String, c.a.t0.h3.d.a> a;
 
@@ -39,14 +39,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f18598b == null) {
+            if (f18134b == null) {
                 synchronized (c.class) {
-                    if (f18598b == null) {
-                        f18598b = new c();
+                    if (f18134b == null) {
+                        f18134b = new c();
                     }
                 }
             }
-            return f18598b;
+            return f18134b;
         }
         return (c) invokeV.objValue;
     }
@@ -79,7 +79,7 @@ public class c {
         Iterator<String> it = concurrentHashMap.keySet().iterator();
         while (it.hasNext()) {
             c.a.t0.h3.d.a aVar = this.a.get(it.next());
-            if (aVar != null && str.equals(aVar.f18599b)) {
+            if (aVar != null && str.equals(aVar.f18135b)) {
                 it.remove();
             }
         }
@@ -94,7 +94,7 @@ public class c {
         for (String str : concurrentHashMap.keySet()) {
             c.a.t0.h3.d.a aVar = this.a.get(str);
             if (aVar != null) {
-                aVar.f18602e = z;
+                aVar.f18138e = z;
             }
         }
     }
@@ -107,8 +107,8 @@ public class c {
         }
         for (String str2 : concurrentHashMap.keySet()) {
             c.a.t0.h3.d.a aVar = this.a.get(str2);
-            if (aVar != null && str.equals(aVar.f18599b)) {
-                aVar.f18602e = z;
+            if (aVar != null && str.equals(aVar.f18135b)) {
+                aVar.f18138e = z;
             }
         }
     }

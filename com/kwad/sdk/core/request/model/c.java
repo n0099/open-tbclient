@@ -4,17 +4,17 @@ public class c extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58350b;
+    public int f56148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58351c;
+    public int f56149c;
 
     public c(int i2, int i3, int i4) {
         this.a = -1;
-        this.f58350b = -1;
-        this.f58351c = -1;
+        this.f56148b = -1;
+        this.f56149c = -1;
         this.a = i2;
-        this.f58350b = i3;
-        this.f58351c = i4;
+        this.f56148b = i3;
+        this.f56149c = i4;
     }
 }

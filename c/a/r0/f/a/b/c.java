@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class c extends a.C0672a {
+public final class c extends a.C0681a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f10561b;
+    public static final c f10333b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class c extends a.C0672a {
                 return;
             }
         }
-        f10561b = new c();
+        f10333b = new c();
     }
 
     /* JADX WARN: Illegal instructions before constructor call */

@@ -118,7 +118,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f47925e;
+        public final /* synthetic */ NativeEmotionManagerActivity f46137e;
 
         public b(NativeEmotionManagerActivity nativeEmotionManagerActivity) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f47925e = nativeEmotionManagerActivity;
+            this.f46137e = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -143,11 +143,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 super.onPageSelected(i2);
-                if (this.f47925e.mManager == null) {
+                if (this.f46137e.mManager == null) {
                     return;
                 }
-                this.f47925e.fragmentPostion = i2;
-                this.f47925e.ctrlIfShowEditButton();
+                this.f46137e.fragmentPostion = i2;
+                this.f46137e.ctrlIfShowEditButton();
             }
         }
     }

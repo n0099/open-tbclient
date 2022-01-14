@@ -27,16 +27,16 @@ public class e extends BaseExpandableListAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicSelectActivity> f22434e;
+    public TbPageContext<HotTopicSelectActivity> f21815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LayoutInflater f22435f;
+    public LayoutInflater f21816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ExpandableListView f22436g;
+    public ExpandableListView f21817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<c> f22437h;
+    public final List<c> f21818h;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -45,16 +45,16 @@ public class e extends BaseExpandableListAdapter {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f22438b;
+        public TextView f21819b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f22439c;
+        public TextView f21820c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f22440d;
+        public View f21821d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f22441e;
+        public View f21822e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -70,10 +70,10 @@ public class e extends BaseExpandableListAdapter {
                 }
             }
             this.a = 3;
-            this.f22438b = null;
-            this.f22439c = null;
-            this.f22440d = null;
-            this.f22441e = null;
+            this.f21819b = null;
+            this.f21820c = null;
+            this.f21821d = null;
+            this.f21822e = null;
         }
     }
 
@@ -84,13 +84,13 @@ public class e extends BaseExpandableListAdapter {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f22442b;
+        public TextView f21823b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f22443c;
+        public View f21824c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f22444d;
+        public View f21825d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -124,9 +124,9 @@ public class e extends BaseExpandableListAdapter {
                 return;
             }
         }
-        this.f22437h = new ArrayList();
-        this.f22434e = tbPageContext;
-        this.f22435f = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.f21818h = new ArrayList();
+        this.f21815e = tbPageContext;
+        this.f21816f = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
     public final void a(a aVar, View view, int i2) {
@@ -135,11 +135,11 @@ public class e extends BaseExpandableListAdapter {
             return;
         }
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-        SkinManager.setBackgroundResource(aVar.f22439c, R.drawable.hot_select_tag_bg);
-        SkinManager.setBackgroundColor(aVar.f22440d, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(aVar.f22441e, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(aVar.f22439c, R.color.CAM_X0302, 1);
-        SkinManager.setViewTextColor(aVar.f22438b, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundResource(aVar.f21820c, R.drawable.hot_select_tag_bg);
+        SkinManager.setBackgroundColor(aVar.f21821d, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(aVar.f21822e, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(aVar.f21820c, R.color.CAM_X0302, 1);
+        SkinManager.setViewTextColor(aVar.f21819b, R.color.CAM_X0105, 1);
         aVar.a = i2;
     }
 
@@ -149,16 +149,16 @@ public class e extends BaseExpandableListAdapter {
             return;
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(bVar.f22443c, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(bVar.f22444d, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(bVar.f22442b, R.color.CAM_X0109, 1);
+        SkinManager.setBackgroundColor(bVar.f21824c, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(bVar.f21825d, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(bVar.f21823b, R.color.CAM_X0109, 1);
         bVar.a = i2;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f22437h.clear();
+            this.f21818h.clear();
             notifyDataSetChanged();
         }
     }
@@ -184,19 +184,19 @@ public class e extends BaseExpandableListAdapter {
     public c getGroup(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f22437h.get(i2) : (c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f21818h.get(i2) : (c) invokeI.objValue;
     }
 
     public List<c> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22437h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21818h : (List) invokeV.objValue;
     }
 
     public void g(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f22437h.add(cVar);
+            this.f21818h.add(cVar);
         }
     }
 
@@ -228,7 +228,7 @@ public class e extends BaseExpandableListAdapter {
     public int getChildTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f22437h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f21818h.size() : invokeV.intValue;
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -241,19 +241,19 @@ public class e extends BaseExpandableListAdapter {
             if (view != null && (view.getTag() instanceof a)) {
                 aVar = (a) view.getTag();
             } else {
-                view = this.f22435f.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
+                view = this.f21816f.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
                 aVar = new a();
-                aVar.f22438b = (TextView) view.findViewById(R.id.hot_topic_title);
-                aVar.f22439c = (TextView) view.findViewById(R.id.hot_topic_tag);
-                aVar.f22440d = view.findViewById(R.id.divider_line_top);
-                aVar.f22441e = view.findViewById(R.id.divider_line_bottom);
+                aVar.f21819b = (TextView) view.findViewById(R.id.hot_topic_title);
+                aVar.f21820c = (TextView) view.findViewById(R.id.hot_topic_tag);
+                aVar.f21821d = view.findViewById(R.id.divider_line_top);
+                aVar.f21822e = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar);
             }
             if (child == null) {
                 return view;
             }
-            aVar.f22438b.setText(c.a.s0.u0.a.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
-            h(aVar.f22439c, child.a().intValue());
+            aVar.f21819b.setText(c.a.s0.u0.a.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+            h(aVar.f21820c, child.a().intValue());
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
             return view;
         }
@@ -277,7 +277,7 @@ public class e extends BaseExpandableListAdapter {
     public int getGroupCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f22437h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f21818h.size() : invokeV.intValue;
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -296,11 +296,11 @@ public class e extends BaseExpandableListAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = this.f22435f.inflate(R.layout.hot_group_item, (ViewGroup) null);
+                view = this.f21816f.inflate(R.layout.hot_group_item, (ViewGroup) null);
                 bVar = new b();
-                bVar.f22442b = (TextView) view.findViewById(R.id.header_text);
-                bVar.f22443c = view.findViewById(R.id.divider_line);
-                bVar.f22444d = view.findViewById(R.id.group_divider);
+                bVar.f21823b = (TextView) view.findViewById(R.id.header_text);
+                bVar.f21824c = view.findViewById(R.id.divider_line);
+                bVar.f21825d = view.findViewById(R.id.group_divider);
                 view.setTag(bVar);
                 view.setClickable(false);
             }
@@ -308,13 +308,13 @@ public class e extends BaseExpandableListAdapter {
             if (group == null) {
                 return view;
             }
-            bVar.f22442b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
+            bVar.f21823b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
             if (i2 == 0) {
-                bVar.f22443c.setVisibility(0);
-                bVar.f22444d.setVisibility(8);
+                bVar.f21824c.setVisibility(0);
+                bVar.f21825d.setVisibility(8);
             } else {
-                bVar.f22443c.setVisibility(8);
-                bVar.f22444d.setVisibility(0);
+                bVar.f21824c.setVisibility(8);
+                bVar.f21825d.setVisibility(0);
             }
             b(bVar, view, TbadkCoreApplication.getInst().getSkinType());
             return view;
@@ -329,10 +329,10 @@ public class e extends BaseExpandableListAdapter {
         }
         if (i2 == 10) {
             textView.setVisibility(0);
-            textView.setText(this.f22434e.getString(R.string.topic_tag_offical));
+            textView.setText(this.f21815e.getString(R.string.topic_tag_offical));
         } else if (i2 == 11) {
             textView.setVisibility(0);
-            textView.setText(this.f22434e.getString(R.string.topic_tag_bar));
+            textView.setText(this.f21815e.getString(R.string.topic_tag_bar));
         } else {
             textView.setVisibility(8);
         }
@@ -361,13 +361,13 @@ public class e extends BaseExpandableListAdapter {
     @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
     public void onGroupCollapsed(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || this.f22436g == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || this.f21817g == null) {
             return;
         }
         int groupCount = getGroupCount();
         for (int i3 = 0; i3 < groupCount; i3++) {
             if (i3 != i2) {
-                this.f22436g.collapseGroup(i2);
+                this.f21817g.collapseGroup(i2);
             }
         }
     }

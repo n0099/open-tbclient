@@ -12,7 +12,7 @@ public class f extends b<c.b.b.q.k, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.k f27813b;
+    public c.b.b.q.k f26978b;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.q.k> {
@@ -20,10 +20,10 @@ public class f extends b<c.b.b.q.k, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Locale f27814b;
+        public final Locale f26979b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f27815c;
+        public final String f26980c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -59,8 +59,8 @@ public class f extends b<c.b.b.q.k, a> {
                     return;
                 }
             }
-            this.f27814b = locale;
-            this.f27815c = str;
+            this.f26979b = locale;
+            this.f26980c = str;
         }
     }
 
@@ -104,21 +104,21 @@ public class f extends b<c.b.b.q.k, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
             String str2 = null;
-            this.f27813b = null;
+            this.f26978b = null;
             if (aVar2 == null) {
                 locale = Locale.getDefault();
             } else {
-                Locale locale2 = aVar2.f27814b;
+                Locale locale2 = aVar2.f26979b;
                 if (locale2 == null) {
                     locale2 = Locale.getDefault();
                 }
                 locale = locale2;
-                str2 = aVar2.f27815c;
+                str2 = aVar2.f26980c;
             }
             if (str2 == null) {
-                this.f27813b = c.b.b.q.k.b(aVar, locale);
+                this.f26978b = c.b.b.q.k.b(aVar, locale);
             } else {
-                this.f27813b = c.b.b.q.k.c(aVar, locale, str2);
+                this.f26978b = c.b.b.q.k.c(aVar, locale, str2);
             }
         }
     }
@@ -130,8 +130,8 @@ public class f extends b<c.b.b.q.k, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            c.b.b.q.k kVar = this.f27813b;
-            this.f27813b = null;
+            c.b.b.q.k kVar = this.f26978b;
+            this.f26978b = null;
             return kVar;
         }
         return (c.b.b.q.k) invokeLLLL.objValue;

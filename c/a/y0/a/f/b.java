@@ -19,10 +19,10 @@ public final class b {
     public static List<WeakReference<ScheduledFuture<?>>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f27683b;
+    public static ExecutorService f26851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ScheduledExecutorService f27684c;
+    public static ScheduledExecutorService f26852c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,18 +39,18 @@ public final class b {
             }
         }
         a = new ArrayList();
-        f27683b = Executors.newFixedThreadPool(2);
-        f27684c = Executors.newScheduledThreadPool(2);
+        f26851b = Executors.newFixedThreadPool(2);
+        f26852c = Executors.newScheduledThreadPool(2);
     }
 
     public static synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
             synchronized (b.class) {
-                if (f27684c == null || f27684c.isShutdown()) {
-                    f27684c = Executors.newScheduledThreadPool(2);
+                if (f26852c == null || f26852c.isShutdown()) {
+                    f26852c = Executors.newScheduledThreadPool(2);
                 }
-                f27684c.execute(runnable);
+                f26852c.execute(runnable);
             }
         }
     }
@@ -59,10 +59,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             synchronized (b.class) {
-                if (f27684c == null || f27684c.isShutdown()) {
-                    f27684c = Executors.newScheduledThreadPool(2);
+                if (f26852c == null || f26852c.isShutdown()) {
+                    f26852c = Executors.newScheduledThreadPool(2);
                 }
-                a.add(new WeakReference<>(f27684c.scheduleAtFixedRate(runnable, j2, j3, TimeUnit.MILLISECONDS)));
+                a.add(new WeakReference<>(f26852c.scheduleAtFixedRate(runnable, j2, j3, TimeUnit.MILLISECONDS)));
             }
         }
     }
@@ -70,11 +70,11 @@ public final class b {
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = f27683b;
+            ExecutorService executorService = f26851b;
             if (executorService == null || executorService.isShutdown()) {
-                f27683b = Executors.newFixedThreadPool(2);
+                f26851b = Executors.newFixedThreadPool(2);
             }
-            f27683b.execute(runnable);
+            f26851b.execute(runnable);
         }
     }
 }

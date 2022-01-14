@@ -12,7 +12,7 @@ public final class e extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19765b;
+    public boolean f19252b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e() {
@@ -44,7 +44,7 @@ public final class e extends b {
             if (e2.i() == 0) {
                 return false;
             }
-            if (this.f19765b) {
+            if (this.f19252b) {
                 if (e2.i() != 1) {
                     return false;
                 }

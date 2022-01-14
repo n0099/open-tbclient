@@ -16,10 +16,10 @@ public class a {
     public static c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f60969b;
+    public static BroadcastReceiver f58662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f60970c = new AtomicBoolean(false);
+    public static AtomicBoolean f58663c = new AtomicBoolean(false);
 
     public static b a(Context context) {
         return new b.a().a(context).a();
@@ -31,7 +31,7 @@ public class a {
                 if (a == null) {
                     a = a(b(context, aVar, fVar), (b) null, context);
                 }
-                if (f60970c.compareAndSet(false, true)) {
+                if (f58663c.compareAndSet(false, true)) {
                     a(context, a);
                 }
             }
@@ -81,7 +81,7 @@ public class a {
                 }
             }
         };
-        f60969b = broadcastReceiver;
+        f58662b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

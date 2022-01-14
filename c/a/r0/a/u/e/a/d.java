@@ -32,7 +32,7 @@ public class d extends c.a.r0.a.u.e.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f9109f;
+    public static final boolean f8911f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -41,25 +41,23 @@ public class d extends c.a.r0.a.u.e.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9110e;
+        public final /* synthetic */ c.a.r0.a.d2.e f8912e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f9111f;
+        public final /* synthetic */ Activity f8913f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9112g;
+        public final /* synthetic */ JSONObject f8914g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9113h;
+        public final /* synthetic */ CallbackHandler f8915h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f9114i;
+        public final /* synthetic */ String f8916i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f9115j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ d f9116k;
+        public final /* synthetic */ String f8917j;
+        public final /* synthetic */ d k;
 
         public a(d dVar, c.a.r0.a.d2.e eVar, Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -76,13 +74,13 @@ public class d extends c.a.r0.a.u.e.a.a {
                     return;
                 }
             }
-            this.f9116k = dVar;
-            this.f9110e = eVar;
-            this.f9111f = activity;
-            this.f9112g = jSONObject;
-            this.f9113h = callbackHandler;
-            this.f9114i = str;
-            this.f9115j = str2;
+            this.k = dVar;
+            this.f8912e = eVar;
+            this.f8913f = activity;
+            this.f8914g = jSONObject;
+            this.f8915h = callbackHandler;
+            this.f8916i = str;
+            this.f8917j = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,18 +90,18 @@ public class d extends c.a.r0.a.u.e.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    boolean unused = d.f9109f;
-                    d.D(this.f9110e, this.f9111f, this.f9112g, this.f9113h, this.f9114i, true, this.f9115j);
+                    boolean unused = d.f8911f;
+                    d.D(this.f8912e, this.f8913f, this.f8914g, this.f8915h, this.f8916i, true, this.f8917j);
                     return;
                 }
-                if (!this.f9110e.M().e(this.f9111f)) {
+                if (!this.f8912e.M().e(this.f8913f)) {
                     n.S("check_fail", 1, RetrieveTaskManager.KEY);
                 }
                 int b2 = iVar.b();
                 String f2 = c.a.r0.a.h2.c.d.f(b2);
-                d dVar = this.f9116k;
+                d dVar = this.k;
                 dVar.p("#login errCode=" + b2 + " errMsg=" + f2, null, false);
-                this.f9116k.d(this.f9114i, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                this.k.d(this.f8916i, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
             }
         }
     }
@@ -114,33 +112,31 @@ public class d extends c.a.r0.a.u.e.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f9117e;
+        public final /* synthetic */ boolean f8918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f9118f;
+        public final /* synthetic */ boolean f8919f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9119g;
+        public final /* synthetic */ JSONObject f8920g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ C0552d f9120h;
+        public final /* synthetic */ C0561d f8921h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9121i;
+        public final /* synthetic */ CallbackHandler f8922i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f9122j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9123k;
+        public final /* synthetic */ String f8923j;
+        public final /* synthetic */ c.a.r0.a.d2.e k;
         public final /* synthetic */ String l;
 
-        public b(boolean z, boolean z2, JSONObject jSONObject, C0552d c0552d, CallbackHandler callbackHandler, String str, c.a.r0.a.d2.e eVar, String str2) {
+        public b(boolean z, boolean z2, JSONObject jSONObject, C0561d c0561d, CallbackHandler callbackHandler, String str, c.a.r0.a.d2.e eVar, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), jSONObject, c0552d, callbackHandler, str, eVar, str2};
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), jSONObject, c0561d, callbackHandler, str, eVar, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -150,13 +146,13 @@ public class d extends c.a.r0.a.u.e.a.a {
                     return;
                 }
             }
-            this.f9117e = z;
-            this.f9118f = z2;
-            this.f9119g = jSONObject;
-            this.f9120h = c0552d;
-            this.f9121i = callbackHandler;
-            this.f9122j = str;
-            this.f9123k = eVar;
+            this.f8918e = z;
+            this.f8919f = z2;
+            this.f8920g = jSONObject;
+            this.f8921h = c0561d;
+            this.f8922i = callbackHandler;
+            this.f8923j = str;
+            this.k = eVar;
             this.l = str2;
         }
 
@@ -168,44 +164,44 @@ public class d extends c.a.r0.a.u.e.a.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 c.a.r0.a.e0.d.k("LoginApi", "#handleLogin errCode=" + iVar.b() + " error=" + iVar.a());
                 if (!iVar.c()) {
-                    if (!this.f9117e && this.f9118f) {
-                        n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 1, this.f9119g.optString("invokeFrom"));
+                    if (!this.f8918e && this.f8919f) {
+                        n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 1, this.f8920g.optString("invokeFrom"));
                         c.a.r0.a.e0.d.k("LoginApi", "Error: login failed from api-invoking.");
                     }
                     int b2 = iVar.b();
-                    c.a.r0.a.e0.d.o("LoginApi", b2 + " " + this.f9120h.toString());
+                    c.a.r0.a.e0.d.o("LoginApi", b2 + " " + this.f8921h.toString());
                     String f2 = c.a.r0.a.h2.c.d.f(b2);
-                    this.f9121i.handleSchemeDispatchCallback(this.f9122j, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
-                    c.a.r0.a.c1.b.j().f(this.f9121i, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
-                    d.J(this.f9123k, 43, b2, f2);
+                    this.f8922i.handleSchemeDispatchCallback(this.f8923j, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
+                    c.a.r0.a.c1.b.j().f(this.f8922i, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
+                    d.J(this.k, 43, b2, f2);
                     String str = "#handleLogin [login failed] errCode=" + b2 + " errMsg=" + f2;
                     c.a.r0.a.e0.d.k("LoginApi", str);
                     n.U(this.l, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
                     return;
                 }
-                if (!this.f9117e && this.f9118f) {
-                    n.S("success", 1, this.f9119g.optString("invokeFrom"));
+                if (!this.f8918e && this.f8919f) {
+                    n.S("success", 1, this.f8920g.optString("invokeFrom"));
                     c.a.r0.a.e0.d.k("LoginApi", "Success: login success from api-invoking.");
                 }
-                if (d.G(this.f9119g)) {
-                    this.f9121i.handleSchemeDispatchCallback(this.f9122j, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                if (d.G(this.f8920g)) {
+                    this.f8922i.handleSchemeDispatchCallback(this.f8923j, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     c.a.r0.a.e0.d.k("LoginApi", "Success: login success from component-invoking.");
                     n.U(this.l, "success", "Success: login success from component-invoking.");
                     return;
                 }
                 n.T(this.l, "getLoginCodeStart");
                 if (TextUtils.isEmpty(iVar.a.a)) {
-                    this.f9121i.handleSchemeDispatchCallback(this.f9122j, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
-                    c.a.r0.a.c1.b.j().f(this.f9121i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
-                    d.J(this.f9123k, 43, 1001, "empty code");
+                    this.f8922i.handleSchemeDispatchCallback(this.f8923j, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    c.a.r0.a.c1.b.j().f(this.f8922i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    d.J(this.k, 43, 1001, "empty code");
                     n.U(this.l, com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty code");
                     return;
                 }
-                String optString = this.f9119g.optString("__plugin__");
+                String optString = this.f8920g.optString("__plugin__");
                 if (!TextUtils.isEmpty(optString)) {
-                    d.E(optString, this.f9123k, this.f9121i, this.f9122j, iVar, this.l);
+                    d.E(optString, this.k, this.f8922i, this.f8923j, iVar, this.l);
                 } else {
-                    d.F(this.f9123k, this.f9121i, this.f9122j, iVar, this.l);
+                    d.F(this.k, this.f8922i, this.f8923j, iVar, this.l);
                 }
             }
         }
@@ -217,22 +213,22 @@ public class d extends c.a.r0.a.u.e.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9124e;
+        public final /* synthetic */ CallbackHandler f8924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9125f;
+        public final /* synthetic */ String f8925f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9126g;
+        public final /* synthetic */ String f8926g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9127h;
+        public final /* synthetic */ String f8927h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9128i;
+        public final /* synthetic */ c.a.r0.a.d2.e f8928i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ i f9129j;
+        public final /* synthetic */ i f8929j;
 
         public c(CallbackHandler callbackHandler, String str, String str2, String str3, c.a.r0.a.d2.e eVar, i iVar) {
             Interceptable interceptable = $ic;
@@ -249,12 +245,12 @@ public class d extends c.a.r0.a.u.e.a.a {
                     return;
                 }
             }
-            this.f9124e = callbackHandler;
-            this.f9125f = str;
-            this.f9126g = str2;
-            this.f9127h = str3;
-            this.f9128i = eVar;
-            this.f9129j = iVar;
+            this.f8924e = callbackHandler;
+            this.f8925f = str;
+            this.f8926g = str2;
+            this.f8927h = str3;
+            this.f8928i = eVar;
+            this.f8929j = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -264,28 +260,28 @@ public class d extends c.a.r0.a.u.e.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (aVar != null && aVar.D()) {
-                    d.F(this.f9128i, this.f9124e, this.f9125f, this.f9129j, this.f9127h);
+                    d.F(this.f8928i, this.f8924e, this.f8925f, this.f8929j, this.f8927h);
                     return;
                 }
-                this.f9124e.handleSchemeDispatchCallback(this.f9125f, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
-                String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.f9126g + " from plugin-invoking.";
+                this.f8924e.handleSchemeDispatchCallback(this.f8925f, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
+                String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.f8926g + " from plugin-invoking.";
                 c.a.r0.a.e0.d.k("LoginApi", str);
-                n.U(this.f9127h, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+                n.U(this.f8927h, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.u.e.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0552d {
+    public static class C0561d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f9130b;
+        public final long f8930b;
 
-        public C0552d(@NonNull JSONObject jSONObject) {
+        public C0561d(@NonNull JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -302,7 +298,7 @@ public class d extends c.a.r0.a.u.e.a.a {
             }
             this.a = jSONObject.has(com.alipay.sdk.data.a.O);
             long optLong = jSONObject.optLong(com.alipay.sdk.data.a.O, 0L);
-            this.f9130b = optLong;
+            this.f8930b = optLong;
             if (optLong < 0) {
                 c.a.r0.a.e0.d.o("LoginApi", "timeout is a minus：" + toString());
             }
@@ -312,7 +308,7 @@ public class d extends c.a.r0.a.u.e.a.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "LoginTimeoutConfig{enableTimeout=" + this.a + ", timeoutMills=" + this.f9130b + ExtendedMessageFormat.END_FE;
+                return "LoginTimeoutConfig{enableTimeout=" + this.a + ", timeoutMills=" + this.f8930b + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -331,7 +327,7 @@ public class d extends c.a.r0.a.u.e.a.a {
                 return;
             }
         }
-        f9109f = k.a;
+        f8911f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -362,8 +358,8 @@ public class d extends c.a.r0.a.u.e.a.a {
             if (!e2) {
                 n.S("show", 1, optString);
             }
-            C0552d c0552d = new C0552d(jSONObject);
-            eVar.d0().r(activity, c0552d, null, new b(e2, z, jSONObject, c0552d, callbackHandler, str, eVar, str2), str2);
+            C0561d c0561d = new C0561d(jSONObject);
+            eVar.d0().r(activity, c0561d, null, new b(e2, z, jSONObject, c0561d, callbackHandler, str, eVar, str2), str2);
         }
     }
 
@@ -389,11 +385,11 @@ public class d extends c.a.r0.a.u.e.a.a {
             try {
                 jSONObject.put("code", iVar.a.a);
                 c.a.r0.a.e0.d.k("LoginApi", "Success: call back msg = " + jSONObject.toString());
-                c.a.r0.a.a2.c.f5290c.e();
+                c.a.r0.a.a2.c.f5180c.e();
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                 n.T(str2, "success");
             } catch (JSONException e2) {
-                if (f9109f) {
+                if (f8911f) {
                     e2.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
@@ -429,7 +425,7 @@ public class d extends c.a.r0.a.u.e.a.a {
                 jSONObject.put("errorCode", i3);
                 jSONObject.put("errorMessage", str);
             } catch (JSONException e2) {
-                if (f9109f) {
+                if (f8911f) {
                     e2.printStackTrace();
                 }
             }
@@ -443,7 +439,7 @@ public class d extends c.a.r0.a.u.e.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             q("#getLoginCode", false);
-            if (f9109f) {
+            if (f8911f) {
                 String str2 = "#getLoginCode params=" + str;
             }
             n.T("getLoginCode", "create");

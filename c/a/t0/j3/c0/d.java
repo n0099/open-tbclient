@@ -35,10 +35,10 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
         public final /* synthetic */ AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f18730b;
+        public final /* synthetic */ int f18262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f18731c;
+        public final /* synthetic */ String f18263c;
 
         public a(d dVar, AdvertAppInfo advertAppInfo, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
                 }
             }
             this.a = advertAppInfo;
-            this.f18730b = i2;
-            this.f18731c = str;
+            this.f18262b = i2;
+            this.f18263c = str;
         }
 
         @Override // c.a.t0.x1.o.a
@@ -65,9 +65,9 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
                 if (z.q(i2)) {
-                    c.a.t0.j3.l0.d.h(this.a, this.f18730b, hashMap, i2);
+                    c.a.t0.j3.l0.d.h(this.a, this.f18262b, hashMap, i2);
                 } else {
-                    c.a.t0.j3.l0.d.p(this.a, this.f18730b, this.f18731c, null, hashMap);
+                    c.a.t0.j3.l0.d.p(this.a, this.f18262b, this.f18263c, null, hashMap);
                 }
                 c.a.t0.x1.o.h.c.h(c.a.t0.x1.o.h.c.e(this.a));
             }
@@ -81,7 +81,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f18732b;
+        public final /* synthetic */ d f18264b;
 
         public b(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
                     return;
                 }
             }
-            this.f18732b = dVar;
+            this.f18264b = dVar;
             this.a = str;
         }
 
@@ -106,7 +106,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
         public void a(AdvertAppInfo advertAppInfo, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, advertAppInfo, i2) == null) {
-                j.b(TbadkCoreApplication.getInst().getContext(), advertAppInfo, i2, this.f18732b.n0(advertAppInfo, this.a));
+                j.b(TbadkCoreApplication.getInst().getContext(), advertAppInfo, i2, this.f18264b.n0(advertAppInfo, this.a));
             }
         }
     }
@@ -138,7 +138,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            V v = this.f3305k;
+            V v = this.k;
             if (v != 0) {
                 ((FrsAppLegoViewHolder) v).release();
             }
@@ -175,7 +175,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
             this.x = iLegoAdvert;
             if (p0(view)) {
                 FrsAppLegoViewHolder M = M(viewGroup);
-                this.f3305k = M;
+                this.k = M;
                 if (M == null) {
                     return null;
                 }
@@ -192,7 +192,7 @@ public class d extends k<AdvertAppInfo, FrsAppLegoViewHolder> {
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view)) == null) {
-            if (view == null || view.getTag() == null || (v = this.f3305k) == 0 || this.x == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.f3305k).getClass()) || !(view.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
+            if (view == null || view.getTag() == null || (v = this.k) == 0 || this.x == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.k).getClass()) || !(view.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
                 return true;
             }
             return !this.x.isReusable((AdvertAppInfo.ILegoAdvert) view.getTag(R.id.tag_first));

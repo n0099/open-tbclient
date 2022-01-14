@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, CardViewHolder<c.a.t0.o1.k.c.d.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.o1.k.c.c.a, CardViewHolder<c.a.t0.o1.k
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             c.a.t0.o1.k.c.d.a aVar = new c.a.t0.o1.k.c.d.a(this.m);
-            aVar.n(this.f3303i);
+            aVar.n(this.f3262i);
             return new CardViewHolder<>(aVar);
         }
         return (CardViewHolder) invokeL.objValue;

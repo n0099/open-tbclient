@@ -58,7 +58,7 @@ public class d {
                 return;
             }
             if (!l.z()) {
-                n.L(view.getContext(), R.string.no_network_guide);
+                n.M(view.getContext(), R.string.no_network_guide);
                 return;
             }
             b bVar = (b) view.getTag();
@@ -82,7 +82,7 @@ public class d {
                     alaLiveInfoCoreData.liveID = j4;
                 }
             }
-            int i2 = bVar.f12637b;
+            int i2 = bVar.f12340b;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (i2 == 1) {
                 TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
@@ -95,12 +95,12 @@ public class d {
                     TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
                 }
                 TiebaStatic.log(new StatisticItem("c12542"));
-                if (bVar.f12638c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                if (bVar.f12341c && !StringUtils.isNull(alaUserInfoData.sex)) {
                     BdToast.i(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).q();
                     return;
                 }
             }
-            int i3 = bVar.f12637b;
+            int i3 = bVar.f12340b;
             MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, i3 == 5 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION : i3 == 7 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY : AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false, "")));
         }
     }

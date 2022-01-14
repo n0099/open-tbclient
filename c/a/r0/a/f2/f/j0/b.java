@@ -20,34 +20,32 @@ public class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f6173b;
+    public final double f6036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f6174c;
+    public final double f6037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f6175d;
+    public final float f6038d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final double f6176e;
+    public final double f6039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f6177f;
+    public final double f6040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final double f6178g;
+    public final double f6041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final double f6179h;
+    public final double f6042h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f6180i;
+    public final String f6043i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final String f6181j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final String f6182k;
+    public final String f6044j;
+    public final String k;
     public final String l;
     public final String m;
     public final String n;
@@ -87,16 +85,16 @@ public class b {
             }
         }
         this.a = str;
-        this.f6173b = d2;
-        this.f6174c = d3;
-        this.f6175d = f2;
-        this.f6176e = d4;
-        this.f6177f = d5;
-        this.f6178g = 0.0d;
-        this.f6179h = d4;
-        this.f6180i = str2;
-        this.f6181j = str3;
-        this.f6182k = str4;
+        this.f6036b = d2;
+        this.f6037c = d3;
+        this.f6038d = f2;
+        this.f6039e = d4;
+        this.f6040f = d5;
+        this.f6041g = 0.0d;
+        this.f6042h = d4;
+        this.f6043i = str2;
+        this.f6044j = str3;
+        this.k = str4;
         this.l = str5;
         this.m = str6;
         this.n = str7;
@@ -110,16 +108,16 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("longitude", this.f6173b);
-                jSONObject.put("latitude", this.f6174c);
-                jSONObject.put("speed", this.f6175d);
-                jSONObject.put("accuracy", this.f6176e);
-                jSONObject.put("altitude", this.f6177f);
-                jSONObject.put("verticalAccuracy", this.f6178g);
-                jSONObject.put("horizontalAccuracy", this.f6179h);
-                jSONObject.put("country", this.f6180i);
-                jSONObject.put("countryCode", this.f6181j);
-                jSONObject.put("city", this.f6182k);
+                jSONObject.put("longitude", this.f6036b);
+                jSONObject.put("latitude", this.f6037c);
+                jSONObject.put("speed", this.f6038d);
+                jSONObject.put("accuracy", this.f6039e);
+                jSONObject.put("altitude", this.f6040f);
+                jSONObject.put("verticalAccuracy", this.f6041g);
+                jSONObject.put("horizontalAccuracy", this.f6042h);
+                jSONObject.put("country", this.f6043i);
+                jSONObject.put("countryCode", this.f6044j);
+                jSONObject.put("city", this.k);
                 jSONObject.put("cityCode", this.l);
                 jSONObject.put("province", this.m);
                 jSONObject.put("district", this.n);

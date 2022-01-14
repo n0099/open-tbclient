@@ -31,7 +31,7 @@ public class AccountToolsActivity extends Activity {
     public AccountToolsResult a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f39274b;
+    public AccountToolsCallback f37978b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f39274b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f37978b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -107,7 +107,7 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f39274b;
+            AccountToolsCallback accountToolsCallback = this.f37978b;
             if (accountToolsCallback != null) {
                 accountToolsCallback.onFinish(this.a);
             }

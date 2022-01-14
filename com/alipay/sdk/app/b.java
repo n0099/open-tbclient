@@ -14,7 +14,7 @@ public class b {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31782b;
+    public static String f30788b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class b {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f31782b = str;
+            f30788b = str;
         }
     }
 
@@ -57,7 +57,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            c b2 = c.b(c.f31788h.b());
+            c b2 = c.b(c.f30794h.b());
             return a(b2.b(), b2.a(), "");
         }
         return (String) invokeV.objValue;
@@ -72,14 +72,14 @@ public class b {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f31782b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f30788b : (String) invokeV.objValue;
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            c b2 = c.b(c.f31787g.b());
+            c b2 = c.b(c.f30793g.b());
             return a(b2.b(), b2.a(), "");
         }
         return (String) invokeV.objValue;
@@ -96,7 +96,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            c b2 = c.b(c.f31785e.b());
+            c b2 = c.b(c.f30791e.b());
             return a(b2.b(), b2.a(), "");
         }
         return (String) invokeV.objValue;

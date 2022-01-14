@@ -19,28 +19,28 @@ public class a {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final C1645a f30320b;
+    public final C1661a f29371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b[] f30321c;
+    public final b[] f29372c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30322d;
+    public final long f29373d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f30323e;
+    public final long f29374e;
 
     /* renamed from: c.i.b.a.d0.x.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1645a {
+    public static class C1661a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final UUID a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f30324b;
+        public final byte[] f29375b;
 
-        public C1645a(UUID uuid, byte[] bArr) {
+        public C1661a(UUID uuid, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,24 +56,24 @@ public class a {
                 }
             }
             this.a = uuid;
-            this.f30324b = bArr;
+            this.f29375b = bArr;
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(int i2, int i3, long j2, long j3, long j4, int i4, boolean z, C1645a c1645a, b[] bVarArr) {
-        this(i2, i3, j3 == 0 ? -9223372036854775807L : v.F(j3, 1000000L, j2), j4 != 0 ? v.F(j4, 1000000L, j2) : -9223372036854775807L, i4, z, c1645a, bVarArr);
+    public a(int i2, int i3, long j2, long j3, long j4, int i4, boolean z, C1661a c1661a, b[] bVarArr) {
+        this(i2, i3, j3 == 0 ? -9223372036854775807L : v.F(j3, 1000000L, j2), j4 != 0 ? v.F(j4, 1000000L, j2) : -9223372036854775807L, i4, z, c1661a, bVarArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), Boolean.valueOf(z), c1645a, bVarArr};
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), Boolean.valueOf(z), c1661a, bVarArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
                 int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), ((Integer) objArr2[4]).intValue(), ((Boolean) objArr2[5]).booleanValue(), (C1645a) objArr2[6], (b[]) objArr2[7]);
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), ((Integer) objArr2[4]).intValue(), ((Boolean) objArr2[5]).booleanValue(), (C1661a) objArr2[6], (b[]) objArr2[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -88,28 +88,28 @@ public class a {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f30325b;
+        public final long f29376b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Format[] f30326c;
+        public final Format[] f29377c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f30327d;
+        public final int f29378d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f30328e;
+        public final String f29379e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f30329f;
+        public final String f29380f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final List<Long> f30330g;
+        public final List<Long> f29381g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long[] f30331h;
+        public final long[] f29382h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final long f30332i;
+        public final long f29383i;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2, int i2, String str3, long j2, String str4, int i3, int i4, int i5, int i6, String str5, Format[] formatArr, List<Long> list, long j3) {
@@ -136,12 +136,12 @@ public class a {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                c.i.b.a.i0.a.f(this.f30326c != null);
-                c.i.b.a.i0.a.f(this.f30330g != null);
-                c.i.b.a.i0.a.f(i3 < this.f30330g.size());
-                String num = Integer.toString(this.f30326c[i2].bitrate);
-                String l = this.f30330g.get(i3).toString();
-                return u.d(this.f30328e, this.f30329f.replace("{bitrate}", num).replace("{Bitrate}", num).replace("{start time}", l).replace("{start_time}", l));
+                c.i.b.a.i0.a.f(this.f29377c != null);
+                c.i.b.a.i0.a.f(this.f29381g != null);
+                c.i.b.a.i0.a.f(i3 < this.f29381g.size());
+                String num = Integer.toString(this.f29377c[i2].bitrate);
+                String l = this.f29381g.get(i3).toString();
+                return u.d(this.f29379e, this.f29380f.replace("{bitrate}", num).replace("{Bitrate}", num).replace("{start time}", l).replace("{start_time}", l));
             }
             return (Uri) invokeII.objValue;
         }
@@ -150,10 +150,10 @@ public class a {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (i2 == this.f30327d - 1) {
-                    return this.f30332i;
+                if (i2 == this.f29378d - 1) {
+                    return this.f29383i;
                 }
-                long[] jArr = this.f30331h;
+                long[] jArr = this.f29382h;
                 return jArr[i2 + 1] - jArr[i2];
             }
             return invokeI.longValue;
@@ -162,13 +162,13 @@ public class a {
         public int c(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? v.e(this.f30331h, j2, true, true) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? v.e(this.f29382h, j2, true, true) : invokeJ.intValue;
         }
 
         public long d(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f30331h[i2] : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f29382h[i2] : invokeI.longValue;
         }
 
         public b(String str, String str2, int i2, String str3, long j2, String str4, int i3, int i4, int i5, int i6, String str5, Format[] formatArr, List<Long> list, long[] jArr, long j3) {
@@ -186,24 +186,24 @@ public class a {
                     return;
                 }
             }
-            this.f30328e = str;
-            this.f30329f = str2;
+            this.f29379e = str;
+            this.f29380f = str2;
             this.a = i2;
-            this.f30325b = j2;
-            this.f30326c = formatArr;
-            this.f30330g = list;
-            this.f30331h = jArr;
-            this.f30332i = j3;
-            this.f30327d = list.size();
+            this.f29376b = j2;
+            this.f29377c = formatArr;
+            this.f29381g = list;
+            this.f29382h = jArr;
+            this.f29383i = j3;
+            this.f29378d = list.size();
         }
     }
 
-    public a(int i2, int i3, long j2, long j3, int i4, boolean z, C1645a c1645a, b[] bVarArr) {
+    public a(int i2, int i3, long j2, long j3, int i4, boolean z, C1661a c1661a, b[] bVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i4), Boolean.valueOf(z), c1645a, bVarArr};
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i4), Boolean.valueOf(z), c1661a, bVarArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -213,10 +213,10 @@ public class a {
                 return;
             }
         }
-        this.f30322d = j2;
-        this.f30323e = j3;
+        this.f29373d = j2;
+        this.f29374e = j3;
         this.a = z;
-        this.f30320b = c1645a;
-        this.f30321c = bVarArr;
+        this.f29371b = c1661a;
+        this.f29372c = bVarArr;
     }
 }

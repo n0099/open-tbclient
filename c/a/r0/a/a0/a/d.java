@@ -40,8 +40,8 @@ public class d extends a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            c.a.r0.a.a0.b.a k2 = k(unitedSchemeEntity);
-            if (k2 == null) {
+            c.a.r0.a.a0.b.a k = k(unitedSchemeEntity);
+            if (k == null) {
                 unitedSchemeEntity.result = l(201);
                 c.a.r0.a.e0.d.c("SwanAppCanvas", "insert action parse model is null");
                 return false;
@@ -50,13 +50,13 @@ public class d extends a {
                 unitedSchemeEntity.result = l(1001);
                 return false;
             } else {
-                String str = k2.f5421f;
-                c.a.r0.a.m1.e.a.a aVar = k2.l;
+                String str = k.f5308f;
+                c.a.r0.a.m1.e.a.a aVar = k.l;
                 if (!TextUtils.isEmpty(str) && aVar != null && aVar.i()) {
-                    c.a.r0.a.c0.b.c insert = new c.a.r0.a.c0.c.d.a(context, k2).insert();
+                    c.a.r0.a.c0.b.c insert = new c.a.r0.a.c0.c.d.a(context, k).insert();
                     boolean a = insert.a();
                     if (!a) {
-                        c.a.r0.a.e0.d.c("SwanAppCanvas", "insert canvas fail: " + insert.f5427b);
+                        c.a.r0.a.e0.d.c("SwanAppCanvas", "insert canvas fail: " + insert.f5313b);
                     }
                     j(unitedSchemeEntity, callbackHandler, a);
                     return a;

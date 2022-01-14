@@ -7,6 +7,6 @@ public interface a {
 
     /* renamed from: c.a.t0.j3.g0.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1135a {
+    public interface InterfaceC1149a {
     }
 }

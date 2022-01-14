@@ -86,25 +86,23 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public c.a.t0.o1.d.e Q;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45877e;
+    public Context f44194e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f45878f;
+    public TbPageContext f44195f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HomeTabBarView f45879g;
+    public HomeTabBarView f44196g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f45880h;
+    public NoNetworkView f44197h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f45881i;
+    public FrameLayout f44198i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomViewPager f45882j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f45883k;
+    public CustomViewPager f44199j;
+    public View k;
     public View l;
     public TBSpecificationBtn m;
     public FrameLayout n;
@@ -127,7 +125,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollFragmentTabHost f45884e;
+        public final /* synthetic */ ScrollFragmentTabHost f44200e;
 
         public a(ScrollFragmentTabHost scrollFragmentTabHost) {
             Interceptable interceptable = $ic;
@@ -144,7 +142,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     return;
                 }
             }
-            this.f45884e = scrollFragmentTabHost;
+            this.f44200e = scrollFragmentTabHost;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -152,28 +150,28 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (this.f45884e.f45878f != null && !this.f45884e.f45878f.getPageActivity().isFinishing() && this.f45884e.J != null && this.f45884e.K != null) {
-                    ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? this.f45884e.f45879g.getTaskView() : this.f45884e.K.getTaskView();
+                if (this.f44200e.f44195f != null && !this.f44200e.f44195f.getPageActivity().isFinishing() && this.f44200e.J != null && this.f44200e.K != null) {
+                    ImageView taskView = (TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0 ? this.f44200e.f44196g.getTaskView() : this.f44200e.K.getTaskView();
                     if ((taskView == null || taskView.getVisibility() == 0) && customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof o.b)) {
                         o.b data = customMessage.getData();
-                        int intValue = data.f12441c.intValue() > 0 ? data.f12441c.intValue() * 1000 : 5000;
-                        String str = data.f12445g;
+                        int intValue = data.f12148c.intValue() > 0 ? data.f12148c.intValue() * 1000 : 5000;
+                        String str = data.f12152g;
                         if (TextUtils.isEmpty(str)) {
-                            str = this.f45884e.f45878f.getString(R.string.task_float_tip_toast);
+                            str = this.f44200e.f44195f.getString(R.string.task_float_tip_toast);
                         }
                         String fixedText = UtilHelper.getFixedText(str, 20);
-                        if (this.f45884e.L != null) {
-                            this.f45884e.L.I();
+                        if (this.f44200e.L != null) {
+                            this.f44200e.L.I();
                         }
-                        ScrollFragmentTabHost scrollFragmentTabHost = this.f45884e;
-                        scrollFragmentTabHost.L = new c.a.t0.k0.g(scrollFragmentTabHost.f45878f, taskView);
-                        this.f45884e.L.O(48);
-                        this.f45884e.L.h0(true);
-                        this.f45884e.L.L(4);
-                        this.f45884e.L.N(intValue);
-                        this.f45884e.L.U(true);
-                        this.f45884e.L.j0(0);
-                        this.f45884e.L.l0(fixedText);
+                        ScrollFragmentTabHost scrollFragmentTabHost = this.f44200e;
+                        scrollFragmentTabHost.L = new c.a.t0.k0.g(scrollFragmentTabHost.f44195f, taskView);
+                        this.f44200e.L.O(48);
+                        this.f44200e.L.h0(true);
+                        this.f44200e.L.L(4);
+                        this.f44200e.L.N(intValue);
+                        this.f44200e.L.U(true);
+                        this.f44200e.L.j0(0);
+                        this.f44200e.L.l0(fixedText);
                         return new CustomResponsedMessage<>(2921409, Boolean.TRUE);
                     }
                     return null;
@@ -190,7 +188,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollFragmentTabHost f45885e;
+        public final /* synthetic */ ScrollFragmentTabHost f44201e;
 
         public b(ScrollFragmentTabHost scrollFragmentTabHost) {
             Interceptable interceptable = $ic;
@@ -207,7 +205,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     return;
                 }
             }
-            this.f45885e = scrollFragmentTabHost;
+            this.f44201e = scrollFragmentTabHost;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -215,16 +213,16 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || this.f45885e.J == null) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Boolean) || this.f44201e.J == null) {
                     return null;
                 }
-                this.f45885e.dismissShadow();
+                this.f44201e.dismissShadow();
                 boolean z = false;
                 if (customMessage.getData().booleanValue()) {
-                    z = this.f45885e.J.showHeader();
-                } else if (this.f45885e.J.isSticky() && this.f45885e.v) {
+                    z = this.f44201e.J.showHeader();
+                } else if (this.f44201e.J.isSticky() && this.f44201e.v) {
                     z = true;
-                    this.f45885e.J.showHeader();
+                    this.f44201e.J.showHeader();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921442, Boolean.TRUE));
                 return new CustomResponsedMessage<>(2921405, Boolean.valueOf(z));
@@ -239,7 +237,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollFragmentTabHost f45886e;
+        public final /* synthetic */ ScrollFragmentTabHost f44202e;
 
         public c(ScrollFragmentTabHost scrollFragmentTabHost) {
             Interceptable interceptable = $ic;
@@ -256,60 +254,60 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     return;
                 }
             }
-            this.f45886e = scrollFragmentTabHost;
+            this.f44202e = scrollFragmentTabHost;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 == 0 && this.f45886e.getCurrentTabType() == 0) {
-                    boolean isShowConcernRedTip = this.f45886e.isShowConcernRedTip();
+                if (i2 == 0 && this.f44202e.getCurrentTabType() == 0) {
+                    boolean isShowConcernRedTip = this.f44202e.isShowConcernRedTip();
                     TiebaStatic.log(new StatisticItem("c12350").param("obj_type", isShowConcernRedTip ? 1 : 0));
-                    if (isShowConcernRedTip && this.f45886e.r != null) {
+                    if (isShowConcernRedTip && this.f44202e.r != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016325, 0));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921058));
-                        this.f45886e.r.startRedDotConcernLoad();
+                        this.f44202e.r.startRedDotConcernLoad();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921064));
                 }
-                this.f45886e.B(i2);
+                this.f44202e.B(i2);
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.f45886e.r == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.f44202e.r == null) {
                 return;
             }
-            this.f45886e.r.onPageScrolled(i2, f2, i3);
+            this.f44202e.r.onPageScrolled(i2, f2, i3);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f45886e.r == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f44202e.r == null) {
                 return;
             }
-            if (this.f45886e.s != null) {
-                this.f45886e.s.a(i2);
+            if (this.f44202e.s != null) {
+                this.f44202e.s.a(i2);
             }
-            c.a.s0.s.n.b.i().n(this.f45886e.r.getItemType(i2) == 1);
+            c.a.s0.s.n.b.i().n(this.f44202e.r.getItemType(i2) == 1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, Boolean.TRUE));
             int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
             if (i2 == 0 || i2 == 1 || (i2 == 2 && homeBarShowType == 1)) {
-                if (this.f45886e.getTabType(i2) != 1) {
+                if (this.f44202e.getTabType(i2) != 1) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
                 } else {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 6));
                 }
             }
-            this.f45886e.B(0);
-            int itemType = this.f45886e.r.getItemType(this.f45886e.f45882j.getCurrentItem());
+            this.f44202e.B(0);
+            int itemType = this.f44202e.r.getItemType(this.f44202e.f44199j.getCurrentItem());
             if (itemType == 5) {
-                if (this.f45886e.w) {
-                    this.f45886e.w = false;
+                if (this.f44202e.w) {
+                    this.f44202e.w = false;
                 } else {
                     StatisticItem statisticItem = new StatisticItem("c13740");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -318,10 +316,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                 }
             }
             if (itemType == 0) {
-                this.f45886e.dismissConcernTabTips();
+                this.f44202e.dismissConcernTabTips();
             }
-            View tabView = this.f45886e.f45879g.getTabView(0);
-            if ((tabView instanceof LinearLayout) && TbadkCoreApplication.isLogin() && c.a.s0.b.d.j()) {
+            View tabView = this.f44202e.f44196g.getTabView(0);
+            if ((tabView instanceof LinearLayout) && TbadkCoreApplication.isLogin() && c.a.s0.b.d.i()) {
                 LinearLayout linearLayout = (LinearLayout) tabView;
                 if (linearLayout.getChildCount() > 1 && (linearLayout.getChildAt(1) instanceof ImageView)) {
                     ImageView imageView = (ImageView) linearLayout.getChildAt(1);
@@ -332,45 +330,45 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     }
                 }
             }
-            if (this.f45886e.u != null && this.f45886e.r != null) {
-                int itemType2 = this.f45886e.r.getItemType(this.f45886e.f45882j.getCurrentItem());
+            if (this.f44202e.u != null && this.f44202e.r != null) {
+                int itemType2 = this.f44202e.r.getItemType(this.f44202e.f44199j.getCurrentItem());
                 if (itemType2 == 5) {
-                    this.f45886e.setScrollShadow(false);
-                    for (u uVar : this.f45886e.u) {
+                    this.f44202e.setScrollShadow(false);
+                    for (u uVar : this.f44202e.u) {
                         uVar.c();
                     }
                 } else if (itemType2 == 1) {
-                    this.f45886e.setScrollShadow(false);
-                    for (u uVar2 : this.f45886e.u) {
+                    this.f44202e.setScrollShadow(false);
+                    for (u uVar2 : this.f44202e.u) {
                         uVar2.b();
                     }
                 } else if (itemType2 == 0) {
-                    this.f45886e.setScrollShadow(false);
-                    for (u uVar3 : this.f45886e.u) {
+                    this.f44202e.setScrollShadow(false);
+                    for (u uVar3 : this.f44202e.u) {
                         uVar3.a();
                     }
                 } else if (itemType2 == 6) {
-                    this.f45886e.setScrollShadow(true);
+                    this.f44202e.setScrollShadow(true);
                 } else if (itemType2 == 7) {
-                    this.f45886e.setScrollShadow(true);
+                    this.f44202e.setScrollShadow(true);
                 } else if (itemType2 == 8) {
-                    this.f45886e.setScrollShadow(false);
+                    this.f44202e.setScrollShadow(false);
                 } else {
-                    this.f45886e.dismissShadow();
-                    this.f45886e.setScrollShadow(false);
+                    this.f44202e.dismissShadow();
+                    this.f44202e.setScrollShadow(false);
                 }
             }
-            TbadkCoreApplication.getInst().setHomeBarShowType(this.f45886e.getTabType(i2));
-            if (this.f45886e.getTabType(i2) == 5) {
+            TbadkCoreApplication.getInst().setHomeBarShowType(this.f44202e.getTabType(i2));
+            if (this.f44202e.getTabType(i2) == 5) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (TbadkCoreApplication.isLogin()) {
                     if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                         return;
                     }
-                    c.a.s0.s.g0.b.j().w(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
+                    c.a.s0.s.h0.b.k().x(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
                     return;
                 }
-                c.a.s0.s.g0.b.j().w("unlogin_hot_top_timestamp", currentTimeMillis);
+                c.a.s0.s.h0.b.k().x("unlogin_hot_top_timestamp", currentTimeMillis);
             }
         }
     }
@@ -403,10 +401,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         public void a(View view, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
-                if (this.a.getTabType(i2) == 1 || !FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.f45878f, null)) {
+                if (this.a.getTabType(i2) == 1 || !FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.f44195f, null)) {
                     this.a.x(i2);
                     int homeBarShowType = TbadkCoreApplication.getInst().getHomeBarShowType();
-                    if ((i2 == 0 || i2 == 1 || (i2 == 2 && homeBarShowType == 1)) && this.a.f45882j.getCurrentItem() != i2) {
+                    if ((i2 == 0 || i2 == 1 || (i2 == 2 && homeBarShowType == 1)) && this.a.f44199j.getCurrentItem() != i2) {
                         if (this.a.getTabType(i2) != 1) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921382, 4));
                         } else {
@@ -430,10 +428,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                                 return;
                             }
-                            c.a.s0.s.g0.b.j().w(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
+                            c.a.s0.s.h0.b.k().x(TbadkCoreApplication.getCurrentAccount(), currentTimeMillis);
                             return;
                         }
-                        c.a.s0.s.g0.b.j().w("unlogin_hot_top_timestamp", currentTimeMillis);
+                        c.a.s0.s.h0.b.k().x("unlogin_hot_top_timestamp", currentTimeMillis);
                     }
                 }
             }
@@ -505,8 +503,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     this.a.L.I();
                     this.a.L = null;
                 }
-                if (this.a.f45878f != null) {
-                    UrlManager.getInstance().dealOneLink(this.a.f45878f, new String[]{str});
+                if (this.a.f44195f != null) {
+                    UrlManager.getInstance().dealOneLink(this.a.f44195f, new String[]{str});
                 }
             }
         }
@@ -544,8 +542,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     this.a.L.I();
                     this.a.L = null;
                 }
-                if (this.a.f45878f != null) {
-                    UrlManager.getInstance().dealOneLink(this.a.f45878f, new String[]{str});
+                if (this.a.f44195f != null) {
+                    UrlManager.getInstance().dealOneLink(this.a.f44195f, new String[]{str});
                 }
             }
         }
@@ -557,7 +555,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollFragmentTabHost f45887e;
+        public final /* synthetic */ ScrollFragmentTabHost f44203e;
 
         public h(ScrollFragmentTabHost scrollFragmentTabHost) {
             Interceptable interceptable = $ic;
@@ -574,7 +572,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                     return;
                 }
             }
-            this.f45887e = scrollFragmentTabHost;
+            this.f44203e = scrollFragmentTabHost;
         }
 
         @Override // android.view.GestureDetector.OnGestureListener
@@ -593,7 +591,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                 if (Math.abs(motionEvent.getX() - motionEvent2.getX()) > 40.0f) {
-                    FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f45887e.f45878f, null);
+                    FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f44203e.f44195f, null);
                     return true;
                 }
                 return false;
@@ -836,13 +834,13 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f45882j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f44199j == null) {
                 return;
             }
             if (FullBrowseHelper.checkIsFullBrowseMode()) {
-                this.a.f45882j.setScrollable(false, this.a.x);
+                this.a.f44199j.setScrollable(false, this.a.x);
             } else {
-                this.a.f45882j.setScrollable(true);
+                this.a.f44199j.setScrollable(true);
             }
         }
     }
@@ -943,7 +941,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ImageView f45888e;
+            public final /* synthetic */ ImageView f44204e;
 
             public a(p pVar, ImageView imageView) {
                 Interceptable interceptable = $ic;
@@ -960,14 +958,14 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         return;
                     }
                 }
-                this.f45888e = imageView;
+                this.f44204e = imageView;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    this.f45888e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f44204e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
         }
@@ -978,7 +976,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ImageView f45889e;
+            public final /* synthetic */ ImageView f44205e;
 
             public b(p pVar, ImageView imageView) {
                 Interceptable interceptable = $ic;
@@ -995,14 +993,14 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         return;
                     }
                 }
-                this.f45889e = imageView;
+                this.f44205e = imageView;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    this.f45889e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f44205e.setRotationX(((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
         }
@@ -1036,7 +1034,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                 return;
             }
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            LinearLayout linearLayout = (LinearLayout) this.a.f45879g.getTabView(0);
+            LinearLayout linearLayout = (LinearLayout) this.a.f44196g.getTabView(0);
             if (intValue == 1) {
                 if ((linearLayout instanceof LinearLayout) && linearLayout.getChildCount() > 1) {
                     ImageView imageView = (ImageView) linearLayout.getChildAt(1);
@@ -1048,8 +1046,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         ofInt.start();
                     }
                 }
-                if (this.a.f45879g != null) {
-                    this.a.M.l(this.a.f45879g.getBackgroundAlpha());
+                if (this.a.f44196g != null) {
+                    this.a.M.l(this.a.f44196g.getBackgroundAlpha());
                     this.a.M.k(TbadkCoreApplication.getInst().getSkinType());
                 }
                 this.a.M.n(this.a.J);
@@ -1098,11 +1096,11 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || this.a.N == c.a.s0.b.d.j()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || this.a.N == c.a.s0.b.d.i()) {
                 return;
             }
-            this.a.f45879g.notifyDataSetChanged();
-            if (c.a.s0.b.d.j() && this.a.v) {
+            this.a.f44196g.notifyDataSetChanged();
+            if (c.a.s0.b.d.i() && this.a.v) {
                 this.a.dismissConcernTabTips();
                 this.a.showConcernTabForumTips();
             }
@@ -1142,8 +1140,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921653) {
                 this.a.r.resetAllSyncTabFragments();
-                this.a.f45882j.setAdapter(this.a.r);
-                this.a.f45879g.notifyDataSetChanged();
+                this.a.f44199j.setAdapter(this.a.r);
+                this.a.f44196g.notifyDataSetChanged();
                 this.a.setCurrentTab(1);
             }
         }
@@ -1161,10 +1159,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TextView f45890e;
+            public final /* synthetic */ TextView f44206e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f45891f;
+            public final /* synthetic */ int f44207f;
 
             public a(s sVar, TextView textView, int i2) {
                 Interceptable interceptable = $ic;
@@ -1181,15 +1179,15 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         return;
                     }
                 }
-                this.f45890e = textView;
-                this.f45891f = i2;
+                this.f44206e = textView;
+                this.f44207f = i2;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    this.f45890e.setMaxWidth(this.f45891f + ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f44206e.setMaxWidth(this.f44207f + ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
         }
@@ -1200,10 +1198,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TextView f45892e;
+            public final /* synthetic */ TextView f44208e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f45893f;
+            public final /* synthetic */ int f44209f;
 
             public b(s sVar, TextView textView, int i2) {
                 Interceptable interceptable = $ic;
@@ -1220,15 +1218,15 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         return;
                     }
                 }
-                this.f45892e = textView;
-                this.f45893f = i2;
+                this.f44208e = textView;
+                this.f44209f = i2;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    this.f45892e.setMaxWidth(this.f45893f - ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.f44208e.setMaxWidth(this.f44209f - ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
         }
@@ -1239,10 +1237,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TextView f45894e;
+            public final /* synthetic */ TextView f44210e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f45895f;
+            public final /* synthetic */ String f44211f;
 
             public c(s sVar, TextView textView, String str) {
                 Interceptable interceptable = $ic;
@@ -1259,8 +1257,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         return;
                     }
                 }
-                this.f45894e = textView;
-                this.f45895f = str;
+                this.f44210e = textView;
+                this.f44211f = str;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -1274,7 +1272,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f45894e.setText(this.f45895f);
+                    this.f44210e.setText(this.f44211f);
                 }
             }
 
@@ -1324,7 +1322,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             String string = this.a.getResources().getString(R.string.attention_person);
             String string2 = this.a.getResources().getString(R.string.attention);
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            LinearLayout linearLayout = (LinearLayout) this.a.f45879g.getTabView(0);
+            LinearLayout linearLayout = (LinearLayout) this.a.f44196g.getTabView(0);
             if (intValue == 1) {
                 if ((linearLayout instanceof LinearLayout) && linearLayout.getChildCount() > 0 && (linearLayout.getChildAt(0) instanceof TextView)) {
                     TextView textView = (TextView) linearLayout.getChildAt(0);
@@ -1340,7 +1338,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                             ofInt.start();
                         }
                     }
-                    c.a.s0.s.g0.b.j().v("key_home_concern_all_status", 1);
+                    c.a.s0.s.h0.b.k().w("key_home_concern_all_status", 1);
                 }
             } else if ((linearLayout instanceof LinearLayout) && linearLayout.getChildCount() > 0 && (linearLayout.getChildAt(0) instanceof TextView)) {
                 TextView textView2 = (TextView) linearLayout.getChildAt(0);
@@ -1356,7 +1354,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                         ofInt2.start();
                     }
                 }
-                c.a.s0.s.g0.b.j().v("key_home_concern_all_status", 0);
+                c.a.s0.s.h0.b.k().w("key_home_concern_all_status", 0);
             }
         }
     }
@@ -1392,13 +1390,13 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.r == null || customResponsedMessage == null || customResponsedMessage.getData() == null || this.a.f45879g == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.r == null || customResponsedMessage == null || customResponsedMessage.getData() == null || this.a.f44196g == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
             this.a.r.updatePersonalizePage();
             this.a.r.updateFragmentTabItems();
-            this.a.f45882j.setAdapter(this.a.r);
-            this.a.f45879g.notifyDataSetChanged();
+            this.a.f44199j.setAdapter(this.a.r);
+            this.a.f44196g.notifyDataSetChanged();
             this.a.C();
         }
     }
@@ -1492,15 +1490,15 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         CustomViewPager customViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f45878f == null || (newScrollFragmentAdapter = this.r) == null || (customViewPager = this.f45882j) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f44195f == null || (newScrollFragmentAdapter = this.r) == null || (customViewPager = this.f44199j) == null) {
             return;
         }
         String itemTabCode = newScrollFragmentAdapter.getItemTabCode(customViewPager.getCurrentItem());
         c.a.t0.o1.d.a aVar = new c.a.t0.o1.d.a();
-        aVar.f20795b = itemTabCode;
-        aVar.f20796c = i2;
+        aVar.f20237b = itemTabCode;
+        aVar.f20238c = i2;
         CustomMessage customMessage = new CustomMessage(2921652);
-        customMessage.setTag(this.f45878f.getUniqueId());
+        customMessage.setTag(this.f44195f.getUniqueId());
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921652, aVar);
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -1580,7 +1578,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            CustomViewPager customViewPager = this.f45882j;
+            CustomViewPager customViewPager = this.f44199j;
             if (customViewPager != null) {
                 return customViewPager.getCurrentItem();
             }
@@ -1610,7 +1608,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             if (newScrollFragmentAdapter == null) {
                 return 0;
             }
-            return newScrollFragmentAdapter.getItemType(this.f45882j.getCurrentItem());
+            return newScrollFragmentAdapter.getItemType(this.f44199j.getCurrentItem());
         }
         return invokeV.intValue;
     }
@@ -1618,7 +1616,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public FrameLayout getFrameLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f45881i : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44198i : (FrameLayout) invokeV.objValue;
     }
 
     public int getTabType(int i2) {
@@ -1631,8 +1629,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.r != null && this.f45882j.getAdapter() != null) {
-                int count = this.f45882j.getAdapter().getCount();
+            if (this.r != null && this.f44199j.getAdapter() != null) {
+                int count = this.f44199j.getAdapter().getCount();
                 for (int i2 = 0; i2 < count; i2++) {
                     if (this.r.getItemType(i2) == 8) {
                         return i2;
@@ -1657,8 +1655,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public void initTab(TbPageContext tbPageContext, NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, tbPageContext, bVar) == null) {
-            this.f45878f = tbPageContext;
-            this.f45880h.addNetworkChangeListener(bVar);
+            this.f44195f = tbPageContext;
+            this.f44197h.addNetworkChangeListener(bVar);
             MessageManager.getInstance().registerListener(this.A);
             MessageManager.getInstance().registerListener(this.B);
             MessageManager.getInstance().registerListener(this.F);
@@ -1669,7 +1667,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             MessageManager.getInstance().registerListener(this.z);
             this.H.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(this.H);
-            if (this.f45878f != null) {
+            if (this.f44195f != null) {
                 this.y.setPriority(Integer.MAX_VALUE);
                 MessageManager.getInstance().registerListener(this.y);
             }
@@ -1682,24 +1680,24 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         if (interceptable == null || interceptable.invokeLLL(1048593, this, fragmentManager, cVar, lVar) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.f45877e, fragmentManager, cVar, lVar);
+                NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.f44194e, fragmentManager, cVar, lVar);
                 this.r = newScrollFragmentAdapter;
                 newScrollFragmentAdapter.setScrollFragmentTabHost(this);
-                this.f45882j.setOffscreenPageLimit(1);
-                this.f45882j.setAdapter(this.r);
+                this.f44199j.setOffscreenPageLimit(1);
+                this.f44199j.setAdapter(this.r);
                 int defaultPageType = this.r.getDefaultPageType();
                 NewScrollFragmentAdapter newScrollFragmentAdapter2 = this.r;
                 if (HomePageStatic.a) {
                     defaultPageType = 0;
                 }
-                this.f45882j.setCurrentItem(newScrollFragmentAdapter2.getItemPosition(defaultPageType));
-                this.f45879g.setViewPager(this.f45882j);
-                this.f45879g.setConcernTabIndex(this.r.getItemPosition(0));
-                this.x = new GestureDetector(this.f45877e, new h(this));
+                this.f44199j.setCurrentItem(newScrollFragmentAdapter2.getItemPosition(defaultPageType));
+                this.f44196g.setViewPager(this.f44199j);
+                this.f44196g.setConcernTabIndex(this.r.getItemPosition(0));
+                this.x = new GestureDetector(this.f44194e, new h(this));
                 if (FullBrowseHelper.checkIsFullBrowseMode()) {
-                    this.f45882j.setScrollable(false, this.x);
+                    this.f44199j.setScrollable(false, this.x);
                 } else {
-                    this.f45882j.setScrollable(true);
+                    this.f44199j.setScrollable(true);
                 }
             } finally {
                 TTIStats.record("ScrollFragmentTabHost.initViewPager", System.currentTimeMillis() - currentTimeMillis);
@@ -1712,10 +1710,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f45879g == null || (newScrollFragmentAdapter = this.r) == null || !newScrollFragmentAdapter.isConcernFragmentCreate()) {
+            if (this.f44196g == null || (newScrollFragmentAdapter = this.r) == null || !newScrollFragmentAdapter.isConcernFragmentCreate()) {
                 return false;
             }
-            return this.f45879g.isShowConcernRedTip();
+            return this.f44196g.isShowConcernRedTip();
         }
         return invokeV.booleanValue;
     }
@@ -1726,7 +1724,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
             if (newScrollFragmentAdapter != null) {
-                int itemType = newScrollFragmentAdapter.getItemType(this.f45882j.getCurrentItem());
+                int itemType = newScrollFragmentAdapter.getItemType(this.f44199j.getCurrentItem());
                 if (itemType == 6) {
                     return 2;
                 }
@@ -1746,10 +1744,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         StickyAppBarLayout stickyAppBarLayout;
         HomeTabBarView homeTabBarView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (stickyAppBarLayout = this.J) == null || stickyAppBarLayout.isSticky() || (homeTabBarView = this.f45879g) == null || homeTabBarView.getTaskView() == null || this.f45879g.getTaskView().getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (stickyAppBarLayout = this.J) == null || stickyAppBarLayout.isSticky() || (homeTabBarView = this.f44196g) == null || homeTabBarView.getTaskView() == null || this.f44196g.getTaskView().getVisibility() == 0) {
             return;
         }
-        this.f45879g.logShowStatics();
+        this.f44196g.logShowStatics();
     }
 
     public void notifyDataSetChanged() {
@@ -1758,8 +1756,8 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (newScrollFragmentAdapter = this.r) == null || HomePageStatic.a) {
             return;
         }
-        this.f45882j.setAdapter(newScrollFragmentAdapter);
-        this.f45879g.notifyDataSetChanged();
+        this.f44199j.setAdapter(newScrollFragmentAdapter);
+        this.f44196g.notifyDataSetChanged();
         this.O.a(this.P);
     }
 
@@ -1787,9 +1785,9 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
             c.a.s0.s.u.c.d(this.J).o(new int[]{R.color.CAM_X0202, R.color.CAM_X0208});
             this.K.onChangeSkinType();
-            this.f45879g.onChangeSkinType();
-            TbPageContext tbPageContext = this.f45878f;
-            if (tbPageContext != null && (noNetworkView = this.f45880h) != null) {
+            this.f44196g.onChangeSkinType();
+            TbPageContext tbPageContext = this.f44195f;
+            if (tbPageContext != null && (noNetworkView = this.f44197h) != null) {
                 noNetworkView.onChangeSkinType(tbPageContext, i2);
             }
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
@@ -1800,7 +1798,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             if (bVar != null) {
                 bVar.k(i2);
             }
-            SkinManager.setBackgroundColor(this.f45883k, R.color.CAM_X0203);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0203);
             SkinManager.setBackgroundResource(this.l, R.drawable.personalize_tab_shadow);
         }
     }
@@ -1853,7 +1851,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public void onResume() {
         HomeTabBarView homeTabBarView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || (homeTabBarView = this.f45879g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || (homeTabBarView = this.f44196g) == null) {
             return;
         }
         homeTabBarView.onResume();
@@ -1892,9 +1890,9 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || i2 < 0 || (newScrollFragmentAdapter = this.r) == null || i2 >= newScrollFragmentAdapter.getCount()) {
             return;
         }
-        this.f45879g.setTabItemClicked(z);
+        this.f44196g.setTabItemClicked(z);
         this.r.setTargetItemIndex(i2);
-        this.f45882j.setCurrentItem(i2);
+        this.f44199j.setCurrentItem(i2);
     }
 
     public void setCurrentTabByCode(String str) {
@@ -1925,7 +1923,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, bdUniqueId) == null) {
-            this.f45879g.setPageUniqueId(bdUniqueId);
+            this.f44196g.setPageUniqueId(bdUniqueId);
             this.A.setTag(bdUniqueId);
             this.B.setTag(bdUniqueId);
             this.F.setTag(bdUniqueId);
@@ -1945,7 +1943,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             if (newScrollFragmentAdapter != null) {
                 newScrollFragmentAdapter.setPrimary(z);
             }
-            NoNetworkView noNetworkView = this.f45880h;
+            NoNetworkView noNetworkView = this.f44197h;
             if (noNetworkView == null || !z) {
                 return;
             }
@@ -1958,14 +1956,14 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
             this.o = z;
             if (z) {
-                View view = this.f45883k;
+                View view = this.k;
                 if (view != null) {
                     view.setVisibility(8);
                     return;
                 }
                 return;
             }
-            View view2 = this.f45883k;
+            View view2 = this.k;
             if (view2 != null) {
                 view2.setVisibility(0);
             }
@@ -1975,10 +1973,10 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public void setShowConcernRedTip(boolean z) {
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048618, this, z) == null) || this.f45879g == null || (newScrollFragmentAdapter = this.r) == null || !newScrollFragmentAdapter.isConcernFragmentCreate()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048618, this, z) == null) || this.f44196g == null || (newScrollFragmentAdapter = this.r) == null || !newScrollFragmentAdapter.isConcernFragmentCreate()) {
             return;
         }
-        this.f45879g.setShowConcernRedTip(z);
+        this.f44196g.setShowConcernRedTip(z);
     }
 
     public void setVideoThreadId(String str) {
@@ -1996,7 +1994,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
             int itemPosition = newScrollFragmentAdapter != null ? newScrollFragmentAdapter.getItemPosition(0) : 0;
             if (this.t == null) {
-                c.a.t0.k0.g gVar = new c.a.t0.k0.g(this.f45878f, this.f45879g.getTabView(itemPosition));
+                c.a.t0.k0.g gVar = new c.a.t0.k0.g(this.f44195f, this.f44196g.getTabView(itemPosition));
                 this.t = gVar;
                 gVar.g0(R.drawable.bg_tip_blue_up_left);
                 this.t.O(16);
@@ -2005,29 +2003,29 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
                 this.t.h0(true);
                 this.t.N(4000);
             }
-            this.t.m0(this.f45877e.getString(R.string.concern_tab_thread_forum_tips), "key_concern_forum_tab_tips_show");
+            this.t.m0(this.f44194e.getString(R.string.concern_tab_thread_forum_tips), "key_concern_forum_tab_tips_show");
         }
     }
 
     public void showConcernTabTips() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            if (c.a.s0.s.g0.b.j().k("key_concern_tab_tips_switch", 0) == 0) {
+            if (c.a.s0.s.h0.b.k().l("key_concern_tab_tips_switch", 0) == 0) {
                 return;
             }
             NewScrollFragmentAdapter newScrollFragmentAdapter = this.r;
             int itemPosition = newScrollFragmentAdapter != null ? newScrollFragmentAdapter.getItemPosition(0) : 0;
             if (this.t == null) {
-                c.a.t0.k0.g gVar = new c.a.t0.k0.g(this.f45878f, this.f45879g.getTabView(itemPosition));
+                c.a.t0.k0.g gVar = new c.a.t0.k0.g(this.f44195f, this.f44196g.getTabView(itemPosition));
                 this.t = gVar;
                 gVar.g0(R.drawable.bg_tip_blue_up);
                 this.t.O(32);
                 this.t.U(true);
                 this.t.h0(true);
-                this.t.k0(c.a.d.f.p.n.f(this.f45877e, R.dimen.ds16));
+                this.t.k0(c.a.d.f.p.n.f(this.f44194e, R.dimen.ds16));
                 this.t.N(4000);
             }
-            this.t.n0(this.f45877e.getString(R.string.concern_tab_thread_tips), "key_concern_tab_tips", true);
+            this.t.n0(this.f44194e.getString(R.string.concern_tab_thread_tips), "key_concern_tab_tips", true);
         }
     }
 
@@ -2071,7 +2069,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
     public void updateError(String str, int i2, int i3) {
         NewScrollFragmentAdapter newScrollFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048625, this, str, i2, i3) == null) || this.f45882j == null || (newScrollFragmentAdapter = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048625, this, str, i2, i3) == null) || this.f44199j == null || (newScrollFragmentAdapter = this.r) == null) {
             return;
         }
         newScrollFragmentAdapter.updateError(str, i2, i3);
@@ -2122,41 +2120,41 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4006);
-            this.f45877e = getContext();
+            this.f44194e = getContext();
             LayoutInflater.from(getContext()).inflate(R.layout.scroll_fragment_tabhost, (ViewGroup) this, true);
             StickyAppBarLayout stickyAppBarLayout = (StickyAppBarLayout) findViewById(R.id.app_bar_layout);
             this.J = stickyAppBarLayout;
             c.a.t0.z3.c.c(stickyAppBarLayout, 4);
             this.K = (NestedScrollHeader) findViewById(R.id.home_nested_header);
-            this.f45879g = (HomeTabBarView) findViewById(R.id.home_tab_bar_view);
-            this.f45880h = (NoNetworkView) findViewById(R.id.view_no_network);
+            this.f44196g = (HomeTabBarView) findViewById(R.id.home_tab_bar_view);
+            this.f44197h = (NoNetworkView) findViewById(R.id.view_no_network);
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.home_pager_container);
-            this.f45881i = frameLayout;
+            this.f44198i = frameLayout;
             c.a.t0.z3.c.c(frameLayout, 5);
             CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-            this.f45882j = customViewPager;
+            this.f44199j = customViewPager;
             customViewPager.setForm(1);
-            this.f45883k = findViewById(R.id.divider_line);
+            this.k = findViewById(R.id.divider_line);
             this.l = findViewById(R.id.divider_shadow);
             this.m = (TBSpecificationBtn) findViewById(R.id.homepage_test_post_btn);
             this.n = (FrameLayout) findViewById(R.id.bottom_extra_fl);
             this.m.setVisibility(8);
-            this.M = new c.a.t0.o1.c.b(this.f45877e);
-            this.N = c.a.s0.b.d.j();
+            this.M = new c.a.t0.o1.c.b(this.f44194e);
+            this.N = c.a.s0.b.d.i();
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.J.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            this.f45879g.setOnPageChangeListener(new c(this));
-            this.f45879g.setOnTabItemClickListener(new d(this));
+            this.f44196g.setOnPageChangeListener(new c(this));
+            this.f44196g.setOnTabItemClickListener(new d(this));
             this.J.setOnHeaderStickyListener(new e(this));
             this.K.setEntranceJumpListener(new f(this));
             if ((TbSingleton.getInstance().getHomePageStyleAbTest() & 1) != 0) {
                 this.K.setVisibility(8);
-                this.f45879g.setMissionEntranceVisibility(true);
-                this.f45879g.setEntranceJumpListener(new g(this));
+                this.f44196g.setMissionEntranceVisibility(true);
+                this.f44196g.setEntranceJumpListener(new g(this));
             } else {
                 this.K.setVisibility(0);
-                this.f45879g.setMissionEntranceVisibility(false);
+                this.f44196g.setMissionEntranceVisibility(false);
             }
             C();
             SpeedStatsManager.getInstance().addStatsTimeStamp(4007);

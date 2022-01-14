@@ -16,19 +16,19 @@ public class d {
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f1370b;
+    public c f1362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f1371c;
+    public volatile boolean f1363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1372d;
+    public int f1364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1373e;
+    public int f1365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1374f;
+    public int f1366f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -36,10 +36,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ byte[] f1375e;
+        public final /* synthetic */ byte[] f1367e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f1376f;
+        public final /* synthetic */ d f1368f;
 
         public a(d dVar, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class d {
                     return;
                 }
             }
-            this.f1376f = dVar;
-            this.f1375e = bArr;
+            this.f1368f = dVar;
+            this.f1367e = bArr;
         }
 
         @Override // java.lang.Runnable
@@ -65,12 +65,12 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f1376f.f1371c) {
-                        this.f1376f.f1370b.g(d.l(this.f1375e, this.f1376f.f1374f, this.f1376f.f1373e));
+                    if (this.f1368f.f1363c) {
+                        this.f1368f.f1362b.g(d.l(this.f1367e, this.f1368f.f1366f, this.f1368f.f1365e));
                         return;
                     }
-                    this.f1376f.d(this.f1375e, this.f1376f.f1372d);
-                    this.f1376f.f1370b.g(d.h(this.f1375e, this.f1376f.f1374f, this.f1376f.f1373e));
+                    this.f1368f.d(this.f1367e, this.f1368f.f1364d);
+                    this.f1368f.f1362b.g(d.h(this.f1367e, this.f1368f.f1366f, this.f1368f.f1365e));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -84,7 +84,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f1377e;
+        public final /* synthetic */ d f1369e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class d {
                     return;
                 }
             }
-            this.f1377e = dVar;
+            this.f1369e = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -109,12 +109,12 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f1377e.a != null) {
-                        this.f1377e.a.shutdown();
-                        this.f1377e.a.awaitTermination(3000L, TimeUnit.MILLISECONDS);
+                    if (this.f1369e.a != null) {
+                        this.f1369e.a.shutdown();
+                        this.f1369e.a.awaitTermination(3000L, TimeUnit.MILLISECONDS);
                     }
-                    if (this.f1377e.f1370b != null) {
-                        this.f1377e.f1370b.c();
+                    if (this.f1369e.f1362b != null) {
+                        this.f1369e.f1362b.c();
                     }
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -136,7 +136,7 @@ public class d {
                 return;
             }
         }
-        this.f1370b = new c();
+        this.f1362b = new c();
     }
 
     public static byte[] h(byte[] bArr, int i2, int i3) {
@@ -220,7 +220,7 @@ public class d {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f1371c = z;
+            this.f1363c = z;
         }
     }
 
@@ -255,16 +255,16 @@ public class d {
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str})) != null) {
             return invokeCommon.booleanValue;
         }
-        this.f1372d = i4;
-        this.f1373e = i2;
-        this.f1374f = i3;
+        this.f1364d = i4;
+        this.f1365e = i2;
+        this.f1366f = i3;
         if (i4 != 17) {
             i8 = i4 == 842094169 ? 19 : 19;
             return false;
         }
         i8 = 21;
         try {
-            this.f1370b.d(i2, i3, i8, i5, i6, i7, str);
+            this.f1362b.d(i2, i3, i8, i5, i6, i7, str);
             this.a = Executors.newSingleThreadExecutor();
             return true;
         } catch (Exception e2) {

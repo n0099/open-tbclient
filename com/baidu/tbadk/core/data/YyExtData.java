@@ -20,6 +20,7 @@ public class YyExtData implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isYyGame;
     public String liveId;
+    public String mIconUrl;
     public String mRankShow;
     public String mSid;
     public String mSsid;
@@ -116,6 +117,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mYyUid = yyExt.yy_uid;
         this.isYyGame = yyExt.is_yy_game.intValue() == 1;
         this.mRankShow = yyExt.rank_show;
+        this.mIconUrl = yyExt.icon_url;
         this.streamInfo = yyExt.stream_info;
     }
 
@@ -130,6 +132,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mYyUid = jSONObject.optString("yy_uid");
         this.isYyGame = jSONObject.optInt("is_yy_game") == 1;
         this.mRankShow = jSONObject.optString("rank_show");
+        this.mIconUrl = jSONObject.optString("icon_url");
         this.streamInfo = jSONObject.optString("stream_info");
     }
 
@@ -143,6 +146,7 @@ public class YyExtData implements Serializable, Parcelable {
             parcel.writeString(this.mYyUid);
             parcel.writeByte(this.isYyGame ? (byte) 1 : (byte) 0);
             parcel.writeString(this.mRankShow);
+            parcel.writeString(this.mIconUrl);
             parcel.writeString(this.streamInfo);
         }
     }
@@ -168,6 +172,7 @@ public class YyExtData implements Serializable, Parcelable {
         this.mYyUid = parcel.readString();
         this.isYyGame = parcel.readByte() == 1;
         this.mRankShow = parcel.readString();
+        this.mIconUrl = parcel.readString();
         this.streamInfo = parcel.readString();
     }
 }

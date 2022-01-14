@@ -14,6 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,20 +33,20 @@ public final class i {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f27662b;
+    public static String f26830b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f27663c;
+    public static String f26831c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f27663c)) {
+            if (TextUtils.isEmpty(f26831c)) {
                 k(c.a.y0.a.c.h().getContext());
             }
-            return f27663c;
+            return f26831c;
         }
         return (String) invokeV.objValue;
     }
@@ -131,7 +132,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                return Settings.System.getString(context.getContentResolver(), "android_id");
+                return Settings.System.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Exception e2) {
                 c.a.y0.a.f.i.d(e2);
                 return "NA";
@@ -260,8 +261,8 @@ public final class i {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             a = String.valueOf(displayMetrics.widthPixels);
-            f27662b = String.valueOf(displayMetrics.heightPixels);
-            f27663c = String.valueOf(displayMetrics.density);
+            f26830b = String.valueOf(displayMetrics.heightPixels);
+            f26831c = String.valueOf(displayMetrics.density);
         }
     }
 
@@ -295,10 +296,10 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (TextUtils.isEmpty(f27662b)) {
+            if (TextUtils.isEmpty(f26830b)) {
                 k(c.a.y0.a.c.h().getContext());
             }
-            return f27662b;
+            return f26830b;
         }
         return (String) invokeV.objValue;
     }

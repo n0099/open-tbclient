@@ -14,7 +14,7 @@ public class a {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4774b;
+    public static String f4671b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -31,8 +31,8 @@ public class a {
             if (!c.a.p0.b.a.h(context).e()) {
                 return k.c(String.valueOf(-1000), z2);
             }
-            if (z && !TextUtils.isEmpty(f4774b)) {
-                return f4774b;
+            if (z && !TextUtils.isEmpty(f4671b)) {
+                return f4671b;
             }
             if (c.a.p0.b.a.h(context).c()) {
                 str = c.a.p0.d.a.b(context);
@@ -53,7 +53,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return k.c(String.valueOf(-1003), z2);
             }
-            f4774b = str;
+            f4671b = str;
             return str;
         }
         return (String) invokeCommon.objValue;

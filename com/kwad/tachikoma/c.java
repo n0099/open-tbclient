@@ -28,10 +28,10 @@ public class c extends g {
     public TKConfigResultData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f60395b;
+    public final AtomicBoolean f58105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f60396c;
+    public volatile boolean f58106c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class c extends g {
                 return;
             }
         }
-        this.f60395b = new AtomicBoolean(false);
+        this.f58105b = new AtomicBoolean(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,13 +61,13 @@ public class c extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             i.c("ad_client_apm_log", new CommercialAction.TKDownloadMsg().setDownloadState(0));
-            com.kwad.tachikoma.kwai.a.a(context, new a.InterfaceC2134a(this, context) { // from class: com.kwad.tachikoma.c.2
+            com.kwad.tachikoma.kwai.a.a(context, new a.InterfaceC2151a(this, context) { // from class: com.kwad.tachikoma.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f60397b;
+                public final /* synthetic */ c f58107b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,11 +84,11 @@ public class c extends g {
                             return;
                         }
                     }
-                    this.f60397b = this;
+                    this.f58107b = this;
                     this.a = context;
                 }
 
-                @Override // com.kwad.tachikoma.kwai.a.InterfaceC2134a
+                @Override // com.kwad.tachikoma.kwai.a.InterfaceC2151a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -98,32 +98,32 @@ public class c extends g {
                                 com.kwad.a.b.a(this.a, "kwad-fb");
                                 try {
                                     com.kwad.a.b.a(this.a, "kwad-yoga");
-                                    this.f60397b.f60395b.set(true);
+                                    this.f58107b.f58105b.set(true);
                                     com.kwai.sodler.lib.a.b("TachikomaPluginImpl", "loadSo success");
-                                    this.f60397b.c(KsAdSDKImpl.get().getContext());
+                                    this.f58107b.c(KsAdSDKImpl.get().getContext());
                                 } catch (Throwable th) {
-                                    c cVar = this.f60397b;
+                                    c cVar = this.f58107b;
                                     cVar.a("kwad-yoga" + th.getMessage());
                                 }
                             } catch (Throwable th2) {
                                 com.kwai.sodler.lib.a.b("TachikomaPluginImpl", "loadSo fail:kwad-fb" + th2.getMessage());
-                                c cVar2 = this.f60397b;
+                                c cVar2 = this.f58107b;
                                 cVar2.a("kwad-fb" + th2.getMessage());
                             }
                         } catch (Throwable th3) {
                             com.kwai.sodler.lib.a.b("TachikomaPluginImpl", "loadSo fail:kwad-j2v8" + th3.getMessage());
-                            c cVar3 = this.f60397b;
+                            c cVar3 = this.f58107b;
                             cVar3.a("kwad-j2v8" + th3.getMessage());
                         }
                     }
                 }
 
-                @Override // com.kwad.tachikoma.kwai.a.InterfaceC2134a
+                @Override // com.kwad.tachikoma.kwai.a.InterfaceC2151a
                 public void a(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                        this.f60397b.f60395b.set(false);
-                        this.f60397b.a(String.valueOf(i2));
+                        this.f58107b.f58105b.set(false);
+                        this.f58107b.a(String.valueOf(i2));
                     }
                 }
             });
@@ -159,8 +159,8 @@ public class c extends g {
                 if (context == null) {
                     return;
                 }
-                if (this.f60396c) {
-                    this.f60396c = true;
+                if (this.f58106c) {
+                    this.f58106c = true;
                     return;
                 }
                 com.kwad.tachikoma.config.b.a(context, new b.a(this) { // from class: com.kwad.tachikoma.c.1
@@ -227,8 +227,8 @@ public class c extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             TKConfigResultData tKConfigResultData = this.a;
-            boolean z = tKConfigResultData != null && tKConfigResultData.data.f60401e != -1 && com.kwad.tachikoma.config.b.b() && this.f60395b.get();
-            com.kwai.sodler.lib.a.b("TachikomaPluginImpl", "Tachikoma isReady:" + z + ", sIsTkSoLoaded:" + this.f60395b + ",loadFinish:" + com.kwad.tachikoma.config.b.b());
+            boolean z = tKConfigResultData != null && tKConfigResultData.data.f58111e != -1 && com.kwad.tachikoma.config.b.b() && this.f58105b.get();
+            com.kwai.sodler.lib.a.b("TachikomaPluginImpl", "Tachikoma isReady:" + z + ", sIsTkSoLoaded:" + this.f58105b + ",loadFinish:" + com.kwad.tachikoma.config.b.b());
             return z;
         }
         return invokeV.booleanValue;
@@ -246,6 +246,6 @@ public class c extends g {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.tachikoma.config.b.a() != null ? com.kwad.tachikoma.config.b.a().data.f60398b : "0.0.1" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.tachikoma.config.b.a() != null ? com.kwad.tachikoma.config.b.a().data.f58108b : "0.0.1" : (String) invokeV.objValue;
     }
 }

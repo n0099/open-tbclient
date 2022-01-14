@@ -12,46 +12,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.kuaishou.weapon.un.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f39821b;
+        public static final a f38503b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f39822c;
+        public static final a f38504c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f39823d;
+        public static final a f38505d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f39824e;
+        public static final a f38506e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f39825f;
+        public static final a f38507f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f39826g;
+        public static final a f38508g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f39827h;
+        public static final a f38509h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f39828i;
+        public static final a f38510i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final a f39829j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public static final a f39830k;
+        public static final a f38511j;
+        public static final a k;
         public static final a l;
         public static final /* synthetic */ a[] o;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,19 +70,19 @@ public final class b {
                 }
             }
             a = new a("UNSUPPORT", 0, -1, "unsupport");
-            f39821b = new a("HUA_WEI", 1, 0, "HUAWEI");
-            f39822c = new a("XIAOMI", 2, 1, "Xiaomi");
-            f39823d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-            f39824e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-            f39825f = new a("MOTO", 5, 4, "motorola");
-            f39826g = new a("LENOVO", 6, 5, "lenovo");
-            f39827h = new a("ASUS", 7, 6, "asus");
-            f39828i = new a(g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
-            f39829j = new a("MEIZU", 9, 8, "meizu");
-            f39830k = new a("ALPS", 10, 9, "alps");
+            f38503b = new a("HUA_WEI", 1, 0, "HUAWEI");
+            f38504c = new a("XIAOMI", 2, 1, "Xiaomi");
+            f38505d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+            f38506e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+            f38507f = new a("MOTO", 5, 4, "motorola");
+            f38508g = new a("LENOVO", 6, 5, "lenovo");
+            f38509h = new a("ASUS", 7, 6, "asus");
+            f38510i = new a(g.f55062j, 8, 7, ManufacturerUtils.SAMSUNG);
+            f38511j = new a("MEIZU", 9, 8, "meizu");
+            k = new a("ALPS", 10, 9, "alps");
             a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
             l = aVar;
-            o = new a[]{a, f39821b, f39822c, f39823d, f39824e, f39825f, f39826g, f39827h, f39828i, f39829j, f39830k, aVar};
+            o = new a[]{a, f38503b, f38504c, f38505d, f38506e, f38507f, f38508g, f38509h, f38510i, f38511j, k, aVar};
         }
 
         public a(String str, int i2, int i3, String str2) {

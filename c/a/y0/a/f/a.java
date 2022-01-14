@@ -18,28 +18,28 @@ public final class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27678b;
+    public static boolean f26846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static StringBuffer f27679c;
+    public static StringBuffer f26847c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.y0.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1592a extends c {
+    public static class C1608a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f27680e;
+        public final /* synthetic */ String f26848e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f27681f;
+        public final /* synthetic */ String f26849f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f27682g;
+        public final /* synthetic */ String f26850g;
 
-        public C1592a(String str, String str2, String str3) {
+        public C1608a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,9 +54,9 @@ public final class a {
                     return;
                 }
             }
-            this.f27680e = str;
-            this.f27681f = str2;
-            this.f27682g = str3;
+            this.f26848e = str;
+            this.f26849f = str2;
+            this.f26850g = str3;
         }
 
         @Override // c.a.y0.a.f.c
@@ -68,12 +68,12 @@ public final class a {
                 simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
                 stringBuffer.append(simpleDateFormat.format(new Date()));
                 stringBuffer.append("\t");
-                stringBuffer.append(this.f27680e);
+                stringBuffer.append(this.f26848e);
                 stringBuffer.append("\t");
-                stringBuffer.append(this.f27681f);
+                stringBuffer.append(this.f26849f);
                 stringBuffer.append("\t");
-                stringBuffer.append(this.f27682g);
-                f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f52305c, a.f27679c.toString());
+                stringBuffer.append(this.f26850g);
+                f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f50284c, a.f26847c.toString());
             }
         }
     }
@@ -91,21 +91,21 @@ public final class a {
                 return;
             }
         }
-        f27679c = new StringBuffer();
+        f26847c = new StringBuffer();
         if (c.a.y0.a.c.h() != null) {
             a = !com.baidu.ubs.analytics.d.a.a();
-            f27678b = true;
-            f27679c.append("ABsdkLog-");
-            f27679c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            f27679c.append("_");
+            f26846b = true;
+            f26847c.append("ABsdkLog-");
+            f26847c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            f26847c.append("_");
             try {
-                f27679c.append(c(c.a.y0.a.e.i.g(c.a.y0.a.c.h().getContext()).getBytes("UTF-8")));
+                f26847c.append(c(c.a.y0.a.e.i.g(c.a.y0.a.c.h().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e2) {
                 i.d(e2);
             } catch (Exception e3) {
                 i.d(e3);
             }
-            f27679c.append(".log");
+            f26847c.append(".log");
         }
     }
 
@@ -147,14 +147,14 @@ public final class a {
 
     public static void d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && f27678b) {
-            b.a(new C1592a(str, str2, str3));
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && f26846b) {
+            b.a(new C1608a(str, str2, str3));
         }
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f27679c.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f26847c.toString() : (String) invokeV.objValue;
     }
 }

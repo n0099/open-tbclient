@@ -84,5 +84,7 @@ public interface IVideoUpdateStrategy {
 
     boolean f();
 
-    int g();
+    boolean g();
+
+    int h();
 }

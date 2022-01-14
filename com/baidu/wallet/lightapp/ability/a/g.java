@@ -47,10 +47,10 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
     public Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f53364b;
+    public boolean f51315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LocationProvider f53365c;
+    public LocationProvider f51316c;
 
     /* loaded from: classes13.dex */
     public static class a implements LocationListener {
@@ -59,19 +59,19 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
         public final ILightappInvokerCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f53375b;
+        public final String f51326b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LocationManager f53376c;
+        public final LocationManager f51327c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ArrayList<String> f53377d;
+        public final ArrayList<String> f51328d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final NativeAbilityNewLocationModel f53378e;
+        public final NativeAbilityNewLocationModel f51329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f53379f;
+        public Context f51330f;
 
         public a(Context context, ILightappInvokerCallback iLightappInvokerCallback, String str, LocationManager locationManager, ArrayList<String> arrayList, NativeAbilityNewLocationModel nativeAbilityNewLocationModel) {
             Interceptable interceptable = $ic;
@@ -88,12 +88,12 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                     return;
                 }
             }
-            this.f53379f = context;
+            this.f51330f = context;
             this.a = iLightappInvokerCallback;
-            this.f53375b = str;
-            this.f53376c = locationManager;
-            this.f53377d = arrayList;
-            this.f53378e = nativeAbilityNewLocationModel;
+            this.f51326b = str;
+            this.f51327c = locationManager;
+            this.f51328d = arrayList;
+            this.f51329e = nativeAbilityNewLocationModel;
         }
 
         @Override // android.location.LocationListener
@@ -101,14 +101,14 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
                 if (location != null) {
-                    NativeAbilityNewLocationModel nativeAbilityNewLocationModel = this.f53378e;
+                    NativeAbilityNewLocationModel nativeAbilityNewLocationModel = this.f51329e;
                     nativeAbilityNewLocationModel.result = 0;
                     nativeAbilityNewLocationModel.cnt.data.latitude = location.getLatitude();
-                    this.f53378e.cnt.data.longitude = location.getLongitude();
-                    Bundle a = com.baidu.wallet.lightapp.ability.b.a.a().a(this.f53379f, JsonUtils.toJson(this.f53378e.cnt.data));
-                    this.f53378e.cnt.aesdata = a.getString("aesContent");
-                    this.f53378e.cnt.aeskey = a.getString("aesKey");
-                    NativeAbilityNewLocationModel nativeAbilityNewLocationModel2 = this.f53378e;
+                    this.f51329e.cnt.data.longitude = location.getLongitude();
+                    Bundle a = com.baidu.wallet.lightapp.ability.b.a.a().a(this.f51330f, JsonUtils.toJson(this.f51329e.cnt.data));
+                    this.f51329e.cnt.aesdata = a.getString("aesContent");
+                    this.f51329e.cnt.aeskey = a.getString("aesKey");
+                    NativeAbilityNewLocationModel nativeAbilityNewLocationModel2 = this.f51329e;
                     nativeAbilityNewLocationModel2.cnt.data = null;
                     this.a.onResult(0, nativeAbilityNewLocationModel2.toJson());
                 } else {
@@ -118,7 +118,7 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                     data.des = "定位失败";
                     this.a.onResult(1, nativeAbilityErrorModel.toJson());
                 }
-                this.f53376c.removeUpdates(this);
+                this.f51327c.removeUpdates(this);
             }
         }
 
@@ -163,8 +163,8 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
             }
         }
         this.a = null;
-        this.f53364b = false;
-        this.f53365c = LocationProvider.HOST;
+        this.f51315b = false;
+        this.f51316c = LocationProvider.HOST;
     }
 
     @Override // com.baidu.wallet.lightapp.ability.a
@@ -200,25 +200,25 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
     public void a(Activity activity, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iLightappInvokerCallback, str2) == null) {
-            if (PermissionManager.checkCallingPermission(activity, s.f57423g)) {
+            if (PermissionManager.checkCallingPermission(activity, s.f55246g)) {
                 a((Context) activity, str, iLightappInvokerCallback, str2);
             } else {
-                BaiduWalletUtils.requestPermissionsDialog(null, activity, new String[]{s.f57423g}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity, str, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.ability.a.g.1
+                BaiduWalletUtils.requestPermissionsDialog(null, activity, new String[]{s.f55246g}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity, str, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.ability.a.g.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Activity a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f53366b;
+                    public final /* synthetic */ String f51317b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ ILightappInvokerCallback f53367c;
+                    public final /* synthetic */ ILightappInvokerCallback f51318c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f53368d;
+                    public final /* synthetic */ String f51319d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ g f53369e;
+                    public final /* synthetic */ g f51320e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -235,11 +235,11 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                 return;
                             }
                         }
-                        this.f53369e = this;
+                        this.f51320e = this;
                         this.a = activity;
-                        this.f53366b = str;
-                        this.f53367c = iLightappInvokerCallback;
-                        this.f53368d = str2;
+                        this.f51317b = str;
+                        this.f51318c = iLightappInvokerCallback;
+                        this.f51319d = str2;
                     }
 
                     @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -275,7 +275,7 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeL(1048576, this, list) == null) {
                                             AnonymousClass1 anonymousClass1 = this.a;
-                                            anonymousClass1.f53369e.b(anonymousClass1.a, anonymousClass1.f53368d, null, anonymousClass1.f53367c);
+                                            anonymousClass1.f51320e.b(anonymousClass1.a, anonymousClass1.f51319d, null, anonymousClass1.f51318c);
                                         }
                                     }
 
@@ -284,12 +284,12 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                                             AnonymousClass1 anonymousClass1 = this.a;
-                                            anonymousClass1.f53369e.a((Context) anonymousClass1.a, anonymousClass1.f53366b, anonymousClass1.f53367c, anonymousClass1.f53368d);
+                                            anonymousClass1.f51320e.a((Context) anonymousClass1.a, anonymousClass1.f51317b, anonymousClass1.f51318c, anonymousClass1.f51319d);
                                         }
                                     }
-                                }, s.f57423g);
+                                }, s.f55246g);
                             } else {
-                                this.f53369e.b(this.a, this.f53368d, null, this.f53367c);
+                                this.f51320e.b(this.a, this.f51319d, null, this.f51318c);
                             }
                         }
                     }
@@ -323,13 +323,13 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f53370b;
+                public final /* synthetic */ ILightappInvokerCallback f51321b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Context f53371c;
+                public final /* synthetic */ Context f51322c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ g f53372d;
+                public final /* synthetic */ g f51323d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -346,10 +346,10 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                             return;
                         }
                     }
-                    this.f53372d = this;
+                    this.f51323d = this;
                     this.a = str2;
-                    this.f53370b = iLightappInvokerCallback;
-                    this.f53371c = context;
+                    this.f51321b = iLightappInvokerCallback;
+                    this.f51322c = context;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -367,7 +367,7 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                             public final /* synthetic */ NativeAbilityNewLocationModel a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f53373b;
+                            public final /* synthetic */ AnonymousClass2 f51324b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -384,7 +384,7 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                         return;
                                     }
                                 }
-                                this.f53373b = this;
+                                this.f51324b = this;
                                 this.a = nativeAbilityNewLocationModel;
                             }
 
@@ -392,10 +392,10 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                             public void onReceiveLocation(Object obj) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, obj) == null) {
-                                    AnonymousClass2 anonymousClass2 = this.f53373b;
-                                    ILightappInvokerCallback iLightappInvokerCallback2 = anonymousClass2.f53370b;
+                                    AnonymousClass2 anonymousClass2 = this.f51324b;
+                                    ILightappInvokerCallback iLightappInvokerCallback2 = anonymousClass2.f51321b;
                                     if (iLightappInvokerCallback2 instanceof NativeAbilityInvoker.NativeAbilityInvokerCallback) {
-                                        ((NativeAbilityInvoker.NativeAbilityInvokerCallback) iLightappInvokerCallback2).addStatics(anonymousClass2.f53372d.f53365c.name());
+                                        ((NativeAbilityInvoker.NativeAbilityInvokerCallback) iLightappInvokerCallback2).addStatics(anonymousClass2.f51323d.f51316c.name());
                                     }
                                     if (obj != null && (obj instanceof LightAppLocationModel)) {
                                         NativeAbilityNewLocationModel nativeAbilityNewLocationModel2 = this.a;
@@ -404,46 +404,46 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                         LightAppLocationModel.Coords coords = ((LightAppLocationModel) obj).coords;
                                         loc.latitude = coords.latitude;
                                         loc.longitude = coords.longitude;
-                                        Bundle a2 = com.baidu.wallet.lightapp.ability.b.a.a().a(this.f53373b.f53371c, JsonUtils.toJson(this.a.cnt.data));
+                                        Bundle a2 = com.baidu.wallet.lightapp.ability.b.a.a().a(this.f51324b.f51322c, JsonUtils.toJson(this.a.cnt.data));
                                         this.a.cnt.aesdata = a2.getString("aesContent");
                                         this.a.cnt.aeskey = a2.getString("aesKey");
                                         NativeAbilityNewLocationModel nativeAbilityNewLocationModel3 = this.a;
                                         nativeAbilityNewLocationModel3.cnt.data = null;
-                                        this.f53373b.f53370b.onResult(0, nativeAbilityNewLocationModel3.toJson());
+                                        this.f51324b.f51321b.onResult(0, nativeAbilityNewLocationModel3.toJson());
                                         return;
                                     }
                                     NativeAbilityErrorModel nativeAbilityErrorModel = new NativeAbilityErrorModel(1);
                                     NativeAbilityErrorModel.Data data = nativeAbilityErrorModel.cnt;
                                     data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                                     data.des = "定位失败";
-                                    this.f53373b.f53370b.onResult(1, nativeAbilityErrorModel.toJson());
+                                    this.f51324b.f51321b.onResult(1, nativeAbilityErrorModel.toJson());
                                 }
                             }
                         };
                         if (LightAppWrapper.getInstance().getCurrentLocation(iLocationCallback)) {
                             return;
                         }
-                        this.f53372d.f53365c = LocationProvider.OWN;
-                        if (!this.f53372d.f53364b) {
+                        this.f51323d.f51316c = LocationProvider.OWN;
+                        if (!this.f51323d.f51315b) {
                             try {
                                 try {
-                                    this.f53372d.a = Class.forName("com.baidu.wallet.locationsdk.LocationInvoker").getDeclaredMethod("getLocation", Context.class, InvocationHandler.class);
+                                    this.f51323d.a = Class.forName("com.baidu.wallet.locationsdk.LocationInvoker").getDeclaredMethod("getLocation", Context.class, InvocationHandler.class);
                                 } finally {
-                                    this.f53372d.f53364b = true;
+                                    this.f51323d.f51315b = true;
                                 }
                             } catch (Throwable unused2) {
                                 LogUtil.d("InvokeLocatonLib", "lib reflect fail");
                             }
                         }
-                        if (this.f53372d.a != null) {
+                        if (this.f51323d.a != null) {
                             try {
-                                this.f53372d.a.invoke(null, this.f53371c, new InvocationHandler(this, iLocationCallback) { // from class: com.baidu.wallet.lightapp.ability.a.g.2.2
+                                this.f51323d.a.invoke(null, this.f51322c, new InvocationHandler(this, iLocationCallback) { // from class: com.baidu.wallet.lightapp.ability.a.g.2.2
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ ILocationCallback a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass2 f53374b;
+                                    public final /* synthetic */ AnonymousClass2 f51325b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -460,7 +460,7 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                                 return;
                                             }
                                         }
-                                        this.f53374b = this;
+                                        this.f51325b = this;
                                         this.a = iLocationCallback;
                                     }
 
@@ -493,8 +493,8 @@ public class g extends com.baidu.wallet.lightapp.ability.b {
                                 return;
                             }
                         }
-                        this.f53372d.f53365c = LocationProvider.SYSTEM;
-                        this.f53372d.a(this.f53371c, this.a, nativeAbilityNewLocationModel, this.f53370b);
+                        this.f51323d.f51316c = LocationProvider.SYSTEM;
+                        this.f51323d.a(this.f51322c, this.a, nativeAbilityNewLocationModel, this.f51321b);
                         com.baidu.wallet.core.utils.LogUtil.d("InvokeLocatonLib", "systme location lib invoke");
                     }
                 }

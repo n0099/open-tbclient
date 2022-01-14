@@ -20,10 +20,10 @@ public class s0 {
     public UserData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AntiData f13809b;
+    public AntiData f13496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f13810c;
+    public ArrayList<String> f13497c;
 
     public s0() {
         Interceptable interceptable = $ic;
@@ -38,17 +38,17 @@ public class s0 {
                 return;
             }
         }
-        this.f13810c = null;
+        this.f13497c = null;
         this.a = new UserData();
-        this.f13809b = new AntiData();
-        this.f13810c = new ArrayList<>();
+        this.f13496b = new AntiData();
+        this.f13497c = new ArrayList<>();
         e(0);
     }
 
     public AntiData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13809b : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13496b : (AntiData) invokeV.objValue;
     }
 
     public UserData b() {
@@ -73,11 +73,11 @@ public class s0 {
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             try {
                 this.a.parserJson(jSONObject.optJSONObject("user"));
-                this.f13809b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+                this.f13496b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
                 JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
                 if (optJSONArray != null) {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        this.f13810c.add(optJSONArray.optString(i2, null));
+                        this.f13497c.add(optJSONArray.optString(i2, null));
                     }
                 }
                 e(jSONObject.optInt("retrytime"));

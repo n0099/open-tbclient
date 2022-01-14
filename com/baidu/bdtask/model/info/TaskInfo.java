@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -90,7 +91,7 @@ public final class TaskInfo implements ITaskModelData {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TaskInfo() {
-        this(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null);
+        this(null, null, 0, null, 0, null, null, null, null, null, null, RevenueServerConst.GetUserCouponStoreResponse, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -5,7 +5,7 @@ import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import c.a.t0.k.g;
 import c.a.t0.k.j;
@@ -36,10 +36,10 @@ public class e {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f19099b;
+        public final /* synthetic */ h f18614b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f19100c;
+        public final /* synthetic */ boolean f18615c;
 
         public a(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class e {
                 }
             }
             this.a = tbPageContext;
-            this.f19099b = hVar;
-            this.f19100c = z;
+            this.f18614b = hVar;
+            this.f18615c = z;
         }
 
         @Override // c.a.t0.k.j.h
@@ -66,25 +66,25 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 if (l.A()) {
-                    e.e(jSONArray, this.f19099b.a(), this.f19099b.b(), this.f19100c);
+                    e.e(jSONArray, this.f18614b.a(), this.f18614b.b(), this.f18615c);
                 } else {
-                    n.L(this.a.getContext(), R.string.neterror);
+                    n.M(this.a.getContext(), R.string.neterror);
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements g.InterfaceC1145g {
+    public static class b implements g.InterfaceC1159g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f19101b;
+        public final /* synthetic */ h f18616b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f19102c;
+        public final /* synthetic */ boolean f18617c;
 
         public b(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -102,18 +102,18 @@ public class e {
                 }
             }
             this.a = tbPageContext;
-            this.f19101b = hVar;
-            this.f19102c = z;
+            this.f18616b = hVar;
+            this.f18617c = z;
         }
 
-        @Override // c.a.t0.k.g.InterfaceC1145g
+        @Override // c.a.t0.k.g.InterfaceC1159g
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 if (l.A()) {
-                    e.e(jSONArray, this.f19101b.a(), this.f19101b.b(), this.f19102c);
+                    e.e(jSONArray, this.f18616b.a(), this.f18616b.b(), this.f18617c);
                 } else {
-                    n.L(this.a.getContext(), R.string.neterror);
+                    n.M(this.a.getContext(), R.string.neterror);
                 }
             }
         }
@@ -141,7 +141,7 @@ public class e {
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<d2> g2 = c.a.t0.d1.b.f().g();
+        List<e2> g2 = c.a.t0.d1.b.f().g();
         for (int i3 = 0; i3 < g2.size(); i3++) {
             if (g2.get(i3) != null) {
                 jSONArray.put(g2.get(i3).v1());
@@ -190,7 +190,7 @@ public class e {
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<d2> g2 = c.a.t0.d1.b.f().g();
+        List<e2> g2 = c.a.t0.d1.b.f().g();
         for (int i3 = 0; i3 < g2.size(); i3++) {
             if (g2.get(i3) != null) {
                 jSONArray.put(g2.get(i3).v1());
@@ -228,19 +228,19 @@ public class e {
         }
     }
 
-    public static void e(JSONArray jSONArray, ForumManageModel forumManageModel, d2 d2Var, boolean z) {
+    public static void e(JSONArray jSONArray, ForumManageModel forumManageModel, e2 e2Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONArray, forumManageModel, d2Var, Boolean.valueOf(z)}) == null) || forumManageModel == null || d2Var == null || d2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONArray, forumManageModel, e2Var, Boolean.valueOf(z)}) == null) || forumManageModel == null || e2Var == null || e2Var.J() == null) {
             return;
         }
-        String userId = d2Var.J().getUserId();
-        String g0 = d2Var.g0();
-        String a0 = d2Var.a0();
-        String valueOf = String.valueOf(d2Var.U());
+        String userId = e2Var.J().getUserId();
+        String g0 = e2Var.g0();
+        String a0 = e2Var.a0();
+        String valueOf = String.valueOf(e2Var.U());
         boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
         if (jSONArray != null) {
             forumManageModel.R(StringHelper.JsonArrayToString(jSONArray));
         }
-        forumManageModel.S(valueOf, a0, g0, null, 0, 1, isCurrentAccount, d2Var.L(), z);
+        forumManageModel.S(valueOf, a0, g0, null, 0, 1, isCurrentAccount, e2Var.L(), z);
     }
 }

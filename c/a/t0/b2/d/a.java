@@ -37,7 +37,7 @@ public class a extends m {
         }
         this.m = false;
         this.l = 3;
-        this.f14538k = new PbLocationInfoContainer(context);
+        this.k = new PbLocationInfoContainer(context);
         this.n = new int[]{20, 19};
     }
 
@@ -62,13 +62,13 @@ public class a extends m {
         }
         this.m = false;
         this.l = 3;
-        this.f14538k = new PbLocationInfoContainer(context);
+        this.k = new PbLocationInfoContainer(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, n.f(getContext(), R.dimen.ds48));
         ((LinearLayout.LayoutParams) layoutParams).leftMargin = n.f(getContext(), R.dimen.ds32);
         ((LinearLayout.LayoutParams) layoutParams).rightMargin = n.f(getContext(), R.dimen.ds32);
         ((LinearLayout.LayoutParams) layoutParams).bottomMargin = n.f(getContext(), R.dimen.ds21);
         ((LinearLayout.LayoutParams) layoutParams).topMargin = n.f(getContext(), R.dimen.ds21);
-        ((PbLocationInfoContainer) this.f14538k).setLayoutParams(layoutParams);
+        ((PbLocationInfoContainer) this.k).setLayoutParams(layoutParams);
         this.n = new int[]{20, 19};
     }
 }

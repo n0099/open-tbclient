@@ -20,41 +20,41 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f60310b;
+    public h f58020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f60311c;
+    public j f58021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f60312d;
+    public i f58022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f60313e;
+    public float f58023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z.a f60314f;
+    public final z.a f58024f;
 
     public KSRelativeLayout(@NonNull Context context) {
         super(context);
         this.a = new AtomicBoolean(true);
-        this.f60313e = 0.0f;
-        this.f60314f = new z.a();
+        this.f58023e = 0.0f;
+        this.f58024f = new z.a();
         a(context, null);
     }
 
     public KSRelativeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = new AtomicBoolean(true);
-        this.f60313e = 0.0f;
-        this.f60314f = new z.a();
+        this.f58023e = 0.0f;
+        this.f58024f = new z.a();
         a(context, attributeSet);
     }
 
     public KSRelativeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.a = new AtomicBoolean(true);
-        this.f60313e = 0.0f;
-        this.f60314f = new z.a();
+        this.f58023e = 0.0f;
+        this.f58024f = new z.a();
         a(context, attributeSet);
     }
 
@@ -64,14 +64,14 @@ public class KSRelativeLayout extends RelativeLayout implements j {
             int[] iArr = {i2};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.f60313e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
+            this.f58023e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
             obtainStyledAttributes.recycle();
         }
         h hVar = new h(this, this);
-        this.f60310b = hVar;
+        this.f58020b = hVar;
         hVar.a(c());
         i iVar = new i();
-        this.f60312d = iVar;
+        this.f58022d = iVar;
         iVar.a(context, attributeSet);
     }
 
@@ -92,13 +92,13 @@ public class KSRelativeLayout extends RelativeLayout implements j {
 
     @CallSuper
     public void a() {
-        this.f60310b.b();
+        this.f58020b.b();
     }
 
     @Override // com.kwad.sdk.widget.j
     @CallSuper
     public void a(View view) {
-        j jVar = this.f60311c;
+        j jVar = this.f58021c;
         if (jVar != null) {
             jVar.a(view);
         }
@@ -106,7 +106,7 @@ public class KSRelativeLayout extends RelativeLayout implements j {
 
     @CallSuper
     public void b() {
-        this.f60310b.c();
+        this.f58020b.c();
     }
 
     public boolean c() {
@@ -115,37 +115,37 @@ public class KSRelativeLayout extends RelativeLayout implements j {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.f60312d.c(canvas);
+        this.f58022d.c(canvas);
         super.dispatchDraw(canvas);
-        this.f60312d.d(canvas);
+        this.f58022d.d(canvas);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f60314f.a(getWidth(), getHeight());
-            this.f60314f.a(motionEvent.getX(), motionEvent.getY());
+            this.f58024f.a(getWidth(), getHeight());
+            this.f58024f.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.f60314f.b(motionEvent.getX(), motionEvent.getY());
+            this.f58024f.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f60312d.a(canvas);
+        this.f58022d.a(canvas);
         super.draw(canvas);
-        this.f60312d.b(canvas);
+        this.f58022d.b(canvas);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return this.f60314f;
+        return this.f58024f;
     }
 
     public float getVisiblePercent() {
-        return this.f60310b.a();
+        return this.f58020b.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -170,18 +170,18 @@ public class KSRelativeLayout extends RelativeLayout implements j {
 
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        if (this.f60313e != 0.0f) {
-            i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f60313e), 1073741824);
+        if (this.f58023e != 0.0f) {
+            i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f58023e), 1073741824);
         }
         super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        this.f60310b.a(i2, i3, i4, i5);
+        this.f58020b.a(i2, i3, i4, i5);
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f60310b.b(i2, i3, i4, i5);
-        this.f60312d.a(i2, i3);
+        this.f58020b.b(i2, i3, i4, i5);
+        this.f58022d.a(i2, i3);
     }
 
     @Override // android.view.View
@@ -191,19 +191,19 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     }
 
     public void setRadius(float f2) {
-        this.f60312d.a(f2);
+        this.f58022d.a(f2);
         postInvalidate();
     }
 
     public void setRatio(float f2) {
-        this.f60313e = f2;
+        this.f58023e = f2;
     }
 
     public void setViewVisibleListener(j jVar) {
-        this.f60311c = jVar;
+        this.f58021c = jVar;
     }
 
     public void setVisiblePercent(float f2) {
-        this.f60310b.a(f2);
+        this.f58020b.a(f2);
     }
 }

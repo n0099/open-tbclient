@@ -22,30 +22,30 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final AtomicLong f14030i;
+    public static final AtomicLong f13703i;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f14031b;
+    public final String f13704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Object> f14032c;
+    public final Map<String, Object> f13705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, Object> f14033d;
+    public final Map<String, Object> f13706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f14034e;
+    public final int f13707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f14035f;
+    public final String f13708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f14036g;
+    public final long f13709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f14037h;
+    public final long f13710h;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -59,7 +59,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final k f14038j;
+        public final k f13711j;
 
         public /* synthetic */ b(int i2, String str, String str2, Map map, Map map2, String str3, k kVar, long j2, a aVar) {
             this(i2, str, str2, map, map2, str3, kVar, j2);
@@ -69,7 +69,7 @@ public class m {
         public void g(int i2, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, th) == null) {
-                this.f14038j.b(i2, th);
+                this.f13711j.b(i2, th);
             }
         }
 
@@ -77,7 +77,7 @@ public class m {
         public void h(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                this.f14038j.a(this, jSONObject);
+                this.f13711j.a(this, jSONObject);
             }
         }
 
@@ -100,7 +100,7 @@ public class m {
                     return;
                 }
             }
-            this.f14038j = kVar;
+            this.f13711j = kVar;
         }
     }
 
@@ -117,7 +117,7 @@ public class m {
                 return;
             }
         }
-        f14030i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+        f13703i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
     }
 
     public /* synthetic */ m(int i2, String str, String str2, Map map, Map map2, String str3, long j2, a aVar) {
@@ -137,7 +137,7 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            long andIncrement = f14030i.getAndIncrement();
+            long andIncrement = f13703i.getAndIncrement();
             return "TBCWebViewJsBridge_callback_ID_" + andIncrement;
         }
         return (String) invokeV.objValue;
@@ -169,24 +169,24 @@ public class m {
             if (!TextUtils.isEmpty(this.a)) {
                 jSONObject.put("cmd", this.a);
             }
-            if (!TextUtils.isEmpty(this.f14031b)) {
-                jSONObject.put("method", this.f14031b);
+            if (!TextUtils.isEmpty(this.f13704b)) {
+                jSONObject.put("method", this.f13704b);
             }
-            Map<String, Object> map = this.f14032c;
+            Map<String, Object> map = this.f13705c;
             if (map != null && !map.isEmpty()) {
                 JSONObject jSONObject2 = new JSONObject();
-                e(this.f14032c, jSONObject2);
+                e(this.f13705c, jSONObject2);
                 jSONObject.put("inputData", jSONObject2);
             }
-            Map<String, Object> map2 = this.f14033d;
+            Map<String, Object> map2 = this.f13706d;
             if (map2 != null && !map2.isEmpty()) {
                 JSONObject jSONObject3 = new JSONObject();
-                e(this.f14033d, jSONObject3);
+                e(this.f13706d, jSONObject3);
                 jSONObject.put("outputData", jSONObject3);
             }
             jSONObject.put("messageType", f());
-            if (!TextUtils.isEmpty(this.f14035f)) {
-                jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f14035f);
+            if (!TextUtils.isEmpty(this.f13708f)) {
+                jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f13708f);
             }
             return c(jSONObject.toString());
         }
@@ -216,7 +216,7 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.f14034e;
+            int i2 = this.f13707e;
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 == 3) {
@@ -259,12 +259,12 @@ public class m {
             }
         }
         this.a = str;
-        this.f14031b = str2;
-        this.f14032c = map;
-        this.f14033d = map2;
-        this.f14034e = i2;
-        this.f14035f = str3;
-        this.f14036g = j2;
-        this.f14037h = System.currentTimeMillis();
+        this.f13704b = str2;
+        this.f13705c = map;
+        this.f13706d = map2;
+        this.f13707e = i2;
+        this.f13708f = str3;
+        this.f13709g = j2;
+        this.f13710h = System.currentTimeMillis();
     }
 }

@@ -26,7 +26,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f9609b;
+    public static final File f9400b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class a {
             }
         }
         a = k.a;
-        f9609b = AppRuntime.getAppContext().getExternalCacheDir();
+        f9400b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
     public static JSONObject a() {
@@ -52,13 +52,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject D = c.a.r0.a.c1.a.g0().D();
-            String k2 = c.a.r0.a.c1.a.g0().k();
+            String k = c.a.r0.a.c1.a.g0().k();
             try {
                 jSONObject.put("switch", D);
                 JSONArray jSONArray = null;
-                if (!TextUtils.isEmpty(k2)) {
+                if (!TextUtils.isEmpty(k)) {
                     jSONArray = new JSONArray();
-                    for (String str : k2.split("-")) {
+                    for (String str : k.split("-")) {
                         jSONArray.put(str);
                     }
                 }
@@ -75,7 +75,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f9609b + File.separator + "swan_perf";
+            return f9400b + File.separator + "swan_perf";
         }
         return (String) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class a {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                File file = new File(f9609b, "swan_perf");
+                File file = new File(f9400b, "swan_perf");
                 if (file.exists() || file.mkdirs()) {
                     c.a.r0.w.d.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
                 }
@@ -138,7 +138,7 @@ public class a {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            File file = new File(f9609b, "swan_stability");
+            File file = new File(f9400b, "swan_stability");
             if (!c.a.r0.w.d.m(file)) {
                 c.a.r0.a.e0.d.k("StartupPerf", "创建目录失败 path" + file);
                 return;

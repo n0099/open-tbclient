@@ -37,7 +37,7 @@ public class StatConfig implements IStatConfig, NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56165e;
+    public Context f54033e;
 
     /* loaded from: classes2.dex */
     public class a implements RestHttpRequestInterceptor {
@@ -142,14 +142,14 @@ public class StatConfig implements IStatConfig, NoProguard {
     public String getAppVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f56165e)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f54033e)) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public String getAppVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f56165e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f54033e) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
@@ -174,7 +174,7 @@ public class StatConfig implements IStatConfig, NoProguard {
             if (isLogin() && !TextUtils.isEmpty(WalletLoginHelper.getInstance().getUnionId())) {
                 return SecurePay.getInstance().encryptProxy(WalletLoginHelper.getInstance().getUnionId());
             }
-            return SecurePay.getInstance().encryptProxy(c.f.b.f.a.a.a().c(this.f56165e));
+            return SecurePay.getInstance().encryptProxy(c.f.b.f.a.a.a().c(this.f54033e));
         }
         return (String) invokeV.objValue;
     }
@@ -193,12 +193,12 @@ public class StatConfig implements IStatConfig, NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f56165e != null) {
+                if (this.f54033e != null) {
                     c.f.b.f.a.a a2 = c.f.b.f.a.a.a();
-                    jSONObject.putOpt("ua", a2.d(this.f56165e));
-                    jSONObject.putOpt(k.f34934b, a2.b(this.f56165e));
-                    jSONObject.putOpt("op", a2.e(this.f56165e));
-                    jSONObject.put(k.f34935c, a2.c(this.f56165e));
+                    jSONObject.putOpt("ua", a2.d(this.f54033e));
+                    jSONObject.putOpt(k.f33808b, a2.b(this.f54033e));
+                    jSONObject.putOpt("op", a2.e(this.f54033e));
+                    jSONObject.put(k.f33809c, a2.c(this.f54033e));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -251,7 +251,7 @@ public class StatConfig implements IStatConfig, NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return a(this.f56165e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
+            return a(this.f54033e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
         }
         return (String) invokeV.objValue;
     }
@@ -259,8 +259,8 @@ public class StatConfig implements IStatConfig, NoProguard {
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f56165e == null && context != null) {
-            this.f56165e = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f54033e == null && context != null) {
+            this.f54033e = context.getApplicationContext();
         }
     }
 

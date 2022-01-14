@@ -30,10 +30,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f6883e;
+        public final /* synthetic */ b f6734e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f6884f;
+        public final /* synthetic */ int f6735f;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class c {
                     return;
                 }
             }
-            this.f6883e = bVar;
-            this.f6884f = i2;
+            this.f6734e = bVar;
+            this.f6735f = i2;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
@@ -59,7 +59,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 super.onCancellation(dataSource);
-                c.b(this.f6884f, this.f6883e, "download icon fail: onCancellation");
+                c.b(this.f6735f, this.f6734e, "download icon fail: onCancellation");
             }
         }
 
@@ -67,7 +67,7 @@ public class c {
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                c.b(this.f6884f, this.f6883e, "download icon fail: onFailureImpl");
+                c.b(this.f6735f, this.f6734e, "download icon fail: onFailureImpl");
             }
         }
 
@@ -77,7 +77,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
                 if (bitmap == null || bitmap.isRecycled()) {
-                    c.b(this.f6884f, this.f6883e, "download icon fail: bitmap is null or is recycled");
+                    c.b(this.f6735f, this.f6734e, "download icon fail: bitmap is null or is recycled");
                     return;
                 }
                 try {
@@ -86,12 +86,12 @@ public class c {
                     } else {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
-                    if (this.f6883e != null) {
-                        this.f6883e.a(copy);
+                    if (this.f6734e != null) {
+                        this.f6734e.a(copy);
                     }
                 } catch (Exception e2) {
-                    int i2 = this.f6884f;
-                    b bVar = this.f6883e;
+                    int i2 = this.f6735f;
+                    b bVar = this.f6734e;
                     c.b(i2, bVar, "download icon fail: " + e2.getMessage());
                 }
             }

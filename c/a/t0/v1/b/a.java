@@ -12,10 +12,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25234b;
+    public String f24530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25235c;
+    public boolean f24531c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a {
             return;
         }
         this.a = responseTagInfo.tag_id.intValue();
-        this.f25234b = responseTagInfo.tag_name;
-        this.f25235c = responseTagInfo.is_followed.intValue() == 1;
+        this.f24530b = responseTagInfo.tag_name;
+        this.f24531c = responseTagInfo.is_followed.intValue() == 1;
     }
 }

@@ -24,10 +24,10 @@ public class EmptyView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SimpleDraweeView f35984e;
+    public SimpleDraweeView f34813e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AppCompatTextView f35985f;
+    public AppCompatTextView f34814f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -53,17 +53,17 @@ public class EmptyView extends LinearLayout {
     public void onDarkModeChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f35984e.getLayoutParams();
-            layoutParams.width = a.a(getContext(), c.a.x.b.g.b.a.a().f27455i);
-            layoutParams.height = a.a(getContext(), c.a.x.b.g.b.a.a().f27456j);
-            this.f35984e.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f34813e.getLayoutParams();
+            layoutParams.width = a.a(getContext(), c.a.x.b.g.b.a.a().f26633i);
+            layoutParams.height = a.a(getContext(), c.a.x.b.g.b.a.a().f26634j);
+            this.f34813e.setLayoutParams(layoutParams);
             setImageResource(f.e().b(z));
             if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.f35985f.setText(e.live_feed_no_data_qm);
+                this.f34814f.setText(e.live_feed_no_data_qm);
             } else {
-                this.f35985f.setText(e.live_feed_no_data);
+                this.f34814f.setText(e.live_feed_no_data);
             }
-            this.f35985f.setTextColor(f.e().a(getContext(), z, "color_8585852"));
+            this.f34814f.setTextColor(f.e().a(getContext(), z, "color_8585852"));
         }
     }
 
@@ -72,13 +72,13 @@ public class EmptyView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == -1) {
             return;
         }
-        this.f35984e.setActualImageResource(i2);
+        this.f34813e.setActualImageResource(i2);
     }
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            this.f35985f.setText(charSequence);
+            this.f34814f.setText(charSequence);
         }
     }
 
@@ -113,7 +113,7 @@ public class EmptyView extends LinearLayout {
     public void setText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f35985f.setText(i2);
+            this.f34814f.setText(i2);
         }
     }
 
@@ -149,7 +149,7 @@ public class EmptyView extends LinearLayout {
         LayoutInflater.from(context).inflate(d.live_feed_page_empty_view, this);
         setOrientation(1);
         setGravity(17);
-        this.f35984e = (SimpleDraweeView) findViewById(c.empty_image);
-        this.f35985f = (AppCompatTextView) findViewById(c.empty_text);
+        this.f34813e = (SimpleDraweeView) findViewById(c.empty_image);
+        this.f34814f = (AppCompatTextView) findViewById(c.empty_text);
     }
 }

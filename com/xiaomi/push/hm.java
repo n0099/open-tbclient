@@ -18,13 +18,13 @@ public final class hm {
     public static final /* synthetic */ hm[] f501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f63586b;
+    public static final hm f61197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f63587c;
+    public static final hm f61198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f63588d;
+    public static final hm f61199d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -44,11 +44,11 @@ public final class hm {
             }
         }
         a = new hm("INT", 0, 1);
-        f63586b = new hm("LONG", 1, 2);
-        f63587c = new hm("STRING", 2, 3);
+        f61197b = new hm("LONG", 1, 2);
+        f61198c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f63588d = hmVar;
-        f501a = new hm[]{a, f63586b, f63587c, hmVar};
+        f61199d = hmVar;
+        f501a = new hm[]{a, f61197b, f61198c, hmVar};
     }
 
     public hm(String str, int i2, int i3) {
@@ -82,11 +82,11 @@ public final class hm {
                         if (i2 != 4) {
                             return null;
                         }
-                        return f63588d;
+                        return f61199d;
                     }
-                    return f63587c;
+                    return f61198c;
                 }
-                return f63586b;
+                return f61197b;
             }
             return a;
         }

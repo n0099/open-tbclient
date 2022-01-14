@@ -23,7 +23,7 @@ public class b implements e {
     public final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.h.i.k.f.b f10710b;
+    public final c.a.r0.h.i.k.f.b f10475b;
 
     /* loaded from: classes6.dex */
     public class a extends Handler {
@@ -60,7 +60,7 @@ public class b implements e {
                 if (downloadInfo.getDownloadListener() == null) {
                     return;
                 }
-                switch (C0687b.a[DownloadState.convert(status).ordinal()]) {
+                switch (C0696b.a[DownloadState.convert(status).ordinal()]) {
                     case 1:
                         downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
                         return;
@@ -91,7 +91,7 @@ public class b implements e {
 
     /* renamed from: c.a.r0.h.i.k.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0687b {
+    public static /* synthetic */ class C0696b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class b implements e {
                 return;
             }
         }
-        this.f10710b = bVar;
+        this.f10475b = bVar;
         this.a = new a(this, Looper.getMainLooper());
     }
 
@@ -173,7 +173,7 @@ public class b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
             if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
-                this.f10710b.a(downloadInfo);
+                this.f10475b.a(downloadInfo);
             }
             Message obtainMessage = this.a.obtainMessage(downloadInfo.getId().hashCode());
             obtainMessage.obj = downloadInfo;

@@ -18,10 +18,10 @@ public class t extends c.a.r0.a.y0.a<c.a.r0.a.y0.k.g.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9886b;
+    public int f9672b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9887c;
+    public int f9673c;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class t extends c.a.r0.a.y0.a<c.a.r0.a.y0.k.g.a> {
                 return;
             }
         }
-        this.f9886b = 1;
-        this.f9887c = 3;
+        this.f9672b = 1;
+        this.f9673c = 3;
     }
 
     @Override // c.a.r0.a.y0.a
@@ -77,18 +77,18 @@ public class t extends c.a.r0.a.y0.a<c.a.r0.a.y0.k.g.a> {
                 if (!TextUtils.isEmpty(optString)) {
                     aVar.b0(optString);
                 }
-                this.f9886b = jSONObject.optInt("min-cache", this.f9886b);
-                int optInt = jSONObject.optInt("max-cache", this.f9887c);
-                this.f9887c = optInt;
-                if (this.f9886b <= optInt) {
+                this.f9672b = jSONObject.optInt("min-cache", this.f9672b);
+                int optInt = jSONObject.optInt("max-cache", this.f9673c);
+                this.f9673c = optInt;
+                if (this.f9672b <= optInt) {
                     if (jSONObject.has("min-cache")) {
-                        aVar.G(this.f9886b);
+                        aVar.G(this.f9672b);
                     }
                     if (jSONObject.has("max-cache")) {
-                        aVar.g0(this.f9887c);
+                        aVar.g0(this.f9673c);
                     }
                 } else if (c.a.r0.a.y0.a.a) {
-                    String str = "setZeusVideoExt: minCache " + this.f9886b + " > maxCache " + this.f9887c;
+                    String str = "setZeusVideoExt: minCache " + this.f9672b + " > maxCache " + this.f9673c;
                 }
             } catch (Exception e2) {
                 if (c.a.r0.a.y0.a.a) {

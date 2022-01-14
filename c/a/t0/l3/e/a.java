@@ -18,7 +18,7 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d> f19665b;
+    public ArrayList<d> f19157b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public class a {
             }
         }
         this.a = true;
-        this.f19665b = null;
+        this.f19157b = null;
     }
 
     public ArrayList<d> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19665b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19157b : (ArrayList) invokeV.objValue;
     }
 
     public boolean b() {
@@ -59,9 +59,9 @@ public class a {
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f19665b = new ArrayList<>();
+        this.f19157b = new ArrayList<>();
         for (MsgContent msgContent : dataRes.msg_content) {
-            this.f19665b.add(new d(msgContent));
+            this.f19157b.add(new d(msgContent));
         }
     }
 }

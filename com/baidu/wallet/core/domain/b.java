@@ -267,7 +267,7 @@ public class b implements a {
             } else {
                 this.C = "";
             }
-            String optString2 = jSONObject.optString(a.f52975b);
+            String optString2 = jSONObject.optString(a.f50933b);
             if (!TextUtils.isEmpty(optString2) && B.matcher(optString2).matches()) {
                 this.D = optString2;
             } else {
@@ -287,13 +287,13 @@ public class b implements a {
                 this.F = "";
                 com.baidu.apollon.heartbeat.a.c().b("https://www.baifubao.com");
             }
-            String optString5 = jSONObject.optString(a.f52978e);
+            String optString5 = jSONObject.optString(a.f50936e);
             if (!TextUtils.isEmpty(optString5) && B.matcher(optString5).matches()) {
                 this.G = optString5;
             } else {
                 this.G = "";
             }
-            String optString6 = jSONObject.optString(a.f52979f);
+            String optString6 = jSONObject.optString(a.f50937f);
             if (!TextUtils.isEmpty(optString6) && B.matcher(optString6).matches()) {
                 this.H = optString6;
             } else {
@@ -311,19 +311,19 @@ public class b implements a {
             } else {
                 this.J = "";
             }
-            String optString9 = jSONObject.optString(a.f52982i);
+            String optString9 = jSONObject.optString(a.f50940i);
             if (!TextUtils.isEmpty(optString9) && B.matcher(optString9).matches()) {
                 this.K = optString9;
             } else {
                 this.K = "";
             }
-            String optString10 = jSONObject.optString(a.f52983j);
+            String optString10 = jSONObject.optString(a.f50941j);
             if (!TextUtils.isEmpty(optString10) && B.matcher(optString10).matches()) {
                 this.L = optString10;
             } else {
                 this.L = "";
             }
-            String optString11 = jSONObject.optString(a.f52984k);
+            String optString11 = jSONObject.optString(a.k);
             if (!TextUtils.isEmpty(optString11) && B.matcher(optString11).matches()) {
                 this.M = optString11;
             } else {

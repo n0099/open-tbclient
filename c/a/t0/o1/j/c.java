@@ -2,7 +2,7 @@ package c.a.t0.o1.j;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.m;
 import c.a.s0.s.q.q1;
 import c.a.t0.g0.v;
@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +184,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLLL(65545, null, view, aVar, str) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
-        d2 threadData = aVar.getThreadData();
+        e2 threadData = aVar.getThreadData();
         int id = view.getId();
         if (view.getId() != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
             if (id == R.id.user_avatar) {

@@ -31,23 +31,23 @@ public class b {
     public static final String a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38940b = "Set-Cookie";
+    public static final String f37654b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f38941c;
+    public static final char[] f37655c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38942d = "User-Agent";
+    public static final String f37656d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38943e = 15000;
+    public static final int f37657e = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38944f;
+    public String f37658f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38945g;
+    public boolean f37659g;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public class b {
                 return;
             }
         }
-        f38941c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f37655c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public b() {
@@ -78,8 +78,8 @@ public class b {
                 return;
             }
         }
-        this.f38944f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.f38945g = false;
+        this.f37658f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+        this.f37659g = false;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
@@ -198,7 +198,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
             HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
             if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f38944f);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f37658f);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
                 if (httpHashMap2 != null) {
@@ -209,7 +209,7 @@ public class b {
                     }
                 }
                 MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.a, aVar.f38931b, aVar.f38933d, aVar.f38932c);
+                a(byteArrayOutputStream, aVar.a, aVar.f37645b, aVar.f37647d, aVar.f37646c);
                 a(byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (httpHashMap instanceof HttpHashMap) {
@@ -324,10 +324,10 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f38941c;
+                char[] cArr = f37655c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            this.f38944f = sb.toString();
+            this.f37658f = sb.toString();
         }
     }
 
@@ -337,13 +337,13 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f38941c;
+                char[] cArr = f37655c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            byte[] bytes = ("\r\n--" + this.f38944f + "\r\n").getBytes();
-            if (!this.f38945g) {
-                this.f38945g = true;
-                byteArrayOutputStream.write(("--" + this.f38944f + "\r\n").getBytes());
+            byte[] bytes = ("\r\n--" + this.f37658f + "\r\n").getBytes();
+            if (!this.f37659g) {
+                this.f37659g = true;
+                byteArrayOutputStream.write(("--" + this.f37658f + "\r\n").getBytes());
                 return;
             }
             byteArrayOutputStream.write(bytes);

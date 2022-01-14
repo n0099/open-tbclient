@@ -76,34 +76,32 @@ public class p {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NoNetworkView f26322b;
+    public NoNetworkView f25539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PluginErrorTipView f26323c;
+    public PluginErrorTipView f25540c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f26324d;
+    public View f25541d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.g2.a f26325e;
+    public c.a.t0.g2.a f25542e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f26326f;
+    public CustomMessageListener f25543f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f26327g;
+    public CustomMessageListener f25544g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f26328h;
+    public CustomMessageListener f25545h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f26329i;
+    public CustomMessageListener f25546i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.x2.e.a f26330j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f26331k;
+    public c.a.t0.x2.e.a f25547j;
+    public boolean k;
     public BdUniqueId l;
     public c.a.t0.x2.d.f m;
     public BaseFragment n;
@@ -164,7 +162,7 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f26332e;
+        public final /* synthetic */ p f25548e;
 
         public b(p pVar) {
             Interceptable interceptable = $ic;
@@ -181,14 +179,14 @@ public class p {
                     return;
                 }
             }
-            this.f26332e = pVar;
+            this.f25548e = pVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26332e.N) {
-                this.f26332e.V();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f25548e.N) {
+                this.f25548e.V();
             }
         }
     }
@@ -240,7 +238,7 @@ public class p {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements c.a.s0.s.i0.q.b {
+    public class d implements c.a.s0.s.j0.q.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p a;
@@ -263,14 +261,14 @@ public class p {
             this.a = pVar;
         }
 
-        @Override // c.a.s0.s.i0.q.b
+        @Override // c.a.s0.s.j0.q.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.s0.s.i0.q.b
+        @Override // c.a.s0.s.j0.q.b
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -350,7 +348,7 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f26333e;
+        public final /* synthetic */ p f25549e;
 
         public f(p pVar) {
             Interceptable interceptable = $ic;
@@ -367,7 +365,7 @@ public class p {
                     return;
                 }
             }
-            this.f26333e = pVar;
+            this.f25549e = pVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -388,7 +386,7 @@ public class p {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f26333e.y.e(i2);
+                this.f25549e.y.e(i2);
             }
         }
     }
@@ -534,7 +532,7 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f26334e;
+        public final /* synthetic */ p f25550e;
 
         public j(p pVar) {
             Interceptable interceptable = $ic;
@@ -551,26 +549,26 @@ public class p {
                     return;
                 }
             }
-            this.f26334e = pVar;
+            this.f25550e = pVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             p pVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26334e.C == 0) {
-                p pVar2 = this.f26334e;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f25550e.C == 0) {
+                p pVar2 = this.f25550e;
                 pVar2.C = pVar2.F.getMeasuredHeight();
-                this.f26334e.p = pVar.F.getMeasuredHeight() - this.f26334e.K.e().getMeasuredHeight();
-                if (this.f26334e.s != null) {
-                    p pVar3 = this.f26334e;
-                    pVar3.P = pVar3.q + this.f26334e.K.e().getMeasuredHeight() + this.f26334e.F.getMeasuredHeight() + this.f26334e.v.getMeasuredHeight();
-                    boolean z = (this.f26334e.f26331k || this.f26334e.f26330j.j() == null || this.f26334e.f26330j.j().getNewGodData() == null || !this.f26334e.f26330j.j().getNewGodData().isNewGod()) ? false : true;
-                    this.f26334e.G.height = this.f26334e.P;
-                    this.f26334e.F.setLayoutParams(this.f26334e.G);
-                    this.f26334e.P += z ? c.a.t0.x2.g.a.b0 : 0;
-                    this.f26334e.G.height = -2;
-                    this.f26334e.F.setLayoutParams(this.f26334e.G);
+                this.f25550e.p = pVar.F.getMeasuredHeight() - this.f25550e.K.e().getMeasuredHeight();
+                if (this.f25550e.s != null) {
+                    p pVar3 = this.f25550e;
+                    pVar3.P = pVar3.q + this.f25550e.K.e().getMeasuredHeight() + this.f25550e.F.getMeasuredHeight() + this.f25550e.v.getMeasuredHeight();
+                    boolean z = (this.f25550e.k || this.f25550e.f25547j.j() == null || this.f25550e.f25547j.j().getNewGodData() == null || !this.f25550e.f25547j.j().getNewGodData().isNewGod()) ? false : true;
+                    this.f25550e.G.height = this.f25550e.P;
+                    this.f25550e.F.setLayoutParams(this.f25550e.G);
+                    this.f25550e.P += z ? c.a.t0.x2.g.a.b0 : 0;
+                    this.f25550e.G.height = -2;
+                    this.f25550e.F.setLayoutParams(this.f25550e.G);
                 }
             }
         }
@@ -621,24 +619,24 @@ public class p {
                 b.a aVar4 = sparseArray.get(1);
                 b.a aVar5 = sparseArray.get(7);
                 b.a aVar6 = sparseArray.get(8);
-                if (this.a.f26330j != null) {
-                    if (this.a.f26330j.w != null && this.a.f26330j.w.f26232b != null && aVar2 != null) {
-                        this.a.f26330j.w.f26232b.putBoolean("person_center_item_red_tip_show", aVar2.a);
+                if (this.a.f25547j != null) {
+                    if (this.a.f25547j.w != null && this.a.f25547j.w.f25453b != null && aVar2 != null) {
+                        this.a.f25547j.w.f25453b.putBoolean("person_center_item_red_tip_show", aVar2.a);
                     }
-                    if (aVar3 != null && this.a.f26330j.v != null && this.a.f26330j.v.f26232b != null) {
-                        this.a.f26330j.v.f26232b.putBoolean("person_center_item_red_tip_show", aVar3.a);
+                    if (aVar3 != null && this.a.f25547j.v != null && this.a.f25547j.v.f25453b != null) {
+                        this.a.f25547j.v.f25453b.putBoolean("person_center_item_red_tip_show", aVar3.a);
                     }
-                    if (aVar4 != null && this.a.f26330j.u != null && this.a.f26330j.u.f26232b != null) {
-                        this.a.f26330j.u.f26232b.putBoolean("person_center_item_red_tip_show", aVar4.a);
+                    if (aVar4 != null && this.a.f25547j.u != null && this.a.f25547j.u.f25453b != null) {
+                        this.a.f25547j.u.f25453b.putBoolean("person_center_item_red_tip_show", aVar4.a);
                     }
-                    if (aVar5 != null && this.a.f26330j.x != null && this.a.f26330j.x.f26232b != null) {
-                        this.a.f26330j.x.f26232b.putBoolean("person_center_item_red_tip_show", aVar5.a);
+                    if (aVar5 != null && this.a.f25547j.x != null && this.a.f25547j.x.f25453b != null) {
+                        this.a.f25547j.x.f25453b.putBoolean("person_center_item_red_tip_show", aVar5.a);
                     }
-                    if (aVar6 == null || this.a.f26330j.y == null || this.a.f26330j.y.f26232b == null) {
+                    if (aVar6 == null || this.a.f25547j.y == null || this.a.f25547j.y.f25453b == null) {
                         return;
                     }
-                    this.a.f26330j.y.f26232b.putBoolean("person_center_item_red_tip_show", aVar6.a);
-                    this.a.f26330j.y.f26232b.putString("person_center_item_txt", String.valueOf(aVar6.f19278b));
+                    this.a.f25547j.y.f25453b.putBoolean("person_center_item_red_tip_show", aVar6.a);
+                    this.a.f25547j.y.f25453b.putString("person_center_item_txt", String.valueOf(aVar6.f18782b));
                 }
             }
         }
@@ -690,7 +688,7 @@ public class p {
         public List<String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<PersonCenterTabBaseFragment> f26335b;
+        public List<PersonCenterTabBaseFragment> f25551b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(p pVar, FragmentManager fragmentManager) {
@@ -716,21 +714,21 @@ public class p {
             this.a.add(pVar.a.getResources().getString(c.a.t0.y2.g.person_center_tab_thread));
             this.a.add(pVar.a.getResources().getString(c.a.t0.y2.g.person_center_tab_dynamic));
             ArrayList arrayList2 = new ArrayList();
-            this.f26335b = arrayList2;
-            arrayList2.add(PersonCenterMainTabFragment.newInstance(pVar.M, pVar.f26331k));
-            this.f26335b.add(PersonCenterThreadTabFragment.newInstance(pVar.M, pVar.f26331k));
-            this.f26335b.add(PersonCenterDynamicTabFragment.newInstance(pVar.M, pVar.f26331k));
+            this.f25551b = arrayList2;
+            arrayList2.add(PersonCenterMainTabFragment.newInstance(pVar.M, pVar.k));
+            this.f25551b.add(PersonCenterThreadTabFragment.newInstance(pVar.M, pVar.k));
+            this.f25551b.add(PersonCenterDynamicTabFragment.newInstance(pVar.M, pVar.k));
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f26335b)) {
+                if (ListUtils.isEmpty(this.f25551b)) {
                     return -1;
                 }
-                for (int i2 = 0; i2 < this.f26335b.size(); i2++) {
-                    PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f26335b.get(i2);
+                for (int i2 = 0; i2 < this.f25551b.size(); i2++) {
+                    PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f25551b.get(i2);
                     if (personCenterTabBaseFragment != null && personCenterTabBaseFragment.isPrimary()) {
                         return personCenterTabBaseFragment.getTabType();
                     }
@@ -744,8 +742,8 @@ public class p {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (i2 < this.f26335b.size()) {
-                    return this.f26335b.get(i2);
+                if (i2 < this.f25551b.size()) {
+                    return this.f25551b.get(i2);
                 }
                 return null;
             }
@@ -762,7 +760,7 @@ public class p {
             PersonCenterTabBaseFragment personCenterTabBaseFragment;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                for (int i3 = 0; i3 < this.a.size() && (personCenterTabBaseFragment = this.f26335b.get(i3)) != null; i3++) {
+                for (int i3 = 0; i3 < this.a.size() && (personCenterTabBaseFragment = this.f25551b.get(i3)) != null; i3++) {
                     if (i3 == i2) {
                         personCenterTabBaseFragment.setPrimary(true);
                     } else {
@@ -774,11 +772,11 @@ public class p {
 
         public void f(c.a.t0.x2.e.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || ListUtils.isEmpty(this.f26335b)) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || ListUtils.isEmpty(this.f25551b)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f26335b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f26335b.get(i2);
+            for (int i2 = 0; i2 < this.f25551b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f25551b.get(i2);
                 if (personCenterTabBaseFragment instanceof PersonCenterMainTabFragment) {
                     ((PersonCenterMainTabFragment) personCenterTabBaseFragment).setData(aVar);
                 }
@@ -787,11 +785,11 @@ public class p {
 
         public void forceRefresh() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.isEmpty(this.f26335b)) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.isEmpty(this.f25551b)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f26335b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f26335b.get(i2);
+            for (int i2 = 0; i2 < this.f25551b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f25551b.get(i2);
                 if (personCenterTabBaseFragment != null) {
                     personCenterTabBaseFragment.forceRefresh(false);
                 }
@@ -800,11 +798,11 @@ public class p {
 
         public void g(c.a.t0.x2.e.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || aVar.i() == null || ListUtils.isEmpty(this.f26335b)) {
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || aVar.i() == null || ListUtils.isEmpty(this.f25551b)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f26335b.size(); i2++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f26335b.get(i2);
+            for (int i2 = 0; i2 < this.f25551b.size(); i2++) {
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f25551b.get(i2);
                 if (personCenterTabBaseFragment != null) {
                     personCenterTabBaseFragment.setAuthor(aVar.C);
                     personCenterTabBaseFragment.setUser(aVar.i());
@@ -817,7 +815,7 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                List<PersonCenterTabBaseFragment> list = this.f26335b;
+                List<PersonCenterTabBaseFragment> list = this.f25551b;
                 if (list != null) {
                     return list.size();
                 }
@@ -843,12 +841,12 @@ public class p {
         public void onChangeSkinType(int i2) {
             List<PersonCenterTabBaseFragment> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (list = this.f26335b) == null || list.size() <= 0) {
+            if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (list = this.f25551b) == null || list.size() <= 0) {
                 return;
             }
-            int size = this.f26335b.size();
+            int size = this.f25551b.size();
             for (int i3 = 0; i3 < size; i3++) {
-                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f26335b.get(i3);
+                PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f25551b.get(i3);
                 if (personCenterTabBaseFragment != null) {
                     personCenterTabBaseFragment.onChangeSkinType(i2);
                 }
@@ -897,10 +895,10 @@ public class p {
         this.n = baseFragment;
         this.a = baseFragment.getPageContext();
         this.l = bdUniqueId;
-        this.f26331k = z;
+        this.k = z;
         this.M = j2;
         this.m = gVar.l();
-        R(gVar.f26132i);
+        R(gVar.f25361i);
     }
 
     public c.a.t0.x2.g.b L() {
@@ -913,8 +911,8 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (c.a.d.f.p.l.z()) {
-                this.f26325e.g();
-                this.f26325e.a();
+                this.f25542e.g();
+                this.f25542e.a();
                 this.m.l();
                 return;
             }
@@ -946,9 +944,9 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
             g gVar = new g(this, 2005016);
-            this.f26329i = gVar;
+            this.f25546i = gVar;
             gVar.setTag(this.l);
-            tbPageContext.registerListener(this.f26329i);
+            tbPageContext.registerListener(this.f25546i);
         }
     }
 
@@ -956,42 +954,42 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
             k kVar = new k(this, 2001435);
-            this.f26326f = kVar;
+            this.f25543f = kVar;
             kVar.setTag(this.l);
-            tbPageContext.registerListener(this.f26326f);
+            tbPageContext.registerListener(this.f25543f);
             l lVar = new l(this, 2016485);
-            this.f26327g = lVar;
+            this.f25544g = lVar;
             lVar.setTag(this.l);
-            tbPageContext.registerListener(this.f26327g);
+            tbPageContext.registerListener(this.f25544g);
             a aVar = new a(this, 2921435);
-            this.f26328h = aVar;
+            this.f25545h = aVar;
             aVar.setTag(this.l);
-            tbPageContext.registerListener(this.f26328h);
+            tbPageContext.registerListener(this.f25545h);
         }
     }
 
     public final void R(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            this.f26324d = view;
+            this.f25541d = view;
             this.q = UtilHelper.getStatusBarHeight();
-            this.r = (LottieSlideLoadingLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_content_view);
-            TbImageView tbImageView = (TbImageView) this.f26324d.findViewById(c.a.t0.y2.d.person_center_header_bg);
-            this.s = new PersonHeaderBackgroundController(this.a, tbImageView, this.f26324d.findViewById(c.a.t0.y2.d.person_center_background_cover), this.f26331k);
+            this.r = (LottieSlideLoadingLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_content_view);
+            TbImageView tbImageView = (TbImageView) this.f25541d.findViewById(c.a.t0.y2.d.person_center_header_bg);
+            this.s = new PersonHeaderBackgroundController(this.a, tbImageView, this.f25541d.findViewById(c.a.t0.y2.d.person_center_background_cover), this.k);
             this.r.addSyncHeightView(tbImageView);
             TbPageContext tbPageContext = this.a;
-            View view2 = this.f26324d;
-            this.K = new c.a.t0.x2.j.k(tbPageContext, view2, view2.findViewById(c.a.t0.y2.d.person_center_status_bar_space), this.f26331k);
-            FrameLayout frameLayout = (FrameLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_header_container);
+            View view2 = this.f25541d;
+            this.K = new c.a.t0.x2.j.k(tbPageContext, view2, view2.findViewById(c.a.t0.y2.d.person_center_status_bar_space), this.k);
+            FrameLayout frameLayout = (FrameLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_header_container);
             this.F = frameLayout;
             this.G = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
             this.r.addSyncHeightView(this.F);
             this.r.addLoadingListener(new d(this));
-            AppBarLayout appBarLayout = (AppBarLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_app_bar_layout);
+            AppBarLayout appBarLayout = (AppBarLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_app_bar_layout);
             this.t = appBarLayout;
             appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new e(this));
-            this.u = (FrameLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_tab_layout_container);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.f26324d.findViewById(c.a.t0.y2.d.person_center_tab_layout);
+            this.u = (FrameLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_tab_layout_container);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.f25541d.findViewById(c.a.t0.y2.d.person_center_tab_layout);
             this.v = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(c.a.t0.y2.a.CAM_X0105);
             this.v.setRectPaintColor(c.a.t0.y2.a.CAM_X0302);
@@ -1007,18 +1005,18 @@ public class p {
             gradientDrawable.setColor(SkinManager.getColor(c.a.t0.y2.a.CAM_X0201));
             this.E.setCornerRadii(this.o);
             this.u.setBackgroundDrawable(this.E);
-            View findViewById = this.f26324d.findViewById(c.a.t0.y2.d.person_center_pager_shadow);
+            View findViewById = this.f25541d.findViewById(c.a.t0.y2.d.person_center_pager_shadow);
             this.w = findViewById;
             SkinManager.setBackgroundResource(findViewById, c.a.t0.y2.c.personalize_tab_shadow);
-            this.x = (CustomViewPager) this.f26324d.findViewById(c.a.t0.y2.d.person_center_view_pager);
+            this.x = (CustomViewPager) this.f25541d.findViewById(c.a.t0.y2.d.person_center_view_pager);
             m mVar = new m(this, this.n.getActivity().getSupportFragmentManager());
             this.y = mVar;
             this.x.setAdapter(mVar);
-            this.x.setOffscreenPageLimit(this.y.f26335b.size());
+            this.x.setOffscreenPageLimit(this.y.f25551b.size());
             this.y.notifyDataSetChanged();
             this.v.setViewPager(this.x);
             this.x.setCurrentItem(1);
-            c.a.t0.x2.g.b bVar = new c.a.t0.x2.g.b(this.a, this.f26331k);
+            c.a.t0.x2.g.b bVar = new c.a.t0.x2.g.b(this.a, this.k);
             this.J = bVar;
             bVar.H(this.S);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
@@ -1028,11 +1026,11 @@ public class p {
                 Q(this.a);
             }
             P(this.a);
-            this.f26322b = (NoNetworkView) this.f26324d.findViewById(c.a.t0.y2.d.person_center_no_network_view);
-            this.f26323c = (PluginErrorTipView) this.f26324d.findViewById(c.a.t0.y2.d.person_center_plugin_error_tip_view);
-            this.z = (LinearLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_anti_container);
-            this.A = (FrameLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_anti_content);
-            this.B = (RelativeLayout) this.f26324d.findViewById(c.a.t0.y2.d.person_center_noanti_rootview);
+            this.f25539b = (NoNetworkView) this.f25541d.findViewById(c.a.t0.y2.d.person_center_no_network_view);
+            this.f25540c = (PluginErrorTipView) this.f25541d.findViewById(c.a.t0.y2.d.person_center_plugin_error_tip_view);
+            this.z = (LinearLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_anti_container);
+            this.A = (FrameLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_anti_content);
+            this.B = (RelativeLayout) this.f25541d.findViewById(c.a.t0.y2.d.person_center_noanti_rootview);
         }
     }
 
@@ -1067,16 +1065,16 @@ public class p {
             if (mVar != null) {
                 mVar.onChangeSkinType(i2);
             }
-            NoNetworkView noNetworkView = this.f26322b;
+            NoNetworkView noNetworkView = this.f25539b;
             if (noNetworkView != null) {
                 noNetworkView.onChangeSkinType(this.a, i2);
             }
-            PluginErrorTipView pluginErrorTipView = this.f26323c;
+            PluginErrorTipView pluginErrorTipView = this.f25540c;
             if (pluginErrorTipView != null) {
                 pluginErrorTipView.onChangeSkinType(this.a, i2);
             }
             SkinManager.setBackgroundResource(this.z, c.a.t0.y2.a.CAM_X0201);
-            SkinManager.setBackgroundResource(this.f26324d, c.a.t0.y2.a.CAM_X0201);
+            SkinManager.setBackgroundResource(this.f25541d, c.a.t0.y2.a.CAM_X0201);
             SkinManager.setBackgroundResource(this.w, c.a.t0.y2.c.personalize_tab_shadow);
         }
     }
@@ -1114,7 +1112,7 @@ public class p {
     public void W(c.a.t0.g2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f26325e = aVar;
+            this.f25542e = aVar;
         }
     }
 
@@ -1147,7 +1145,7 @@ public class p {
         if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{aVar, Boolean.valueOf(z), personStatus}) == null) || aVar == null) {
             return;
         }
-        this.f26330j = aVar;
+        this.f25547j = aVar;
         this.z.setVisibility(8);
         this.B.setVisibility(0);
         c.a.t0.x2.j.k kVar = this.K;
@@ -1160,17 +1158,17 @@ public class p {
         }
         PersonHeaderBackgroundController personHeaderBackgroundController = this.s;
         if (personHeaderBackgroundController != null) {
-            personHeaderBackgroundController.e(this.f26330j.j());
+            personHeaderBackgroundController.e(this.f25547j.j());
         }
         this.F.post(new j(this));
         this.y.g(aVar);
         this.y.f(aVar);
         if (ListUtils.isEmpty(aVar.f())) {
             this.m.m();
-            c.a.d.f.p.n.M(this.a.getContext(), this.a.getString(c.a.t0.y2.g.data_load_error));
+            c.a.d.f.p.n.N(this.a.getContext(), this.a.getString(c.a.t0.y2.g.data_load_error));
             return;
         }
-        c.a.t0.k3.a.v().K(this.f26331k);
+        c.a.t0.k3.a.v().K(this.k);
         int size = aVar.f().size();
         for (int i2 = 0; i2 < size; i2++) {
             c.a.d.n.e.n nVar = aVar.f().get(i2);

@@ -28,19 +28,19 @@ public class a {
     public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f17514b;
+    public j f17090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f17515c;
+    public c f17091c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f17516d;
+    public List<c.a.d.n.e.a> f17092d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f17517e;
+    public ArrayList<n> f17093e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f17518f;
+    public BdTypeListView f17094f;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class a {
                 return;
             }
         }
-        this.f17516d = new ArrayList();
-        this.f17517e = new ArrayList<>();
-        this.f17518f = bdTypeListView;
+        this.f17092d = new ArrayList();
+        this.f17093e = new ArrayList<>();
+        this.f17094f = bdTypeListView;
         a(tbPageContext);
     }
 
@@ -67,20 +67,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.a = new i(tbPageContext);
-            this.f17514b = new j(tbPageContext, c.a.t0.x2.e.j.f26217f);
+            this.f17090b = new j(tbPageContext, c.a.t0.x2.e.j.f25438f);
             f fVar = new f(tbPageContext, this, tbPageContext.getUniqueId());
-            this.f17515c = fVar;
-            this.f17514b.b0(fVar);
-            this.f17516d.add(this.a);
-            this.f17516d.add(this.f17514b);
-            this.f17518f.addAdapters(this.f17516d);
+            this.f17091c = fVar;
+            this.f17090b.b0(fVar);
+            this.f17092d.add(this.a);
+            this.f17092d.add(this.f17090b);
+            this.f17094f.addAdapters(this.f17092d);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f17518f.getAdapter2() instanceof e)) {
-            this.f17518f.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f17094f.getAdapter2() instanceof e)) {
+            this.f17094f.getAdapter2().notifyDataSetChanged();
         }
     }
 
@@ -93,23 +93,23 @@ public class a {
             if (m.isEmpty(str)) {
                 return false;
             }
-            if (this.f17518f != null && (arrayList = this.f17517e) != null) {
+            if (this.f17094f != null && (arrayList = this.f17093e) != null) {
                 Iterator<n> it = arrayList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     n next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).f43965f)) {
+                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).f42362f)) {
                         z = true;
                         it.remove();
                         break;
                     }
                 }
                 if (z) {
-                    ArrayList<n> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.f17517e);
-                    this.f17517e = mergeDynamicThreadByTime;
-                    this.f17518f.setData(mergeDynamicThreadByTime);
+                    ArrayList<n> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.f17093e);
+                    this.f17093e = mergeDynamicThreadByTime;
+                    this.f17094f.setData(mergeDynamicThreadByTime);
                     b();
                 }
             }
@@ -120,18 +120,18 @@ public class a {
 
     public void d(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f17518f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f17094f == null) {
             return;
         }
-        this.f17517e.clear();
-        this.f17517e.addAll(arrayList);
-        this.f17518f.setData(this.f17517e);
+        this.f17093e.clear();
+        this.f17093e.addAll(arrayList);
+        this.f17094f.setData(this.f17093e);
     }
 
     public void e() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f17518f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f17094f) == null) {
             return;
         }
         bdTypeListView.startPullRefresh();

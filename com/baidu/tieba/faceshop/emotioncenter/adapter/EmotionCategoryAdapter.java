@@ -31,16 +31,16 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f44536b;
+        public TextView f42898b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f44537c;
+        public ImageView f42899c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f44538d;
+        public TextView f42900d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f44539e;
+        public View f42901e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionCategoryViewHolder(View view) {
@@ -70,20 +70,20 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.a) == null) {
                 return;
             }
-            this.f44536b = (TextView) view.findViewById(R.id.emotion_title);
-            this.f44537c = (ImageView) this.a.findViewById(R.id.emotion_change_iv);
-            this.f44538d = (TextView) this.a.findViewById(R.id.emotion_function);
-            this.f44536b.setText(this.a.getResources().getText(R.string.emotion_center_quality_recommend));
-            this.f44537c.setVisibility(8);
-            this.f44538d.setVisibility(8);
-            this.f44539e = this.a.findViewById(R.id.category_line_top);
+            this.f42898b = (TextView) view.findViewById(R.id.emotion_title);
+            this.f42899c = (ImageView) this.a.findViewById(R.id.emotion_change_iv);
+            this.f42900d = (TextView) this.a.findViewById(R.id.emotion_function);
+            this.f42898b.setText(this.a.getResources().getText(R.string.emotion_center_quality_recommend));
+            this.f42899c.setVisibility(8);
+            this.f42900d.setVisibility(8);
+            this.f42901e = this.a.findViewById(R.id.category_line_top);
         }
 
         public void onChangeSkin(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                SkinManager.setBackgroundColor(this.f44539e, R.color.common_color_10312);
-                SkinManager.setViewTextColor(this.f44536b, R.color.CAM_X0107);
+                SkinManager.setBackgroundColor(this.f42901e, R.color.common_color_10312);
+                SkinManager.setViewTextColor(this.f42898b, R.color.CAM_X0107);
             }
         }
     }
@@ -116,7 +116,7 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.f3299e).inflate(R.layout.emotion_category_layout, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.emotion_category_layout, viewGroup, false));
             emotionCategoryViewHolder.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }

@@ -21,19 +21,19 @@ public class d extends c.a.d.a.d<MemberPrivilegeActivity> {
     public MemberPrivilegeActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18093b;
+    public View f17653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f18094c;
+    public NavigationBar f17654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f18095d;
+    public NoNetworkView f17655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f18096e;
+    public BdListView f17656e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f18097f;
+    public c f17657f;
 
     /* loaded from: classes7.dex */
     public class a implements NoNetworkView.b {
@@ -41,7 +41,7 @@ public class d extends c.a.d.a.d<MemberPrivilegeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f18098e;
+        public final /* synthetic */ d f17658e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class d extends c.a.d.a.d<MemberPrivilegeActivity> {
                     return;
                 }
             }
-            this.f18098e = dVar;
+            this.f17658e = dVar;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f18098e.a.requestMemberPrivilegeData();
+                this.f17658e.a.requestMemberPrivilegeData();
             }
         }
     }
@@ -95,13 +95,13 @@ public class d extends c.a.d.a.d<MemberPrivilegeActivity> {
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18097f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17657f : (c) invokeV.objValue;
     }
 
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18093b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17653b : (View) invokeV.objValue;
     }
 
     public final void f() {
@@ -109,19 +109,19 @@ public class d extends c.a.d.a.d<MemberPrivilegeActivity> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setContentView(R.layout.memberprivilege_activity);
             View findViewById = this.a.findViewById(R.id.root);
-            this.f18093b = findViewById;
+            this.f17653b = findViewById;
             NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.navigationbar);
-            this.f18094c = navigationBar;
+            this.f17654c = navigationBar;
             navigationBar.setTitleText(R.string.member_center);
-            this.f18094c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            NoNetworkView noNetworkView = (NoNetworkView) this.f18093b.findViewById(R.id.nonetworkview);
-            this.f18095d = noNetworkView;
+            this.f17654c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            NoNetworkView noNetworkView = (NoNetworkView) this.f17653b.findViewById(R.id.nonetworkview);
+            this.f17655d = noNetworkView;
             noNetworkView.addNetworkChangeListener(new a(this));
-            this.f18096e = (BdListView) this.f18093b.findViewById(R.id.listview);
+            this.f17656e = (BdListView) this.f17653b.findViewById(R.id.listview);
             c cVar = new c(this.a);
-            this.f18097f = cVar;
-            this.f18096e.setAdapter((ListAdapter) cVar);
-            this.f18096e.setOnItemClickListener(this.a);
+            this.f17657f = cVar;
+            this.f17656e.setAdapter((ListAdapter) cVar);
+            this.f17656e.setOnItemClickListener(this.a);
         }
     }
 
@@ -129,9 +129,9 @@ public class d extends c.a.d.a.d<MemberPrivilegeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             this.a.getLayoutMode().k(i2 == 1);
-            this.a.getLayoutMode().j(this.f18093b);
-            this.f18094c.onChangeSkinType(this.a.getPageContext(), i2);
-            this.f18095d.onChangeSkinType(this.a.getPageContext(), i2);
+            this.a.getLayoutMode().j(this.f17653b);
+            this.f17654c.onChangeSkinType(this.a.getPageContext(), i2);
+            this.f17655d.onChangeSkinType(this.a.getPageContext(), i2);
         }
     }
 }

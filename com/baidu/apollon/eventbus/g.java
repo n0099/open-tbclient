@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Method f33500b;
+    public final Method f32437b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33501c;
+    public final int f32438c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f33502d;
+    public final String f32439d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final EventBus.ThreadMode f33503e;
+    public final EventBus.ThreadMode f32440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f33504f;
+    public volatile boolean f32441f;
 
     public g(Object obj, Method method, String str, int i2, EventBus.ThreadMode threadMode) {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public final class g {
             }
         }
         this.a = obj;
-        this.f33500b = method;
-        this.f33502d = str;
-        this.f33501c = i2;
-        this.f33503e = threadMode;
-        this.f33504f = true;
+        this.f32437b = method;
+        this.f32439d = str;
+        this.f32438c = i2;
+        this.f32440e = threadMode;
+        this.f32441f = true;
     }
 
     public boolean equals(Object obj) {
@@ -58,7 +58,7 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                return this.a == gVar.a && this.f33500b.equals(gVar.f33500b);
+                return this.a == gVar.a && this.f32437b.equals(gVar.f32437b);
             }
             return false;
         }
@@ -68,6 +68,6 @@ public final class g {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.hashCode() + this.f33500b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.hashCode() + this.f32437b.hashCode() : invokeV.intValue;
     }
 }

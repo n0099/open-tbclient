@@ -16,7 +16,7 @@ public final class s implements c.a.d.n.e.n {
     @JvmField
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f23085e;
+    public static final BdUniqueId f22449e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class s implements c.a.d.n.e.n {
         }
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        f23085e = gen;
+        f22449e = gen;
     }
 
     public s() {
@@ -55,6 +55,6 @@ public final class s implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f23085e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22449e : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -10,48 +10,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20774e;
+    public String f20220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20775f;
+    public boolean f20221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20776g;
+    public String f20222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a[] f20777h;
+    public a[] f20223h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f20778e;
+        public String f20224e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f20779f;
+        public String f20225f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f20780g;
+        public String f20226g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f20781h;
+        public String f20227h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f20782i;
+        public int f20228i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f20783j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public boolean f20784k;
+        public int f20229j;
+        public boolean k;
         public long l;
         public long m;
 
@@ -72,25 +70,25 @@ public class d implements n {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20782i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20228i : invokeV.intValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20778e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20224e : (String) invokeV.objValue;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20779f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20225f : (String) invokeV.objValue;
         }
 
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20783j : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20229j : invokeV.intValue;
         }
 
         @Override // c.a.d.n.e.n
@@ -109,7 +107,7 @@ public class d implements n {
         public String i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20781h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20227h : (String) invokeV.objValue;
         }
 
         public long k() {
@@ -121,20 +119,20 @@ public class d implements n {
         public String l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20780g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20226g : (String) invokeV.objValue;
         }
 
         public boolean n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f20784k : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.booleanValue;
         }
 
         public a o(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.f20784k = z;
+                this.k = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -144,7 +142,7 @@ public class d implements n {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f20782i = i2;
+                this.f20228i = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -154,7 +152,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f20778e = str;
+                this.f20224e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -164,7 +162,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.f20779f = str;
+                this.f20225f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -174,7 +172,7 @@ public class d implements n {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-                this.f20783j = i2;
+                this.f20229j = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -198,7 +196,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-                this.f20781h = str;
+                this.f20227h = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -218,7 +216,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f20780g = str;
+                this.f20226g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -238,7 +236,7 @@ public class d implements n {
                 return;
             }
         }
-        this.f20777h = new a[3];
+        this.f20223h = new a[3];
     }
 
     public String a() {
@@ -246,7 +244,7 @@ public class d implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (a aVar : this.f20777h) {
+            for (a aVar : this.f20223h) {
                 sb.append(aVar.h());
                 sb.append(',');
             }

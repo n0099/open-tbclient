@@ -1,7 +1,7 @@
 package c.a.t0.o1.j.h;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.l0;
 import c.a.s0.s.q.n;
 import c.a.s0.s.q.r1;
@@ -26,35 +26,35 @@ import tbclient.ActivityPage.SpecialColumnList;
 import tbclient.BannerImage;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21194b;
+    public int f20634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<d2> f21195c;
+    public ArrayList<e2> f20635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n f21196d;
+    public n f20636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l0 f21197e;
+    public l0 f20637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public r1 f21198f;
+    public r1 f20638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public v1 f21199g;
+    public v1 f20639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f21200h;
+    public c f20640h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SpecialColumnListData f21201i;
+    public SpecialColumnListData f20641i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -70,55 +70,55 @@ public class b {
             }
         }
         this.a = true;
-        this.f21194b = 1;
+        this.f20634b = 1;
     }
 
     public n a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21196d : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20636d : (n) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21194b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20634b : invokeV.intValue;
     }
 
     public l0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21197e : (l0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20637e : (l0) invokeV.objValue;
     }
 
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21200h : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20640h : (c) invokeV.objValue;
     }
 
     public r1 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21198f : (r1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20638f : (r1) invokeV.objValue;
     }
 
     public v1 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21199g : (v1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20639g : (v1) invokeV.objValue;
     }
 
     public SpecialColumnListData g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21201i : (SpecialColumnListData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20641i : (SpecialColumnListData) invokeV.objValue;
     }
 
-    public ArrayList<d2> h() {
+    public ArrayList<e2> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21195c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20635c : (ArrayList) invokeV.objValue;
     }
 
     public boolean i() {
@@ -134,52 +134,52 @@ public class b {
         }
         Page page = dataRes.page_info;
         if (page != null) {
-            this.f21194b = page.current_page.intValue();
+            this.f20634b = page.current_page.intValue();
             this.a = page.has_more.intValue() == 1;
         }
-        this.f21195c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        this.f20635c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
         for (ThreadInfo threadInfo : dataRes.thread_list) {
-            d2 d2Var = new d2();
-            d2Var.c3(threadInfo);
-            d2Var.J1();
-            this.f21195c.add(d2Var);
+            e2 e2Var = new e2();
+            e2Var.c3(threadInfo);
+            e2Var.J1();
+            this.f20635c.add(e2Var);
         }
         List<BannerImage> list = dataRes.banner_image;
         if (!ListUtils.isEmpty(list)) {
             n nVar = new n();
-            this.f21196d = nVar;
+            this.f20636d = nVar;
             nVar.parserProtobuf(list);
         }
         List<BannerImage> list2 = dataRes.grid;
         if (ListUtils.getCount(list2) >= 4) {
             l0 l0Var = new l0();
-            this.f21197e = l0Var;
+            this.f20637e = l0Var;
             l0Var.parserProtobuf(list2);
         }
         RecommendForumList recommendForumList = dataRes.recommend_forum;
         if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
             r1 r1Var = new r1();
-            this.f21198f = r1Var;
+            this.f20638f = r1Var;
             r1Var.o(recommendForumList.forum_list);
-            r1 r1Var2 = this.f21198f;
-            r1Var2.f13801j = recommendForumList.class_name;
+            r1 r1Var2 = this.f20638f;
+            r1Var2.f13488j = recommendForumList.class_name;
             r1Var2.floorPosition = recommendForumList.floor_position.intValue();
-            this.f21198f.f13799h = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-            this.f21198f.f13800i = R.color.CAM_X0108;
+            this.f20638f.f13486h = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+            this.f20638f.f13487i = R.color.CAM_X0108;
         }
         RecommendUserList recommendUserList = dataRes.recommend_user;
         if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
             v1 v1Var = new v1();
-            this.f21199g = v1Var;
+            this.f20639g = v1Var;
             v1Var.i(recommendUserList.user_list);
-            this.f21199g.floorPosition = recommendUserList.floor_position.intValue();
-            this.f21199g.f13824e = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-            this.f21199g.f13825f = R.color.CAM_X0108;
+            this.f20639g.floorPosition = recommendUserList.floor_position.intValue();
+            this.f20639g.f13511e = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+            this.f20639g.f13512f = R.color.CAM_X0108;
         }
         HotTopic hotTopic = dataRes.hot_topic;
         if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
             c cVar = new c();
-            this.f21200h = cVar;
+            this.f20640h = cVar;
             cVar.k(hotTopic);
         }
         SpecialColumnList specialColumnList = dataRes.special_column;
@@ -187,7 +187,7 @@ public class b {
             return;
         }
         SpecialColumnListData specialColumnListData = new SpecialColumnListData();
-        this.f21201i = specialColumnListData;
+        this.f20641i = specialColumnListData;
         specialColumnListData.parserProtobuf(specialColumnList);
     }
 }

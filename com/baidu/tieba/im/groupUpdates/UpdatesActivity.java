@@ -117,7 +117,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public final /* synthetic */ s a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f46750b;
+        public final /* synthetic */ UpdatesActivity f45021b;
 
         public b(UpdatesActivity updatesActivity, s sVar) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f46750b = updatesActivity;
+            this.f45021b = updatesActivity;
             this.a = sVar;
         }
 
@@ -144,9 +144,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f46750b.model.clearSelect();
-                this.f46750b.updatesView.c();
-                this.f46750b.setEditMode(false);
+                this.f45021b.model.clearSelect();
+                this.f45021b.updatesView.c();
+                this.f45021b.setEditMode(false);
                 UpdatesModel.requestUpdatesDataFromDB(this.a);
             }
         }
@@ -198,7 +198,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f46751e;
+        public final /* synthetic */ UpdatesActivity f45022e;
 
         public d(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -215,21 +215,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f46751e = updatesActivity;
+            this.f45022e = updatesActivity;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                if (this.f46751e.deleteItemDialog != null && this.f46751e.deleteItemDialog.isShowing()) {
-                    this.f46751e.deleteItemDialog.dismiss();
+                if (this.f45022e.deleteItemDialog != null && this.f45022e.deleteItemDialog.isShowing()) {
+                    this.f45022e.deleteItemDialog.dismiss();
                 }
                 if (i2 != 0) {
                     return;
                 }
-                this.f46751e.updatesView.o(true);
-                UpdatesActivity updatesActivity = this.f46751e;
+                this.f45022e.updatesView.o(true);
+                UpdatesActivity updatesActivity = this.f45022e;
                 updatesActivity.processDel(updatesActivity.pendingToDel);
             }
         }

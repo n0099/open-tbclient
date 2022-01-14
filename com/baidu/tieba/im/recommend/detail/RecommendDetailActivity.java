@@ -33,7 +33,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailActivity f46822e;
+        public final /* synthetic */ RecommendDetailActivity f45091e;
 
         public a(RecommendDetailActivity recommendDetailActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                     return;
                 }
             }
-            this.f46822e = recommendDetailActivity;
+            this.f45091e = recommendDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46822e.mView.f(false);
+                this.f45091e.mView.f(false);
             }
         }
     }
@@ -68,7 +68,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailActivity f46823e;
+        public final /* synthetic */ RecommendDetailActivity f45092e;
 
         public b(RecommendDetailActivity recommendDetailActivity) {
             Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                     return;
                 }
             }
-            this.f46823e = recommendDetailActivity;
+            this.f45092e = recommendDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46823e.mView.f(true);
+                this.f45092e.mView.f(true);
             }
         }
     }

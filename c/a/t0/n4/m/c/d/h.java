@@ -6,46 +6,46 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20544b;
+    public String f19995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f20545c;
+    public float f19996c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f20546d;
+    public long f19997d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20547e;
+    public Bitmap f19998e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20548f;
+    public int f19999f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20549g;
+    public int f20000g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20550h;
+    public int f20001h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20551i;
+    public int f20002i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f20552j;
+    public f f20003j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f20553e;
+        public final /* synthetic */ h f20004e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class h {
                     return;
                 }
             }
-            this.f20553e = hVar;
+            this.f20004e = hVar;
         }
 
         @Override // java.lang.Runnable
@@ -70,12 +70,12 @@ public class h {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h hVar = this.f20553e;
-                if (hVar.f20552j == null || (bitmap = hVar.f20547e) == null || bitmap.isRecycled()) {
+                h hVar = this.f20004e;
+                if (hVar.f20003j == null || (bitmap = hVar.f19998e) == null || bitmap.isRecycled()) {
                     return;
                 }
-                h hVar2 = this.f20553e;
-                hVar2.f20552j.onFrameResult(hVar2.f20548f, hVar2.f20547e);
+                h hVar2 = this.f20004e;
+                hVar2.f20003j.onFrameResult(hVar2.f19999f, hVar2.f19998e);
             }
         }
     }

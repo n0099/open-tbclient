@@ -21,7 +21,7 @@ public class g extends c.a.d.n.e.a<c.a.t0.a0.f.g.c.g, LiveTabConcernTitleView.Vi
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.g.c.g.f14977g);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.g.c.g.f14617g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

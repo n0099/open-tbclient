@@ -19,13 +19,13 @@ public class a {
     public List<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Page f22697b;
+    public Page f22076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22698c;
+    public boolean f22077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f22699d;
+    public boolean f22078d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22698c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22077c : invokeV.booleanValue;
     }
 
     public List<b> b() {
@@ -58,7 +58,7 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22699d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22078d : invokeV.booleanValue;
     }
 
     public void d(DataRes dataRes) {
@@ -67,9 +67,9 @@ public class a {
             return;
         }
         Page page = dataRes.page;
-        this.f22697b = page;
+        this.f22076b = page;
         if (page != null) {
-            this.f22698c = page.has_more.intValue() == 1;
+            this.f22077c = page.has_more.intValue() == 1;
         }
         List<BroadcastInfo> list = dataRes.bcast_infos;
         if (list != null) {
@@ -84,7 +84,7 @@ public class a {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f22699d = z;
+            this.f22078d = z;
         }
     }
 

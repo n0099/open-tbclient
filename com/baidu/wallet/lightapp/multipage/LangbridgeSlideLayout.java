@@ -24,10 +24,10 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     public LightappBrowserWebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f53776b;
+    public ViewGroup f51720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53777c;
+    public boolean f51721c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LangbridgeSlideLayout(Context context) {
@@ -47,7 +47,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
                 return;
             }
         }
-        this.f53777c = true;
+        this.f51721c = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -117,7 +117,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             LightappBrowserWebView lightappBrowserWebView = this.a;
-            return lightappBrowserWebView != null && lightappBrowserWebView.isTop && this.f53777c;
+            return lightappBrowserWebView != null && lightappBrowserWebView.isTop && this.f51721c;
         }
         return invokeV.booleanValue;
     }
@@ -135,7 +135,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     public void setSupportPullDown(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f53777c = z;
+            this.f51721c = z;
             if (z) {
                 return;
             }
@@ -147,7 +147,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, lightappBrowserWebView) == null) {
             this.a = lightappBrowserWebView;
-            ViewGroup viewGroup = this.f53776b;
+            ViewGroup viewGroup = this.f51720b;
             if (viewGroup == null || lightappBrowserWebView == null) {
                 return;
             }
@@ -169,7 +169,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) {
             FrameLayout frameLayout = new FrameLayout(context);
-            this.f53776b = frameLayout;
+            this.f51720b = frameLayout;
             return frameLayout;
         }
         return (ViewGroup) invokeLL.objValue;
@@ -194,6 +194,6 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
                 return;
             }
         }
-        this.f53777c = true;
+        this.f51721c = true;
     }
 }

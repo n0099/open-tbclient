@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.t0.o2.c.b> f21424b;
+    public List<c.a.t0.o2.c.b> f20857b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
                 return;
             }
         }
-        this.f21424b = new ArrayList();
+        this.f20857b = new ArrayList();
         this.a = context;
         a();
     }
@@ -105,35 +105,35 @@ public class a {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21424b.add(new c.a.t0.o2.c.b(1, this.a.getString(R.string.interested_class_name_game), R.drawable.icon_mask_guide_game, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(3, this.a.getString(R.string.interested_class_name_comic), R.drawable.icon_mask_guide_comic, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(11, this.a.getString(R.string.interested_class_name_movie), R.drawable.icon_mask_guide_movie, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(4, this.a.getString(R.string.interested_class_name_literatue), R.drawable.icon_mask_guide_literatue, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(22, this.a.getString(R.string.interested_class_name_digita), R.drawable.icon_mask_guide_digital, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(5, this.a.getString(R.string.interested_class_name_science), R.drawable.icon_mask_guide_science, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(19, this.a.getString(R.string.interested_class_name_funny), R.drawable.icon_mask_guide_funny, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(8, this.a.getString(R.string.interested_class_name_motion), R.drawable.icon_mask_guide_motion, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(2, this.a.getString(R.string.interested_class_name_life), R.drawable.icon_mask_guide_life, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(16, this.a.getString(R.string.interested_class_name_food), R.drawable.icon_mask_guide_food, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(13, this.a.getString(R.string.interested_class_name_trail), R.drawable.icon_mask_guide_trail, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(12, this.a.getString(R.string.interested_class_name_education), R.drawable.icon_mask_guide_education, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(23, this.a.getString(R.string.interested_class_name_fasion), R.drawable.icon_mask_guide_fasion, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(14, this.a.getString(R.string.interested_class_name_art), R.drawable.icon_mask_guide_art, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(20, this.a.getString(R.string.interested_class_name_car), R.drawable.icon_mask_guide_car, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(7, this.a.getString(R.string.interested_class_name_star), R.drawable.icon_mask_guide_star, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(9, this.a.getString(R.string.interested_class_name_sport), R.drawable.icon_mask_guide_sport, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(6, this.a.getString(R.string.interested_class_name_leaf), R.drawable.icon_mask_guide_leaf, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(24, this.a.getString(R.string.interested_class_name_music), R.drawable.icon_mask_guide_music, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(25, this.a.getString(R.string.interested_class_name_constellation), R.drawable.icon_mask_guide_constellation, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(26, this.a.getString(R.string.interested_class_name_history), R.drawable.icon_mask_guide_history, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(27, this.a.getString(R.string.interested_class_name_military), R.drawable.icon_mask_guide_military, false));
-            this.f21424b.add(new c.a.t0.o2.c.b(28, this.a.getString(R.string.interested_class_name_tieba), R.drawable.icon_mask_guide_tieba, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(1, this.a.getString(R.string.interested_class_name_game), R.drawable.icon_mask_guide_game, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(3, this.a.getString(R.string.interested_class_name_comic), R.drawable.icon_mask_guide_comic, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(11, this.a.getString(R.string.interested_class_name_movie), R.drawable.icon_mask_guide_movie, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(4, this.a.getString(R.string.interested_class_name_literatue), R.drawable.icon_mask_guide_literatue, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(22, this.a.getString(R.string.interested_class_name_digita), R.drawable.icon_mask_guide_digital, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(5, this.a.getString(R.string.interested_class_name_science), R.drawable.icon_mask_guide_science, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(19, this.a.getString(R.string.interested_class_name_funny), R.drawable.icon_mask_guide_funny, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(8, this.a.getString(R.string.interested_class_name_motion), R.drawable.icon_mask_guide_motion, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(2, this.a.getString(R.string.interested_class_name_life), R.drawable.icon_mask_guide_life, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(16, this.a.getString(R.string.interested_class_name_food), R.drawable.icon_mask_guide_food, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(13, this.a.getString(R.string.interested_class_name_trail), R.drawable.icon_mask_guide_trail, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(12, this.a.getString(R.string.interested_class_name_education), R.drawable.icon_mask_guide_education, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(23, this.a.getString(R.string.interested_class_name_fasion), R.drawable.icon_mask_guide_fasion, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(14, this.a.getString(R.string.interested_class_name_art), R.drawable.icon_mask_guide_art, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(20, this.a.getString(R.string.interested_class_name_car), R.drawable.icon_mask_guide_car, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(7, this.a.getString(R.string.interested_class_name_star), R.drawable.icon_mask_guide_star, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(9, this.a.getString(R.string.interested_class_name_sport), R.drawable.icon_mask_guide_sport, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(6, this.a.getString(R.string.interested_class_name_leaf), R.drawable.icon_mask_guide_leaf, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(24, this.a.getString(R.string.interested_class_name_music), R.drawable.icon_mask_guide_music, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(25, this.a.getString(R.string.interested_class_name_constellation), R.drawable.icon_mask_guide_constellation, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(26, this.a.getString(R.string.interested_class_name_history), R.drawable.icon_mask_guide_history, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(27, this.a.getString(R.string.interested_class_name_military), R.drawable.icon_mask_guide_military, false));
+            this.f20857b.add(new c.a.t0.o2.c.b(28, this.a.getString(R.string.interested_class_name_tieba), R.drawable.icon_mask_guide_tieba, false));
         }
     }
 
     public List<c.a.t0.o2.c.b> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21424b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20857b : (List) invokeV.objValue;
     }
 }

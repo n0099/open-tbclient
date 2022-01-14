@@ -36,14 +36,14 @@ import org.json.JSONObject;
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f61741d;
+    public static a f59401d;
     public Intent a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61742b;
+    public boolean f59402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f61743c;
+    public b f59403c;
 
     public static void a(String str, String[] strArr) {
         Intent intent = new Intent(j.getContext(), TTDelegateActivity.class);
@@ -102,7 +102,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onStop() {
         DownloadInfo a;
         super.onStop();
-        if (!this.f61742b || this.f61743c == null || (a = g.a((Context) null).a(this.f61743c.a())) == null || a.getCurBytes() < a.getTotalBytes() || isFinishing()) {
+        if (!this.f59402b || this.f59403c == null || (a = g.a((Context) null).a(this.f59403c.a())) == null || a.getCurBytes() < a.getTotalBytes() || isFinishing()) {
             return;
         }
         finish();
@@ -136,8 +136,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f61742b = true;
-        this.f61743c = d2;
+        this.f59402b = true;
+        this.f59403c = d2;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("pause_optimise_type", str);
@@ -195,8 +195,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_dialog_show", jSONObject, d2);
         }
         new d.a(this).a(false).a(l.a()).a().show();
-        this.f61742b = true;
-        this.f61743c = d2;
+        this.f59402b = true;
+        this.f59403c = d2;
     }
 
     public static void a(com.ss.android.downloadad.api.a.a aVar) {
@@ -213,7 +213,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         Intent c2 = c(aVar);
         c2.addFlags(268435456);
         c2.putExtra("type", 9);
-        f61741d = aVar2;
+        f59401d = aVar2;
         if (j.getContext() != null) {
             j.getContext().startActivity(c2);
         }
@@ -240,22 +240,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         b.a a = new b.a(this).a("已安装完成");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(d2.N()) ? "刚刚下载的应用" : d2.N();
-        c2.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d("取消").a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC2162b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC2162b
+        c2.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d("取消").a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC2179b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC2179b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC2162b
+            @Override // com.ss.android.download.api.model.b.InterfaceC2179b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC2162b
+            @Override // com.ss.android.download.api.model.b.InterfaceC2179b
             public void c(DialogInterface dialogInterface) {
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
@@ -268,22 +268,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             s sVar = new s() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.1
 
                 /* renamed from: c  reason: collision with root package name */
-                public WeakReference<Activity> f61745c;
+                public WeakReference<Activity> f59405c;
 
                 {
-                    this.f61745c = new WeakReference<>(TTDelegateActivity.this);
+                    this.f59405c = new WeakReference<>(TTDelegateActivity.this);
                 }
 
                 @Override // com.ss.android.download.api.config.s
                 public void a() {
                     com.ss.android.downloadlib.g.j.a(str);
-                    com.ss.android.socialbase.appdownloader.c.a(this.f61745c.get());
+                    com.ss.android.socialbase.appdownloader.c.a(this.f59405c.get());
                 }
 
                 @Override // com.ss.android.download.api.config.s
                 public void a(String str2) {
                     com.ss.android.downloadlib.g.j.a(str, str2);
-                    com.ss.android.socialbase.appdownloader.c.a(this.f61745c.get());
+                    com.ss.android.socialbase.appdownloader.c.a(this.f59405c.get());
                 }
             };
             if (Build.VERSION.SDK_INT >= 23) {
@@ -384,7 +384,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 c();
                 break;
             case 9:
-                a aVar = f61741d;
+                a aVar = f59401d;
                 if (aVar != null) {
                     aVar.a();
                 }

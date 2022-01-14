@@ -100,10 +100,10 @@ public class a extends e {
             sparseIntArray3.put(33, sparseIntArray3.size() + 1);
             SparseIntArray sparseIntArray4 = e.a;
             sparseIntArray4.put(34, sparseIntArray4.size() + 1);
-            e.f25920b.put(17, BdUniqueId.gen());
-            e.f25920b.put(27, BdUniqueId.gen());
-            e.f25920b.put(33, BdUniqueId.gen());
-            e.f25920b.put(34, BdUniqueId.gen());
+            e.f25158b.put(17, BdUniqueId.gen());
+            e.f25158b.put(27, BdUniqueId.gen());
+            e.f25158b.put(33, BdUniqueId.gen());
+            e.f25158b.put(34, BdUniqueId.gen());
         }
     }
 

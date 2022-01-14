@@ -18,20 +18,20 @@ public class i implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f17907i;
+    public static final BdUniqueId f17473i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17908e;
+    public boolean f17474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f17909f;
+    public d f17475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<j> f17910g;
+    public List<j> f17476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<j> f17911h;
+    public List<j> f17477h;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class i implements c.a.d.n.e.n {
                 return;
             }
         }
-        f17907i = BdUniqueId.gen();
+        f17473i = BdUniqueId.gen();
     }
 
     public i(VipThemeList vipThemeList) {
@@ -64,27 +64,27 @@ public class i implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f17908e = true;
+        this.f17474e = true;
         if (vipThemeList == null) {
             return;
         }
         String str = vipThemeList.card_id;
         d dVar = new d();
-        this.f17909f = dVar;
+        this.f17475f = dVar;
         dVar.f(2);
-        this.f17909f.e(vipThemeList.class_name);
-        this.f17909f.g(vipThemeList.class_url_name);
-        this.f17909f.h(vipThemeList.class_url);
+        this.f17475f.e(vipThemeList.class_name);
+        this.f17475f.g(vipThemeList.class_url_name);
+        this.f17475f.h(vipThemeList.class_url);
         if (vipThemeList.item != null) {
-            this.f17910g = new ArrayList();
+            this.f17476g = new ArrayList();
             for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.f17910g.add(new j(vipThemeItem));
+                this.f17476g.add(new j(vipThemeItem));
             }
         }
         if (vipThemeList.item_card != null) {
-            this.f17911h = new ArrayList();
+            this.f17477h = new ArrayList();
             for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.f17911h.add(new j(vipThemeItem2));
+                this.f17477h.add(new j(vipThemeItem2));
             }
         }
     }
@@ -92,25 +92,25 @@ public class i implements c.a.d.n.e.n {
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17909f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17475f : (d) invokeV.objValue;
     }
 
     public List<j> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17910g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17476g : (List) invokeV.objValue;
     }
 
     public List<j> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17911h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17477h : (List) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17907i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17473i : (BdUniqueId) invokeV.objValue;
     }
 }

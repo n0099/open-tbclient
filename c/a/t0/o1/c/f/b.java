@@ -9,31 +9,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f20765j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f20766k;
+    public static final BdUniqueId f20212j;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20767e;
+    public int f20213e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20768f;
+    public String f20214f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f20769g;
+    public boolean f20215g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f20770h;
+    public boolean f20216h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f20771i;
+    public BdUniqueId f20217i;
 
     static {
         InterceptResult invokeClinit;
@@ -48,8 +46,8 @@ public class b implements n {
                 return;
             }
         }
-        f20765j = BdUniqueId.gen();
-        f20766k = BdUniqueId.gen();
+        f20212j = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public b() {
@@ -65,13 +63,13 @@ public class b implements n {
                 return;
             }
         }
-        this.f20771i = f20766k;
+        this.f20217i = k;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20771i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20217i : (BdUniqueId) invokeV.objValue;
     }
 }

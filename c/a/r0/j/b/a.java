@@ -12,12 +12,12 @@ public class a {
 
     /* renamed from: c.a.r0.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0722a implements d {
+    public static class C0731a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
-        public C0722a(d dVar) {
+        public C0731a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f11060e;
+        public final /* synthetic */ d f10814e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class a {
                     return;
                 }
             }
-            this.f11060e = dVar;
+            this.f10814e = dVar;
         }
 
         @Override // c.a.r0.a.m.a
@@ -84,9 +84,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f11060e.onSuccess();
+                    this.f10814e.onSuccess();
                 } else {
-                    this.f11060e.onFail("login error");
+                    this.f10814e.onFail("login error");
                 }
             }
         }
@@ -100,12 +100,12 @@ public class a {
 
         /* renamed from: c.a.r0.j.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0723a implements d {
+        public class C0732a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
-            public C0723a(c cVar) {
+            public C0732a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +170,7 @@ public class a {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                a.b(new C0723a(this));
+                a.b(new C0732a(this));
             }
         }
     }
@@ -196,7 +196,7 @@ public class a {
     public static void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
-            c.a.r0.j.u.a.a().a(new C0722a(dVar));
+            c.a.r0.j.u.a.a().a(new C0731a(dVar));
         }
     }
 

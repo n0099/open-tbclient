@@ -33,23 +33,23 @@ public class a {
     public final c.a.t0.j3.f0.n.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f25210b;
+    public final int f24506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f25211c;
+    public final int f24507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f25212d;
+    public final int f24508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<String> f25213e;
+    public final List<String> f24509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<c.a.t0.j3.f0.n.b> f25214f;
+    public final List<c.a.t0.j3.f0.n.b> f24510f;
 
     /* renamed from: c.a.t0.v.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1471a {
+    public static /* synthetic */ class C1486a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -94,7 +94,7 @@ public class a {
             return (Void) invokeL.objValue;
         }
 
-        public /* synthetic */ b(a aVar, C1471a c1471a) {
+        public /* synthetic */ b(a aVar, C1486a c1486a) {
             this(aVar);
         }
     }
@@ -123,7 +123,7 @@ public class a {
             this.a = aVar;
         }
 
-        public /* synthetic */ c(a aVar, C1471a c1471a) {
+        public /* synthetic */ c(a aVar, C1486a c1486a) {
             this(aVar);
         }
 
@@ -192,11 +192,11 @@ public class a {
                 if (c.a.t0.x1.o.k.a.e(list)) {
                     return;
                 }
-                this.a.f25214f.addAll(list);
+                this.a.f24510f.addAll(list);
             }
         }
 
-        public /* synthetic */ d(a aVar, C1471a c1471a) {
+        public /* synthetic */ d(a aVar, C1486a c1486a) {
             this(aVar);
         }
     }
@@ -264,12 +264,12 @@ public class a {
             return (Void) invokeL.objValue;
         }
 
-        public /* synthetic */ f(a aVar, C1471a c1471a) {
+        public /* synthetic */ f(a aVar, C1486a c1486a) {
             this(aVar);
         }
     }
 
-    public /* synthetic */ a(C1471a c1471a) {
+    public /* synthetic */ a(C1486a c1486a) {
         this();
     }
 
@@ -297,12 +297,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iDownloadModel)) == null) {
             c.a.t0.j3.f0.n.b bVar = new c.a.t0.j3.f0.n.b();
-            bVar.f18798f = iDownloadModel.getAppJson();
-            bVar.f18794b = iDownloadModel.getPkgName();
+            bVar.f18330f = iDownloadModel.getAppJson();
+            bVar.f18326b = iDownloadModel.getPkgName();
             bVar.a = iDownloadModel.getDownloadKey();
-            bVar.f18796d = 0;
-            bVar.f18797e = System.currentTimeMillis();
-            bVar.f18795c = System.currentTimeMillis();
+            bVar.f18328d = 0;
+            bVar.f18329e = System.currentTimeMillis();
+            bVar.f18327c = System.currentTimeMillis();
             return bVar;
         }
         return (c.a.t0.j3.f0.n.b) invokeL.objValue;
@@ -313,10 +313,10 @@ public class a {
         c.a.t0.j3.f0.n.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cmatch)) == null) {
-            if (!this.f25213e.contains(cmatch.value) || c.a.t0.x1.o.k.a.e(this.f25214f) || (bVar = (c.a.t0.j3.f0.n.b) c.a.t0.x1.o.k.a.d(this.f25214f, 0)) == null) {
+            if (!this.f24509e.contains(cmatch.value) || c.a.t0.x1.o.k.a.e(this.f24510f) || (bVar = (c.a.t0.j3.f0.n.b) c.a.t0.x1.o.k.a.d(this.f24510f, 0)) == null) {
                 return false;
             }
-            return this.f25211c <= ((int) ((System.currentTimeMillis() - bVar.f18797e) / 60000));
+            return this.f24507c <= ((int) ((System.currentTimeMillis() - bVar.f18329e) / 60000));
         }
         return invokeL.booleanValue;
     }
@@ -331,7 +331,7 @@ public class a {
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Iterator<c.a.t0.j3.f0.n.b> it = this.f25214f.iterator();
+            Iterator<c.a.t0.j3.f0.n.b> it = this.f24510f.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(it.next().a, str)) {
                     it.remove();
@@ -346,20 +346,20 @@ public class a {
         c.a.t0.j3.f0.n.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, app, cmatch)) == null) {
-            if (c.a.t0.x1.o.k.a.e(this.f25214f)) {
+            if (c.a.t0.x1.o.k.a.e(this.f24510f)) {
                 return null;
             }
-            Iterator<c.a.t0.j3.f0.n.b> it = this.f25214f.iterator();
+            Iterator<c.a.t0.j3.f0.n.b> it = this.f24510f.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     bVar = null;
                     break;
                 }
                 bVar = it.next();
-                if (!z.r(bVar.f18794b)) {
+                if (!z.r(bVar.f18326b)) {
                     break;
                 }
-                bVar.f18800h = 2;
+                bVar.f18332h = 2;
                 o(bVar);
                 it.remove();
             }
@@ -367,7 +367,7 @@ public class a {
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(bVar.f18798f);
+                JSONObject jSONObject = new JSONObject(bVar.f18330f);
                 jSONObject.put("pos_name", app.pos_name);
                 App parseAppFromJson = JsonTransHelper.parseAppFromJson(jSONObject);
                 if (j(cmatch, parseAppFromJson)) {
@@ -402,7 +402,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        for (c.a.t0.j3.f0.n.b bVar : this.f25214f) {
+        for (c.a.t0.j3.f0.n.b bVar : this.f24510f) {
             if (bVar != null && TextUtils.equals(bVar.a, str)) {
                 p(bVar);
             }
@@ -416,12 +416,12 @@ public class a {
         }
         c.a.t0.j3.f0.n.b c2 = c(iDownloadModel);
         if (downloadStatus == DownloadStatus.STATUS_INSTALL_SUCCESS) {
-            c2.f18800h = 2;
-            this.f25214f.remove(c2);
+            c2.f18332h = 2;
+            this.f24510f.remove(c2);
         } else {
-            c2.f18800h = 1;
-            if (!this.f25214f.contains(c2)) {
-                this.f25214f.add(0, c2);
+            c2.f18332h = 1;
+            if (!this.f24510f.contains(c2)) {
+                this.f24510f.add(0, c2);
             }
         }
         o(c2);
@@ -459,13 +459,13 @@ public class a {
     public final void p(@NonNull c.a.t0.j3.f0.n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            int i2 = bVar.f18796d + 1;
-            bVar.f18796d = i2;
-            if (i2 >= this.f25210b) {
+            int i2 = bVar.f18328d + 1;
+            bVar.f18328d = i2;
+            if (i2 >= this.f24506b) {
                 f(bVar.a);
                 return;
             }
-            bVar.f18797e = System.currentTimeMillis();
+            bVar.f18329e = System.currentTimeMillis();
             o(bVar);
         }
     }
@@ -484,17 +484,17 @@ public class a {
             }
         }
         this.a = c.a.t0.j3.f0.n.a.e();
-        this.f25210b = c.a.t0.a.h().f();
-        this.f25211c = c.a.t0.a.h().e();
-        this.f25212d = c.a.t0.a.h().d();
+        this.f24506b = c.a.t0.a.h().f();
+        this.f24507c = c.a.t0.a.h().e();
+        this.f24508d = c.a.t0.a.h().d();
         String g2 = c.a.t0.a.h().g();
         if (TextUtils.isEmpty(g2)) {
-            this.f25213e = new ArrayList();
+            this.f24509e = new ArrayList();
         } else {
-            this.f25213e = Arrays.asList(g2.split("_"));
+            this.f24509e = Arrays.asList(g2.split("_"));
         }
-        this.f25214f = Collections.synchronizedList(new ArrayList());
-        m(this.f25212d, this.f25210b);
-        new b(this, null).execute(Integer.valueOf(this.f25212d), Integer.valueOf(this.f25210b));
+        this.f24510f = Collections.synchronizedList(new ArrayList());
+        m(this.f24508d, this.f24506b);
+        new b(this, null).execute(Integer.valueOf(this.f24508d), Integer.valueOf(this.f24506b));
     }
 }

@@ -19,10 +19,10 @@ public class c {
     public c.a.d.f.k.b<MultiImageTextTopView> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.f.k.b<MultiImageTextBottomView> f22606b;
+    public c.a.d.f.k.b<MultiImageTextBottomView> f21986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.f.k.b<SingleImageTextView> f22607c;
+    public c.a.d.f.k.b<SingleImageTextView> f21987c;
 
     /* loaded from: classes8.dex */
     public class a implements c.a.d.f.k.c<MultiImageTextTopView> {
@@ -133,12 +133,12 @@ public class c {
 
     /* renamed from: c.a.t0.s1.f.j.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1344c implements c.a.d.f.k.c<MultiImageTextBottomView> {
+    public class C1359c implements c.a.d.f.k.c<MultiImageTextBottomView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
-        public C1344c(c cVar, Context context) {
+        public C1359c(c cVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -351,14 +351,14 @@ public class c {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f22606b = new d(this, new C1344c(this, context), 9, 0);
+            this.f21986b = new d(this, new C1359c(this, context), 9, 0);
         }
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f22607c = new c.a.d.f.k.b<>(new e(this, context), 1, 0);
+            this.f21987c = new c.a.d.f.k.b<>(new e(this, context), 1, 0);
         }
     }
 
@@ -373,10 +373,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.f22606b == null) {
+            if (this.f21986b == null) {
                 a(context);
             }
-            return this.f22606b;
+            return this.f21986b;
         }
         return (c.a.d.f.k.b) invokeL.objValue;
     }
@@ -385,10 +385,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (this.f22607c == null) {
+            if (this.f21987c == null) {
                 b(context);
             }
-            return this.f22607c;
+            return this.f21987c;
         }
         return (c.a.d.f.k.b) invokeL.objValue;
     }

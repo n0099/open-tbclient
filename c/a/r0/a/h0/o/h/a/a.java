@@ -28,7 +28,7 @@ public class a extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.h0.o.g.c.b.a f6945b;
+    public c.a.r0.a.h0.o.g.c.b.a f6796b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context, c.a.r0.a.h0.o.g.b.a aVar) {
@@ -49,7 +49,7 @@ public class a extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
                 return;
             }
         }
-        this.f6945b = new b();
+        this.f6796b = new b();
     }
 
     @Override // c.a.r0.a.h0.o.g.f.h
@@ -129,7 +129,7 @@ public class a extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
             if (aVar.c()) {
-                return this.f6945b.a(aVar);
+                return this.f6796b.a(aVar);
             }
             return true;
         }

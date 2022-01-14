@@ -26,7 +26,7 @@ public class c {
     public static volatile c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SSLSocketFactory f4771b;
+    public static SSLSocketFactory f4668b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -127,7 +127,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (f4771b != null) {
+                if (f4668b != null) {
                     return;
                 }
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
@@ -136,7 +136,7 @@ public class c {
                 TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
                 if (trustManagers.length >= 1 && (trustManagers[0] instanceof X509TrustManager)) {
                     sSLContext.init(null, new TrustManager[]{new a(this, (X509TrustManager) trustManagers[0])}, new SecureRandom());
-                    f4771b = sSLContext.getSocketFactory();
+                    f4668b = sSLContext.getSocketFactory();
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -155,11 +155,11 @@ public class c {
             return;
         }
         try {
-            if (f4771b == null) {
+            if (f4668b == null) {
                 return;
             }
             httpsURLConnection.setHostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-            httpsURLConnection.setSSLSocketFactory(f4771b);
+            httpsURLConnection.setSSLSocketFactory(f4668b);
         } catch (Throwable th) {
             c.a.p0.l.c.d(th);
         }

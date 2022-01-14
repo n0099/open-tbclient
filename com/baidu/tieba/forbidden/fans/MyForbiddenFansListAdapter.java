@@ -27,13 +27,13 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f44646b;
+    public ArrayList<a> f43004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f44647c;
+    public View.OnClickListener f43005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f44648d;
+    public View.OnClickListener f43006d;
 
     /* loaded from: classes12.dex */
     public static class FansViewHolder extends RecyclerView.ViewHolder {
@@ -90,8 +90,8 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
                 return;
             }
         }
-        this.f44647c = null;
-        this.f44648d = null;
+        this.f43005c = null;
+        this.f43006d = null;
         this.a = context;
     }
 
@@ -108,19 +108,19 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public final a b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (a) ListUtils.getItem(this.f44646b, i2) : (a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (a) ListUtils.getItem(this.f43004b, i2) : (a) invokeI.objValue;
     }
 
     public boolean deleteRemovedUser(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            if (j2 != 0 && !ListUtils.isEmpty(this.f44646b)) {
-                Iterator<a> it = this.f44646b.iterator();
+            if (j2 != 0 && !ListUtils.isEmpty(this.f43004b)) {
+                Iterator<a> it = this.f43004b.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
                     if (next != null && next.a == j2) {
-                        this.f44646b.remove(next);
+                        this.f43004b.remove(next);
                         return true;
                     }
                 }
@@ -133,40 +133,40 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public ArrayList<a> getFansList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44646b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43004b : (ArrayList) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f44646b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f43004b) : invokeV.intValue;
     }
 
     public boolean isListEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.isEmpty(this.f44646b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.isEmpty(this.f43004b) : invokeV.booleanValue;
     }
 
     public void setFansList(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
-            this.f44646b = arrayList;
+            this.f43004b = arrayList;
         }
     }
 
     public void setPersonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.f44648d = onClickListener;
+            this.f43006d = onClickListener;
         }
     }
 
     public void setRemoveClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f44647c = onClickListener;
+            this.f43005c = onClickListener;
         }
     }
 
@@ -178,11 +178,11 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         if (!(interceptable == null || interceptable.invokeLI(1048583, this, fansViewHolder, i2) == null) || fansViewHolder == null || (b2 = b(i2)) == null) {
             return;
         }
-        fansViewHolder.photoView.startLoad(b2.f15407d, 12, false);
-        fansViewHolder.nameView.setText(b2.f15406c);
-        fansViewHolder.removeView.setOnClickListener(this.f44647c);
+        fansViewHolder.photoView.startLoad(b2.f15024d, 12, false);
+        fansViewHolder.nameView.setText(b2.f15023c);
+        fansViewHolder.removeView.setOnClickListener(this.f43005c);
         fansViewHolder.removeView.setTag(b2);
-        fansViewHolder.containerView.setOnClickListener(this.f44648d);
+        fansViewHolder.containerView.setOnClickListener(this.f43006d);
         fansViewHolder.containerView.setTag(b2);
         a(fansViewHolder);
     }

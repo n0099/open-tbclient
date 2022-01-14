@@ -4,16 +4,19 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import c.a.d.f.p.l;
+import c.a.s0.e1.h;
 import c.a.s0.e1.i;
-import c.a.t0.x1.o.k.a;
+import c.a.t0.l.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +37,7 @@ public class AdAsyncRequestData extends HttpMessage {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdAsyncRequestData(PlaceId placeId, Map<String, String> map, int i2) {
         super(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
+        CookieManager cookieManager;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +54,15 @@ public class AdAsyncRequestData extends HttpMessage {
             }
         }
         addCommonParams();
-        addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
+        try {
+            cookieManager = CookieManager.getInstance();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            cookieManager = null;
+        }
+        if (cookieManager != null) {
+            addHeader("Cookie", cookieManager.getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
+        }
         addParam("is_https", 1);
         addParam("flr", 1);
         addParam(TbConfig.SW_APID, 0);
@@ -79,8 +92,10 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
             addParam("net_type", String.valueOf(l.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            addParam("android_id", TbadkCoreApplication.getInst().getAndroidId());
+            addParam(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
+            String sampleId = TbSingleton.getInstance().getSampleId();
+            addParam("eid", sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ','));
             addParam("app_transmit_data", i.a());
         }
     }
@@ -105,12 +120,19 @@ public class AdAsyncRequestData extends HttpMessage {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (a.f(map)) {
-                return null;
-            }
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONArray.put(create(entry.getKey(), entry.getValue()));
+            if (a.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(create(AdExtParam.KEY_IADEX, h.e()));
+                jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
+                jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
+            }
+            if (c.a.t0.a.h().y()) {
+                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "4.4.3.3"));
+            }
+            if (!c.a.t0.x1.o.k.a.f(map)) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONArray.put(create(entry.getKey(), entry.getValue()));
+                }
             }
             return jSONArray.toString();
         }

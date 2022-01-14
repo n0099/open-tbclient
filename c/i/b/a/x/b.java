@@ -16,18 +16,18 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f30835e;
+    public static final b f29868e;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30836b;
+    public final int f29869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30837c;
+    public final int f29870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AudioAttributes f30838d;
+    public AudioAttributes f29871d;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -37,18 +37,18 @@ public final class b {
 
     /* renamed from: c.i.b.a.x.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1657b {
+    public static final class C1673b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30839b;
+        public int f29872b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30840c;
+        public int f29873c;
 
-        public C1657b() {
+        public C1673b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,14 +62,14 @@ public final class b {
                 }
             }
             this.a = 0;
-            this.f30839b = 0;
-            this.f30840c = 1;
+            this.f29872b = 0;
+            this.f29873c = 1;
         }
 
         public b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.a, this.f30839b, this.f30840c, null) : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.a, this.f29872b, this.f29873c, null) : (b) invokeV.objValue;
         }
     }
 
@@ -86,7 +86,7 @@ public final class b {
                 return;
             }
         }
-        f30835e = new C1657b().a();
+        f29868e = new C1673b().a();
     }
 
     public /* synthetic */ b(int i2, int i3, int i4, a aVar) {
@@ -98,10 +98,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f30838d == null) {
-                this.f30838d = new AudioAttributes.Builder().setContentType(this.a).setFlags(this.f30836b).setUsage(this.f30837c).build();
+            if (this.f29871d == null) {
+                this.f29871d = new AudioAttributes.Builder().setContentType(this.a).setFlags(this.f29869b).setUsage(this.f29870c).build();
             }
-            return this.f30838d;
+            return this.f29871d;
         }
         return (AudioAttributes) invokeV.objValue;
     }
@@ -117,7 +117,7 @@ public final class b {
                 return false;
             }
             b bVar = (b) obj;
-            return this.a == bVar.a && this.f30836b == bVar.f30836b && this.f30837c == bVar.f30837c;
+            return this.a == bVar.a && this.f29869b == bVar.f29869b && this.f29870c == bVar.f29870c;
         }
         return invokeL.booleanValue;
     }
@@ -125,7 +125,7 @@ public final class b {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a) * 31) + this.f30836b) * 31) + this.f30837c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a) * 31) + this.f29869b) * 31) + this.f29870c : invokeV.intValue;
     }
 
     public b(int i2, int i3, int i4) {
@@ -144,7 +144,7 @@ public final class b {
             }
         }
         this.a = i2;
-        this.f30836b = i3;
-        this.f30837c = i4;
+        this.f29869b = i3;
+        this.f29870c = i4;
     }
 }

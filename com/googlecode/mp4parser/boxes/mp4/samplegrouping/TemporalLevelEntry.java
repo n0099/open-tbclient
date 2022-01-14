@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-import kotlin.jvm.internal.ByteCompanionObject;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class TemporalLevelEntry extends GroupEntry {
@@ -79,7 +78,7 @@ public class TemporalLevelEntry extends GroupEntry {
     public void parse(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-            this.levelIndependentlyDecodable = (byteBuffer.get() & ByteCompanionObject.MIN_VALUE) == 128;
+            this.levelIndependentlyDecodable = (byteBuffer.get() & 128) == 128;
         }
     }
 

@@ -32,10 +32,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f18772b;
+    public static f f18304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<c> f18773c;
+    public static List<c> f18305c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -45,10 +45,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadData f18774e;
+        public final /* synthetic */ DownloadData f18306e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f18775f;
+        public final /* synthetic */ f f18307f;
 
         public a(f fVar, DownloadData downloadData) {
             Interceptable interceptable = $ic;
@@ -65,22 +65,22 @@ public class f {
                     return;
                 }
             }
-            this.f18775f = fVar;
-            this.f18774e = downloadData;
+            this.f18307f = fVar;
+            this.f18306e = downloadData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.f18773c.size() < this.f18775f.a) {
-                    this.f18775f.g(this.f18774e);
+                if (f.f18305c.size() < this.f18307f.a) {
+                    this.f18307f.g(this.f18306e);
                     return;
                 }
-                this.f18774e.setStatus(2);
-                this.f18774e.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
-                if (this.f18774e.getCallback() != null) {
-                    this.f18774e.getCallback().onFileUpdateProgress(this.f18774e);
+                this.f18306e.setStatus(2);
+                this.f18306e.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
+                if (this.f18306e.getCallback() != null) {
+                    this.f18306e.getCallback().onFileUpdateProgress(this.f18306e);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18776e;
+        public final /* synthetic */ String f18308e;
 
         public b(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -109,17 +109,17 @@ public class f {
                     return;
                 }
             }
-            this.f18776e = str;
+            this.f18308e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Iterator it = f.f18773c.iterator();
+                Iterator it = f.f18305c.iterator();
                 while (it.hasNext()) {
                     c cVar = (c) it.next();
-                    if (cVar.e().getUrl().equals(this.f18776e)) {
+                    if (cVar.e().getUrl().equals(this.f18308e)) {
                         cVar.e().setStatus(4);
                         if (cVar.e().getCallback() != null) {
                             cVar.e().getCallback().onFileUpdateProgress(cVar.e());
@@ -140,10 +140,10 @@ public class f {
         public DownloadData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f18777b;
+        public NetWork f18309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Handler f18778c;
+        public Handler f18310c;
 
         /* loaded from: classes7.dex */
         public class a extends Handler {
@@ -205,15 +205,15 @@ public class f {
                     return;
                 }
             }
-            this.f18777b = new NetWork();
-            this.f18778c = new a(this, Looper.getMainLooper());
+            this.f18309b = new NetWork();
+            this.f18310c = new a(this, Looper.getMainLooper());
             this.a = downloadData;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.f18777b;
+                NetWork netWork = this.f18309b;
                 if (netWork != null) {
                     netWork.setCancel();
                 }
@@ -243,9 +243,9 @@ public class f {
                 file.delete();
             }
             if (!file.exists()) {
-                this.f18777b.setUrl(downloadDataArr[0].getUrl());
-                NetWork netWork = this.f18777b;
-                if (netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.f18778c, TbConfig.NET_MSG_GETLENTH, 3, 3000)) {
+                this.f18309b.setUrl(downloadDataArr[0].getUrl());
+                NetWork netWork = this.f18309b;
+                if (netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.f18310c, TbConfig.NET_MSG_GETLENTH, 3, 3000)) {
                     File GetFile = FileHelper.GetFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
                     if (GetFile == null) {
                         GetFile = FileHelper.GetFileInCache(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
@@ -344,7 +344,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 super.onCancelled();
-                this.f18777b.setCancel();
+                this.f18309b.setCancel();
                 this.a.setStatus(4);
                 this.a.setStatusMsg(null);
                 if (this.a.getCallback() != null) {
@@ -396,7 +396,7 @@ public class f {
                         this.a.getCallback().onFileDownloadFailed(this.a, num.intValue(), str);
                     }
                 }
-                f.f18773c.remove(this);
+                f.f18305c.remove(this);
             }
         }
     }
@@ -414,8 +414,8 @@ public class f {
                 return;
             }
         }
-        f18772b = new f();
-        f18773c = new LinkedList();
+        f18304b = new f();
+        f18305c = new LinkedList();
     }
 
     public f() {
@@ -437,7 +437,7 @@ public class f {
     public static f f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f18772b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f18304b : (f) invokeV.objValue;
     }
 
     public void d(String str) {
@@ -452,7 +452,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            for (c cVar : f18773c) {
+            for (c cVar : f18305c) {
                 linkedList.add(cVar.e());
             }
             return linkedList;
@@ -476,8 +476,8 @@ public class f {
             }
             return;
         }
-        for (int i2 = 0; i2 < f18773c.size(); i2++) {
-            DownloadData e2 = f18773c.get(i2).e();
+        for (int i2 = 0; i2 < f18305c.size(); i2++) {
+            DownloadData e2 = f18305c.get(i2).e();
             if (e2 != null && e2.getUrl().equals(downloadData.getUrl()) && e2.getId().equals(downloadData.getId())) {
                 return;
             }
@@ -487,7 +487,7 @@ public class f {
             downloadData.getCallback().onFileUpdateProgress(downloadData);
         }
         c cVar = new c(downloadData);
-        f18773c.add(cVar);
+        f18305c.add(cVar);
         cVar.execute(downloadData);
     }
 

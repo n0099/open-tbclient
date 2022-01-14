@@ -23,10 +23,10 @@ public class ImageBase64Utils {
     public static final String a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f34969b = 70;
+    public static int f33843b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f34970c;
+    public static ImageBase64Utils f33844c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -36,13 +36,13 @@ public class ImageBase64Utils {
         public ImageBase64Listener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34971b;
+        public String f33845b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f34972c;
+        public int f33846c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ ImageBase64Utils f34973d;
+        public final /* synthetic */ ImageBase64Utils f33847d;
 
         public ImageBase64AsyncTask(ImageBase64Utils imageBase64Utils, ImageBase64Listener imageBase64Listener, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class ImageBase64Utils {
                     return;
                 }
             }
-            this.f34973d = imageBase64Utils;
+            this.f33847d = imageBase64Utils;
             this.a = imageBase64Listener;
-            this.f34971b = str;
-            this.f34972c = i2;
+            this.f33845b = str;
+            this.f33846c = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class ImageBase64Utils {
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f34971b, this.f34972c) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f33845b, this.f33846c) : (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -149,7 +149,7 @@ public class ImageBase64Utils {
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f34969b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f33843b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("compress size:\t");
@@ -251,10 +251,10 @@ public class ImageBase64Utils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f34970c == null) {
-                f34970c = new ImageBase64Utils();
+            if (f33844c == null) {
+                f33844c = new ImageBase64Utils();
             }
-            return f34970c;
+            return f33844c;
         }
         return (ImageBase64Utils) invokeV.objValue;
     }

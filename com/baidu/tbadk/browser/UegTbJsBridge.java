@@ -3,8 +3,9 @@ package com.baidu.tbadk.browser;
 import android.webkit.JsPromptResult;
 import c.a.d.f.p.c;
 import c.a.f.a.a;
-import c.a.s0.n0.d;
+import c.a.s0.n0.e;
 import c.a.s0.t.c.m;
+import c.a.t0.e4.d;
 import c.a.t0.w3.n0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -144,7 +145,7 @@ public class UegTbJsBridge implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, str, str2, str3, str4, str5)) == null) {
             c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
-            d.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
+            e.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
             return cVar;
         }
         return (c.a.t0.w3.n0.d.c) invokeLLLLL.objValue;
@@ -164,8 +165,8 @@ public class UegTbJsBridge implements b {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i3);
                 BlockPopInfo build = builder.build(false);
-                c.a.t0.e4.d.g(build);
-                c.a.t0.e4.d.f(build);
+                d.g(build);
+                d.f(build);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -23,13 +23,13 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.k4.i.e.a f19336b;
+    public c.a.t0.k4.i.e.a f18840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f19337c;
+    public b f18841c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.c f19338d;
+    public b.c f18842d;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c.a.t0.k4.c.f19295f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + ".mp4";
+            return c.a.t0.k4.c.f18799f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + ".mp4";
         }
         return (String) invokeV.objValue;
     }
@@ -101,8 +101,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.t0.k4.i.e.a aVar = this.f19336b;
-            return (aVar == null || "normal".equalsIgnoreCase(aVar.f19380c)) ? "" : this.f19336b.f19380c;
+            c.a.t0.k4.i.e.a aVar = this.f18840b;
+            return (aVar == null || "normal".equalsIgnoreCase(aVar.f18882c)) ? "" : this.f18840b.f18882c;
         }
         return (String) invokeV.objValue;
     }
@@ -110,7 +110,7 @@ public class a {
     public void e() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f19337c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f18841c) == null) {
             return;
         }
         bVar.e();
@@ -120,7 +120,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f19337c;
+            b bVar = this.f18841c;
             if (bVar != null) {
                 return bVar.f();
             }
@@ -132,15 +132,15 @@ public class a {
     public void g(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            b bVar = this.f19337c;
+            b bVar = this.f18841c;
             if ((bVar == null || !bVar.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
                 b bVar2 = new b(this.a, str, d(), str2);
-                this.f19337c = bVar2;
-                b.c cVar = this.f19338d;
+                this.f18841c = bVar2;
+                b.c cVar = this.f18842d;
                 if (cVar != null) {
                     bVar2.h(cVar);
                 }
-                this.f19337c.i();
+                this.f18841c.i();
             }
         }
     }
@@ -148,15 +148,15 @@ public class a {
     public void h(c.a.t0.k4.i.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f19336b = aVar;
+            this.f18840b = aVar;
         }
     }
 
     public void i(b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f19338d = cVar;
-            b bVar = this.f19337c;
+            this.f18842d = cVar;
+            b bVar = this.f18841c;
             if (bVar != null) {
                 bVar.h(cVar);
             }

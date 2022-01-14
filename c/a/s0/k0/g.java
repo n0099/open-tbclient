@@ -16,13 +16,13 @@ public class g {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.s0.s.g0.b.j().h() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.s0.s.h0.b.k().i() : (String) invokeV.objValue;
     }
 
     public static ContentResolver b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a.s0.s.g0.b.j().i() : (ContentResolver) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a.s0.s.h0.b.k().j() : (ContentResolver) invokeV.objValue;
     }
 
     public static OrmObject c(String str, Class<?> cls) {

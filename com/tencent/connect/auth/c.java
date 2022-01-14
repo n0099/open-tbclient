@@ -29,7 +29,7 @@ public class c {
     public AuthAgent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public QQToken f62769b;
+    public QQToken f60402b;
 
     public c(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class c {
             }
         }
         SLog.i("openSDK_LOG.QQAuth", "new QQAuth() --start");
-        this.f62769b = new QQToken(str);
-        this.a = new AuthAgent(this.f62769b);
-        com.tencent.connect.a.a.c(context, this.f62769b);
+        this.f60402b = new QQToken(str);
+        this.a = new AuthAgent(this.f60402b);
+        com.tencent.connect.a.a.c(context, this.f60402b);
         a(context, Constants.SDK_VERSION);
         SLog.i("openSDK_LOG.QQAuth", "new QQAuth() --end");
     }
@@ -79,9 +79,9 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("isSessionValid(), result = ");
-            sb.append(this.f62769b.isSessionValid() ? "true" : "false");
+            sb.append(this.f60402b.isSessionValid() ? "true" : "false");
             SLog.i("openSDK_LOG.QQAuth", sb.toString());
-            return this.f62769b.isSessionValid();
+            return this.f60402b.isSessionValid();
         }
         return invokeV.booleanValue;
     }
@@ -89,15 +89,15 @@ public class c {
     public QQToken b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f62769b : (QQToken) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f60402b : (QQToken) invokeV.objValue;
     }
 
     public void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
             SLog.i("openSDK_LOG.QQAuth", "setOpenId() --start");
-            this.f62769b.setOpenId(str);
-            com.tencent.connect.a.a.d(context, this.f62769b);
+            this.f60402b.setOpenId(str);
+            com.tencent.connect.a.a.d(context, this.f60402b);
             SLog.i("openSDK_LOG.QQAuth", "setOpenId() --end");
         }
     }
@@ -254,7 +254,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             SLog.i("openSDK_LOG.QQAuth", "setAccessToken(), validTimeInSecond = " + str2 + "");
-            this.f62769b.setAccessToken(str, str2);
+            this.f60402b.setAccessToken(str, str2);
         }
     }
 }

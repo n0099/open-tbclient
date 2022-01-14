@@ -24,15 +24,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f17685d;
+    public static boolean f17255d;
     public transient /* synthetic */ FieldHolder $fh;
     public UEGCancelModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UEGCancelModel.b f17686b;
+    public UEGCancelModel.b f17256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17687c;
+    public int f17257c;
 
     /* loaded from: classes7.dex */
     public class a implements UEGCancelModel.b {
@@ -61,7 +61,7 @@ public class b {
         @Override // com.baidu.tieba.ueg.UEGCancelModel.b
         public void a(BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || b.f17685d) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || b.f17255d) {
                 return;
             }
             this.a.d(blockPopInfoData);
@@ -70,17 +70,17 @@ public class b {
 
     /* renamed from: c.a.t0.e4.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1079b implements a.e {
+    public class C1093b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f17688e;
+        public final /* synthetic */ BlockPopInfoData f17258e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f17689f;
+        public final /* synthetic */ b f17259f;
 
-        public C1079b(b bVar, BlockPopInfoData blockPopInfoData) {
+        public C1093b(b bVar, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,8 +95,8 @@ public class b {
                     return;
                 }
             }
-            this.f17689f = bVar;
-            this.f17688e = blockPopInfoData;
+            this.f17259f = bVar;
+            this.f17258e = blockPopInfoData;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -104,7 +104,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.f17689f.f17687c).param("obj_type", this.f17688e.win_type));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.f17259f.f17257c).param("obj_type", this.f17258e.win_type));
             }
         }
     }
@@ -115,10 +115,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f17690e;
+        public final /* synthetic */ BlockPopInfoData f17260e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f17691f;
+        public final /* synthetic */ b f17261f;
 
         public c(b bVar, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
@@ -135,16 +135,16 @@ public class b {
                     return;
                 }
             }
-            this.f17691f = bVar;
-            this.f17690e = blockPopInfoData;
+            this.f17261f = bVar;
+            this.f17260e = blockPopInfoData;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f17691f.e(this.f17690e);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.f17691f.f17687c).param("obj_type", this.f17690e.win_type));
+                this.f17261f.e(this.f17260e);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.f17261f.f17257c).param("obj_type", this.f17260e.win_type));
             }
         }
     }
@@ -177,25 +177,25 @@ public class b {
                 return;
             }
         }
-        this.f17687c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+        this.f17257c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
         this.a = new UEGCancelModel();
-        if (this.f17686b == null) {
-            this.f17686b = new a(this);
+        if (this.f17256b == null) {
+            this.f17256b = new a(this);
         }
-        this.a.y(this.f17686b);
+        this.a.y(this.f17256b);
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f17687c = i2;
+            this.f17257c = i2;
             this.a.x();
         }
     }
 
     public final void d(BlockPopInfoData blockPopInfoData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) == null) || blockPopInfoData == null || c.a.d.a.b.g().b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) == null) || blockPopInfoData == null || c.a.d.a.b.f().b() == null) {
             return;
         }
         String str = blockPopInfoData.block_id_code;
@@ -208,25 +208,25 @@ public class b {
         if ((i2 != 1 && i2 != 2 && i2 != 3 && i2 != 4) || m.isEmpty(currentAccount) || m.isEmpty(str)) {
             return;
         }
-        c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
+        c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
         boolean z = false;
-        boolean g2 = j2.g(str + i2 + currentAccount, false);
+        boolean h2 = k.h(str + i2 + currentAccount, false);
         if ((!m.isEmpty(str2) || i2 == 4) && !m.isEmpty(str3) && ((!m.isEmpty(str4) || i2 == 4) && !m.isEmpty(str5))) {
             z = true;
         }
-        if (g2 || !z) {
+        if (h2 || !z) {
             return;
         }
-        c.a.s0.s.g0.b j3 = c.a.s0.s.g0.b.j();
-        j3.t(str + i2 + currentAccount, true);
+        c.a.s0.s.h0.b k2 = c.a.s0.s.h0.b.k();
+        k2.u(str + i2 + currentAccount, true);
         h(blockPopInfoData);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f17687c).param("obj_type", i2));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f17257c).param("obj_type", i2));
     }
 
     public final void e(BlockPopInfoData blockPopInfoData) {
         Activity b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = c.a.d.a.b.g().b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = c.a.d.a.b.f().b()) == null) {
             return;
         }
         AntiHelper.p(b2, blockPopInfoData.ahead_url);
@@ -244,19 +244,19 @@ public class b {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            f17685d = z;
+            f17255d = z;
         }
     }
 
     public final void h(BlockPopInfoData blockPopInfoData) {
         Activity b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = c.a.d.a.b.g().b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = c.a.d.a.b.f().b()) == null) {
             return;
         }
         c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(b2);
         aVar.setMessage(blockPopInfoData.block_info);
-        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1079b(this, blockPopInfoData));
+        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1093b(this, blockPopInfoData));
         aVar.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
         aVar.create(((g) b2).getPageContext());
         aVar.show();

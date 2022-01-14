@@ -19,34 +19,32 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25005b;
+    public String f24309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25006c;
+    public String f24310c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25007d;
+    public int f24311d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25008e;
+    public int f24312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25009f;
+    public String f24313f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f25010g;
+    public long f24314g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f25011h;
+    public int f24315h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f25012i;
+    public String f24316i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f25013j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f25014k;
+    public int f24317j;
+    public long k;
     public String l;
     public boolean m;
     public boolean n;
@@ -73,16 +71,16 @@ public class c {
             }
         }
         this.a = null;
-        this.f25005b = null;
-        this.f25006c = null;
-        this.f25007d = 0;
-        this.f25008e = 0;
-        this.f25009f = null;
-        this.f25010g = 0L;
-        this.f25011h = 0;
-        this.f25012i = "";
-        this.f25013j = -1;
-        this.f25014k = 0L;
+        this.f24309b = null;
+        this.f24310c = null;
+        this.f24311d = 0;
+        this.f24312e = 0;
+        this.f24313f = null;
+        this.f24314g = 0L;
+        this.f24315h = 0;
+        this.f24316i = "";
+        this.f24317j = -1;
+        this.k = 0L;
         this.l = null;
         this.t = null;
         this.v = null;
@@ -97,7 +95,7 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25006c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24310c : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -115,7 +113,7 @@ public class c {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25008e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24312e : invokeV.intValue;
     }
 
     public String f() {
@@ -127,37 +125,37 @@ public class c {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25005b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24309b : (String) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25013j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24317j : invokeV.intValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f25009f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24313f : (String) invokeV.objValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f25010g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f24314g : invokeV.longValue;
     }
 
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f25014k : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : invokeV.longValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f25011h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f24315h : invokeV.intValue;
     }
 
     public JSONArray m() {
@@ -169,7 +167,7 @@ public class c {
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f25012i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f24316i : (String) invokeV.objValue;
     }
 
     public String o() {
@@ -193,7 +191,7 @@ public class c {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f25007d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f24311d : invokeV.intValue;
     }
 
     public boolean s() {
@@ -225,7 +223,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, jSONObject) == null) {
             try {
-                this.f25014k = jSONObject.optLong("overall_index", 0L);
+                this.k = jSONObject.optLong("overall_index", 0L);
                 this.l = jSONObject.optString("post_id");
                 this.q = jSONObject.optString("user_id");
                 this.r = jSONObject.optString("user_name");
@@ -234,7 +232,7 @@ public class c {
                 this.n = jSONObject.optInt("show_original_btn") == 1;
                 this.o = jSONObject.optInt("is_blocked_pic") == 1;
                 this.p = jSONObject.optInt("is_long_pic") == 1;
-                this.f25013j = jSONObject.optInt("index", -1);
+                this.f24317j = jSONObject.optInt("index", -1);
                 this.m = jSONObject.optInt("is_first_post") == 1;
                 this.t = jSONObject.optString("comment_num");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("agree");
@@ -256,17 +254,17 @@ public class c {
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
                 if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
                     this.a = optJSONObject.optString("id");
-                    this.f25005b = optJSONObject.optString("url");
-                    this.f25007d = optJSONObject.optInt("width", 0);
-                    this.f25008e = optJSONObject.optInt("height", 0);
-                    this.f25006c = optJSONObject.optString("big_cdn_src", null);
-                    this.f25009f = optJSONObject.optString("original_src");
-                    this.f25010g = optJSONObject.optInt("size");
+                    this.f24309b = optJSONObject.optString("url");
+                    this.f24311d = optJSONObject.optInt("width", 0);
+                    this.f24312e = optJSONObject.optInt("height", 0);
+                    this.f24310c = optJSONObject.optString("big_cdn_src", null);
+                    this.f24313f = optJSONObject.optString("original_src");
+                    this.f24314g = optJSONObject.optInt("size");
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
                 if (optJSONObject4 != null) {
-                    this.f25011h = optJSONObject4.optInt("pic_type", 0);
-                    this.f25012i = optJSONObject4.optString("tag_name");
+                    this.f24315h = optJSONObject4.optInt("pic_type", 0);
+                    this.f24316i = optJSONObject4.optString("tag_name");
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);

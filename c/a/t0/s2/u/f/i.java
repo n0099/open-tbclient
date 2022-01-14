@@ -76,7 +76,7 @@ public class i extends n<c.a.s0.s.q.q, PbBjhRecommendViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.bjh_recommend_item, (ViewGroup) null), this.m.getPbActivity());
+            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.bjh_recommend_item, (ViewGroup) null), this.m.getPbActivity());
             b0(pbBjhRecommendViewHolder);
             return pbBjhRecommendViewHolder;
         }

@@ -30,34 +30,32 @@ public abstract class b<T extends b<T>> implements a.b {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f15464b;
+    public float f15079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15465c;
+    public boolean f15080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f15466d;
+    public final Object f15081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.t0.b0.c f15467e;
+    public final c.a.t0.b0.c f15082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15468f;
+    public boolean f15083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f15469g;
+    public float f15084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f15470h;
+    public float f15085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f15471i;
+    public long f15086i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f15472j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final ArrayList<j> f15473k;
+    public float f15087j;
+    public final ArrayList<j> k;
     public final ArrayList<k> l;
 
     /* loaded from: classes6.dex */
@@ -78,7 +76,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,7 +106,7 @@ public abstract class b<T extends b<T>> implements a.b {
 
     /* renamed from: c.a.t0.b0.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0956b extends l {
+    public static class C0969b extends l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -131,7 +129,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -177,7 +175,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -223,7 +221,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -269,7 +267,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -315,7 +313,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -361,7 +359,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C0956b) objArr2[1]);
+                    super((String) objArr2[0], (C0969b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -396,7 +394,7 @@ public abstract class b<T extends b<T>> implements a.b {
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f15474b;
+        public float f15088b;
 
         public i() {
             Interceptable interceptable = $ic;
@@ -428,7 +426,7 @@ public abstract class b<T extends b<T>> implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ l(String str, C0956b c0956b) {
+        public /* synthetic */ l(String str, C0969b c0969b) {
             this(str);
         }
 
@@ -491,29 +489,29 @@ public abstract class b<T extends b<T>> implements a.b {
             }
         }
         this.a = 0.0f;
-        this.f15464b = Float.MAX_VALUE;
-        this.f15465c = false;
-        this.f15468f = false;
-        this.f15469g = Float.MAX_VALUE;
-        this.f15470h = -Float.MAX_VALUE;
-        this.f15471i = 0L;
-        this.f15473k = new ArrayList<>();
+        this.f15079b = Float.MAX_VALUE;
+        this.f15080c = false;
+        this.f15083f = false;
+        this.f15084g = Float.MAX_VALUE;
+        this.f15085h = -Float.MAX_VALUE;
+        this.f15086i = 0L;
+        this.k = new ArrayList<>();
         this.l = new ArrayList<>();
-        this.f15466d = k2;
-        this.f15467e = cVar;
+        this.f15081d = k2;
+        this.f15082e = cVar;
         if (cVar != p && cVar != q && cVar != r) {
             if (cVar == s) {
-                this.f15472j = 0.00390625f;
+                this.f15087j = 0.00390625f;
                 return;
             } else if (cVar != n && cVar != o) {
-                this.f15472j = 1.0f;
+                this.f15087j = 1.0f;
                 return;
             } else {
-                this.f15472j = 0.00390625f;
+                this.f15087j = 0.00390625f;
                 return;
             }
         }
-        this.f15472j = 0.1f;
+        this.f15087j = 0.1f;
     }
 
     public static <T> void f(ArrayList<T> arrayList) {
@@ -533,18 +531,18 @@ public abstract class b<T extends b<T>> implements a.b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            long j3 = this.f15471i;
+            long j3 = this.f15086i;
             if (j3 == 0) {
-                this.f15471i = j2;
-                g(this.f15464b);
+                this.f15086i = j2;
+                g(this.f15079b);
                 return false;
             }
-            this.f15471i = j2;
+            this.f15086i = j2;
             boolean j4 = j(j2 - j3);
-            float min = Math.min(this.f15464b, this.f15469g);
-            this.f15464b = min;
-            float max = Math.max(min, this.f15470h);
-            this.f15464b = max;
+            float min = Math.min(this.f15079b, this.f15084g);
+            this.f15079b = min;
+            float max = Math.max(min, this.f15085h);
+            this.f15079b = max;
             g(max);
             if (j4) {
                 c(false);
@@ -558,8 +556,8 @@ public abstract class b<T extends b<T>> implements a.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar)) == null) {
-            if (!this.f15473k.contains(jVar)) {
-                this.f15473k.add(jVar);
+            if (!this.k.contains(jVar)) {
+                this.k.add(jVar);
             }
             return this;
         }
@@ -569,38 +567,38 @@ public abstract class b<T extends b<T>> implements a.b {
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f15468f = false;
+            this.f15083f = false;
             c.a.t0.b0.a.i().l(this);
-            this.f15471i = 0L;
-            this.f15465c = false;
-            for (int i2 = 0; i2 < this.f15473k.size(); i2++) {
-                if (this.f15473k.get(i2) != null) {
-                    this.f15473k.get(i2).a(this, z, this.f15464b, this.a);
+            this.f15086i = 0L;
+            this.f15080c = false;
+            for (int i2 = 0; i2 < this.k.size(); i2++) {
+                if (this.k.get(i2) != null) {
+                    this.k.get(i2).a(this, z, this.f15079b, this.a);
                 }
             }
-            f(this.f15473k);
+            f(this.k);
         }
     }
 
     public final float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15467e.a(this.f15466d) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15082e.a(this.f15081d) : invokeV.floatValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15472j * 0.75f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15087j * 0.75f : invokeV.floatValue;
     }
 
     public void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f15467e.b(this.f15466d, f2);
+            this.f15082e.b(this.f15081d, f2);
             for (int i2 = 0; i2 < this.l.size(); i2++) {
                 if (this.l.get(i2) != null) {
-                    this.l.get(i2).a(this, this.f15464b, this.a);
+                    this.l.get(i2).a(this, this.f15079b, this.a);
                 }
             }
             f(this.l);
@@ -611,7 +609,7 @@ public abstract class b<T extends b<T>> implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                if (this.f15468f) {
+                if (this.f15083f) {
                     return;
                 }
                 i();
@@ -623,15 +621,15 @@ public abstract class b<T extends b<T>> implements a.b {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f15468f) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f15083f) {
             return;
         }
-        this.f15468f = true;
-        if (!this.f15465c) {
-            this.f15464b = d();
+        this.f15083f = true;
+        if (!this.f15080c) {
+            this.f15079b = d();
         }
-        float f2 = this.f15464b;
-        if (f2 <= this.f15469g && f2 >= this.f15470h) {
+        float f2 = this.f15079b;
+        if (f2 <= this.f15084g && f2 >= this.f15085h) {
             c.a.t0.b0.a.i().f(this, 0L);
             return;
         }

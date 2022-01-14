@@ -18,13 +18,13 @@ public final class a {
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12330b;
+    public String f12043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12331c;
+    public boolean f12044c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f12332d;
+    public JSONObject f12045d;
 
     public a(boolean z, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class a {
                 return;
             }
         }
-        this.f12331c = z;
+        this.f12044c = z;
         this.a = jSONArray;
-        this.f12330b = String.valueOf(System.currentTimeMillis());
+        this.f12043b = String.valueOf(System.currentTimeMillis());
     }
 
     public final JSONObject a() {
@@ -57,7 +57,7 @@ public final class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("metadata", b());
-                jSONObject.put(Constant.IS_REAL, this.f12331c ? "1" : "0");
+                jSONObject.put(Constant.IS_REAL, this.f12044c ? "1" : "0");
                 jSONObject.put("data", this.a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -74,11 +74,11 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("uploadtime", this.f12330b);
+                jSONObject.put("uploadtime", this.f12043b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f12332d = jSONObject;
+            this.f12045d = jSONObject;
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

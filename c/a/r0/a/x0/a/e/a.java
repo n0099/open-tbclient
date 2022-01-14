@@ -26,17 +26,17 @@ public class a extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: c.a.r0.a.x0.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0606a implements Runnable {
+    public class RunnableC0615a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9788e;
+        public final /* synthetic */ Context f9574e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9789f;
+        public final /* synthetic */ String f9575f;
 
-        public RunnableC0606a(a aVar, Context context, String str) {
+        public RunnableC0615a(a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,15 +51,15 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f9788e = context;
-            this.f9789f = str;
+            this.f9574e = context;
+            this.f9575f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.x0.a.a.n().f(this.f9788e, this.f9789f);
+                c.a.r0.a.x0.a.a.n().f(this.f9574e, this.f9575f);
             }
         }
     }
@@ -70,7 +70,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9790e;
+        public final /* synthetic */ String f9576e;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -87,14 +87,14 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f9790e = str;
+            this.f9576e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i2 = c.c().i(this.f9790e);
+                boolean i2 = c.c().i(this.f9576e);
                 c.a.r0.a.x0.a.a n = c.a.r0.a.x0.a.a.n();
                 n.p("cloneResult = " + i2);
             }
@@ -162,7 +162,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 if (TextUtils.equals(path, "/clone")) {
                     String a = a(unitedSchemeEntity);
                     if (b(a)) {
-                        q.k(new RunnableC0606a(this, context, a), "cloneSwanAppRunnable");
+                        q.k(new RunnableC0615a(this, context, a), "cloneSwanAppRunnable");
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                         return true;
                     }

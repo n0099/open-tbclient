@@ -19,34 +19,32 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
     public com.kwad.sdk.core.page.widget.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Surface f57743b;
+    public Surface f55557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f57744c;
+    public com.kwad.sdk.contentalliance.detail.video.a f55558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SurfaceTexture f57745d;
+    public SurfaceTexture f55559d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f57746e;
+    public a f55560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57747f;
+    public boolean f55561f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57748g;
+    public boolean f55562g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57749h;
+    public boolean f55563h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57750i;
+    public boolean f55564i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Matrix f57751j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public PhotoInfo.VideoInfo f57752k;
+    public Matrix f55565j;
+    public PhotoInfo.VideoInfo k;
     public final RectF l;
 
     /* loaded from: classes3.dex */
@@ -58,20 +56,20 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
 
     public DetailVideoView(Context context) {
         super(context);
-        this.f57747f = false;
-        this.f57748g = false;
-        this.f57749h = false;
-        this.f57750i = false;
+        this.f55561f = false;
+        this.f55562g = false;
+        this.f55563h = false;
+        this.f55564i = false;
         this.l = new RectF();
         a(context);
     }
 
     public DetailVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f57747f = false;
-        this.f57748g = false;
-        this.f57749h = false;
-        this.f57750i = false;
+        this.f55561f = false;
+        this.f55562g = false;
+        this.f55563h = false;
+        this.f55564i = false;
         this.l = new RectF();
         a(context);
     }
@@ -80,14 +78,14 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
         this.a.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() { // from class: com.kwad.sdk.contentalliance.detail.video.DetailVideoView.1
             @Override // android.view.TextureView.SurfaceTextureListener
             public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-                if (DetailVideoView.this.f57745d == surfaceTexture) {
+                if (DetailVideoView.this.f55559d == surfaceTexture) {
                     return;
                 }
-                DetailVideoView.this.f57745d = surfaceTexture;
+                DetailVideoView.this.f55559d = surfaceTexture;
                 DetailVideoView.this.b();
-                DetailVideoView.this.f57743b = new Surface(surfaceTexture);
-                if (DetailVideoView.this.f57744c != null) {
-                    DetailVideoView.this.f57744c.a(DetailVideoView.this.f57743b);
+                DetailVideoView.this.f55557b = new Surface(surfaceTexture);
+                if (DetailVideoView.this.f55558c != null) {
+                    DetailVideoView.this.f55558c.a(DetailVideoView.this.f55557b);
                 }
             }
 
@@ -107,7 +105,7 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
     }
 
     private void a(Context context) {
-        this.f57751j = new Matrix();
+        this.f55565j = new Matrix();
         this.a = new com.kwad.sdk.core.page.widget.c(context);
         addView(this.a, 0, new FrameLayout.LayoutParams(-1, -1, 17));
         a();
@@ -144,14 +142,14 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        Surface surface = this.f57743b;
+        Surface surface = this.f55557b;
         if (surface != null) {
             try {
                 surface.release();
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.a(th);
             }
-            this.f57743b = null;
+            this.f55557b = null;
         }
     }
 
@@ -168,13 +166,13 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
     }
 
     public void a(int i2, int i3) {
-        if (this.f57747f) {
+        if (this.f55561f) {
             com.kwad.sdk.a.kwai.a.b(this.a, i2, i3);
-        } else if (this.f57749h) {
+        } else if (this.f55563h) {
             com.kwad.sdk.a.kwai.a.c(this.a, i2, i3);
-        } else if (this.f57748g) {
+        } else if (this.f55562g) {
             com.kwad.sdk.a.kwai.a.a(this.a, i2, i3);
-        } else if (this.f57750i) {
+        } else if (this.f55564i) {
             a(this.a, i2, i3);
         } else {
             View view = (View) this.a.getParent();
@@ -186,19 +184,19 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
             if (width == 0 || height == 0) {
                 return;
             }
-            PhotoInfo.VideoInfo videoInfo = this.f57752k;
-            if (videoInfo == null || !bb.a(this.f57751j, width, height, videoInfo)) {
+            PhotoInfo.VideoInfo videoInfo = this.k;
+            if (videoInfo == null || !bb.a(this.f55565j, width, height, videoInfo)) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
                 layoutParams.width = width;
                 layoutParams.height = (int) ((i3 / (i2 * 1.0f)) * width);
-                this.f57751j.reset();
-                this.a.setTransform(this.f57751j);
+                this.f55565j.reset();
+                this.a.setTransform(this.f55565j);
                 this.a.setLayoutParams(layoutParams);
             } else {
                 ViewGroup.LayoutParams layoutParams2 = this.a.getLayoutParams();
                 layoutParams2.width = -1;
                 layoutParams2.height = -1;
-                this.a.setTransform(this.f57751j);
+                this.a.setTransform(this.f55565j);
                 this.a.setLayoutParams(layoutParams2);
             }
             this.l.set(this.a.getLeft(), this.a.getTop(), this.a.getRight(), this.a.getBottom());
@@ -206,20 +204,20 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
     }
 
     public void a(boolean z) {
-        this.f57749h = z;
+        this.f55563h = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.a) {
-            a aVar = this.f57746e;
+            a aVar = this.f55560e;
             if (aVar != null) {
                 aVar.a();
                 return;
             }
             return;
         }
-        a aVar2 = this.f57746e;
+        a aVar2 = this.f55560e;
         if (aVar2 != null) {
             aVar2.b();
         }
@@ -229,33 +227,33 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         b();
-        SurfaceTexture surfaceTexture = this.f57745d;
+        SurfaceTexture surfaceTexture = this.f55559d;
         if (surfaceTexture != null) {
             surfaceTexture.release();
-            this.f57745d = null;
+            this.f55559d = null;
         }
     }
 
     public void setAd(boolean z) {
-        this.f57748g = z;
+        this.f55562g = z;
     }
 
     public void setClickListener(a aVar) {
-        this.f57746e = aVar;
+        this.f55560e = aVar;
         setOnClickListener(this);
     }
 
     public void setForce(boolean z) {
-        this.f57747f = z;
+        this.f55561f = z;
     }
 
     public void setHorizontalVideo(boolean z) {
-        this.f57750i = z;
+        this.f55564i = z;
     }
 
     public void setMediaPlayer(com.kwad.sdk.contentalliance.detail.video.a aVar) {
-        this.f57744c = aVar;
-        Surface surface = this.f57743b;
+        this.f55558c = aVar;
+        Surface surface = this.f55557b;
         if (surface == null || aVar == null) {
             return;
         }
@@ -269,6 +267,6 @@ public class DetailVideoView extends FrameLayout implements View.OnClickListener
     }
 
     public void setVideoInfo(PhotoInfo.VideoInfo videoInfo) {
-        this.f57752k = videoInfo;
+        this.k = videoInfo;
     }
 }

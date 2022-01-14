@@ -15,23 +15,23 @@ public class h {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f54987b;
+    public Object f52898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54988c;
+    public String f52899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<?>[] f54989d;
+    public Class<?>[] f52900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f54990e;
+    public Object[] f52901e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public Class<?> f54991f;
+    public Class<?> f52902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54992g;
+    public boolean f52903g;
 
     public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -48,12 +48,12 @@ public class h {
                 return;
             }
         }
-        this.f54992g = false;
+        this.f52903g = false;
         this.a = cls;
-        this.f54987b = obj;
-        this.f54988c = str;
-        this.f54989d = clsArr;
-        this.f54990e = objArr;
+        this.f52898b = obj;
+        this.f52899c = str;
+        this.f52900d = clsArr;
+        this.f52901e = objArr;
     }
 
     public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr, Class<?> cls2) {
@@ -71,13 +71,13 @@ public class h {
                 return;
             }
         }
-        this.f54992g = false;
+        this.f52903g = false;
         this.a = cls;
-        this.f54987b = obj;
-        this.f54988c = str;
-        this.f54989d = clsArr;
-        this.f54990e = objArr;
-        this.f54991f = cls2;
+        this.f52898b = obj;
+        this.f52899c = str;
+        this.f52900d = clsArr;
+        this.f52901e = objArr;
+        this.f52902f = cls2;
     }
 
     public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr, boolean z) {
@@ -95,31 +95,31 @@ public class h {
                 return;
             }
         }
-        this.f54992g = false;
+        this.f52903g = false;
         this.a = cls;
-        this.f54987b = obj;
-        this.f54988c = str;
-        this.f54989d = clsArr;
-        this.f54990e = objArr;
-        this.f54992g = z;
+        this.f52898b = obj;
+        this.f52899c = str;
+        this.f52900d = clsArr;
+        this.f52901e = objArr;
+        this.f52903g = z;
     }
 
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getDeclaredMethod(this.f54988c, this.f54989d).invoke(this.f54987b, this.f54990e) : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getDeclaredMethod(this.f52899c, this.f52900d).invoke(this.f52898b, this.f52901e) : invokeV.objValue;
     }
 
     @Nullable
     public Class<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54991f : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52902f : (Class) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54992g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52903g : invokeV.booleanValue;
     }
 }

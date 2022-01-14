@@ -86,7 +86,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.x2.e.c, CardViewHolder<c.a.t0.x2.j.a>>
         public PersonCommonForumItemView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.a.f3299e) : (PersonCommonForumItemView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.a.f3258e) : (PersonCommonForumItemView) invokeV.objValue;
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -98,7 +98,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.x2.e.c, CardViewHolder<c.a.t0.x2.j.a>>
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.x2.e.c.f26185f);
+        super(tbPageContext.getPageActivity(), c.a.t0.x2.e.c.f25408f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -85,10 +85,10 @@ public class WeaponHI {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f57188b;
+        public final /* synthetic */ String f55026b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f57189c;
+        public final /* synthetic */ String f55027c;
 
         public b(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -106,25 +106,25 @@ public class WeaponHI {
                 }
             }
             this.a = str;
-            this.f57188b = str2;
-            this.f57189c = str3;
+            this.f55026b = str2;
+            this.f55027c = str3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String[] a;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f57188b) && !TextUtils.isEmpty(this.f57189c) && (a = l1.a(WeaponHI.mContext)) != null && a.length == 2 && a[0] != null && a[1] != null && a[0].equals(this.a) && a[1].equals(this.f57188b)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f55026b) && !TextUtils.isEmpty(this.f55027c) && (a = l1.a(WeaponHI.mContext)) != null && a.length == 2 && a[0] != null && a[1] != null && a[0].equals(this.a) && a[1].equals(this.f55026b)) {
                 try {
                     if (new d(WeaponHI.mContext).a(d.g0, 0) == 0) {
                         return;
                     }
-                    r0.a(this.f57189c);
+                    r0.a(this.f55027c);
                     n a2 = n.a(WeaponHI.mContext);
                     if (a2 == null) {
                         return;
                     }
-                    a2.a(this.f57189c);
+                    a2.a(this.f55027c);
                 } catch (Exception unused) {
                 }
             }

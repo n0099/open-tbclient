@@ -10,13 +10,13 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameSequenceDrawable f60357b;
+    public FrameSequenceDrawable f58067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f60358c;
+    public a f58068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameSequenceDrawable.b f60359d;
+    public FrameSequenceDrawable.b f58069d;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -41,11 +41,11 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     }
 
     private void a(Context context, AttributeSet attributeSet) {
-        this.f60359d = new FrameSequenceDrawable.b() { // from class: com.kwad.sdk.widget.WebpAnimationImageView.1
+        this.f58069d = new FrameSequenceDrawable.b() { // from class: com.kwad.sdk.widget.WebpAnimationImageView.1
             @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.b
             public void a(FrameSequenceDrawable frameSequenceDrawable) {
-                if (WebpAnimationImageView.this.f60358c != null) {
-                    WebpAnimationImageView.this.f60358c.a();
+                if (WebpAnimationImageView.this.f58068c != null) {
+                    WebpAnimationImageView.this.f58068c.a();
                 }
             }
         };
@@ -53,21 +53,21 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     }
 
     public void a() {
-        FrameSequenceDrawable frameSequenceDrawable = this.f60357b;
+        FrameSequenceDrawable frameSequenceDrawable = this.f58067b;
         if (frameSequenceDrawable != null) {
             frameSequenceDrawable.start();
         }
     }
 
     public void b() {
-        FrameSequenceDrawable frameSequenceDrawable = this.f60357b;
+        FrameSequenceDrawable frameSequenceDrawable = this.f58067b;
         if (frameSequenceDrawable != null) {
             frameSequenceDrawable.stop();
         }
     }
 
     public void setOnFinishedListener(a aVar) {
-        this.f60358c = aVar;
+        this.f58068c = aVar;
     }
 
     public void setWebpStream(FrameSequence frameSequence) {
@@ -77,12 +77,12 @@ public class WebpAnimationImageView extends RoundAngleImageView {
         try {
             FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
             frameSequenceDrawable.setLoopCount(this.a);
-            frameSequenceDrawable.setOnFinishedListener(this.f60359d);
+            frameSequenceDrawable.setOnFinishedListener(this.f58069d);
             setImageDrawable(frameSequenceDrawable);
-            if (this.f60357b != null) {
-                this.f60357b.destroy();
+            if (this.f58067b != null) {
+                this.f58067b.destroy();
             }
-            this.f60357b = frameSequenceDrawable;
+            this.f58067b = frameSequenceDrawable;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

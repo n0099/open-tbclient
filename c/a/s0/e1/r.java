@@ -8,8 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.IdleLaunchTask;
-import com.baidu.searchbox.taskmanager.IdleLaunchTaskManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
@@ -30,30 +28,30 @@ public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static r f12715i;
+    public static r f12416i;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12716b;
+    public long f12417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f12717c;
+    public long f12418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12718d;
+    public int f12419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f12719e;
+    public AtomicBoolean f12420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12720f;
+    public boolean f12421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f12721g;
+    public Handler f12422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f12722h;
+    public Runnable f12423h;
 
     /* loaded from: classes6.dex */
     public class a implements Handler.Callback {
@@ -61,7 +59,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f12723e;
+        public final /* synthetic */ r f12424e;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +76,7 @@ public class r {
                     return;
                 }
             }
-            this.f12723e = rVar;
+            this.f12424e = rVar;
         }
 
         @Override // android.os.Handler.Callback
@@ -90,11 +88,11 @@ public class r {
                     return false;
                 }
                 if (Boolean.TRUE.equals(message.obj)) {
-                    this.f12723e.o();
-                    this.f12723e.k();
+                    this.f12424e.o();
+                    this.f12424e.k();
                     return false;
                 }
-                this.f12723e.l();
+                this.f12424e.l();
                 return false;
             }
             return invokeL.booleanValue;
@@ -107,7 +105,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f12724e;
+        public final /* synthetic */ r f12425e;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -124,22 +122,22 @@ public class r {
                     return;
                 }
             }
-            this.f12724e = rVar;
+            this.f12425e = rVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                r rVar = this.f12724e;
-                if (rVar.f12719e == null) {
-                    rVar.f12719e = new AtomicBoolean(false);
+                r rVar = this.f12425e;
+                if (rVar.f12420e == null) {
+                    rVar.f12420e = new AtomicBoolean(false);
                 }
-                if (this.f12724e.f12719e.get()) {
+                if (this.f12425e.f12420e.get()) {
                     return;
                 }
-                this.f12724e.f12719e.set(true);
-                if (this.f12724e.j(true)) {
+                this.f12425e.f12420e.set(true);
+                if (this.f12425e.j(true)) {
                     TbadkCoreApplication.getInst().fixOppoTimeout();
                     MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
                     c.a.s0.k0.h.i(new AppBackgroundSwitchEvent(true));
@@ -151,32 +149,28 @@ public class r {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends IdleLaunchTask {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(r rVar, String str) {
-            super(str);
+        public c(r rVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rVar, str};
+                Object[] objArr = {rVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.launch.SmartLaunchTask
-        public void execute() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.s0.s.p.a.c().b();
@@ -198,27 +192,27 @@ public class r {
             }
         }
         this.a = 0;
-        this.f12716b = 0L;
-        this.f12717c = 0L;
-        this.f12718d = 0;
-        this.f12719e = null;
-        this.f12720f = false;
-        this.f12721g = new Handler(Looper.getMainLooper(), new a(this));
-        this.f12722h = new b(this);
+        this.f12417b = 0L;
+        this.f12418c = 0L;
+        this.f12419d = 0;
+        this.f12420e = null;
+        this.f12421f = false;
+        this.f12422g = new Handler(Looper.getMainLooper(), new a(this));
+        this.f12423h = new b(this);
     }
 
     public static r g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12715i == null) {
+            if (f12416i == null) {
                 synchronized (r.class) {
-                    if (f12715i == null) {
-                        f12715i = new r();
+                    if (f12416i == null) {
+                        f12416i = new r();
                     }
                 }
             }
-            return f12715i;
+            return f12416i;
         }
         return (r) invokeV.objValue;
     }
@@ -226,16 +220,16 @@ public class r {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12718d++;
+            this.f12419d++;
             n();
-            IdleLaunchTaskManager.registerIdleTask(new c(this, "CornerManager"));
+            c.a.d.e.a.b().a("CornerManager", new c(this));
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f12718d--;
+            this.f12419d--;
             n();
         }
     }
@@ -245,7 +239,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (j(false)) {
-                if (this.f12720f) {
+                if (this.f12421f) {
                     Intent intent = new Intent("com.tieba.baidu.notifyprocess");
                     intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
                     intent.putExtra("message", true);
@@ -279,14 +273,14 @@ public class r {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12718d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12419d : invokeV.intValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AtomicBoolean atomicBoolean = this.f12719e;
+            AtomicBoolean atomicBoolean = this.f12420e;
             if (atomicBoolean == null) {
                 return true;
             }
@@ -304,23 +298,23 @@ public class r {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AsyncService.INSTANCE.sendRunnable(this.f12722h);
+            AsyncService.INSTANCE.sendRunnable(this.f12423h);
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AsyncService.INSTANCE.removeRunnable(this.f12722h);
-            if (this.f12719e == null) {
-                this.f12719e = new AtomicBoolean(true);
+            AsyncService.INSTANCE.removeRunnable(this.f12423h);
+            if (this.f12420e == null) {
+                this.f12420e = new AtomicBoolean(true);
             }
-            if (this.f12719e.get()) {
-                this.f12719e.set(false);
+            if (this.f12420e.get()) {
+                this.f12420e.set(false);
                 this.a++;
                 if (j(true)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = this.f12716b;
+                    long j2 = this.f12417b;
                     if ((currentTimeMillis - j2 > 3600000 || j2 == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
                         q();
                     }
@@ -334,27 +328,27 @@ public class r {
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f12720f = !z;
+            this.f12421f = !z;
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.f12718d < 0) {
-                this.f12718d = 0;
+            if (this.f12419d < 0) {
+                this.f12419d = 0;
             }
-            if (j(true) && this.f12717c == 0 && this.f12718d > 0) {
-                this.f12717c = System.nanoTime();
+            if (j(true) && this.f12418c == 0 && this.f12419d > 0) {
+                this.f12418c = System.nanoTime();
             }
-            this.f12721g.removeMessages(5);
-            if (this.f12718d == 0) {
+            this.f12422g.removeMessages(5);
+            if (this.f12419d == 0) {
                 p();
                 return;
             }
-            AtomicBoolean atomicBoolean = this.f12719e;
+            AtomicBoolean atomicBoolean = this.f12420e;
             if (atomicBoolean == null || atomicBoolean.get()) {
-                Handler handler = this.f12721g;
+                Handler handler = this.f12422g;
                 handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
             }
         }
@@ -362,22 +356,22 @@ public class r {
 
     public final void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f12718d == 0 && this.f12717c > 0) {
-            long nanoTime = ((System.nanoTime() - this.f12717c) / 1000000) / 1000;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f12419d == 0 && this.f12418c > 0) {
+            long nanoTime = ((System.nanoTime() - this.f12418c) / 1000000) / 1000;
             if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
                     new PvThread(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
                 }
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
             }
-            this.f12717c = 0L;
+            this.f12418c = 0L;
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Handler handler = this.f12721g;
+            Handler handler = this.f12422g;
             handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
         }
     }
@@ -385,7 +379,7 @@ public class r {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f12716b = System.currentTimeMillis();
+            this.f12417b = System.currentTimeMillis();
             new EnterForePvThread().start();
         }
     }

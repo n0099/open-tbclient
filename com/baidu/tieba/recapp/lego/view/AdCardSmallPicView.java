@@ -20,10 +20,10 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public XfremodeRoundLayout f49403i;
+    public XfremodeRoundLayout f47548i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f49404j;
+    public TbImageView f47549j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardSmallPicView(TbPageContext tbPageContext) {
@@ -50,11 +50,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f18870c) >= 1) {
-                String str = (String) a.d(adCard.picInfo.f18870c, 0);
+            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f18400c) >= 1) {
+                String str = (String) a.d(adCard.picInfo.f18400c, 0);
                 if (!TextUtils.isEmpty(str)) {
                     this.mCustomRoot.setVisibility(0);
-                    this.f49404j.startLoad(str, 17, false);
+                    this.f47549j.startLoad(str, 17, false);
                     return;
                 }
                 this.mCustomRoot.setVisibility(8);
@@ -83,11 +83,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f49403i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            this.f47548i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
-            this.f49404j = tbImageView;
+            this.f47549j = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.f49403i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+            this.f47548i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
     }
 }

@@ -37,10 +37,10 @@ public class c extends c.a.d.n.e.a<c.a.t0.c2.h.e.c, SearchSuggestItemViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f15786e;
+        public final /* synthetic */ Context f15388e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f15787f;
+        public final /* synthetic */ c f15389f;
 
         public a(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class c extends c.a.d.n.e.a<c.a.t0.c2.h.e.c, SearchSuggestItemViewHolder>
                     return;
                 }
             }
-            this.f15787f = cVar;
-            this.f15786e = context;
+            this.f15389f = cVar;
+            this.f15388e = context;
         }
 
         @Override // c.a.d.n.e.w
@@ -71,8 +71,8 @@ public class c extends c.a.d.n.e.a<c.a.t0.c2.h.e.c, SearchSuggestItemViewHolder>
                 sb.append(cVar.d());
                 sb.append("");
                 hashMap.put("itemID", sb.toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(this.f15786e, "GameItemDetailsPage", hashMap)));
-                this.f15787f.b0(cVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(this.f15388e, "GameItemDetailsPage", hashMap)));
+                this.f15389f.b0(cVar);
             }
         }
     }
@@ -97,7 +97,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.c2.h.e.c, SearchSuggestItemViewHolder>
             }
         }
         this.m = context;
-        this.f3302h = bdUniqueId;
+        this.f3261h = bdUniqueId;
         V(new a(this, context));
     }
 

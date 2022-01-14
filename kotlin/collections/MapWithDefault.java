@@ -8,5 +8,5 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 public interface MapWithDefault<K, V> extends Map<K, V>, KMappedMarker {
     Map<K, V> getMap();
 
-    V getOrImplicitDefault(K k2);
+    V getOrImplicitDefault(K k);
 }

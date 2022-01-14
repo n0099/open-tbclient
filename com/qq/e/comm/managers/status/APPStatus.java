@@ -15,7 +15,7 @@ public class APPStatus {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f61436b;
+    public Context f59107b;
 
     public APPStatus(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class APPStatus {
             }
         }
         this.a = str;
-        this.f61436b = context;
+        this.f59107b = context;
     }
 
     public String getAPPID() {
@@ -45,7 +45,7 @@ public class APPStatus {
     public String getAPPName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61436b.getPackageName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59107b.getPackageName() : (String) invokeV.objValue;
     }
 
     public String getAPPRealName() {
@@ -55,7 +55,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f61436b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f61436b.getPackageManager()).toString();
+                    return this.f59107b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f59107b.getPackageManager()).toString();
                 } catch (Exception unused) {
                 }
             }
@@ -71,7 +71,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f61436b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
+                    return this.f59107b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
                 } catch (Exception unused) {
                 }
             }

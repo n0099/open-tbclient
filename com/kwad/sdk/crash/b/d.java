@@ -8,27 +8,27 @@ public class d implements Thread.UncaughtExceptionHandler {
     public volatile boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f58744b = Thread.getDefaultUncaughtExceptionHandler();
+    public Thread.UncaughtExceptionHandler f56530b = Thread.getDefaultUncaughtExceptionHandler();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f58745c;
+    public Context f56531c;
 
     public d(Context context) {
-        this.f58745c = context;
+        this.f56531c = context;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         if (this.a) {
             com.kwad.sdk.core.d.a.a("ExceptionCollector", "SDK捕获 uncaughtException 正在处理 ex=" + th.getMessage());
-            this.f58744b.uncaughtException(thread, th);
+            this.f56530b.uncaughtException(thread, th);
             return;
         }
         this.a = true;
         com.kwad.sdk.core.d.a.a("ExceptionCollector", "thread=" + thread + " ex=" + th.getMessage());
         if (th != null && com.kwad.sdk.crash.a.a.a(th)) {
-            c.d().a(th, new JavaExceptionMessage(), this.f58745c);
+            c.d().a(th, new JavaExceptionMessage(), this.f56531c);
         }
-        this.f58744b.uncaughtException(thread, th);
+        this.f56530b.uncaughtException(thread, th);
     }
 }

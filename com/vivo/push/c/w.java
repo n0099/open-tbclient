@@ -14,7 +14,7 @@ public final class w implements Runnable {
     public final /* synthetic */ UPSNotificationMessage a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ u f63059b;
+    public final /* synthetic */ u f60682b;
 
     public w(u uVar, UPSNotificationMessage uPSNotificationMessage) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class w implements Runnable {
                 return;
             }
         }
-        this.f63059b = uVar;
+        this.f60682b = uVar;
         this.a = uPSNotificationMessage;
     }
 
@@ -40,8 +40,8 @@ public final class w implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            u uVar = this.f63059b;
-            PushMessageCallback pushMessageCallback = ((z) uVar).f63061b;
+            u uVar = this.f60682b;
+            PushMessageCallback pushMessageCallback = ((z) uVar).f60684b;
             context = uVar.a;
             pushMessageCallback.onNotificationMessageClicked(context, this.a);
         }

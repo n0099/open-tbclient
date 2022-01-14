@@ -873,7 +873,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             if (bArr == null || bArr.length < interceptable) {
                 return;
             }
-            c.a.d.n.d.a a2 = a.C0097a.b().a(bArr, 0, interceptable);
+            c.a.d.n.d.a a2 = a.C0106a.b().a(bArr, 0, interceptable);
             this.t0 = true;
             setGif(a2);
         } catch (Throwable th) {

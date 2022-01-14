@@ -25,16 +25,16 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class s extends c.a.s0.x.p.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f26534e;
+    public ArrayList<String> f25746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f26535f;
+    public Set<String> f25747f;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class s extends c.a.s0.x.p.c {
                 return;
             }
         }
-        this.f26534e = new ArrayList<>();
-        this.f26535f = new HashSet();
+        this.f25746e = new ArrayList<>();
+        this.f25747f = new HashSet();
         v();
     }
 
@@ -59,10 +59,10 @@ public class s extends c.a.s0.x.p.c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= this.f26534e.size()) {
+            if (i2 >= this.f25746e.size()) {
                 return null;
             }
-            return this.f26534e.get(i2);
+            return this.f25746e.get(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -72,11 +72,11 @@ public class s extends c.a.s0.x.p.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f26534e;
+            ArrayList<String> arrayList = this.f25746e;
             if (arrayList == null || arrayList.size() == 0) {
                 return 1;
             }
-            return this.f26534e.size();
+            return this.f25746e.size();
         }
         return invokeV.intValue;
     }
@@ -143,7 +143,7 @@ public class s extends c.a.s0.x.p.c {
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f26535f.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f25747f.contains(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.s0.x.p.c
@@ -218,7 +218,7 @@ public class s extends c.a.s0.x.p.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (c.a.s0.c0.d.f12566d.equals(str)) {
+            if (c.a.s0.c0.d.f12272d.equals(str)) {
                 return new c.a.d.n.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
             }
             Bitmap image = FileHelper.getImage(t(str).getAbsolutePath());
@@ -251,8 +251,8 @@ public class s extends c.a.s0.x.p.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (this.f26534e != null && !TextUtils.isEmpty(str)) {
-                Iterator<String> it = this.f26534e.iterator();
+            if (this.f25746e != null && !TextUtils.isEmpty(str)) {
+                Iterator<String> it = this.f25746e.iterator();
                 while (it.hasNext()) {
                     if (it.next().contains(str)) {
                         return true;
@@ -280,11 +280,11 @@ public class s extends c.a.s0.x.p.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
-            this.f26534e.clear();
-            this.f26535f.clear();
+            this.f25746e.clear();
+            this.f25747f.clear();
             for (CollectEmotionData collectEmotionData : n) {
-                this.f26534e.add(collectEmotionData.sharpText);
-                this.f26535f.add(collectEmotionData.sharpText);
+                this.f25746e.add(collectEmotionData.sharpText);
+                this.f25747f.add(collectEmotionData.sharpText);
             }
         }
     }

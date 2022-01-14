@@ -7,7 +7,7 @@ import kotlin.jvm.functions.Function0;
 public class PreconditionsKt__AssertionsJVMKt {
     @InlineOnly
     /* renamed from: assert  reason: not valid java name */
-    public static final void m699assert(boolean z) {
+    public static final void m711assert(boolean z) {
         if (_Assertions.ENABLED && !z) {
             throw new AssertionError("Assertion failed");
         }
@@ -15,7 +15,7 @@ public class PreconditionsKt__AssertionsJVMKt {
 
     @InlineOnly
     /* renamed from: assert  reason: not valid java name */
-    public static final void m700assert(boolean z, Function0<? extends Object> function0) {
+    public static final void m712assert(boolean z, Function0<? extends Object> function0) {
         if (_Assertions.ENABLED && !z) {
             throw new AssertionError(function0.invoke());
         }

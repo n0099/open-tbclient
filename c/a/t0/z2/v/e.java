@@ -111,7 +111,7 @@ public class e extends d {
             this.W = str2;
             M();
             N();
-            l0(this.f26893f);
+            l0(this.f26095f);
             this.H.setPlayer(this.v.getControl());
             this.D.setVisibility(8);
             this.w.setPlaceHolder(3);

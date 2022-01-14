@@ -25,24 +25,24 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5376g;
+    public static final boolean f5263g;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f5377b;
+    public FrameLayout f5264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f5378c;
+    public T f5265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PullToRefreshBaseWebView f5379d;
+    public PullToRefreshBaseWebView f5266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f5380e;
+    public Context f5267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.p.e.b f5381f;
+    public c.a.r0.a.p.e.b f5268f;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
                 return;
             }
         }
-        f5376g = k.a;
+        f5263g = k.a;
     }
 
     public a(Context context, @NonNull c.a.r0.a.p.e.b<T> bVar, @NonNull FrameLayout frameLayout) {
@@ -75,9 +75,9 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
                 return;
             }
         }
-        this.f5380e = context;
+        this.f5267e = context;
         this.a = frameLayout;
-        this.f5381f = bVar;
+        this.f5268f = bVar;
         e(bVar);
     }
 
@@ -86,20 +86,20 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, aVar)) == null) {
-            if (view == null || this.f5377b == null || aVar == null) {
+            if (view == null || this.f5264b == null || aVar == null) {
                 return false;
             }
-            if (f5376g) {
+            if (f5263g) {
                 String str = "updateView pos: " + aVar;
             }
-            if (d(view, this.f5377b)) {
+            if (d(view, this.f5264b)) {
                 Object tag = view.getTag(f.aiapps_na_root_view_tag);
                 if (tag instanceof b) {
                     b bVar = (b) tag;
                     c.a(bVar, aVar);
                     view.setTag(f.aiapps_na_root_view_tag, bVar);
                 }
-                this.f5377b.updateViewLayout(view, c.b(this.f5378c, aVar));
+                this.f5264b.updateViewLayout(view, c.b(this.f5265c, aVar));
             } else if (!g(view)) {
                 return false;
             } else {
@@ -109,7 +109,7 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
                     c.a(bVar2, aVar);
                     view.setTag(f.aiapps_na_root_view_tag, bVar2);
                 }
-                ((ViewGroup) view.getParent()).updateViewLayout(view, c.b(this.f5378c, aVar));
+                ((ViewGroup) view.getParent()).updateViewLayout(view, c.b(this.f5265c, aVar));
             }
             return true;
         }
@@ -120,7 +120,7 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            this.f5377b.scrollTo(i2, i3);
+            this.f5264b.scrollTo(i2, i3);
         }
     }
 
@@ -129,18 +129,18 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, aVar)) == null) {
-            if (this.f5380e != null && aVar != null) {
+            if (this.f5267e != null && aVar != null) {
                 b bVar = new b();
                 c.a(bVar, aVar);
                 view.setTag(f.aiapps_na_root_view_tag, bVar);
-                if (this.f5377b.indexOfChild(view) >= 0) {
+                if (this.f5264b.indexOfChild(view) >= 0) {
                     c.a.r0.a.c0.g.a.a("NAParentViewManager", "repeat insert view!");
-                    this.f5377b.removeView(view);
+                    this.f5264b.removeView(view);
                 }
-                this.f5377b.addView(view, c.b(this.f5378c, aVar));
+                this.f5264b.addView(view, c.b(this.f5265c, aVar));
                 return true;
             }
-            boolean z = f5376g;
+            boolean z = f5263g;
             return false;
         }
         return invokeLL.booleanValue;
@@ -156,20 +156,20 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            boolean z = f5376g;
+            boolean z = f5263g;
             bVar.u(this);
             T t = bVar.t();
-            this.f5378c = t;
+            this.f5265c = t;
             if (t == null) {
                 return false;
             }
-            SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.f5380e);
+            SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.f5267e);
             this.a.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
-            this.f5377b = new FrameLayout(this.f5380e);
-            swanAppNARootViewScrollView.addView(this.f5377b, new FrameLayout.LayoutParams(-1, -1));
+            this.f5264b = new FrameLayout(this.f5267e);
+            swanAppNARootViewScrollView.addView(this.f5264b, new FrameLayout.LayoutParams(-1, -1));
             swanAppNARootViewScrollView.setFillViewport(true);
             PullToRefreshBaseWebView j0 = bVar.j0();
-            this.f5379d = j0;
+            this.f5266d = j0;
             if (j0 != null) {
                 j0.setOnPullToRefreshScrollChangeListener(this);
             }
@@ -181,7 +181,7 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f5381f.W(this);
+            this.f5268f.W(this);
         }
     }
 
@@ -200,7 +200,7 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f5377b.setVisibility(i2);
+            this.f5264b.setVisibility(i2);
         }
     }
 
@@ -208,12 +208,12 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f5377b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f5264b.getLayoutParams();
             marginLayoutParams.leftMargin = -i2;
             marginLayoutParams.topMargin = -i3;
-            this.f5377b.setLayoutParams(marginLayoutParams);
-            for (int i6 = 0; i6 < this.f5377b.getChildCount(); i6++) {
-                View childAt = this.f5377b.getChildAt(i6);
+            this.f5264b.setLayoutParams(marginLayoutParams);
+            for (int i6 = 0; i6 < this.f5264b.getChildCount(); i6++) {
+                View childAt = this.f5264b.getChildAt(i6);
                 if (childAt != null) {
                     Object tag = childAt.getTag(f.aiapps_na_root_view_tag);
                     b bVar = tag instanceof b ? (b) tag : null;
@@ -233,11 +233,11 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view)) == null) {
-            if (d(view, this.f5377b)) {
+            if (d(view, this.f5264b)) {
                 try {
-                    this.f5377b.removeView(view);
+                    this.f5264b.removeView(view);
                 } catch (Exception e2) {
-                    if (f5376g) {
+                    if (f5263g) {
                         e2.printStackTrace();
                     }
                 }
@@ -246,7 +246,7 @@ public class a<T extends c.a.r0.a.p.e.c> implements c.a.r0.a.h0.j.c, c.a.r0.a.a3
                 try {
                     ((ViewGroup) view.getParent()).removeView(view);
                 } catch (Exception e3) {
-                    if (f5376g) {
+                    if (f5263g) {
                         e3.printStackTrace();
                     }
                 }

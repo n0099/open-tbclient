@@ -30,22 +30,22 @@ public class FocusListCard extends BaseCardInfo {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47246b;
+        public String f45496b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f47247c;
+        public String f45497c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f47248d;
+        public int f45498d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47249e;
+        public int f45499e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f47250f;
+        public String f45500f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f47251g;
+        public long f45501g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,15 +97,15 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f47246b = optJSONArray.getString(1);
+                        aVar.f45496b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f47247c = optJSONArray.getString(2);
+                        aVar.f45497c = optJSONArray.getString(2);
                     }
-                    aVar.f47248d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f47249e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f47250f = optJSONObject.optString("scheme");
-                    aVar.f47251g = optJSONObject.optLong("resourceId");
+                    aVar.f45498d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f45499e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f45500f = optJSONObject.optString("scheme");
+                    aVar.f45501g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

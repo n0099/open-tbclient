@@ -19,7 +19,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKViewPager extends TKBase<RecyclerViewPager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

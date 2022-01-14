@@ -25,25 +25,23 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.sina.weibo.sdk.share.WbShareHandler;
 import com.sina.weibo.sdk.utils.Utility;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends c.a.t0.n3.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareEntity f20300h;
+    public ShareEntity f19763h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.n3.e.b f20301i;
+    public c.a.t0.n3.e.b f19764i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WbShareHandler f20302j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public WbShareCallback f20303k;
+    public WbShareHandler f19765j;
+    public WbShareCallback k;
     public final c.a.d.f.l.c<c.a.d.n.d.a> l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends c.a.d.f.l.c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +70,8 @@ public class e extends c.a.t0.n3.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.onCancelled(str);
-                if (this.a.f20301i != null) {
-                    this.a.f20301i.onShare(6, 3);
+                if (this.a.f19764i != null) {
+                    this.a.f19764i.onShare(6, 3);
                 }
                 this.a.w(3, 6);
             }
@@ -88,11 +86,11 @@ public class e extends c.a.t0.n3.d.a {
                 if (aVar != null) {
                     Bitmap p = aVar.p();
                     e eVar = this.a;
-                    eVar.L(eVar.f20300h, p);
+                    eVar.L(eVar.f19763h, p);
                     return;
                 }
                 e eVar2 = this.a;
-                eVar2.L(eVar2.f20300h, null);
+                eVar2.L(eVar2.f19763h, null);
             }
         }
     }
@@ -121,11 +119,11 @@ public class e extends c.a.t0.n3.d.a {
         } catch (Exception e2) {
             BdLog.e(e2);
         }
-        this.f20292b = activity;
-        this.f20301i = bVar;
-        this.f20303k = wbShareCallback;
+        this.f19756b = activity;
+        this.f19764i = bVar;
+        this.k = wbShareCallback;
         WbShareHandler wbShareHandler = new WbShareHandler(activity);
-        this.f20302j = wbShareHandler;
+        this.f19765j = wbShareHandler;
         if (wbShareHandler != null) {
             wbShareHandler.registerApp();
         }
@@ -189,12 +187,12 @@ public class e extends c.a.t0.n3.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f20300h == null) {
+            if (this.f19763h == null) {
                 return null;
             }
             TextObject textObject = new TextObject();
-            textObject.title = C(this.f20300h.getTitle());
-            textObject.text = C(this.f20300h.topic) + C(this.f20300h.getContent());
+            textObject.title = C(this.f19763h.getTitle());
+            textObject.text = C(this.f19763h.topic) + C(this.f19763h.getContent());
             return textObject;
         }
         return (TextObject) invokeV.objValue;
@@ -231,7 +229,7 @@ public class e extends c.a.t0.n3.d.a {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.t0.n3.e.b bVar = this.f20301i;
+            c.a.t0.n3.e.b bVar = this.f19764i;
             if (bVar != null) {
                 bVar.onShare(6, 3);
             }
@@ -242,7 +240,7 @@ public class e extends c.a.t0.n3.d.a {
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.t0.n3.e.b bVar = this.f20301i;
+            c.a.t0.n3.e.b bVar = this.f19764i;
             if (bVar != null) {
                 bVar.onShare(6, 2);
             }
@@ -253,7 +251,7 @@ public class e extends c.a.t0.n3.d.a {
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c.a.t0.n3.e.b bVar = this.f20301i;
+            c.a.t0.n3.e.b bVar = this.f19764i;
             if (bVar != null) {
                 bVar.onShare(6, 1);
             }
@@ -264,7 +262,7 @@ public class e extends c.a.t0.n3.d.a {
     public final void L(ShareEntity shareEntity, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, shareEntity, bitmap) == null) {
-            if (this.f20300h != null && this.f20302j != null && (this.f20292b instanceof Activity)) {
+            if (this.f19763h != null && this.f19765j != null && (this.f19756b instanceof Activity)) {
                 WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
                 if (!TextUtils.isEmpty(shareEntity.getContent()) || !TextUtils.isEmpty(shareEntity.topic)) {
                     weiboMultiMessage.textObject = G();
@@ -276,10 +274,10 @@ public class e extends c.a.t0.n3.d.a {
                 if (H != null) {
                     weiboMultiMessage.mediaObject = H;
                 }
-                this.f20302j.shareMessage(weiboMultiMessage, false);
+                this.f19765j.shareMessage(weiboMultiMessage, false);
                 return;
             }
-            c.a.t0.n3.e.b bVar = this.f20301i;
+            c.a.t0.n3.e.b bVar = this.f19764i;
             if (bVar != null) {
                 bVar.onShare(6, 2);
             }
@@ -291,26 +289,26 @@ public class e extends c.a.t0.n3.d.a {
     public void a(ShareEntity shareEntity, c.a.t0.n3.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, shareEntity, bVar) == null) {
-            if (shareEntity != null && this.f20302j != null) {
-                this.f20300h = shareEntity;
-                this.f20301i = bVar;
+            if (shareEntity != null && this.f19765j != null) {
+                this.f19763h = shareEntity;
+                this.f19764i = bVar;
                 c.a.d.n.d.a o = o(shareEntity);
                 if (o != null && o.p() != null) {
-                    L(this.f20300h, o.p());
+                    L(this.f19763h, o.p());
                     return;
                 }
                 String imgUrl = shareEntity.getImgUrl();
                 if (n(shareEntity.getLocalFile())) {
-                    L(this.f20300h, g(shareEntity.getLocalFile()));
+                    L(this.f19763h, g(shareEntity.getLocalFile()));
                     return;
                 } else if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
                     c.a.d.f.l.d.h().k(imgUrl, 10, this.l, 0, 0, h(), new Object[0]);
                     return;
                 } else if (m(shareEntity.getImageUri())) {
-                    L(this.f20300h, f(shareEntity.getImageUri()));
+                    L(this.f19763h, f(shareEntity.getImageUri()));
                     return;
                 } else {
-                    L(this.f20300h, d());
+                    L(this.f19763h, d());
                     return;
                 }
             }
@@ -326,13 +324,13 @@ public class e extends c.a.t0.n3.d.a {
         WbShareHandler wbShareHandler;
         WbShareCallback wbShareCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, intent) == null) || (wbShareHandler = this.f20302j) == null || (wbShareCallback = this.f20303k) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, intent) == null) || (wbShareHandler = this.f19765j) == null || (wbShareCallback = this.k) == null) {
             return;
         }
         wbShareHandler.doResultIntent(intent, wbShareCallback);
         if (intent == null || intent.getExtras() != null) {
             return;
         }
-        this.f20303k.onWbShareSuccess();
+        this.k.onWbShareSuccess();
     }
 }

@@ -23,7 +23,7 @@ public class b extends c.a.d.n.e.a<f, ConcernTabLiveItemView.ViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.f14973h);
+        super(tbPageContext.getPageActivity(), f.f14613h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

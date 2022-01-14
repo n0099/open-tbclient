@@ -21,12 +21,12 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f1095c;
+    public static b f1094c;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f1096b;
+    public c f1095b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -34,16 +34,16 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1097e;
+        public final /* synthetic */ int f1096e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f1098f;
+        public final /* synthetic */ String f1097f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f1099g;
+        public final /* synthetic */ String f1098g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f1100h;
+        public final /* synthetic */ b f1099h;
 
         public a(b bVar, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -60,20 +60,20 @@ public final class b {
                     return;
                 }
             }
-            this.f1100h = bVar;
-            this.f1097e = i2;
-            this.f1098f = str;
-            this.f1099g = str2;
+            this.f1099h = bVar;
+            this.f1096e = i2;
+            this.f1097f = str;
+            this.f1098g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f1097e == 24) {
-                    this.f1100h.b(this.f1098f, this.f1099g, 24);
+                if (this.f1096e == 24) {
+                    this.f1099h.b(this.f1097f, this.f1098g, 24);
                 }
-                this.f1100h.b(this.f1098f, this.f1099g, 1);
+                this.f1099h.b(this.f1097f, this.f1098g, 1);
             }
         }
     }
@@ -92,7 +92,7 @@ public final class b {
             }
         }
         this.a = new c();
-        this.f1096b = new c("live_show_session");
+        this.f1095b = new c("live_show_session");
     }
 
     public static byte[] e(byte[] bArr, boolean z) {
@@ -118,10 +118,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (b.class) {
-                if (f1095c == null) {
-                    f1095c = new b();
+                if (f1094c == null) {
+                    f1094c = new b();
                 }
-                bVar = f1095c;
+                bVar = f1094c;
             }
             return bVar;
         }
@@ -151,7 +151,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2) == null) {
             if (i2 == 24) {
-                cVar = this.f1096b;
+                cVar = this.f1095b;
                 if (cVar == null) {
                     return;
                 }
@@ -293,7 +293,7 @@ public final class b {
             if (cVar != null) {
                 cVar.a();
             }
-            c cVar2 = this.f1096b;
+            c cVar2 = this.f1095b;
             if (cVar2 != null) {
                 cVar2.a();
             }

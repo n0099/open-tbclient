@@ -47,7 +47,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f32156e;
+        public final /* synthetic */ BdBaseFragmentActivity f31145e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f32156e = bdBaseFragmentActivity;
+            this.f31145e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f32156e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f31145e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -177,7 +177,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             if (this.mId == null) {
                 this.mId = BdUniqueId.gen();
             }
-            b.g().o(getPageContext().getPageActivity());
+            b.f().n(getPageContext().getPageActivity());
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -191,7 +191,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.g().m(getPageContext().getPageActivity());
+            b.f().l(getPageContext().getPageActivity());
         }
     }
 
@@ -363,7 +363,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            n.M(getApplicationContext(), str);
+            n.N(getApplicationContext(), str);
         }
     }
 

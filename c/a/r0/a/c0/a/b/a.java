@@ -39,7 +39,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.r0.
 
     /* renamed from: c.a.r0.a.c0.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0265a {
+    public static /* synthetic */ class C0274a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.r0.
             PathType s = c.a.r0.a.o2.b.s(str);
             e L = e.L();
             if (L != null) {
-                str2 = L.f5660f;
+                str2 = L.f5537f;
                 str3 = L.j0();
             } else {
                 str2 = null;
@@ -117,7 +117,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.r0.
             if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 return null;
             }
-            int i2 = C0265a.a[s.ordinal()];
+            int i2 = C0274a.a[s.ordinal()];
             if (i2 == 1) {
                 String M = c.a.r0.a.o2.b.M(str, str2);
                 if (TextUtils.isEmpty(M)) {
@@ -152,11 +152,11 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.r0.
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            c.a.r0.a.c0.f.b k2 = super.k(m, m2);
+            c.a.r0.a.c0.f.b k = super.k(m, m2);
             if (!TextUtils.equals(m.x, m2.x)) {
-                k2.b(9);
+                k.b(9);
             }
-            return k2;
+            return k;
         }
         return (c.a.r0.a.c0.f.b) invokeLL.objValue;
     }
@@ -187,7 +187,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.r0.
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.r0.a.c0.b.a.f5409h;
+        boolean z = c.a.r0.a.c0.b.a.f5296h;
         String str = m.x;
         if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
             return;

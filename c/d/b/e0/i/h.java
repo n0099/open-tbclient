@@ -15,10 +15,10 @@ public final class h extends c0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f28624e;
+    public final long f27745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final BufferedSource f28625f;
+    public final BufferedSource f27746f;
 
     public h(@Nullable String str, long j2, BufferedSource bufferedSource) {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public final class h extends c0 {
                 return;
             }
         }
-        this.f28624e = j2;
-        this.f28625f = bufferedSource;
+        this.f27745e = j2;
+        this.f27746f = bufferedSource;
     }
 
     @Override // c.d.b.c0
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28624e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27745e : invokeV.longValue;
     }
 
     @Override // c.d.b.c0
     public BufferedSource f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28625f : (BufferedSource) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27746f : (BufferedSource) invokeV.objValue;
     }
 }

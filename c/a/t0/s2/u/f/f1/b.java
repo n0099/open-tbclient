@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.n.e.n;
 import c.a.s0.g1.n.f;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.f0.j;
 import c.a.t0.g0.f0.k;
 import c.a.t0.g0.f0.l;
@@ -77,38 +77,38 @@ public class b {
     }
 
     public static void a(List<ThreadInfo> list, List<n> list2, String str, int i2) {
-        d2 d2Var;
+        e2 e2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65536, null, list, list2, str, i2) == null) {
             int i3 = 0;
             for (int i4 = 0; i4 < list.size(); i4++) {
                 ThreadInfo threadInfo = list.get(i4);
                 if (threadInfo != null) {
-                    d2 d2Var2 = new d2();
-                    d2Var2.M2 = i4 + 1;
-                    d2Var2.c3(threadInfo);
-                    if (d2Var2.Z() != null && !TextUtils.isEmpty(str)) {
-                        d2Var2.Z().f13872j = str;
+                    e2 e2Var2 = new e2();
+                    e2Var2.L2 = i4 + 1;
+                    e2Var2.c3(threadInfo);
+                    if (e2Var2.Z() != null && !TextUtils.isEmpty(str)) {
+                        e2Var2.Z().f13281j = str;
                     }
-                    if ((k.Y(d2Var2) || l.T(d2Var2)) && d2Var2.getType() != d2.L3) {
-                        k d2 = d(d2Var2, i2);
-                        if (d2 != null && (d2Var = d2.f18222e) != null && d2Var.Z() != null && !StringUtils.isNull(d2Var.Z().f13864b)) {
-                            d2.l = d2Var2.v1();
+                    if ((k.Y(e2Var2) || l.T(e2Var2)) && e2Var2.getType() != e2.L3) {
+                        k d2 = d(e2Var2, i2);
+                        if (d2 != null && (e2Var = d2.f17778e) != null && e2Var.Z() != null && !StringUtils.isNull(e2Var.Z().f13273b)) {
+                            d2.l = e2Var2.v1();
                             d2.position = i3;
                             f(d2);
                             list2.add(d2);
                         }
-                        int[] h0 = d2Var2.h0();
-                        c.a.t0.g0.f0.b c2 = c(d2Var2, i2);
+                        int[] h0 = e2Var2.h0();
+                        c.a.t0.g0.f0.b c2 = c(e2Var2, i2);
                         if (c2 != null) {
-                            c2.l = d2Var2.v1();
+                            c2.l = e2Var2.v1();
                             c2.position = i3;
                             if (c2 instanceof k) {
-                                if (d2Var2.h3() == 1) {
+                                if (e2Var2.h3() == 1) {
                                     h(c2);
                                     c2.o = h0[0];
                                     c2.p = h0[1];
-                                } else if (d2Var2.h3() >= 2) {
+                                } else if (e2Var2.h3() >= 2) {
                                     g(c2);
                                 } else {
                                     i(c2);
@@ -118,18 +118,18 @@ public class b {
                             }
                         }
                         if (c2 != null && c2.isValid()) {
-                            c2.f18222e.J1();
-                            if (!d2Var2.G2() && d2Var2.J() != null) {
-                                String format = String.format(TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.at_username), d2Var2.J().getName_show());
+                            c2.f17778e.J1();
+                            if (!e2Var2.G2() && e2Var2.J() != null) {
+                                String format = String.format(TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.at_username), e2Var2.J().getName_show());
                                 SpannableString spannableString = new SpannableString(format);
-                                spannableString.setSpan(new a(16, d2Var2.J().getUserId(), c2), 0, format.length() - 1, 33);
-                                c2.f18222e.K1(spannableString);
+                                spannableString.setSpan(new a(16, e2Var2.J().getUserId(), c2), 0, format.length() - 1, 33);
+                                c2.f17778e.K1(spannableString);
                             }
                             list2.add(c2);
                         }
-                        k d3 = d(d2Var2, i2);
+                        k d3 = d(e2Var2, i2);
                         if (d3 != null) {
-                            d3.l = d2Var2.v1();
+                            d3.l = e2Var2.v1();
                             d3.position = i3;
                             e(d3);
                         }
@@ -154,25 +154,25 @@ public class b {
         return (List) invokeLLI.objValue;
     }
 
-    public static c.a.t0.g0.f0.b c(d2 d2Var, int i2) {
+    public static c.a.t0.g0.f0.b c(e2 e2Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, d2Var, i2)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, e2Var, i2)) == null) {
+            if (e2Var == null) {
                 return null;
             }
-            if (k.Y(d2Var)) {
+            if (k.Y(e2Var)) {
                 k kVar = new k();
-                d2Var.h2();
-                d2Var.z2();
-                if (!d2Var.h2() && !d2Var.z2()) {
-                    d2Var.c2();
+                e2Var.h2();
+                e2Var.z2();
+                if (!e2Var.h2() && !e2Var.z2()) {
+                    e2Var.c2();
                 }
-                kVar.f18222e = d2Var;
+                kVar.f17778e = e2Var;
                 kVar.H = i2;
                 return kVar;
-            } else if (l.T(d2Var)) {
-                l lVar = new l(d2Var);
+            } else if (l.T(e2Var)) {
+                l lVar = new l(e2Var);
                 lVar.H = i2;
                 return lVar;
             } else {
@@ -182,15 +182,15 @@ public class b {
         return (c.a.t0.g0.f0.b) invokeLI.objValue;
     }
 
-    public static k d(d2 d2Var, int i2) {
+    public static k d(e2 e2Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, d2Var, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, e2Var, i2)) == null) {
             k kVar = new k();
-            kVar.f18222e = d2Var;
-            d2Var.h2();
-            if (!d2Var.h2()) {
-                d2Var.c2();
+            kVar.f17778e = e2Var;
+            e2Var.h2();
+            if (!e2Var.h2()) {
+                e2Var.c2();
             }
             kVar.H = i2;
             return kVar;

@@ -17,34 +17,32 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22700b;
+    public String f22079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22701c;
+    public String f22080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f22702d;
+    public long f22081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22703e;
+    public int f22082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f22704f;
+    public long f22083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22705g;
+    public int f22084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22706h;
+    public String f22085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22707i;
+    public int f22086i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RecommendForumInfo f22708j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ThreadInfo f22709k;
+    public RecommendForumInfo f22087j;
+    public ThreadInfo k;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -63,61 +61,61 @@ public class b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22707i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22086i : invokeV.intValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22704f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22083f : invokeV.longValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22700b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22079b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22706h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22085h : (String) invokeV.objValue;
     }
 
     public RecommendForumInfo e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22708j : (RecommendForumInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22087j : (RecommendForumInfo) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22701c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22080c : (String) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22702d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22081d : invokeV.longValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22703e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22082e : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22705g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22084g : invokeV.intValue;
     }
 
     public ThreadInfo j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22709k : (ThreadInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : (ThreadInfo) invokeV.objValue;
     }
 
     public String k() {
@@ -131,16 +129,16 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, broadcastInfo) == null) || broadcastInfo == null) {
             return;
         }
-        this.f22704f = broadcastInfo.bcast_id.longValue();
+        this.f22083f = broadcastInfo.bcast_id.longValue();
         this.a = broadcastInfo.title;
-        this.f22700b = broadcastInfo.content;
-        this.f22701c = broadcastInfo.pic_url;
-        this.f22702d = broadcastInfo.publish_time.intValue();
-        this.f22703e = broadcastInfo.pushuser_cnt.intValue();
-        this.f22708j = broadcastInfo.forum_info;
-        this.f22709k = broadcastInfo.thread_infos;
-        this.f22706h = broadcastInfo.ctr;
-        this.f22705g = broadcastInfo.pv.intValue();
-        this.f22707i = broadcastInfo.audit_status.intValue();
+        this.f22079b = broadcastInfo.content;
+        this.f22080c = broadcastInfo.pic_url;
+        this.f22081d = broadcastInfo.publish_time.intValue();
+        this.f22082e = broadcastInfo.pushuser_cnt.intValue();
+        this.f22087j = broadcastInfo.forum_info;
+        this.k = broadcastInfo.thread_infos;
+        this.f22085h = broadcastInfo.ctr;
+        this.f22084g = broadcastInfo.pv.intValue();
+        this.f22086i = broadcastInfo.audit_status.intValue();
     }
 }

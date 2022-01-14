@@ -1,7 +1,7 @@
 package c.a.t0.o1.k.b.d;
 
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.f0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -25,27 +25,27 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TopicDetailView f21263b;
+    public TopicDetailView f20701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.d.c.g.a f21264c;
+    public final c.a.d.c.g.a f20702c;
 
     /* renamed from: c.a.t0.o1.k.b.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1278a extends c.a.d.c.g.a {
+    /* loaded from: classes8.dex */
+    public class C1292a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1278a(a aVar, int i2, int i3) {
+        public C1292a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -81,19 +81,19 @@ public class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f21265e;
+        public long f20703e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f21266f;
+        public long f20704f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f21267g;
+        public final /* synthetic */ a f20705g;
 
         public b(a aVar, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -110,22 +110,22 @@ public class a {
                     return;
                 }
             }
-            this.f21267g = aVar;
-            this.f21265e = j2;
-            this.f21266f = j3;
+            this.f20705g = aVar;
+            this.f20703e = j2;
+            this.f20704f = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int k2 = n.k(TbadkCoreApplication.getInst());
+                int k = n.k(TbadkCoreApplication.getInst());
                 int i2 = n.i(TbadkCoreApplication.getInst());
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(this.f21267g.a);
-                requestGetMyPostNetMessage.setParams(this.f21265e, this.f21266f, 0L, k2, i2, f2, i3);
+                requestGetMyPostNetMessage.setTag(this.f20705g.a);
+                requestGetMyPostNetMessage.setParams(this.f20703e, this.f20704f, 0L, k, i2, f2, i3);
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
         }
@@ -146,8 +146,8 @@ public class a {
                 return;
             }
         }
-        this.f21264c = new C1278a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.f21263b = topicDetailView;
+        this.f20702c = new C1292a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.f20701b = topicDetailView;
     }
 
     public b c(long j2, long j3) {
@@ -169,11 +169,11 @@ public class a {
         builder2.portrait = TbadkCoreApplication.getCurrentPortrait();
         builder.author = builder2.build(true);
         ThreadInfo build = builder.build(true);
-        d2 d2Var = new d2();
-        d2Var.c3(build);
-        d2Var.N4(new Date().getTime());
-        if (k.Y(d2Var)) {
-            this.f21263b.sendThreadFakeUpdateList(d2Var);
+        e2 e2Var = new e2();
+        e2Var.c3(build);
+        e2Var.N4(new Date().getTime());
+        if (k.Y(e2Var)) {
+            this.f20701b.sendThreadFakeUpdateList(e2Var);
         }
     }
 
@@ -196,10 +196,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
             this.a = bdUniqueId;
-            this.f21264c.setTag(bdUniqueId);
-            this.f21264c.getHttpMessageListener().setSelfListener(true);
-            this.f21264c.getSocketMessageListener().setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f21264c);
+            this.f20702c.setTag(bdUniqueId);
+            this.f20702c.getHttpMessageListener().setSelfListener(true);
+            this.f20702c.getSocketMessageListener().setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f20702c);
         }
     }
 }

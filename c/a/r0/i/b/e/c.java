@@ -19,18 +19,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f10964e;
+    public static final boolean f10721e;
     public transient /* synthetic */ FieldHolder $fh;
     public Download a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f10965b;
+    public JSONObject f10722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f10966c;
+    public d f10723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.i.b.f.b f10967d;
+    public c.a.r0.i.b.f.b f10724d;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -44,10 +44,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10968e;
+        public String f10725e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10969f;
+        public String f10726f;
 
         public /* synthetic */ b(String str, String str2, a aVar) {
             this(str, str2);
@@ -57,8 +57,8 @@ public class c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.i.b.a.n().t(this.f10969f);
-                c.a.r0.i.b.a.n().l(this.f10968e);
+                c.a.r0.i.b.a.n().t(this.f10726f);
+                c.a.r0.i.b.a.n().l(this.f10725e);
                 c.a.r0.i.b.a.n().k();
             }
         }
@@ -78,27 +78,27 @@ public class c {
                     return;
                 }
             }
-            this.f10968e = str;
-            this.f10969f = str2;
+            this.f10725e = str;
+            this.f10726f = str2;
         }
     }
 
     /* renamed from: c.a.r0.i.b.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC0709c implements Runnable {
+    public static class RunnableC0718c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Download f10970e;
+        public Download f10727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONObject f10971f;
+        public JSONObject f10728f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.r0.i.b.f.a f10972g;
+        public c.a.r0.i.b.f.a f10729g;
 
-        public /* synthetic */ RunnableC0709c(Download download, JSONObject jSONObject, c.a.r0.i.b.f.a aVar, a aVar2) {
+        public /* synthetic */ RunnableC0718c(Download download, JSONObject jSONObject, c.a.r0.i.b.f.a aVar, a aVar2) {
             this(download, jSONObject, aVar);
         }
 
@@ -106,13 +106,13 @@ public class c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.i.b.a.n().G(this.f10971f);
-                c.a.r0.i.b.i.c.a(this.f10970e.getKeyByUser(), "installApp", null, null, new c.a.r0.i.b.i.a(this.f10971f));
-                c.a.r0.i.b.a.n().r(AppRuntime.getAppContext(), this.f10970e.getUrl(), this.f10970e.getKeyByUser(), this.f10972g);
+                c.a.r0.i.b.a.n().G(this.f10728f);
+                c.a.r0.i.b.i.c.a(this.f10727e.getKeyByUser(), "installApp", null, null, new c.a.r0.i.b.i.a(this.f10728f));
+                c.a.r0.i.b.a.n().r(AppRuntime.getAppContext(), this.f10727e.getUrl(), this.f10727e.getKeyByUser(), this.f10729g);
             }
         }
 
-        public RunnableC0709c(@NonNull Download download, JSONObject jSONObject, @NonNull c.a.r0.i.b.f.a aVar) {
+        public RunnableC0718c(@NonNull Download download, JSONObject jSONObject, @NonNull c.a.r0.i.b.f.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,9 +127,9 @@ public class c {
                     return;
                 }
             }
-            this.f10970e = download;
-            this.f10971f = jSONObject;
-            this.f10972g = aVar;
+            this.f10727e = download;
+            this.f10728f = jSONObject;
+            this.f10729g = aVar;
         }
     }
 
@@ -140,10 +140,10 @@ public class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10973b;
+        public String f10730b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f10974c;
+        public final /* synthetic */ c f10731c;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -160,18 +160,18 @@ public class c {
                     return;
                 }
             }
-            this.f10974c = cVar;
+            this.f10731c = cVar;
         }
 
         @Override // c.a.r0.i.b.f.b
         public void a(c.a.r0.i.b.g.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                if (c.f10964e) {
+                if (c.f10721e) {
                     String str = "onResult mPackageName:" + this.a;
                 }
-                this.f10974c.setResult(bVar);
-                c.a.r0.i.b.c.b.f10931d.execute(new b(this.f10973b, this.a, null));
+                this.f10731c.setResult(bVar);
+                c.a.r0.i.b.c.b.f10688d.execute(new b(this.f10730b, this.a, null));
             }
         }
 
@@ -179,7 +179,7 @@ public class c {
         public void setFilePath(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f10973b = str;
+                this.f10730b = str;
             }
         }
 
@@ -205,7 +205,7 @@ public class c {
                 return;
             }
         }
-        f10964e = k.a;
+        f10721e = k.a;
     }
 
     public c(Download download, JSONObject jSONObject) {
@@ -224,24 +224,24 @@ public class c {
             }
         }
         this.a = download;
-        this.f10965b = jSONObject;
-        this.f10966c = new d(this);
+        this.f10722b = jSONObject;
+        this.f10723c = new d(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setResult(c.a.r0.i.b.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar) == null) {
-            c.a.r0.i.b.f.b bVar2 = this.f10967d;
+            c.a.r0.i.b.f.b bVar2 = this.f10724d;
             if (bVar2 != null) {
                 bVar2.a(bVar);
             }
             if (bVar != null && !bVar.d()) {
-                c.a.r0.i.b.i.c.a(this.a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.r0.i.b.i.a(this.f10965b));
+                c.a.r0.i.b.i.c.a(this.a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.r0.i.b.i.a(this.f10722b));
             }
-            if (this.f10966c != null) {
-                c.a.r0.i.b.a.n().B(this.a.getKeyByUser(), this.f10966c);
-                this.f10966c = null;
+            if (this.f10723c != null) {
+                c.a.r0.i.b.a.n().B(this.a.getKeyByUser(), this.f10723c);
+                this.f10723c = null;
             }
         }
     }
@@ -249,8 +249,8 @@ public class c {
     public void c(c.a.r0.i.b.f.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f10967d = bVar;
-            c.a.r0.i.b.c.b.f10931d.execute(new RunnableC0709c(this.a, this.f10965b, this.f10966c, null));
+            this.f10724d = bVar;
+            c.a.r0.i.b.c.b.f10688d.execute(new RunnableC0718c(this.a, this.f10722b, this.f10723c, null));
         }
     }
 }

@@ -15,12 +15,12 @@ public class a {
 
     /* renamed from: c.a.r.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0230a {
+    public static class C0239a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
 
-        public C0230a(byte[] bArr, int i2) {
+        public C0239a(byte[] bArr, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class a {
         return invokeI.intValue;
     }
 
-    public static C0230a b(byte[] bArr) {
+    public static C0239a b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
@@ -110,9 +110,9 @@ public class a {
             if (i4 > 0 && i3 < i2) {
                 bArr2[i3] = (byte) (bArr2[i3] << i4);
             }
-            return new C0230a(bArr2, length);
+            return new C0239a(bArr2, length);
         }
-        return (C0230a) invokeL.objValue;
+        return (C0239a) invokeL.objValue;
     }
 
     public static byte[] c(byte[] bArr, int i2) {

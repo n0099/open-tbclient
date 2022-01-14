@@ -37,21 +37,21 @@ public class RecPersonalizePageModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static RecPersonalizePageModel f46029f;
+    public static RecPersonalizePageModel f44339f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
+    public volatile c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f46030b;
+    public boolean f44340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f46031c;
+    public int f44341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbHttpMessageTask f46032d;
+    public TbHttpMessageTask f44342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.c.g.a f46033e;
+    public c.a.d.c.g.a f44343e;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -61,18 +61,18 @@ public class RecPersonalizePageModel {
 
         /* renamed from: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1902a implements MessageQueue.IdleHandler {
+        public class C1918a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResponsedMessage a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f46034b;
+            public final /* synthetic */ boolean f44344b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f46035c;
+            public final /* synthetic */ a f44345c;
 
-            public C1902a(a aVar, ResponsedMessage responsedMessage, boolean z) {
+            public C1918a(a aVar, ResponsedMessage responsedMessage, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,9 +87,9 @@ public class RecPersonalizePageModel {
                         return;
                     }
                 }
-                this.f46035c = aVar;
+                this.f44345c = aVar;
                 this.a = responsedMessage;
-                this.f46034b = z;
+                this.f44344b = z;
             }
 
             @Override // android.os.MessageQueue.IdleHandler
@@ -97,7 +97,7 @@ public class RecPersonalizePageModel {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f46035c.a.m(this.a, this.f46034b);
+                    this.f44345c.a.m(this.a, this.f44344b);
                     return false;
                 }
                 return invokeV.booleanValue;
@@ -138,7 +138,7 @@ public class RecPersonalizePageModel {
             boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.a.f46031c == 2 && SpeedStatsManager.getInstance().getAttachWindowSpeedStats() != null) {
+                if (this.a.f44341c == 2 && SpeedStatsManager.getInstance().getAttachWindowSpeedStats() != null) {
                     SpeedStatsManager.getInstance().getAttachWindowSpeedStats().addStatsTimeStamp(4022);
                 }
                 if (responsedMessage == null || this.a.a == null) {
@@ -169,7 +169,7 @@ public class RecPersonalizePageModel {
                     this.a.a.a(dataRes, z, z2);
                 }
                 if (responsedMessage instanceof RecPersonalizeSocketResponse) {
-                    Looper.myQueue().addIdleHandler(new C1902a(this, responsedMessage, z));
+                    Looper.myQueue().addIdleHandler(new C1918a(this, responsedMessage, z));
                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                     this.a.k(responsedMessage, z);
                 }
@@ -183,7 +183,7 @@ public class RecPersonalizePageModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecPersonalizePageModel f46036e;
+        public final /* synthetic */ RecPersonalizePageModel f44346e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RecPersonalizePageModel recPersonalizePageModel, HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
@@ -204,7 +204,7 @@ public class RecPersonalizePageModel {
                     return;
                 }
             }
-            this.f46036e = recPersonalizePageModel;
+            this.f44346e = recPersonalizePageModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -215,7 +215,7 @@ public class RecPersonalizePageModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) || responsedMessageArr == null || responsedMessageArr.length <= 0) {
                 return;
             }
-            this.f46036e.f46033e.onMessage(responsedMessageArr[0]);
+            this.f44346e.f44343e.onMessage(responsedMessageArr[0]);
         }
     }
 
@@ -239,7 +239,7 @@ public class RecPersonalizePageModel {
                 return;
             }
         }
-        f46029f = new RecPersonalizePageModel();
+        f44339f = new RecPersonalizePageModel();
     }
 
     public RecPersonalizePageModel() {
@@ -255,18 +255,18 @@ public class RecPersonalizePageModel {
                 return;
             }
         }
-        this.f46030b = false;
-        this.f46031c = 1;
-        this.f46033e = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        this.f44340b = false;
+        this.f44341c = 1;
+        this.f44343e = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         o();
         p();
-        MessageManager.getInstance().registerListener(this.f46033e);
+        MessageManager.getInstance().registerListener(this.f44343e);
     }
 
     public static RecPersonalizePageModel g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f46029f : (RecPersonalizePageModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f44339f : (RecPersonalizePageModel) invokeV.objValue;
     }
 
     public c f() {
@@ -283,12 +283,12 @@ public class RecPersonalizePageModel {
             recPersonalizeRequest.setLoadType(i2);
             recPersonalizeRequest.setThreadCount(i3);
             recPersonalizeRequest.setPreAdThreadCount(gVar.a);
-            recPersonalizeRequest.setAdFloorInfo(gVar.f12663b);
+            recPersonalizeRequest.setAdFloorInfo(gVar.f12366b);
             recPersonalizeRequest.setPn(i4);
             recPersonalizeRequest.setSuggestCount(i5);
             recPersonalizeRequest.setNeedForumlist(0);
-            int i6 = this.f46031c;
-            this.f46031c = i6 + 1;
+            int i6 = this.f44341c;
+            this.f44341c = i6 + 1;
             recPersonalizeRequest.setRequestTime(i6);
             recPersonalizeRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
             recPersonalizeRequest.setSwitchToHttpStrategy(new NetMessage.a(this) { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.3
@@ -364,8 +364,8 @@ public class RecPersonalizePageModel {
     public final void k(ResponsedMessage<?> responsedMessage, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, responsedMessage, z) == null) {
-            if (!this.f46030b) {
-                this.f46030b = true;
+            if (!this.f44340b) {
+                this.f44340b = true;
                 j(1, true, responsedMessage);
             }
             l(z, true, responsedMessage);
@@ -392,8 +392,8 @@ public class RecPersonalizePageModel {
     public final void m(ResponsedMessage<?> responsedMessage, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, responsedMessage, z) == null) {
-            if (!this.f46030b) {
-                this.f46030b = true;
+            if (!this.f44340b) {
+                this.f44340b = true;
                 j(1, false, responsedMessage);
             }
             l(z, false, responsedMessage);
@@ -405,7 +405,7 @@ public class RecPersonalizePageModel {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), gVar, Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             RecPersonalizeRequest h2 = h(i2, i3, gVar, i4, i5);
             h2.setNetType(NetMessage.NetType.HTTP);
-            new b(this, h2.getHttpMessage(), this.f46032d).execute(new HttpMessage[0]);
+            new b(this, h2.getHttpMessage(), this.f44342d).execute(new HttpMessage[0]);
         }
     }
 
@@ -413,14 +413,14 @@ public class RecPersonalizePageModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, c.a.t0.w3.f0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
-            this.f46032d = tbHttpMessageTask;
+            this.f44342d = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            this.f46032d.setResponsedClass(RecPersonalizeHttpResponse.class);
-            this.f46032d.setTimeOut(c.a.d.c.j.b.d().b());
-            this.f46032d.setRetry(c.a.d.c.j.b.d().a());
-            this.f46032d.setConnectTimeOut(c.a.d.c.j.b.d().c());
-            this.f46032d.setPriority(4);
-            MessageManager.getInstance().registerTask(this.f46032d);
+            this.f44342d.setResponsedClass(RecPersonalizeHttpResponse.class);
+            this.f44342d.setTimeOut(c.a.d.c.j.b.d().b());
+            this.f44342d.setRetry(c.a.d.c.j.b.d().a());
+            this.f44342d.setConnectTimeOut(c.a.d.c.j.b.d().c());
+            this.f44342d.setPriority(4);
+            MessageManager.getInstance().registerTask(this.f44342d);
         }
     }
 

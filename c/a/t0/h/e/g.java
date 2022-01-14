@@ -14,10 +14,10 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f18404b;
+    public TbPageContext f17952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f18405c;
+    public b f17953c;
 
     public g(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class g {
                 return;
             }
         }
-        this.f18404b = tbPageContext;
+        this.f17952b = tbPageContext;
         this.a = i2;
     }
 
@@ -47,13 +47,13 @@ public class g {
     public TbPageContext b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18404b : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17952b : (TbPageContext) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18405c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17953c : (b) invokeV.objValue;
     }
 
     public g(b bVar, int i2) {
@@ -71,7 +71,7 @@ public class g {
                 return;
             }
         }
-        this.f18405c = bVar;
+        this.f17953c = bVar;
         this.a = i2;
     }
 }

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.s0.b.d;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -53,7 +53,7 @@ public final class b {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        if (d.w0()) {
+        if (d.u0()) {
             marginLayoutParams.topMargin = n.f(TbadkCoreApplication.getInst(), i3);
         } else {
             marginLayoutParams.topMargin = n.f(TbadkCoreApplication.getInst(), i2);
@@ -64,7 +64,7 @@ public final class b {
     public static int e(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? d.w0() ? i3 : i2 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? d.u0() ? i3 : i2 : invokeII.intValue;
     }
 
     public static void f(TextView textView) {
@@ -72,7 +72,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(65541, null, textView) == null) || textView == null) {
             return;
         }
-        if (d.w0()) {
+        if (d.u0()) {
             textView.setTypeface(Typeface.DEFAULT);
             textView.setTextSize(0, textView.getResources().getDimension(R.dimen.tbds39));
             return;
@@ -86,7 +86,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(65542, null, textView) == null) || textView == null) {
             return;
         }
-        if (d.w0()) {
+        if (d.u0()) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
         } else {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
@@ -98,7 +98,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLI(65543, null, view, i2) == null) || view == null) {
             return;
         }
-        if (d.w0()) {
+        if (d.u0()) {
             view.setBackgroundResource(R.drawable.bg_img_mask);
         } else if (i2 > 0) {
             view.setBackgroundResource(i2);
@@ -127,15 +127,15 @@ public final class b {
         SkinManager.setBackgroundColor(view, R.color.CAM_X0202);
     }
 
-    public static void k(d2 d2Var, int[] iArr) {
+    public static void k(e2 e2Var, int[] iArr) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, d2Var, iArr) == null) && iArr != null && iArr.length == 2 && d2Var != null && d.w0()) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, e2Var, iArr) == null) && iArr != null && iArr.length == 2 && e2Var != null && d.u0()) {
             int size = View.MeasureSpec.getSize(n.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int c2 = (c() * ((int) ((size - (dimensionPixelSize * 2)) / a()))) + dimensionPixelSize;
-            MediaData mediaData = (MediaData) ListUtils.getItem(d2Var.F0(), 0);
+            MediaData mediaData = (MediaData) ListUtils.getItem(e2Var.F0(), 0);
             if (mediaData == null || (i2 = mediaData.picWidth) <= 0 || (i3 = mediaData.picHeight) <= 0) {
                 return;
             }
@@ -158,7 +158,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, mediaData)) == null) {
             int[] iArr = new int[2];
-            if (mediaData != null && d.w0()) {
+            if (mediaData != null && d.u0()) {
                 int size = View.MeasureSpec.getSize(n.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
                 int c2 = (c() * ((int) ((size - (dimensionPixelSize * 2)) / a()))) + dimensionPixelSize;
@@ -186,7 +186,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLII(65548, null, textView, i2, i3) == null) || textView == null || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        if (d.w0()) {
+        if (d.u0()) {
             textView.setLineSpacing(n.f(textView.getContext(), i3), textView.getLineSpacingMultiplier());
         } else {
             textView.setLineSpacing(n.f(textView.getContext(), i2), textView.getLineSpacingMultiplier());
@@ -197,7 +197,7 @@ public final class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{layoutParams, layoutParams2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            if (layoutParams == null || layoutParams2 == null || !d.w0()) {
+            if (layoutParams == null || layoutParams2 == null || !d.u0()) {
                 return z;
             }
             int size = View.MeasureSpec.getSize(n.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
@@ -216,7 +216,7 @@ public final class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{layoutParams, Boolean.valueOf(z), aVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (layoutParams == null || !d.w0()) {
+            if (layoutParams == null || !d.u0()) {
                 return z;
             }
             int size = View.MeasureSpec.getSize(n.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);

@@ -22,15 +22,15 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f22829d;
+    public static c f22200d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Long> f22830b;
+    public List<Long> f22201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f22831c;
+    public final CustomMessageListener f22202c;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -98,23 +98,23 @@ public class c {
             }
         }
         this.a = 0L;
-        this.f22830b = new ArrayList();
-        this.f22831c = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.f22831c);
+        this.f22201b = new ArrayList();
+        this.f22202c = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.f22202c);
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f22829d == null) {
+            if (f22200d == null) {
                 synchronized (c.class) {
-                    if (f22829d == null) {
-                        f22829d = new c();
+                    if (f22200d == null) {
+                        f22200d = new c();
                     }
                 }
             }
-            return f22829d;
+            return f22200d;
         }
         return (c) invokeV.objValue;
     }
@@ -124,16 +124,16 @@ public class c {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             synchronized (this) {
                 if (this.a != 0 && this.a != j2) {
-                    this.f22830b.clear();
+                    this.f22201b.clear();
                     i.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j2 + "-" + this.a);
                 }
                 this.a = j2;
-                for (Long l : this.f22830b) {
+                for (Long l : this.f22201b) {
                     if (l != null && l.longValue() == j3) {
                         return;
                     }
                 }
-                this.f22830b.add(Long.valueOf(j3));
+                this.f22201b.add(Long.valueOf(j3));
             }
         }
     }
@@ -143,7 +143,7 @@ public class c {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 this.a = 0L;
-                this.f22830b.clear();
+                this.f22201b.clear();
             }
         }
     }
@@ -153,7 +153,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
             synchronized (this) {
-                for (Long l : this.f22830b) {
+                for (Long l : this.f22201b) {
                     if (l != null && l.longValue() == j2) {
                         return true;
                     }
@@ -183,7 +183,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (Long l : this.f22830b) {
+                for (Long l : this.f22201b) {
                     if (l != null) {
                         arrayList.add(Long.valueOf(c.a.t0.s1.w.b.c(l.longValue())));
                     }
@@ -201,7 +201,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 str = "";
-                for (Long l : this.f22830b) {
+                for (Long l : this.f22201b) {
                     if (l != null && l.longValue() != 0) {
                         str = (str + l.longValue()) + ",";
                     }
@@ -219,7 +219,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
                 if (this.a > 0) {
-                    z = this.f22830b.size() > 0;
+                    z = this.f22201b.size() > 0;
                 }
             }
             return z;
@@ -242,7 +242,7 @@ public class c {
                         if (split != null && split.length > 0) {
                             for (int i2 = 0; i2 < split.length; i2++) {
                                 if (!TextUtils.isEmpty(split[i2])) {
-                                    this.f22830b.add(Long.valueOf(Long.parseLong(split[i2])));
+                                    this.f22201b.add(Long.valueOf(Long.parseLong(split[i2])));
                                 }
                             }
                         }
@@ -260,7 +260,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this) {
-                this.f22830b.clear();
+                this.f22201b.clear();
             }
         }
     }

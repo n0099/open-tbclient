@@ -31,38 +31,36 @@ import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static e f19019k;
+    public static e k;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19020b;
+    public int f18538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f19021c;
+    public Context f18539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextWordsEntity.TextStyleEntity f19022d;
+    public TextWordsEntity.TextStyleEntity f18540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextWordsEntity.TextFontEntity f19023e;
+    public TextWordsEntity.TextFontEntity f18541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TextPaint f19024f;
+    public final TextPaint f18542f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextPaint f19025g;
+    public final TextPaint f18543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TextPaint f19026h;
+    public final TextPaint f18544h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19027i;
+    public int f18545i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<String> f19028j;
+    public List<String> f18546j;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -77,11 +75,11 @@ public class e {
                 return;
             }
         }
-        this.f19020b = 5;
-        this.f19028j = new ArrayList();
-        this.f19024f = new TextPaint(1);
-        this.f19025g = new TextPaint(1);
-        this.f19026h = new TextPaint(1);
+        this.f18538b = 5;
+        this.f18546j = new ArrayList();
+        this.f18542f = new TextPaint(1);
+        this.f18543g = new TextPaint(1);
+        this.f18544h = new TextPaint(1);
         this.a = t.j(R.dimen.tbds72);
     }
 
@@ -89,14 +87,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f19019k == null) {
+            if (k == null) {
                 synchronized (e.class) {
-                    if (f19019k == null) {
-                        f19019k = new e();
+                    if (k == null) {
+                        k = new e();
                     }
                 }
             }
-            return f19019k;
+            return k;
         }
         return (e) invokeV.objValue;
     }
@@ -112,21 +110,21 @@ public class e {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19024f.setTypeface(Typeface.DEFAULT);
-            this.f19025g.setTypeface(Typeface.DEFAULT);
-            this.f19026h.setTypeface(Typeface.DEFAULT);
+            this.f18542f.setTypeface(Typeface.DEFAULT);
+            this.f18543g.setTypeface(Typeface.DEFAULT);
+            this.f18544h.setTypeface(Typeface.DEFAULT);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f19024f.setShader(null);
-            this.f19024f.setColor(-1);
-            this.f19024f.clearShadowLayer();
-            this.f19025g.clearShadowLayer();
-            this.f19026h.clearShadowLayer();
-            this.f19028j.clear();
+            this.f18542f.setShader(null);
+            this.f18542f.setColor(-1);
+            this.f18542f.clearShadowLayer();
+            this.f18543g.clearShadowLayer();
+            this.f18544h.clearShadowLayer();
+            this.f18546j.clear();
         }
     }
 
@@ -180,13 +178,13 @@ public class e {
             }
             float f2 = 0.0f;
             if (measureText > 0.0f) {
-                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.f19020b, Layout.Alignment.ALIGN_CENTER, 0);
-                this.f19027i = measuredStaticLayout.getLineCount();
+                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.f18538b, Layout.Alignment.ALIGN_CENTER, 0);
+                this.f18545i = measuredStaticLayout.getLineCount();
                 int i2 = 0;
-                for (int i3 = 0; i3 < this.f19027i; i3++) {
+                for (int i3 = 0; i3 < this.f18545i; i3++) {
                     int lineEnd = measuredStaticLayout.getLineEnd(i3);
                     if (lineEnd != 0) {
-                        this.f19028j.add(str.substring(i2, lineEnd));
+                        this.f18546j.add(str.substring(i2, lineEnd));
                         i2 = lineEnd;
                     }
                 }
@@ -208,14 +206,14 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, str, textStyleEntity, textFontEntity)) == null) {
             c();
-            this.f19021c = context;
-            this.f19022d = textStyleEntity;
-            this.f19023e = textFontEntity;
-            this.f19024f.setTextSize(this.a);
+            this.f18539c = context;
+            this.f18540d = textStyleEntity;
+            this.f18541e = textFontEntity;
+            this.f18542f.setTextSize(this.a);
             int[] g2 = g(str);
             if (g2[0] >= 1 && g2[1] >= 1) {
-                Bitmap a = c.a.a1.t.f.a(this.f19022d);
-                NinePatchChunk f2 = c.a.a1.t.f.f(a, this.f19022d);
+                Bitmap a = c.a.a1.t.f.a(this.f18540d);
+                NinePatchChunk f2 = c.a.a1.t.f.f(a, this.f18540d);
                 if (f2 != null) {
                     Rect rect = f2.padding;
                     i2 = rect.left;
@@ -237,27 +235,27 @@ public class e {
                 canvas2.save();
                 int i6 = 20;
                 c.a.a1.t.f.b(a, f2, canvas2, 20);
-                int g3 = c.a.a1.t.f.g(this.f19024f);
+                int g3 = c.a.a1.t.f.g(this.f18542f);
                 int i7 = i2 + 20;
-                int abs = (g3 / 2) + ((int) (Math.abs(this.f19024f.ascent() + this.f19024f.descent()) / 2.0f)) + 20 + i3;
+                int abs = (g3 / 2) + ((int) (Math.abs(this.f18542f.ascent() + this.f18542f.descent()) / 2.0f)) + 20 + i3;
                 int i8 = 0;
-                while (i8 < this.f19027i) {
+                while (i8 < this.f18545i) {
                     int i9 = i8 + 1;
-                    c.a.a1.t.f.c(this.f19024f, this.f19022d, null);
-                    int[] d2 = c.a.a1.t.f.d(this.f19024f, this.f19025g, this.f19026h, this.f19022d, null);
-                    c.a.a1.t.f.e(canvas2, this.f19024f, i7, (g3 * i8) + i6 + i3, (g3 * i9) + i6 + i3, this.f19022d, null);
+                    c.a.a1.t.f.c(this.f18542f, this.f18540d, null);
+                    int[] d2 = c.a.a1.t.f.d(this.f18542f, this.f18543g, this.f18544h, this.f18540d, null);
+                    c.a.a1.t.f.e(canvas2, this.f18542f, i7, (g3 * i8) + i6 + i3, (g3 * i9) + i6 + i3, this.f18540d, null);
                     if (d2[0] != 0) {
                         i4 = i8;
                         canvas = canvas2;
-                        a(this.f19028j.get(i8), canvas2, i7, abs, i4, this.f19025g);
+                        a(this.f18546j.get(i8), canvas2, i7, abs, i4, this.f18543g);
                     } else {
                         i4 = i8;
                         canvas = canvas2;
                     }
                     if (d2[1] != 0) {
-                        a(this.f19028j.get(i4), canvas, i7, abs, i4, this.f19026h);
+                        a(this.f18546j.get(i4), canvas, i7, abs, i4, this.f18544h);
                     }
-                    a(this.f19028j.get(i4), canvas, i7, abs, i4, this.f19024f);
+                    a(this.f18546j.get(i4), canvas, i7, abs, i4, this.f18542f);
                     abs += g3;
                     canvas2 = canvas;
                     i8 = i9;
@@ -274,7 +272,7 @@ public class e {
     public final void i(TextPaint textPaint) {
         TextWordsEntity.TextFontEntity textFontEntity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.f19023e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.f18541e) == null) {
             return;
         }
         try {
@@ -282,8 +280,8 @@ public class e {
                 b();
                 return;
             }
-            this.f19023e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
-            textPaint.setTypeface(Typeface.createFromFile(this.f19023e.getSourceFile()));
+            this.f18541e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
+            textPaint.setTypeface(Typeface.createFromFile(this.f18541e.getSourceFile()));
         } catch (Exception e2) {
             e2.printStackTrace();
         }

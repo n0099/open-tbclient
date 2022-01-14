@@ -16,7 +16,7 @@ public class o {
     public u a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s f31379b;
+    public s f30396b;
 
     public o(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class o {
         }
         u uVar = new u(context, str);
         this.a = uVar;
-        uVar.f31460f = new k(this);
+        uVar.f30472f = new k(this);
     }
 
     public void a() {
@@ -46,8 +46,8 @@ public class o {
                     this.a.b();
                     this.a = null;
                 }
-                if (this.f31379b != null) {
-                    this.f31379b = null;
+                if (this.f30396b != null) {
+                    this.f30396b = null;
                 }
             } catch (Exception unused) {
             }
@@ -68,7 +68,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             u uVar = this.a;
-            return (uVar == null || !uVar.f()) ? "" : uVar.f31457c.getLoad_type();
+            return (uVar == null || !uVar.f()) ? "" : uVar.f30469c.getLoad_type();
         }
         return (String) invokeV.objValue;
     }

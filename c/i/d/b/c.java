@@ -11,7 +11,7 @@ public interface c<K, V> {
 
     void cleanUp();
 
-    V get(K k2, Callable<? extends V> callable) throws ExecutionException;
+    V get(K k, Callable<? extends V> callable) throws ExecutionException;
 
     ImmutableMap<K, V> getAllPresent(Iterable<?> iterable);
 
@@ -23,7 +23,7 @@ public interface c<K, V> {
 
     void invalidateAll(Iterable<?> iterable);
 
-    void put(K k2, V v);
+    void put(K k, V v);
 
     void putAll(Map<? extends K, ? extends V> map);
 

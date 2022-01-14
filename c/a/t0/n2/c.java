@@ -36,10 +36,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f20116b;
+    public static volatile c f19586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f20117c;
+    public static final String f19587c;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
@@ -49,7 +49,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.n2.e.b f20118e;
+        public final /* synthetic */ c.a.t0.n2.e.b f19588e;
 
         public a(c cVar, c.a.t0.n2.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class c {
                     return;
                 }
             }
-            this.f20118e = bVar;
+            this.f19588e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20118e.onFail("url null");
+                this.f19588e.onFail("url null");
             }
         }
     }
@@ -85,10 +85,10 @@ public class c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.n2.e.b f20119b;
+        public final /* synthetic */ c.a.t0.n2.e.b f19589b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f20120c;
+        public final /* synthetic */ c f19590c;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -96,10 +96,10 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f20121e;
+            public final /* synthetic */ String f19591e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f20122f;
+            public final /* synthetic */ b f19592f;
 
             public a(b bVar, String str) {
                 Interceptable interceptable = $ic;
@@ -116,29 +116,29 @@ public class c {
                         return;
                     }
                 }
-                this.f20122f = bVar;
-                this.f20121e = str;
+                this.f19592f = bVar;
+                this.f19591e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f20122f.f20119b.onSuccess(this.f20121e);
+                    this.f19592f.f19589b.onSuccess(this.f19591e);
                 }
             }
         }
 
         /* renamed from: c.a.t0.n2.c$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC1210b implements Runnable {
+        public class RunnableC1224b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f20123e;
+            public final /* synthetic */ b f19593e;
 
-            public RunnableC1210b(b bVar) {
+            public RunnableC1224b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,28 +153,28 @@ public class c {
                         return;
                     }
                 }
-                this.f20123e = bVar;
+                this.f19593e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f20123e.f20119b.onFail("rename failed");
+                    this.f19593e.f19589b.onFail("rename failed");
                 }
             }
         }
 
         /* renamed from: c.a.t0.n2.c$b$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC1211c implements Runnable {
+        public class RunnableC1225c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f20124e;
+            public final /* synthetic */ b f19594e;
 
-            public RunnableC1211c(b bVar) {
+            public RunnableC1225c(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,14 +189,14 @@ public class c {
                         return;
                     }
                 }
-                this.f20124e = bVar;
+                this.f19594e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f20124e.f20119b.onFail("download failed");
+                    this.f19594e.f19589b.onFail("download failed");
                 }
             }
         }
@@ -216,18 +216,18 @@ public class c {
                     return;
                 }
             }
-            this.f20120c = cVar;
+            this.f19590c = cVar;
             this.a = str;
-            this.f20119b = bVar;
+            this.f19589b = bVar;
         }
 
         @Override // c.a.s0.w.e
         public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || this.f20119b == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || this.f19589b == null) {
                 return;
             }
-            this.f20120c.a.post(new RunnableC1211c(this));
+            this.f19590c.a.post(new RunnableC1225c(this));
         }
 
         @Override // c.a.s0.w.e
@@ -237,11 +237,11 @@ public class c {
                 String str = downloadData.getPath() + (FileHelper.isGif(null, this.a) ? ".gif" : ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
                 if (FileHelper.renameTo(downloadData.getPath(), str)) {
                     new MediaScannerClient(TbadkApplication.getInst().getContext()).saveImage(str);
-                    if (this.f20119b != null) {
-                        this.f20120c.a.post(new a(this, str));
+                    if (this.f19589b != null) {
+                        this.f19590c.a.post(new a(this, str));
                     }
-                } else if (this.f20119b != null) {
-                    this.f20120c.a.post(new RunnableC1210b(this));
+                } else if (this.f19589b != null) {
+                    this.f19590c.a.post(new RunnableC1224b(this));
                 }
             }
         }
@@ -276,12 +276,12 @@ public class c {
 
     /* renamed from: c.a.t0.n2.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1212c extends BdAsyncTask<Void, Void, List<String>> {
+    public class C1226c extends BdAsyncTask<Void, Void, List<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public C1212c(c cVar) {
+        public C1226c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -336,7 +336,7 @@ public class c {
                 return;
             }
         }
-        f20117c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
+        f19587c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
     }
 
     public c() {
@@ -359,14 +359,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f20116b == null) {
+            if (f19586b == null) {
                 synchronized (c.class) {
-                    if (f20116b == null) {
-                        f20116b = new c();
+                    if (f19586b == null) {
+                        f19586b = new c();
                     }
                 }
             }
-            return f20116b;
+            return f19586b;
         }
         return (c) invokeV.objValue;
     }
@@ -398,7 +398,7 @@ public class c {
                     myEmotionGroupData.setGroupId(str);
                     myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
                     if (c.a.t0.y0.a.c().b(myEmotionGroupData)) {
-                        FileHelper.deleteFileOrDir(new File(f20117c + str));
+                        FileHelper.deleteFileOrDir(new File(f19587c + str));
                         g.k().h(str);
                         i2++;
                     }
@@ -437,7 +437,7 @@ public class c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new C1212c(this).execute(new Void[0]);
+            new C1226c(this).execute(new Void[0]);
         }
     }
 
@@ -475,7 +475,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
             for (MyEmotionGroupData myEmotionGroupData : f()) {
-                File file = new File(f20117c + myEmotionGroupData.getGroupId());
+                File file = new File(f19587c + myEmotionGroupData.getGroupId());
                 BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
                 if (!file.exists()) {
                     arrayList.add(myEmotionGroupData.getGroupId());

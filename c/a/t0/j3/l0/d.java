@@ -140,7 +140,7 @@ public class d {
     public static void i(AdvertAppInfo advertAppInfo, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65545, null, advertAppInfo, i2, i3) == null) {
-            j(advertAppInfo, i2, i3, BannerFocusImageViewGroup.f52811f, BannerFocusImageViewGroup.f52811f);
+            j(advertAppInfo, i2, i3, BannerFocusImageViewGroup.f50773f, BannerFocusImageViewGroup.f50773f);
         }
     }
 
@@ -169,7 +169,7 @@ public class d {
     public static void k(p pVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65547, null, pVar, i2) == null) {
-            l(pVar, i2, BannerFocusImageViewGroup.f52811f, BannerFocusImageViewGroup.f52811f);
+            l(pVar, i2, BannerFocusImageViewGroup.f50773f, BannerFocusImageViewGroup.f50773f);
         }
     }
 

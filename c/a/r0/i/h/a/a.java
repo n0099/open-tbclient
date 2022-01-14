@@ -20,17 +20,17 @@ public class a extends c.a.r0.i.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10996c;
+    public static final boolean f10753c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.i.h.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0713a implements a.f {
+    public class C0722a implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0713a(a aVar, b bVar) {
+        public C0722a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class a extends c.a.r0.i.e.a {
                 return;
             }
         }
-        f10996c = k.a;
+        f10753c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,7 +104,7 @@ public class a extends c.a.r0.i.e.a {
             try {
                 jSONObject.put("data", str);
             } catch (JSONException e2) {
-                if (f10996c) {
+                if (f10753c) {
                     e2.printStackTrace();
                 }
             }
@@ -123,11 +123,11 @@ public class a extends c.a.r0.i.e.a {
                     c(bVar, "201");
                     return null;
                 }
-                c.a.r0.a.i2.a.j(a0.x(), a0.V(), 1, new C0713a(this, bVar));
+                c.a.r0.a.i2.a.j(a0.x(), a0.V(), 1, new C0722a(this, bVar));
                 return null;
             }
             bVar.onFail(100, "swan or activity is null");
-            boolean z = f10996c;
+            boolean z = f10753c;
             return null;
         }
         return (c.a.r0.a.u.h.b) invokeLL.objValue;

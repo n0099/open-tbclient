@@ -26,13 +26,13 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f4557b;
+    public static boolean f4462b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4558c;
+    public static String f4463c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f4559d;
+    public static HashMap<String, Integer> f4464d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -49,19 +49,19 @@ public class f {
                 return;
             }
         }
-        f4557b = AppConfig.isDebug();
-        f4558c = "networkparam";
+        f4462b = AppConfig.isDebug();
+        f4463c = "networkparam";
         HashMap<String, Integer> hashMap = new HashMap<>();
-        f4559d = hashMap;
+        f4464d = hashMap;
         hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-        f4559d.put("3GNET", 21);
-        f4559d.put("3GWAP", 22);
-        f4559d.put("CMNET", 31);
-        f4559d.put("UNINET", 32);
-        f4559d.put("CTNET", 33);
-        f4559d.put("CMWAP", 41);
-        f4559d.put("UNIWAP", 42);
-        f4559d.put("CTWAP", 43);
+        f4464d.put("3GNET", 21);
+        f4464d.put("3GWAP", 22);
+        f4464d.put("CMNET", 31);
+        f4464d.put("UNINET", 32);
+        f4464d.put("CTNET", 33);
+        f4464d.put("CMWAP", 41);
+        f4464d.put("UNIWAP", 42);
+        f4464d.put("CTWAP", 43);
     }
 
     public f() {
@@ -109,13 +109,13 @@ public class f {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long uptimeMillis = f4557b ? SystemClock.uptimeMillis() : 0L;
+            long uptimeMillis = f4462b ? SystemClock.uptimeMillis() : 0L;
             ConnectManager connectManager = new ConnectManager(this.a);
             String netType = connectManager.getNetType();
             int subType = connectManager.getSubType();
             if (!TextUtils.isEmpty(netType)) {
                 netType = netType.toUpperCase(Locale.getDefault());
-                Integer num = f4559d.get(netType);
+                Integer num = f4464d.get(netType);
                 if (num == null) {
                     num = 5;
                 }
@@ -123,7 +123,7 @@ public class f {
             } else {
                 str = ((Object) 5) + "_" + subType;
             }
-            if (f4557b) {
+            if (f4462b) {
                 long uptimeMillis2 = SystemClock.uptimeMillis();
                 String str2 = "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName();
             }

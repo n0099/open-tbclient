@@ -24,22 +24,22 @@ public abstract class Optional<T> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f56562e;
+        public final /* synthetic */ Iterable f54414e;
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C2047a extends AbstractIterator<T> {
+        public class C2064a extends AbstractIterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<? extends Optional<? extends T>> f56563g;
+            public final Iterator<? extends Optional<? extends T>> f54415g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ a f56564h;
+            public final /* synthetic */ a f54416h;
 
             /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
-            public C2047a(a aVar) {
+            public C2064a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,10 +54,10 @@ public abstract class Optional<T> implements Serializable {
                         return;
                     }
                 }
-                this.f56564h = aVar;
-                Iterator it = this.f56564h.f56562e.iterator();
+                this.f54416h = aVar;
+                Iterator it = this.f54416h.f54414e.iterator();
                 n.p(it);
-                this.f56563g = (Iterator<T>) it;
+                this.f54415g = (Iterator<T>) it;
             }
 
             @Override // com.google.common.base.AbstractIterator
@@ -65,8 +65,8 @@ public abstract class Optional<T> implements Serializable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    while (this.f56563g.hasNext()) {
-                        Optional<? extends T> next = this.f56563g.next();
+                    while (this.f54415g.hasNext()) {
+                        Optional<? extends T> next = this.f54415g.next();
                         if (next.isPresent()) {
                             return next.get();
                         }
@@ -92,14 +92,14 @@ public abstract class Optional<T> implements Serializable {
                     return;
                 }
             }
-            this.f56562e = iterable;
+            this.f54414e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2047a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2064a(this) : (Iterator) invokeV.objValue;
         }
     }
 

@@ -20,34 +20,32 @@ public class DownloadProgressBar extends View {
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f60258b;
+    public Paint f57972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f60259c;
+    public Paint f57973c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f60260d;
+    public Path f57974d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f60261e;
+    public RectF f57975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60262f;
+    public String f57976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f60263g;
+    public float f57977g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f60264h;
+    public Rect f57978h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearGradient f60265i;
+    public LinearGradient f57979i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearGradient f60266j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public LinearGradient f60267k;
+    public LinearGradient f57980j;
+    public LinearGradient k;
     public long l;
     public Matrix m;
     public Runnable n;
@@ -72,16 +70,16 @@ public class DownloadProgressBar extends View {
             }
         };
         this.a = new Paint(1);
-        this.f60258b = new Paint(1);
-        this.f60261e = new RectF();
+        this.f57972b = new Paint(1);
+        this.f57975e = new RectF();
         Paint paint = new Paint(1);
-        this.f60259c = paint;
+        this.f57973c = paint;
         paint.setTextSize(com.kwad.sdk.a.kwai.a.a(context, 16.0f));
-        this.f60259c.setColor(-1);
-        this.f60259c.setTextAlign(Paint.Align.CENTER);
-        this.f60264h = new Rect();
+        this.f57973c.setColor(-1);
+        this.f57973c.setTextAlign(Paint.Align.CENTER);
+        this.f57978h = new Rect();
         this.m = new Matrix();
-        this.f60260d = new Path();
+        this.f57974d = new Path();
     }
 
     @Override // android.view.View
@@ -93,12 +91,12 @@ public class DownloadProgressBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.clipPath(this.f60260d);
-        this.a.setShader(this.f60265i);
-        canvas.drawRect(this.f60261e, this.a);
-        this.a.setShader(this.f60266j);
-        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.f60263g) / 100.0f, getHeight(), this.a);
-        float f2 = this.f60263g;
+        canvas.clipPath(this.f57974d);
+        this.a.setShader(this.f57979i);
+        canvas.drawRect(this.f57975e, this.a);
+        this.a.setShader(this.f57980j);
+        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.f57977g) / 100.0f, getHeight(), this.a);
+        float f2 = this.f57977g;
         float f3 = 0.0f;
         if (f2 > 0.0f && f2 < 100.0f) {
             long elapsedRealtime = (SystemClock.elapsedRealtime() - this.l) % TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS;
@@ -106,41 +104,41 @@ public class DownloadProgressBar extends View {
             float f4 = i2 >= 0 ? 0.0f : ((float) elapsedRealtime) / 1500.0f;
             this.m.reset();
             this.m.setScale(1.0f, f4);
-            this.f60267k.setLocalMatrix(this.m);
-            this.f60258b.setShader(this.f60267k);
-            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.f60263g) / 100.0f) * f4, getHeight(), this.f60258b);
+            this.k.setLocalMatrix(this.m);
+            this.f57972b.setShader(this.k);
+            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.f57977g) / 100.0f) * f4, getHeight(), this.f57972b);
             if (elapsedRealtime > 500 && i2 <= 0) {
                 f3 = ((float) (elapsedRealtime - 500)) / 1000.0f;
             }
-            float width = ((getWidth() * this.f60263g) / 100.0f) * f3;
+            float width = ((getWidth() * this.f57977g) / 100.0f) * f3;
             this.m.reset();
             this.m.setScale(1.0f, f4);
-            this.f60267k.setLocalMatrix(this.m);
-            this.f60258b.setShader(this.f60267k);
-            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f60258b);
+            this.k.setLocalMatrix(this.m);
+            this.f57972b.setShader(this.k);
+            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f57972b);
         }
-        String str = this.f60262f;
+        String str = this.f57976f;
         if (str != null) {
-            this.f60259c.getTextBounds(str, 0, str.length(), this.f60264h);
-            Rect rect = this.f60264h;
-            canvas.drawText(this.f60262f, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.f60259c);
+            this.f57973c.getTextBounds(str, 0, str.length(), this.f57978h);
+            Rect rect = this.f57978h;
+            canvas.drawText(this.f57976f, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.f57973c);
         }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f60265i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.f60266j = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.a.setShader(this.f60265i);
+        this.f57979i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
+        this.f57980j = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
+        this.a.setShader(this.f57979i);
         LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{16501004, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.f60267k = linearGradient;
-        this.f60258b.setShader(linearGradient);
+        this.k = linearGradient;
+        this.f57972b.setShader(linearGradient);
         float f2 = i2;
-        this.f60261e.set(0.0f, 0.0f, f2, i3);
-        this.f60260d.reset();
+        this.f57975e.set(0.0f, 0.0f, f2, i3);
+        this.f57974d.reset();
         float f3 = f2 / 2.0f;
-        this.f60260d.addRoundRect(this.f60261e, f3, f3, Path.Direction.CW);
+        this.f57974d.addRoundRect(this.f57975e, f3, f3, Path.Direction.CW);
     }
 
     @Override // android.view.View
@@ -155,7 +153,7 @@ public class DownloadProgressBar extends View {
             removeCallbacks(this.n);
             return;
         }
-        float f2 = this.f60263g;
+        float f2 = this.f57977g;
         if (f2 <= 0.0f || f2 >= 100.0f) {
             return;
         }
@@ -164,7 +162,7 @@ public class DownloadProgressBar extends View {
     }
 
     public void setProgress(float f2) {
-        this.f60263g = f2;
+        this.f57977g = f2;
         invalidate();
         if (f2 == 0.0f || f2 == 100.0f) {
             removeCallbacks(this.n);
@@ -174,7 +172,7 @@ public class DownloadProgressBar extends View {
     }
 
     public void setText(String str) {
-        this.f60262f = str;
+        this.f57976f = str;
         invalidate();
     }
 }

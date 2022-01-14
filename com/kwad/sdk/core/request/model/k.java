@@ -9,7 +9,7 @@ public class k implements com.kwad.sdk.core.b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f58386b;
+    public long f56182b;
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
@@ -19,7 +19,7 @@ public class k implements com.kwad.sdk.core.b {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "photoId", this.a);
-        t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f58386b);
+        t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f56182b);
         return jSONObject;
     }
 }

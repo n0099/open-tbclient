@@ -29,22 +29,22 @@ public class a {
     public final String f874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f63807b;
+    public final Object f61409b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f875b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f63808c;
+    public final String f61410c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f63809d;
+    public final String f61411d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f63810e;
+    public volatile String f61412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f63811f;
+    public volatile String f61413f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -62,11 +62,11 @@ public class a {
             }
         }
         this.f873a = new Object();
-        this.f63807b = new Object();
+        this.f61409b = new Object();
         this.f874a = "mipush_region";
         this.f875b = "mipush_country_code";
-        this.f63808c = "mipush_region.lock";
-        this.f63809d = "mipush_country_code.lock";
+        this.f61410c = "mipush_region.lock";
+        this.f61411d = "mipush_country_code.lock";
         this.f872a = context;
     }
 
@@ -97,13 +97,13 @@ public class a {
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m122a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m134a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.y.m695a(file2);
+                com.xiaomi.push.y.m707a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -194,7 +194,7 @@ public class a {
                     try {
                         try {
                             File file = new File(context.getFilesDir(), (String) str3);
-                            com.xiaomi.push.y.m695a(file);
+                            com.xiaomi.push.y.m707a(file);
                             randomAccessFile = new RandomAccessFile(file, "rw");
                             try {
                                 fileLock = randomAccessFile.getChannel().lock();
@@ -266,41 +266,41 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f63810e)) {
-                this.f63810e = a(this.f872a, "mipush_region", "mipush_region.lock", this.f873a);
+            if (TextUtils.isEmpty(this.f61412e)) {
+                this.f61412e = a(this.f872a, "mipush_region", "mipush_region.lock", this.f873a);
             }
-            return this.f63810e;
+            return this.f61412e;
         }
         return (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f63810e)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f61412e)) {
             return;
         }
-        this.f63810e = str;
-        a(this.f872a, this.f63810e, "mipush_region", "mipush_region.lock", this.f873a);
+        this.f61412e = str;
+        a(this.f872a, this.f61412e, "mipush_region", "mipush_region.lock", this.f873a);
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f63811f)) {
-                this.f63811f = a(this.f872a, "mipush_country_code", "mipush_country_code.lock", this.f63807b);
+            if (TextUtils.isEmpty(this.f61413f)) {
+                this.f61413f = a(this.f872a, "mipush_country_code", "mipush_country_code.lock", this.f61409b);
             }
-            return this.f63811f;
+            return this.f61413f;
         }
         return (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f63811f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f61413f)) {
             return;
         }
-        this.f63811f = str;
-        a(this.f872a, this.f63811f, "mipush_country_code", "mipush_country_code.lock", this.f63807b);
+        this.f61413f = str;
+        a(this.f872a, this.f61413f, "mipush_country_code", "mipush_country_code.lock", this.f61409b);
     }
 }

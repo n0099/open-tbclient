@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
 import c.a.e.m.d;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.z2.v.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -21,19 +21,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import tbclient.VideoInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends c.a.t0.z2.v.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.e.m.d P0;
-    public d2 Q0;
+    public e2 Q0;
     public boolean R0;
     public boolean S0;
     public CustomMessageListener T0;
     public Runnable U0;
 
-    /* loaded from: classes7.dex */
-    public class a implements d.InterfaceC0124d {
+    /* loaded from: classes8.dex */
+    public class a implements d.InterfaceC0132d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -56,7 +56,7 @@ public class c extends c.a.t0.z2.v.b {
             this.a = cVar;
         }
 
-        @Override // c.a.e.m.d.InterfaceC0124d
+        @Override // c.a.e.m.d.InterfaceC0132d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -64,21 +64,21 @@ public class c extends c.a.t0.z2.v.b {
             }
         }
 
-        @Override // c.a.e.m.d.InterfaceC0124d
+        @Override // c.a.e.m.d.InterfaceC0132d
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // c.a.e.m.d.InterfaceC0124d
+        @Override // c.a.e.m.d.InterfaceC0132d
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // c.a.e.m.d.InterfaceC0124d
+        @Override // c.a.e.m.d.InterfaceC0132d
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class c extends c.a.t0.z2.v.b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements d.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,14 +132,14 @@ public class c extends c.a.t0.z2.v.b {
     }
 
     /* renamed from: c.a.t0.o1.h.o.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1274c extends CustomMessageListener {
+    /* loaded from: classes8.dex */
+    public class C1288c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1274c(c cVar, int i2) {
+        public C1288c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -178,13 +178,13 @@ public class c extends c.a.t0.z2.v.b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f21149e;
+        public final /* synthetic */ c f20591e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -201,19 +201,19 @@ public class c extends c.a.t0.z2.v.b {
                     return;
                 }
             }
-            this.f21149e = cVar;
+            this.f20591e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21149e.P0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20591e.P0 == null) {
                 return;
             }
-            c cVar = this.f21149e;
+            c cVar = this.f20591e;
             cVar.S0 = false;
             cVar.P0.L();
-            this.f21149e.P0.w();
+            this.f20591e.P0.w();
         }
     }
 
@@ -237,7 +237,7 @@ public class c extends c.a.t0.z2.v.b {
             }
         }
         this.R0 = false;
-        this.T0 = new C1274c(this, 2921395);
+        this.T0 = new C1288c(this, 2921395);
         this.U0 = new d(this);
         j0(true);
     }
@@ -247,15 +247,15 @@ public class c extends c.a.t0.z2.v.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final c.a.e.m.a C0(d2 d2Var, c.a.e.m.e.b bVar) {
+    public final c.a.e.m.a C0(e2 e2Var, c.a.e.m.e.b bVar) {
         InterceptResult invokeLL;
         int i2;
         VideoInfo t1;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, d2Var, bVar)) == null) {
-            if (d2Var == null || bVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, e2Var, bVar)) == null) {
+            if (e2Var == null || bVar == null) {
                 return null;
             }
             int c2 = bVar.c();
@@ -267,7 +267,7 @@ public class c extends c.a.t0.z2.v.b {
                 if (b2 != -1) {
                     i5 = i6;
                     i2 = (b2 - a2) - 1;
-                    t1 = d2Var.t1();
+                    t1 = e2Var.t1();
                     if (t1 == null) {
                         int intValue = t1.video_width.intValue();
                         i4 = t1.video_height.intValue();
@@ -277,10 +277,10 @@ public class c extends c.a.t0.z2.v.b {
                         i4 = 0;
                     }
                     HashMap hashMap = new HashMap();
-                    hashMap.put("video_vid", d2Var.g0());
-                    hashMap.put("video_title", d2Var.getTitle());
-                    hashMap.put("forum_id", String.valueOf(d2Var.U()));
-                    hashMap.put("forum_name", d2Var.a0());
+                    hashMap.put("video_vid", e2Var.g0());
+                    hashMap.put("video_title", e2Var.getTitle());
+                    hashMap.put("forum_id", String.valueOf(e2Var.U()));
+                    hashMap.put("forum_name", e2Var.a0());
                     hashMap.put("up_distance", String.valueOf(i5));
                     hashMap.put("down_distance", String.valueOf(i2));
                     c.a.e.m.a h2 = c.a.e.m.c.h(3, 0, "1546854828072", a2 + 1, i3, i4);
@@ -290,14 +290,14 @@ public class c extends c.a.t0.z2.v.b {
                 i5 = i6;
             }
             i2 = -1;
-            t1 = d2Var.t1();
+            t1 = e2Var.t1();
             if (t1 == null) {
             }
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("video_vid", d2Var.g0());
-            hashMap2.put("video_title", d2Var.getTitle());
-            hashMap2.put("forum_id", String.valueOf(d2Var.U()));
-            hashMap2.put("forum_name", d2Var.a0());
+            hashMap2.put("video_vid", e2Var.g0());
+            hashMap2.put("video_title", e2Var.getTitle());
+            hashMap2.put("forum_id", String.valueOf(e2Var.U()));
+            hashMap2.put("forum_name", e2Var.a0());
             hashMap2.put("up_distance", String.valueOf(i5));
             hashMap2.put("down_distance", String.valueOf(i2));
             c.a.e.m.a h22 = c.a.e.m.c.h(3, 0, "1546854828072", a2 + 1, i3, i4);
@@ -329,12 +329,12 @@ public class c extends c.a.t0.z2.v.b {
         }
     }
 
-    public final void G0(d2 d2Var) {
+    public final void G0(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, d2Var) == null) || d2Var == null || d2Var.g0() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) || e2Var == null || e2Var.g0() == null) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921394, d2Var.g0()));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921394, e2Var.g0()));
     }
 
     @Override // c.a.t0.z2.v.d
@@ -396,14 +396,14 @@ public class c extends c.a.t0.z2.v.b {
     }
 
     @Override // c.a.t0.z2.v.b, c.a.t0.z2.v.d, c.a.t0.z2.v.a
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, d2Var) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        super.setData(d2Var);
-        boolean z = this.Q0 == d2Var;
-        this.Q0 = d2Var;
+        super.setData(e2Var);
+        boolean z = this.Q0 == e2Var;
+        this.Q0 = e2Var;
         if (this.P0 != null) {
             if (this.R0 && z) {
                 this.R0 = false;

@@ -54,15 +54,15 @@ public class z3 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            WebView webView2 = this.a.f31314b;
+            WebView webView2 = this.a.f30335b;
             if (webView2 != null) {
                 webView2.setVisibility(8);
             }
             if (str.contains("TIMED_OUT")) {
                 h4 h4Var = this.a;
-                if (h4Var.f31315c != null) {
+                if (h4Var.f30336c != null) {
                     y2 a = c3.a(h4Var.a);
-                    a.q(new g3(this.a.f31315c), 4);
+                    a.q(new g3(this.a.f30336c), 4);
                     a.l("desc", str + "&errcode:" + i2 + "&fileurl:" + str2);
                     a.m();
                 }

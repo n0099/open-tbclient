@@ -16,7 +16,7 @@ public class c {
     public ArrayList<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f25549b;
+    public ArrayList<b> f24834b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c {
             }
         }
         this.a = new ArrayList<>();
-        this.f25549b = new ArrayList<>();
+        this.f24834b = new ArrayList<>();
     }
 
     public void a(ActPost actPost) {
@@ -53,7 +53,7 @@ public class c {
             if (list != null) {
                 b bVar = new b();
                 bVar.a(linkInfo);
-                this.f25549b.add(bVar);
+                this.f24834b.add(bVar);
             }
         }
     }

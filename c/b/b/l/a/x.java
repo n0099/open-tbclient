@@ -27,13 +27,13 @@ public class x implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SoundPool f27900e;
+    public final SoundPool f27062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AudioManager f27901f;
+    public final AudioManager f27063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<p> f27902g;
+    public final List<p> f27064g;
 
     public x(Context context, b bVar) {
         Interceptable interceptable = $ic;
@@ -50,22 +50,22 @@ public class x implements d {
                 return;
             }
         }
-        this.f27902g = new ArrayList();
+        this.f27064g = new ArrayList();
         if (!bVar.p) {
             if (Build.VERSION.SDK_INT >= 21) {
-                this.f27900e = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(bVar.q).build();
+                this.f27062e = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(bVar.q).build();
             } else {
-                this.f27900e = new SoundPool(bVar.q, 3, 0);
+                this.f27062e = new SoundPool(bVar.q, 3, 0);
             }
-            this.f27901f = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.f27063f = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (context instanceof Activity) {
                 ((Activity) context).setVolumeControlStream(3);
                 return;
             }
             return;
         }
-        this.f27900e = null;
-        this.f27901f = null;
+        this.f27062e = null;
+        this.f27063f = null;
     }
 
     @Override // c.b.b.e
@@ -73,12 +73,12 @@ public class x implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (this.f27900e != null) {
+            if (this.f27062e != null) {
                 g gVar = (g) aVar;
                 if (gVar.t() == Files.FileType.Internal) {
                     try {
                         AssetFileDescriptor u = gVar.u();
-                        s sVar = new s(this.f27900e, this.f27901f, this.f27900e.load(u, 1));
+                        s sVar = new s(this.f27062e, this.f27063f, this.f27062e.load(u, 1));
                         u.close();
                         return sVar;
                     } catch (IOException e2) {
@@ -86,7 +86,7 @@ public class x implements d {
                     }
                 }
                 try {
-                    return new s(this.f27900e, this.f27901f, this.f27900e.load(gVar.e().getPath(), 1));
+                    return new s(this.f27062e, this.f27063f, this.f27062e.load(gVar.e().getPath(), 1));
                 } catch (Exception e3) {
                     throw new GdxRuntimeException("Error loading audio file: " + aVar, e3);
                 }
@@ -100,8 +100,8 @@ public class x implements d {
     public void d(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-            synchronized (this.f27902g) {
-                this.f27902g.remove(this);
+            synchronized (this.f27064g) {
+                this.f27064g.remove(this);
             }
         }
     }
@@ -109,16 +109,16 @@ public class x implements d {
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27900e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27062e == null) {
             return;
         }
-        synchronized (this.f27902g) {
-            Iterator it = new ArrayList(this.f27902g).iterator();
+        synchronized (this.f27064g) {
+            Iterator it = new ArrayList(this.f27064g).iterator();
             while (it.hasNext()) {
                 ((p) it.next()).dispose();
             }
         }
-        this.f27900e.release();
+        this.f27062e.release();
     }
 
     @Override // c.b.b.e
@@ -126,7 +126,7 @@ public class x implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (this.f27900e != null) {
+            if (this.f27062e != null) {
                 g gVar = (g) aVar;
                 MediaPlayer mediaPlayer = new MediaPlayer();
                 if (gVar.t() == Files.FileType.Internal) {
@@ -136,8 +136,8 @@ public class x implements d {
                         u.close();
                         mediaPlayer.prepare();
                         p pVar = new p(this, mediaPlayer);
-                        synchronized (this.f27902g) {
-                            this.f27902g.add(pVar);
+                        synchronized (this.f27064g) {
+                            this.f27064g.add(pVar);
                         }
                         return pVar;
                     } catch (Exception e2) {
@@ -148,8 +148,8 @@ public class x implements d {
                     mediaPlayer.setDataSource(gVar.e().getPath());
                     mediaPlayer.prepare();
                     p pVar2 = new p(this, mediaPlayer);
-                    synchronized (this.f27902g) {
-                        this.f27902g.add(pVar2);
+                    synchronized (this.f27064g) {
+                        this.f27064g.add(pVar2);
                     }
                     return pVar2;
                 } catch (Exception e3) {
@@ -164,35 +164,35 @@ public class x implements d {
     @Override // c.b.b.l.a.d
     public void pause() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f27900e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f27062e == null) {
             return;
         }
-        synchronized (this.f27902g) {
-            for (p pVar : this.f27902g) {
+        synchronized (this.f27064g) {
+            for (p pVar : this.f27064g) {
                 if (pVar.a()) {
                     pVar.pause();
-                    pVar.f27890h = true;
+                    pVar.f27052h = true;
                 } else {
-                    pVar.f27890h = false;
+                    pVar.f27052h = false;
                 }
             }
         }
-        this.f27900e.autoPause();
+        this.f27062e.autoPause();
     }
 
     @Override // c.b.b.l.a.d
     public void resume() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27900e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27062e == null) {
             return;
         }
-        synchronized (this.f27902g) {
-            for (int i2 = 0; i2 < this.f27902g.size(); i2++) {
-                if (this.f27902g.get(i2).f27890h) {
-                    this.f27902g.get(i2).f();
+        synchronized (this.f27064g) {
+            for (int i2 = 0; i2 < this.f27064g.size(); i2++) {
+                if (this.f27064g.get(i2).f27052h) {
+                    this.f27064g.get(i2).f();
                 }
             }
         }
-        this.f27900e.autoResume();
+        this.f27062e.autoResume();
     }
 }

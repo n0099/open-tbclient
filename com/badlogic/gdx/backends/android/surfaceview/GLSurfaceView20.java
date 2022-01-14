@@ -32,14 +32,14 @@ public class GLSurfaceView20 extends GLSurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f32069f = "GL2JNIView";
+    public static String f31060f = "GL2JNIView";
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f32070g;
+    public static int f31061g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.l.a.b0.c f32071e;
+    public final c.b.b.l.a.b0.c f31062e;
     public Input.OnscreenKeyboardType onscreenKeyboardType;
 
     /* loaded from: classes9.dex */
@@ -100,27 +100,27 @@ public class GLSurfaceView20 extends GLSurfaceView {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: h  reason: collision with root package name */
-        public static int[] f32072h;
+        public static int[] f31063h;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32073b;
+        public int f31064b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f32074c;
+        public int f31065c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f32075d;
+        public int f31066d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f32076e;
+        public int f31067e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f32077f;
+        public int f31068f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int[] f32078g;
+        public int[] f31069g;
 
         static {
             InterceptResult invokeClinit;
@@ -135,7 +135,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
                     return;
                 }
             }
-            f32072h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
+            f31063h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
         }
 
         public b(int i2, int i3, int i4, int i5, int i6, int i7) {
@@ -153,13 +153,13 @@ public class GLSurfaceView20 extends GLSurfaceView {
                     return;
                 }
             }
-            this.f32078g = new int[1];
+            this.f31069g = new int[1];
             this.a = i2;
-            this.f32073b = i3;
-            this.f32074c = i4;
-            this.f32075d = i5;
-            this.f32076e = i6;
-            this.f32077f = i7;
+            this.f31064b = i3;
+            this.f31065c = i4;
+            this.f31066d = i5;
+            this.f31067e = i6;
+            this.f31068f = i7;
         }
 
         public EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
@@ -169,12 +169,12 @@ public class GLSurfaceView20 extends GLSurfaceView {
                 for (EGLConfig eGLConfig : eGLConfigArr) {
                     int b2 = b(egl10, eGLDisplay, eGLConfig, 12325, 0);
                     int b3 = b(egl10, eGLDisplay, eGLConfig, 12326, 0);
-                    if (b2 >= this.f32076e && b3 >= this.f32077f) {
+                    if (b2 >= this.f31067e && b3 >= this.f31068f) {
                         int b4 = b(egl10, eGLDisplay, eGLConfig, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
                         int b5 = b(egl10, eGLDisplay, eGLConfig, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
                         int b6 = b(egl10, eGLDisplay, eGLConfig, 12322, 0);
                         int b7 = b(egl10, eGLDisplay, eGLConfig, 12321, 0);
-                        if (b4 == this.a && b5 == this.f32073b && b6 == this.f32074c && b7 == this.f32075d) {
+                        if (b4 == this.a && b5 == this.f31064b && b6 == this.f31065c && b7 == this.f31066d) {
                             return eGLConfig;
                         }
                     }
@@ -187,7 +187,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
         public final int b(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.f32078g) ? this.f32078g[0] : i3 : invokeCommon.intValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.f31069g) ? this.f31069g[0] : i3 : invokeCommon.intValue;
         }
 
         @Override // android.opengl.GLSurfaceView.EGLConfigChooser
@@ -196,11 +196,11 @@ public class GLSurfaceView20 extends GLSurfaceView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, egl10, eGLDisplay)) == null) {
                 int[] iArr = new int[1];
-                egl10.eglChooseConfig(eGLDisplay, f32072h, null, 0, iArr);
+                egl10.eglChooseConfig(eGLDisplay, f31063h, null, 0, iArr);
                 int i2 = iArr[0];
                 if (i2 > 0) {
                     EGLConfig[] eGLConfigArr = new EGLConfig[i2];
-                    egl10.eglChooseConfig(eGLDisplay, f32072h, eGLConfigArr, i2, iArr);
+                    egl10.eglChooseConfig(eGLDisplay, f31063h, eGLConfigArr, i2, iArr);
                     return a(egl10, eGLDisplay, eGLConfigArr);
                 }
                 throw new IllegalArgumentException("No configs match configSpec");
@@ -249,17 +249,17 @@ public class GLSurfaceView20 extends GLSurfaceView {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfig)) == null) {
-                String str = GLSurfaceView20.f32069f;
-                String str2 = "creating OpenGL ES " + GLSurfaceView20.f32070g + ".0 context";
-                GLSurfaceView20.a("Before eglCreateContext " + GLSurfaceView20.f32070g, egl10);
-                EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{a, GLSurfaceView20.f32070g, 12344});
-                if ((!GLSurfaceView20.a("After eglCreateContext " + GLSurfaceView20.f32070g, egl10) || eglCreateContext == null) && GLSurfaceView20.f32070g > 2) {
-                    String str3 = GLSurfaceView20.f32069f;
-                    GLSurfaceView20.f32070g = 2;
+                String str = GLSurfaceView20.f31060f;
+                String str2 = "creating OpenGL ES " + GLSurfaceView20.f31061g + ".0 context";
+                GLSurfaceView20.a("Before eglCreateContext " + GLSurfaceView20.f31061g, egl10);
+                EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{a, GLSurfaceView20.f31061g, 12344});
+                if ((!GLSurfaceView20.a("After eglCreateContext " + GLSurfaceView20.f31061g, egl10) || eglCreateContext == null) && GLSurfaceView20.f31061g > 2) {
+                    String str3 = GLSurfaceView20.f31060f;
+                    GLSurfaceView20.f31061g = 2;
                     return createContext(egl10, eGLDisplay, eGLConfig);
                 }
-                String str4 = GLSurfaceView20.f32069f;
-                String str5 = "Returning a GLES " + GLSurfaceView20.f32070g + " context";
+                String str4 = GLSurfaceView20.f31060f;
+                String str5 = "Returning a GLES " + GLSurfaceView20.f31061g + " context";
                 return eglCreateContext;
             }
             return (EGLContext) invokeLLL.objValue;
@@ -308,8 +308,8 @@ public class GLSurfaceView20 extends GLSurfaceView {
             }
         }
         this.onscreenKeyboardType = Input.OnscreenKeyboardType.Default;
-        f32070g = i2;
-        this.f32071e = cVar;
+        f31061g = i2;
+        this.f31062e = cVar;
         b(false, 16, 0);
     }
 
@@ -367,8 +367,8 @@ public class GLSurfaceView20 extends GLSurfaceView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            c.a a2 = this.f32071e.a(i2, i3);
-            setMeasuredDimension(a2.a, a2.f27865b);
+            c.a a2 = this.f31062e.a(i2, i3);
+            setMeasuredDimension(a2.a, a2.f27029b);
         }
     }
 
@@ -412,7 +412,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
             }
         }
         this.onscreenKeyboardType = Input.OnscreenKeyboardType.Default;
-        this.f32071e = cVar;
+        this.f31062e = cVar;
         b(z, i2, i3);
     }
 }

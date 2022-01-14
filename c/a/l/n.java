@@ -33,7 +33,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f4282e;
+        public final /* synthetic */ n f4203e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class n extends h {
                     return;
                 }
             }
-            this.f4282e = nVar;
+            this.f4203e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4282e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4203e.c() == null) {
                 return;
             }
-            this.f4282e.c().a(view, this.f4282e.m);
+            this.f4203e.c().a(view, this.f4203e.m);
         }
     }
 
@@ -69,10 +69,10 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f4283e;
+        public final /* synthetic */ View.OnClickListener f4204e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f4284f;
+        public final /* synthetic */ n f4205f;
 
         public b(n nVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -89,21 +89,21 @@ public class n extends h {
                     return;
                 }
             }
-            this.f4284f = nVar;
-            this.f4283e = onClickListener;
+            this.f4205f = nVar;
+            this.f4204e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f4284f.f4211f);
-                String v1 = this.f4284f.m.getThreadData().v1();
-                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(v1, this.f4284f.m.getThreadData().y1().G() + "", 1, "other");
-                createNormalCfg.setStartFrom(this.f4284f.f4210e.i());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f4205f.f4145f);
+                String v1 = this.f4205f.m.getThreadData().v1();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(v1, this.f4205f.m.getThreadData().y1().G() + "", 1, "other");
+                createNormalCfg.setStartFrom(this.f4205f.f4144e.i());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                this.f4284f.f4210e.o(new a.C0186a(1));
-                this.f4283e.onClick(view);
+                this.f4205f.f4144e.o(new a.C0195a(1));
+                this.f4204e.onClick(view);
             }
         }
     }
@@ -133,10 +133,10 @@ public class n extends h {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0186a c0186a) {
+        public boolean a(a.C0195a c0195a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0186a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0195a)) == null) {
                 c.a.t0.g0.m.l(this.a.l.getGodReplyContent(), this.a.m.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }

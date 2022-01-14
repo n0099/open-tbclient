@@ -19,7 +19,7 @@ public class d {
     public List<TailData> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f18099b;
+    public List<String> f17659b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class d {
             }
         }
         this.a = new ArrayList();
-        this.f18099b = new ArrayList();
+        this.f17659b = new ArrayList();
     }
 
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18099b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17659b : (List) invokeV.objValue;
     }
 
     public List<TailData> b() {

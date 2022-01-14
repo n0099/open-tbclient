@@ -15,17 +15,17 @@ public class e extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f14780g;
+    public static final BdUniqueId f14428g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f14781h;
+    public static final BdUniqueId f14429h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.a0.f.a.a f14782e;
+    public c.a.t0.a0.f.a.a f14430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.a0.f.a.a f14783f;
+    public c.a.t0.a0.f.a.a f14431f;
 
     static {
         InterceptResult invokeClinit;
@@ -40,8 +40,8 @@ public class e extends BaseCardInfo {
                 return;
             }
         }
-        f14780g = BdUniqueId.gen();
-        f14781h = BdUniqueId.gen();
+        f14428g = BdUniqueId.gen();
+        f14429h = BdUniqueId.gen();
     }
 
     public e() {
@@ -66,11 +66,11 @@ public class e extends BaseCardInfo {
         SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.t0.a0.f.a.a aVar = this.f14782e;
-            if (aVar != null && (sdkLiveInfoData = aVar.f14674e) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
-                return f14781h;
+            c.a.t0.a0.f.a.a aVar = this.f14430e;
+            if (aVar != null && (sdkLiveInfoData = aVar.f14327e) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
+                return f14429h;
             }
-            return f14780g;
+            return f14428g;
         }
         return (BdUniqueId) invokeV.objValue;
     }

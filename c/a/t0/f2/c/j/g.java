@@ -33,14 +33,14 @@ public class g extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f17853g = 131;
+    public static int f17421g = 131;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17854e;
+    public Context f17422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j> f17855f;
+    public List<j> f17423f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -48,13 +48,13 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f17856e;
+        public final /* synthetic */ j f17424e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f17857f;
+        public final /* synthetic */ int f17425f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f17858g;
+        public final /* synthetic */ g f17426g;
 
         public a(g gVar, j jVar, int i2) {
             Interceptable interceptable = $ic;
@@ -71,33 +71,33 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f17858g = gVar;
-            this.f17856e = jVar;
-            this.f17857f = i2;
+            this.f17426g = gVar;
+            this.f17424e = jVar;
+            this.f17425f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17858g.f17854e)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17426g.f17422e)) == null) {
                 return;
             }
-            if (this.f17856e.getType() == g.f17853g) {
+            if (this.f17424e.getType() == g.f17421g) {
                 MemberCenterStatic.b(tbPageContext);
             } else {
-                TiebaStatic.log(new StatisticItem("c11218").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f17857f + 1));
-                if (!StringUtils.isNull(this.f17856e.d())) {
-                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f17856e.a()));
-                    MemberCenterStatic.a(tbPageContext, new String[]{this.f17856e.d(), this.f17856e.b(), this.f17856e.e()});
+                TiebaStatic.log(new StatisticItem("c11218").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f17425f + 1));
+                if (!StringUtils.isNull(this.f17424e.d())) {
+                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f17424e.a()));
+                    MemberCenterStatic.a(tbPageContext, new String[]{this.f17424e.d(), this.f17424e.b(), this.f17424e.e()});
                 }
             }
-            if (this.f17856e.c() > 0) {
+            if (this.f17424e.c() > 0) {
                 String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                c.a.s0.s.g0.b.j().x("member_center_item_red_tip_" + this.f17856e.c() + currentAccount, this.f17856e.h());
+                c.a.s0.s.h0.b.k().y("member_center_item_red_tip_" + this.f17424e.c() + currentAccount, this.f17424e.h());
                 b bVar = (b) view.getTag();
                 if (bVar != null) {
-                    bVar.f17863f.setVisibility(8);
+                    bVar.f17431f.setVisibility(8);
                 }
             }
         }
@@ -110,22 +110,22 @@ public class g extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f17859b;
+        public TbImageView f17427b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f17860c;
+        public TbImageView f17428c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f17861d;
+        public TextView f17429d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f17862e;
+        public TextView f17430e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f17863f;
+        public TbImageView f17431f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HeadPendantView f17864g;
+        public HeadPendantView f17432g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -172,7 +172,7 @@ public class g extends BaseAdapter {
                 return;
             }
         }
-        this.f17854e = context;
+        this.f17422e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -182,11 +182,11 @@ public class g extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<j> list = this.f17855f;
+            List<j> list = this.f17423f;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f17855f.get(i2);
+            return this.f17423f.get(i2);
         }
         return (j) invokeI.objValue;
     }
@@ -196,42 +196,42 @@ public class g extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jVar) == null) || jVar == null || bVar == null) {
             return;
         }
-        if (jVar.getType() == f17853g) {
-            SkinManager.setBackgroundResource(bVar.f17859b, R.color.CAM_X0204);
-            bVar.f17859b.setImageResource(0);
-            bVar.f17859b.startLoad("", 10, false);
-            bVar.f17864g.setVisibility(0);
-            if (bVar.f17864g.getHeadView() != null) {
+        if (jVar.getType() == f17421g) {
+            SkinManager.setBackgroundResource(bVar.f17427b, R.color.CAM_X0204);
+            bVar.f17427b.setImageResource(0);
+            bVar.f17427b.startLoad("", 10, false);
+            bVar.f17432g.setVisibility(0);
+            if (bVar.f17432g.getHeadView() != null) {
                 if (jVar.j()) {
-                    bVar.f17864g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+                    bVar.f17432g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
                 } else {
-                    bVar.f17864g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+                    bVar.f17432g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
                 }
             }
-            bVar.f17864g.startLoadPendantUrl(jVar.b());
+            bVar.f17432g.startLoadPendantUrl(jVar.b());
         } else {
-            bVar.f17859b.startLoad(jVar.b(), 10, false);
-            bVar.f17864g.setVisibility(8);
+            bVar.f17427b.startLoad(jVar.b(), 10, false);
+            bVar.f17432g.setVisibility(8);
         }
-        bVar.f17860c.startLoad(jVar.e(), 10, false);
-        bVar.f17862e.setText(jVar.f());
-        bVar.f17861d.setText(jVar.g());
+        bVar.f17428c.startLoad(jVar.e(), 10, false);
+        bVar.f17430e.setText(jVar.f());
+        bVar.f17429d.setText(jVar.g());
         if (TbadkCoreApplication.isLogin() && jVar.c() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String p = c.a.s0.s.g0.b.j().p("member_center_item_red_tip_" + jVar.c() + currentAccount, "0");
-            if (Long.parseLong(StringUtils.isNull(jVar.h()) ? "0" : jVar.h()) > Long.parseLong(StringUtils.isNull(p) ? "0" : p)) {
+            String q = c.a.s0.s.h0.b.k().q("member_center_item_red_tip_" + jVar.c() + currentAccount, "0");
+            if (Long.parseLong(StringUtils.isNull(jVar.h()) ? "0" : jVar.h()) > Long.parseLong(StringUtils.isNull(q) ? "0" : q)) {
                 if (jVar.i() == 1) {
-                    bVar.f17863f.setVisibility(8);
+                    bVar.f17431f.setVisibility(8);
                 } else {
-                    bVar.f17863f.setVisibility(0);
+                    bVar.f17431f.setVisibility(0);
                 }
             } else {
-                bVar.f17863f.setVisibility(8);
+                bVar.f17431f.setVisibility(8);
             }
         } else {
-            bVar.f17863f.setVisibility(8);
+            bVar.f17431f.setVisibility(8);
         }
-        TbPageContext tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17854e);
+        TbPageContext tbPageContext = (TbPageContext) c.a.d.a.j.a(this.f17422e);
         if (tbPageContext == null) {
             return;
         }
@@ -242,7 +242,7 @@ public class g extends BaseAdapter {
     public void d(List<j> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f17855f = list;
+            this.f17423f = list;
         }
     }
 
@@ -251,7 +251,7 @@ public class g extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<j> list = this.f17855f;
+            List<j> list = this.f17423f;
             if (list != null) {
                 return list.size();
             }
@@ -283,27 +283,27 @@ public class g extends BaseAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f17854e).inflate(R.layout.index_dressup_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f17422e).inflate(R.layout.index_dressup_item, (ViewGroup) null);
                 bVar = new b();
                 bVar.a = view.findViewById(R.id.root_bg_item_view);
-                bVar.f17859b = (TbImageView) view.findViewById(R.id.bg_image);
+                bVar.f17427b = (TbImageView) view.findViewById(R.id.bg_image);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.permission_icon);
-                bVar.f17860c = tbImageView;
+                bVar.f17428c = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.transparent_bg);
-                bVar.f17860c.setDefaultBgResource(R.drawable.transparent_bg);
-                bVar.f17861d = (TextView) view.findViewById(R.id.txt_type);
-                bVar.f17862e = (TextView) view.findViewById(R.id.txt_name);
-                bVar.f17863f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
+                bVar.f17428c.setDefaultBgResource(R.drawable.transparent_bg);
+                bVar.f17429d = (TextView) view.findViewById(R.id.txt_type);
+                bVar.f17430e = (TextView) view.findViewById(R.id.txt_name);
+                bVar.f17431f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
                 HeadPendantView headPendantView = (HeadPendantView) view.findViewById(R.id.avatar_image);
-                bVar.f17864g = headPendantView;
+                bVar.f17432g = headPendantView;
                 if (headPendantView.getHeadView() != null) {
-                    bVar.f17864g.getHeadView().setIsRound(true);
-                    bVar.f17864g.getHeadView().setDrawBorder(false);
+                    bVar.f17432g.getHeadView().setIsRound(true);
+                    bVar.f17432g.getHeadView().setDrawBorder(false);
                 }
-                bVar.f17864g.setHasPendantStyle();
-                if (bVar.f17864g.getPendantView() != null) {
-                    bVar.f17864g.getPendantView().setIsRound(true);
-                    bVar.f17864g.getPendantView().setDrawBorder(false);
+                bVar.f17432g.setHasPendantStyle();
+                if (bVar.f17432g.getPendantView() != null) {
+                    bVar.f17432g.getPendantView().setIsRound(true);
+                    bVar.f17432g.getPendantView().setDrawBorder(false);
                 }
             }
             c(bVar, item);

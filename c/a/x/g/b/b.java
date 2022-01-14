@@ -19,7 +19,7 @@ public class b {
     public static final ThreadLocal<Matrix> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ThreadLocal<RectF> f27481b;
+    public static final ThreadLocal<RectF> f26657b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class b {
             }
         }
         a = new ThreadLocal<>();
-        f27481b = new ThreadLocal<>();
+        f26657b = new ThreadLocal<>();
     }
 
     public static void a(ViewGroup viewGroup, View view, Rect rect) {
@@ -75,10 +75,10 @@ public class b {
                 matrix.reset();
             }
             b(viewGroup, view, matrix);
-            RectF rectF = f27481b.get();
+            RectF rectF = f26657b.get();
             if (rectF == null) {
                 rectF = new RectF();
-                f27481b.set(rectF);
+                f26657b.set(rectF);
             }
             rectF.set(rect);
             matrix.mapRect(rectF);

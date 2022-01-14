@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.s.q.c;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.j3.h0.a;
 import c.a.t0.j3.i0.b.d;
 import c.a.t0.j3.i0.b.e;
@@ -149,7 +149,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c.a.t0.j3.i0.b.b bVar = this.downloadInfo;
-            return (bVar == null || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(this.downloadInfo.f18863b)) ? false : true;
+            return (bVar == null || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(this.downloadInfo.f18393b)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -199,7 +199,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (aVar == null) {
                 return this.scheme;
             }
-            return aVar.f18862d;
+            return aVar.f18392d;
         }
         return (String) invokeV.objValue;
     }
@@ -213,7 +213,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (aVar == null) {
                 return this.scheme;
             }
-            return aVar.f18861c;
+            return aVar.f18391c;
         }
         return (String) invokeV.objValue;
     }
@@ -227,7 +227,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (aVar == null) {
                 return null;
             }
-            return aVar.f18860b;
+            return aVar.f18390b;
         }
         return (String) invokeV.objValue;
     }
@@ -242,8 +242,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (bVar == null) {
                 return "";
             }
-            if (!TextUtils.isEmpty(bVar.f18864c)) {
-                return this.downloadInfo.f18864c;
+            if (!TextUtils.isEmpty(bVar.f18394c)) {
+                return this.downloadInfo.f18394c;
             }
             if (!TextUtils.isEmpty(this.downloadInfo.a)) {
                 return this.downloadInfo.a;
@@ -262,7 +262,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (bVar == null) {
                 return null;
             }
-            return bVar.f18864c;
+            return bVar.f18394c;
         }
         return (String) invokeV.objValue;
     }
@@ -310,7 +310,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (dVar == null) {
                 return 1.0d;
             }
-            return dVar.f18869b;
+            return dVar.f18399b;
         }
         return invokeV.doubleValue;
     }
@@ -321,10 +321,10 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             d dVar = this.picInfo;
-            if (dVar == null || c.a.t0.x1.o.k.a.e(dVar.f18870c)) {
+            if (dVar == null || c.a.t0.x1.o.k.a.e(dVar.f18400c)) {
                 return null;
             }
-            return (String) c.a.t0.x1.o.k.a.d(this.picInfo.f18870c, 0);
+            return (String) c.a.t0.x1.o.k.a.d(this.picInfo.f18400c, 0);
         }
         return (String) invokeV.objValue;
     }
@@ -343,7 +343,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (eVar == null) {
                 return -1;
             }
-            return eVar.f18874c;
+            return eVar.f18404c;
         }
         return invokeV.intValue;
     }
@@ -369,7 +369,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (eVar == null) {
                 return -1;
             }
-            return eVar.f18873b;
+            return eVar.f18403b;
         }
         return invokeV.intValue;
     }
@@ -389,7 +389,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (eVar == null) {
                 return System.currentTimeMillis();
             }
-            return eVar.f18875d;
+            return eVar.f18405d;
         }
         return invokeV.longValue;
     }
@@ -409,7 +409,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (bVar == null) {
                 return true;
             }
-            return bVar.f18865d;
+            return bVar.f18395d;
         }
         return invokeV.booleanValue;
     }
@@ -434,7 +434,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             int i2 = this.goodsStyle;
-            return ((i2 != 2 && i2 != 6 && i2 != 8) || (dVar = this.picInfo) == null || c.a.t0.x1.o.k.a.e(dVar.f18870c)) ? false : true;
+            return ((i2 != 2 && i2 != 6 && i2 != 8) || (dVar = this.picInfo) == null || c.a.t0.x1.o.k.a.e(dVar.f18400c)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -493,25 +493,25 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             this.appInfo = advertAppInfo;
             updataThreadData(advertAppInfo);
             g gVar = this.tailFrame;
-            if (gVar.f18887k) {
+            if (gVar.k) {
                 return;
             }
             gVar.a(this.appInfo, this);
         }
     }
 
-    public void updataThreadData(d2 d2Var) {
+    public void updataThreadData(e2 e2Var) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, d2Var) == null) || d2Var == null || (eVar = this.threadInfo) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048606, this, e2Var) == null) || e2Var == null || (eVar = this.threadInfo) == null) {
             return;
         }
-        d2Var.g4(eVar.f18875d / 1000);
-        d2Var.r4(this.threadInfo.f18874c);
-        d2Var.w3(this.threadInfo.a);
-        d2Var.w4(this.threadInfo.f18873b);
-        d2Var.F4(this.threadTitle);
-        d2Var.J().setName_show(this.userName);
-        d2Var.J().setPortrait(this.userImage);
+        e2Var.g4(eVar.f18405d / 1000);
+        e2Var.r4(this.threadInfo.f18404c);
+        e2Var.w3(this.threadInfo.a);
+        e2Var.w4(this.threadInfo.f18403b);
+        e2Var.F4(this.threadTitle);
+        e2Var.J().setName_show(this.userName);
+        e2Var.J().setPortrait(this.userImage);
     }
 }

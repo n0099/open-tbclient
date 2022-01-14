@@ -31,25 +31,23 @@ public class TbCameraView extends TextureView {
     public Runnable A;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceTexture f51580e;
+    public SurfaceTexture f49592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Camera f51581f;
+    public Camera f49593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Camera.Parameters f51582g;
+    public Camera.Parameters f49594g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51583h;
+    public boolean f49595h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f51584i;
+    public String f49596i;
 
     /* renamed from: j  reason: collision with root package name */
-    public j f51585j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f51586k;
+    public j f49597j;
+    public int k;
     public float l;
     public float m;
     public int n;
@@ -72,7 +70,7 @@ public class TbCameraView extends TextureView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCameraView f51587e;
+        public final /* synthetic */ TbCameraView f49598e;
 
         public a(TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
@@ -89,22 +87,22 @@ public class TbCameraView extends TextureView {
                     return;
                 }
             }
-            this.f51587e = tbCameraView;
+            this.f49598e = tbCameraView;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, surfaceTexture, i2, i3) == null) {
-                this.f51587e.f51580e = surfaceTexture;
-                if (!this.f51587e.v && !this.f51587e.u) {
+                this.f49598e.f49592e = surfaceTexture;
+                if (!this.f49598e.v && !this.f49598e.u) {
                     boolean z = true;
-                    this.f51587e.v = true;
-                    TbCameraView tbCameraView = this.f51587e;
-                    tbCameraView.u = (tbCameraView.s == null || !this.f51587e.s.a()) ? false : false;
+                    this.f49598e.v = true;
+                    TbCameraView tbCameraView = this.f49598e;
+                    tbCameraView.u = (tbCameraView.s == null || !this.f49598e.s.a()) ? false : false;
                 }
-                if (this.f51587e.u) {
-                    new Thread(this.f51587e.x).start();
+                if (this.f49598e.u) {
+                    new Thread(this.f49598e.x).start();
                 }
             }
         }
@@ -114,7 +112,7 @@ public class TbCameraView extends TextureView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture)) == null) {
-                new Thread(this.f51587e.y).start();
+                new Thread(this.f49598e.y).start();
                 return false;
             }
             return invokeL.booleanValue;
@@ -141,7 +139,7 @@ public class TbCameraView extends TextureView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCameraView f51588e;
+        public final /* synthetic */ TbCameraView f49599e;
 
         public b(TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
@@ -158,15 +156,15 @@ public class TbCameraView extends TextureView {
                     return;
                 }
             }
-            this.f51588e = tbCameraView;
+            this.f49599e = tbCameraView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f51588e) {
-                    this.f51588e.openCamera(this.f51588e.p);
+                synchronized (this.f49599e) {
+                    this.f49599e.openCamera(this.f49599e.p);
                 }
             }
         }
@@ -178,7 +176,7 @@ public class TbCameraView extends TextureView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCameraView f51589e;
+        public final /* synthetic */ TbCameraView f49600e;
 
         public c(TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
@@ -195,15 +193,15 @@ public class TbCameraView extends TextureView {
                     return;
                 }
             }
-            this.f51589e = tbCameraView;
+            this.f49600e = tbCameraView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f51589e) {
-                    this.f51589e.stopCamera();
+                synchronized (this.f49600e) {
+                    this.f49600e.stopCamera();
                 }
             }
         }
@@ -240,12 +238,12 @@ public class TbCameraView extends TextureView {
                 return;
             }
             this.a.q = BitmapHelper.Bytes2Bitmap(bArr);
-            if (this.a.f51581f != null) {
-                this.a.f51581f.stopPreview();
+            if (this.a.f49593f != null) {
+                this.a.f49593f.stopPreview();
             }
-            this.a.f51583h = false;
-            if (this.a.f51585j != null) {
-                this.a.f51585j.b();
+            this.a.f49595h = false;
+            if (this.a.f49597j != null) {
+                this.a.f49597j.b();
             }
         }
     }
@@ -279,13 +277,13 @@ public class TbCameraView extends TextureView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.q == null || StringUtils.isNull(this.a.f51584i)) {
+                if (this.a.q == null || StringUtils.isNull(this.a.f49596i)) {
                     return null;
                 }
                 try {
                     Bitmap rotateBitmap = this.a.getRotateBitmap(this.a.q, this.a.p ? -90 : 90);
                     if (rotateBitmap != null) {
-                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(this.a.f51584i));
+                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(this.a.f49596i));
                         rotateBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bufferedOutputStream);
                         bufferedOutputStream.flush();
                         bufferedOutputStream.close();
@@ -309,7 +307,7 @@ public class TbCameraView extends TextureView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCameraView f51590e;
+        public final /* synthetic */ TbCameraView f49601e;
 
         public f(TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
@@ -326,16 +324,16 @@ public class TbCameraView extends TextureView {
                     return;
                 }
             }
-            this.f51590e = tbCameraView;
+            this.f49601e = tbCameraView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51590e.f51585j == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49601e.f49597j == null) {
                 return;
             }
-            this.f51590e.f51585j.a();
+            this.f49601e.f49597j.a();
         }
     }
 
@@ -380,9 +378,9 @@ public class TbCameraView extends TextureView {
                 return;
             }
         }
-        this.f51583h = false;
-        this.f51584i = null;
-        this.f51586k = 0;
+        this.f49595h = false;
+        this.f49596i = null;
+        this.k = 0;
         this.p = false;
         this.u = false;
         this.v = false;
@@ -392,8 +390,8 @@ public class TbCameraView extends TextureView {
         this.z = new d(this);
         this.A = new f(this);
         setSurfaceTextureListener(this.w);
-        this.n = getResources().getDimensionPixelSize(c.a.t0.o4.e.ds5);
-        this.o = getResources().getDimensionPixelSize(c.a.t0.o4.e.ds20);
+        this.n = getResources().getDimensionPixelSize(c.a.t0.p4.e.ds5);
+        this.o = getResources().getDimensionPixelSize(c.a.t0.p4.e.ds20);
     }
 
     public void cancelPicture() {
@@ -459,20 +457,20 @@ public class TbCameraView extends TextureView {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.f51583h) {
+            if (this.f49595h) {
                 int action = motionEvent.getAction() & 255;
                 if (action != 0) {
                     if (action == 1) {
-                        this.f51586k = 0;
+                        this.k = 0;
                     } else if (action == 2) {
-                        Camera.Parameters parameters = this.f51582g;
-                        if (parameters != null && parameters.isZoomSupported() && this.f51586k == 2) {
+                        Camera.Parameters parameters = this.f49594g;
+                        if (parameters != null && parameters.isZoomSupported() && this.k == 2) {
                             float q = q(motionEvent);
                             this.l = q;
                             if (q > this.n) {
                                 float f2 = q - this.m;
-                                int maxZoom = this.f51582g.getMaxZoom();
-                                int zoom = this.f51581f.getParameters().getZoom();
+                                int maxZoom = this.f49594g.getMaxZoom();
+                                int zoom = this.f49593f.getParameters().getZoom();
                                 if (f2 > this.o) {
                                     int i3 = zoom + 1;
                                     if (i3 <= maxZoom) {
@@ -491,13 +489,13 @@ public class TbCameraView extends TextureView {
                         float q2 = q(motionEvent);
                         this.m = q2;
                         if (q2 > this.n) {
-                            this.f51586k = 2;
+                            this.k = 2;
                         }
                     } else if (action == 6) {
-                        this.f51586k = 0;
+                        this.k = 0;
                     }
                 } else {
-                    this.f51586k = 1;
+                    this.k = 1;
                 }
                 return true;
             }
@@ -517,7 +515,7 @@ public class TbCameraView extends TextureView {
         int numberOfCameras;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.f51580e == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.f49592e == null) {
             return;
         }
         try {
@@ -539,13 +537,13 @@ public class TbCameraView extends TextureView {
             Camera.getCameraInfo(i2, cameraInfo);
             if (z) {
                 if (cameraInfo.facing == 1) {
-                    this.f51581f = Camera.open(i2);
+                    this.f49593f = Camera.open(i2);
                     this.p = true;
                     break;
                 }
                 i2++;
             } else if (cameraInfo.facing == 0) {
-                this.f51581f = Camera.open(i2);
+                this.f49593f = Camera.open(i2);
                 this.p = false;
                 break;
             } else {
@@ -560,7 +558,7 @@ public class TbCameraView extends TextureView {
             }
             return;
         }
-        r(this.f51580e);
+        r(this.f49592e);
     }
 
     public final float q(MotionEvent motionEvent) {
@@ -580,29 +578,29 @@ public class TbCameraView extends TextureView {
     public final void r(SurfaceTexture surfaceTexture) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceTexture) == null) || (camera = this.f51581f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceTexture) == null) || (camera = this.f49593f) == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
-        this.f51582g = parameters;
+        this.f49594g = parameters;
         parameters.setPictureFormat(256);
-        Camera.Size propSize = getPropSize(this.f51582g.getSupportedPictureSizes(), 1440, 1080);
-        this.f51582g.setPictureSize(propSize.width, propSize.height);
-        Camera.Size propSize2 = getPropSize(this.f51582g.getSupportedPreviewSizes(), 1440, 1080);
-        this.f51582g.setPreviewSize(propSize2.width, propSize2.height);
+        Camera.Size propSize = getPropSize(this.f49594g.getSupportedPictureSizes(), 1440, 1080);
+        this.f49594g.setPictureSize(propSize.width, propSize.height);
+        Camera.Size propSize2 = getPropSize(this.f49594g.getSupportedPreviewSizes(), 1440, 1080);
+        this.f49594g.setPreviewSize(propSize2.width, propSize2.height);
         h hVar = this.r;
         if (hVar != null) {
             hVar.a(propSize2.width, propSize2.height);
         }
-        this.f51581f.setDisplayOrientation(90);
-        if (this.f51582g.getSupportedFocusModes().contains("continuous-video")) {
-            this.f51582g.setFocusMode("continuous-video");
+        this.f49593f.setDisplayOrientation(90);
+        if (this.f49594g.getSupportedFocusModes().contains("continuous-video")) {
+            this.f49594g.setFocusMode("continuous-video");
         }
-        this.f51581f.setParameters(this.f51582g);
+        this.f49593f.setParameters(this.f49594g);
         try {
-            this.f51581f.setPreviewTexture(surfaceTexture);
-            this.f51581f.startPreview();
-            this.f51583h = true;
+            this.f49593f.setPreviewTexture(surfaceTexture);
+            this.f49593f.startPreview();
+            this.f49595h = true;
         } catch (IOException e2) {
             e2.printStackTrace();
             stopCamera();
@@ -619,7 +617,7 @@ public class TbCameraView extends TextureView {
     public void setOnGotPictureListener(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jVar) == null) {
-            this.f51585j = jVar;
+            this.f49597j = jVar;
         }
     }
 
@@ -647,25 +645,25 @@ public class TbCameraView extends TextureView {
     public void setStorePath(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f51584i = str;
+            this.f49596i = str;
         }
     }
 
     public void stopCamera() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            Camera camera = this.f51581f;
+            Camera camera = this.f49593f;
             if (camera != null) {
                 try {
                     camera.setPreviewCallback(null);
-                    this.f51581f.stopPreview();
-                    this.f51581f.release();
+                    this.f49593f.stopPreview();
+                    this.f49593f.release();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            this.f51583h = false;
-            this.f51581f = null;
+            this.f49595h = false;
+            this.f49593f = null;
         }
     }
 
@@ -680,7 +678,7 @@ public class TbCameraView extends TextureView {
     public void takePicture() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f51583h && (camera = this.f51581f) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f49595h && (camera = this.f49593f) != null) {
             camera.takePicture(null, null, this.z);
         }
     }
@@ -688,14 +686,14 @@ public class TbCameraView extends TextureView {
     public void zoom(int i2) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (camera = this.f51581f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (camera = this.f49593f) == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
-        this.f51582g = parameters;
+        this.f49594g = parameters;
         if (parameters != null) {
             parameters.setZoom(i2);
-            this.f51581f.setParameters(this.f51582g);
+            this.f49593f.setParameters(this.f49594g);
         }
     }
 }

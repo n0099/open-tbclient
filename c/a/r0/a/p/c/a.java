@@ -16,22 +16,22 @@ public class a implements c.a.r0.a.p.d.c {
 
     /* renamed from: c.a.r0.a.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0481a extends ProviderDelegation {
+    public static class C0490a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c.a.r0.a.p.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0482a implements c.a.r0.a.z2.g1.d<Bundle> {
+        public class C0491a implements c.a.r0.a.z2.g1.d<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0482a(C0481a c0481a) {
+            public C0491a(C0490a c0490a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0481a};
+                    Object[] objArr = {c0490a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -57,7 +57,7 @@ public class a implements c.a.r0.a.p.d.c {
             }
         }
 
-        public C0481a() {
+        public C0490a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public class a implements c.a.r0.a.p.d.c {
         public Bundle execCall(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) ? (Bundle) c.a.r0.a.z2.g1.a.b(new C0482a(this)) : (Bundle) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) ? (Bundle) c.a.r0.a.z2.g1.a.b(new C0491a(this)) : (Bundle) invokeL.objValue;
         }
     }
 

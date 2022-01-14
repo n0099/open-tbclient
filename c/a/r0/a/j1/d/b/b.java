@@ -32,16 +32,16 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f7580e;
+    public Activity f7415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7581f;
+    public String f7416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c.a.r0.a.j1.d.f.a> f7582g;
+    public ArrayList<c.a.r0.a.j1.d.f.a> f7417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7583h;
+    public int f7418h;
 
     /* loaded from: classes.dex */
     public class a {
@@ -50,10 +50,10 @@ public class b extends BaseAdapter {
         public SimpleDraweeView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f7584b;
+        public TextView f7419b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f7585c;
+        public TextView f7420c;
 
         public a(b bVar, View view) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class b extends BaseAdapter {
                 }
             }
             this.a = (SimpleDraweeView) view.findViewById(f.album_name_item_img);
-            this.f7584b = (TextView) view.findViewById(f.album_name_item_title);
-            this.f7585c = (TextView) view.findViewById(f.album_name_item_number);
+            this.f7419b = (TextView) view.findViewById(f.album_name_item_title);
+            this.f7420c = (TextView) view.findViewById(f.album_name_item_number);
         }
     }
 
@@ -91,16 +91,16 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f7580e = activity;
-        this.f7581f = str;
-        this.f7582g = arrayList;
-        this.f7583h = (int) (n0.f(activity, 50.0f) / 2.0f);
+        this.f7415e = activity;
+        this.f7416f = str;
+        this.f7417g = arrayList;
+        this.f7418h = (int) (n0.f(activity, 50.0f) / 2.0f);
     }
 
     public final String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? TextUtils.equals(this.f7581f, "Image") ? this.f7580e.getString(h.swanapp_image_pages, new Object[]{Integer.valueOf(i2)}) : this.f7580e.getString(h.swanapp_album_pages, new Object[]{Integer.valueOf(i2)}) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? TextUtils.equals(this.f7416f, "Image") ? this.f7415e.getString(h.swanapp_image_pages, new Object[]{Integer.valueOf(i2)}) : this.f7415e.getString(h.swanapp_album_pages, new Object[]{Integer.valueOf(i2)}) : (String) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -108,7 +108,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<c.a.r0.a.j1.d.f.a> arrayList = this.f7582g;
+            ArrayList<c.a.r0.a.j1.d.f.a> arrayList = this.f7417g;
             if (arrayList == null) {
                 return 0;
             }
@@ -122,10 +122,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 < 0 || i2 > this.f7582g.size()) {
+            if (i2 < 0 || i2 > this.f7417g.size()) {
                 return null;
             }
-            return this.f7582g.get(i2);
+            return this.f7417g.get(i2);
         }
         return invokeI.objValue;
     }
@@ -144,26 +144,26 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f7580e).inflate(g.swanapp_album_name_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f7415e).inflate(g.swanapp_album_name_item, (ViewGroup) null);
                 aVar = new a(this, view);
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
             }
-            view.setBackground(this.f7580e.getResources().getDrawable(e.swanapp_album_name_item_selector));
-            c.a.r0.a.j1.d.f.a aVar2 = this.f7582g.get(i2);
+            view.setBackground(this.f7415e.getResources().getDrawable(e.swanapp_album_name_item_selector));
+            c.a.r0.a.j1.d.f.a aVar2 = this.f7417g.get(i2);
             if (aVar2 == null) {
                 return view;
             }
-            aVar.f7584b.setText(aVar2.c());
-            ArrayList<MediaModel> arrayList = aVar2.f7610h;
+            aVar.f7419b.setText(aVar2.c());
+            ArrayList<MediaModel> arrayList = aVar2.f7445h;
             if (arrayList == null) {
                 return view;
             }
-            aVar.f7585c.setText(a(arrayList.size()));
-            if (aVar2.f7610h.get(0) != null && !TextUtils.isEmpty(aVar2.f7610h.get(0).getPath())) {
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(aVar2.f7610h.get(0).getPath())));
-                int i3 = this.f7583h;
+            aVar.f7420c.setText(a(arrayList.size()));
+            if (aVar2.f7445h.get(0) != null && !TextUtils.isEmpty(aVar2.f7445h.get(0).getPath())) {
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(aVar2.f7445h.get(0).getPath())));
+                int i3 = this.f7418h;
                 newBuilderWithSource.setResizeOptions(new ResizeOptions(i3, i3));
                 newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
                 aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());

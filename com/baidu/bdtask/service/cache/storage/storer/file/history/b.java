@@ -31,7 +31,7 @@ public interface b {
                     FilesKt__UtilsKt.copyTo$default(a, file, false, 0, 6, null);
                     a.delete();
                     DebugTrace.a.c(FileV1StorageUpgrade$onProcessV1StorageFile$1.INSTANCE);
-                    c.a.j.k.e.a.a.f4067c.a();
+                    c.a.j.k.e.a.a.f4004c.a();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }

@@ -30,19 +30,17 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Map<String, String> f7334g;
+    public final Map<String, String> f7176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7335h;
+    public String f7177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f7336i;
+    public JSONObject f7178i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f7337j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f7338k;
+    public boolean f7179j;
+    public boolean k;
     public String l;
 
     /* loaded from: classes.dex */
@@ -51,7 +49,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f7339e;
+        public final /* synthetic */ h f7180e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -68,15 +66,15 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
                     return;
                 }
             }
-            this.f7339e = hVar;
+            this.f7180e = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = c.a.r0.a.h2.c.c.f7262f;
-                this.f7339e.D();
+                boolean z = c.a.r0.a.h2.c.c.f7106f;
+                this.f7180e.D();
             }
         }
     }
@@ -88,7 +86,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         public final /* synthetic */ HttpRequest a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f7340b;
+        public final /* synthetic */ h f7181b;
 
         public b(h hVar, HttpRequest httpRequest) {
             Interceptable interceptable = $ic;
@@ -105,7 +103,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
                     return;
                 }
             }
-            this.f7340b = hVar;
+            this.f7181b = hVar;
             this.a = httpRequest;
         }
 
@@ -113,10 +111,10 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (this.f7340b.E()) {
-                    this.f7340b.N(this.a);
+                if (this.f7181b.E()) {
+                    this.f7181b.N(this.a);
                 } else {
-                    this.f7340b.H(this.a, exc);
+                    this.f7181b.H(this.a, exc);
                 }
             }
         }
@@ -133,7 +131,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f7340b.J(response);
+                this.f7181b.J(response);
                 return response;
             }
             return invokeLI.objValue;
@@ -147,7 +145,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         public final /* synthetic */ HttpRequest a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f7341b;
+        public final /* synthetic */ h f7182b;
 
         public c(h hVar, HttpRequest httpRequest) {
             Interceptable interceptable = $ic;
@@ -164,7 +162,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
                     return;
                 }
             }
-            this.f7341b = hVar;
+            this.f7182b = hVar;
             this.a = httpRequest;
         }
 
@@ -173,7 +171,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 c.a.r0.a.e0.d.i("OAuthRequest", "retryRequest fail: ");
-                this.f7341b.H(this.a, exc);
+                this.f7182b.H(this.a, exc);
             }
         }
 
@@ -190,7 +188,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
                 c.a.r0.a.e0.d.i("OAuthRequest", "retryRequest success: ");
-                this.f7341b.J(response);
+                this.f7182b.J(response);
                 return response;
             }
             return invokeLI.objValue;
@@ -203,10 +201,10 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7342e;
+        public final /* synthetic */ String f7183e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f7343f;
+        public final /* synthetic */ h f7184f;
 
         public d(h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -223,8 +221,8 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
                     return;
                 }
             }
-            this.f7343f = hVar;
-            this.f7342e = str;
+            this.f7184f = hVar;
+            this.f7183e = str;
         }
 
         @Override // c.a.r0.a.m.a
@@ -232,11 +230,11 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f7343f.p();
-                    this.f7343f.call();
+                    this.f7184f.p();
+                    this.f7184f.call();
                     return;
                 }
-                this.f7343f.C(null, this.f7342e);
+                this.f7184f.C(null, this.f7183e);
             }
         }
     }
@@ -254,7 +252,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
                 return;
             }
         }
-        this.f7334g = new HashMap();
+        this.f7176g = new HashMap();
     }
 
     public int A() {
@@ -269,7 +267,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
     public Map<String, String> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7334g : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7176g : (Map) invokeV.objValue;
     }
 
     @SuppressLint({"BDThrowableCheck"})
@@ -277,10 +275,10 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         int optInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, response, str) == null) {
-            this.f7335h = str;
+            this.f7177h = str;
             try {
-                JSONObject jSONObject = new JSONObject(this.f7335h);
-                this.f7336i = jSONObject;
+                JSONObject jSONObject = new JSONObject(this.f7177h);
+                this.f7178i = jSONObject;
                 optInt = jSONObject.optInt("errno");
             } catch (OAuthException e2) {
                 G(e2.mErrorCode, str, response);
@@ -292,25 +290,25 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
                 d(new OAuthException(10005));
                 n.r(10005, null);
             }
-            if ((this.f7337j && optInt == 402) || (this.f7338k && optInt == 401)) {
-                this.f7337j = false;
-                this.f7338k = false;
-                if (SwanAppAllianceLoginHelper.f39956d.f()) {
-                    SwanAppAllianceLoginHelper.f39956d.b();
+            if ((this.f7179j && optInt == 402) || (this.k && optInt == 401)) {
+                this.f7179j = false;
+                this.k = false;
+                if (SwanAppAllianceLoginHelper.f38633d.f()) {
+                    SwanAppAllianceLoginHelper.f38633d.b();
                 }
                 O(str);
             } else if (F(optInt)) {
-                if (SwanAppAllianceLoginHelper.f39956d.f()) {
-                    SwanAppAllianceLoginHelper.f39956d.b();
+                if (SwanAppAllianceLoginHelper.f38633d.f()) {
+                    SwanAppAllianceLoginHelper.f38633d.b();
                     O(str);
-                } else if (c.a.r0.a.h2.c.c.f7262f) {
+                } else if (c.a.r0.a.h2.c.c.f7106f) {
                     throw new RuntimeException("is not AllianceLogin, error number");
                 }
             } else {
                 if (response != null && optInt != 0) {
                     G(optInt, str, response);
                 }
-                r(m(this.f7336i));
+                r(m(this.f7178i));
                 I();
                 c();
             }
@@ -383,7 +381,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
             try {
                 C(response, body.string());
             } catch (IOException e2) {
-                if (c.a.r0.a.h2.c.c.f7262f) {
+                if (c.a.r0.a.h2.c.c.f7106f) {
                     e2.printStackTrace();
                 }
             }
@@ -399,7 +397,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
     public final void L(String str, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, exc) == null) {
-            if (this.f7336i == null) {
+            if (this.f7178i == null) {
                 c.a.r0.a.h2.c.d.t("OAuthRequest", "ex: " + exc.toString() + " ,strResponse: " + str);
                 return;
             }
@@ -415,7 +413,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
             if (L == null) {
-                if (!c.a.r0.a.h2.c.c.f7262f) {
+                if (!c.a.r0.a.h2.c.c.f7106f) {
                     return c.a.r0.a.d2.d.J().r();
                 }
                 throw new IllegalStateException("null SwanApp");
@@ -470,7 +468,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             i<ResultDataT> iVar = this.a;
-            return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), e(), Integer.valueOf(this.a.b()), this.f7335h, this.f7336i, iVar.a, iVar.a());
+            return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), e(), Integer.valueOf(this.a.b()), this.f7177h, this.f7178i, iVar.a, iVar.a());
         }
         return (String) invokeV.objValue;
     }
@@ -479,7 +477,7 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, str2)) == null) {
-            this.f7334g.put(str, str2);
+            this.f7176g.put(str, str2);
             return this;
         }
         return (h) invokeLL.objValue;
@@ -490,14 +488,14 @@ public abstract class h<ResultDataT> extends c.a.r0.a.h2.c.c<ResultDataT> {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f7338k = true;
+            this.k = true;
         }
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f7337j = true;
+            this.f7179j = true;
         }
     }
 

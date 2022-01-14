@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import c.a.s0.t.c.m0;
-import c.a.t0.w3.s0.g;
+import c.a.s0.t.c.n0;
+import c.a.t0.w3.s0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -28,15 +28,15 @@ public class a {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public static m0 f12771b;
+    public static n0 f12469b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public static WriteData f12772c;
+    public static WriteData f12470c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public static AntiData f12773d;
+    public static AntiData f12471d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(String str) {
@@ -78,7 +78,7 @@ public class a {
                 return false;
             }
             boolean z = i3 == -1 && intent != null;
-            if (a != null && f12771b != null && f12772c != null && f12773d != null && z) {
+            if (a != null && f12469b != null && f12470c != null && f12471d != null && z) {
                 try {
                     postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
                 } catch (Exception e2) {
@@ -88,35 +88,35 @@ public class a {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                g.k().h(true, postWriteCallBackData, f12771b, f12772c, f12773d);
+                b.k().h(true, postWriteCallBackData, f12469b, f12470c, f12471d);
             } else {
-                g.k().h(false, a, null, f12772c, f12773d);
+                b.k().h(false, a, null, f12470c, f12471d);
             }
             a = null;
-            f12771b = null;
-            f12772c = null;
-            f12773d = null;
+            f12469b = null;
+            f12470c = null;
+            f12471d = null;
             return true;
         }
         return invokeIIL.booleanValue;
     }
 
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable m0 m0Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable n0 n0Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, m0Var, writeData, antiData)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, n0Var, writeData, antiData)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z = (currentActivity == null || writeData == null || m0Var == null || TextUtils.isEmpty(m0Var.c())) ? false : true;
+            boolean z = (currentActivity == null || writeData == null || n0Var == null || TextUtils.isEmpty(n0Var.c())) ? false : true;
             if (z) {
                 a = postWriteCallBackData;
-                f12771b = m0Var;
-                f12772c = writeData;
-                f12773d = antiData;
-                writeData.setVcodeMD5(m0Var.b());
-                writeData.setVcodeUrl(m0Var.c());
-                writeData.setVcodeExtra(m0Var.a());
-                if (b(m0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, m0Var.d())));
+                f12469b = n0Var;
+                f12470c = writeData;
+                f12471d = antiData;
+                writeData.setVcodeMD5(n0Var.b());
+                writeData.setVcodeUrl(n0Var.c());
+                writeData.setVcodeExtra(n0Var.a());
+                if (b(n0Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, n0Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }

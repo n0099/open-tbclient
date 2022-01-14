@@ -23,34 +23,32 @@ public class v0 {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f16967b;
+    public NavigationBar f16662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f16968c;
+    public q f16663c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f16969d;
+    public Context f16664d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16970e;
+    public int f16665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16971f;
+    public int f16666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16972g;
+    public boolean f16667g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16973h;
+    public boolean f16668h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f16974i;
+    public boolean f16669i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.q0.b f16975j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final Handler.Callback f16976k;
+    public c.a.t0.q0.b f16670j;
+    public final Handler.Callback k;
     public final Handler l;
     public a.b m;
 
@@ -60,7 +58,7 @@ public class v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v0 f16977e;
+        public final /* synthetic */ v0 f16671e;
 
         public a(v0 v0Var) {
             Interceptable interceptable = $ic;
@@ -77,7 +75,7 @@ public class v0 {
                     return;
                 }
             }
-            this.f16977e = v0Var;
+            this.f16671e = v0Var;
         }
 
         @Override // android.os.Handler.Callback
@@ -86,21 +84,21 @@ public class v0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 int i2 = message.what;
-                if ((i2 == 1 || i2 == 2) && this.f16977e.g()) {
-                    this.f16977e.l.sendEmptyMessageDelayed(message.what, 100L);
+                if ((i2 == 1 || i2 == 2) && this.f16671e.g()) {
+                    this.f16671e.l.sendEmptyMessageDelayed(message.what, 100L);
                     return true;
                 }
                 int i3 = message.what;
                 if (i3 == 1) {
-                    this.f16977e.s();
+                    this.f16671e.s();
                     return true;
                 } else if (i3 == 2) {
-                    this.f16977e.r();
+                    this.f16671e.r();
                     return true;
                 } else if (i3 != 3) {
                     return false;
                 } else {
-                    this.f16977e.q();
+                    this.f16671e.q();
                     return true;
                 }
             }
@@ -140,8 +138,8 @@ public class v0 {
                     this.a.k(true);
                     this.a.f();
                 }
-                if (this.a.f16968c != null) {
-                    this.a.f16968c.n1(false);
+                if (this.a.f16663c != null) {
+                    this.a.f16663c.n1(false);
                 }
             }
         }
@@ -154,8 +152,8 @@ public class v0 {
                     this.a.k(false);
                     this.a.m();
                 }
-                if (this.a.f16968c != null) {
-                    this.a.f16968c.n1(true);
+                if (this.a.f16663c != null) {
+                    this.a.f16663c.n1(true);
                 }
             }
         }
@@ -181,7 +179,7 @@ public class v0 {
         }
     }
 
-    public v0(Context context, q qVar, c.a.t0.d1.z2.h hVar) {
+    public v0(Context context, q qVar, c.a.t0.d1.a3.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,32 +194,32 @@ public class v0 {
                 return;
             }
         }
-        this.f16970e = 0;
-        this.f16971f = 0;
-        this.f16973h = true;
-        this.f16974i = true;
-        this.f16976k = new a(this);
-        this.l = new Handler(this.f16976k);
+        this.f16665e = 0;
+        this.f16666f = 0;
+        this.f16668h = true;
+        this.f16669i = true;
+        this.k = new a(this);
+        this.l = new Handler(this.k);
         this.m = new b(this);
-        this.f16969d = context;
-        this.f16968c = qVar;
-        this.f16967b = qVar.d0();
+        this.f16664d = context;
+        this.f16663c = qVar;
+        this.f16662b = qVar.d0();
         this.a = qVar.f0();
-        this.f16972g = UtilHelper.canUseStyleImmersiveSticky();
+        this.f16667g = UtilHelper.canUseStyleImmersiveSticky();
         c();
         c.a.t0.q0.b bVar = new c.a.t0.q0.b(context);
-        this.f16975j = bVar;
+        this.f16670j = bVar;
         bVar.d(this.m);
     }
 
     public final void c() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (qVar = this.f16968c) == null || qVar.l0() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (qVar = this.f16663c) == null || qVar.l0() == null) {
             return;
         }
-        View l0 = this.f16968c.l0();
-        if (this.f16972g && l0.getLayoutParams() != null) {
+        View l0 = this.f16663c.l0();
+        if (this.f16667g && l0.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = l0.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
             l0.setLayoutParams(layoutParams);
@@ -241,12 +239,12 @@ public class v0 {
     public c.a.t0.q0.b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16975j : (c.a.t0.q0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16670j : (c.a.t0.q0.b) invokeV.objValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f16973h && this.f16974i && this.a != null && this.f16970e >= this.f16971f) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f16668h && this.f16669i && this.a != null && this.f16665e >= this.f16666f) {
             n();
         }
     }
@@ -267,14 +265,14 @@ public class v0 {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f16973h = z;
+            this.f16668h = z;
         }
     }
 
     public final void j(boolean z, boolean z2) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (qVar = this.f16968c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (qVar = this.f16663c) == null) {
             return;
         }
         qVar.i1(z, z2);
@@ -289,11 +287,11 @@ public class v0 {
     public final void l(boolean z) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (qVar = this.f16968c) == null || qVar.l0() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (qVar = this.f16663c) == null || qVar.l0() == null) {
             return;
         }
-        View l0 = this.f16968c.l0();
-        if (this.f16972g && z && l0.getVisibility() != 0) {
+        View l0 = this.f16663c.l0();
+        if (this.f16667g && z && l0.getVisibility() != 0) {
             l0.setVisibility(0);
         } else if (z || l0.getVisibility() == 8) {
         } else {
@@ -303,7 +301,7 @@ public class v0 {
 
     public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f16973h && this.f16974i && this.a != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f16668h && this.f16669i && this.a != null) {
             o();
         }
     }
@@ -333,7 +331,7 @@ public class v0 {
     public void p(boolean z, boolean z2) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.a == null || (qVar = this.f16968c) == null || qVar.j0() == null || !this.f16968c.j0().c()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.a == null || (qVar = this.f16663c) == null || qVar.j0() == null || !this.f16663c.j0().c()) {
             return;
         }
         j(false, true);
@@ -356,7 +354,7 @@ public class v0 {
     public void s() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.a == null || (qVar = this.f16968c) == null || qVar.j0() == null || this.f16968c.j0().c()) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.a == null || (qVar = this.f16663c) == null || qVar.j0() == null || this.f16663c.j0().c()) {
             return;
         }
         j(true, true);

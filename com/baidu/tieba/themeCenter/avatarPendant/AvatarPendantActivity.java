@@ -90,7 +90,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AvatarPendantActivity f50291e;
+        public final /* synthetic */ AvatarPendantActivity f48392e;
 
         public b(AvatarPendantActivity avatarPendantActivity) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                     return;
                 }
             }
-            this.f50291e = avatarPendantActivity;
+            this.f48392e = avatarPendantActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                BdListViewHelper.c(this.f50291e.mView.g(), BdListViewHelper.HeadType.DEFAULT, z);
+                BdListViewHelper.c(this.f48392e.mView.g(), BdListViewHelper.HeadType.DEFAULT, z);
             }
         }
     }
@@ -330,7 +330,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             }
             if (i2 == c.a.t0.c4.c.a) {
                 c.a.t0.c4.b.d(getPageContext(), 7, str, i4, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i2 == c.a.t0.c4.c.f15890b) {
+            } else if (i2 == c.a.t0.c4.c.f15485b) {
                 c.a.t0.c4.b.c(getPageContext(), 7, str, i4);
             }
         }

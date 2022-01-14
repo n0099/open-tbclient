@@ -35,42 +35,40 @@ public class e implements f, m.a {
     public static final String a = "e";
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Context> f61876e;
+    public WeakReference<Context> f59535e;
 
     /* renamed from: g  reason: collision with root package name */
-    public DownloadShortInfo f61878g;
+    public DownloadShortInfo f59537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadInfo f61879h;
+    public DownloadInfo f59538h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f61880i;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f61882k;
+    public c f59539i;
+    public boolean k;
     public long l;
     public SoftReference<u> q;
     public boolean r;
     public SoftReference<IDownloadButtonClickListener> t;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f61873b = new m(Looper.getMainLooper(), this);
+    public final m f59532b = new m(Looper.getMainLooper(), this);
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<Integer, Object> f61877f = new ConcurrentHashMap();
+    public final Map<Integer, Object> f59536f = new ConcurrentHashMap();
 
     /* renamed from: j  reason: collision with root package name */
-    public final IDownloadListener f61881j = new g.a(this.f61873b);
+    public final IDownloadListener f59540j = new g.a(this.f59532b);
     public long m = -1;
     public DownloadModel n = null;
     public DownloadEventConfig o = null;
     public DownloadController p = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f61874c = new g(this);
+    public g f59533c = new g(this);
 
     /* renamed from: d  reason: collision with root package name */
-    public d f61875d = new d(this.f61873b);
+    public d f59534d = new d(this.f59532b);
     public final boolean s = com.ss.android.socialbase.downloader.g.a.c().a("ttdownloader_callback_twice");
 
     /* loaded from: classes3.dex */
@@ -85,9 +83,9 @@ public class e implements f, m.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Context getContext() {
-        WeakReference<Context> weakReference = this.f61876e;
+        WeakReference<Context> weakReference = this.f59535e;
         if (weakReference != null && weakReference.get() != null) {
-            return this.f61876e.get();
+            return this.f59535e.get();
         }
         return j.getContext();
     }
@@ -118,7 +116,7 @@ public class e implements f, m.a {
 
     private void m() {
         com.ss.android.downloadlib.g.k.a(a, "pICD", null);
-        if (this.f61874c.d(this.f61879h)) {
+        if (this.f59533c.d(this.f59538h)) {
             com.ss.android.downloadlib.g.k.a(a, "pICD BC", null);
             e(false);
             return;
@@ -129,38 +127,38 @@ public class e implements f, m.a {
 
     private boolean n() {
         if (com.ss.android.socialbase.downloader.g.a.c().a("fix_click_start")) {
-            DownloadInfo downloadInfo = this.f61879h;
+            DownloadInfo downloadInfo = this.f59538h;
             if (downloadInfo == null) {
                 return true;
             }
-            if ((downloadInfo.getStatus() == -3 && this.f61879h.getCurBytes() <= 0) || this.f61879h.getStatus() == 0 || this.f61879h.getStatus() == -4) {
+            if ((downloadInfo.getStatus() == -3 && this.f59538h.getCurBytes() <= 0) || this.f59538h.getStatus() == 0 || this.f59538h.getStatus() == -4) {
                 return true;
             }
-            return com.ss.android.socialbase.downloader.i.f.a(this.f61879h.getStatus(), this.f61879h.getSavePath(), this.f61879h.getName());
+            return com.ss.android.socialbase.downloader.i.f.a(this.f59538h.getStatus(), this.f59538h.getSavePath(), this.f59538h.getName());
         }
-        DownloadInfo downloadInfo2 = this.f61879h;
+        DownloadInfo downloadInfo2 = this.f59538h;
         if (downloadInfo2 == null) {
             return true;
         }
-        return !(downloadInfo2.getStatus() == -3 || Downloader.getInstance(j.getContext()).canResume(this.f61879h.getId())) || this.f61879h.getStatus() == 0;
+        return !(downloadInfo2.getStatus() == -3 || Downloader.getInstance(j.getContext()).canResume(this.f59538h.getId())) || this.f59538h.getStatus() == 0;
     }
 
     private void o() {
-        c cVar = this.f61880i;
+        c cVar = this.f59539i;
         if (cVar != null && cVar.getStatus() != AsyncTask.Status.FINISHED) {
-            this.f61880i.cancel(true);
+            this.f59539i.cancel(true);
         }
         c cVar2 = new c();
-        this.f61880i = cVar2;
+        this.f59539i = cVar2;
         com.ss.android.downloadlib.g.b.a(cVar2, this.n.getDownloadUrl(), this.n.getPackageName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadShortInfo p() {
-        if (this.f61878g == null) {
-            this.f61878g = new DownloadShortInfo();
+        if (this.f59537g == null) {
+            this.f59537g = new DownloadShortInfo();
         }
-        return this.f61878g;
+        return this.f59537g;
     }
 
     private boolean q() {
@@ -176,17 +174,17 @@ public class e implements f, m.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(boolean z) {
-        for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(this.f61877f)) {
+        for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(this.f59536f)) {
             downloadStatusChangeListener.onDownloadStart(this.n, l());
         }
-        int a2 = this.f61874c.a(j.getContext(), this.f61881j);
+        int a2 = this.f59533c.a(j.getContext(), this.f59540j);
         String str = a;
         com.ss.android.downloadlib.g.k.a(str, "beginDown id:" + a2, null);
         if (a2 != 0) {
-            if (this.f61879h != null && !com.ss.android.socialbase.downloader.g.a.c().a("fix_click_start")) {
-                this.f61874c.a(this.f61879h, false);
+            if (this.f59538h != null && !com.ss.android.socialbase.downloader.g.a.c().a("fix_click_start")) {
+                this.f59533c.a(this.f59538h, false);
             } else if (z) {
-                this.f61874c.a();
+                this.f59533c.a();
             }
         } else {
             DownloadInfo a3 = new DownloadInfo.a(this.n.getDownloadUrl()).a();
@@ -195,7 +193,7 @@ public class e implements f, m.a {
             com.ss.android.downloadlib.d.a.a().a(this.m, new BaseException(2, "start download failed, id=0"));
             com.ss.android.downloadlib.e.c.a().b("beginDown");
         }
-        if (this.f61874c.a(c())) {
+        if (this.f59533c.a(c())) {
             String str2 = a;
             com.ss.android.downloadlib.g.k.a(str2, "beginDown IC id:" + a2, null);
             j();
@@ -203,7 +201,7 @@ public class e implements f, m.a {
     }
 
     public boolean c() {
-        DownloadInfo downloadInfo = this.f61879h;
+        DownloadInfo downloadInfo = this.f59538h;
         return (downloadInfo == null || downloadInfo.getStatus() == 0) ? false : true;
     }
 
@@ -213,14 +211,14 @@ public class e implements f, m.a {
     }
 
     public boolean e() {
-        return j.i().optInt("quick_app_enable_switch", 0) == 0 && this.n.getQuickAppModel() != null && !TextUtils.isEmpty(this.n.getQuickAppModel().a()) && com.ss.android.downloadlib.addownload.c.a(this.f61879h) && com.ss.android.downloadlib.g.l.a(getContext(), new Intent("android.intent.action.VIEW", Uri.parse(this.n.getQuickAppModel().a())));
+        return j.i().optInt("quick_app_enable_switch", 0) == 0 && this.n.getQuickAppModel() != null && !TextUtils.isEmpty(this.n.getQuickAppModel().a()) && com.ss.android.downloadlib.addownload.c.a(this.f59538h) && com.ss.android.downloadlib.g.l.a(getContext(), new Intent("android.intent.action.VIEW", Uri.parse(this.n.getQuickAppModel().a())));
     }
 
     public void f() {
-        this.f61873b.post(new Runnable() { // from class: com.ss.android.downloadlib.addownload.e.1
+        this.f59532b.post(new Runnable() { // from class: com.ss.android.downloadlib.addownload.e.1
             @Override // java.lang.Runnable
             public void run() {
-                for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(e.this.f61877f)) {
+                for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(e.this.f59536f)) {
                     downloadStatusChangeListener.onInstalled(e.this.p());
                 }
             }
@@ -261,19 +259,19 @@ public class e implements f, m.a {
     }
 
     private void d(boolean z) {
-        if (com.ss.android.downloadlib.g.e.b(this.n).b("notification_opt_2") == 1 && this.f61879h != null) {
-            com.ss.android.socialbase.downloader.notification.b.a().f(this.f61879h.getId());
+        if (com.ss.android.downloadlib.g.e.b(this.n).b("notification_opt_2") == 1 && this.f59538h != null) {
+            com.ss.android.socialbase.downloader.notification.b.a().f(this.f59538h.getId());
         }
         e(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(final boolean z) {
-        this.f61875d.a(new com.ss.android.downloadlib.addownload.b.e(this.m, this.n, k(), l()));
-        this.f61875d.a(0, 0L, 0L, new a() { // from class: com.ss.android.downloadlib.addownload.e.5
+        this.f59534d.a(new com.ss.android.downloadlib.addownload.b.e(this.m, this.n, k(), l()));
+        this.f59534d.a(0, 0L, 0L, new a() { // from class: com.ss.android.downloadlib.addownload.e.5
             @Override // com.ss.android.downloadlib.addownload.e.a
             public void a() {
-                if (e.this.f61875d.a()) {
+                if (e.this.f59534d.a()) {
                     return;
                 }
                 e.this.g(z);
@@ -286,7 +284,7 @@ public class e implements f, m.a {
     /* renamed from: a */
     public e b(Context context) {
         if (context != null) {
-            this.f61876e = new WeakReference<>(context);
+            this.f59535e = new WeakReference<>(context);
         }
         j.b(context);
         return this;
@@ -329,42 +327,42 @@ public class e implements f, m.a {
                 boolean a2 = a.a();
                 if (downloadInfo != null && downloadInfo.getId() != 0 && (a2 || !Downloader.getInstance(j.getContext()).isDownloadSuccessAndFileNotExist(downloadInfo))) {
                     Downloader.getInstance(j.getContext()).removeTaskMainListener(downloadInfo.getId());
-                    if (e.this.f61879h == null || e.this.f61879h.getStatus() != -4) {
-                        e.this.f61879h = downloadInfo;
+                    if (e.this.f59538h == null || e.this.f59538h.getStatus() != -4) {
+                        e.this.f59538h = downloadInfo;
                         if (e.this.s) {
-                            Downloader.getInstance(j.getContext()).setMainThreadListener(e.this.f61879h.getId(), e.this.f61881j, false);
+                            Downloader.getInstance(j.getContext()).setMainThreadListener(e.this.f59538h.getId(), e.this.f59540j, false);
                         } else {
-                            Downloader.getInstance(j.getContext()).setMainThreadListener(e.this.f61879h.getId(), e.this.f61881j);
+                            Downloader.getInstance(j.getContext()).setMainThreadListener(e.this.f59538h.getId(), e.this.f59540j);
                         }
                     } else {
-                        e.this.f61879h = null;
+                        e.this.f59538h = null;
                     }
-                    e.this.f61874c.a(e.this.f61879h, e.this.p(), g.a(e.this.f61877f));
+                    e.this.f59533c.a(e.this.f59538h, e.this.p(), g.a(e.this.f59536f));
                 } else {
                     if (downloadInfo != null && Downloader.getInstance(j.getContext()).isDownloadSuccessAndFileNotExist(downloadInfo)) {
                         com.ss.android.socialbase.downloader.notification.b.a().f(downloadInfo.getId());
-                        e.this.f61879h = null;
+                        e.this.f59538h = null;
                     }
-                    if (e.this.f61879h != null) {
-                        Downloader.getInstance(j.getContext()).removeTaskMainListener(e.this.f61879h.getId());
+                    if (e.this.f59538h != null) {
+                        Downloader.getInstance(j.getContext()).removeTaskMainListener(e.this.f59538h.getId());
                         if (e.this.s) {
-                            Downloader.getInstance(e.this.getContext()).setMainThreadListener(e.this.f61879h.getId(), e.this.f61881j, false);
+                            Downloader.getInstance(e.this.getContext()).setMainThreadListener(e.this.f59538h.getId(), e.this.f59540j, false);
                         } else {
-                            Downloader.getInstance(e.this.getContext()).setMainThreadListener(e.this.f61879h.getId(), e.this.f61881j);
+                            Downloader.getInstance(e.this.getContext()).setMainThreadListener(e.this.f59538h.getId(), e.this.f59540j);
                         }
                     }
                     if (a2) {
-                        e.this.f61879h = new DownloadInfo.a(e.this.n.getDownloadUrl()).a();
-                        e.this.f61879h.setStatus(-3);
-                        e.this.f61874c.a(e.this.f61879h, e.this.p(), g.a(e.this.f61877f));
+                        e.this.f59538h = new DownloadInfo.a(e.this.n.getDownloadUrl()).a();
+                        e.this.f59538h.setStatus(-3);
+                        e.this.f59533c.a(e.this.f59538h, e.this.p(), g.a(e.this.f59536f));
                     } else {
-                        for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(e.this.f61877f)) {
+                        for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(e.this.f59536f)) {
                             downloadStatusChangeListener.onIdle();
                         }
-                        e.this.f61879h = null;
+                        e.this.f59538h = null;
                     }
                 }
-                e.this.f61874c.c(e.this.f61879h);
+                e.this.f59533c.c(e.this.f59538h);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -378,13 +376,13 @@ public class e implements f, m.a {
         com.ss.android.downloadlib.g.k.a(a, "pBCD", null);
         if (n()) {
             com.ss.android.downloadlib.addownload.b.e e2 = com.ss.android.downloadlib.addownload.b.f.a().e(this.m);
-            DownloadInfo downloadInfo = this.f61879h;
+            DownloadInfo downloadInfo = this.f59538h;
             if (downloadInfo != null && downloadInfo.getStatus() != 0) {
                 a(z, true);
                 return;
             } else if (this.r) {
                 if (this.n.isAd() && this.t != null) {
-                    if (q() && (downloadController2 = e2.f61806d) != null && downloadController2.isAutoDownloadOnCardShow()) {
+                    if (q() && (downloadController2 = e2.f59466d) != null && downloadController2.isAutoDownloadOnCardShow()) {
                         a(z, true);
                         return;
                     }
@@ -392,7 +390,7 @@ public class e implements f, m.a {
                 }
                 a(z, true);
                 return;
-            } else if (this.n.isAd() && (downloadController = e2.f61806d) != null && downloadController.enableShowComplianceDialog() && e2.f61804b != null && com.ss.android.downloadlib.addownload.compliance.b.a().a(e2.f61804b) && com.ss.android.downloadlib.addownload.compliance.b.a().a(e2)) {
+            } else if (this.n.isAd() && (downloadController = e2.f59466d) != null && downloadController.enableShowComplianceDialog() && e2.f59464b != null && com.ss.android.downloadlib.addownload.compliance.b.a().a(e2.f59464b) && com.ss.android.downloadlib.addownload.compliance.b.a().a(e2)) {
                 return;
             } else {
                 a(z, true);
@@ -400,55 +398,55 @@ public class e implements f, m.a {
             }
         }
         String str = a;
-        com.ss.android.downloadlib.g.k.a(str, "pBCD continue download, status:" + this.f61879h.getStatus(), null);
-        DownloadInfo downloadInfo2 = this.f61879h;
+        com.ss.android.downloadlib.g.k.a(str, "pBCD continue download, status:" + this.f59538h.getStatus(), null);
+        DownloadInfo downloadInfo2 = this.f59538h;
         if (downloadInfo2 != null && (downloadModel = this.n) != null) {
             downloadInfo2.setOnlyWifi(downloadModel.isNeedWifi());
         }
-        final int status = this.f61879h.getStatus();
-        final int id = this.f61879h.getId();
-        final com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(this.f61879h);
+        final int status = this.f59538h.getStatus();
+        final int id = this.f59538h.getId();
+        final com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(this.f59538h);
         if (status != -2 && status != -1) {
             if (l.a(status)) {
                 if (this.n.enablePause()) {
-                    this.f61875d.a(true);
+                    this.f59534d.a(true);
                     com.ss.android.downloadlib.c.h.a().b(com.ss.android.downloadlib.addownload.b.f.a().d(this.m));
                     com.ss.android.downloadlib.addownload.d.f.a().a(a2, status, new com.ss.android.downloadlib.addownload.d.c() { // from class: com.ss.android.downloadlib.addownload.e.3
                         @Override // com.ss.android.downloadlib.addownload.d.c
                         public void a(com.ss.android.downloadad.api.a.b bVar) {
-                            e.this.f61874c.a(e.this.f61879h, z);
-                            if (com.ss.android.socialbase.downloader.i.f.b(j.getContext()) && e.this.f61879h.isPauseReserveOnWifi()) {
-                                e.this.f61879h.stopPauseReserveOnWifi();
+                            e.this.f59533c.a(e.this.f59538h, z);
+                            if (com.ss.android.socialbase.downloader.i.f.b(j.getContext()) && e.this.f59538h.isPauseReserveOnWifi()) {
+                                e.this.f59538h.stopPauseReserveOnWifi();
                                 com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_cancel_on_wifi", a2);
                                 return;
                             }
                             e eVar = e.this;
-                            eVar.a(id, status, eVar.f61879h);
+                            eVar.a(id, status, eVar.f59538h);
                         }
                     });
                     return;
                 }
                 return;
             }
-            this.f61874c.a(this.f61879h, z);
-            a(id, status, this.f61879h);
+            this.f59533c.a(this.f59538h, z);
+            a(id, status, this.f59538h);
             return;
         }
-        this.f61874c.a(this.f61879h, z);
+        this.f59533c.a(this.f59538h, z);
         if (a2 != null) {
             a2.h(System.currentTimeMillis());
-            a2.i(this.f61879h.getCurBytes());
+            a2.i(this.f59538h.getCurBytes());
         }
-        this.f61879h.setDownloadFromReserveWifi(false);
-        this.f61875d.a(new com.ss.android.downloadlib.addownload.b.e(this.m, this.n, k(), l()));
-        this.f61875d.a(id, this.f61879h.getCurBytes(), this.f61879h.getTotalBytes(), new a() { // from class: com.ss.android.downloadlib.addownload.e.2
+        this.f59538h.setDownloadFromReserveWifi(false);
+        this.f59534d.a(new com.ss.android.downloadlib.addownload.b.e(this.m, this.n, k(), l()));
+        this.f59534d.a(id, this.f59538h.getCurBytes(), this.f59538h.getTotalBytes(), new a() { // from class: com.ss.android.downloadlib.addownload.e.2
             @Override // com.ss.android.downloadlib.addownload.e.a
             public void a() {
-                if (e.this.f61875d.a()) {
+                if (e.this.f59534d.a()) {
                     return;
                 }
                 e eVar = e.this;
-                eVar.a(id, status, eVar.f61879h);
+                eVar.a(id, status, eVar.f59538h);
             }
         });
     }
@@ -459,9 +457,9 @@ public class e implements f, m.a {
     public e b(int i2, DownloadStatusChangeListener downloadStatusChangeListener) {
         if (downloadStatusChangeListener != null) {
             if (j.i().optInt("back_use_softref_listener") == 1) {
-                this.f61877f.put(Integer.valueOf(i2), downloadStatusChangeListener);
+                this.f59536f.put(Integer.valueOf(i2), downloadStatusChangeListener);
             } else {
-                this.f61877f.put(Integer.valueOf(i2), new SoftReference(downloadStatusChangeListener));
+                this.f59536f.put(Integer.valueOf(i2), new SoftReference(downloadStatusChangeListener));
             }
         }
         return this;
@@ -469,7 +467,7 @@ public class e implements f, m.a {
 
     @Override // com.ss.android.downloadlib.addownload.f
     public boolean b() {
-        return this.f61882k;
+        return this.k;
     }
 
     @Override // com.ss.android.downloadlib.addownload.f
@@ -477,11 +475,11 @@ public class e implements f, m.a {
         if (i2 != 1 && i2 != 2) {
             throw new IllegalArgumentException("error actionType");
         }
-        this.f61874c.a(this.m);
+        this.f59533c.a(this.m);
         if (!com.ss.android.downloadlib.addownload.b.f.a().e(this.m).y()) {
             com.ss.android.downloadlib.e.c.a().a("handleDownload ModelBox !isStrictValid");
         }
-        if (this.f61874c.a(getContext(), i2, this.r)) {
+        if (this.f59533c.a(getContext(), i2, this.r)) {
             return;
         }
         boolean c2 = c(i2);
@@ -537,13 +535,13 @@ public class e implements f, m.a {
     }
 
     public void g() {
-        if (this.f61877f.size() == 0) {
+        if (this.f59536f.size() == 0) {
             return;
         }
-        for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(this.f61877f)) {
+        for (DownloadStatusChangeListener downloadStatusChangeListener : g.a(this.f59536f)) {
             downloadStatusChangeListener.onIdle();
         }
-        DownloadInfo downloadInfo = this.f61879h;
+        DownloadInfo downloadInfo = this.f59538h;
         if (downloadInfo != null) {
             downloadInfo.setStatus(-4);
         }
@@ -591,12 +589,12 @@ public class e implements f, m.a {
 
     @Override // com.ss.android.downloadlib.addownload.f
     public void a() {
-        this.f61882k = true;
+        this.k = true;
         com.ss.android.downloadlib.addownload.b.f.a().a(this.m, k());
         com.ss.android.downloadlib.addownload.b.f.a().a(this.m, l());
-        this.f61874c.a(this.m);
+        this.f59533c.a(this.m);
         o();
-        if (j.i().optInt("enable_empty_listener", 1) == 1 && this.f61877f.get(Integer.MIN_VALUE) == null) {
+        if (j.i().optInt("enable_empty_listener", 1) == 1 && this.f59536f.get(Integer.MIN_VALUE) == null) {
             b(Integer.MIN_VALUE, new com.ss.android.download.api.config.a());
         }
     }
@@ -604,52 +602,52 @@ public class e implements f, m.a {
     @Override // com.ss.android.downloadlib.addownload.f
     public boolean a(int i2) {
         if (i2 == 0) {
-            this.f61877f.clear();
+            this.f59536f.clear();
         } else {
-            this.f61877f.remove(Integer.valueOf(i2));
+            this.f59536f.remove(Integer.valueOf(i2));
         }
-        if (this.f61877f.isEmpty()) {
-            this.f61882k = false;
+        if (this.f59536f.isEmpty()) {
+            this.k = false;
             this.l = System.currentTimeMillis();
-            if (this.f61879h != null) {
-                Downloader.getInstance(j.getContext()).removeTaskMainListener(this.f61879h.getId());
+            if (this.f59538h != null) {
+                Downloader.getInstance(j.getContext()).removeTaskMainListener(this.f59538h.getId());
             }
-            c cVar = this.f61880i;
+            c cVar = this.f59539i;
             if (cVar != null && cVar.getStatus() != AsyncTask.Status.FINISHED) {
-                this.f61880i.cancel(true);
+                this.f59539i.cancel(true);
             }
-            this.f61874c.a(this.f61879h);
+            this.f59533c.a(this.f59538h);
             String str = a;
             StringBuilder sb = new StringBuilder();
             sb.append("onUnbind removeCallbacksAndMessages, downloadUrl:");
-            DownloadInfo downloadInfo = this.f61879h;
+            DownloadInfo downloadInfo = this.f59538h;
             sb.append(downloadInfo == null ? "" : downloadInfo.getUrl());
             com.ss.android.downloadlib.g.k.a(str, sb.toString(), null);
-            this.f61873b.removeCallbacksAndMessages(null);
-            this.f61878g = null;
-            this.f61879h = null;
+            this.f59532b.removeCallbacksAndMessages(null);
+            this.f59537g = null;
+            this.f59538h = null;
             return true;
         }
-        if (this.f61877f.size() == 1 && this.f61877f.containsKey(Integer.MIN_VALUE)) {
-            this.f61874c.b(this.f61879h);
+        if (this.f59536f.size() == 1 && this.f59536f.containsKey(Integer.MIN_VALUE)) {
+            this.f59533c.b(this.f59538h);
         }
         return false;
     }
 
     @Override // com.ss.android.downloadlib.addownload.f
     public void a(boolean z) {
-        if (this.f61879h != null) {
+        if (this.f59538h != null) {
             if (z) {
                 com.ss.android.socialbase.appdownloader.c.d b2 = com.ss.android.socialbase.appdownloader.d.j().b();
                 if (b2 != null) {
-                    b2.a(this.f61879h);
+                    b2.a(this.f59538h);
                 }
-                Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).cancel(this.f61879h.getId(), true);
+                Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).cancel(this.f59538h.getId(), true);
                 return;
             }
             Intent intent = new Intent(j.getContext(), DownloadHandlerService.class);
             intent.setAction("android.ss.intent.action.DOWNLOAD_DELETE");
-            intent.putExtra("extra_click_download_ids", this.f61879h.getId());
+            intent.putExtra("extra_click_download_ids", this.f59538h.getId());
             j.getContext().startService(intent);
         }
     }
@@ -661,7 +659,7 @@ public class e implements f, m.a {
             if (a2 != null) {
                 this.n = a2;
                 this.m = j2;
-                this.f61874c.a(j2);
+                this.f59533c.a(j2);
             }
         } else {
             com.ss.android.downloadlib.e.c.a().a(false, "setModelId");
@@ -671,9 +669,9 @@ public class e implements f, m.a {
 
     @Override // com.ss.android.downloadlib.g.m.a
     public void a(Message message) {
-        if (message != null && this.f61882k && message.what == 3) {
-            this.f61879h = (DownloadInfo) message.obj;
-            this.f61874c.a(message, p(), this.f61877f);
+        if (message != null && this.k && message.what == 3) {
+            this.f59538h = (DownloadInfo) message.obj;
+            this.f59533c.a(message, p(), this.f59536f);
         }
     }
 
@@ -682,11 +680,11 @@ public class e implements f, m.a {
             com.ss.android.downloadlib.d.a.a().a(this.m, 2);
         }
         if (!com.ss.android.downloadlib.g.j.b("android.permission.WRITE_EXTERNAL_STORAGE") && !l().enableNewActivity()) {
-            this.n.setFilePath(this.f61874c.b());
+            this.n.setFilePath(this.f59533c.b());
         }
         if (com.ss.android.downloadlib.g.e.c(this.n) == 0) {
             com.ss.android.downloadlib.g.k.a(a, "pBCD not start", null);
-            this.f61874c.a(new s() { // from class: com.ss.android.downloadlib.addownload.e.4
+            this.f59533c.a(new s() { // from class: com.ss.android.downloadlib.addownload.e.4
                 @Override // com.ss.android.download.api.config.s
                 public void a() {
                     com.ss.android.downloadlib.g.k.a(e.a, "pBCD start download", null);
@@ -721,7 +719,7 @@ public class e implements f, m.a {
         Message obtain = Message.obtain();
         obtain.what = 3;
         obtain.obj = downloadInfo;
-        this.f61873b.sendMessage(obtain);
+        this.f59532b.sendMessage(obtain);
     }
 
     @Override // com.ss.android.downloadlib.addownload.f

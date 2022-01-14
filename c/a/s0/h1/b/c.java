@@ -39,7 +39,7 @@ public class c {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c.a.s0.s.g0.b.j().C("key_youngster_verify");
+            c.a.s0.s.h0.b.k().D("key_youngster_verify");
         }
     }
 
@@ -87,12 +87,12 @@ public class c {
             if (StringUtils.isNull(str)) {
                 return false;
             }
-            String p = c.a.s0.s.g0.b.j().p("key_youngster_verify", "");
-            if (StringUtils.isNull(p)) {
+            String q = c.a.s0.s.h0.b.k().q("key_youngster_verify", "");
+            if (StringUtils.isNull(q)) {
                 a();
                 return false;
             }
-            c.a.s0.h1.a.a c2 = c(p);
+            c.a.s0.h1.a.a c2 = c(q);
             if (c2 == null) {
                 return false;
             }
@@ -107,7 +107,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str) || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
             return;
         }
-        c.a.s0.s.g0.b.j().x("key_youngster_verify", b(new c.a.s0.h1.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+        c.a.s0.s.h0.b.k().y("key_youngster_verify", b(new c.a.s0.h1.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
     }
 
     public static void g(Context context) {

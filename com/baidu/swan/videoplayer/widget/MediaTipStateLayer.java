@@ -28,25 +28,23 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41440e;
+    public Context f40032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanVideoView f41441f;
+    public SwanVideoView f40033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f41442g;
+    public View f40034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f41443h;
+    public View f40035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f41444i;
+    public View f40036i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f41445j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f41446k;
+    public TextView f40037j;
+    public TextView k;
     public TipState l;
     public ImageView m;
     public TextView n;
@@ -134,7 +132,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
                 return;
             }
         }
-        this.f41440e = context;
+        this.f40032e = context;
         e();
         d();
     }
@@ -142,14 +140,14 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void a(SwanVideoView swanVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
-            this.f41441f = swanVideoView;
+            this.f40033f = swanVideoView;
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41442g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40034g : (View) invokeV.objValue;
     }
 
     public TipState c() {
@@ -161,8 +159,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41445j.setOnClickListener(this);
-            this.f41443h.setOnClickListener(this);
+            this.f40037j.setOnClickListener(this);
+            this.f40035h.setOnClickListener(this);
             this.o.setOnClickListener(this);
         }
     }
@@ -170,15 +168,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(this.f41440e).inflate(g.swanapp_video_occur_error, (ViewGroup) null, false);
-            this.f41442g = inflate;
-            this.f41444i = inflate.findViewById(f.swanapp_video_no_wifi);
-            this.o = (ImageView) this.f41442g.findViewById(f.swanapp_video_full_screen_back);
-            this.f41445j = (TextView) this.f41442g.findViewById(f.swanapp_video_continue_play);
-            this.f41446k = (TextView) this.f41442g.findViewById(f.swanapp_video_continue_play_text);
-            this.f41443h = this.f41442g.findViewById(f.swanapp_video_replay);
-            this.m = (ImageView) this.f41442g.findViewById(f.swanapp_video_relay_img);
-            this.n = (TextView) this.f41442g.findViewById(f.swanapp_video_replay_text);
+            View inflate = LayoutInflater.from(this.f40032e).inflate(g.swanapp_video_occur_error, (ViewGroup) null, false);
+            this.f40034g = inflate;
+            this.f40036i = inflate.findViewById(f.swanapp_video_no_wifi);
+            this.o = (ImageView) this.f40034g.findViewById(f.swanapp_video_full_screen_back);
+            this.f40037j = (TextView) this.f40034g.findViewById(f.swanapp_video_continue_play);
+            this.k = (TextView) this.f40034g.findViewById(f.swanapp_video_continue_play_text);
+            this.f40035h = this.f40034g.findViewById(f.swanapp_video_replay);
+            this.m = (ImageView) this.f40034g.findViewById(f.swanapp_video_relay_img);
+            this.n = (TextView) this.f40034g.findViewById(f.swanapp_video_replay_text);
             h(TipState.NORMAL);
         }
     }
@@ -186,39 +184,39 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Resources resources = this.f41440e.getResources();
+            Resources resources = this.f40032e.getResources();
             TipState tipState = this.l;
             if (tipState == TipState.ERROR) {
                 this.m.setImageResource(e.swanapp_video_refresh);
-                this.n.setText(this.f41440e.getText(h.swanapp_video_refresh));
-                this.f41442g.setVisibility(0);
-                this.f41443h.setVisibility(0);
-                this.f41444i.setVisibility(8);
+                this.n.setText(this.f40032e.getText(h.swanapp_video_refresh));
+                this.f40034g.setVisibility(0);
+                this.f40035h.setVisibility(0);
+                this.f40036i.setVisibility(8);
             } else if (tipState == TipState.NO_WIFI) {
-                this.f41442g.setVisibility(0);
-                this.f41443h.setVisibility(8);
-                this.f41444i.setVisibility(0);
-                this.f41446k.setTextColor(resources.getColor(c.swanapp_video_no_wifi_text_color));
-                this.f41446k.setText(h.swanapp_video_error_no_wifi);
-                this.f41445j.setBackgroundResource(e.swanapp_video_continue_play);
+                this.f40034g.setVisibility(0);
+                this.f40035h.setVisibility(8);
+                this.f40036i.setVisibility(0);
+                this.k.setTextColor(resources.getColor(c.swanapp_video_no_wifi_text_color));
+                this.k.setText(h.swanapp_video_error_no_wifi);
+                this.f40037j.setBackgroundResource(e.swanapp_video_continue_play);
             } else if (tipState == TipState.NO_NETWORK) {
-                this.f41442g.setVisibility(0);
-                this.f41443h.setVisibility(8);
-                this.f41444i.setVisibility(0);
-                this.f41446k.setTextColor(resources.getColor(c.swanapp_video_no_network_text_color));
-                this.f41446k.setText(h.swanapp_video_network_error);
-                this.f41445j.setText(h.swanapp_video_click_retry);
-                this.f41445j.setBackgroundResource(e.swanapp_video_click_retry);
+                this.f40034g.setVisibility(0);
+                this.f40035h.setVisibility(8);
+                this.f40036i.setVisibility(0);
+                this.k.setTextColor(resources.getColor(c.swanapp_video_no_network_text_color));
+                this.k.setText(h.swanapp_video_network_error);
+                this.f40037j.setText(h.swanapp_video_click_retry);
+                this.f40037j.setBackgroundResource(e.swanapp_video_click_retry);
             } else if (tipState == TipState.END) {
                 this.m.setImageResource(e.swanapp_video_replay);
-                this.n.setText(this.f41440e.getText(h.swanapp_video_replay));
-                this.f41442g.setVisibility(0);
-                this.f41443h.setVisibility(0);
-                this.f41444i.setVisibility(8);
+                this.n.setText(this.f40032e.getText(h.swanapp_video_replay));
+                this.f40034g.setVisibility(0);
+                this.f40035h.setVisibility(0);
+                this.f40036i.setVisibility(8);
             } else if (tipState == TipState.NORMAL) {
-                this.f41442g.setVisibility(8);
-                this.f41444i.setVisibility(8);
-                this.f41443h.setVisibility(8);
+                this.f40034g.setVisibility(8);
+                this.f40036i.setVisibility(8);
+                this.f40035h.setVisibility(8);
             }
         }
     }
@@ -246,13 +244,13 @@ public class MediaTipStateLayer implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
             int id = view.getId();
             if (id != f.swanapp_video_continue_play && id != f.swanapp_video_replay) {
-                if (id != f.swanapp_video_full_screen_back || (swanVideoView = this.f41441f) == null || swanVideoView.getVideoPlayerCallback() == null) {
+                if (id != f.swanapp_video_full_screen_back || (swanVideoView = this.f40033f) == null || swanVideoView.getVideoPlayerCallback() == null) {
                     return;
                 }
-                this.f41441f.getVideoPlayerCallback().d(!this.p);
+                this.f40033f.getVideoPlayerCallback().d(!this.p);
                 return;
             }
-            SwanVideoView swanVideoView2 = this.f41441f;
+            SwanVideoView swanVideoView2 = this.f40033f;
             if (swanVideoView2 != null) {
                 swanVideoView2.startWithFocus();
             }

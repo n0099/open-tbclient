@@ -1,6 +1,6 @@
 package c.a.t0.g0.f0;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -35,12 +35,12 @@ public class j extends k {
         V0 = BdUniqueId.gen();
     }
 
-    public j(d2 d2Var) {
+    public j(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d2Var};
+            Object[] objArr = {e2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -50,20 +50,20 @@ public class j extends k {
                 return;
             }
         }
-        this.f18222e = d2Var;
+        this.f17778e = e2Var;
     }
 
-    public static boolean Y(d2 d2Var) {
+    public static boolean Y(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
-            if (d2Var.r1() == 49 || d2Var.r1() == 69) {
+            if (e2Var.r1() == 49 || e2Var.r1() == 69) {
                 return true;
             }
-            return d2Var.r1() == 67 && d2Var.o1() != null && d2Var.o1().friendRoomStatus == 2;
+            return e2Var.r1() == 67 && e2Var.o1() != null && e2Var.o1().friendRoomStatus == 2;
         }
         return invokeL.booleanValue;
     }
@@ -82,10 +82,10 @@ public class j extends k {
     }
 
     @Override // c.a.t0.g0.f0.k, c.a.t0.g0.f0.b, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18222e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17778e : (e2) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -93,8 +93,8 @@ public class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d2 d2Var = this.f18222e;
-            if (d2Var != null && d2Var.r1() == 67) {
+            e2 e2Var = this.f17778e;
+            if (e2Var != null && e2Var.r1() == 67) {
                 return V0;
             }
             return U0;

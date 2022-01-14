@@ -14,13 +14,13 @@ public class n1 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13774b;
+    public String f13463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13775c;
+    public String f13464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13776d;
+    public String f13465d;
 
     public n1() {
         Interceptable interceptable = $ic;
@@ -42,20 +42,20 @@ public class n1 {
             return;
         }
         this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.f13774b = intent.getStringExtra("recom_source");
-        this.f13775c = intent.getStringExtra("recom_abtag");
-        this.f13776d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+        this.f13463b = intent.getStringExtra("recom_source");
+        this.f13464c = intent.getStringExtra("recom_abtag");
+        this.f13465d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
-    public void b(d2 d2Var) {
+    public void b(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        this.a = d2Var.a1;
-        this.f13774b = d2Var.Z0;
-        this.f13775c = d2Var.b1;
-        this.f13776d = d2Var.c1;
+        this.a = e2Var.a1;
+        this.f13463b = e2Var.Z0;
+        this.f13464c = e2Var.b1;
+        this.f13465d = e2Var.c1;
     }
 
     public void c(Intent intent) {
@@ -64,9 +64,9 @@ public class n1 {
             return;
         }
         intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
-        intent.putExtra("recom_source", this.f13774b);
-        intent.putExtra("recom_abtag", this.f13775c);
-        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f13776d);
+        intent.putExtra("recom_source", this.f13463b);
+        intent.putExtra("recom_abtag", this.f13464c);
+        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f13465d);
     }
 
     public void d(c.a.t0.z2.t tVar) {
@@ -74,9 +74,9 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, tVar) == null) || tVar == null) {
             return;
         }
-        tVar.f26875g = this.a;
-        tVar.f26874f = this.f13774b;
-        tVar.l = this.f13775c;
-        tVar.o = this.f13776d;
+        tVar.f26078g = this.a;
+        tVar.f26077f = this.f13463b;
+        tVar.l = this.f13464c;
+        tVar.o = this.f13465d;
     }
 }

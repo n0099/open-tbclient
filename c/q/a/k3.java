@@ -11,7 +11,7 @@ public final class k3 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f31337e;
+    public final /* synthetic */ String f30357e;
 
     public k3(String str) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class k3 implements Runnable {
                 return;
             }
         }
-        this.f31337e = str;
+        this.f30357e = str;
     }
 
     @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public final class k3 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                r0.c(new t1(this.f31337e, "GET", r0.k(null)).a(), new b6());
+                r0.c(new t1(this.f30357e, "GET", r0.k(null)).a(), new b6());
             } catch (JSONException e2) {
                 e2.getMessage();
             } catch (Exception e3) {

@@ -17,10 +17,10 @@ public class c extends StateListDrawable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f11459e;
+    public a f11202e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f11460f;
+    public View f11203f;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -42,7 +42,7 @@ public class c extends StateListDrawable {
                 return;
             }
         }
-        this.f11460f = null;
+        this.f11203f = null;
         addState(new int[]{16842919}, new ColorDrawable(0));
         addState(new int[0], new ColorDrawable(0));
     }
@@ -50,14 +50,14 @@ public class c extends StateListDrawable {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f11459e = aVar;
+            this.f11202e = aVar;
         }
     }
 
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f11460f = view;
+            this.f11203f = view;
         }
     }
 
@@ -66,11 +66,11 @@ public class c extends StateListDrawable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
-            if (this.f11460f != null && this.f11459e != null) {
+            if (this.f11203f != null && this.f11202e != null) {
                 if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                    this.f11459e.b(this.f11460f);
+                    this.f11202e.b(this.f11203f);
                 } else {
-                    this.f11459e.a(this.f11460f);
+                    this.f11202e.a(this.f11203f);
                 }
             }
             return super.onStateChange(iArr);
@@ -93,7 +93,7 @@ public class c extends StateListDrawable {
                 return;
             }
         }
-        this.f11460f = null;
+        this.f11203f = null;
         addState(new int[]{16842919}, drawable);
         addState(new int[0], drawable);
     }

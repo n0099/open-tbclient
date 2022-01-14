@@ -21,13 +21,13 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public B a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FunNativeAd2.NativeType f56285b;
+    public final FunNativeAd2.NativeType f54152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FunNativeInfo f56286c;
+    public final FunNativeInfo f54153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final FunNativeAd2Bridger<A, B> f56287d;
+    public final FunNativeAd2Bridger<A, B> f54154d;
     public final A mAd;
 
     public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a, FunNativeInfo funNativeInfo, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
@@ -45,10 +45,10 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
                 return;
             }
         }
-        this.f56285b = nativeType;
+        this.f54152b = nativeType;
         this.mAd = a;
-        this.f56286c = funNativeInfo;
-        this.f56287d = funNativeAd2Bridger;
+        this.f54153c = funNativeInfo;
+        this.f54154d = funNativeAd2Bridger;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -77,7 +77,7 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                this.a = this.f56287d.createExpressView(this.mAd);
+                this.a = this.f54154d.createExpressView(this.mAd);
             }
             return this.a;
         }
@@ -88,14 +88,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public FunNativeInfo getNativeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56286c : (FunNativeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54153c : (FunNativeInfo) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
     public FunNativeAd2.NativeType getNativeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56285b : (FunNativeAd2.NativeType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54152b : (FunNativeAd2.NativeType) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
@@ -123,14 +123,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public void showCustom(Activity activity, CustomInflater customInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, customInflater, str, funAdInteractionListener) == null) {
-            this.f56287d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
+            this.f54154d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, activity, expressInflater, str, funAdInteractionListener) == null) {
-            this.f56287d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
+            this.f54154d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 }

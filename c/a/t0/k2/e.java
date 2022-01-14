@@ -48,25 +48,23 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f19205e;
+    public TbPageContext<?> f18715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<MarkData> f19206f;
+    public final ArrayList<MarkData> f18716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19207g;
+    public boolean f18717g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f19208h;
+    public View.OnClickListener f18718h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f19209i;
+    public View.OnClickListener f18719i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f19210j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f19211k;
+    public View.OnClickListener f18720j;
+    public boolean k;
     public boolean l;
     public boolean m;
     public Runnable n;
@@ -79,7 +77,7 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19212e;
+        public final /* synthetic */ e f18721e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -96,14 +94,14 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f19212e = eVar;
+            this.f18721e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19212e.notifyDataSetChanged();
+                this.f18721e.notifyDataSetChanged();
             }
         }
     }
@@ -144,7 +142,7 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19213e;
+        public final /* synthetic */ e f18722e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -161,14 +159,14 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f19213e = eVar;
+            this.f18722e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MarkData item = this.f19213e.getItem(((Integer) view.getTag()).intValue());
+                MarkData item = this.f18722e.getItem(((Integer) view.getTag()).intValue());
                 StatisticItem statisticItem = new StatisticItem("c12529");
                 if (view instanceof CommonUserLikeButton) {
                     statisticItem.param("obj_locate", 4);
@@ -189,7 +187,7 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19214e;
+        public final /* synthetic */ e f18723e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -206,58 +204,56 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f19214e = eVar;
+            this.f18723e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.k2.c.b("c14065", this.f19214e.getItem(((Integer) view.getTag()).intValue()));
+                c.a.t0.k2.c.b("c14065", this.f18723e.getItem(((Integer) view.getTag()).intValue()));
             }
         }
     }
 
     /* renamed from: c.a.t0.k2.e$e  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1151e {
+    public class C1165e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageButton a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ClickableHeaderImageView f19215b;
+        public ClickableHeaderImageView f18724b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f19216c;
+        public TextView f18725c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CommonUserLikeButton f19217d;
+        public CommonUserLikeButton f18726d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f19218e;
+        public TextView f18727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f19219f;
+        public TextView f18728f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f19220g;
+        public ImageView f18729g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LinearLayout f19221h;
+        public LinearLayout f18730h;
 
         /* renamed from: i  reason: collision with root package name */
-        public LinearLayout f19222i;
+        public LinearLayout f18731i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LinearLayout f19223j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public View f19224k;
-        public c.a.s0.s.i0.t.c l;
+        public LinearLayout f18732j;
+        public View k;
+        public c.a.s0.s.j0.t.c l;
         public final /* synthetic */ e m;
 
-        public C1151e(e eVar) {
+        public C1165e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,45 +279,45 @@ public class e extends BaseAdapter {
             String title = markData.getTitle();
             if (!TextUtils.isEmpty(title)) {
                 if (markData.is_deleted()) {
-                    this.f19218e.setText(title);
-                    this.f19218e.setTextSize(0, e.q);
-                    SkinManager.setViewTextColor(this.f19218e, R.color.CAM_X0110);
+                    this.f18727e.setText(title);
+                    this.f18727e.setTextSize(0, e.q);
+                    SkinManager.setViewTextColor(this.f18727e, R.color.CAM_X0110);
                 } else {
-                    this.f19218e.setText(title);
-                    this.f19218e.setTextSize(0, e.r);
-                    SkinManager.setViewTextColor(this.f19218e, R.color.CAM_X0105);
+                    this.f18727e.setText(title);
+                    this.f18727e.setTextSize(0, e.r);
+                    SkinManager.setViewTextColor(this.f18727e, R.color.CAM_X0105);
                 }
             } else {
-                this.f19218e.setText("");
+                this.f18727e.setText("");
             }
             c(markData);
-            this.f19215b.setData(markData.metaData);
-            this.f19215b.setShowV(markData.metaData.isBigV());
+            this.f18724b.setData(markData.metaData);
+            this.f18724b.setShowV(markData.metaData.isBigV());
             this.l.n(markData.metaData);
-            this.f19217d.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.f19217d.setTextSize(0, e.s);
+            this.f18726d.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.f18726d.setTextSize(0, e.s);
             if ((markData.metaData.getIsLike() || StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), markData.getUesrId())) && !markData.isLikeInPage()) {
-                this.f19217d.setVisibility(8);
+                this.f18726d.setVisibility(8);
             } else {
-                this.f19217d.setVisibility(0);
+                this.f18726d.setVisibility(0);
             }
             if ((!StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) || markData.is_deleted()) {
-                this.f19223j.setVisibility(0);
+                this.f18732j.setVisibility(0);
                 if (markData.isRedTipShow() && !markData.is_deleted()) {
-                    this.f19220g.setVisibility(0);
+                    this.f18729g.setVisibility(0);
                 } else {
-                    this.f19220g.setVisibility(8);
+                    this.f18729g.setVisibility(8);
                 }
                 if (markData.is_deleted()) {
-                    this.f19219f.setText(this.m.f19205e.getString(R.string.mark_thread_deleted));
+                    this.f18728f.setText(this.m.f18715e.getString(R.string.mark_thread_deleted));
                 } else {
-                    this.f19219f.setText(markData.getmState());
+                    this.f18728f.setText(markData.getmState());
                 }
-                SkinManager.setViewTextColor(this.f19219f, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f18728f, R.color.CAM_X0109);
             } else {
-                this.f19223j.setVisibility(8);
+                this.f18732j.setVisibility(8);
             }
-            SkinManager.setBackgroundColor(this.f19224k, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
         }
 
         public void b(ClickableHeaderImageView clickableHeaderImageView) {
@@ -340,15 +336,15 @@ public class e extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, markData) == null) || markData == null) {
                 return;
             }
-            this.f19216c.setText(markData.getAuthorName());
+            this.f18725c.setText(markData.getAuthorName());
             if (markData.metaData.isBigV()) {
-                SkinManager.setViewTextColor(this.f19216c, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(this.f18725c, R.color.CAM_X0301);
             } else {
-                SkinManager.setViewTextColor(this.f19216c, R.color.CAM_X0106);
+                SkinManager.setViewTextColor(this.f18725c, R.color.CAM_X0106);
             }
         }
 
-        public /* synthetic */ C1151e(e eVar, a aVar) {
+        public /* synthetic */ C1165e(e eVar, a aVar) {
             this(eVar);
         }
     }
@@ -360,7 +356,7 @@ public class e extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ProgressBar f19225b;
+        public ProgressBar f18733b;
 
         public f(e eVar) {
             Interceptable interceptable = $ic;
@@ -384,7 +380,7 @@ public class e extends BaseAdapter {
     }
 
     /* loaded from: classes7.dex */
-    public class g extends C1151e {
+    public class g extends C1165e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public OriginalThreadCardView n;
@@ -408,23 +404,23 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f19221h = (LinearLayout) view.findViewById(R.id.share_lv_markitem);
+            this.f18730h = (LinearLayout) view.findViewById(R.id.share_lv_markitem);
             this.a = (ImageButton) view.findViewById(R.id.share_lv_markitem_delete);
-            this.f19215b = (ClickableHeaderImageView) view.findViewById(R.id.share_mark_userinfo_header_view);
-            this.f19216c = (TextView) view.findViewById(R.id.share_mark_userinfo_name);
-            this.f19217d = (CommonUserLikeButton) view.findViewById(R.id.share_mark_item_userinfo_like_btn);
-            this.l = new c.a.s0.s.i0.t.c(eVar.f19205e, this.f19217d);
-            this.f19222i = (LinearLayout) view.findViewById(R.id.share_lv_markitem_userinfo);
-            this.f19218e = (TextView) view.findViewById(R.id.share_thread_title);
+            this.f18724b = (ClickableHeaderImageView) view.findViewById(R.id.share_mark_userinfo_header_view);
+            this.f18725c = (TextView) view.findViewById(R.id.share_mark_userinfo_name);
+            this.f18726d = (CommonUserLikeButton) view.findViewById(R.id.share_mark_item_userinfo_like_btn);
+            this.l = new c.a.s0.s.j0.t.c(eVar.f18715e, this.f18726d);
+            this.f18731i = (LinearLayout) view.findViewById(R.id.share_lv_markitem_userinfo);
+            this.f18727e = (TextView) view.findViewById(R.id.share_thread_title);
             this.n = (OriginalThreadCardView) view.findViewById(R.id.share_original_thread_view);
-            this.f19219f = (TextView) view.findViewById(R.id.share_mark_item_state_text);
-            this.f19220g = (ImageView) view.findViewById(R.id.share_new_mark_mention_redtip);
-            this.f19223j = (LinearLayout) view.findViewById(R.id.share_mark_item_state);
-            this.f19224k = view.findViewById(R.id.share_text_divider);
-            b(this.f19215b);
+            this.f18728f = (TextView) view.findViewById(R.id.share_mark_item_state_text);
+            this.f18729g = (ImageView) view.findViewById(R.id.share_new_mark_mention_redtip);
+            this.f18732j = (LinearLayout) view.findViewById(R.id.share_mark_item_state);
+            this.k = view.findViewById(R.id.share_text_divider);
+            b(this.f18724b);
         }
 
-        @Override // c.a.t0.k2.e.C1151e
+        @Override // c.a.t0.k2.e.C1165e
         public void a(MarkData markData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, markData) == null) {
@@ -442,7 +438,7 @@ public class e extends BaseAdapter {
     }
 
     /* loaded from: classes7.dex */
-    public class h extends C1151e {
+    public class h extends C1165e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView n;
@@ -467,30 +463,30 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f19221h = (LinearLayout) view.findViewById(R.id.home_lv_markitem);
-            this.f19215b = (ClickableHeaderImageView) view.findViewById(R.id.mark_userinfo_header_view);
-            this.f19216c = (TextView) view.findViewById(R.id.mark_userinfo_name);
-            this.f19222i = (LinearLayout) view.findViewById(R.id.home_lv_markitem_userinfo);
+            this.f18730h = (LinearLayout) view.findViewById(R.id.home_lv_markitem);
+            this.f18724b = (ClickableHeaderImageView) view.findViewById(R.id.mark_userinfo_header_view);
+            this.f18725c = (TextView) view.findViewById(R.id.mark_userinfo_name);
+            this.f18731i = (LinearLayout) view.findViewById(R.id.home_lv_markitem_userinfo);
             this.o = (LinearLayout) view.findViewById(R.id.home_lv_markitem_thread);
-            this.f19217d = (CommonUserLikeButton) view.findViewById(R.id.markitem_userinfo_like_btn);
-            this.l = new c.a.s0.s.i0.t.c(eVar.f19205e, this.f19217d);
+            this.f18726d = (CommonUserLikeButton) view.findViewById(R.id.markitem_userinfo_like_btn);
+            this.l = new c.a.s0.s.j0.t.c(eVar.f18715e, this.f18726d);
             this.n = (TbImageView) view.findViewById(R.id.markitem_thread_image);
-            this.f19218e = (TextView) view.findViewById(R.id.markitem_thread_title);
-            this.f19219f = (TextView) view.findViewById(R.id.markitem_state_text);
+            this.f18727e = (TextView) view.findViewById(R.id.markitem_thread_title);
+            this.f18728f = (TextView) view.findViewById(R.id.markitem_state_text);
             this.a = (ImageButton) view.findViewById(R.id.home_lv_markitem_delete);
-            this.f19220g = (ImageView) view.findViewById(R.id.new_mark_mention_redtip);
-            this.f19223j = (LinearLayout) view.findViewById(R.id.markitem_state);
-            this.f19224k = view.findViewById(R.id.text_divider);
-            b(this.f19215b);
+            this.f18729g = (ImageView) view.findViewById(R.id.new_mark_mention_redtip);
+            this.f18732j = (LinearLayout) view.findViewById(R.id.markitem_state);
+            this.k = view.findViewById(R.id.text_divider);
+            b(this.f18724b);
             this.n.setPlaceHolder(1);
         }
 
-        @Override // c.a.t0.k2.e.C1151e
+        @Override // c.a.t0.k2.e.C1165e
         public void a(MarkData markData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, markData) == null) {
                 super.a(markData);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f19222i.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f18731i.getLayoutParams();
                 if (k.c().g() && !StringUtils.isNull(markData.getPic_url())) {
                     String pic_url = markData.getPic_url();
                     if (!StringUtils.isNull(pic_url)) {
@@ -547,17 +543,17 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f19206f = new ArrayList<>();
-        this.f19207g = false;
-        this.f19208h = null;
-        this.f19209i = null;
-        this.f19210j = null;
-        this.f19211k = false;
+        this.f18716f = new ArrayList<>();
+        this.f18717g = false;
+        this.f18718h = null;
+        this.f18719i = null;
+        this.f18720j = null;
+        this.k = false;
         this.l = true;
         this.m = true;
         this.o = new c(this);
         this.p = new d(this);
-        this.f19205e = tbPageContext;
+        this.f18715e = tbPageContext;
     }
 
     @Override // android.widget.Adapter
@@ -565,10 +561,10 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (ListUtils.isEmpty(this.f19206f)) {
+            if (ListUtils.isEmpty(this.f18716f)) {
                 return 0;
             }
-            return this.m ? ListUtils.getCount(this.f19206f) + 1 : ListUtils.getCount(this.f19206f);
+            return this.m ? ListUtils.getCount(this.f18716f) + 1 : ListUtils.getCount(this.f18716f);
         }
         return invokeV.intValue;
     }
@@ -578,7 +574,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (ListUtils.getCount(this.f19206f) <= i2) {
+            if (ListUtils.getCount(this.f18716f) <= i2) {
                 return -1L;
             }
             return i2;
@@ -603,7 +599,7 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1151e hVar;
+        C1165e hVar;
         f fVar;
         g gVar;
         Interceptable interceptable = $ic;
@@ -613,7 +609,7 @@ public class e extends BaseAdapter {
                 if (view != null && (view.getTag() instanceof h)) {
                     hVar = (h) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f19205e.getPageActivity()).inflate(R.layout.home_mark_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f18715e.getPageActivity()).inflate(R.layout.home_mark_item, (ViewGroup) null);
                     hVar = new h(this, view);
                     view.setTag(hVar);
                 }
@@ -622,8 +618,8 @@ public class e extends BaseAdapter {
                     hVar.a.setVisibility(8);
                     return view;
                 }
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) hVar.f19221h.getLayoutParams();
-                if (this.f19207g) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) hVar.f18730h.getLayoutParams();
+                if (this.f18717g) {
                     hVar.a.setVisibility(0);
                     layoutParams.leftMargin = 0;
                 } else {
@@ -636,31 +632,31 @@ public class e extends BaseAdapter {
                 if (view != null && (view.getTag() instanceof f)) {
                     fVar = (f) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f19205e.getPageActivity()).inflate(R.layout.page_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f18715e.getPageActivity()).inflate(R.layout.page_item, (ViewGroup) null);
                     fVar = new f(this, null);
                     fVar.a = (TextView) view.findViewById(R.id.page_text);
-                    fVar.f19225b = (ProgressBar) view.findViewById(R.id.progress);
+                    fVar.f18733b = (ProgressBar) view.findViewById(R.id.progress);
                     view.setTag(fVar);
                 }
                 fVar.a.setVisibility(0);
-                if (this.f19211k) {
-                    fVar.f19225b.setVisibility(0);
-                    fVar.a.setText(this.f19205e.getString(R.string.loading));
+                if (this.k) {
+                    fVar.f18733b.setVisibility(0);
+                    fVar.a.setText(this.f18715e.getString(R.string.loading));
                     SkinManager.setViewTextColor(fVar.a, R.color.common_color_10039, 1);
                 } else if (!this.l) {
-                    fVar.f19225b.setVisibility(8);
-                    fVar.a.setText(this.f19205e.getString(R.string.no_more_mark));
+                    fVar.f18733b.setVisibility(8);
+                    fVar.a.setText(this.f18715e.getString(R.string.no_more_mark));
                     SkinManager.setViewTextColor(fVar.a, R.color.common_color_10005, 1);
                 } else {
-                    fVar.f19225b.setVisibility(8);
-                    fVar.a.setText(this.f19205e.getString(R.string.loading));
+                    fVar.f18733b.setVisibility(8);
+                    fVar.a.setText(this.f18715e.getString(R.string.loading));
                     SkinManager.setViewTextColor(fVar.a, R.color.common_color_10039, 1);
                 }
             } else if (itemViewType == 2) {
                 if (view != null && (view.getTag() instanceof g)) {
                     gVar = (g) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f19205e.getPageActivity()).inflate(R.layout.cell_collect_share_view, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f18715e.getPageActivity()).inflate(R.layout.cell_collect_share_view, (ViewGroup) null);
                     gVar = new g(this, view);
                     view.setTag(gVar);
                 }
@@ -669,8 +665,8 @@ public class e extends BaseAdapter {
                     gVar.a.setVisibility(8);
                     return view;
                 }
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f19221h.getLayoutParams();
-                if (this.f19207g) {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f18730h.getLayoutParams();
+                if (this.f18717g) {
                     gVar.a.setVisibility(0);
                     layoutParams2.leftMargin = 0;
                 } else {
@@ -681,8 +677,8 @@ public class e extends BaseAdapter {
                 o(i2, gVar);
                 gVar.n.setSubClickListener(new b(this));
             }
-            this.f19205e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f19205e.getLayoutMode().j(view);
+            this.f18715e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f18715e.getLayoutMode().j(view);
             c.a.t0.k2.c.b("c14062", getItem(i2));
             return view;
         }
@@ -705,7 +701,7 @@ public class e extends BaseAdapter {
     public MarkData getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? (MarkData) ListUtils.getItem(this.f19206f, i2) : (MarkData) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? (MarkData) ListUtils.getItem(this.f18716f, i2) : (MarkData) invokeI.objValue;
     }
 
     public void i() {
@@ -721,7 +717,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (ListUtils.isEmpty(this.f19206f)) {
+            if (ListUtils.isEmpty(this.f18716f)) {
                 return false;
             }
             if (this.l || getItemViewType(i2) != 1) {
@@ -735,9 +731,9 @@ public class e extends BaseAdapter {
     public void j(ArrayList<MarkData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) {
-            this.f19206f.clear();
+            this.f18716f.clear();
             if (arrayList != null) {
-                this.f19206f.addAll(arrayList);
+                this.f18716f.addAll(arrayList);
             }
             notifyDataSetChanged();
         }
@@ -746,14 +742,14 @@ public class e extends BaseAdapter {
     public void k(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.f19208h = onClickListener;
+            this.f18718h = onClickListener;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f19207g = z;
+            this.f18717g = z;
         }
     }
 
@@ -786,43 +782,43 @@ public class e extends BaseAdapter {
         }
     }
 
-    public final void o(int i2, C1151e c1151e) {
+    public final void o(int i2, C1165e c1165e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, c1151e) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, c1165e) == null) {
             Integer valueOf = Integer.valueOf(i2);
-            c1151e.f19222i.setOnClickListener(this.f19209i);
-            c1151e.f19222i.setTag(valueOf);
-            c1151e.f19215b.setAfterClickListener(this.o);
-            c1151e.f19215b.setTag(valueOf);
-            c1151e.f19217d.setAfterOnClickListener(this.o);
-            c1151e.f19217d.setAfterOnClickListener(this.p);
-            c1151e.f19217d.setTag(valueOf);
-            c1151e.f19223j.setOnClickListener(this.f19210j);
-            c1151e.f19223j.setTag(valueOf);
-            c1151e.a.setOnClickListener(this.f19208h);
-            c1151e.a.setFocusable(false);
-            c1151e.a.setTag(valueOf);
+            c1165e.f18731i.setOnClickListener(this.f18719i);
+            c1165e.f18731i.setTag(valueOf);
+            c1165e.f18724b.setAfterClickListener(this.o);
+            c1165e.f18724b.setTag(valueOf);
+            c1165e.f18726d.setAfterOnClickListener(this.o);
+            c1165e.f18726d.setAfterOnClickListener(this.p);
+            c1165e.f18726d.setTag(valueOf);
+            c1165e.f18732j.setOnClickListener(this.f18720j);
+            c1165e.f18732j.setTag(valueOf);
+            c1165e.a.setOnClickListener(this.f18718h);
+            c1165e.a.setFocusable(false);
+            c1165e.a.setTag(valueOf);
         }
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f19211k = z;
+            this.k = z;
         }
     }
 
     public void q(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
-            this.f19210j = onClickListener;
+            this.f18720j = onClickListener;
         }
     }
 
     public void r(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
-            this.f19209i = onClickListener;
+            this.f18719i = onClickListener;
         }
     }
 }

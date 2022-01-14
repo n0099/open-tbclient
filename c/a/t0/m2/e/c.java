@@ -13,10 +13,10 @@ public class c implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19867e;
+    public String f19351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19868f;
+    public boolean f19352f;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class c implements n {
                 return;
             }
         }
-        this.f19868f = true;
-        this.f19867e = str;
+        this.f19352f = true;
+        this.f19351e = str;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f19859b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f19344b : (BdUniqueId) invokeV.objValue;
     }
 }

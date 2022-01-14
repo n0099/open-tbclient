@@ -202,16 +202,16 @@ public class b extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f8165k = c.a.r0.a.q2.b.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+            this.k = c.a.r0.a.q2.b.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
             this.n = SwanAppNetworkUtils.f().type;
-            if (this.f8163h == null) {
-                this.f8163h = new JSONObject();
+            if (this.f7983h == null) {
+                this.f7983h = new JSONObject();
             }
             try {
-                this.f8163h.put("host", c.a.r0.a.c1.a.n().a());
-                this.f8163h.put("package", this.v);
+                this.f7983h.put("host", c.a.r0.a.c1.a.n().a());
+                this.f7983h.put("package", this.v);
             } catch (JSONException e2) {
-                if (e.f8156j) {
+                if (e.f7976j) {
                     e2.printStackTrace();
                 }
             }
@@ -225,17 +225,17 @@ public class b extends f {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (e.f8156j) {
+        if (e.f7976j) {
             String str = "setCommonData: " + aVar.a();
         }
         this.a = aVar.a;
-        this.f8161f = aVar.f10981c;
-        this.f8158c = aVar.f10980b;
-        this.o = aVar.f10984f;
-        this.p = aVar.f10985g;
-        this.s = aVar.f10986h;
-        this.u = aVar.f10987i;
-        this.l = aVar.f10982d;
-        this.m = aVar.f10983e;
+        this.f7981f = aVar.f10738c;
+        this.f7978c = aVar.f10737b;
+        this.o = aVar.f10741f;
+        this.p = aVar.f10742g;
+        this.s = aVar.f10743h;
+        this.u = aVar.f10744i;
+        this.l = aVar.f10739d;
+        this.m = aVar.f10740e;
     }
 }

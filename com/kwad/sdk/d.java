@@ -7,10 +7,10 @@ public class d {
     public static String a = "kwrules.csv";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58795b = "";
+    public static String f56580b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f58796c = "adEcDistribution";
+    public static String f56581c = "adEcDistribution";
 
     /* loaded from: classes3.dex */
     public static class a {

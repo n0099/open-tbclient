@@ -20,41 +20,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MyEmotionHorizontalAdater f20239b;
+    public MyEmotionHorizontalAdater f19706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<EmotionPackageData> f20240c;
+    public List<EmotionPackageData> f19707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<C1219a> f20241d;
+    public final List<C1233a> f19708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f20242e;
+    public c f19709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.n2.h.b.a f20243f;
+    public c.a.t0.n2.h.b.a f19710f;
 
     /* renamed from: c.a.t0.n2.h.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1219a {
+    /* loaded from: classes8.dex */
+    public static class C1233a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20244b;
+        public int f19711b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f20245c;
+        public int f19712c;
 
-        public C1219a() {
+        public C1233a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.f20244b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.f20245c;
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.f19711b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.f19712c;
             }
             return (String) invokeV.objValue;
         }
@@ -95,81 +95,81 @@ public class a {
         }
         this.a = bdListView;
         c cVar = new c(tbPageContext);
-        this.f20242e = cVar;
+        this.f19709e = cVar;
         cVar.b(TbadkCoreApplication.getInst().getSkinType());
-        this.a.addHeaderView(this.f20242e.a());
-        this.f20240c = new ArrayList();
-        this.f20241d = new ArrayList();
-        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.f20240c, this.f20241d, tbPageContext);
-        this.f20239b = myEmotionHorizontalAdater;
-        this.f20243f = aVar;
+        this.a.addHeaderView(this.f19709e.a());
+        this.f19707c = new ArrayList();
+        this.f19708d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.f19707c, this.f19708d, tbPageContext);
+        this.f19706b = myEmotionHorizontalAdater;
+        this.f19710f = aVar;
         this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i2 >= this.f20240c.size() || i3 < 0 || i3 >= this.f20240c.size()) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i2 >= this.f19707c.size() || i3 < 0 || i3 >= this.f19707c.size()) {
             return;
         }
-        List<EmotionPackageData> list = this.f20240c;
+        List<EmotionPackageData> list = this.f19707c;
         list.add(i3, list.remove(i2));
-        List<C1219a> list2 = this.f20241d;
+        List<C1233a> list2 = this.f19708d;
         list2.add(i3, list2.remove(i2));
-        this.f20239b.notifyDataSetChanged();
+        this.f19706b.notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i2), Integer.valueOf(i3))));
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList(this.f20241d);
-            this.f20241d.clear();
-            for (EmotionPackageData emotionPackageData : this.f20240c) {
-                C1219a c1219a = null;
+            ArrayList arrayList = new ArrayList(this.f19708d);
+            this.f19708d.clear();
+            for (EmotionPackageData emotionPackageData : this.f19707c) {
+                C1233a c1233a = null;
                 Iterator it = arrayList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    C1219a c1219a2 = (C1219a) it.next();
-                    if (c1219a2 != null && c1219a2.a == emotionPackageData.id) {
-                        c1219a = c1219a2;
+                    C1233a c1233a2 = (C1233a) it.next();
+                    if (c1233a2 != null && c1233a2.a == emotionPackageData.id) {
+                        c1233a = c1233a2;
                         break;
                     }
                 }
-                if (c1219a == null) {
-                    c1219a = new C1219a();
-                    c1219a.a = emotionPackageData.id;
+                if (c1233a == null) {
+                    c1233a = new C1233a();
+                    c1233a.a = emotionPackageData.id;
                 }
-                this.f20241d.add(c1219a);
+                this.f19708d.add(c1233a);
             }
         }
     }
 
     public void update(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.a == null || this.f20239b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.a == null || this.f19706b == null) {
             return;
         }
-        this.f20240c.clear();
-        this.f20240c.addAll(list);
+        this.f19707c.clear();
+        this.f19707c.addAll(list);
         b();
-        this.f20239b.d();
-        this.f20242e.update(Integer.valueOf(this.f20239b.b()));
-        this.f20243f.b(0, this.f20239b.b());
-        this.f20243f.a(c.a.t0.n2.h.a.b().a());
-        this.f20239b.notifyDataSetChanged();
+        this.f19706b.d();
+        this.f19709e.update(Integer.valueOf(this.f19706b.b()));
+        this.f19710f.b(0, this.f19706b.b());
+        this.f19710f.a(c.a.t0.n2.h.a.b().a());
+        this.f19706b.notifyDataSetChanged();
     }
 
     public void update() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f20239b == null || this.a == null || this.f20240c == null || (cVar = this.f20242e) == null || this.f20243f == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f19706b == null || this.a == null || this.f19707c == null || (cVar = this.f19709e) == null || this.f19710f == null) {
             return;
         }
         cVar.c();
-        this.f20243f.b(0, this.f20239b.b());
-        this.f20243f.a(c.a.t0.n2.h.a.b().a());
-        this.f20239b.notifyDataSetChanged();
+        this.f19710f.b(0, this.f19706b.b());
+        this.f19710f.a(c.a.t0.n2.h.a.b().a());
+        this.f19706b.notifyDataSetChanged();
     }
 }

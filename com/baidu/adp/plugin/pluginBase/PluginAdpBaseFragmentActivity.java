@@ -43,7 +43,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseFragmentActivity f32260e;
+        public final /* synthetic */ PluginAdpBaseFragmentActivity f31245e;
 
         public a(PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
                     return;
                 }
             }
-            this.f32260e = pluginAdpBaseFragmentActivity;
+            this.f31245e = pluginAdpBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f32260e;
+                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f31245e;
                 pluginAdpBaseFragmentActivity.onPreLoad(pluginAdpBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -154,7 +154,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.g().o(getPageContext().getPageActivity());
+            b.f().n(getPageContext().getPageActivity());
         }
     }
 
@@ -167,7 +167,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.g().m(getPageContext().getPageActivity());
+            b.f().l(getPageContext().getPageActivity());
         }
     }
 
@@ -321,7 +321,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            n.M(getApplicationContext(), str);
+            n.N(getApplicationContext(), str);
         }
     }
 

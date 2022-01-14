@@ -52,25 +52,23 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f45824e;
+    public final Context f44146e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45825f;
+    public int f44147f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f45826g;
+    public FrameLayout f44148g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45827h;
+    public TextView f44149h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewPager f45828i;
+    public ViewPager f44150i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f45829j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public BdUniqueId f45830k;
+    public ImageView f44151j;
+    public BdUniqueId k;
     public RecommendBarPageAdapter l;
     public TbPageContext<?> m;
     public byte n;
@@ -82,7 +80,7 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendBarLayout f45831e;
+        public final /* synthetic */ RecommendBarLayout f44152e;
 
         public a(RecommendBarLayout recommendBarLayout) {
             Interceptable interceptable = $ic;
@@ -99,7 +97,7 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
                     return;
                 }
             }
-            this.f45831e = recommendBarLayout;
+            this.f44152e = recommendBarLayout;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -120,17 +118,17 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                n pagerModelByIndex = this.f45831e.l.getPagerModelByIndex(i2);
+                n pagerModelByIndex = this.f44152e.l.getPagerModelByIndex(i2);
                 if (pagerModelByIndex instanceof d) {
                     d dVar = (d) pagerModelByIndex;
-                    StatisticItem param = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_TAB_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f45831e.n).param("obj_param1", i2);
-                    if (!StringUtils.isNull(dVar.f20774e)) {
-                        param = param.param("obj_name", dVar.f20774e);
+                    StatisticItem param = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_TAB_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f44152e.n).param("obj_param1", i2);
+                    if (!StringUtils.isNull(dVar.f20220e)) {
+                        param = param.param("obj_name", dVar.f20220e);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.a()).param("obj_locate", (int) this.f45831e.n);
-                    if (!StringUtils.isNull(dVar.f20774e)) {
-                        param2 = param2.param("obj_name", dVar.f20774e);
+                    StatisticItem param2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.a()).param("obj_locate", (int) this.f44152e.n);
+                    if (!StringUtils.isNull(dVar.f20220e)) {
+                        param2 = param2.param("obj_name", dVar.f20220e);
                     }
                     TiebaStatic.log(param2);
                 }
@@ -198,10 +196,10 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
                 return;
             }
         }
-        this.f45825f = 3;
+        this.f44147f = 3;
         this.o = new b(this, 0);
-        this.f45830k = bdUniqueId;
-        this.f45824e = context;
+        this.k = bdUniqueId;
+        this.f44146e = context;
         this.m = tbPageContext;
         this.n = b2;
         c();
@@ -214,23 +212,23 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_bar_card, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.f45826g = (FrameLayout) findViewById(R.id.recommend_bar_top);
-            this.f45827h = (TextView) findViewById(R.id.recommend_bar_title);
-            this.f45828i = (ViewPager) findViewById(R.id.recommend_bar_view_pager);
-            this.f45829j = (ImageView) findViewById(R.id.recommend_bar_right_arrow);
-            this.f45828i.setOffscreenPageLimit(2);
+            this.f44148g = (FrameLayout) findViewById(R.id.recommend_bar_top);
+            this.f44149h = (TextView) findViewById(R.id.recommend_bar_title);
+            this.f44150i = (ViewPager) findViewById(R.id.recommend_bar_view_pager);
+            this.f44151j = (ImageView) findViewById(R.id.recommend_bar_right_arrow);
+            this.f44150i.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.m, this.n);
             this.l = recommendBarPageAdapter;
-            this.f45828i.setAdapter(recommendBarPageAdapter);
-            this.f45828i.addOnPageChangeListener(new a(this));
-            this.f45826g.setOnClickListener(this);
+            this.f44150i.setAdapter(recommendBarPageAdapter);
+            this.f44150i.addOnPageChangeListener(new a(this));
+            this.f44148g.setOnClickListener(this);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.o.setTag(this.f45830k);
+            this.o.setTag(this.k);
             MessageManager.getInstance().registerListener(2001335, this.o);
             MessageManager.getInstance().registerListener(2001336, this.o);
         }
@@ -240,14 +238,14 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (i2 != this.f45825f) {
-                c d2 = c.d(this.f45827h);
+            if (i2 != this.f44147f) {
+                c d2 = c.d(this.f44149h);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0105);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45829j, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f44151j, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 this.l.onSkinTypeChanged(i2);
             }
-            this.f45825f = i2;
+            this.f44147f = i2;
         }
     }
 
@@ -255,13 +253,13 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.getId() == R.id.recommend_bar_top) {
-            n pagerModelByIndex = this.l.getPagerModelByIndex(this.f45828i.getCurrentItem());
+            n pagerModelByIndex = this.l.getPagerModelByIndex(this.f44150i.getCurrentItem());
             if (pagerModelByIndex instanceof d) {
                 d dVar = (d) pagerModelByIndex;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f45824e, dVar.f20776g)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f44146e, dVar.f20222g)));
                 StatisticItem param = new StatisticItem(KEY_RECOMMEND_BAR_MORE).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.n);
-                if (!StringUtils.isNull(dVar.f20774e)) {
-                    param = param.param("obj_name", dVar.f20774e);
+                if (!StringUtils.isNull(dVar.f20220e)) {
+                    param = param.param("obj_name", dVar.f20220e);
                 }
                 TiebaStatic.log(param);
             }
@@ -273,8 +271,8 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             if (cVar != null && !ListUtils.isEmpty(cVar.g())) {
                 setVisibility(0);
-                ((LinearLayout.LayoutParams) this.f45828i.getLayoutParams()).height = c.a.d.f.p.n.f(this.m.getPageActivity(), cVar.i() ? R.dimen.tbds660 : R.dimen.tbds728);
-                this.f45828i.setCurrentItem(0, true);
+                ((LinearLayout.LayoutParams) this.f44150i.getLayoutParams()).height = c.a.d.f.p.n.f(this.m.getPageActivity(), cVar.i() ? R.dimen.tbds660 : R.dimen.tbds728);
+                this.f44150i.setCurrentItem(0, true);
                 this.l.setRecommendDatas(cVar);
                 TiebaStatic.log(new StatisticItem(KEY_RECOMMEND_BAR_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.n));
                 return;
@@ -286,7 +284,7 @@ public class RecommendBarLayout extends LinearLayout implements q, View.OnClickL
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.f45830k = bdUniqueId;
+            this.k = bdUniqueId;
         }
     }
 }

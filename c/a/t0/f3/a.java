@@ -22,20 +22,20 @@ public class a {
     public PushDialogActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18189b;
+    public String f17747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f18190c;
+    public long f17748c;
 
     /* renamed from: c.a.t0.f3.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1098a extends c.a.d.c.g.a {
+    public class C1112a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1098a(a aVar, int i2, int i3) {
+        public C1112a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -85,12 +85,12 @@ public class a {
             }
         }
         this.a = pushDialogActivity;
-        pushDialogActivity.registerListener(new C1098a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        pushDialogActivity.registerListener(new C1112a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
         Intent intent = this.a.getIntent();
         if (intent != null) {
-            this.f18189b = intent.getStringExtra("thread_id");
-            this.f18190c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.f18189b)) {
+            this.f17747b = intent.getStringExtra("thread_id");
+            this.f17748c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.f17747b)) {
                 this.a.finish();
             }
         }
@@ -99,19 +99,19 @@ public class a {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18190c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17748c : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18189b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17747b : (String) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long g2 = c.a.d.f.m.b.g(this.f18189b, 0L);
+            long g2 = c.a.d.f.m.b.g(this.f17747b, 0L);
             if (g2 == 0) {
                 PushDialogActivity pushDialogActivity = this.a;
                 if (pushDialogActivity != null) {
@@ -121,7 +121,7 @@ public class a {
                 return;
             }
             PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-            pushDialogReqNetMsg.setTask_id(this.f18190c);
+            pushDialogReqNetMsg.setTask_id(this.f17748c);
             pushDialogReqNetMsg.setTid(g2);
             MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
         }

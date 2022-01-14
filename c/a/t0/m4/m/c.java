@@ -25,21 +25,21 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f20052e;
+    public static final int f19524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f20053f;
+    public static final int f19525f;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f20054b;
+    public ImageView f19526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f20055c;
+    public b f19527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f20056d;
+    public CustomMessageListener f19528d;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -74,8 +74,8 @@ public class c {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                if (this.a.f20055c != null) {
-                    this.a.f20055c.a(booleanValue);
+                if (this.a.f19527c != null) {
+                    this.a.f19527c.a(booleanValue);
                 }
             }
         }
@@ -99,8 +99,8 @@ public class c {
                 return;
             }
         }
-        f20052e = e.icon_mask_video_bulleton52;
-        f20053f = e.icon_mask_video_bulletoff52;
+        f19524e = e.icon_mask_video_bulleton52;
+        f19525f = e.icon_mask_video_bulletoff52;
     }
 
     public c(View view, @IdRes int i2) {
@@ -118,12 +118,12 @@ public class c {
                 return;
             }
         }
-        this.f20056d = new a(this, 2921647);
-        MessageManager.getInstance().registerListener(this.f20056d);
+        this.f19528d = new a(this, 2921647);
+        MessageManager.getInstance().registerListener(this.f19528d);
         this.a = view;
         if (view != null) {
             ImageView imageView = (ImageView) view.findViewById(i2);
-            this.f20054b = imageView;
+            this.f19526b = imageView;
             if (imageView != null) {
                 imageView.setVisibility(0);
             }
@@ -159,19 +159,19 @@ public class c {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f20056d);
-            ImageView imageView = this.f20054b;
+            MessageManager.getInstance().unRegisterListener(this.f19528d);
+            ImageView imageView = this.f19526b;
             if (imageView != null) {
                 imageView.setOnClickListener(null);
             }
-            this.f20055c = null;
+            this.f19527c = null;
         }
     }
 
     public void g(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (imageView = this.f20054b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (imageView = this.f19526b) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -180,7 +180,7 @@ public class c {
     public void h(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f20055c = bVar;
+            this.f19527c = bVar;
         }
     }
 
@@ -198,9 +198,9 @@ public class c {
         ImageView imageView;
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (imageView = this.f20054b) == null || (view = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (imageView = this.f19526b) == null || (view = this.a) == null) {
             return;
         }
-        imageView.setImageDrawable(view.getResources().getDrawable(z ? f20052e : f20053f));
+        imageView.setImageDrawable(view.getResources().getDrawable(z ? f19524e : f19525f));
     }
 }

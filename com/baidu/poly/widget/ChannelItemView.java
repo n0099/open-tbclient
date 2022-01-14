@@ -31,25 +31,23 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f39026e;
+    public ImageView f37739e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f39027f;
+    public TextView f37740f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f39028g;
+    public TextView f37741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f39029h;
+    public ImageView f37742h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f39030i;
+    public c f37743i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f39031j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f39032k;
+    public b f37744j;
+    public TextView k;
     public LinearLayout l;
     public LinearLayout m;
     public LinearLayout n;
@@ -67,10 +65,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InstallmentEntity f39033e;
+        public final /* synthetic */ InstallmentEntity f37745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ChannelItemView f39034f;
+        public final /* synthetic */ ChannelItemView f37746f;
 
         public a(ChannelItemView channelItemView, InstallmentEntity installmentEntity) {
             Interceptable interceptable = $ic;
@@ -87,17 +85,17 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                     return;
                 }
             }
-            this.f39034f = channelItemView;
-            this.f39033e = installmentEntity;
+            this.f37746f = channelItemView;
+            this.f37745e = installmentEntity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.h0.p.a.f3651c++;
-                if (this.f39034f.f39031j != null) {
-                    this.f39034f.f39031j.a(this.f39033e);
+                c.a.h0.p.a.f3597c++;
+                if (this.f37746f.f37744j != null) {
+                    this.f37746f.f37744j.a(this.f37745e);
                 }
             }
         }
@@ -144,16 +142,16 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(h.view_channel_list_item, (ViewGroup) this, true);
-            this.f39026e = (ImageView) findViewById(g.channel_icon_view);
-            this.f39027f = (TextView) findViewById(g.channel_name_view);
-            this.f39028g = (TextView) findViewById(g.channel_desc_view);
-            this.f39029h = (ImageView) findViewById(g.channel_select_view);
+            this.f37739e = (ImageView) findViewById(g.channel_icon_view);
+            this.f37740f = (TextView) findViewById(g.channel_name_view);
+            this.f37741g = (TextView) findViewById(g.channel_desc_view);
+            this.f37742h = (ImageView) findViewById(g.channel_select_view);
             this.l = (LinearLayout) findViewById(g.ll_installment_group);
             this.m = (LinearLayout) findViewById(g.ll_instalment_money);
             this.n = (LinearLayout) findViewById(g.ll_instalment_detail);
             this.o = (TextView) findViewById(g.tv_instalment_money);
             this.p = (TextView) findViewById(g.tv_service_charge);
-            this.f39032k = (TextView) findViewById(g.installmentTitle);
+            this.k = (TextView) findViewById(g.installmentTitle);
             this.t = (TextView) findViewById(g.poly_sdk_pay_channel_disable_desc);
             setOnClickListener(this);
         }
@@ -180,7 +178,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                     }
                     textView.setText(str);
                     if (installmentEntity != null && installmentEntity.isSelected()) {
-                        this.f39028g.setText(installmentEntity.getDisplay());
+                        this.f37741g.setText(installmentEntity.getDisplay());
                         this.p.setText(installmentEntity.getPayText());
                         payChannelEntity.setInstallmentPeriod(installmentEntity.getInstallmentPeriod());
                         this.q = true;
@@ -247,7 +245,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public void onClick(View view) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || 1 == this.u.disAbled || (cVar = this.f39030i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || 1 == this.u.disAbled || (cVar = this.f37743i) == null) {
             return;
         }
         cVar.a(this);
@@ -263,44 +261,44 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            c.a.h0.m.b.b().a(this.f39026e, icon);
-            this.f39027f.setText(displayName);
+            c.a.h0.m.b.b().a(this.f37739e, icon);
+            this.f37740f.setText(displayName);
             if (isSelected == 1) {
-                this.f39029h.setImageResource(f.channel_checked);
+                this.f37742h.setImageResource(f.channel_checked);
                 this.r = true;
             } else {
-                this.f39029h.setImageResource(f.unchecked);
+                this.f37742h.setImageResource(f.unchecked);
                 this.r = false;
             }
             if (1 == enable) {
-                this.f39030i = cVar;
-                this.f39031j = bVar;
+                this.f37743i = cVar;
+                this.f37744j = bVar;
             } else {
-                this.f39026e.setAlpha(0.4f);
-                this.f39027f.setAlpha(0.4f);
-                this.f39028g.setAlpha(0.4f);
-                this.f39029h.setVisibility(8);
+                this.f37739e.setAlpha(0.4f);
+                this.f37740f.setAlpha(0.4f);
+                this.f37741g.setAlpha(0.4f);
+                this.f37742h.setVisibility(8);
             }
             if (1 == payChannelEntity.disAbled && !TextUtils.isEmpty(payChannelEntity.disAbledMsg)) {
-                this.f39027f.setTextColor(Color.parseColor("#B8B8B8"));
+                this.f37740f.setTextColor(Color.parseColor("#B8B8B8"));
                 this.t.setVisibility(0);
                 this.t.setText(payChannelEntity.disAbledMsg);
-                this.f39029h.setAlpha(0.4f);
+                this.f37742h.setAlpha(0.4f);
             } else {
-                this.f39027f.setTextColor(Color.parseColor("#1F1F1F"));
+                this.f37740f.setTextColor(Color.parseColor("#1F1F1F"));
                 this.t.setVisibility(8);
-                this.f39029h.setAlpha(1.0f);
+                this.f37742h.setAlpha(1.0f);
             }
             if (!TextUtils.isEmpty(payText)) {
                 String displayColor = payChannelEntity.getDisplayColor();
                 if (!TextUtils.isEmpty(displayColor)) {
                     try {
-                        this.f39028g.setTextColor(Color.parseColor(displayColor));
+                        this.f37741g.setTextColor(Color.parseColor(displayColor));
                     } catch (Exception unused) {
                     }
                 }
-                this.f39028g.setText(payText);
-                this.f39028g.setVisibility(0);
+                this.f37741g.setText(payText);
+                this.f37741g.setVisibility(0);
             }
             c(payChannelEntity);
         }

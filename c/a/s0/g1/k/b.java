@@ -21,13 +21,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12944b;
+    public String f12632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetWork f12945c;
+    public NetWork f12633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f12946d;
+    public a f12634d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -50,8 +50,8 @@ public class b extends BdAsyncTask<Void, Void, String> {
             }
         }
         this.a = str;
-        this.f12944b = str2;
-        this.f12946d = aVar;
+        this.f12632b = str2;
+        this.f12634d = aVar;
     }
 
     public static boolean b(String str) {
@@ -87,19 +87,19 @@ public class b extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (m.isEmpty(this.a) || m.isEmpty(this.f12944b) || !b(this.a)) {
+            if (m.isEmpty(this.a) || m.isEmpty(this.f12632b) || !b(this.a)) {
                 return null;
             }
-            String c2 = t.c(this.f12944b);
+            String c2 = t.c(this.f12632b);
             String str = this.a + c2 + "/";
             if (e(str)) {
                 return c2;
             }
             NetWork netWork = new NetWork();
-            this.f12945c = netWork;
-            netWork.setUrl(this.f12944b);
+            this.f12633c = netWork;
+            netWork.setUrl(this.f12632b);
             String str2 = this.a + c2 + ".zip";
-            if (this.f12945c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+            if (this.f12633c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
                 c(str2);
                 return c2;
             }
@@ -131,13 +131,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f12946d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f12634d == null) {
             return;
         }
         if (!m.isEmpty(str)) {
-            this.f12946d.a(true, str);
+            this.f12634d.a(true, str);
         } else {
-            this.f12946d.a(false, null);
+            this.f12634d.a(false, null);
         }
     }
 }

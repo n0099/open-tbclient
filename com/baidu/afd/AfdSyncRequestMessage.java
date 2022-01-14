@@ -15,6 +15,7 @@ import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -100,7 +101,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
             addParam("apna", TbadkCoreApplication.getInst().getPackageName());
             addParam("imei", TbadkCoreApplication.getInst().getImei());
             addParam("fmt", "json");
-            addParam("android_id", androidId());
+            addParam(HttpRequest.ANDROID_ID, androidId());
             addParam("ot", "2");
             addParam("ct", "2");
             addParam("nt", String.valueOf(l.I()));
@@ -115,7 +116,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (TextUtils.isEmpty(_ANDROID_ID)) {
                 try {
-                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), "android_id");
+                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), HttpRequest.ANDROID_ID);
                 } catch (Exception unused) {
                 }
             }

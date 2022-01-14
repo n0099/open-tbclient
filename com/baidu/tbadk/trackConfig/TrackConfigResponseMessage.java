@@ -1,6 +1,6 @@
 package com.baidu.tbadk.trackConfig;
 
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -50,7 +50,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
                     z = false;
                 }
                 this.isOpenTrack = z;
-                b.j().t("key_is_open_track", this.isOpenTrack);
+                b.k().u("key_is_open_track", this.isOpenTrack);
                 TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
             } catch (JSONException e2) {
                 BdLog.e("open track parese exception " + e2.toString());

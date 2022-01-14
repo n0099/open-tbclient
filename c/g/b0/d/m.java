@@ -40,7 +40,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> f29244h;
+    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> f28352h;
 
     /* loaded from: classes9.dex */
     public class a implements KsLoadManager.NativeAdListener {
@@ -97,7 +97,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public final KsNativeAd a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f29245b;
+        public final /* synthetic */ m f28353b;
 
         public b(m mVar, KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                     return;
                 }
             }
-            this.f29245b = mVar;
+            this.f28353b = mVar;
             this.a = ksNativeAd;
         }
 
@@ -132,7 +132,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public void onAdClicked(View view, KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) {
-                this.f29245b.f29244h.onAdClick(this.a);
+                this.f28353b.f28352h.onAdClick(this.a);
             }
         }
 
@@ -140,7 +140,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         public void onAdShow(KsNativeAd ksNativeAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-                this.f29245b.f29244h.onAdShow(this.a);
+                this.f28353b.f28352h.onAdShow(this.a);
             }
         }
     }
@@ -164,7 +164,7 @@ public class m extends ReporterPidLoader<KsNativeAd> {
                 return;
             }
         }
-        this.f29244h = new FunNativeAdListenerHelper<>(this);
+        this.f28352h = new FunNativeAdListenerHelper<>(this);
     }
 
     public final com.fun.module.ks.x a(Context context, KsNativeAd ksNativeAd) {
@@ -216,14 +216,14 @@ public class m extends ReporterPidLoader<KsNativeAd> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) || (ksNativeAd = (KsNativeAd) obj) == null) {
             return;
         }
-        this.f29244h.destroy(ksNativeAd);
+        this.f28352h.destroy(ksNativeAd);
     }
 
     /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Lcom/kwad/sdk/api/KsNativeAd;Ljava/lang/String;Landroid/view/ViewGroup;Ljava/util/List<Landroid/view/View;>;Lc/g/b0/d/m$b;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
     public void f(KsNativeAd ksNativeAd, String str, ViewGroup viewGroup, List list, b bVar, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{ksNativeAd, str, viewGroup, list, bVar, funAdInteractionListener}) == null) {
-            this.f29244h.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
+            this.f28352h.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
             if (viewGroup instanceof FunNativeView) {
                 viewGroup = ((FunNativeView) viewGroup).getRoot();
             }

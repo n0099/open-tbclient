@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PlayerEvent extends VideoEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";

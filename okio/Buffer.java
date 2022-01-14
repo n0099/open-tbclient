@@ -1159,7 +1159,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             if (this.size != 0) {
                 byte b2 = getByte(0L);
-                if ((b2 & ByteCompanionObject.MIN_VALUE) == 0) {
+                if ((b2 & 128) == 0) {
                     i2 = b2 & ByteCompanionObject.MAX_VALUE;
                     i3 = 1;
                     i4 = 0;

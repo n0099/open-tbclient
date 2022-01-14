@@ -14,12 +14,12 @@ public class d implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7000c;
+    public static final boolean f6850c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.a.h0.q.c.a f7001b;
+    public final c.a.r0.a.h0.q.c.a f6851b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class d implements c {
                 return;
             }
         }
-        f7000c = k.a;
+        f6850c = k.a;
     }
 
     public d(int i2) {
@@ -53,14 +53,14 @@ public class d implements c {
             }
         }
         this.a = i2 >= 20 ? Math.min(i2, 300) : 20;
-        this.f7001b = new c.a.r0.a.h0.q.c.d(10);
+        this.f6851b = new c.a.r0.a.h0.q.c.d(10);
     }
 
     @Override // c.a.r0.a.h0.q.d.c
     public c.a.r0.a.h0.q.c.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7001b : (c.a.r0.a.h0.q.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6851b : (c.a.r0.a.h0.q.c.a) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.h0.q.d.c
@@ -78,16 +78,16 @@ public class d implements c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (f7000c) {
+            if (f6850c) {
                 String str4 = "prelink url - " + str3;
             }
-            c.a.r0.a.h0.q.c.b a = this.f7001b.a(str2, str3);
+            c.a.r0.a.h0.q.c.b a = this.f6851b.a(str2, str3);
             if (a == null) {
-                boolean z = f7000c;
+                boolean z = f6850c;
                 return true;
             }
-            boolean z2 = System.currentTimeMillis() - a.f6995b >= ((long) (this.a * 1000));
-            if (f7000c) {
+            boolean z2 = System.currentTimeMillis() - a.f6845b >= ((long) (this.a * 1000));
+            if (f6850c) {
                 String str5 = "url in LRU, time is out - " + z2;
             }
             return z2;

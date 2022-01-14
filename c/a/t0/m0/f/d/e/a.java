@@ -18,7 +18,7 @@ public final class a extends g<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Function1<Long, Boolean> f19763e;
+    public final Function1<Long, Boolean> f19250e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Function1<? super Long, Boolean> selfPredicate) {
@@ -40,7 +40,7 @@ public final class a extends g<String> {
             }
         }
         Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
-        this.f19763e = selfPredicate;
+        this.f19250e = selfPredicate;
     }
 
     @Override // c.a.t0.m0.f.d.e.g, c.a.t0.m0.f.d.e.b
@@ -53,7 +53,7 @@ public final class a extends g<String> {
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
             c.a.t0.m0.e.b e2 = item.e();
-            if (!this.f19763e.invoke(e2.o()).booleanValue()) {
+            if (!this.f19250e.invoke(e2.o()).booleanValue()) {
                 Set<String> d2 = d();
                 if (!(d2 instanceof Collection) || !d2.isEmpty()) {
                     for (String str : d2) {

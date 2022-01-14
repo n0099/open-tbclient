@@ -8,9 +8,9 @@ public class a {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3650b;
+    public static String f3596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3651c;
+    public static int f3597c;
     public transient /* synthetic */ FieldHolder $fh;
 }

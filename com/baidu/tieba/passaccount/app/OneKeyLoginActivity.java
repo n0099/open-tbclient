@@ -49,9 +49,9 @@ public class OneKeyLoginActivity extends BaseActivity {
             c cVar = new c();
             this.oneKeyLoginData = cVar;
             cVar.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-            this.oneKeyLoginData.f22295b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-            this.oneKeyLoginData.f22296c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-            this.oneKeyLoginData.f22297d = this.shareModelJSONStr;
+            this.oneKeyLoginData.f21683b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.oneKeyLoginData.f21684c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.oneKeyLoginData.f21685d = this.shareModelJSONStr;
         }
     }
 
@@ -93,7 +93,7 @@ public class OneKeyLoginActivity extends BaseActivity {
             this.view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);
             this.controller.i(false);
-            this.controller.k(c.a.s0.b.d.q());
+            this.controller.k(c.a.s0.b.d.n());
         }
     }
 }

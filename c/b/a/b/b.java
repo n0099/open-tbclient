@@ -39,7 +39,7 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             a<T>[] o = this.a.o();
-            int i2 = this.a.f28217f;
+            int i2 = this.a.f27361f;
             for (int i3 = 0; i3 < i2; i3++) {
                 o[i3].a(this, t);
             }

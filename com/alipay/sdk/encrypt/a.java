@@ -8,38 +8,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 128;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f31858b = 64;
+    public static final int f30859b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f31859c = 24;
+    public static final int f30860c = 24;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f31860d = 8;
+    public static final int f30861d = 8;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f31861e = 16;
+    public static final int f30862e = 16;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f31862f = 4;
+    public static final int f30863f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f31863g = -128;
+    public static final int f30864g = -128;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final char f31864h = '=';
+    public static final char f30865h = '=';
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f31865i;
+    public static final byte[] f30866i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final char[] f31866j;
+    public static final char[] f30867j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,14 +56,14 @@ public final class a {
                 return;
             }
         }
-        f31865i = new byte[128];
-        f31866j = new char[64];
+        f30866i = new byte[128];
+        f30867j = new char[64];
         int i4 = 0;
         for (int i5 = 0; i5 < 128; i5++) {
-            f31865i[i5] = -1;
+            f30866i[i5] = -1;
         }
         for (int i6 = 90; i6 >= 65; i6--) {
-            f31865i[i6] = (byte) (i6 - 65);
+            f30866i[i6] = (byte) (i6 - 65);
         }
         int i7 = 122;
         while (true) {
@@ -72,7 +71,7 @@ public final class a {
             if (i7 < 97) {
                 break;
             }
-            f31865i[i7] = (byte) ((i7 - 97) + 26);
+            f30866i[i7] = (byte) ((i7 - 97) + 26);
             i7--;
         }
         int i8 = 57;
@@ -81,27 +80,27 @@ public final class a {
             if (i8 < 48) {
                 break;
             }
-            f31865i[i8] = (byte) ((i8 - 48) + 52);
+            f30866i[i8] = (byte) ((i8 - 48) + 52);
             i8--;
         }
-        byte[] bArr = f31865i;
+        byte[] bArr = f30866i;
         bArr[43] = 62;
         bArr[47] = 63;
         for (int i9 = 0; i9 <= 25; i9++) {
-            f31866j[i9] = (char) (i9 + 65);
+            f30867j[i9] = (char) (i9 + 65);
         }
         int i10 = 0;
         while (i2 <= 51) {
-            f31866j[i2] = (char) (i10 + 97);
+            f30867j[i2] = (char) (i10 + 97);
             i2++;
             i10++;
         }
         while (i3 <= 61) {
-            f31866j[i3] = (char) (i4 + 48);
+            f30867j[i3] = (char) (i4 + 48);
             i3++;
             i4++;
         }
-        char[] cArr = f31866j;
+        char[] cArr = f30867j;
         cArr[62] = '+';
         cArr[63] = '/';
     }
@@ -123,7 +122,7 @@ public final class a {
     public static boolean a(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 128 && f31865i[c2] != -1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 128 && f30866i[c2] != -1 : invokeCommon.booleanValue;
     }
 
     public static boolean b(char c2) {
@@ -164,21 +163,21 @@ public final class a {
                 byte b4 = bArr[i8];
                 byte b5 = (byte) (b3 & 15);
                 byte b6 = (byte) (b2 & 3);
-                int i10 = b2 & ByteCompanionObject.MIN_VALUE;
+                int i10 = b2 & Byte.MIN_VALUE;
                 int i11 = b2 >> 2;
                 if (i10 != 0) {
                     i11 ^= 192;
                 }
                 byte b7 = (byte) i11;
-                int i12 = b3 & ByteCompanionObject.MIN_VALUE;
+                int i12 = b3 & Byte.MIN_VALUE;
                 int i13 = b3 >> 4;
                 if (i12 != 0) {
                     i13 ^= 240;
                 }
                 byte b8 = (byte) i13;
-                int i14 = (b4 & ByteCompanionObject.MIN_VALUE) == 0 ? b4 >> 6 : (b4 >> 6) ^ 252;
+                int i14 = (b4 & Byte.MIN_VALUE) == 0 ? b4 >> 6 : (b4 >> 6) ^ 252;
                 int i15 = i6 + 1;
-                char[] cArr2 = f31866j;
+                char[] cArr2 = f30867j;
                 cArr[i6] = cArr2[b7];
                 int i16 = i15 + 1;
                 cArr[i15] = cArr2[(b6 << 4) | b8];
@@ -192,41 +191,41 @@ public final class a {
             if (i2 == 8) {
                 byte b9 = bArr[i5];
                 byte b10 = (byte) (b9 & 3);
-                int i18 = b9 & ByteCompanionObject.MIN_VALUE;
+                int i18 = b9 & Byte.MIN_VALUE;
                 int i19 = b9 >> 2;
                 if (i18 != 0) {
                     i19 ^= 192;
                 }
                 int i20 = i6 + 1;
-                char[] cArr3 = f31866j;
+                char[] cArr3 = f30867j;
                 cArr[i6] = cArr3[(byte) i19];
                 int i21 = i20 + 1;
                 cArr[i20] = cArr3[b10 << 4];
-                cArr[i21] = f31864h;
-                cArr[i21 + 1] = f31864h;
+                cArr[i21] = f30865h;
+                cArr[i21 + 1] = f30865h;
             } else if (i2 == 16) {
                 byte b11 = bArr[i5];
                 byte b12 = bArr[i5 + 1];
                 byte b13 = (byte) (b12 & 15);
                 byte b14 = (byte) (b11 & 3);
-                int i22 = b11 & ByteCompanionObject.MIN_VALUE;
+                int i22 = b11 & Byte.MIN_VALUE;
                 int i23 = b11 >> 2;
                 if (i22 != 0) {
                     i23 ^= 192;
                 }
                 byte b15 = (byte) i23;
-                int i24 = b12 & ByteCompanionObject.MIN_VALUE;
+                int i24 = b12 & Byte.MIN_VALUE;
                 int i25 = b12 >> 4;
                 if (i24 != 0) {
                     i25 ^= 240;
                 }
                 int i26 = i6 + 1;
-                char[] cArr4 = f31866j;
+                char[] cArr4 = f30867j;
                 cArr[i6] = cArr4[b15];
                 int i27 = i26 + 1;
                 cArr[i26] = cArr4[((byte) i25) | (b14 << 4)];
                 cArr[i27] = cArr4[b13 << 2];
-                cArr[i27 + 1] = f31864h;
+                cArr[i27 + 1] = f30865h;
             }
             return new String(cArr);
         }
@@ -266,7 +265,7 @@ public final class a {
                             int i9 = i8 + 1;
                             char c5 = charArray[i8];
                             if (a(c5)) {
-                                byte[] bArr2 = f31865i;
+                                byte[] bArr2 = f30866i;
                                 byte b2 = bArr2[c2];
                                 byte b3 = bArr2[c3];
                                 byte b4 = bArr2[c4];
@@ -291,14 +290,14 @@ public final class a {
                 int i13 = i12 + 1;
                 char c7 = charArray[i12];
                 if (a(c7)) {
-                    byte[] bArr3 = f31865i;
+                    byte[] bArr3 = f30866i;
                     byte b6 = bArr3[c6];
                     byte b7 = bArr3[c7];
                     int i14 = i13 + 1;
                     char c8 = charArray[i13];
                     char c9 = charArray[i14];
                     if (a(c8) && a(c9)) {
-                        byte[] bArr4 = f31865i;
+                        byte[] bArr4 = f30866i;
                         byte b8 = bArr4[c8];
                         byte b9 = bArr4[c9];
                         int i15 = i5 + 1;
@@ -318,7 +317,7 @@ public final class a {
                     } else if (b(c8) || !b(c9)) {
                         return null;
                     } else {
-                        byte b10 = f31865i[c8];
+                        byte b10 = f30866i[c8];
                         if ((b10 & 3) != 0) {
                             return null;
                         }

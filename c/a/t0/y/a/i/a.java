@@ -1,7 +1,8 @@
 package c.a.t0.y.a.i;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -15,16 +16,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f26425b = "5";
+    public static String f25641b = "5";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f26426c = "6";
+    public static String f25642c = "6";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +46,7 @@ public class a {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(c.a.t0.y.a.h.a.f26421b);
+            File file = new File(c.a.t0.y.a.h.a.f25637b);
             if (file.exists()) {
                 FileHelper.deleteFileOrDir(file);
             }
@@ -56,7 +57,7 @@ public class a {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File file2 = new File(c.a.t0.y.a.h.a.f26421b);
+            File file2 = new File(c.a.t0.y.a.h.a.f25637b);
             if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
                 return;
             }
@@ -85,8 +86,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long l = b.j().l("key_splash_timeout_config", 2000L);
-            return SplashDealyTimeoutSwitch.isOpen() ? l > 0 ? l : 2000L : c.a.t0.y.a.g.a.c().e() ? 1400L : 1000L;
+            long m = b.k().m("key_splash_timeout_config", 2000L);
+            return SplashDealyTimeoutSwitch.isOpen() ? m > 0 ? m : 2000L : c.a.t0.y.a.g.a.c().e() ? 1400L : 1000L;
         }
         return invokeV.longValue;
     }
@@ -124,31 +125,35 @@ public class a {
         }
     }
 
-    public static void i(String str) {
+    public static void i(String str, String str2, String str3, int i2, int i3, boolean z, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", str).param("obj_locate", 2).param("obj_type", "a064").eventStat();
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param(TiebaStatic.Params.RESOURCE_ID, Math.max(i3, 0)).param("aid", z ? 2 : 1).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", j2);
+            if (!StringUtils.isNull(str3)) {
+                param.param(TiebaStatic.Params.OBJ_PARAM2, i2);
+                param.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+            }
+            TiebaStatic.log(param);
         }
     }
 
-    public static void j(String str, String str2, int i2) {
+    public static void j(String str, String str2, String str3, String str4, String str5, String str6, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65546, null, str, str2, i2) == null) {
-            StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param(TiebaStatic.Params.RESOURCE_ID, Math.max(i2, 0)).eventStat();
-        }
-    }
-
-    public static void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).eventStat();
-        }
-    }
-
-    public static void l(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, str, str2, str3, str4) == null) {
-            StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param(TiebaStatic.Params.OBJ_TO, str3).param(TiebaStatic.Params.OBJ_PARAM2, str4).eventStat();
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, str4, str5, str6, Long.valueOf(j2)}) == null) {
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", j2);
+            if (!StringUtils.isNull(str4)) {
+                param.param(TiebaStatic.Params.OBJ_TO, str4);
+            }
+            if (!StringUtils.isNull(str3)) {
+                param.param("topic_id", str3);
+            }
+            if (!StringUtils.isNull(str5)) {
+                param.param("nid", str5);
+            }
+            if (!StringUtils.isNull(str6)) {
+                param.param(TiebaStatic.Params.OBJ_PARAM2, str6);
+            }
+            TiebaStatic.log(param);
         }
     }
 }

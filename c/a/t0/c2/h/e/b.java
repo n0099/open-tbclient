@@ -14,28 +14,26 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
 public class b implements n {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f15796k;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f15797e;
+    public Long f15398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15798f;
+    public String f15399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15799g;
+    public String f15400g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f15800h;
+    public Integer f15401h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f15801i;
+    public Integer f15402i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15802j;
+    public String f15403j;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +48,7 @@ public class b implements n {
                 return;
             }
         }
-        f15796k = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public b() {
@@ -70,55 +68,55 @@ public class b implements n {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15799g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15400g : (String) invokeV.objValue;
     }
 
     public Long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15797e : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15398e : (Long) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15798f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15399f : (String) invokeV.objValue;
     }
 
     public Integer g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15801i : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15402i : (Integer) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f15796k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15802j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15403j : (String) invokeV.objValue;
     }
 
     public Integer i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15800h : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15401h : (Integer) invokeV.objValue;
     }
 
     public void k(RecommendForumInfo recommendForumInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, recommendForumInfo) == null) {
-            this.f15799g = recommendForumInfo.avatar;
-            this.f15797e = recommendForumInfo.forum_id;
-            this.f15798f = recommendForumInfo.forum_name;
-            this.f15800h = recommendForumInfo.thread_count;
-            this.f15801i = recommendForumInfo.member_count;
-            this.f15802j = recommendForumInfo.slogan;
+            this.f15400g = recommendForumInfo.avatar;
+            this.f15398e = recommendForumInfo.forum_id;
+            this.f15399f = recommendForumInfo.forum_name;
+            this.f15401h = recommendForumInfo.thread_count;
+            this.f15402i = recommendForumInfo.member_count;
+            this.f15403j = recommendForumInfo.slogan;
         }
     }
 }

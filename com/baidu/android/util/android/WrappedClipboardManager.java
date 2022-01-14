@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class WrappedClipboardManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @TargetApi(11)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class HoneycombClipboardManager extends WrappedClipboardManager {
         public static /* synthetic */ Interceptable $ic;
         public static ClipData sClipData;

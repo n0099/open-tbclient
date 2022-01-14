@@ -29,7 +29,7 @@ public class e implements i.b {
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f53778b;
+    public Long f51722b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -140,7 +140,7 @@ public class e implements i.b {
             LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f53778b = valueOf;
+            this.f51722b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
             i.a().c(context);
         }
@@ -159,7 +159,7 @@ public class e implements i.b {
                 return;
             }
         }
-        this.f53778b = -1L;
+        this.f51722b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
@@ -192,10 +192,10 @@ public class e implements i.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, context, i2)) == null) {
-            if (this.f53778b.longValue() == -1) {
-                this.f53778b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            if (this.f51722b.longValue() == -1) {
+                this.f51722b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f53778b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f51722b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }
@@ -206,11 +206,11 @@ public class e implements i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
             if (langbridgeSettings.MW_BHM_ON && b(context, langbridgeSettings.MW_BHM_COLD_TIME)) {
-                LangbridgeSettings m94clone = langbridgeSettings.m94clone();
-                m94clone.MW_ON = false;
-                m94clone.MW_USE_OLD = true;
+                LangbridgeSettings m104clone = langbridgeSettings.m104clone();
+                m104clone.MW_ON = false;
+                m104clone.MW_USE_OLD = true;
                 LogUtil.d("LangbridgeSettings", "");
-                return m94clone;
+                return m104clone;
             }
             return langbridgeSettings;
         }

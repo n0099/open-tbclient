@@ -20,15 +20,15 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8782c;
+    public static final boolean f8589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f8783d;
+    public static volatile i f8590d;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<h> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f8784b;
+    public g f8591b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -36,7 +36,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Semaphore f8785e;
+        public final /* synthetic */ Semaphore f8592e;
 
         public a(i iVar, Semaphore semaphore) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class i {
                     return;
                 }
             }
-            this.f8785e = semaphore;
+            this.f8592e = semaphore;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8785e.release();
+                this.f8592e.release();
             }
         }
     }
@@ -78,7 +78,7 @@ public class i {
                 return;
             }
         }
-        f8782c = c.a.r0.a.k.a;
+        f8589c = c.a.r0.a.k.a;
     }
 
     public i() {
@@ -95,21 +95,21 @@ public class i {
             }
         }
         this.a = new ArrayList<>();
-        this.f8784b = new g();
+        this.f8591b = new g();
     }
 
     public static i d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f8783d == null) {
+            if (f8590d == null) {
                 synchronized (i.class) {
-                    if (f8783d == null) {
-                        f8783d = new i();
+                    if (f8590d == null) {
+                        f8590d = new i();
                     }
                 }
             }
-            return f8783d;
+            return f8590d;
         }
         return (i) invokeV.objValue;
     }
@@ -118,9 +118,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (i.class) {
-                if (f8783d != null) {
-                    f8783d.f();
-                    f8783d = null;
+                if (f8590d != null) {
+                    f8590d.f();
+                    f8590d = null;
                 }
             }
         }
@@ -129,7 +129,7 @@ public class i {
     public final void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hVar, arrayList) == null) {
-            if (f8782c) {
+            if (f8589c) {
                 String str = "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.a.size();
             }
             Iterator<h> it = arrayList.iterator();
@@ -153,7 +153,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, semaphore, strArr)) == null) {
             synchronized (this) {
-                ArrayList<h> c2 = this.f8784b.c(strArr);
+                ArrayList<h> c2 = this.f8591b.c(strArr);
                 if (c2 != null && c2.size() != 0) {
                     a(b(semaphore), c2);
                     return true;
@@ -174,7 +174,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                this.f8784b.b();
+                this.f8591b.b();
                 Iterator<h> it = this.a.iterator();
                 while (it.hasNext()) {
                     h next = it.next();
@@ -194,9 +194,9 @@ public class i {
                 if (hVar == null) {
                     return;
                 }
-                this.f8784b.d(hVar, hVar.b());
+                this.f8591b.d(hVar, hVar.b());
                 if (hVar.e()) {
-                    if (f8782c) {
+                    if (f8589c) {
                         String str = "onTaskComplete: " + hVar + "," + this.a.size();
                     }
                     for (int size = this.a.size() - 1; size >= 0; size--) {
@@ -217,8 +217,8 @@ public class i {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, runnable, str, strArr) == null) {
             synchronized (this) {
                 h hVar = new h(this, runnable, str, strArr);
-                ArrayList<h> c2 = this.f8784b.c(strArr);
-                this.f8784b.a(hVar, strArr);
+                ArrayList<h> c2 = this.f8591b.c(strArr);
+                this.f8591b.a(hVar, strArr);
                 if (c2 != null && c2.size() != 0) {
                     a(hVar, c2);
                 }
@@ -233,7 +233,7 @@ public class i {
             try {
                 semaphore.tryAcquire(10L, TimeUnit.SECONDS);
             } catch (Exception e2) {
-                if (f8782c) {
+                if (f8589c) {
                     String str = "semaphore.acquire: " + e2;
                 }
             }
@@ -245,7 +245,7 @@ public class i {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr) == null) {
             Semaphore semaphore = new Semaphore(0);
             if (c(semaphore, strArr)) {
-                if (f8782c) {
+                if (f8589c) {
                     String str = "waitIfHasPathDependence: " + Arrays.toString(strArr);
                 }
                 j(semaphore);

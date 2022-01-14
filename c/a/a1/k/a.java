@@ -13,7 +13,7 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1219b;
+    public int f1214b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a {
             }
         }
         this.a = 10;
-        this.f1219b = 2;
+        this.f1214b = 2;
     }
 
     public int a() {
@@ -41,6 +41,6 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1219b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1214b : invokeV.intValue;
     }
 }

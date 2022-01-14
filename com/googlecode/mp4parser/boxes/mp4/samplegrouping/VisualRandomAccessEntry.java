@@ -87,7 +87,7 @@ public class VisualRandomAccessEntry extends GroupEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, byteBuffer) == null) {
             byte b2 = byteBuffer.get();
-            this.numLeadingSamplesKnown = (b2 & ByteCompanionObject.MIN_VALUE) == 128;
+            this.numLeadingSamplesKnown = (b2 & 128) == 128;
             this.numLeadingSamples = (short) (b2 & ByteCompanionObject.MAX_VALUE);
         }
     }

@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import c.a.c0.h0.f0.a;
+import c.a.c0.k0.b0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,10 +20,10 @@ public class BdBaseImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38434e;
+    public boolean f37220e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38435f;
+    public int f37221f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseImageView(Context context) {
@@ -43,8 +43,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f38434e = true;
-        this.f38435f = 0;
+        this.f37220e = true;
+        this.f37221f = 0;
     }
 
     public final boolean a() {
@@ -56,7 +56,7 @@ public class BdBaseImageView extends ImageView {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38434e || this.f38435f != a.e(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37220e || this.f37221f != a.e(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -66,8 +66,8 @@ public class BdBaseImageView extends ImageView {
             try {
                 if (b()) {
                     a.c(getContext(), getDrawable());
-                    this.f38435f = a.e(getContext());
-                    this.f38434e = false;
+                    this.f37221f = a.e(getContext());
+                    this.f37220e = false;
                 }
                 super.draw(canvas);
             } catch (Throwable unused) {
@@ -91,7 +91,7 @@ public class BdBaseImageView extends ImageView {
     public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f38434e = true;
+            this.f37220e = true;
             super.setImageDrawable(drawable);
         }
     }
@@ -115,8 +115,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f38434e = true;
-        this.f38435f = 0;
+        this.f37220e = true;
+        this.f37221f = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f38434e = true;
-        this.f38435f = 0;
+        this.f37220e = true;
+        this.f37221f = 0;
     }
 }

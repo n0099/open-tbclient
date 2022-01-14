@@ -18,10 +18,10 @@ public class m {
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.f2.c.j.i f17931b;
+    public c.a.t0.f2.c.j.i f17497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedHashMap<String, c> f17932c;
+    public LinkedHashMap<String, c> f17498c;
 
     public m(DataRes dataRes) {
         Interceptable interceptable = $ic;
@@ -52,17 +52,17 @@ public class m {
         new p(dataRes.rank, dataRes.user);
         new g(dataRes.daily_list);
         c.a.t0.f2.c.j.i iVar = new c.a.t0.f2.c.j.i();
-        this.f17931b = iVar;
+        this.f17497b = iVar;
         iVar.l(dataRes);
         List<VipBasicList> list = dataRes.basic_list;
         if (list != null && list.size() > 0) {
-            this.f17932c = new LinkedHashMap<>();
+            this.f17498c = new LinkedHashMap<>();
             for (VipBasicList vipBasicList : dataRes.basic_list) {
                 List<VipSpecialItem> list2 = vipBasicList.item;
                 if (list2 != null && list2.size() > 0) {
                     c cVar = new c(vipBasicList);
-                    if (cVar.f17879g != 3 || cVar.d().size() >= 2) {
-                        this.f17932c.put(cVar.f17881i, cVar);
+                    if (cVar.f17446g != 3 || cVar.d().size() >= 2) {
+                        this.f17498c.put(cVar.f17448i, cVar);
                     }
                 }
             }

@@ -503,10 +503,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 this.mDatas.getChatMessages().remove(i3);
                 if (i3 == size - 1 && (cacheInfo = getCacheInfo()) != null) {
                     MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
-                    aVar.f46791b = cacheInfo.customGroupType;
+                    aVar.f45061b = cacheInfo.customGroupType;
                     aVar.a = cacheInfo.id;
-                    aVar.f46792c = chatMessage2;
-                    aVar.f46793d = 2;
+                    aVar.f45062c = chatMessage2;
+                    aVar.f45063d = 2;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
                 }
             }
@@ -832,8 +832,8 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 }
                 long j2 = this.mId;
                 if (j2 == 0 || j2 == c.a.d.f.m.b.g(loadHistoryResponsedMessage.getData().a, 0L)) {
-                    List<ChatMessage> list = loadHistoryResponsedMessage.getData().f46788b;
-                    boolean z = loadHistoryResponsedMessage.getData().f46789c;
+                    List<ChatMessage> list = loadHistoryResponsedMessage.getData().f45058b;
+                    boolean z = loadHistoryResponsedMessage.getData().f45059c;
                     int mergeList = mergeList(this.mDatas.getChatMessages(), list);
                     if (mergeList > 0) {
                         this.mDatas.setIsNewAdd(true);

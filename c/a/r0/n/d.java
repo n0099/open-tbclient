@@ -15,10 +15,10 @@ public class d implements Interpolator {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final PointF f11691b;
+    public final PointF f11428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PointF f11692c;
+    public final PointF f11429c;
 
     public d(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public class d implements Interpolator {
             }
         }
         this.a = 0;
-        this.f11691b = new PointF();
+        this.f11428b = new PointF();
         PointF pointF = new PointF();
-        this.f11692c = pointF;
-        PointF pointF2 = this.f11691b;
+        this.f11429c = pointF;
+        PointF pointF2 = this.f11428b;
         pointF2.x = f2;
         pointF2.y = f3;
         pointF.x = f4;
@@ -70,13 +70,13 @@ public class d implements Interpolator {
                     break;
                 }
                 f3 = (i2 * 1.0f) / 4096.0f;
-                if (a(f3, 0.0d, this.f11691b.x, this.f11692c.x, 1.0d) >= f2) {
+                if (a(f3, 0.0d, this.f11428b.x, this.f11429c.x, 1.0d) >= f2) {
                     this.a = i2;
                     break;
                 }
                 i2++;
             }
-            double a = a(f3, 0.0d, this.f11691b.y, this.f11692c.y, 1.0d);
+            double a = a(f3, 0.0d, this.f11428b.y, this.f11429c.y, 1.0d);
             if (a > 0.999d) {
                 a = 1.0d;
                 this.a = 0;

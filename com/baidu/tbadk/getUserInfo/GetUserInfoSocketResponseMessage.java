@@ -52,7 +52,7 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
             super.afterDispatchInBackGround(i2, (int) bArr);
             a aVar = this.mData;
             if (aVar != null && aVar.a() != null) {
-                b.a().e(this.mData.a());
+                b.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }

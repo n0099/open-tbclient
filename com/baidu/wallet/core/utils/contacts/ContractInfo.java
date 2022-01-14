@@ -15,10 +15,10 @@ public class ContractInfo {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53033b;
+    public String f50990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53034c;
+    public int f50991c;
 
     public ContractInfo() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class ContractInfo {
             }
         }
         this.a = "";
-        this.f53033b = "";
-        this.f53034c = -1;
+        this.f50990b = "";
+        this.f50991c = -1;
     }
 
     public boolean equals(Object obj) {
@@ -47,12 +47,12 @@ public class ContractInfo {
             }
             if (obj != null && ContractInfo.class == obj.getClass()) {
                 ContractInfo contractInfo = (ContractInfo) obj;
-                String str = this.f53033b;
+                String str = this.f50990b;
                 if (str == null) {
-                    if (contractInfo.f53033b != null) {
+                    if (contractInfo.f50990b != null) {
                         return false;
                     }
-                } else if (!str.equals(contractInfo.f53033b)) {
+                } else if (!str.equals(contractInfo.f50990b)) {
                     return false;
                 }
                 String str2 = this.a;
@@ -73,13 +73,13 @@ public class ContractInfo {
     public int getErrordigit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53034c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50991c : invokeV.intValue;
     }
 
     public String getMobile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53033b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50990b : (String) invokeV.objValue;
     }
 
     public String getName() {
@@ -92,7 +92,7 @@ public class ContractInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.f53033b;
+            String str = this.f50990b;
             int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
             String str2 = this.a;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
@@ -103,14 +103,14 @@ public class ContractInfo {
     public void setErrordigit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f53034c = i2;
+            this.f50991c = i2;
         }
     }
 
     public void setMobile(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f53033b = str;
+            this.f50990b = str;
         }
     }
 
@@ -125,7 +125,7 @@ public class ContractInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "通讯录 [name=" + this.a + ", mobile=" + this.f53033b + PreferencesUtil.RIGHT_MOUNT;
+            return "通讯录 [name=" + this.a + ", mobile=" + this.f50990b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -146,9 +146,9 @@ public class ContractInfo {
             }
         }
         this.a = "";
-        this.f53033b = "";
-        this.f53034c = -1;
-        this.f53033b = str;
+        this.f50990b = "";
+        this.f50991c = -1;
+        this.f50990b = str;
         this.a = "";
     }
 
@@ -168,9 +168,9 @@ public class ContractInfo {
             }
         }
         this.a = "";
-        this.f53033b = "";
-        this.f53034c = -1;
-        this.f53033b = str;
+        this.f50990b = "";
+        this.f50991c = -1;
+        this.f50990b = str;
         this.a = str2;
     }
 }

@@ -12,16 +12,16 @@ public class a {
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18599b;
+    public String f18135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18600c;
+    public String f18136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f18601d;
+    public ArrayList<String> f18137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18602e;
+    public boolean f18138e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,6 +36,6 @@ public class a {
                 return;
             }
         }
-        this.f18602e = false;
+        this.f18138e = false;
     }
 }

@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.ala.data.SdkLiveInfoData;
@@ -79,17 +79,17 @@ public class c {
         urlManager.dealOneLink(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1&from=" + str});
     }
 
-    public static void g(Context context, d2 d2Var, String str) {
+    public static void g(Context context, e2 e2Var, String str) {
         String str2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, context, d2Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, context, e2Var, str) == null) {
             if (!l.z()) {
-                n.J(context, context.getString(R.string.no_network_guide));
-            } else if (context == null || d2Var == null || d2Var.J() == null || d2Var.o1() == null) {
+                n.K(context, context.getString(R.string.no_network_guide));
+            } else if (context == null || e2Var == null || e2Var.J() == null || e2Var.o1() == null) {
             } else {
                 if (TbadkCoreApplication.getCurrentAccount() != null) {
-                    String userId = d2Var.J().getUserId();
+                    String userId = e2Var.J().getUserId();
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     z = TextUtils.equals(userId, currentAccount);
                     str2 = currentAccount;
@@ -98,7 +98,7 @@ public class c {
                     z = false;
                 }
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.fillWithInfoData(d2Var.o1());
+                alaLiveInfoCoreData.fillWithInfoData(e2Var.o1());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
             }
         }
@@ -130,10 +130,10 @@ public class c {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MAIN, TbadkCoreApplication.getCurrentAccount(), false, "", null)));
     }
 
-    public static void i(Context context, d2 d2Var) {
+    public static void i(Context context, e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, d2Var) == null) {
-            g(context, d2Var, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
+        if (interceptable == null || interceptable.invokeLL(65544, null, context, e2Var) == null) {
+            g(context, e2Var, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
         }
     }
 

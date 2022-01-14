@@ -16,7 +16,7 @@ public class w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public v f37143b;
+    public v f35920b;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +70,7 @@ public class w {
                         return;
                 }
             }
-            v vVar = this.f37143b;
+            v vVar = this.f35920b;
             if (vVar != null) {
                 vVar.a(message.arg1, message.arg2);
             }
@@ -80,14 +80,14 @@ public class w {
     public void a(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) {
-            this.f37143b = vVar;
+            this.f35920b = vVar;
         }
     }
 
     public void b(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vVar) == null) {
-            this.f37143b = null;
+            this.f35920b = null;
         }
     }
 }

@@ -19,19 +19,19 @@ public class BdProgressDialog extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41571e;
+    public String f40148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41572f;
+    public TextView f40149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41573g;
+    public TextView f40150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CircleView f41574h;
+    public CircleView f40151h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f41575i;
+    public FrameLayout f40152i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdProgressDialog(Context context) {
@@ -56,8 +56,8 @@ public class BdProgressDialog extends AlertDialog {
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f41571e = str;
-            TextView textView = this.f41573g;
+            this.f40148e = str;
+            TextView textView = this.f40150g;
             if (textView != null) {
                 textView.setText(str);
             }
@@ -67,11 +67,11 @@ public class BdProgressDialog extends AlertDialog {
     public void setPercent(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            TextView textView = this.f41572f;
+            TextView textView = this.f40149f;
             if (textView != null) {
                 textView.setText(i2 + "%");
             }
-            CircleView circleView = this.f41574h;
+            CircleView circleView = this.f40151h;
             if (circleView != null) {
                 circleView.setProgress(i2);
             }
@@ -87,17 +87,17 @@ public class BdProgressDialog extends AlertDialog {
             if (window != null) {
                 window.setContentView(R.layout.post_video_progress_dialog);
                 FrameLayout frameLayout = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
-                this.f41575i = frameLayout;
+                this.f40152i = frameLayout;
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
                 layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-                this.f41575i.setLayoutParams(layoutParams);
-                if (!StringUtils.isNull(this.f41571e)) {
+                this.f40152i.setLayoutParams(layoutParams);
+                if (!StringUtils.isNull(this.f40148e)) {
                     TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                    this.f41573g = textView;
-                    textView.setText(this.f41571e);
+                    this.f40150g = textView;
+                    textView.setText(this.f40148e);
                 }
-                this.f41572f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-                this.f41574h = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+                this.f40149f = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+                this.f40151h = (CircleView) window.findViewById(R.id.circle_progress_dialog);
             }
         }
     }

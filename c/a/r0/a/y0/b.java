@@ -20,25 +20,25 @@ public abstract class b<W extends d> implements ZeusPlugin {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9799g;
+    public static final boolean f9585g;
     public transient /* synthetic */ FieldHolder $fh;
     public c<W> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusPlugin.Callback f9800b;
+    public ZeusPlugin.Callback f9586b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public W f9801c;
+    public W f9587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9802d;
+    public boolean f9588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<ZeusPlugin.Command> f9803e;
+    public final List<ZeusPlugin.Command> f9589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a f9804f;
+    public d.a f9590f;
 
     /* loaded from: classes.dex */
     public class a implements d.a {
@@ -69,10 +69,10 @@ public abstract class b<W extends d> implements ZeusPlugin {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 synchronized (this.a) {
-                    boolean unused = b.f9799g;
+                    boolean unused = b.f9585g;
                     this.a.d();
-                    this.a.f9802d = true;
-                    boolean unused2 = b.f9799g;
+                    this.a.f9588d = true;
+                    boolean unused2 = b.f9585g;
                 }
             }
         }
@@ -91,7 +91,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 return;
             }
         }
-        f9799g = k.a;
+        f9585g = k.a;
     }
 
     public b(@NonNull W w) {
@@ -109,27 +109,27 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 return;
             }
         }
-        this.f9802d = false;
-        this.f9803e = new ArrayList();
-        this.f9804f = new a(this);
+        this.f9588d = false;
+        this.f9589e = new ArrayList();
+        this.f9590f = new a(this);
         this.a = new c<>();
-        this.f9801c = w;
-        boolean z = f9799g;
-        this.f9801c.A(this.f9804f);
+        this.f9587c = w;
+        boolean z = f9585g;
+        this.f9587c.A(this.f9590f);
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9803e.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9589e.size() == 0) {
             return;
         }
-        Iterator<ZeusPlugin.Command> it = this.f9803e.iterator();
+        Iterator<ZeusPlugin.Command> it = this.f9589e.iterator();
         while (it.hasNext()) {
             ZeusPlugin.Command next = it.next();
-            if (f9799g) {
+            if (f9585g) {
                 String str = "flush-尝试分发Command: + " + next.what;
             }
-            this.a.b(next, this.f9801c);
+            this.a.b(next, this.f9587c);
             it.remove();
         }
     }
@@ -142,11 +142,11 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 if (command == null) {
                     return;
                 }
-                if (this.f9802d) {
-                    if (f9799g) {
+                if (this.f9588d) {
+                    if (f9585g) {
                         String str = "组件已初始化，直接尝试分发Command: + " + command.what;
                     }
-                    this.a.b(command, this.f9801c);
+                    this.a.b(command, this.f9587c);
                 } else {
                     ZeusPlugin.Command command2 = new ZeusPlugin.Command();
                     command2.what = command.what;
@@ -156,8 +156,8 @@ public abstract class b<W extends d> implements ZeusPlugin {
                     command2.arg4 = command.arg4;
                     command2.arg5 = command.arg5;
                     command2.obj = command.obj;
-                    this.f9803e.add(command2);
-                    if (f9799g) {
+                    this.f9589e.add(command2);
+                    if (f9585g) {
                         String str2 = "组件未初始化，加入Pending队列： " + command2.what;
                     }
                     this.a.c(command);
@@ -170,7 +170,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
     public void setCallback(ZeusPlugin.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.f9800b = callback;
+            this.f9586b = callback;
         }
     }
 }

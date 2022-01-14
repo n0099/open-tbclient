@@ -34,25 +34,23 @@ public class EmotionButton extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50997e;
+    public int f49053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50998f;
+    public int f49054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50999g;
+    public int f49055g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51000h;
+    public int f49056h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51001i;
+    public int f49057i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51002j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Paint f51003k;
+    public int f49058j;
+    public Paint k;
     public TextPaint l;
     public RectF m;
     public int n;
@@ -68,7 +66,7 @@ public class EmotionButton extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionButton f51004e;
+        public final /* synthetic */ EmotionButton f49059e;
 
         public a(EmotionButton emotionButton) {
             Interceptable interceptable = $ic;
@@ -85,7 +83,7 @@ public class EmotionButton extends View {
                     return;
                 }
             }
-            this.f51004e = emotionButton;
+            this.f49059e = emotionButton;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -95,7 +93,7 @@ public class EmotionButton extends View {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
                     int unused = EmotionButton.u = motionEvent.getAction();
-                    this.f51004e.invalidate();
+                    this.f49059e.invalidate();
                     return false;
                 }
                 return false;
@@ -145,8 +143,8 @@ public class EmotionButton extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f51003k.setShader(this.p);
-            this.f51003k.setShadowLayer(t, 2.0f, 2.0f, this.f50997e);
+            this.k.setShader(this.p);
+            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f49053e);
             if (this.m == null) {
                 this.m = new RectF();
             }
@@ -155,7 +153,7 @@ public class EmotionButton extends View {
             rectF.top = 10.0f;
             rectF.right = this.n - 5;
             rectF.bottom = this.o - 10;
-            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.f51003k);
+            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.k);
             if (TextUtils.isEmpty(this.r)) {
                 return;
             }
@@ -167,8 +165,8 @@ public class EmotionButton extends View {
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f51003k.setShader(this.q);
-            this.f51003k.setShadowLayer(t, 2.0f, 2.0f, this.f51000h);
+            this.k.setShader(this.q);
+            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f49056h);
             if (this.m == null) {
                 this.m = new RectF();
             }
@@ -177,7 +175,7 @@ public class EmotionButton extends View {
             rectF.top = 10.0f;
             rectF.right = this.n - 5;
             rectF.bottom = this.o - 10;
-            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.f51003k);
+            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.k);
             if (TextUtils.isEmpty(this.r)) {
                 return;
             }
@@ -189,14 +187,14 @@ public class EmotionButton extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f50997e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f50998f = SkinManager.getColor(R.color.CAM_X0302);
-            this.f50999g = SkinManager.getColor(R.color.CAM_X0303);
-            this.f51000h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f51001i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f51002j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
+            this.f49053e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f49054f = SkinManager.getColor(R.color.CAM_X0302);
+            this.f49055g = SkinManager.getColor(R.color.CAM_X0303);
+            this.f49056h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f49057i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f49058j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
             Paint paint = new Paint();
-            this.f51003k = paint;
+            this.k = paint;
             paint.setStyle(Paint.Style.FILL);
             TextPaint textPaint = new TextPaint(1);
             this.l = textPaint;
@@ -246,8 +244,8 @@ public class EmotionButton extends View {
             super.onSizeChanged(i2, i3, i4, i5);
             this.n = i2;
             this.o = i3;
-            this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f50999g, this.f50998f, Shader.TileMode.MIRROR);
-            this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f51002j, this.f51001i, Shader.TileMode.MIRROR);
+            this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f49055g, this.f49054f, Shader.TileMode.MIRROR);
+            this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f49058j, this.f49057i, Shader.TileMode.MIRROR);
         }
     }
 

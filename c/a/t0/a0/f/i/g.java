@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.s0.e1.o0;
-import c.a.s0.s.q.d2;
-import c.a.s0.s.q.k2;
+import c.a.s0.s.q.e2;
+import c.a.s0.s.q.l2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -39,7 +39,7 @@ public class g extends c.a.t0.g0.b<c.a.t0.a0.f.a.g> {
     public boolean G;
     public int H;
     public int I;
-    public k2 J;
+    public l2 J;
     public a K;
     public b L;
     public TextView M;
@@ -158,14 +158,14 @@ public class g extends c.a.t0.g0.b<c.a.t0.a0.f.a.g> {
             this.C = (TextView) j().findViewById(R.id.tvNewCount);
             this.D = (TextView) j().findViewById(R.id.tvSquareNewTitle);
             this.A.setIsRound(true);
-            this.C.setCompoundDrawablesWithIntrinsicBounds(this.f18211g.getResources().getDrawable(R.drawable.icon_home_card_like_grey), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.C.setCompoundDrawablesWithIntrinsicBounds(this.f17768g.getResources().getDrawable(R.drawable.icon_home_card_like_grey), (Drawable) null, (Drawable) null, (Drawable) null);
             this.n.setDefaultBgResource(c.a.t0.a0.f.i.a.a());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.t.getLayoutParams();
-            int k2 = n.k(this.f18211g) / 2;
-            this.H = k2;
-            int i2 = (k2 * 9) / 16;
+            int k = n.k(this.f17768g) / 2;
+            this.H = k;
+            int i2 = (k * 9) / 16;
             this.I = i2;
-            layoutParams.width = k2;
+            layoutParams.width = k;
             layoutParams.height = i2;
             this.t.setLayoutParams(layoutParams);
             this.q.setImageResource(R.drawable.icon_video_recommend_like);
@@ -177,9 +177,9 @@ public class g extends c.a.t0.g0.b<c.a.t0.a0.f.a.g> {
     @Override // c.a.t0.g0.b
     /* renamed from: q */
     public void k(c.a.t0.a0.f.a.g gVar) {
-        d2 d2Var;
+        e2 e2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14701e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14351e == null) {
             return;
         }
         this.F = gVar;
@@ -187,49 +187,49 @@ public class g extends c.a.t0.g0.b<c.a.t0.a0.f.a.g> {
         this.q.setVisibility(0);
         if (this.G) {
             int i2 = this.I;
-            if (gVar != null && (d2Var = gVar.f14701e) != null && d2Var.t1() != null && gVar.f14701e.t1().thumbnail_width != null && gVar.f14701e.t1().thumbnail_width.intValue() > 0) {
-                i2 = (this.H * gVar.f14701e.t1().thumbnail_height.intValue()) / gVar.f14701e.t1().thumbnail_width.intValue();
+            if (gVar != null && (e2Var = gVar.f14351e) != null && e2Var.t1() != null && gVar.f14351e.t1().thumbnail_width != null && gVar.f14351e.t1().thumbnail_width.intValue() > 0) {
+                i2 = (this.H * gVar.f14351e.t1().thumbnail_height.intValue()) / gVar.f14351e.t1().thumbnail_width.intValue();
             }
             ViewGroup.LayoutParams layoutParams = this.t.getLayoutParams();
             layoutParams.width = this.H;
             layoutParams.height = i2;
             this.t.setLayoutParams(layoutParams);
         }
-        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(gVar.f14701e.C());
+        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(gVar.f14351e.C());
         this.r.setText(numberUniformFormatExtra);
         this.u.setVisibility(0);
-        this.u.setData(gVar.f14701e);
+        this.u.setData(gVar.f14351e);
         this.u.setIsRound(true);
-        this.y.setText(gVar.f14701e.getTitle());
-        this.n.startLoad(gVar.f14701e.t1().thumbnail_url, 10, false);
+        this.y.setText(gVar.f14351e.getTitle());
+        this.n.startLoad(gVar.f14351e.t1().thumbnail_url, 10, false);
         this.v.setVisibility(0);
-        this.J = gVar.f14701e.s1();
-        this.w.setText(StringHelper.getFormatTime(gVar.f14701e.P()));
-        k2 k2Var = this.J;
-        if (k2Var != null) {
-            String str = k2Var.f13760b;
+        this.J = gVar.f14351e.s1();
+        this.w.setText(StringHelper.getFormatTime(gVar.f14351e.P()));
+        l2 l2Var = this.J;
+        if (l2Var != null) {
+            String str = l2Var.f13455b;
             if (o0.d(str) > 10) {
                 str = o0.m(str, 10) + "...";
             }
             this.v.setText(str);
             this.B.setText(str);
-        } else if (gVar.f14701e.J() != null && !StringUtils.isNull(gVar.f14701e.J().getName_show())) {
-            String name_show = gVar.f14701e.J().getName_show();
+        } else if (gVar.f14351e.J() != null && !StringUtils.isNull(gVar.f14351e.J().getName_show())) {
+            String name_show = gVar.f14351e.J().getName_show();
             if (o0.d(name_show) > 10) {
                 name_show = o0.m(name_show, 10) + "...";
             }
             this.v.setText(name_show);
             this.B.setText(name_show);
         }
-        this.A.setData(gVar.f14701e, false);
+        this.A.setData(gVar.f14351e, false);
         this.C.setText(numberUniformFormatExtra);
-        this.D.setText(gVar.f14701e.getTitle());
+        this.D.setText(gVar.f14351e.getTitle());
         if (gVar.k()) {
             this.M.setVisibility(0);
         } else {
             this.M.setVisibility(8);
         }
-        l(this.f18210f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void s(boolean z) {

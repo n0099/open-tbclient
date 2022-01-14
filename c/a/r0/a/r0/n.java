@@ -37,10 +37,10 @@ public class n {
     public static String a = "/aigames/sandbox/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8787b;
+    public static String f8594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8788c;
+    public static String f8595c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -620,7 +620,7 @@ public class n {
                 }
             }
             str = null;
-            if (bVar2 == null || bVar == null || (map2 = bVar.f8635c) == null) {
+            if (bVar2 == null || bVar == null || (map2 = bVar.f8449c) == null) {
                 return false;
             }
             c cVar = bVar.a;
@@ -628,17 +628,17 @@ public class n {
             JsFunction D2 = D(TaskProcessData.keyComplete, map2);
             JsFunction D3 = D("success", map2);
             if (!TextUtils.isEmpty(str)) {
-                String str2 = bVar.f8634b + str;
+                String str2 = bVar.f8448b + str;
                 bVar2.errMsg = str2;
                 d(aVar, str2);
                 m(D, D2, bVar2, D3);
                 return false;
             } else if (cVar == null) {
-                bVar2.errMsg = bVar.f8634b + "unknown error";
+                bVar2.errMsg = bVar.f8448b + "unknown error";
                 m(D, D2, bVar2, D3);
                 return false;
             } else {
-                bVar2.errMsg = bVar.f8634b + cVar.f8636b;
+                bVar2.errMsg = bVar.f8448b + cVar.f8450b;
                 if (cVar.a != 0) {
                     m(D, D2, bVar2, D3);
                     return false;
@@ -683,7 +683,7 @@ public class n {
         if (!TextUtils.isEmpty(str)) {
             c.a.r0.w.d.M(str);
         }
-        String str2 = y + File.separator + f8788c + a;
+        String str2 = y + File.separator + f8595c + a;
         if (TextUtils.isEmpty(str2)) {
             return;
         }
@@ -723,7 +723,7 @@ public class n {
         int i2 = cVar.a;
         if (i2 != 0) {
             JSExceptionType C = C(i2);
-            aVar.throwJSException(C, str2 + cVar.f8636b);
+            aVar.throwJSException(C, str2 + cVar.f8450b);
         }
     }
 
@@ -1203,8 +1203,8 @@ public class n {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65588, null, cVar, str, map)) == null) {
             c.a.r0.a.r0.b bVar = new c.a.r0.a.r0.b();
             bVar.a = cVar;
-            bVar.f8634b = str;
-            bVar.f8635c = map;
+            bVar.f8448b = str;
+            bVar.f8449c = map;
             return bVar;
         }
         return (c.a.r0.a.r0.b) invokeLLL.objValue;
@@ -1239,11 +1239,11 @@ public class n {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65590, null, str, str2, str3)) == null) {
             c cVar = new c();
             if (str == null) {
-                cVar.f8636b = str3;
+                cVar.f8450b = str3;
                 cVar.a = -2;
                 return cVar;
             } else if ("".equals(str)) {
-                cVar.f8636b = str2;
+                cVar.f8450b = str2;
                 cVar.a = -1;
                 return cVar;
             } else {
@@ -1261,10 +1261,10 @@ public class n {
             if (context == null) {
                 return "";
             }
-            if (TextUtils.isEmpty(f8787b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-                f8787b = externalFilesDir.getAbsolutePath();
+            if (TextUtils.isEmpty(f8594b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+                f8594b = externalFilesDir.getAbsolutePath();
             }
-            return f8787b;
+            return f8594b;
         }
         return (String) invokeL.objValue;
     }

@@ -32,16 +32,16 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     public List<n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f45795b;
+    public List<b> f44119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f45796c;
+    public TbPageContext<?> f44120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45797d;
+    public int f44121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte f45798e;
+    public byte f44122e;
 
     public RecommendBarPageAdapter(TbPageContext<?> tbPageContext, byte b2) {
         Interceptable interceptable = $ic;
@@ -58,13 +58,13 @@ public class RecommendBarPageAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f45797d = 3;
-        this.f45796c = tbPageContext;
-        this.f45798e = b2;
+        this.f44121d = 3;
+        this.f44120c = tbPageContext;
+        this.f44122e = b2;
         this.a = new ArrayList(6);
-        this.f45795b = new ArrayList(6);
+        this.f44119b = new ArrayList(6);
         for (int i4 = 0; i4 < 6; i4++) {
-            this.f45795b.add(new b(LayoutInflater.from(this.f45796c.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.f45796c, b2));
+            this.f44119b.add(new b(LayoutInflater.from(this.f44120c.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.f44120c, b2));
         }
     }
 
@@ -72,7 +72,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i2, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-            viewGroup.removeView(this.f45795b.get(i2).b());
+            viewGroup.removeView(this.f44119b.get(i2).b());
         }
     }
 
@@ -101,7 +101,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) {
-            List<b> list = this.f45795b;
+            List<b> list = this.f44119b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i2);
             }
@@ -128,15 +128,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
 
     public void onSkinTypeChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f45797d == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f44121d == i2) {
             return;
         }
-        this.f45797d = i2;
-        List<b> list = this.f45795b;
+        this.f44121d = i2;
+        List<b> list = this.f44119b;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f45795b) {
+        for (b bVar : this.f44119b) {
             bVar.l(i2);
         }
     }
@@ -148,22 +148,22 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         }
         this.a.clear();
         this.a.addAll(cVar.g());
-        for (int i2 = 0; i2 < this.a.size() && i2 < this.f45795b.size(); i2++) {
-            b bVar = this.f45795b.get(i2);
+        for (int i2 = 0; i2 < this.a.size() && i2 < this.f44119b.size(); i2++) {
+            b bVar = this.f44119b.get(i2);
             bVar.m(!cVar.i());
             bVar.c((n) ListUtils.getItem(this.a, i2));
         }
         notifyDataSetChanged();
         if (this.a.get(0) instanceof d) {
             d dVar = (d) this.a.get(0);
-            StatisticItem param = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_TAB_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f45798e).param("obj_param1", 0);
-            if (!StringUtils.isNull(dVar.f20774e)) {
-                param = param.param("obj_name", dVar.f20774e);
+            StatisticItem param = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_TAB_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f44122e).param("obj_param1", 0);
+            if (!StringUtils.isNull(dVar.f20220e)) {
+                param = param.param("obj_name", dVar.f20220e);
             }
             TiebaStatic.log(param);
-            StatisticItem param2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.a()).param("obj_locate", (int) this.f45798e);
-            if (!StringUtils.isNull(dVar.f20774e)) {
-                param2 = param2.param("obj_name", dVar.f20774e);
+            StatisticItem param2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.a()).param("obj_locate", (int) this.f44122e);
+            if (!StringUtils.isNull(dVar.f20220e)) {
+                param2 = param2.param("obj_name", dVar.f20220e);
             }
             TiebaStatic.log(param2);
         }
@@ -171,16 +171,16 @@ public class RecommendBarPageAdapter extends PagerAdapter {
 
     public void updateFollowState(long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) || ListUtils.isEmpty(this.f45795b)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) || ListUtils.isEmpty(this.f44119b)) {
             return;
         }
-        for (int i2 = 0; i2 < this.f45795b.size(); i2++) {
-            b bVar = this.f45795b.get(i2);
+        for (int i2 = 0; i2 < this.f44119b.size(); i2++) {
+            b bVar = this.f44119b.get(i2);
             d j3 = bVar.j();
             if (j3 != null) {
                 int i3 = 0;
                 while (true) {
-                    d.a[] aVarArr = j3.f20777h;
+                    d.a[] aVarArr = j3.f20223h;
                     if (i3 < aVarArr.length) {
                         if (aVarArr[i3].h() == j2) {
                             bVar.n(i3, z);

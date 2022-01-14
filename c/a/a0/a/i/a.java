@@ -78,7 +78,7 @@ public class a {
             return false;
         }
         try {
-            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, s.f57419c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, s.f55242c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {

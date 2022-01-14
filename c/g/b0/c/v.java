@@ -35,7 +35,7 @@ public class v extends ReporterPidLoader<f> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<f, b> f29207h;
+    public final HashMap<f, b> f28315h;
 
     /* loaded from: classes9.dex */
     public class a implements p {
@@ -44,13 +44,13 @@ public class v extends ReporterPidLoader<f> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29208b;
+        public boolean f28316b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f29209c;
+        public final /* synthetic */ f f28317c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ v f29210d;
+        public final /* synthetic */ v f28318d;
 
         public a(v vVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -67,20 +67,20 @@ public class v extends ReporterPidLoader<f> {
                     return;
                 }
             }
-            this.f29210d = vVar;
-            this.f29209c = fVar;
+            this.f28318d = vVar;
+            this.f28317c = fVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f29210d.onAdClicked(this.f29208b);
-                this.f29208b = true;
-                synchronized (this.f29210d.f29207h) {
-                    b bVar = this.f29210d.f29207h.get(this.f29209c);
+                this.f28318d.onAdClicked(this.f28316b);
+                this.f28316b = true;
+                synchronized (this.f28318d.f28315h) {
+                    b bVar = this.f28318d.f28315h.get(this.f28317c);
                     if (bVar != null) {
-                        bVar.f29212c.onAdClicked(bVar.a, this.f29210d.mPid.ssp.type, this.f29210d.mPid.pid);
+                        bVar.f28320c.onAdClicked(bVar.a, this.f28318d.mPid.ssp.type, this.f28318d.mPid.pid);
                     }
                 }
             }
@@ -90,7 +90,7 @@ public class v extends ReporterPidLoader<f> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
                 LogPrinter.e("onFail code: " + i2 + ", message: " + str, new Object[0]);
-                this.f29210d.onError(i2, str);
+                this.f28318d.onError(i2, str);
             }
         }
 
@@ -98,7 +98,7 @@ public class v extends ReporterPidLoader<f> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f29210d.onAdLoaded((v) this.f29209c);
+                this.f28318d.onAdLoaded((v) this.f28317c);
             }
         }
     }
@@ -110,10 +110,10 @@ public class v extends ReporterPidLoader<f> {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29211b;
+        public boolean f28319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FunAdInteractionListener f29212c;
+        public FunAdInteractionListener f28320c;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class v extends ReporterPidLoader<f> {
                 return;
             }
         }
-        this.f29207h = new HashMap<>();
+        this.f28315h = new HashMap<>();
     }
 
     public JYNativeAdView a(f fVar) {
@@ -162,11 +162,11 @@ public class v extends ReporterPidLoader<f> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
             jYNativeAdView.a.setText(fVar.f());
-            jYNativeAdView.f56240d.setText(fVar.h());
-            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f56241e);
-            jYNativeAdView.f56242f.setText(fVar.g());
-            jYNativeAdView.f56243g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
-            fVar.c(jYNativeAdView, jYNativeAdView.f56239c);
+            jYNativeAdView.f54107d.setText(fVar.h());
+            GlideHelper.get().load(jYNativeAdView.getContext(), fVar.j(), jYNativeAdView.f54108e);
+            jYNativeAdView.f54109f.setText(fVar.g());
+            jYNativeAdView.f54110g = (fVar.l() * 1.0f) / (fVar.k() * 1.0f);
+            fVar.c(jYNativeAdView, jYNativeAdView.f54106c);
             return jYNativeAdView;
         }
         return (JYNativeAdView) invokeL.objValue;
@@ -184,15 +184,15 @@ public class v extends ReporterPidLoader<f> {
     public final void d(f fVar, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, fVar, str, funAdInteractionListener) == null) {
-            synchronized (this.f29207h) {
-                b bVar = this.f29207h.get(fVar);
+            synchronized (this.f28315h) {
+                b bVar = this.f28315h.get(fVar);
                 if (bVar == null) {
                     bVar = new b(str);
-                    this.f29207h.put(fVar, bVar);
+                    this.f28315h.put(fVar, bVar);
                 }
-                onShowStart(bVar.f29211b);
-                bVar.f29211b = true;
-                bVar.f29212c = funAdInteractionListener;
+                onShowStart(bVar.f28319b);
+                bVar.f28319b = true;
+                bVar.f28320c = funAdInteractionListener;
             }
         }
     }
@@ -205,8 +205,8 @@ public class v extends ReporterPidLoader<f> {
             return;
         }
         fVar.a();
-        synchronized (this.f29207h) {
-            this.f29207h.remove(fVar);
+        synchronized (this.f28315h) {
+            this.f28315h.remove(fVar);
         }
     }
 

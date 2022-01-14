@@ -74,13 +74,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f35812e;
+        public int f34649e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f35813f;
+        public long f34650f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f35814g;
+        public long f34651g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -153,13 +153,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (e) null);
-                int i2 = this.f35812e;
+                int i2 = this.f34649e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                rpcMetaPb$ChunkInfo.streamId_ = this.f35813f;
+                rpcMetaPb$ChunkInfo.streamId_ = this.f34650f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                rpcMetaPb$ChunkInfo.chunkId_ = this.f35814g;
+                rpcMetaPb$ChunkInfo.chunkId_ = this.f34651g;
                 rpcMetaPb$ChunkInfo.bitField0_ = i3;
                 return rpcMetaPb$ChunkInfo;
             }
@@ -171,11 +171,11 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f35813f = 0L;
-                int i2 = this.f35812e & (-2);
-                this.f35812e = i2;
-                this.f35814g = 0L;
-                this.f35812e = i2 & (-3);
+                this.f34650f = 0L;
+                int i2 = this.f34649e & (-2);
+                this.f34649e = i2;
+                this.f34651g = 0L;
+                this.f34649e = i2 & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -207,13 +207,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f35812e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f34649e & 2) == 2 : invokeV.booleanValue;
         }
 
         public boolean t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f35812e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f34649e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
@@ -277,8 +277,8 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
-                this.f35812e |= 2;
-                this.f35814g = j2;
+                this.f34649e |= 2;
+                this.f34651g = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -288,8 +288,8 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j2)) == null) {
-                this.f35812e |= 1;
-                this.f35813f = j2;
+                this.f34649e |= 1;
+                this.f34650f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;

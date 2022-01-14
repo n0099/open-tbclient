@@ -15,10 +15,10 @@ public class o {
     public List<FrsTabInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<FrsTabInfo> f25662b;
+    public List<FrsTabInfo> f24944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<FrsTabInfo> f25663c;
+    public List<FrsTabInfo> f24945c;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class o {
             }
         }
         this.a = new ArrayList();
-        this.f25662b = new ArrayList();
-        this.f25663c = new ArrayList();
+        this.f24944b = new ArrayList();
+        this.f24945c = new ArrayList();
     }
 
     public void a(NavTabInfo navTabInfo) {
@@ -44,7 +44,7 @@ public class o {
             return;
         }
         this.a = new ArrayList(navTabInfo.tab);
-        this.f25662b = new ArrayList(navTabInfo.menu);
-        this.f25663c = new ArrayList(navTabInfo.head);
+        this.f24944b = new ArrayList(navTabInfo.menu);
+        this.f24945c = new ArrayList(navTabInfo.head);
     }
 }

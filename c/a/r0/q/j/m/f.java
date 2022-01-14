@@ -26,10 +26,10 @@ public class f extends c {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11851b;
+        public String f11581b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f11852c;
+        public long f11582c;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class f extends c {
                     return;
                 }
             }
-            this.f11852c = 0L;
+            this.f11582c = 0L;
             this.a = str;
         }
 
@@ -59,9 +59,9 @@ public class f extends c {
                 if (list != null && !list.isEmpty()) {
                     for (c.a.r0.q.i.h hVar : list) {
                         if (hVar != null) {
-                            a aVar = new a(hVar.f11761g);
+                            a aVar = new a(hVar.f11494g);
                             aVar.c(hVar.r ? "independent" : "normal");
-                            aVar.d(hVar.f11763i);
+                            aVar.d(hVar.f11496i);
                             arrayList.add(aVar);
                         }
                     }
@@ -80,27 +80,27 @@ public class f extends c {
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11852c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11582c : invokeV.longValue;
         }
 
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f11851b = str;
+                this.f11581b = str;
             }
         }
 
         public void d(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.f11852c = j2;
+                this.f11582c = j2;
             }
         }
 
         public String getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11851b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11581b : (String) invokeV.objValue;
         }
     }
 
@@ -111,11 +111,11 @@ public class f extends c {
         @Nullable
 
         /* renamed from: e  reason: collision with root package name */
-        public String[] f11853e;
+        public String[] f11583e;
         @Nullable
 
         /* renamed from: f  reason: collision with root package name */
-        public List<a> f11854f;
+        public List<a> f11584f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str) {
@@ -141,21 +141,21 @@ public class f extends c {
         public String[] i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11853e : (String[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11583e : (String[]) invokeV.objValue;
         }
 
         @Nullable
         public List<a> j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11854f : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11584f : (List) invokeV.objValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String[] strArr = this.f11853e;
+                String[] strArr = this.f11583e;
                 return strArr == null || strArr.length == 0;
             }
             return invokeV.booleanValue;
@@ -164,14 +164,14 @@ public class f extends c {
         public void l(@Nullable String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, strArr) == null) {
-                this.f11853e = strArr;
+                this.f11583e = strArr;
             }
         }
 
         public void m(@Nullable List<a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-                this.f11854f = list;
+                this.f11584f = list;
             }
         }
     }

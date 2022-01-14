@@ -17,11 +17,11 @@ public final class a {
 
     /* renamed from: i.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2278a implements i.e<Object> {
+    public static class C2295a implements i.e<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2278a() {
+        public C2295a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public final class a {
                 return;
             }
         }
-        a = new C2278a();
+        a = new C2295a();
     }
 
     public static <T> i.e<T> a() {

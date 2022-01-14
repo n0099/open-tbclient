@@ -59,12 +59,12 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         public Entry<K, V> next;
         public V value;
 
-        public Entry(int i2, K k2, V v, Entry<K, V> entry) {
+        public Entry(int i2, K k, V v, Entry<K, V> entry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), k2, v, entry};
+                Object[] objArr = {Integer.valueOf(i2), k, v, entry};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -76,7 +76,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             }
             this.value = v;
             this.next = entry;
-            this.key = k2;
+            this.key = k;
             this.hash = i2;
         }
 
@@ -125,8 +125,8 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                K k2 = this.key;
-                int hashCode = k2 == null ? 0 : k2.hashCode();
+                K k = this.key;
+                int hashCode = k == null ? 0 : k.hashCode();
                 V v = this.value;
                 return hashCode ^ (v != null ? v.hashCode() : 0);
             }
@@ -355,9 +355,9 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.current != null) {
                     if (this.this$0.modCount == this.expectedModCount) {
-                        K k2 = this.current.key;
+                        K k = this.current.key;
                         this.current = null;
-                        this.this$0.removeEntryForKey(k2);
+                        this.this$0.removeEntryForKey(k);
                         this.expectedModCount = this.this$0.modCount;
                         return;
                     }
@@ -691,26 +691,26 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    private void putForCreate(K k2, V v) {
+    private void putForCreate(K k, V v) {
         int hash;
-        K k3;
+        K k2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, this, k2, v) == null) {
-            if (k2 == null) {
+        if (interceptable == null || interceptable.invokeLL(65547, this, k, v) == null) {
+            if (k == null) {
                 hash = 0;
-            } else if (k2 instanceof String) {
-                hash = hash(hashString((String) k2));
+            } else if (k instanceof String) {
+                hash = hash(hashString((String) k));
             } else {
-                hash = hash(k2.hashCode());
+                hash = hash(k.hashCode());
             }
             int indexFor = indexFor(hash, this.table.length);
             for (Entry<K, V> entry = this.table[indexFor]; entry != null; entry = entry.next) {
-                if (entry.hash == hash && ((k3 = entry.key) == k2 || (k2 != null && k2.equals(k3)))) {
+                if (entry.hash == hash && ((k2 = entry.key) == k || (k != null && k.equals(k2)))) {
                     entry.value = v;
                     return;
                 }
             }
-            createEntry(hash, k2, v, indexFor);
+            createEntry(hash, k, v, indexFor);
         }
     }
 
@@ -764,11 +764,11 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    public void addEntry(int i2, K k2, V v, int i3) {
+    public void addEntry(int i2, K k, V v, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), k2, v, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), k, v, Integer.valueOf(i3)}) == null) {
             Entry<K, V>[] entryArr = this.table;
-            entryArr[i3] = new Entry<>(i2, k2, v, entryArr[i3]);
+            entryArr[i3] = new Entry<>(i2, k, v, entryArr[i3]);
             int i4 = this.size;
             this.size = i4 + 1;
             if (i4 >= this.threshold) {
@@ -840,11 +840,11 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         return invokeL.booleanValue;
     }
 
-    public void createEntry(int i2, K k2, V v, int i3) {
+    public void createEntry(int i2, K k, V v, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), k2, v, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), k, v, Integer.valueOf(i3)}) == null) {
             Entry<K, V>[] entryArr = this.table;
-            entryArr[i3] = new Entry<>(i2, k2, v, entryArr[i3]);
+            entryArr[i3] = new Entry<>(i2, k, v, entryArr[i3]);
             this.size++;
         }
     }
@@ -860,7 +860,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     public V get(Object obj) {
         InterceptResult invokeL;
         int hash;
-        K k2;
+        K k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
             if (obj == null) {
@@ -873,7 +873,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             }
             Entry<K, V>[] entryArr = this.table;
             for (Entry<K, V> entry = entryArr[indexFor(hash, entryArr.length)]; entry != null; entry = entry.next) {
-                if (entry.hash == hash && ((k2 = entry.key) == obj || obj.equals(k2))) {
+                if (entry.hash == hash && ((k = entry.key) == obj || obj.equals(k))) {
                     return entry.value;
                 }
             }
@@ -885,7 +885,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     public final Entry<K, V> getEntry(Object obj) {
         InterceptResult invokeL;
         int hash;
-        K k2;
+        K k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
             if (obj == null) {
@@ -897,7 +897,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             }
             Entry<K, V>[] entryArr = this.table;
             for (Entry<K, V> entry = entryArr[indexFor(hash, entryArr.length)]; entry != null; entry = entry.next) {
-                if (entry.hash == hash && ((k2 = entry.key) == obj || (obj != null && obj.equals(k2)))) {
+                if (entry.hash == hash && ((k = entry.key) == obj || (obj != null && obj.equals(k)))) {
                     return entry;
                 }
             }
@@ -954,30 +954,30 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         int hash;
-        K k3;
+        K k2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k2, v)) == null) {
-            if (k2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k, v)) == null) {
+            if (k == null) {
                 return putForNullKey(v);
             }
-            if (k2 instanceof String) {
-                hash = hash(hashString((String) k2));
+            if (k instanceof String) {
+                hash = hash(hashString((String) k));
             } else {
-                hash = hash(k2.hashCode());
+                hash = hash(k.hashCode());
             }
             int indexFor = indexFor(hash, this.table.length);
             for (Entry<K, V> entry = this.table[indexFor]; entry != null; entry = entry.next) {
-                if (entry.hash == hash && ((k3 = entry.key) == k2 || k2.equals(k3))) {
+                if (entry.hash == hash && ((k2 = entry.key) == k || k.equals(k2))) {
                     V v2 = entry.value;
                     entry.value = v;
                     return v2;
                 }
             }
             this.modCount++;
-            addEntry(hash, k2, v, indexFor);
+            addEntry(hash, k, v, indexFor);
             return null;
         }
         return (V) invokeLL.objValue;
@@ -1025,7 +1025,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     public final Entry<K, V> removeEntryForKey(Object obj) {
         InterceptResult invokeL;
         int hash;
-        K k2;
+        K k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
             if (obj == null) {
@@ -1040,7 +1040,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             Entry<K, V> entry2 = entry;
             while (entry != null) {
                 Entry<K, V> entry3 = entry.next;
-                if (entry.hash == hash && ((k2 = entry.key) == obj || (obj != null && obj.equals(k2)))) {
+                if (entry.hash == hash && ((k = entry.key) == obj || (obj != null && obj.equals(k)))) {
                     this.modCount++;
                     this.size--;
                     if (entry2 == entry) {

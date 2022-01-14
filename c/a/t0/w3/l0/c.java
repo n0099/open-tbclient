@@ -84,23 +84,23 @@ public class c {
     public static void b(e eVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, eVar, i2) == null) {
-            d dVar = eVar.f25625d;
-            d dVar2 = eVar.f25626e;
-            d dVar3 = eVar.f25627f;
-            if (dVar.f25620b + dVar2.f25620b + dVar3.f25620b >= i2) {
+            d dVar = eVar.f24908d;
+            d dVar2 = eVar.f24909e;
+            d dVar3 = eVar.f24910f;
+            if (dVar.f24903b + dVar2.f24903b + dVar3.f24903b >= i2) {
                 c.a.d.f.n.a aVar = new c.a.d.f.n.a("dbg");
-                aVar.b("act", eVar.f25624c);
+                aVar.b("act", eVar.f24907c);
                 aVar.b("httpTimeCost", String.valueOf(dVar.a));
-                aVar.b("httpNum", String.valueOf(dVar.f25620b));
-                aVar.b("httpFailnum", String.valueOf(dVar.f25621c));
-                aVar.b("httpSize", String.valueOf(dVar.f25622d));
+                aVar.b("httpNum", String.valueOf(dVar.f24903b));
+                aVar.b("httpFailnum", String.valueOf(dVar.f24904c));
+                aVar.b("httpSize", String.valueOf(dVar.f24905d));
                 aVar.b("socketTimeCost", String.valueOf(dVar2.a));
-                aVar.b("socketNum", String.valueOf(dVar2.f25620b));
-                aVar.b("socketFailnum", String.valueOf(dVar2.f25621c));
-                aVar.b("socketSize", String.valueOf(dVar2.f25622d));
+                aVar.b("socketNum", String.valueOf(dVar2.f24903b));
+                aVar.b("socketFailnum", String.valueOf(dVar2.f24904c));
+                aVar.b("socketSize", String.valueOf(dVar2.f24905d));
                 aVar.b("abortTimeCost", String.valueOf(dVar3.a));
-                aVar.b("abortNum", String.valueOf(dVar3.f25620b));
-                aVar.b("netType", eVar.f25623b);
+                aVar.b("abortNum", String.valueOf(dVar3.f24903b));
+                aVar.b("netType", eVar.f24906b);
                 aVar.b("isJson", eVar.a ? "1" : "0");
                 BdStatisticsManager.getInstance().debug("frs", aVar);
                 dVar.a();

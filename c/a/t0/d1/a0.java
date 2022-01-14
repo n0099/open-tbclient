@@ -11,10 +11,10 @@ public class a0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public s0 f16068b;
+    public s0 f15659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f16069c;
+    public boolean f15660c;
 
     public a0() {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public class a0 {
                 return;
             }
         }
-        this.f16069c = true;
+        this.f15660c = true;
     }
 }

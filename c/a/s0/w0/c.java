@@ -13,12 +13,12 @@ import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tbadk.switchs.NetDeleteSwitch;
@@ -31,7 +31,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
 import com.fun.ad.sdk.FunAdSdk;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
@@ -106,7 +105,6 @@ public class c extends c.a.d.c.f.d {
             if (tbHttpMessageTask.isNeedTbs()) {
                 httpMessage.addParam(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : c.a.s0.k0.f.f());
             }
-            httpMessage.addParam("android_id", TbadkCoreApplication.getInst().getAndroidId());
             httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             httpMessage.addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             httpMessage.addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -117,8 +115,15 @@ public class c extends c.a.d.c.f.d {
             httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
             httpMessage.addParam("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
             httpMessage.addParam("brand", Build.BRAND);
-            httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            httpMessage.addParam(BaseStatisContent.MAC, PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+            if (ComplianceParmasHelper.isNeedChange(tbHttpMessageTask.getUrl())) {
+                httpMessage.addParam(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
+                httpMessage.addParam(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
+                httpMessage.addParam(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
+            } else {
+                httpMessage.addParam("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+                httpMessage.addParam(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
+                httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+            }
             httpMessage.addParam("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             httpMessage.addParam("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             httpMessage.addParam("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -128,13 +133,13 @@ public class c extends c.a.d.c.f.d {
             httpMessage.addParam("event_day", TbSingleton.getInstance().getData());
             httpMessage.addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             httpMessage.addParam("is_teenager", c.a.s0.h1.b.c.d() ? "1" : "0");
-            httpMessage.addParam("start_type", c.a.s0.s.y.a.f14007e);
+            httpMessage.addParam("start_type", c.a.s0.s.y.a.f13680f);
             try {
-                httpMessage.addParam("start_scheme", StringUtils.isNull(c.a.s0.s.y.a.f14006d) ? "" : URLEncoder.encode(c.a.s0.s.y.a.f14006d, "utf-8"));
+                httpMessage.addParam("start_scheme", StringUtils.isNull(c.a.s0.s.y.a.f13679e) ? "" : URLEncoder.encode(c.a.s0.s.y.a.f13679e, "utf-8"));
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
             }
-            httpMessage.addParam("extra", c.a.s0.s.g0.b.j().p("key_sync_extra_field", ""));
+            httpMessage.addParam("extra", c.a.s0.s.h0.b.k().q("key_sync_extra_field", ""));
             httpMessage.addParam("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
         }
     }
@@ -156,7 +161,7 @@ public class c extends c.a.d.c.f.d {
                 httpMessage.addCookie("ka", "open");
             }
             httpMessage.addCookie("TBBRAND", Build.MODEL);
-            httpMessage.addCookie(SearchJsBridge.CUID, TbadkCoreApplication.getInst().getCuid());
+            httpMessage.addCookie("CUID", TbadkCoreApplication.getInst().getCuid());
             httpMessage.addCookie("BAIDUID", TbSingleton.getInstance().getBaiduIdForAnti());
             httpMessage.addCookie("BAIDUZID", TbadkCoreApplication.getInst().getZid());
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
@@ -275,7 +280,17 @@ public class c extends c.a.d.c.f.d {
         }
     }
 
-    public HttpMessage h(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // c.a.d.c.f.f
+    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        process2(httpMessage2, httpMessageTask);
+        return httpMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, httpMessage, httpMessageTask)) == null) {
@@ -287,14 +302,5 @@ public class c extends c.a.d.c.f.d {
             return httpMessage;
         }
         return (HttpMessage) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // c.a.d.c.f.f
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        h(httpMessage2, httpMessageTask);
-        return httpMessage2;
     }
 }

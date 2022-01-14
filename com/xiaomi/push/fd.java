@@ -36,7 +36,7 @@ public class fd {
     public byte[] f380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63458b;
+    public int f61075b;
 
     /* renamed from: b  reason: collision with other field name */
     public ByteBuffer f381b;
@@ -63,7 +63,7 @@ public class fd {
         this.f376a = fhVar;
         TimeZone timeZone = TimeZone.getDefault();
         this.a = timeZone.getRawOffset() / 3600000;
-        this.f63458b = timeZone.useDaylightTime() ? 1 : 0;
+        this.f61075b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
     public int a(fa faVar) {
@@ -72,7 +72,7 @@ public class fd {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
             int c2 = faVar.c();
             if (c2 > 32768) {
-                com.xiaomi.channel.commonutils.logger.b.m122a("Blob size=" + c2 + " should be less than 32768 Drop blob chid=" + faVar.a() + " id=" + faVar.e());
+                com.xiaomi.channel.commonutils.logger.b.m134a("Blob size=" + c2 + " should be less than 32768 Drop blob chid=" + faVar.a() + " id=" + faVar.e());
                 return 0;
             }
             this.f378a.clear();
@@ -84,8 +84,8 @@ public class fd {
             this.f378a.putShort((short) 5);
             this.f378a.putInt(c2);
             int position = this.f378a.position();
-            this.f378a = faVar.mo355a(this.f378a);
-            if (!"CONN".equals(faVar.m354a())) {
+            this.f378a = faVar.mo367a(this.f378a);
+            if (!"CONN".equals(faVar.m366a())) {
                 if (this.f380a == null) {
                     this.f380a = this.f376a.a();
                 }
@@ -98,7 +98,7 @@ public class fd {
             this.f377a.write(this.f381b.array(), 0, 4);
             this.f377a.flush();
             int position2 = this.f378a.position() + 4;
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + faVar.m354a() + ";chid=" + faVar.a() + ";len=" + position2 + "}");
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + faVar.m366a() + ";chid=" + faVar.a() + ";len=" + position2 + "}");
             return position2;
         }
         return invokeL.intValue;
@@ -110,24 +110,24 @@ public class fd {
             du.e eVar = new du.e();
             eVar.a(106);
             eVar.a(Build.MODEL);
-            eVar.b(t.m689a());
-            eVar.c(com.xiaomi.push.service.bi.m664a());
+            eVar.b(t.m701a());
+            eVar.c(com.xiaomi.push.service.bi.m676a());
             eVar.b(43);
-            eVar.d(this.f376a.m376b());
+            eVar.d(this.f376a.m388b());
             eVar.e(this.f376a.a());
             eVar.f(Locale.getDefault().toString());
             eVar.c(Build.VERSION.SDK_INT);
-            byte[] m382a = this.f376a.m372a().m382a();
-            if (m382a != null) {
-                eVar.a(du.b.a(m382a));
+            byte[] m394a = this.f376a.m384a().m394a();
+            if (m394a != null) {
+                eVar.a(du.b.a(m394a));
             }
             fa faVar = new fa();
             faVar.a(0);
             faVar.a("CONN", (String) null);
             faVar.a(0L, "xiaomi.com", null);
-            faVar.a(eVar.m333a(), (String) null);
+            faVar.a(eVar.m345a(), (String) null);
             a(faVar);
-            com.xiaomi.channel.commonutils.logger.b.m122a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m664a() + " tz=" + this.a + ":" + this.f63458b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+            com.xiaomi.channel.commonutils.logger.b.m134a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m676a() + " tz=" + this.a + ":" + this.f61075b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
         }
     }
 

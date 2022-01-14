@@ -11,7 +11,7 @@ public class c0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16216b;
+    public int f15844b;
 
     public c0() {
         Interceptable interceptable = $ic;

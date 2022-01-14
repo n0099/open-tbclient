@@ -11,19 +11,19 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12581b;
+    public int f12286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12582c;
+    public String f12287c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12583d;
+    public String f12288d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12584e;
+    public String f12289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12585f;
+    public int f12290f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class c {
             }
         }
         this.a = -1;
-        this.f12581b = -1;
-        this.f12585f = -1;
+        this.f12286b = -1;
+        this.f12290f = -1;
     }
 }

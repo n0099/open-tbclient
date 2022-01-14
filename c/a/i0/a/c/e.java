@@ -1,6 +1,6 @@
 package c.a.i0.a.c;
 
-import c.a.c0.r.k;
+import c.a.c0.u.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +21,13 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a implements c.a.c0.r.p.a {
+    public static class a implements c.a.c0.u.p.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ File a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3798b;
+        public final /* synthetic */ b f3738b;
 
         public a(File file, b bVar) {
             Interceptable interceptable = $ic;
@@ -45,24 +45,24 @@ public final class e {
                 }
             }
             this.a = file;
-            this.f3798b = bVar;
+            this.f3738b = bVar;
         }
 
-        @Override // c.a.c0.r.p.a
+        @Override // c.a.c0.u.p.a
         public void a(Exception exc, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i2) == null) {
             }
         }
 
-        @Override // c.a.c0.r.p.a
+        @Override // c.a.c0.u.p.a
         public void c(Headers headers, InputStream inputStream, int i2) throws Exception {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i2) == null) {
                 try {
                     e.c(inputStream, this.a);
-                    if (this.f3798b != null) {
-                        this.f3798b.a();
+                    if (this.f3738b != null) {
+                        this.f3738b.a();
                     }
                 } catch (IOException e2) {
                     e2.printStackTrace();
@@ -117,8 +117,8 @@ public final class e {
     public static void b(File file, String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, file, str, bVar) == null) {
-            k a2 = c.a.c0.r.g.b().a();
-            c.a.c0.r.s.d dVar = new c.a.c0.r.s.d();
+            k a2 = c.a.c0.u.g.b().a();
+            c.a.c0.u.s.d dVar = new c.a.c0.u.s.d();
             dVar.k(str);
             dVar.c();
             a2.b(dVar, new a(file, bVar));

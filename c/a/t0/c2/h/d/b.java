@@ -37,10 +37,10 @@ public class b extends c.a.d.n.e.a<c.a.t0.c2.h.e.b, SearchSuggestForumViewHolder
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f15784e;
+        public final /* synthetic */ Context f15386e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f15785f;
+        public final /* synthetic */ b f15387f;
 
         public a(b bVar, Context context) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class b extends c.a.d.n.e.a<c.a.t0.c2.h.e.b, SearchSuggestForumViewHolder
                     return;
                 }
             }
-            this.f15785f = bVar;
-            this.f15784e = context;
+            this.f15387f = bVar;
+            this.f15386e = context;
         }
 
         @Override // c.a.d.n.e.w
@@ -66,10 +66,10 @@ public class b extends c.a.d.n.e.a<c.a.t0.c2.h.e.b, SearchSuggestForumViewHolder
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof c.a.t0.c2.h.e.b)) {
                 c.a.t0.c2.h.e.b bVar = (c.a.t0.c2.h.e.b) nVar;
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f15784e).createNormalCfg(bVar.e(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f15386e).createNormalCfg(bVar.e(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
                 createNormalCfg.setCallFrom(16);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-                this.f15785f.b0(bVar);
+                this.f15387f.b0(bVar);
             }
         }
     }
@@ -94,7 +94,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.c2.h.e.b, SearchSuggestForumViewHolder
             }
         }
         this.m = context;
-        this.f3302h = bdUniqueId;
+        this.f3261h = bdUniqueId;
         V(new a(this, context));
     }
 

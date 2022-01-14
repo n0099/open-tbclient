@@ -27,16 +27,16 @@ public class b {
         public final /* synthetic */ EditText a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f18185b;
+        public final /* synthetic */ SpannableStringBuilder f17743b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f18186c;
+        public final /* synthetic */ int f17744c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f18187d;
+        public final /* synthetic */ EmotionGroupType f17745d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18188e;
+        public final /* synthetic */ b f17746e;
 
         public a(b bVar, EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
@@ -53,11 +53,11 @@ public class b {
                     return;
                 }
             }
-            this.f18188e = bVar;
+            this.f17746e = bVar;
             this.a = editText;
-            this.f18185b = spannableStringBuilder;
-            this.f18186c = i2;
-            this.f18187d = emotionGroupType;
+            this.f17743b = spannableStringBuilder;
+            this.f17744c = i2;
+            this.f17745d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class b {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    this.f18188e.c(this.a, this.f18185b, this.f18186c, aVar, this.f18187d);
+                    this.f17746e.c(this.a, this.f17743b, this.f17744c, aVar, this.f17745d);
                 }
             }
         }

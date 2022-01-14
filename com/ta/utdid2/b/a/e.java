@@ -17,7 +17,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,14 +74,14 @@ public class e {
                     obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
                 } else if (name.equals("int-array")) {
                     xmlPullParser.next();
-                    int[] m118a = m118a(xmlPullParser, "int-array", strArr);
+                    int[] m130a = m130a(xmlPullParser, "int-array", strArr);
                     strArr[0] = attributeValue;
-                    return m118a;
+                    return m130a;
                 } else if (name.equals("map")) {
                     xmlPullParser.next();
-                    HashMap m117a = m117a(xmlPullParser, "map", strArr);
+                    HashMap m129a = m129a(xmlPullParser, "map", strArr);
                     strArr[0] = attributeValue;
-                    return m117a;
+                    return m129a;
                 } else if (name.equals("list")) {
                     xmlPullParser.next();
                     ArrayList a = a(xmlPullParser, "list", strArr);
@@ -271,7 +271,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m117a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m129a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, xmlPullParser, str, strArr)) == null) {
@@ -321,7 +321,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m118a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m130a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, xmlPullParser, str, strArr)) == null) {

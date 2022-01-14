@@ -2,7 +2,7 @@ package c.a.l;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -19,18 +19,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class k0 extends c implements p<d2> {
+public class k0 extends c implements p<e2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f4249i;
+    public TbPageContext f4174i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f4250j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f4251k;
+    public TbImageView f4175j;
+    public boolean k;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -38,10 +36,10 @@ public class k0 extends c implements p<d2> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f4252e;
+        public final /* synthetic */ ThemeCardInUserData f4176e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k0 f4253f;
+        public final /* synthetic */ k0 f4177f;
 
         public a(k0 k0Var, ThemeCardInUserData themeCardInUserData) {
             Interceptable interceptable = $ic;
@@ -58,15 +56,15 @@ public class k0 extends c implements p<d2> {
                     return;
                 }
             }
-            this.f4253f = k0Var;
-            this.f4252e = themeCardInUserData;
+            this.f4177f = k0Var;
+            this.f4176e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f4253f.f4249i.getPageActivity(), this.f4252e.getCardId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f4177f.f4174i.getPageActivity(), this.f4176e.getCardId())));
             }
         }
     }
@@ -86,8 +84,8 @@ public class k0 extends c implements p<d2> {
                 return;
             }
         }
-        this.f4251k = true;
-        this.f4249i = tbPageContext;
+        this.k = true;
+        this.f4174i = tbPageContext;
         g(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(c.a.d.f.p.n.f(tbPageContext.getPageActivity(), R.dimen.ds180), c.a.d.f.p.n.f(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
@@ -95,53 +93,53 @@ public class k0 extends c implements p<d2> {
         layoutParams.rightMargin = c.a.d.f.p.n.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
         h(layoutParams);
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        this.f4250j = tbImageView;
+        this.f4175j = tbImageView;
         f(tbImageView);
     }
 
-    public void k(d2 d2Var) {
+    public void k(e2 e2Var) {
         MetaData J;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) || d2Var == null || this.f4250j == null || (J = d2Var.J()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, e2Var) == null) || e2Var == null || this.f4175j == null || (J = e2Var.J()) == null) {
             return;
         }
         ThemeCardInUserData themeCard = J.getThemeCard();
-        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !d2Var.X1) {
-            if (this.f4251k && (this.f4250j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4250j.getLayoutParams();
-                layoutParams.rightMargin = c.a.d.f.p.n.f(this.f4249i.getPageActivity(), R.dimen.tbds106);
-                this.f4250j.setLayoutParams(layoutParams);
+        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !e2Var.W1) {
+            if (this.k && (this.f4175j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f4175j.getLayoutParams();
+                layoutParams.rightMargin = c.a.d.f.p.n.f(this.f4174i.getPageActivity(), R.dimen.tbds106);
+                this.f4175j.setLayoutParams(layoutParams);
             }
-            this.f4250j.setVisibility(0);
-            this.f4250j.setImageDrawable(null);
-            this.f4250j.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.f4250j.setOnClickListener(new a(this, themeCard));
+            this.f4175j.setVisibility(0);
+            this.f4175j.setImageDrawable(null);
+            this.f4175j.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.f4175j.setOnClickListener(new a(this, themeCard));
             return;
         }
-        this.f4250j.setVisibility(8);
+        this.f4175j.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: l */
-    public void onBindDataToView(d2 d2Var) {
+    public void onBindDataToView(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) {
-            k(d2Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) {
+            k(e2Var);
         }
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f4251k = z;
+            this.k = z;
         }
     }
 
     public void n(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f4250j.setPageId(bdUniqueId);
+            this.f4175j.setPageId(bdUniqueId);
         }
     }
 }

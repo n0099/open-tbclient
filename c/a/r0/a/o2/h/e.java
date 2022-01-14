@@ -16,7 +16,7 @@ public class e {
     public final AshmemFileDescriptor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SwanKV f8284b;
+    public volatile SwanKV f8102b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,13 +44,13 @@ public class e {
     public SwanKV b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8284b : (SwanKV) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8102b : (SwanKV) invokeV.objValue;
     }
 
     public void c(@NonNull SwanKV swanKV) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.f8284b = swanKV;
+            this.f8102b = swanKV;
         }
     }
 }

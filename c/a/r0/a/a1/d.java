@@ -48,7 +48,7 @@ public class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f5247b;
+    public static ExecutorService f5138b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -57,13 +57,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f5248e;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f5139e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5249f;
+        public final /* synthetic */ JSONObject f5140f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.a1.b f5250g;
+        public final /* synthetic */ c.a.r0.a.a1.b f5141g;
 
         public a(c.a.r0.a.f1.e.b bVar, JSONObject jSONObject, c.a.r0.a.a1.b bVar2) {
             Interceptable interceptable = $ic;
@@ -80,9 +80,9 @@ public class d {
                     return;
                 }
             }
-            this.f5248e = bVar;
-            this.f5249f = jSONObject;
-            this.f5250g = bVar2;
+            this.f5139e = bVar;
+            this.f5140f = jSONObject;
+            this.f5141g = bVar2;
         }
 
         @Override // java.lang.Runnable
@@ -92,12 +92,12 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.z2.b1.b bVar = new c.a.r0.a.z2.b1.b();
-                if (c.a.r0.a.x1.a.a.B(this.f5248e)) {
-                    l = c.a.r0.a.x1.a.a.c(this.f5248e, bVar);
+                if (c.a.r0.a.x1.a.a.B(this.f5139e)) {
+                    l = c.a.r0.a.x1.a.a.c(this.f5139e, bVar);
                 } else {
-                    l = e.l(this.f5248e, bVar, this.f5249f);
+                    l = e.l(this.f5139e, bVar, this.f5140f);
                 }
-                if (l == null || (swanAppConfigData = l.f5251b) == null || swanAppConfigData.f40703b == null) {
+                if (l == null || (swanAppConfigData = l.f5142b) == null || swanAppConfigData.f39340b == null) {
                     c.a.r0.a.u2.a aVar = bVar.a;
                     if (aVar == null) {
                         aVar = new c.a.r0.a.u2.a();
@@ -106,14 +106,14 @@ public class d {
                         aVar.f("小程序loadbundle出错，loadinfo为空或者页面配置空 ");
                     }
                     c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
-                    c.a.r0.a.f1.e.b bVar2 = this.f5248e;
+                    c.a.r0.a.f1.e.b bVar2 = this.f5139e;
                     dVar.q(n.n(bVar2 != null ? bVar2.G() : 0));
                     dVar.p(aVar);
                     dVar.s("appjson_config_invalid");
-                    dVar.r(this.f5248e);
+                    dVar.r(this.f5139e);
                     n.R(dVar);
                 }
-                this.f5250g.a(0, l);
+                this.f5141g.a(0, l);
             }
         }
     }
@@ -169,7 +169,7 @@ public class d {
                 File file = new File(g2, "app.json");
                 SwanAppConfigData b4 = c.a.r0.a.d2.n.d.b(g2.getAbsolutePath());
                 gVar.a = g2.getPath() + File.separator;
-                gVar.f5251b = b4;
+                gVar.f5142b = b4;
                 c.a.r0.a.w1.c.a.m(b4, true);
                 c.a.r0.a.w1.h.b.l(b4);
                 c.a.r0.a.w1.a.a(b4);
@@ -276,12 +276,12 @@ public class d {
 
     /* renamed from: c.a.r0.a.a1.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0251d {
+    public static class C0260d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
-        public C0251d() {
+        public C0260d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -535,7 +535,7 @@ public class d {
                     return null;
                 }
                 gVar.a = i(bVar.H(), bVar.v1()).getPath() + File.separator;
-                gVar.f5251b = b2;
+                gVar.f5142b = b2;
                 c.a.r0.a.w1.c.a.m(b2, true);
                 c.a.r0.a.w1.h.b.l(b2);
                 c.a.r0.a.w1.a.a(b2);
@@ -563,7 +563,7 @@ public class d {
                 File file = new File(e2, "app.json");
                 SwanAppConfigData b2 = c.a.r0.a.d2.n.d.b(e2.getAbsolutePath());
                 gVar.a = e2.getPath() + File.separator;
-                gVar.f5251b = b2;
+                gVar.f5142b = b2;
                 c.a.r0.a.w1.c.a.m(b2, true);
                 c.a.r0.a.w1.h.b.l(b2);
                 c.a.r0.a.w1.a.a(b2);
@@ -631,7 +631,7 @@ public class d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SwanAppConfigData f5251b;
+        public SwanAppConfigData f5142b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -662,7 +662,7 @@ public class d {
             }
         }
         a = k.a;
-        f5247b = Executors.newSingleThreadExecutor();
+        f5138b = Executors.newSingleThreadExecutor();
     }
 
     public static boolean A(String str, String str2) {
@@ -749,46 +749,46 @@ public class d {
     public static void G(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, cVar) == null) {
-            C0251d c0251d = new C0251d();
-            c0251d.a = str;
-            new c.a.r0.a.k0.b().e(c0251d, c.a.r0.a.p0.f.b.j().getPath(), cVar);
+            C0260d c0260d = new C0260d();
+            c0260d.a = str;
+            new c.a.r0.a.k0.b().e(c0260d, c.a.r0.a.p0.f.b.j().getPath(), cVar);
         }
     }
 
     public static void H(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, cVar) == null) {
-            C0251d c0251d = new C0251d();
-            c0251d.a = str;
-            new c.a.r0.a.k0.b().e(c0251d, c.a.r0.a.p0.f.c.j().getPath(), cVar);
+            C0260d c0260d = new C0260d();
+            c0260d.a = str;
+            new c.a.r0.a.k0.b().e(c0260d, c.a.r0.a.p0.f.c.j().getPath(), cVar);
         }
     }
 
     public static void I(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, cVar) == null) {
-            C0251d c0251d = new C0251d();
-            c0251d.a = str;
+            C0260d c0260d = new C0260d();
+            c0260d.a = str;
             c.a.r0.a.p0.f.d.a();
-            new c.a.r0.a.k0.b().e(c0251d, c.a.r0.a.p0.f.d.c().getPath(), cVar);
+            new c.a.r0.a.k0.b().e(c0260d, c.a.r0.a.p0.f.d.c().getPath(), cVar);
         }
     }
 
     public static void J(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, cVar) == null) {
-            C0251d c0251d = new C0251d();
-            c0251d.a = str;
+            C0260d c0260d = new C0260d();
+            c0260d.a = str;
             c.a.r0.a.q2.d.a.a();
-            new c.a.r0.a.k0.b().e(c0251d, c.a.r0.a.q2.d.a.d().getPath(), cVar);
+            new c.a.r0.a.k0.b().e(c0260d, c.a.r0.a.q2.d.a.d().getPath(), cVar);
         }
     }
 
-    public static void K(C0251d c0251d, c cVar) {
+    public static void K(C0260d c0260d, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, c0251d, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65547, null, c0260d, cVar) == null) {
             File c2 = b.c();
-            new c.a.r0.a.k0.b().e(c0251d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
+            new c.a.r0.a.k0.b().e(c0260d, c2.getPath() + File.separator + System.currentTimeMillis() + ".aibundle", cVar);
         }
     }
 
@@ -825,10 +825,10 @@ public class d {
                     c.a.r0.a.u1.h.o().F(new UbcFlowEvent("package_start_unzip"));
                     long currentTimeMillis = System.currentTimeMillis();
                     a.c j2 = c.a.r0.a.a1.g.a.j(file);
-                    int i3 = j2.f5278b;
+                    int i3 = j2.f5168b;
                     if (i3 != -1) {
                         U = c.a.r0.a.a1.g.a.d(j2.a, file2, i3).a;
-                        i2 = j2.f5278b;
+                        i2 = j2.f5168b;
                     } else {
                         U = c.a.r0.w.d.U(file.getPath(), file2.getPath());
                     }
@@ -923,7 +923,7 @@ public class d {
             } else {
                 jSONObject = null;
             }
-            f5247b.execute(new a(bVar, jSONObject, bVar2));
+            f5138b.execute(new a(bVar, jSONObject, bVar2));
         }
     }
 

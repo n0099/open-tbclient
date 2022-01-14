@@ -51,7 +51,7 @@ public class AdvertSDKStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                c.a.t0.y.a.c.m();
+                c.a.t0.y.a.c.o();
             }
         }
     }
@@ -81,7 +81,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && PermissionUtil.isAgreePrivacyPolicy()) {
-                    c.a.t0.y.a.g.a.c().h(customMessage.getData());
+                    c.a.t0.y.a.g.a.c().i(customMessage.getData());
                     return new CustomResponsedMessage<>(2016555, Long.valueOf(c.a.t0.y.a.i.a.e()));
                 }
                 return null;
@@ -115,7 +115,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    c.a.t0.y.a.g.a.c().g(5);
+                    c.a.t0.y.a.g.a.c().h(5);
                     return null;
                 }
                 return null;
@@ -149,7 +149,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    c.a.t0.y.a.g.a.c().g(6);
+                    c.a.t0.y.a.g.a.c().h(6);
                     return null;
                 }
                 return null;
@@ -185,7 +185,7 @@ public class AdvertSDKStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                c.a.t0.y.a.g.a.c().k(customMessage.getData());
+                c.a.t0.y.a.g.a.c().l(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -217,7 +217,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    c.a.t0.y.a.g.a.c().j(customMessage.getData().a(), false);
+                    c.a.t0.y.a.g.a.c().k(customMessage.getData().a(), false);
                 }
                 return null;
             }
@@ -255,14 +255,14 @@ public class AdvertSDKStatic {
             public float a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.i0.b.f.f.b() : invokeV.floatValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.i0.b.f.f.f() : invokeV.floatValue;
             }
 
             @Override // c.a.s0.l.c
             public int b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.a.i0.b.f.f.a() : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.a.i0.b.f.f.e() : invokeV.intValue;
             }
         }
 
@@ -361,7 +361,7 @@ public class AdvertSDKStatic {
         }
         new c.a.t0.y.a.a().g();
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            c.a.t0.y.a.c.m();
+            c.a.t0.y.a.c.o();
         }
         MessageManager.getInstance().registerListener(new a(2921554));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016555, new b());

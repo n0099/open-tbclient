@@ -32,18 +32,18 @@ public final class HandlerDispatcherKt {
     public static volatile Choreographer choreographer;
 
     static {
-        Object m702constructorimpl;
+        Object m714constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m702constructorimpl = Result.m702constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
+            m714constructorimpl = Result.m714constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m702constructorimpl = Result.m702constructorimpl(ResultKt.createFailure(th));
+            m714constructorimpl = Result.m714constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m708isFailureimpl(m702constructorimpl)) {
-            m702constructorimpl = null;
+        if (Result.m720isFailureimpl(m714constructorimpl)) {
+            m714constructorimpl = null;
         }
-        Main = (HandlerDispatcher) m702constructorimpl;
+        Main = (HandlerDispatcher) m714constructorimpl;
     }
 
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Use Dispatchers.Main instead")

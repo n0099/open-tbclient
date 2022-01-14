@@ -15,7 +15,7 @@ public class c extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f1739h;
+    public static boolean f1719h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class c extends d {
                 return;
             }
         }
-        f1739h = c.a.b1.e.a.e();
+        f1719h = c.a.b1.e.a.e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,11 +52,11 @@ public class c extends d {
                 return;
             }
         }
-        boolean z = f1739h;
-        this.f1733d = "";
-        this.f1731b = false;
-        this.f1732c = false;
-        this.f1736g = DeepLinkCode.ERROR_LINK_NOT_MATCH;
+        boolean z = f1719h;
+        this.f1713d = "";
+        this.f1711b = false;
+        this.f1712c = false;
+        this.f1716g = DeepLinkCode.ERROR_LINK_NOT_MATCH;
     }
 
     @Override // c.a.b1.e.f.c
@@ -65,11 +65,11 @@ public class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                this.f1732c = c.l.b.a.b();
-                this.f1733d = c.l.b.a.a(this.a);
-                this.f1736g = 0;
+                this.f1712c = c.l.b.a.b();
+                this.f1713d = c.l.b.a.a(this.a);
+                this.f1716g = 0;
             } catch (Exception unused) {
-                boolean z = f1739h;
+                boolean z = f1719h;
             }
             return this;
         }

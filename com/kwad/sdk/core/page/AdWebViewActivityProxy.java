@@ -45,46 +45,46 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58103b;
+        public String f55906b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f58104c;
+        public AdTemplate f55907c;
 
         /* renamed from: com.kwad.sdk.core.page.AdWebViewActivityProxy$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2090a {
+        public static class C2107a {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f58105b;
+            public String f55908b;
 
             /* renamed from: c  reason: collision with root package name */
-            public AdTemplate f58106c;
+            public AdTemplate f55909c;
 
-            public C2090a a(AdTemplate adTemplate) {
-                this.f58106c = adTemplate;
+            public C2107a a(AdTemplate adTemplate) {
+                this.f55909c = adTemplate;
                 return this;
             }
 
-            public C2090a a(String str) {
+            public C2107a a(String str) {
                 this.a = str;
                 return this;
             }
 
             public a a() {
-                return new a(this.a, this.f58105b, this.f58106c);
+                return new a(this.a, this.f55908b, this.f55909c);
             }
 
-            public C2090a b(String str) {
-                this.f58105b = str;
+            public C2107a b(String str) {
+                this.f55908b = str;
                 return this;
             }
         }
 
         public a(String str, String str2, AdTemplate adTemplate) {
             this.a = str;
-            this.f58103b = str2;
-            this.f58104c = adTemplate;
+            this.f55906b = str2;
+            this.f55907c = adTemplate;
         }
     }
 
@@ -100,14 +100,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     }
 
     public static void launch(Context context, a aVar) {
-        if (context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f58103b)) {
+        if (context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f55906b)) {
             return;
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdWebViewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
         intent.putExtra(KEY_PAGE_TITLE, aVar.a);
-        intent.putExtra(KEY_PAGE_URL, aVar.f58103b);
-        intent.putExtra("key_template_json", aVar.f58104c.toJson().toString());
+        intent.putExtra(KEY_PAGE_URL, aVar.f55906b);
+        intent.putExtra("key_template_json", aVar.f55907c.toJson().toString());
         context.startActivity(intent);
     }
 
@@ -259,10 +259,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
             this.landingPageViewHelper = cVar2;
             cVar2.a(this);
             cVar = this.landingPageViewHelper;
-            a2 = new c.C2091c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
+            a2 = new c.C2108c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
         } else {
             this.mNormalMode = true;
-            a2 = new c.C2091c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
+            a2 = new c.C2108c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
             c cVar3 = new c(this.mContext, this.mAdTemplate, 1, false);
             this.landingPageViewHelper = cVar3;
             cVar3.a(this);

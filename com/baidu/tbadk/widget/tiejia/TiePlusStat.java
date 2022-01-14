@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.s0.d.a;
 import c.a.s0.e1.e0;
 import c.a.s0.e1.g0;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -26,7 +26,7 @@ public final class TiePlusStat {
     public static final g0<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g0<Integer> f43084b;
+    public static final g0<Integer> f41548b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -414,8 +414,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12577h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12578i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12283h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12284i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -513,14 +513,14 @@ public final class TiePlusStat {
             this.statValue = i3;
         }
 
-        public static ThreadType create(@NonNull d2 d2Var) {
+        public static ThreadType create(@NonNull e2 e2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d2Var)) == null) {
-                if (d2Var.I2()) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e2Var)) == null) {
+                if (e2Var.I2()) {
                     return VIDEO_WORK;
                 }
-                if (d2Var.H2()) {
+                if (e2Var.H2()) {
                     return VIDEO_NORMAL;
                 }
                 return IMAGE_TEXT;
@@ -619,7 +619,7 @@ public final class TiePlusStat {
             }
         }
         a = new g0<>(3000, TimeUnit.MILLISECONDS);
-        f43084b = new g0<>(3000, TimeUnit.MILLISECONDS);
+        f41548b = new g0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -665,7 +665,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f43084b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f41548b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }

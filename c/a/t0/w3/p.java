@@ -14,7 +14,7 @@ public class p implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumData f25667e;
+    public ForumData f24949e;
 
     public p(ForumData forumData, boolean z) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class p implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f25667e = forumData;
+        this.f24949e = forumData;
     }
 
     public ForumData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25667e : (ForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24949e : (ForumData) invokeV.objValue;
     }
 
     public boolean d() {

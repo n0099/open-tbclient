@@ -16,13 +16,13 @@ public class j {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f18570b;
+    public long f18106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f18571c;
+    public long f18107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f18572d;
+    public boolean f18108d;
 
     static {
         InterceptResult invokeClinit;
@@ -57,32 +57,32 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0L;
-            this.f18570b = 0L;
-            this.f18571c = 0L;
+            this.f18106b = 0L;
+            this.f18107c = 0L;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18571c = SystemClock.elapsedRealtime();
+            this.f18107c = SystemClock.elapsedRealtime();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18570b = SystemClock.elapsedRealtime();
+            this.f18106b = SystemClock.elapsedRealtime();
         }
     }
 
     public void d(c.a.t0.z2.g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) && this.f18572d) {
-            this.f18572d = false;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) && this.f18108d) {
+            this.f18108d = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j2 = this.f18570b - this.a;
-            long j3 = elapsedRealtime - this.f18571c;
+            long j2 = this.f18106b - this.a;
+            long j3 = elapsedRealtime - this.f18107c;
             long j4 = j3 + j2;
             if ((c.a.d.f.p.l.I() == 2 || j2 <= 17500) && gVar != null) {
                 gVar.recordPlayTimeInfo(j2, j3, j4);
@@ -93,7 +93,7 @@ public class j {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f18572d = true;
+            this.f18108d = true;
             this.a = SystemClock.elapsedRealtime();
         }
     }

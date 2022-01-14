@@ -20,22 +20,22 @@ public class b {
     public DataRes a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12337b;
+    public boolean f12050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12338c;
+    public String f12051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArrayList<c.a.s0.a.c> f12339d;
+    public final ArrayList<c.a.s0.a.c> f12052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<FloatStrategy> f12340e;
+    public final ArrayList<FloatStrategy> f12053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f12341f;
+    public NewUserRedPackageData f12054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ActiveCenterData f12342g;
+    public ActiveCenterData f12055g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -50,54 +50,54 @@ public class b {
                 return;
             }
         }
-        this.f12337b = false;
-        this.f12338c = "";
-        this.f12339d = new ArrayList<>();
-        this.f12340e = new ArrayList<>();
+        this.f12050b = false;
+        this.f12051c = "";
+        this.f12052d = new ArrayList<>();
+        this.f12053e = new ArrayList<>();
     }
 
     public ArrayList<FloatStrategy> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12340e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12053e : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<c.a.s0.a.c> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12339d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12052d : (ArrayList) invokeV.objValue;
     }
 
     public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
             this.a = dataRes;
-            this.f12339d.clear();
-            this.f12340e.clear();
+            this.f12052d.clear();
+            this.f12053e.clear();
             if (dataRes == null) {
                 return;
             }
-            this.f12337b = dataRes.is_new_user.intValue() == 1;
-            this.f12338c = dataRes.active_url;
-            this.f12340e.addAll(dataRes.float_list);
+            this.f12050b = dataRes.is_new_user.intValue() == 1;
+            this.f12051c = dataRes.active_url;
+            this.f12053e.addAll(dataRes.float_list);
             for (MissionInfo missionInfo : this.a.mission_list) {
                 if (missionInfo != null) {
                     c.a.s0.a.c cVar = new c.a.s0.a.c(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        c.a.s0.s.f0.a.e().g(missionInfo);
+                        c.a.s0.s.g0.a.e().g(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         q.c().f(cVar);
                     } else if (cVar.K()) {
-                        this.f12339d.add(cVar);
+                        this.f12052d.add(cVar);
                     }
                 }
             }
             NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
-            this.f12341f = newUserRedPackageData;
+            this.f12054f = newUserRedPackageData;
             newUserRedPackageData.parseProto(dataRes);
             if (dataRes.active_center != null) {
                 ActiveCenterData activeCenterData = new ActiveCenterData();
-                this.f12342g = activeCenterData;
+                this.f12055g = activeCenterData;
                 activeCenterData.parseProto(dataRes);
             }
         }

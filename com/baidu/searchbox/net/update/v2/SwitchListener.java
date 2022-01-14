@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class SwitchListener extends AbstractCommandListener<SwitchData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VERSION_POSTFIX = "_version";

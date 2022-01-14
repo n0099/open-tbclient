@@ -16,25 +16,23 @@ public class b extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26178e;
+    public boolean f25402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26179f;
+    public int f25403f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f26180g;
+    public boolean f25404g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26181h;
+    public String f25405h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26182i;
+    public String f25406i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f26183j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f26184k;
+    public long f25407j;
+    public String k;
     public String l;
     public boolean m;
     public int n;

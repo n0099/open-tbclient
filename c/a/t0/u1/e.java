@@ -35,34 +35,32 @@ public class e {
     public ForumData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25015b;
+    public int f24318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<c> f25016c;
+    public LinkedList<c> f24319c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdvertAppInfo f25017d;
+    public AdvertAppInfo f24320d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25018e;
+    public String f24321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25019f;
+    public String f24322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<AlaInfoData> f25020g;
+    public LinkedList<AlaInfoData> f24323g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f25021h;
+    public int f24324h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f25022i;
+    public String f24325i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f25023j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public MetaData f25024k;
+    public String f24326j;
+    public MetaData k;
     public int l;
     public int m;
 
@@ -79,17 +77,17 @@ public class e {
                 return;
             }
         }
-        this.f25015b = 0;
-        this.f25016c = null;
-        this.f25017d = null;
-        this.f25016c = new LinkedList<>();
-        this.f25020g = new LinkedList<>();
+        this.f24318b = 0;
+        this.f24319c = null;
+        this.f24320d = null;
+        this.f24319c = new LinkedList<>();
+        this.f24323g = new LinkedList<>();
     }
 
     public AdvertAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25017d : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24320d : (AdvertAppInfo) invokeV.objValue;
     }
 
     public final void b(JSONObject jSONObject) {
@@ -128,7 +126,7 @@ public class e {
         builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
         builder.user_id = optJSONObject.optString("user_id");
         builder.price = optJSONObject.optString("price");
-        builder.verify = optJSONObject.optString(SmsLoginView.f.f39473j);
+        builder.verify = optJSONObject.optString(SmsLoginView.f.f38167j);
         builder.ext_info = optJSONObject.optString("ext_info");
         builder.pos_name = optJSONObject.optString("pos_name");
         GoodsInfo c2 = c(optJSONObject);
@@ -139,14 +137,14 @@ public class e {
         }
         builder.loc_code = optJSONObject.optString("loc_code");
         App build = builder.build(true);
-        this.f25017d = new AdvertAppInfo();
+        this.f24320d = new AdvertAppInfo();
         App c3 = y.q().c(build, Cmatch.PIC_PAGE);
         if (c3 != null) {
-            this.f25017d.k4 = true;
+            this.f24320d.k4 = true;
             build = c3;
         }
-        this.f25017d.a5(build);
-        this.f25017d.l4 = "c0111";
+        this.f24320d.a5(build);
+        this.f24320d.l4 = "c0111";
     }
 
     public final GoodsInfo c(JSONObject jSONObject) {
@@ -186,13 +184,13 @@ public class e {
     public LinkedList<AlaInfoData> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25020g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24323g : (LinkedList) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25018e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24321e : (String) invokeV.objValue;
     }
 
     public ForumData f() {
@@ -204,25 +202,25 @@ public class e {
     public LinkedList<c> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25016c : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24319c : (LinkedList) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25015b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24318b : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f25021h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24324h : invokeV.intValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f25019f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f24322f : (String) invokeV.objValue;
     }
 
     public final void k(JSONObject jSONObject, boolean z) {
@@ -235,14 +233,14 @@ public class e {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 AlaInfoData alaInfoData = new AlaInfoData();
                 alaInfoData.parserJson(optJSONArray.optJSONObject(i2));
-                this.f25020g.addLast(alaInfoData);
+                this.f24323g.addLast(alaInfoData);
             }
             return;
         }
         for (int length = optJSONArray.length() - 1; length >= 0; length--) {
             AlaInfoData alaInfoData2 = new AlaInfoData();
             alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-            this.f25020g.addFirst(alaInfoData2);
+            this.f24323g.addFirst(alaInfoData2);
         }
     }
 
@@ -269,29 +267,29 @@ public class e {
                 this.a = forumData;
                 forumData.parserJson(optJSONObject);
                 optJSONObject.optString("id");
-                this.f25018e = optJSONObject.optString("frist_class");
-                this.f25019f = optJSONObject.optString("second_class");
+                this.f24321e = optJSONObject.optString("frist_class");
+                this.f24322f = optJSONObject.optString("second_class");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
             if (optJSONObject2 != null) {
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
                 if (optJSONObject3 != null) {
                     MetaData metaData = new MetaData();
-                    this.f25024k = metaData;
+                    this.k = metaData;
                     metaData.setUserId(optJSONObject3.optString("user_id"));
-                    this.f25024k.setUserName(optJSONObject3.optString("user_name"));
-                    this.f25024k.setName_show(optJSONObject3.optString("nickname"));
+                    this.k.setUserName(optJSONObject3.optString("user_name"));
+                    this.k.setName_show(optJSONObject3.optString("nickname"));
                 }
-                this.f25023j = optJSONObject2.optString("first_post_id");
+                this.f24326j = optJSONObject2.optString("first_post_id");
                 this.l = optJSONObject2.optInt("is_multiforum_thread");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             if (optJSONObject4 != null) {
-                this.f25021h = optJSONObject4.optInt("reply_private_flag");
-                this.f25022i = optJSONObject4.optString("voice_message");
+                this.f24324h = optJSONObject4.optInt("reply_private_flag");
+                this.f24325i = optJSONObject4.optString("voice_message");
             }
             this.m = jSONObject.optInt("show_adsense", 0);
-            this.f25015b = jSONObject.optInt("pic_amount", 0);
+            this.f24318b = jSONObject.optInt("pic_amount", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
             if (optJSONArray != null) {
                 if (bool.booleanValue()) {
@@ -299,8 +297,8 @@ public class e {
                         c cVar = new c();
                         cVar.w(optJSONArray.optJSONObject(i2));
                         int h2 = cVar.h();
-                        if (h2 >= 1 && h2 <= this.f25015b) {
-                            this.f25016c.addLast(cVar);
+                        if (h2 >= 1 && h2 <= this.f24318b) {
+                            this.f24319c.addLast(cVar);
                         }
                     }
                 } else {
@@ -308,8 +306,8 @@ public class e {
                         c cVar2 = new c();
                         cVar2.w(optJSONArray.getJSONObject(length));
                         int h3 = cVar2.h();
-                        if (h3 >= 1 && h3 <= this.f25015b) {
-                            this.f25016c.addFirst(cVar2);
+                        if (h3 >= 1 && h3 <= this.f24318b) {
+                            this.f24319c.addFirst(cVar2);
                         }
                     }
                 }

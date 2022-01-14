@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.u.o;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -43,25 +43,25 @@ public class TiePlusEventController implements LifecycleObserver {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f43074e;
+    public final Context f41538e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public final TiePlusStat.Locate f43075f;
+    public final TiePlusStat.Locate f41539f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<WeakReference<f>> f43076g;
+    public final List<WeakReference<f>> f41540g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public final TiePlusHelper f43077h;
+    public final TiePlusHelper f41541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f43078i;
+    public CustomMessageListener f41542i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f43079j;
+    public CustomMessageListener f41543j;
 
     /* loaded from: classes11.dex */
     public class a extends CustomMessageListener {
@@ -136,7 +136,7 @@ public class TiePlusEventController implements LifecycleObserver {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            Iterator it = this.a.f43076g.iterator();
+            Iterator it = this.a.f41540g.iterator();
             while (it.hasNext()) {
                 WeakReference weakReference = (WeakReference) it.next();
                 if (weakReference.get() != null) {
@@ -155,10 +155,10 @@ public class TiePlusEventController implements LifecycleObserver {
         public final /* synthetic */ c.a.s0.g1.p.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43080b;
+        public final /* synthetic */ String f41544b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TiePlusEventController f43081c;
+        public final /* synthetic */ TiePlusEventController f41545c;
 
         public c(TiePlusEventController tiePlusEventController, c.a.s0.g1.p.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -175,16 +175,16 @@ public class TiePlusEventController implements LifecycleObserver {
                     return;
                 }
             }
-            this.f43081c = tiePlusEventController;
+            this.f41545c = tiePlusEventController;
             this.a = aVar;
-            this.f43080b = str;
+            this.f41544b = str;
         }
 
         @Override // com.baidu.tbadk.widget.tiejia.TiePlusDownloadDialog.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TiePlusStat.d(TiePlusStat.StatType.DIALOG_CLICK, this.f43081c.f43075f, this.a.l(), this.a.h(), this.a.m(), this.a.f(), this.a.e(), this.f43080b);
+                TiePlusStat.d(TiePlusStat.StatType.DIALOG_CLICK, this.f41545c.f41539f, this.a.l(), this.a.h(), this.a.m(), this.a.f(), this.a.e(), this.f41544b);
             }
         }
     }
@@ -196,10 +196,10 @@ public class TiePlusEventController implements LifecycleObserver {
         public final /* synthetic */ TiebaPlusInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.g1.p.a f43082b;
+        public final /* synthetic */ c.a.s0.g1.p.a f41546b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TiePlusEventController f43083c;
+        public final /* synthetic */ TiePlusEventController f41547c;
 
         public d(TiePlusEventController tiePlusEventController, TiebaPlusInfo tiebaPlusInfo, c.a.s0.g1.p.a aVar) {
             Interceptable interceptable = $ic;
@@ -216,9 +216,9 @@ public class TiePlusEventController implements LifecycleObserver {
                     return;
                 }
             }
-            this.f43083c = tiePlusEventController;
+            this.f41547c = tiePlusEventController;
             this.a = tiebaPlusInfo;
-            this.f43082b = aVar;
+            this.f41546b = aVar;
         }
 
         @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
@@ -227,8 +227,8 @@ public class TiePlusEventController implements LifecycleObserver {
             if ((interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) && j2 == c.a.d.f.m.b.g(this.a.item_id, 0L)) {
                 TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder(this.a);
                 builder.is_appoint = 1;
-                this.f43082b.r(builder.build(true));
-                UtilHelper.showToast(this.f43083c.f43074e, R.string.tip_order_successs);
+                this.f41546b.r(builder.build(true));
+                UtilHelper.showToast(this.f41547c.f41538e, R.string.tip_order_successs);
             }
         }
 
@@ -236,7 +236,7 @@ public class TiePlusEventController implements LifecycleObserver {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UtilHelper.showToast(this.f43083c.f43074e, R.string.tip_order_fail);
+                UtilHelper.showToast(this.f41547c.f41538e, R.string.tip_order_fail);
             }
         }
     }
@@ -332,7 +332,7 @@ public class TiePlusEventController implements LifecycleObserver {
     public void addEventAckedCallbackWeaked(@Nullable f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f43076g.add(new WeakReference<>(fVar));
+            this.f41540g.add(new WeakReference<>(fVar));
         }
     }
 
@@ -347,9 +347,9 @@ public class TiePlusEventController implements LifecycleObserver {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f43078i);
-            MessageManager.getInstance().unRegisterListener(this.f43079j);
-            this.f43077h.V();
+            MessageManager.getInstance().unRegisterListener(this.f41542i);
+            MessageManager.getInstance().unRegisterListener(this.f41543j);
+            this.f41541h.V();
         }
     }
 
@@ -357,9 +357,9 @@ public class TiePlusEventController implements LifecycleObserver {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f43078i);
-            MessageManager.getInstance().registerListener(this.f43079j);
-            this.f43077h.A();
+            MessageManager.getInstance().registerListener(this.f41542i);
+            MessageManager.getInstance().registerListener(this.f41543j);
+            this.f41541h.A();
         }
     }
 
@@ -367,7 +367,7 @@ public class TiePlusEventController implements LifecycleObserver {
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar.j() == TiePlusStat.StatType.CLICK) {
-            TiePlusStat.Locate locate = this.f43075f;
+            TiePlusStat.Locate locate = this.f41539f;
             if (locate == TiePlusStat.Locate.PB || locate == TiePlusStat.Locate.PB_COMMENT) {
                 d();
             }
@@ -376,37 +376,37 @@ public class TiePlusEventController implements LifecycleObserver {
             String str = "";
             int i3 = 1;
             if (g2 == TiePlusStat.LandingType.H5) {
-                this.f43077h.l(n.jump_url, 1, "", n.h5_jump_type.intValue());
+                this.f41541h.l(n.jump_url, 1, "", n.h5_jump_type.intValue());
             } else if (g2 == TiePlusStat.LandingType.WECHAT) {
-                this.f43077h.S(n, aVar.h(), aVar.m());
+                this.f41541h.S(n, aVar.h(), aVar.m());
             } else if (g2 == TiePlusStat.LandingType.WECHAT_MINIAPP) {
-                this.f43077h.l(n.h5_jump_number, n.jump_type.intValue(), n.h5_jump_param, 0);
+                this.f41541h.l(n.h5_jump_number, n.jump_type.intValue(), n.h5_jump_param, 0);
             } else if (g2 == TiePlusStat.LandingType.DIALOG_DOWNLOAD) {
-                TiePlusHelper tiePlusHelper = this.f43077h;
+                TiePlusHelper tiePlusHelper = this.f41541h;
                 tiePlusHelper.E(n.app_id);
                 tiePlusHelper.I(n.download_url);
                 tiePlusHelper.L(n.app_package);
                 tiePlusHelper.M(n.app_power);
                 tiePlusHelper.N(n.app_privacy);
-                if (aVar.k() != null && aVar.k().V2) {
-                    str = aVar.k().W2;
+                if (aVar.k() != null && aVar.k().U2) {
+                    str = aVar.k().V2;
                 }
                 String str2 = str;
-                TiePlusDownloadDialog tiePlusDownloadDialog = new TiePlusDownloadDialog(this.f43074e, this.f43077h, true);
-                this.f43077h.H(tiePlusDownloadDialog);
+                TiePlusDownloadDialog tiePlusDownloadDialog = new TiePlusDownloadDialog(this.f41538e, this.f41541h, true);
+                this.f41541h.H(tiePlusDownloadDialog);
                 ItemData itemData = new ItemData();
                 itemData.parseProto(n);
-                this.f43077h.K(itemData);
-                this.f43077h.g(new o(TiePlusStat.StatType.DOWNLOAD_FINISHED, aVar.h(), aVar.m(), str2, n.app_package));
+                this.f41541h.K(itemData);
+                this.f41541h.g(new o(TiePlusStat.StatType.DOWNLOAD_FINISHED, aVar.h(), aVar.m(), str2, n.app_package));
                 tiePlusDownloadDialog.setAppCompany(n.app_company).setAppIcon(n.app_icon).setAppTitle(n.title).setAppVersion(n.app_version).setDownloadClickCallback(new c(this, aVar, str2));
                 tiePlusDownloadDialog.show();
-                TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, this.f43075f, aVar.l(), aVar.h(), aVar.m(), aVar.f(), aVar.e(), str2);
+                TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, this.f41539f, aVar.l(), aVar.h(), aVar.m(), aVar.f(), aVar.e(), str2);
             } else if (g2 == TiePlusStat.LandingType.APPOINT) {
                 if (n.is_appoint.intValue() == 1) {
                     if (StringUtils.isNull(n.forum_name)) {
                         return;
                     }
-                    int i4 = e.a[this.f43075f.ordinal()];
+                    int i4 = e.a[this.f41539f.ordinal()];
                     if (i4 == 1) {
                         i2 = 9;
                         i3 = 9;
@@ -425,20 +425,20 @@ public class TiePlusEventController implements LifecycleObserver {
                     ItemClickJumpUtil.itemClickJump(n.forum_name, n.item_id, i3, Integer.valueOf(i2));
                     return;
                 }
-                this.f43077h.D(c.a.d.f.m.b.g(n.item_id, 0L), n.title, new d(this, n, aVar));
+                this.f41541h.D(c.a.d.f.m.b.g(n.item_id, 0L), n.title, new d(this, n, aVar));
             } else if (g2 == TiePlusStat.LandingType.MESSAGE) {
                 PluginUser pluginUser = n.plugin_user;
                 if (pluginUser != null) {
-                    Context context = this.f43074e;
+                    Context context = this.f41538e;
                     if (context instanceof Activity) {
                         TiePlusHelper.u((Activity) context, pluginUser);
                     }
                 }
             } else if (g2 == TiePlusStat.LandingType.WECHAT_OFFICIAL) {
                 if (n.jump_setting.intValue() == 1) {
-                    this.f43077h.T(n, aVar.h(), aVar.m());
+                    this.f41541h.T(n, aVar.h(), aVar.m());
                 } else {
-                    this.f43077h.S(n, aVar.h(), aVar.m());
+                    this.f41541h.S(n, aVar.h(), aVar.m());
                 }
             }
         }
@@ -449,20 +449,20 @@ public class TiePlusEventController implements LifecycleObserver {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            d2 k2 = aVar.k();
+            e2 k = aVar.k();
             String str3 = "";
-            if (k2.V2) {
-                str3 = k2.W2;
-                str2 = k2.X2;
-                str = k2.Y2;
+            if (k.U2) {
+                str3 = k.V2;
+                str2 = k.W2;
+                str = k.X2;
             } else {
                 str = "";
                 str2 = str;
             }
-            TiePlusStat.b(aVar.o(), aVar.j(), this.f43075f, aVar.l(), aVar.h(), aVar.n().target_type.intValue(), aVar.g(), aVar.m(), aVar.f(), aVar.e(), str3, aVar.d());
+            TiePlusStat.b(aVar.o(), aVar.j(), this.f41539f, aVar.l(), aVar.h(), aVar.n().target_type.intValue(), aVar.g(), aVar.m(), aVar.f(), aVar.e(), str3, aVar.d());
             int o = aVar.o();
             TiePlusStat.StatType j2 = aVar.j();
-            TiePlusStat.Locate locate = this.f43075f;
+            TiePlusStat.Locate locate = this.f41539f;
             TiePlusStat.c(o, j2, locate, str3, str2, str, aVar.i(locate));
         }
     }
@@ -482,17 +482,17 @@ public class TiePlusEventController implements LifecycleObserver {
                 return;
             }
         }
-        this.f43076g = new ArrayList();
-        this.f43078i = new a(this, 2001454);
-        this.f43079j = new b(this, 2001455);
-        this.f43074e = context;
-        this.f43075f = locate;
-        this.f43077h = new TiePlusHelper(context);
+        this.f41540g = new ArrayList();
+        this.f41542i = new a(this, 2001454);
+        this.f41543j = new b(this, 2001455);
+        this.f41538e = context;
+        this.f41539f = locate;
+        this.f41541h = new TiePlusHelper(context);
         if (bdUniqueId != null) {
-            this.f43078i.setTag(bdUniqueId);
-            this.f43078i.setSelfListener(true);
-            this.f43079j.setTag(bdUniqueId);
-            this.f43079j.setSelfListener(true);
+            this.f41542i.setTag(bdUniqueId);
+            this.f41542i.setSelfListener(true);
+            this.f41543j.setTag(bdUniqueId);
+            this.f41543j.setSelfListener(true);
         }
     }
 }

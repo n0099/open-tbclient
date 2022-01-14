@@ -67,10 +67,10 @@ public abstract class Ordering<T> implements Comparator<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f56958e;
+        public final AtomicInteger f54799e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f56959f;
+        public final ConcurrentMap<Object, Integer> f54800f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -85,20 +85,20 @@ public abstract class Ordering<T> implements Comparator<T> {
                     return;
                 }
             }
-            this.f56958e = new AtomicInteger(0);
+            this.f54799e = new AtomicInteger(0);
             MapMaker mapMaker = new MapMaker();
             y0.i(mapMaker);
-            this.f56959f = mapMaker.i();
+            this.f54800f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                Integer num = this.f56959f.get(obj);
+                Integer num = this.f54800f.get(obj);
                 if (num == null) {
-                    Integer valueOf = Integer.valueOf(this.f56958e.getAndIncrement());
-                    Integer putIfAbsent = this.f56959f.putIfAbsent(obj, valueOf);
+                    Integer valueOf = Integer.valueOf(this.f54799e.getAndIncrement());
+                    Integer putIfAbsent = this.f54800f.putIfAbsent(obj, valueOf);
                     return putIfAbsent != null ? putIfAbsent : valueOf;
                 }
                 return num;
@@ -482,13 +482,13 @@ public abstract class Ordering<T> implements Comparator<T> {
                 return Collections.emptyList();
             }
             if (i2 >= 1073741823) {
-                ArrayList k2 = Lists.k(it);
-                Collections.sort(k2, this);
-                if (k2.size() > i2) {
-                    k2.subList(i2, k2.size()).clear();
+                ArrayList k = Lists.k(it);
+                Collections.sort(k, this);
+                if (k.size() > i2) {
+                    k.subList(i2, k.size()).clear();
                 }
-                k2.trimToSize();
-                return Collections.unmodifiableList(k2);
+                k.trimToSize();
+                return Collections.unmodifiableList(k);
             }
             l1 a2 = l1.a(i2, this);
             a2.c(it);

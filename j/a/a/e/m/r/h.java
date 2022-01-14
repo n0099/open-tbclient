@@ -20,31 +20,31 @@ public class h implements IPayCallback {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64745b;
+    public int f62315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IPayCallback<CurrencyChargeMessage> f64746c;
+    public IPayCallback<CurrencyChargeMessage> f62316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f64747d;
+    public Activity f62317d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Dialog f64748e;
+    public Dialog f62318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IYYPayWayView f64749f;
+    public IYYPayWayView f62319f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j.a.a.e.m.h f64750g;
+    public j.a.a.e.m.h f62320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j.a.a.e.n.f f64751h;
+    public j.a.a.e.n.f f62321h;
 
     /* renamed from: i  reason: collision with root package name */
-    public IYYPayWayView.b f64752i;
+    public IYYPayWayView.b f62322i;
 
     /* renamed from: j  reason: collision with root package name */
-    public j.a.a.e.m.f f64753j;
+    public j.a.a.e.m.f f62323j;
 
     public h(int i2, int i3, IPayCallback<CurrencyChargeMessage> iPayCallback, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, j.a.a.e.m.h hVar, j.a.a.e.n.f fVar, IYYPayWayView.b bVar, j.a.a.e.m.f fVar2) {
         Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class h implements IPayCallback {
         }
         RLog.info("PayInternalCallback", "create PayInternalCallback appId:" + i2 + " userChannel:" + i3);
         this.a = i2;
-        this.f64745b = i3;
-        this.f64746c = iPayCallback;
-        this.f64747d = activity;
-        this.f64748e = dialog;
-        this.f64749f = iYYPayWayView;
-        this.f64750g = hVar;
-        this.f64751h = fVar;
-        this.f64752i = bVar;
-        this.f64753j = fVar2;
+        this.f62315b = i3;
+        this.f62316c = iPayCallback;
+        this.f62317d = activity;
+        this.f62318e = dialog;
+        this.f62319f = iYYPayWayView;
+        this.f62320g = hVar;
+        this.f62321h = fVar;
+        this.f62322i = bVar;
+        this.f62323j = fVar2;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
@@ -79,13 +79,13 @@ public class h implements IPayCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, payCallBackBean) == null) {
             RLog.info("PayInternalCallback", "requestPayInternal onFail code:" + i2 + " failReason:" + str);
-            IPayCallback<CurrencyChargeMessage> iPayCallback = this.f64746c;
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.f62316c;
             if (iPayCallback != null) {
                 iPayCallback.onFail(i2, str, payCallBackBean);
             }
-            this.f64753j.b(i2, str, payCallBackBean);
-            j.a.a.e.o.a.b(this.a, this.f64745b, i2, str);
-            this.f64750g.o(i2, str, this.f64747d, this.f64748e, this.f64749f, this.f64752i);
+            this.f62323j.b(i2, str, payCallBackBean);
+            j.a.a.e.o.a.b(this.a, this.f62315b, i2, str);
+            this.f62320g.o(i2, str, this.f62317d, this.f62318e, this.f62319f, this.f62322i);
         }
     }
 
@@ -94,7 +94,7 @@ public class h implements IPayCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             RLog.info("PayInternalCallback", "requestPayInternal onPayStart");
-            IPayCallback<CurrencyChargeMessage> iPayCallback = this.f64746c;
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.f62316c;
             if (iPayCallback != null) {
                 iPayCallback.onPayStart();
             }
@@ -106,11 +106,11 @@ public class h implements IPayCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
             RLog.info("PayInternalCallback", "requestPayInternal onPayStatus code " + purchaseStatus.getCode() + " msg: " + purchaseStatus.getMessage());
-            IPayCallback<CurrencyChargeMessage> iPayCallback = this.f64746c;
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.f62316c;
             if (iPayCallback != null) {
                 iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
             }
-            this.f64750g.l(this.f64747d, this.f64748e, this.f64749f, purchaseStatus);
+            this.f62320g.l(this.f62317d, this.f62318e, this.f62319f, purchaseStatus);
         }
     }
 
@@ -119,7 +119,7 @@ public class h implements IPayCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
             RLog.info("PayInternalCallback", "requestPayInternal onSuccess");
-            this.f64750g.f(this.f64747d, this.f64751h, this.f64748e, this.f64749f);
+            this.f62320g.f(this.f62317d, this.f62321h, this.f62318e, this.f62319f);
         }
     }
 }

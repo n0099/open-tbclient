@@ -12,13 +12,13 @@ public class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f7589b;
+    public static float f7424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f7590c;
+    public static float f7425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f7591d;
+    public static boolean f7426d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class c {
             }
         }
         a = k.a;
-        f7589b = 2.5f;
-        f7590c = 100.0f;
-        f7591d = true;
+        f7424b = 2.5f;
+        f7425c = 100.0f;
+        f7426d = true;
     }
 }

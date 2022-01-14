@@ -31,25 +31,23 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f43896e;
+    public RelativeLayout f42297e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f43897f;
+    public TbImageView f42298f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f43898g;
+    public LinearLayout f42299g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClickableHeaderImageView f43899h;
+    public ClickableHeaderImageView f42300h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43900i;
+    public TextView f42301i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f43901j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f43902k;
+    public RelativeLayout f42302j;
+    public TextView k;
     public ClickableHeaderImageView l;
     public TextView m;
     public int mSkinType;
@@ -64,7 +62,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameCompetitionItemView f43903e;
+        public final /* synthetic */ CardFrsGameCompetitionItemView f42303e;
 
         public a(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView) {
             Interceptable interceptable = $ic;
@@ -81,15 +79,15 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f43903e = cardFrsGameCompetitionItemView;
+            this.f42303e = cardFrsGameCompetitionItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", this.f43903e.q));
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43903e.getContext()), new String[]{(String) view.getTag()}, true);
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", this.f42303e.q));
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f42303e.getContext()), new String[]{(String) view.getTag()}, true);
             }
         }
     }
@@ -120,13 +118,13 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.card_frs_game_competition_view_item, (ViewGroup) this, true);
-            this.f43896e = (RelativeLayout) findViewById(R.id.card_competition_layout);
-            this.f43897f = (TbImageView) findViewById(R.id.card_competition_bg);
-            this.f43898g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
-            this.f43899h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
-            this.f43900i = (TextView) findViewById(R.id.card_competition_title);
-            this.f43901j = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
-            this.f43902k = (TextView) findViewById(R.id.card_competition_vs);
+            this.f42297e = (RelativeLayout) findViewById(R.id.card_competition_layout);
+            this.f42298f = (TbImageView) findViewById(R.id.card_competition_bg);
+            this.f42299g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
+            this.f42300h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
+            this.f42301i = (TextView) findViewById(R.id.card_competition_title);
+            this.f42302j = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
+            this.k = (TextView) findViewById(R.id.card_competition_vs);
             this.l = (ClickableHeaderImageView) findViewById(R.id.card_competition_left_img);
             this.m = (TextView) findViewById(R.id.card_competition_left_name);
             this.n = (ClickableHeaderImageView) findViewById(R.id.card_competition_right_img);
@@ -134,21 +132,21 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             this.p = (TextView) findViewById(R.id.card_competition_btn_discuss);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             int i2 = (dimensionPixelSize * 21) / 9;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f43897f.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42298f.getLayoutParams();
             layoutParams.height = dimensionPixelSize;
             layoutParams.width = i2;
-            this.f43897f.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f43896e.getLayoutParams();
+            this.f42298f.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f42297e.getLayoutParams();
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i2;
-            this.f43896e.setLayoutParams(layoutParams2);
-            this.f43897f.setDefaultBgResource(R.drawable.icon_morenpic);
-            this.f43899h.setDrawBorder(true);
-            this.f43899h.setDrawerType(1);
-            this.f43899h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-            this.f43899h.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f43899h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f43899h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.f42297e.setLayoutParams(layoutParams2);
+            this.f42298f.setDefaultBgResource(R.drawable.icon_morenpic);
+            this.f42300h.setDrawBorder(true);
+            this.f42300h.setDrawerType(1);
+            this.f42300h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+            this.f42300h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f42300h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.f42300h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.l.setDefaultResource(17170445);
             this.l.setDefaultBgResource(R.color.CAM_X0205);
             this.l.setIsRound(true);
@@ -168,9 +166,9 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public void bindDataToView(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetitionSubNode) == null) {
-            this.f43899h.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
-            this.f43897f.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
-            this.f43900i.setText(featureCardCompetitionSubNode.title);
+            this.f42300h.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
+            this.f42298f.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
+            this.f42301i.setText(featureCardCompetitionSubNode.title);
             this.l.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
             this.m.setText(featureCardCompetitionSubNode.team1_name);
             this.n.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
@@ -182,8 +180,8 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (this.mSkinType != i2) {
-                SkinManager.setViewTextColor(this.f43900i, R.color.CAM_X0101, 1);
-                SkinManager.setViewTextColor(this.f43902k, R.color.CAM_X0101, 1);
+                SkinManager.setViewTextColor(this.f42301i, R.color.CAM_X0101, 1);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.p, R.color.CAM_X0101, 1);

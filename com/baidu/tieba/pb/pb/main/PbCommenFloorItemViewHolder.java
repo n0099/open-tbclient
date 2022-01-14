@@ -111,7 +111,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f48249e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f46451e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -128,14 +128,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f48249e = pbCommenFloorItemViewHolder;
+            this.f46451e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48249e.a.playAnimation();
+                this.f46451e.a.playAnimation();
             }
         }
     }
@@ -202,10 +202,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mFeedBackImg = (ImageView) view.findViewById(i.pb_floor_feedback);
         this.pageFrom = i2;
         c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-        fVar.f13685b = 5;
-        fVar.f13691h = 8;
-        fVar.f13690g = 2;
-        fVar.f13689f = i2;
+        fVar.f13371b = 5;
+        fVar.f13377h = 8;
+        fVar.f13376g = 2;
+        fVar.f13375f = i2;
         this.mPbFloorPraiseView.setStatisticData(fVar);
         this.mHeadPhotoView = (HeadImageView) view.findViewById(i.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(i.pendant_user_photo);
@@ -276,7 +276,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.uegFrameLayout = frameLayout;
         g gVar = new g(tbPageContext, frameLayout);
         this.pbHeadUegController = gVar;
-        gVar.f23321f = 3;
+        gVar.f22677f = 3;
         this.mMaskView = (MaskView) view.findViewById(i.mask_view_op);
     }
 
@@ -333,10 +333,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
             c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-            fVar.f13685b = 12;
-            fVar.f13691h = 9;
-            fVar.f13690g = 3;
-            fVar.f13689f = this.pageFrom;
+            fVar.f13371b = 12;
+            fVar.f13377h = 9;
+            fVar.f13376g = 3;
+            fVar.f13375f = this.pageFrom;
             this.mPbFloorPraiseView.setStatisticData(fVar);
         }
     }

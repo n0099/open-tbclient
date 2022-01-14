@@ -18,7 +18,7 @@ public class cu extends co {
     public final /* synthetic */ cs f213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f63348b;
+    public final /* synthetic */ co f60967b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
@@ -39,12 +39,12 @@ public class cu extends co {
             }
         }
         this.f213a = csVar;
-        this.f63348b = coVar;
-        co coVar2 = this.f63348b;
+        this.f60967b = coVar;
+        co coVar2 = this.f60967b;
         this.a = coVar2;
         ((co) this).f199b = ((co) this).f199b;
         if (coVar2 != null) {
-            this.f63340f = coVar2.f63340f;
+            this.f60959f = coVar2.f60959f;
         }
     }
 
@@ -59,8 +59,8 @@ public class cu extends co {
                 if (this.a != null) {
                     arrayList.addAll(this.a.a(true));
                 }
-                synchronized (cs.f63345b) {
-                    co coVar = cs.f63345b.get(((co) this).f199b);
+                synchronized (cs.f60964b) {
+                    co coVar = cs.f60964b.get(((co) this).f199b);
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {

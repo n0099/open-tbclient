@@ -11,11 +11,11 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
     public static j.b a(final j.a aVar, final com.kwad.sdk.reward.a aVar2) {
-        final Activity activity = aVar2.f59456h;
-        final com.kwad.sdk.reward.c.a aVar3 = aVar2.f59459k;
-        final AdTemplate adTemplate = aVar2.f59455g;
+        final Activity activity = aVar2.f57208h;
+        final com.kwad.sdk.reward.c.a aVar3 = aVar2.k;
+        final AdTemplate adTemplate = aVar2.f57207g;
         final AdInfo j2 = d.j(adTemplate);
-        final JSONObject jSONObject = aVar2.f59453e;
+        final JSONObject jSONObject = aVar2.f57205e;
         return new j.c() { // from class: com.kwad.sdk.reward.widget.a.1
             @Override // com.kwad.sdk.reward.j.c, com.kwad.sdk.reward.j.b
             public void a() {
@@ -55,7 +55,7 @@ public class a {
                 super.d();
                 com.kwad.sdk.core.report.a.f(adTemplate, 150);
                 com.kwad.sdk.reward.a aVar4 = aVar2;
-                aVar4.a(aVar4.f59457i, 156, 1);
+                aVar4.a(aVar4.f57209i, 156, 1);
             }
 
             @Override // com.kwad.sdk.reward.j.c, com.kwad.sdk.reward.j.b
@@ -63,14 +63,14 @@ public class a {
                 super.e();
                 com.kwad.sdk.core.report.a.f(adTemplate, 150);
                 com.kwad.sdk.reward.a aVar4 = aVar2;
-                aVar4.a(aVar4.f59457i, 156, 1);
+                aVar4.a(aVar4.f57209i, 156, 1);
             }
         };
     }
 
     public static void a(com.kwad.sdk.reward.a aVar) {
-        Activity activity = aVar.f59456h;
-        AdTemplate adTemplate = aVar.f59455g;
+        Activity activity = aVar.f57208h;
+        AdTemplate adTemplate = aVar.f57207g;
         AdInfo j2 = d.j(adTemplate);
         long b2 = com.kwad.sdk.core.response.a.a.b(j2) * 1000;
         long n = com.kwad.sdk.core.response.a.a.n(j2);

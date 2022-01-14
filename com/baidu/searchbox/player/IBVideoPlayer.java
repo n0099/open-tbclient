@@ -2,7 +2,7 @@ package com.baidu.searchbox.player;
 
 import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IBVideoPlayer {
     boolean isPlaying();
 

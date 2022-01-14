@@ -20,13 +20,13 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     public AppBarLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AppBarLayout.OnOffsetChangedListener f32484b;
+    public AppBarLayout.OnOffsetChangedListener f31452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32485c;
+    public boolean f31453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32486d;
+    public boolean f31454d;
 
     /* loaded from: classes9.dex */
     public class a implements AppBarLayout.OnOffsetChangedListener {
@@ -59,10 +59,10 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
                 return;
             }
             if (Math.abs(i2) < appBarLayout.getTotalScrollRange()) {
-                this.a.f32485c = false;
-            } else if (this.a.f32485c) {
+                this.a.f31453c = false;
+            } else if (this.a.f31453c) {
             } else {
-                this.a.f32485c = true;
+                this.a.f31453c = true;
                 appBarLayout.setActivated(false);
                 appBarLayout.setExpanded(false, false);
             }
@@ -82,8 +82,8 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
                 return;
             }
         }
-        this.f32485c = false;
-        this.f32486d = false;
+        this.f31453c = false;
+        this.f31454d = false;
     }
 
     public void expandedAppBarLayout(AppBarLayout appBarLayout) {
@@ -96,7 +96,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     public boolean isSticky() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32485c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31453c : invokeV.booleanValue;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
@@ -106,11 +106,11 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
         if (interceptable == null || interceptable.invokeL(1048579, this, layoutParams) == null) {
             super.onAttachedToLayoutParams(layoutParams);
             AppBarLayout appBarLayout = this.a;
-            if (appBarLayout == null || (onOffsetChangedListener = this.f32484b) == null || this.f32486d) {
+            if (appBarLayout == null || (onOffsetChangedListener = this.f31452b) == null || this.f31454d) {
                 return;
             }
             appBarLayout.addOnOffsetChangedListener(onOffsetChangedListener);
-            this.f32486d = true;
+            this.f31454d = true;
         }
     }
 
@@ -121,11 +121,11 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromLayoutParams();
             AppBarLayout appBarLayout = this.a;
-            if (appBarLayout == null || (onOffsetChangedListener = this.f32484b) == null || !this.f32486d) {
+            if (appBarLayout == null || (onOffsetChangedListener = this.f31452b) == null || !this.f31454d) {
                 return;
             }
             appBarLayout.removeOnOffsetChangedListener(onOffsetChangedListener);
-            this.f32486d = false;
+            this.f31454d = false;
         }
     }
 
@@ -134,7 +134,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, appBarLayout, z) == null) {
             appBarLayout.setActivated(true);
             appBarLayout.setExpanded(true, z);
-            this.f32485c = false;
+            this.f31453c = false;
         }
     }
 
@@ -148,13 +148,13 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
             if (this.a == null) {
                 this.a = appBarLayout;
             }
-            if (this.f32484b == null) {
-                this.f32484b = new a(this);
+            if (this.f31452b == null) {
+                this.f31452b = new a(this);
             }
             AppBarLayout appBarLayout2 = this.a;
-            if (appBarLayout2 != null && (onOffsetChangedListener = this.f32484b) != null && !this.f32486d) {
+            if (appBarLayout2 != null && (onOffsetChangedListener = this.f31452b) != null && !this.f31454d) {
                 appBarLayout2.addOnOffsetChangedListener(onOffsetChangedListener);
-                this.f32486d = true;
+                this.f31454d = true;
             }
             return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
         }
@@ -167,7 +167,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, appBarLayout, view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
-            if (this.f32485c) {
+            if (this.f31453c) {
                 return false;
             }
             return super.onNestedFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f2, f3, z);
@@ -181,7 +181,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{coordinatorLayout, appBarLayout, view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f32485c) {
+            if (this.f31453c) {
                 return false;
             }
             return super.onNestedPreFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f2, f3);
@@ -193,7 +193,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) || this.f32485c) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) || this.f31453c) {
             return;
         }
         super.onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i2, i3, iArr);
@@ -203,7 +203,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || this.f32485c) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || this.f31453c) {
             return;
         }
         super.onNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i2, i3, i4, i5);
@@ -215,7 +215,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{coordinatorLayout, appBarLayout, view, view2, Integer.valueOf(i2)})) == null) {
-            if (this.f32485c) {
+            if (this.f31453c) {
                 return false;
             }
             return super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, view2, i2);
@@ -242,7 +242,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
                 return;
             }
         }
-        this.f32485c = false;
-        this.f32486d = false;
+        this.f31453c = false;
+        this.f31454d = false;
     }
 }

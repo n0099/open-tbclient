@@ -16,10 +16,10 @@ public abstract class b<D extends IBaseDialogData> implements g<D> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f23123e;
+    public TbPageContext<?> f22486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f23124f;
+    public ViewGroup f22487f;
 
     public b(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,21 +36,21 @@ public abstract class b<D extends IBaseDialogData> implements g<D> {
                 return;
             }
         }
-        this.f23123e = tbPageContext;
-        this.f23124f = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(c(), (ViewGroup) null, false);
+        this.f22486e = tbPageContext;
+        this.f22487f = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(c(), (ViewGroup) null, false);
         a();
     }
 
     public TbPageContext<?> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23123e : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22486e : (TbPageContext) invokeV.objValue;
     }
 
     @Override // c.a.t0.s2.t.g
     public ViewGroup getViewGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23124f : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22487f : (ViewGroup) invokeV.objValue;
     }
 }

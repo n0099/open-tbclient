@@ -22,10 +22,10 @@ public class o3 {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f31387b;
+    public Info f30403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f31388c;
+    public Handler f30404c;
 
     public o3() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class o3 {
                 return;
             }
         }
-        this.f31388c = new h3(this, Looper.getMainLooper());
+        this.f30404c = new h3(this, Looper.getMainLooper());
     }
 
     public static boolean b(Uri uri) {
@@ -64,7 +64,7 @@ public class o3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
             this.a = context;
-            this.f31387b = info;
+            this.f30403b = info;
             WebView webView = new WebView(context);
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
@@ -81,7 +81,7 @@ public class o3 {
             Message obtain = Message.obtain();
             obtain.what = 11;
             obtain.obj = str;
-            this.f31388c.sendMessageDelayed(obtain, 5000L);
+            this.f30404c.sendMessageDelayed(obtain, 5000L);
         }
     }
 }

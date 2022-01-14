@@ -16,11 +16,11 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f63067b;
+    public ArrayList<String> f60690b;
 
     /* renamed from: com.vivo.push.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2241a {
+    public static class C2258a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,20 +65,20 @@ public final class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2241a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2258a.a : (a) invokeV.objValue;
     }
 
     public final ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList<>(this.f63067b) : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList<>(this.f60690b) : (ArrayList) invokeV.objValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f63067b;
+            ArrayList<String> arrayList = this.f60690b;
             return (arrayList == null || arrayList.size() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -97,7 +97,7 @@ public final class a {
                 return;
             }
         }
-        this.f63067b = null;
-        this.f63067b = new ArrayList<>();
+        this.f60690b = null;
+        this.f60690b = new ArrayList<>();
     }
 }

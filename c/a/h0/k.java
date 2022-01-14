@@ -10,8 +10,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public final class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeightRatio = 0;
-    public static final int MaxHeightScrollView_minHeightRatio = 1;
+    public static final int MaxHeightScrollView_maxHeight = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 1;
+    public static final int MaxHeightScrollView_minHeightRatio = 2;
     public static final int[] PolyVerificationCodeView;
     public static final int PolyVerificationCodeView_vcv_et_bg = 0;
     public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
@@ -67,7 +68,7 @@ public final class k {
                 return;
             }
         }
-        MaxHeightScrollView = new int[]{R.attr.maxHeightRatio, R.attr.minHeightRatio};
+        MaxHeightScrollView = new int[]{R.attr.maxHeight, R.attr.maxHeightRatio, R.attr.minHeightRatio};
         PolyVerificationCodeView = new int[]{R.attr.vcv_et_bg, R.attr.vcv_et_cursor, R.attr.vcv_et_cursor_visible, R.attr.vcv_et_number, R.attr.vcv_et_spacing, R.attr.vcv_et_text_color, R.attr.vcv_et_text_size, R.attr.vcv_et_width};
         PopupWindow = new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.popupAnimationStyle, R.attr.popupBackground};
         ProgressButton = new int[]{R.attr.textColor};

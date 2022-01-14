@@ -401,8 +401,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, hVar, vVar) == null) {
                 o<K, V> castForTesting = castForTesting((h) hVar);
-                v vVar2 = castForTesting.f56899h;
-                castForTesting.f56899h = vVar;
+                v vVar2 = castForTesting.f54740h;
+                castForTesting.f54740h = vVar;
                 vVar2.clear();
             }
         }
@@ -643,8 +643,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, hVar, vVar) == null) {
                 t<K, V> castForTesting = castForTesting((h) hVar);
-                v vVar2 = castForTesting.f56902g;
-                castForTesting.f56902g = vVar;
+                v vVar2 = castForTesting.f54743g;
+                castForTesting.f54743g = vVar;
                 vVar2.clear();
             }
         }
@@ -727,20 +727,20 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f56884e;
+        public final K f54726e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f56885f;
+        public final int f54727f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final E f56886g;
+        public final E f54728g;
 
-        public b(K k2, int i2, E e2) {
+        public b(K k, int i2, E e2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), e2};
+                Object[] objArr = {k, Integer.valueOf(i2), e2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -750,30 +750,30 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56884e = k2;
-            this.f56885f = i2;
-            this.f56886g = e2;
+            this.f54726e = k;
+            this.f54727f = i2;
+            this.f54728g = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public int getHash() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56885f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54727f : invokeV.intValue;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56884e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54726e : (K) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public E getNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56886g : (E) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54728g : (E) invokeV.objValue;
         }
     }
 
@@ -783,19 +783,19 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f56887e;
+        public final int f54729e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final E f56888f;
+        public final E f54730f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ReferenceQueue<K> referenceQueue, K k2, int i2, E e2) {
-            super(k2, referenceQueue);
+        public c(ReferenceQueue<K> referenceQueue, K k, int i2, E e2) {
+            super(k, referenceQueue);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), e2};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), e2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -807,15 +807,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56887e = i2;
-            this.f56888f = e2;
+            this.f54729e = i2;
+            this.f54730f = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
         public int getHash() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56887e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54729e : invokeV.intValue;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.h
@@ -829,7 +829,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public E getNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56888f : (E) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54730f : (E) invokeV.objValue;
         }
     }
 
@@ -942,7 +942,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MapMakerInternalMap f56889e;
+        public final /* synthetic */ MapMakerInternalMap f54731e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(MapMakerInternalMap mapMakerInternalMap) {
@@ -962,14 +962,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56889e = mapMakerInternalMap;
+            this.f54731e = mapMakerInternalMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56889e.clear();
+                this.f54731e.clear();
             }
         }
 
@@ -980,21 +980,21 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             Object key;
             Object obj2;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && (obj2 = this.f56889e.get(key)) != null && this.f56889e.valueEquivalence().equivalent(entry.getValue(), obj2) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && (obj2 = this.f54731e.get(key)) != null && this.f54731e.valueEquivalence().equivalent(entry.getValue(), obj2) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56889e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54731e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new e(this.f56889e) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new e(this.f54731e) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1003,14 +1003,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             Map.Entry entry;
             Object key;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && this.f56889e.remove(key, entry.getValue()) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? (obj instanceof Map.Entry) && (key = (entry = (Map.Entry) obj).getKey()) != null && this.f54731e.remove(key, entry.getValue()) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56889e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54731e.size() : invokeV.intValue;
         }
     }
 
@@ -1020,25 +1020,23 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56890e;
+        public int f54732e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56891f;
+        public int f54733f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Segment<K, V, E, S> f56892g;
+        public Segment<K, V, E, S> f54734g;
 
         /* renamed from: h  reason: collision with root package name */
-        public AtomicReferenceArray<E> f56893h;
+        public AtomicReferenceArray<E> f54735h;
 
         /* renamed from: i  reason: collision with root package name */
-        public E f56894i;
+        public E f54736i;
 
         /* renamed from: j  reason: collision with root package name */
-        public MapMakerInternalMap<K, V, E, S>.x f56895j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public MapMakerInternalMap<K, V, E, S>.x f56896k;
+        public MapMakerInternalMap<K, V, E, S>.x f54737j;
+        public MapMakerInternalMap<K, V, E, S>.x k;
         public final /* synthetic */ MapMakerInternalMap l;
 
         public g(MapMakerInternalMap mapMakerInternalMap) {
@@ -1057,8 +1055,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 }
             }
             this.l = mapMakerInternalMap;
-            this.f56890e = mapMakerInternalMap.segments.length - 1;
-            this.f56891f = -1;
+            this.f54732e = mapMakerInternalMap.segments.length - 1;
+            this.f54733f = -1;
             a();
         }
 
@@ -1067,23 +1065,23 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.f56895j = null;
+            this.f54737j = null;
             if (d() || e()) {
                 return;
             }
             while (true) {
-                int i2 = this.f56890e;
+                int i2 = this.f54732e;
                 if (i2 < 0) {
                     return;
                 }
                 Segment<K, V, E, S>[] segmentArr = this.l.segments;
-                this.f56890e = i2 - 1;
+                this.f54732e = i2 - 1;
                 Segment<K, V, E, S> segment = segmentArr[i2];
-                this.f56892g = segment;
+                this.f54734g = segment;
                 if (segment.count != 0) {
-                    AtomicReferenceArray<E> atomicReferenceArray = this.f56892g.table;
-                    this.f56893h = atomicReferenceArray;
-                    this.f56891f = atomicReferenceArray.length() - 1;
+                    AtomicReferenceArray<E> atomicReferenceArray = this.f54734g.table;
+                    this.f54735h = atomicReferenceArray;
+                    this.f54733f = atomicReferenceArray.length() - 1;
                     if (e()) {
                         return;
                     }
@@ -1100,14 +1098,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     Object key = e2.getKey();
                     Object liveValue = this.l.getLiveValue(e2);
                     if (liveValue != null) {
-                        this.f56895j = new x(this.l, key, liveValue);
+                        this.f54737j = new x(this.l, key, liveValue);
                         z = true;
                     } else {
                         z = false;
                     }
                     return z;
                 } finally {
-                    this.f56892g.postReadCleanup();
+                    this.f54734g.postReadCleanup();
                 }
             }
             return invokeL.booleanValue;
@@ -1117,11 +1115,11 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                MapMakerInternalMap<K, V, E, S>.x xVar = this.f56895j;
+                MapMakerInternalMap<K, V, E, S>.x xVar = this.f54737j;
                 if (xVar != null) {
-                    this.f56896k = xVar;
+                    this.k = xVar;
                     a();
-                    return this.f56896k;
+                    return this.k;
                 }
                 throw new NoSuchElementException();
             }
@@ -1134,20 +1132,20 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
                 return invokeV.booleanValue;
             }
-            E e2 = this.f56894i;
+            E e2 = this.f54736i;
             if (e2 == null) {
                 return false;
             }
             while (true) {
-                this.f56894i = (E) e2.getNext();
-                E e3 = this.f56894i;
+                this.f54736i = (E) e2.getNext();
+                E e3 = this.f54736i;
                 if (e3 == null) {
                     return false;
                 }
                 if (b(e3)) {
                     return true;
                 }
-                e2 = this.f56894i;
+                e2 = this.f54736i;
             }
         }
 
@@ -1158,14 +1156,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                 return invokeV.booleanValue;
             }
             while (true) {
-                int i2 = this.f56891f;
+                int i2 = this.f54733f;
                 if (i2 < 0) {
                     return false;
                 }
-                AtomicReferenceArray<E> atomicReferenceArray = this.f56893h;
-                this.f56891f = i2 - 1;
+                AtomicReferenceArray<E> atomicReferenceArray = this.f54735h;
+                this.f54733f = i2 - 1;
                 E e2 = atomicReferenceArray.get(i2);
-                this.f56894i = e2;
+                this.f54736i = e2;
                 if (e2 != null && (b(e2) || d())) {
                     return true;
                 }
@@ -1176,16 +1174,16 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56895j != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54737j != null : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                c.i.d.c.m.e(this.f56896k != null);
-                this.l.remove(this.f56896k.getKey());
-                this.f56896k = null;
+                c.i.d.c.m.e(this.k != null);
+                this.l.remove(this.k.getKey());
+                this.k = null;
             }
         }
     }
@@ -1211,7 +1209,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         Strength d();
 
-        E e(S s, K k2, int i2, E e2);
+        E e(S s, K k, int i2, E e2);
 
         S f(MapMakerInternalMap<K, V, E, S> mapMakerInternalMap, int i2, int i3);
     }
@@ -1255,7 +1253,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MapMakerInternalMap f56897e;
+        public final /* synthetic */ MapMakerInternalMap f54738e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(MapMakerInternalMap mapMakerInternalMap) {
@@ -1275,14 +1273,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56897e = mapMakerInternalMap;
+            this.f54738e = mapMakerInternalMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56897e.clear();
+                this.f54738e.clear();
             }
         }
 
@@ -1290,35 +1288,35 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f56897e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54738e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56897e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54738e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new j(this.f56897e) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new j(this.f54738e) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f56897e.remove(obj) != null : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f54738e.remove(obj) != null : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56897e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54738e.size() : invokeV.intValue;
         }
     }
 
@@ -1433,10 +1431,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public m<K> e(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, K k2, int i2, m<K> mVar) {
+            public m<K> e(StrongKeyDummyValueSegment<K> strongKeyDummyValueSegment, K k, int i2, m<K> mVar) {
                 InterceptResult invokeLLIL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, strongKeyDummyValueSegment, k2, i2, mVar)) == null) ? new m<>(k2, i2, mVar) : (m) invokeLLIL.objValue;
+                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, strongKeyDummyValueSegment, k, i2, mVar)) == null) ? new m<>(k, i2, mVar) : (m) invokeLLIL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1459,13 +1457,13 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m(K k2, int i2, m<K> mVar) {
-            super(k2, i2, mVar);
+        public m(K k, int i2, m<K> mVar) {
+            super(k, i2, mVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), mVar};
+                Object[] objArr = {k, Integer.valueOf(i2), mVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -1482,7 +1480,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public m<K> a(m<K> mVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) ? new m<>(this.f56884e, this.f56885f, mVar) : (m) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) ? new m<>(this.f54726e, this.f54727f, mVar) : (m) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1501,7 +1499,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile V f56898h;
+        public volatile V f54739h;
 
         /* loaded from: classes3.dex */
         public static final class a<K, V> implements i<K, V, n<K, V>, StrongKeyStrongValueSegment<K, V>> {
@@ -1571,10 +1569,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public n<K, V> e(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, K k2, int i2, n<K, V> nVar) {
+            public n<K, V> e(StrongKeyStrongValueSegment<K, V> strongKeyStrongValueSegment, K k, int i2, n<K, V> nVar) {
                 InterceptResult invokeLLIL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, strongKeyStrongValueSegment, k2, i2, nVar)) == null) ? new n<>(k2, i2, nVar) : (n) invokeLLIL.objValue;
+                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, strongKeyStrongValueSegment, k, i2, nVar)) == null) ? new n<>(k, i2, nVar) : (n) invokeLLIL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1598,13 +1596,13 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public n(K k2, int i2, n<K, V> nVar) {
-            super(k2, i2, nVar);
+        public n(K k, int i2, n<K, V> nVar) {
+            super(k, i2, nVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), nVar};
+                Object[] objArr = {k, Integer.valueOf(i2), nVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -1616,15 +1614,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56898h = null;
+            this.f54739h = null;
         }
 
         public n<K, V> a(n<K, V> nVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nVar)) == null) {
-                n<K, V> nVar2 = new n<>(this.f56884e, this.f56885f, nVar);
-                nVar2.f56898h = this.f56898h;
+                n<K, V> nVar2 = new n<>(this.f54726e, this.f54727f, nVar);
+                nVar2.f54739h = this.f54739h;
                 return nVar2;
             }
             return (n) invokeL.objValue;
@@ -1633,7 +1631,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public void b(V v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
-                this.f56898h = v;
+                this.f54739h = v;
             }
         }
 
@@ -1641,7 +1639,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56898h : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54739h : (V) invokeV.objValue;
         }
     }
 
@@ -1651,7 +1649,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile v<K, V, o<K, V>> f56899h;
+        public volatile v<K, V, o<K, V>> f54740h;
 
         /* loaded from: classes3.dex */
         public static final class a<K, V> implements i<K, V, o<K, V>, StrongKeyWeakValueSegment<K, V>> {
@@ -1727,10 +1725,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public o<K, V> e(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, K k2, int i2, o<K, V> oVar) {
+            public o<K, V> e(StrongKeyWeakValueSegment<K, V> strongKeyWeakValueSegment, K k, int i2, o<K, V> oVar) {
                 InterceptResult invokeLLIL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, strongKeyWeakValueSegment, k2, i2, oVar)) == null) ? new o<>(k2, i2, oVar) : (o) invokeLLIL.objValue;
+                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, strongKeyWeakValueSegment, k, i2, oVar)) == null) ? new o<>(k, i2, oVar) : (o) invokeLLIL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1754,13 +1752,13 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public o(K k2, int i2, o<K, V> oVar) {
-            super(k2, i2, oVar);
+        public o(K k, int i2, o<K, V> oVar) {
+            super(k, i2, oVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k2, Integer.valueOf(i2), oVar};
+                Object[] objArr = {k, Integer.valueOf(i2), oVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -1772,15 +1770,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56899h = MapMakerInternalMap.unsetWeakValueReference();
+            this.f54740h = MapMakerInternalMap.unsetWeakValueReference();
         }
 
         public o<K, V> c(ReferenceQueue<V> referenceQueue, o<K, V> oVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, referenceQueue, oVar)) == null) {
-                o<K, V> oVar2 = new o<>(this.f56884e, this.f56885f, oVar);
-                oVar2.f56899h = this.f56899h.b(referenceQueue, oVar2);
+                o<K, V> oVar2 = new o<>(this.f54726e, this.f54727f, oVar);
+                oVar2.f54740h = this.f54740h.b(referenceQueue, oVar2);
                 return oVar2;
             }
             return (o) invokeLL.objValue;
@@ -1789,8 +1787,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public void d(V v, ReferenceQueue<V> referenceQueue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v, referenceQueue) == null) {
-                v<K, V, o<K, V>> vVar = this.f56899h;
-                this.f56899h = new w(referenceQueue, v, this);
+                v<K, V, o<K, V>> vVar = this.f54740h;
+                this.f54740h = new w(referenceQueue, v, this);
                 vVar.clear();
             }
         }
@@ -1799,14 +1797,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56899h.get() : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54740h.get() : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.u
         public v<K, V, o<K, V>> getValueReference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56899h : (v) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54740h : (v) invokeV.objValue;
         }
     }
 
@@ -1849,7 +1847,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MapMakerInternalMap f56900e;
+        public final /* synthetic */ MapMakerInternalMap f54741e;
 
         public q(MapMakerInternalMap mapMakerInternalMap) {
             Interceptable interceptable = $ic;
@@ -1866,14 +1864,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56900e = mapMakerInternalMap;
+            this.f54741e = mapMakerInternalMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56900e.clear();
+                this.f54741e.clear();
             }
         }
 
@@ -1881,28 +1879,28 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f56900e.containsValue(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54741e.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56900e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54741e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new p(this.f56900e) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new p(this.f54741e) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56900e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54741e.size() : invokeV.intValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -1999,10 +1997,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public r<K> e(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, K k2, int i2, r<K> rVar) {
+            public r<K> e(WeakKeyDummyValueSegment<K> weakKeyDummyValueSegment, K k, int i2, r<K> rVar) {
                 InterceptResult invokeLLIL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, weakKeyDummyValueSegment, k2, i2, rVar)) == null) ? new r<>(weakKeyDummyValueSegment.queueForKeys, k2, i2, rVar) : (r) invokeLLIL.objValue;
+                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, weakKeyDummyValueSegment, k, i2, rVar)) == null) ? new r<>(weakKeyDummyValueSegment.queueForKeys, k, i2, rVar) : (r) invokeLLIL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2025,13 +2023,13 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public r(ReferenceQueue<K> referenceQueue, K k2, int i2, r<K> rVar) {
-            super(referenceQueue, k2, i2, rVar);
+        public r(ReferenceQueue<K> referenceQueue, K k, int i2, r<K> rVar) {
+            super(referenceQueue, k, i2, rVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), rVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), rVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -2048,7 +2046,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public r<K> a(ReferenceQueue<K> referenceQueue, r<K> rVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, referenceQueue, rVar)) == null) ? new r<>(referenceQueue, getKey(), this.f56887e, rVar) : (r) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, referenceQueue, rVar)) == null) ? new r<>(referenceQueue, getKey(), this.f54729e, rVar) : (r) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2067,7 +2065,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile V f56901g;
+        public volatile V f54742g;
 
         /* loaded from: classes3.dex */
         public static final class a<K, V> implements i<K, V, s<K, V>, WeakKeyStrongValueSegment<K, V>> {
@@ -2143,10 +2141,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public s<K, V> e(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, K k2, int i2, s<K, V> sVar) {
+            public s<K, V> e(WeakKeyStrongValueSegment<K, V> weakKeyStrongValueSegment, K k, int i2, s<K, V> sVar) {
                 InterceptResult invokeLLIL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, weakKeyStrongValueSegment, k2, i2, sVar)) == null) ? new s<>(weakKeyStrongValueSegment.queueForKeys, k2, i2, sVar) : (s) invokeLLIL.objValue;
+                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, weakKeyStrongValueSegment, k, i2, sVar)) == null) ? new s<>(weakKeyStrongValueSegment.queueForKeys, k, i2, sVar) : (s) invokeLLIL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2170,13 +2168,13 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public s(ReferenceQueue<K> referenceQueue, K k2, int i2, s<K, V> sVar) {
-            super(referenceQueue, k2, i2, sVar);
+        public s(ReferenceQueue<K> referenceQueue, K k, int i2, s<K, V> sVar) {
+            super(referenceQueue, k, i2, sVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), sVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), sVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -2188,15 +2186,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56901g = null;
+            this.f54742g = null;
         }
 
         public s<K, V> a(ReferenceQueue<K> referenceQueue, s<K, V> sVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, referenceQueue, sVar)) == null) {
-                s<K, V> sVar2 = new s<>(referenceQueue, getKey(), this.f56887e, sVar);
-                sVar2.b(this.f56901g);
+                s<K, V> sVar2 = new s<>(referenceQueue, getKey(), this.f54729e, sVar);
+                sVar2.b(this.f54742g);
                 return sVar2;
             }
             return (s) invokeLL.objValue;
@@ -2205,7 +2203,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public void b(V v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v) == null) {
-                this.f56901g = v;
+                this.f54742g = v;
             }
         }
 
@@ -2213,7 +2211,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56901g : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54742g : (V) invokeV.objValue;
         }
     }
 
@@ -2223,7 +2221,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile v<K, V, t<K, V>> f56902g;
+        public volatile v<K, V, t<K, V>> f54743g;
 
         /* loaded from: classes3.dex */
         public static final class a<K, V> implements i<K, V, t<K, V>, WeakKeyWeakValueSegment<K, V>> {
@@ -2299,10 +2297,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.MapMakerInternalMap.i
             /* renamed from: i */
-            public t<K, V> e(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, K k2, int i2, t<K, V> tVar) {
+            public t<K, V> e(WeakKeyWeakValueSegment<K, V> weakKeyWeakValueSegment, K k, int i2, t<K, V> tVar) {
                 InterceptResult invokeLLIL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, weakKeyWeakValueSegment, k2, i2, tVar)) == null) ? new t<>(weakKeyWeakValueSegment.queueForKeys, k2, i2, tVar) : (t) invokeLLIL.objValue;
+                return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048583, this, weakKeyWeakValueSegment, k, i2, tVar)) == null) ? new t<>(weakKeyWeakValueSegment.queueForKeys, k, i2, tVar) : (t) invokeLLIL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -2326,13 +2324,13 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public t(ReferenceQueue<K> referenceQueue, K k2, int i2, t<K, V> tVar) {
-            super(referenceQueue, k2, i2, tVar);
+        public t(ReferenceQueue<K> referenceQueue, K k, int i2, t<K, V> tVar) {
+            super(referenceQueue, k, i2, tVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {referenceQueue, k2, Integer.valueOf(i2), tVar};
+                Object[] objArr = {referenceQueue, k, Integer.valueOf(i2), tVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -2344,15 +2342,15 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56902g = MapMakerInternalMap.unsetWeakValueReference();
+            this.f54743g = MapMakerInternalMap.unsetWeakValueReference();
         }
 
         public t<K, V> c(ReferenceQueue<K> referenceQueue, ReferenceQueue<V> referenceQueue2, t<K, V> tVar) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, referenceQueue, referenceQueue2, tVar)) == null) {
-                t<K, V> tVar2 = new t<>(referenceQueue, getKey(), this.f56887e, tVar);
-                tVar2.f56902g = this.f56902g.b(referenceQueue2, tVar2);
+                t<K, V> tVar2 = new t<>(referenceQueue, getKey(), this.f54729e, tVar);
+                tVar2.f54743g = this.f54743g.b(referenceQueue2, tVar2);
                 return tVar2;
             }
             return (t) invokeLLL.objValue;
@@ -2361,8 +2359,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public void d(V v, ReferenceQueue<V> referenceQueue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v, referenceQueue) == null) {
-                v<K, V, t<K, V>> vVar = this.f56902g;
-                this.f56902g = new w(referenceQueue, v, this);
+                v<K, V, t<K, V>> vVar = this.f54743g;
+                this.f54743g = new w(referenceQueue, v, this);
                 vVar.clear();
             }
         }
@@ -2371,14 +2369,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56902g.get() : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54743g.get() : (V) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.u
         public v<K, V, t<K, V>> getValueReference() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56902g : (v) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54743g : (v) invokeV.objValue;
         }
     }
 
@@ -2404,7 +2402,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final E f56903e;
+        public final E f54744e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public w(ReferenceQueue<V> referenceQueue, V v, E e2) {
@@ -2425,14 +2423,14 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56903e = e2;
+            this.f54744e = e2;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.v
         public E a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56903e : (E) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54744e : (E) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.MapMakerInternalMap.v
@@ -2449,20 +2447,20 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f56904e;
+        public final K f54745e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f56905f;
+        public V f54746f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MapMakerInternalMap f56906g;
+        public final /* synthetic */ MapMakerInternalMap f54747g;
 
-        public x(MapMakerInternalMap mapMakerInternalMap, K k2, V v) {
+        public x(MapMakerInternalMap mapMakerInternalMap, K k, V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mapMakerInternalMap, k2, v};
+                Object[] objArr = {mapMakerInternalMap, k, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -2472,9 +2470,9 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     return;
                 }
             }
-            this.f56906g = mapMakerInternalMap;
-            this.f56904e = k2;
-            this.f56905f = v;
+            this.f54747g = mapMakerInternalMap;
+            this.f54745e = k;
+            this.f54746f = v;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
@@ -2484,7 +2482,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    return this.f56904e.equals(entry.getKey()) && this.f56905f.equals(entry.getValue());
+                    return this.f54745e.equals(entry.getKey()) && this.f54746f.equals(entry.getValue());
                 }
                 return false;
             }
@@ -2495,21 +2493,21 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56904e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54745e : (K) invokeV.objValue;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56905f : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54746f : (V) invokeV.objValue;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56904e.hashCode() ^ this.f56905f.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54745e.hashCode() ^ this.f54746f.hashCode() : invokeV.intValue;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
@@ -2517,8 +2515,8 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, v)) == null) {
-                V v2 = (V) this.f56906g.put(this.f56904e, v);
-                this.f56905f = v;
+                V v2 = (V) this.f54747g.put(this.f54745e, v);
+                this.f54746f = v;
                 return v2;
             }
             return (V) invokeL.objValue;
@@ -3177,10 +3175,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean clearValueForTesting(K k2, int i2, v<K, V, ? extends h<K, V, ?>> vVar) {
+        public boolean clearValueForTesting(K k, int i2, v<K, V, ? extends h<K, V, ?>> vVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, k2, i2, vVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, k, i2, vVar)) == null) {
                 lock();
                 try {
                     AtomicReferenceArray<E> atomicReferenceArray = this.table;
@@ -3188,7 +3186,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     E e2 = atomicReferenceArray.get(length);
                     for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                         Object key = hVar.getKey();
-                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k2, key)) {
+                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                             if (((u) hVar).getValueReference() == vVar) {
                                 atomicReferenceArray.set(length, removeFromChain(e2, hVar));
                                 return true;
@@ -3488,10 +3486,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
             return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? new AtomicReferenceArray<>(i2) : (AtomicReferenceArray) invokeI.objValue;
         }
 
-        public E newEntryForTesting(K k2, int i2, h<K, V, ?> hVar) {
+        public E newEntryForTesting(K k, int i2, h<K, V, ?> hVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048600, this, k2, i2, hVar)) == null) ? this.map.entryHelper.e(self(), k2, i2, castForTesting(hVar)) : (E) invokeLIL.objValue;
+            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048600, this, k, i2, hVar)) == null) ? this.map.entryHelper.e(self(), k, i2, castForTesting(hVar)) : (E) invokeLIL.objValue;
         }
 
         public v<K, V, E> newWeakValueReferenceForTesting(h<K, V, ?> hVar, V v) {
@@ -3519,10 +3517,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public V put(K k2, int i2, V v, boolean z) {
+        public V put(K k, int i2, V v, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{k2, Integer.valueOf(i2), v, Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{k, Integer.valueOf(i2), v, Boolean.valueOf(z)})) == null) {
                 lock();
                 try {
                     preWriteCleanup();
@@ -3536,7 +3534,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     E e2 = atomicReferenceArray.get(length);
                     for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                         Object key = hVar.getKey();
-                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k2, key)) {
+                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                             V v2 = (V) hVar.getValue();
                             if (v2 == null) {
                                 this.modCount++;
@@ -3553,7 +3551,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                         }
                     }
                     this.modCount++;
-                    E e3 = this.map.entryHelper.e(self(), k2, i2, e2);
+                    E e3 = this.map.entryHelper.e(self(), k, i2, e2);
                     setValue(e3, v);
                     atomicReferenceArray.set(length, e3);
                     this.count = i3;
@@ -3594,10 +3592,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean reclaimValue(K k2, int i2, v<K, V, E> vVar) {
+        public boolean reclaimValue(K k, int i2, v<K, V, E> vVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048606, this, k2, i2, vVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048606, this, k, i2, vVar)) == null) {
                 lock();
                 try {
                     AtomicReferenceArray<E> atomicReferenceArray = this.table;
@@ -3605,7 +3603,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     E e2 = atomicReferenceArray.get(length);
                     for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                         Object key = hVar.getKey();
-                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k2, key)) {
+                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                             if (((u) hVar).getValueReference() == vVar) {
                                 this.modCount++;
                                 atomicReferenceArray.set(length, removeFromChain(e2, hVar));
@@ -3714,10 +3712,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public boolean replace(K k2, int i2, V v, V v2) {
+        public boolean replace(K k, int i2, V v, V v2) {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048614, this, k2, i2, v, v2)) == null) {
+            if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048614, this, k, i2, v, v2)) == null) {
                 lock();
                 try {
                     preWriteCleanup();
@@ -3726,7 +3724,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     E e2 = atomicReferenceArray.get(length);
                     for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                         Object key = hVar.getKey();
-                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k2, key)) {
+                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                             Object value = hVar.getValue();
                             if (value == null) {
                                 if (isCollected(hVar)) {
@@ -3868,10 +3866,10 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
 
         /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.google.common.collect.MapMakerInternalMap$Segment<K, V, E extends com.google.common.collect.MapMakerInternalMap$h<K, V, E>, S extends com.google.common.collect.MapMakerInternalMap$Segment<K, V, E, S>> */
         /* JADX WARN: Multi-variable type inference failed */
-        public V replace(K k2, int i2, V v) {
+        public V replace(K k, int i2, V v) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048613, this, k2, i2, v)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048613, this, k, i2, v)) == null) {
                 lock();
                 try {
                     preWriteCleanup();
@@ -3880,7 +3878,7 @@ public class MapMakerInternalMap<K, V, E extends h<K, V, E>, S extends Segment<K
                     E e2 = atomicReferenceArray.get(length);
                     for (h hVar = e2; hVar != null; hVar = hVar.getNext()) {
                         Object key = hVar.getKey();
-                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k2, key)) {
+                        if (hVar.getHash() == i2 && key != null && this.map.keyEquivalence.equivalent(k, key)) {
                             V v2 = (V) hVar.getValue();
                             if (v2 == null) {
                                 if (isCollected(hVar)) {

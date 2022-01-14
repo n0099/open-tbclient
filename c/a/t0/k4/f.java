@@ -19,10 +19,10 @@ public final class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19310b;
+    public boolean f18814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f19311c;
+    public Object f18815c;
 
     static {
         InterceptResult invokeClinit;
@@ -98,8 +98,8 @@ public final class f {
             }
         }
         this.a = i2;
-        this.f19310b = z;
-        this.f19311c = obj;
+        this.f18814b = z;
+        this.f18815c = obj;
     }
 
     public final int a() {
@@ -111,13 +111,13 @@ public final class f {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19310b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18814b : invokeV.booleanValue;
     }
 
     public final Object c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19311c : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18815c : invokeV.objValue;
     }
 
     public final void d(int i2) {
@@ -130,7 +130,7 @@ public final class f {
     public final void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f19310b = z;
+            this.f18814b = z;
         }
     }
 
@@ -143,7 +143,7 @@ public final class f {
             }
             if (obj instanceof f) {
                 f fVar = (f) obj;
-                return this.a == fVar.a && this.f19310b == fVar.f19310b && Intrinsics.areEqual(this.f19311c, fVar.f19311c);
+                return this.a == fVar.a && this.f18814b == fVar.f18814b && Intrinsics.areEqual(this.f18815c, fVar.f18815c);
             }
             return false;
         }
@@ -153,7 +153,7 @@ public final class f {
     public final void f(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            this.f19311c = obj;
+            this.f18815c = obj;
         }
     }
 
@@ -164,13 +164,13 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int i2 = this.a * 31;
-            boolean z = this.f19310b;
+            boolean z = this.f18814b;
             int i3 = z;
             if (z != 0) {
                 i3 = 1;
             }
             int i4 = (i2 + i3) * 31;
-            Object obj = this.f19311c;
+            Object obj = this.f18815c;
             return i4 + (obj == null ? 0 : obj.hashCode());
         }
         return invokeV.intValue;
@@ -180,7 +180,7 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "VideoAdData(agreeNum=" + this.a + ", agreed=" + this.f19310b + ", funNativeAd=" + this.f19311c + ')';
+            return "VideoAdData(agreeNum=" + this.a + ", agreed=" + this.f18814b + ", funNativeAd=" + this.f18815c + ')';
         }
         return (String) invokeV.objValue;
     }

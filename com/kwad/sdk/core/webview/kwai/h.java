@@ -13,32 +13,32 @@ public class h {
     public WebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58684b;
+    public AdTemplate f56473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f58685c;
+    public com.kwad.sdk.core.webview.a f56474c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f58686d;
+    public KsAppDownloadListener f56475d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58687e;
+    public boolean f56476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f58688f;
+    public com.kwad.sdk.core.download.a.b f56477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58689g = -100;
+    public int f56478g = -100;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58690h = 0;
+    public int f56479h = 0;
 
     /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58692b;
+        public String f56481b;
     }
 
     /* loaded from: classes3.dex */
@@ -46,30 +46,30 @@ public class h {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58693b;
+        public int f56482b;
     }
 
     public h(WebView webView, com.kwad.sdk.core.webview.a aVar) {
         this.a = webView;
-        this.f58684b = aVar.a();
-        this.f58685c = aVar;
+        this.f56473b = aVar.a();
+        this.f56474c = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, int i3) {
-        this.f58690h = i3;
-        if (this.f58689g != i2) {
-            this.f58689g = i2;
+        this.f56479h = i3;
+        if (this.f56478g != i2) {
+            this.f56478g = i2;
             c("onDownLoadStatusCallback", i2 + "");
         }
     }
 
     private void a(String str, String str2) {
-        this.f58688f = new com.kwad.sdk.core.download.a.b(this.f58684b, null, str, str2);
-        if (this.f58686d == null) {
+        this.f56477f = new com.kwad.sdk.core.download.a.b(this.f56473b, null, str, str2);
+        if (this.f56475d == null) {
             KsAppDownloadListener b2 = b();
-            this.f58686d = b2;
-            this.f58688f.a(b2);
+            this.f56475d = b2;
+            this.f56477f.a(b2);
         }
     }
 
@@ -117,17 +117,17 @@ public class h {
 
     private void c(String str, String str2) {
         WebView webView;
-        if (this.f58687e || TextUtils.isEmpty(str) || (webView = this.a) == null) {
+        if (this.f56476e || TextUtils.isEmpty(str) || (webView = this.a) == null) {
             return;
         }
         bf.a(webView, str, str2);
     }
 
     public void a() {
-        this.f58687e = true;
-        com.kwad.sdk.core.download.a.b bVar = this.f58688f;
+        this.f56476e = true;
+        com.kwad.sdk.core.download.a.b bVar = this.f56477f;
         if (bVar != null) {
-            bVar.b(this.f58686d);
+            bVar.b(this.f56475d);
         }
     }
 
@@ -136,10 +136,10 @@ public class h {
         if (b(str, str2)) {
             return 0;
         }
-        if (this.f58688f == null) {
+        if (this.f56477f == null) {
             a(str, str2);
         }
-        return this.f58688f.c();
+        return this.f56477f.c();
     }
 
     @JavascriptInterface
@@ -147,10 +147,10 @@ public class h {
         if (b(str, str2)) {
             return 0;
         }
-        if (this.f58688f == null) {
+        if (this.f56477f == null) {
             a(str, str2);
         }
-        return this.f58690h;
+        return this.f56479h;
     }
 
     @JavascriptInterface
@@ -158,17 +158,17 @@ public class h {
         try {
             a aVar = new a();
             aVar.parseJson(new JSONObject(str));
-            if (b(aVar.a, aVar.f58692b)) {
+            if (b(aVar.a, aVar.f56481b)) {
                 return;
             }
-            if (this.f58688f == null) {
-                a(aVar.a, aVar.f58692b);
+            if (this.f56477f == null) {
+                a(aVar.a, aVar.f56481b);
             }
-            if (this.f58688f.f()) {
+            if (this.f56477f.f()) {
                 return;
             }
-            this.f58688f.c(this.f58686d);
-            this.f58688f.a(this.f58685c.f58539e.getContext(), true);
+            this.f56477f.c(this.f56475d);
+            this.f56477f.a(this.f56474c.f56330e.getContext(), true);
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }

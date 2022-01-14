@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: c.a.t0.u2.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1466a {
+    public static /* synthetic */ class C1481a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -29,7 +29,7 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f25110b;
+        public c f24407b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
                 super.onPostExecute(imageUploadResult);
-                if (this.f25110b != null) {
+                if (this.f24407b != null) {
                     int i2 = 0;
                     if (imageUploadResult != null) {
                         i2 = imageUploadResult.error_code;
@@ -70,12 +70,12 @@ public class a {
                     } else {
                         str = "";
                     }
-                    this.f25110b.a(i2, str, imageUploadResult);
+                    this.f24407b.a(i2, str, imageUploadResult);
                 }
             }
         }
 
-        public /* synthetic */ b(C1466a c1466a) {
+        public /* synthetic */ b(C1481a c1481a) {
             this();
         }
     }
@@ -106,7 +106,7 @@ public class a {
         }
         b bVar = new b(null);
         bVar.a = str;
-        bVar.f25110b = cVar;
+        bVar.f24407b = cVar;
         bVar.execute("");
     }
 }

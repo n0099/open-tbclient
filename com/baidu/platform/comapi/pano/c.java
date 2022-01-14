@@ -13,10 +13,10 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PanoStateError f39005b;
+    public PanoStateError f37718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39006c;
+    public int f37719c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -47,19 +47,19 @@ public class c {
                 return;
             }
         }
-        this.f39005b = panoStateError;
+        this.f37718b = panoStateError;
     }
 
     public PanoStateError a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39005b : (PanoStateError) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37718b : (PanoStateError) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f39006c = i2;
+            this.f37719c = i2;
         }
     }
 
@@ -79,6 +79,6 @@ public class c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39006c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37719c : invokeV.intValue;
     }
 }

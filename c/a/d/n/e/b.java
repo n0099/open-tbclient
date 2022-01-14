@@ -13,7 +13,7 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f3306e;
+    public View f3264e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class b {
                 return;
             }
         }
-        this.f3306e = null;
+        this.f3264e = null;
     }
 
     public abstract View a();
@@ -37,10 +37,10 @@ public abstract class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f3306e == null) {
-                this.f3306e = a();
+            if (this.f3264e == null) {
+                this.f3264e = a();
             }
-            return this.f3306e;
+            return this.f3264e;
         }
         return (View) invokeV.objValue;
     }

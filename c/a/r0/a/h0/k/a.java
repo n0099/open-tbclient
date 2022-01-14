@@ -13,7 +13,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicInteger f6687b;
+    public static AtomicInteger f6546b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class a {
             }
         }
         a = k.a;
-        f6687b = new AtomicInteger(0);
+        f6546b = new AtomicInteger(0);
     }
 
     public static boolean a(String str) {
@@ -43,7 +43,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int andIncrement = f6687b.getAndIncrement();
+            int andIncrement = f6546b.getAndIncrement();
             String str = "localDebug";
             if (andIncrement >= 1) {
                 str = "localDebug" + andIncrement;

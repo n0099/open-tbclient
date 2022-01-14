@@ -20,12 +20,12 @@ import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChannelBaiduPayForTransCashier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static ChannelBaiduPayForTransCashier a;
@@ -127,7 +127,7 @@ public class ChannelBaiduPayForTransCashier {
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ChannelBaiduPayForTransCashier f32617b;
+            public final /* synthetic */ ChannelBaiduPayForTransCashier f31580b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public class ChannelBaiduPayForTransCashier {
                         return;
                     }
                 }
-                this.f32617b = this;
+                this.f31580b = this;
                 this.a = context;
             }
 
@@ -162,7 +162,7 @@ public class ChannelBaiduPayForTransCashier {
             public void onPayResult(int i2, String str3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                    this.f32617b.handlepayResult(this.a, i2, str3);
+                    this.f31580b.handlepayResult(this.a, i2, str3);
                 }
             }
         }, new HashMap(), precashierCreateOrderResponse, null);

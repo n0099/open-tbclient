@@ -17,19 +17,19 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public DressItemData f50334e;
+    public DressItemData f48431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50335f;
+    public int f48432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50336g;
+    public int f48433g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f50337h;
+    public b f48434h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f50338i;
+    public c.a.d.c.g.a f48435i;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -69,17 +69,17 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        this.a.f50334e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        this.a.f48431e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        this.a.f50334e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        this.a.f48431e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                if (this.a.f50337h != null) {
-                    if (this.a.f50334e != null) {
-                        this.a.f50334e.setPropsId(this.a.f50335f);
-                        this.a.f50334e.setInUse(this.a.f50336g == 1);
+                if (this.a.f48434h != null) {
+                    if (this.a.f48431e != null) {
+                        this.a.f48431e.setPropsId(this.a.f48432f);
+                        this.a.f48431e.setInUse(this.a.f48433g == 1);
                     }
-                    this.a.f50337h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f50334e);
+                    this.a.f48434h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48431e);
                 }
             }
         }
@@ -105,17 +105,17 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
                 return;
             }
         }
-        this.f50338i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
-        this.f50335f = i2;
-        this.f50336g = i3;
+        this.f48435i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+        this.f48432f = i2;
+        this.f48433g = i3;
         registerTask();
-        registerListener(this.f50338i);
+        registerListener(this.f48435i);
     }
 
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f50337h = bVar;
+            this.f48434h = bVar;
         }
     }
 
@@ -132,7 +132,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f50338i);
+            MessageManager.getInstance().unRegisterListener(this.f48435i);
         }
     }
 
@@ -142,7 +142,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-            backgroundGetRequestMessage.setPropId(this.f50335f);
+            backgroundGetRequestMessage.setPropId(this.f48432f);
             sendMessage(backgroundGetRequestMessage);
             return false;
         }

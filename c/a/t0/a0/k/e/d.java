@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.b0;
 import c.a.t0.w3.h;
 import com.baidu.adp.framework.MessageManager;
@@ -64,7 +64,7 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f15262e;
+        public final /* synthetic */ d f14884e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -81,19 +81,19 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
                     return;
                 }
             }
-            this.f15262e = dVar;
+            this.f14884e = dVar;
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.c
         public void disableSwipeBack() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15262e.u == null || ListUtils.isEmpty(this.f15262e.u.f25518e) || this.f15262e.u.f25518e.size() <= 1) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f14884e.u == null || ListUtils.isEmpty(this.f14884e.u.f24804e) || this.f14884e.u.f24804e.size() <= 1) {
                 return;
             }
-            if (this.f15262e.f18210f.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) this.f15262e.f18210f.getOrignalPage()).setSwipeBackEnabled(false);
-            } else if (this.f15262e.f18210f.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.f15262e.f18210f.getOrignalPage()).setSwipeBackEnabled(false);
+            if (this.f14884e.f17767f.getOrignalPage() instanceof BaseActivity) {
+                ((BaseActivity) this.f14884e.f17767f.getOrignalPage()).setSwipeBackEnabled(false);
+            } else if (this.f14884e.f17767f.getOrignalPage() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) this.f14884e.f17767f.getOrignalPage()).setSwipeBackEnabled(false);
             }
         }
 
@@ -101,10 +101,10 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         public void enableSwipeBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f15262e.f18210f.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) this.f15262e.f18210f.getOrignalPage()).setSwipeBackEnabled(this.f15262e.A);
-                } else if (this.f15262e.f18210f.getOrignalPage() instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) this.f15262e.f18210f.getOrignalPage()).setSwipeBackEnabled(this.f15262e.A);
+                if (this.f14884e.f17767f.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) this.f14884e.f17767f.getOrignalPage()).setSwipeBackEnabled(this.f14884e.A);
+                } else if (this.f14884e.f17767f.getOrignalPage() instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) this.f14884e.f17767f.getOrignalPage()).setSwipeBackEnabled(this.f14884e.A);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f15263e;
+        public final /* synthetic */ d f14885e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -133,22 +133,22 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
                     return;
                 }
             }
-            this.f15263e = dVar;
+            this.f14885e = dVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             int count;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == 1 || i2 != 0 || (count = this.f15263e.o.getCount()) < 2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == 1 || i2 != 0 || (count = this.f14885e.o.getCount()) < 2) {
                 return;
             }
-            int currentItem = this.f15263e.n.getCurrentItem();
+            int currentItem = this.f14885e.n.getCurrentItem();
             int i3 = count - 2;
             if (currentItem < 1) {
-                this.f15263e.n.setCurrentItem(i3, false);
+                this.f14885e.n.setCurrentItem(i3, false);
             } else if (currentItem > i3) {
-                this.f15263e.n.setCurrentItem(1, false);
+                this.f14885e.n.setCurrentItem(1, false);
             }
         }
 
@@ -163,14 +163,14 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f15263e.v = i2;
-                if (this.f15263e.x == null) {
+                this.f14885e.v = i2;
+                if (this.f14885e.x == null) {
                     return;
                 }
-                int a = this.f15263e.x.a(i2 + 1);
-                this.f15263e.v = a;
-                if (this.f15263e.q != null) {
-                    this.f15263e.q.setPosition(this.f15263e.x.c(a));
+                int a = this.f14885e.x.a(i2 + 1);
+                this.f14885e.v = a;
+                if (this.f14885e.q != null) {
+                    this.f14885e.q.setPosition(this.f14885e.x.c(a));
                 }
             }
         }
@@ -201,21 +201,21 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         }
 
         @Override // c.a.t0.a0.k.d.c
-        public void a(View view, d2 d2Var) {
+        public void a(View view, e2 e2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view, d2Var) == null) {
-                this.a.B(view, d2Var);
-                this.a.z(d2Var);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view, e2Var) == null) {
+                this.a.B(view, e2Var);
+                this.a.z(e2Var);
                 d dVar = this.a;
-                dVar.C(dVar.f18210f, d2Var);
+                dVar.C(dVar.f17767f, e2Var);
             }
         }
 
         @Override // c.a.t0.a0.k.d.c
-        public void b(View view, d2 d2Var) {
+        public void b(View view, e2 e2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) {
-                this.a.B(view, d2Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var) == null) {
+                this.a.B(view, e2Var);
             }
         }
     }
@@ -255,13 +255,13 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         aVar.d(h());
         this.n.setBackgroundResource(R.drawable.transparent_bg);
         this.n.setOnPageChangeListener(this.C);
-        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.f18210f, h());
+        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.f17767f, h());
         this.o = frsAlaStageLiveViewItemAdapter;
         this.n.setAdapter(frsAlaStageLiveViewItemAdapter);
-        if (this.f18210f.getOrignalPage() instanceof BaseActivity) {
-            this.A = ((BaseActivity) this.f18210f.getOrignalPage()).isSwipeBackEnabled();
-        } else if (this.f18210f.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.A = ((BaseFragmentActivity) this.f18210f.getOrignalPage()).isSwipeBackEnabled();
+        if (this.f17767f.getOrignalPage() instanceof BaseActivity) {
+            this.A = ((BaseActivity) this.f17767f.getOrignalPage()).isSwipeBackEnabled();
+        } else if (this.f17767f.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.A = ((BaseFragmentActivity) this.f17767f.getOrignalPage()).isSwipeBackEnabled();
         }
         this.m.setSwipeControlInterface(new a(this));
     }
@@ -270,25 +270,25 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         h hVar;
         int c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hVar = this.u) == null || !ListUtils.isEmpty(hVar.f25518e) || (c2 = this.x.c(this.v)) >= this.u.f25518e.size() || c2 < 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hVar = this.u) == null || !ListUtils.isEmpty(hVar.f24804e) || (c2 = this.x.c(this.v)) >= this.u.f24804e.size() || c2 < 0) {
             return;
         }
         CustomMessage customMessage = new CustomMessage(2921017);
-        List<d2> list = this.u.f25518e;
+        List<e2> list = this.u.f24804e;
         if (list != null && list.get(c2) != null) {
-            this.u.f25518e.get(c2).U1 = this.B;
+            this.u.f24804e.get(c2).T1 = this.B;
         }
-        customMessage.setData(this.u.f25518e.get(c2));
+        customMessage.setData(this.u.f24804e.get(c2));
         MessageManager.getInstance().sendMessage(customMessage);
-        if (this.u.f25518e.get(c2) != null) {
-            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.u.f25518e.get(c2).g0()));
+        if (this.u.f24804e.get(c2) != null) {
+            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.u.f24804e.get(c2).g0()));
         }
     }
 
-    public final void B(View view, d2 d2Var) {
+    public final void B(View view, e2 e2Var) {
         CustomMessage customMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var) == null) {
             if (view.getId() == R.id.layout_root) {
                 customMessage = new CustomMessage(2921018);
             } else if (view.getId() != R.id.card_home_page_normal_thread_user_name && view.getId() != R.id.card_home_page_normal_thread_user_header) {
@@ -296,23 +296,23 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
             } else {
                 customMessage = new CustomMessage(2921016);
             }
-            if (customMessage == null || this.f18210f == null) {
+            if (customMessage == null || this.f17767f == null) {
                 return;
             }
-            customMessage.setData(d2Var);
+            customMessage.setData(e2Var);
             MessageManager.getInstance().sendMessage(customMessage);
         }
     }
 
-    public void C(TbPageContext<?> tbPageContext, d2 d2Var) {
+    public void C(TbPageContext<?> tbPageContext, e2 e2Var) {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, d2Var) == null) || tbPageContext == null || d2Var == null || d2Var.J() == null || d2Var.o1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, e2Var) == null) || tbPageContext == null || e2Var == null || e2Var.J() == null || e2Var.o1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            String userId = d2Var.J().getUserId();
+            String userId = e2Var.J().getUserId();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             z = TextUtils.equals(userId, currentAccount);
             str = currentAccount;
@@ -321,16 +321,16 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
             z = false;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(d2Var.o1());
-        if (d2Var.o1() != null && d2Var.o1().user_info != null) {
-            alaLiveInfoCoreData.userName = d2Var.o1().user_info.user_name;
+        alaLiveInfoCoreData.fillWithInfoData(e2Var.o1());
+        if (e2Var.o1() != null && e2Var.o1().user_info != null) {
+            alaLiveInfoCoreData.userName = e2Var.o1().user_info.user_name;
         }
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
         h hVar = this.u;
-        if (hVar != null && !ListUtils.isEmpty(hVar.f25518e)) {
-            for (d2 d2Var2 : this.u.f25518e) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(E(d2Var2));
+        if (hVar != null && !ListUtils.isEmpty(hVar.f24804e)) {
+            for (e2 e2Var2 : this.u.f24804e) {
+                alaLiveInfoListCoreData.mLiveInfoList.add(E(e2Var2));
             }
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_INSERT_LIVE, str, z, null, null, this.t)));
@@ -341,23 +341,23 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
     /* renamed from: D */
     public void k(h hVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null || hVar.f25518e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null || hVar.f24804e == null) {
             return;
         }
         this.u = hVar;
         o(0);
         if (this.x == null) {
-            c.a.t0.a0.k.d.b bVar = new c.a.t0.a0.k.d.b(hVar.f25518e, this.y, this.z);
+            c.a.t0.a0.k.d.b bVar = new c.a.t0.a0.k.d.b(hVar.f24804e, this.y, this.z);
             this.x = bVar;
             bVar.i(2);
             this.x.h(6);
             this.x.g(1);
         }
-        this.x.j(hVar.f25518e);
+        this.x.j(hVar.f24804e);
         this.o.setForumName(this.t);
         this.o.setData(this.x.e(), this.D);
         this.n.setCurrentItem(this.x.d(), false);
-        if (hVar.f25518e.size() >= 2) {
+        if (hVar.f24804e.size() >= 2) {
             this.p.setVisibility(0);
             if (this.q.getCount() != this.x.b()) {
                 this.q.setCount(this.x.b());
@@ -367,20 +367,20 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         } else {
             this.p.setVisibility(8);
         }
-        if (hVar.f25518e.size() > 0) {
-            this.w.b(hVar.f25518e.get(0), "ala_frs_stage_live_feed_back_type");
+        if (hVar.f24804e.size() > 0) {
+            this.w.b(hVar.f24804e.get(0), "ala_frs_stage_live_feed_back_type");
         }
         A();
         l(i(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final AlaLiveInfoCoreData E(d2 d2Var) {
+    public final AlaLiveInfoCoreData E(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, d2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, e2Var)) == null) {
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(d2Var.o1());
-            alaLiveInfoCoreData.userName = d2Var.J().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(e2Var.o1());
+            alaLiveInfoCoreData.userName = e2Var.J().getUserName();
             return alaLiveInfoCoreData;
         }
         return (AlaLiveInfoCoreData) invokeL.objValue;
@@ -405,11 +405,11 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i2) == null) {
-            if (this.f18209e != i2) {
+            if (this.f17766e != i2) {
                 SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
                 SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
-                this.f18209e = i2;
+                this.f17766e = i2;
             }
             this.w.c();
         }
@@ -429,11 +429,11 @@ public class d extends c.a.t0.g0.b<h> implements b0 {
         }
     }
 
-    public final void z(d2 d2Var) {
+    public final void z(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, d2Var) == null) || d2Var.o1() == null || d2Var.o1().user_info == null || d2Var.o1().user_info.is_official != 2) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, e2Var) == null) || e2Var.o1() == null || e2Var.o1().user_info == null || e2Var.o1().user_info.is_official != 2) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12805").param("tid", d2Var.g0()));
+        TiebaStatic.log(new StatisticItem("c12805").param("tid", e2Var.g0()));
     }
 }

@@ -20,7 +20,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKCDNUrlInner extends BaseJsonCoreParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CDN = "cdn";

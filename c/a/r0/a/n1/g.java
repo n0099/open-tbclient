@@ -23,10 +23,10 @@ public final class g {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f8031b;
+    public static volatile String f7854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8032c;
+    public static volatile boolean f7855c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -35,24 +35,24 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8033e;
+        public final /* synthetic */ String f7856e;
 
         /* renamed from: c.a.r0.a.n1.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0468a implements Runnable {
+        public class RunnableC0477a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f8034e;
+            public final /* synthetic */ int f7857e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f8035f;
+            public final /* synthetic */ Bitmap f7858f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Rect f8036g;
+            public final /* synthetic */ Rect f7859g;
 
-            public RunnableC0468a(a aVar, int i2, Bitmap bitmap, Rect rect) {
+            public RunnableC0477a(a aVar, int i2, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,18 +67,18 @@ public final class g {
                         return;
                     }
                 }
-                this.f8034e = i2;
-                this.f8035f = bitmap;
-                this.f8036g = rect;
+                this.f7857e = i2;
+                this.f7858f = bitmap;
+                this.f7859g = rect;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.a.n1.j.a a = a.C0469a.a("simple_parser");
-                    a.c(this.f8034e);
-                    if (a.a(this.f8035f, this.f8036g)) {
+                    c.a.r0.a.n1.j.a a = a.C0478a.a("simple_parser");
+                    a.c(this.f7857e);
+                    if (a.a(this.f7858f, this.f7859g)) {
                         return;
                     }
                     g.h();
@@ -101,7 +101,7 @@ public final class g {
                     return;
                 }
             }
-            this.f8033e = str;
+            this.f7856e = str;
         }
 
         @Override // java.lang.Runnable
@@ -114,7 +114,7 @@ public final class g {
                 return;
             }
             Bitmap p = n0.p();
-            q.f().execute(new RunnableC0468a(this, c.d(o), p, c.b(p, o, c.a.r0.a.g1.f.U().B(this.f8033e))), "SwanNAArrivalCheck");
+            q.f().execute(new RunnableC0477a(this, c.d(o), p, c.b(p, o, c.a.r0.a.g1.f.U().B(this.f7856e))), "SwanNAArrivalCheck");
         }
     }
 
@@ -132,8 +132,8 @@ public final class g {
             }
         }
         a = k.a;
-        f8031b = "";
-        f8032c = true;
+        f7854b = "";
+        f7855c = true;
     }
 
     public static void b(String str) {
@@ -165,7 +165,7 @@ public final class g {
                     dVar = i3.O();
                 }
             }
-            if (dVar == null || dVar.f8342b <= 0) {
+            if (dVar == null || dVar.f8159b <= 0) {
                 return;
             }
             c.a.r0.a.n2.e.a(dVar);
@@ -192,7 +192,7 @@ public final class g {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            f8031b = str;
+            f7854b = str;
         }
     }
 
@@ -203,7 +203,7 @@ public final class g {
             if (fVar == null) {
                 return false;
             }
-            boolean equals = TextUtils.equals(f8031b, fVar.n3());
+            boolean equals = TextUtils.equals(f7854b, fVar.n3());
             if (a) {
                 String str = "FirstPage: " + equals;
             }
@@ -215,7 +215,7 @@ public final class g {
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f8032c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f7855c : invokeV.booleanValue;
     }
 
     public static void h() {
@@ -242,7 +242,7 @@ public final class g {
                 return;
             }
             if (z) {
-                f8032c = false;
+                f7855c = false;
             }
             if (!z) {
                 d();
@@ -260,8 +260,8 @@ public final class g {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            f8031b = "";
-            f8032c = true;
+            f7854b = "";
+            f7855c = true;
         }
     }
 }

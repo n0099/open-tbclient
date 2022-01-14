@@ -13,7 +13,7 @@ public class s extends com.vivo.push.o {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63028b;
+    public int f60651b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(int i2) {
@@ -34,7 +34,7 @@ public class s extends com.vivo.push.o {
             }
         }
         this.a = null;
-        this.f63028b = 0;
+        this.f60651b = 0;
     }
 
     @Override // com.vivo.push.o
@@ -42,7 +42,7 @@ public class s extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             aVar.a("req_id", this.a);
-            aVar.a("status_msg_code", this.f63028b);
+            aVar.a("status_msg_code", this.f60651b);
         }
     }
 
@@ -51,7 +51,7 @@ public class s extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.a = aVar.a("req_id");
-            this.f63028b = aVar.b("status_msg_code", this.f63028b);
+            this.f60651b = aVar.b("status_msg_code", this.f60651b);
         }
     }
 
@@ -64,7 +64,7 @@ public class s extends com.vivo.push.o {
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63028b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60651b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.o

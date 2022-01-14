@@ -33,7 +33,7 @@ public class a extends m {
         }
         this.m = false;
         this.l = 1;
-        this.f14538k = new MenuKeyboardView(getContext());
+        this.k = new MenuKeyboardView(getContext());
         this.n = new int[]{1};
     }
 }

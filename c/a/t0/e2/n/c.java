@@ -36,16 +36,16 @@ public class c implements INetWork {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17578b;
+    public int f17150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17579c;
+    public int f17151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f17580d;
+    public HashMap<String, String> f17152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, Object> f17581e;
+    public Map<String, Object> f17153e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -60,8 +60,8 @@ public class c implements INetWork {
                 return;
             }
         }
-        this.f17578b = -1;
-        this.f17579c = -1;
+        this.f17150b = -1;
+        this.f17151c = -1;
     }
 
     public final Map<String, String> a(Map<String, Object> map) {
@@ -95,7 +95,7 @@ public class c implements INetWork {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, str, downLoadCallback) == null) {
             boolean startsWith = this.a.startsWith("https://");
             GetRequest.GetRequestBuilder request = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest();
-            request.url(this.a).tag(this).addHeaders(this.f17580d).connectionTimeout(this.f17578b).readTimeout(this.f17579c);
+            request.url(this.a).tag(this).addHeaders(this.f17152d).connectionTimeout(this.f17150b).readTimeout(this.f17151c);
             if (startsWith) {
                 request.cookieManager(CookieManager.WEBKIT_COOKIES);
             }
@@ -222,7 +222,7 @@ public class c implements INetWork {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
             NetResponse netResponse = new NetResponse();
             try {
-                Response executeSync = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest().url(this.a).tag(this).addUrlParams(a(map)).addHeaders(this.f17580d).connectionTimeout(this.f17578b).readTimeout(this.f17579c).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
+                Response executeSync = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest().url(this.a).tag(this).addUrlParams(a(map)).addHeaders(this.f17152d).connectionTimeout(this.f17150b).readTimeout(this.f17151c).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
                 try {
                     netResponse.responseCode = executeSync.code();
                     netResponse.decodedResponseStr = executeSync.body() != null ? executeSync.body().string() : null;
@@ -268,13 +268,13 @@ public class c implements INetWork {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            Map<String, Object> map2 = this.f17581e;
-            Boolean bool = (map2 == null || !(map2.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT) instanceof Boolean)) ? null : (Boolean) this.f17581e.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT);
-            Map<String, Object> map3 = this.f17581e;
-            Integer num = (map3 == null || !(map3.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM) instanceof Integer)) ? null : (Integer) this.f17581e.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM);
-            Map<String, Object> map4 = this.f17581e;
+            Map<String, Object> map2 = this.f17153e;
+            Boolean bool = (map2 == null || !(map2.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT) instanceof Boolean)) ? null : (Boolean) this.f17153e.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT);
+            Map<String, Object> map3 = this.f17153e;
+            Integer num = (map3 == null || !(map3.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM) instanceof Integer)) ? null : (Integer) this.f17153e.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM);
+            Map<String, Object> map4 = this.f17153e;
             if (map4 != null && (map4.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM) instanceof Integer)) {
-                Integer num2 = (Integer) this.f17581e.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM);
+                Integer num2 = (Integer) this.f17153e.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM);
             }
             NetResponse netResponse = new NetResponse();
             try {
@@ -285,7 +285,7 @@ public class c implements INetWork {
                 if (num != null) {
                     postFormRequest.requestFrom(num.intValue());
                 }
-                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequest.url(this.a)).params(a(map)).addHeaders(this.f17580d)).connectionTimeout(this.f17578b)).readTimeout(this.f17579c)).cookieManager(CookieManager.WEBKIT_COOKIES)).build().executeSync();
+                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequest.url(this.a)).params(a(map)).addHeaders(this.f17152d)).connectionTimeout(this.f17150b)).readTimeout(this.f17151c)).cookieManager(CookieManager.WEBKIT_COOKIES)).build().executeSync();
                 try {
                     netResponse.responseCode = executeSync.code();
                     netResponse.decodedResponseStr = executeSync.body() != null ? executeSync.body().string() : null;
@@ -330,7 +330,7 @@ public class c implements INetWork {
     public void setConnectTimeout(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f17578b = i2;
+            this.f17150b = i2;
         }
     }
 
@@ -338,7 +338,7 @@ public class c implements INetWork {
     public void setExtra(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            this.f17581e = map;
+            this.f17153e = map;
         }
     }
 
@@ -346,7 +346,7 @@ public class c implements INetWork {
     public void setHeaderData(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.f17580d = hashMap;
+            this.f17152d = hashMap;
         }
     }
 
@@ -354,7 +354,7 @@ public class c implements INetWork {
     public void setReadTimeout(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f17579c = i2;
+            this.f17151c = i2;
         }
     }
 

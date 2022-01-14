@@ -18,34 +18,32 @@ public final class j {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f63133b;
+    public static final String f60755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f63134c;
+    public static final boolean f60756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f63135d;
+    public static final boolean f60757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f63136e;
+    public static final boolean f60758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f63137f;
+    public static final boolean f60759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f63138g;
+    public static final boolean f60760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f63139h;
+    public static final boolean f60761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f63140i;
+    public static Method f60762i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f63141j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f63142k;
+    public static String f60763j;
+    public static String k;
     public static String l;
     public static String m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,15 +68,15 @@ public final class j {
         } else {
             b2 = aa.b("ro.product.customize.bbk", "N");
         }
-        f63133b = b2;
-        f63134c = "RU".equals(b2);
-        f63135d = "IN".equals(f63133b);
-        f63136e = b("rom_1.0");
-        f63137f = b("rom_2.0");
-        f63138g = b("rom_2.5");
-        f63139h = b("rom_3.0");
-        f63141j = null;
-        f63142k = null;
+        f60755b = b2;
+        f60756c = "RU".equals(b2);
+        f60757d = "IN".equals(f60755b);
+        f60758e = b("rom_1.0");
+        f60759f = b("rom_2.0");
+        f60760g = b("rom_2.5");
+        f60761h = b("rom_3.0");
+        f60763j = null;
+        k = null;
         l = "";
         m = "";
     }
@@ -119,21 +117,21 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f63141j == null && f63142k == null) {
+                if (f60763j == null && k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f63140i = declaredMethod;
+                        f60762i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        f63141j = (String) f63140i.invoke(null, "ro.vivo.rom", "@><@");
-                        f63142k = (String) f63140i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f60763j = (String) f60762i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f60762i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + f63141j + " ; sRomProperty2 : " + f63142k);
-                String a2 = a(f63141j);
+                p.d("Device", "sRomProperty1 : " + f60763j + " ; sRomProperty2 : " + k);
+                String a2 = a(f60763j);
                 if (TextUtils.isEmpty(a2)) {
-                    String a3 = a(f63142k);
+                    String a3 = a(k);
                     if (TextUtils.isEmpty(a3)) {
                         return null;
                     }

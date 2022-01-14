@@ -49,33 +49,33 @@ public class a extends b {
             if (j(context, eVar, unitedSchemeEntity)) {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    boolean z = z.f6340b;
+                    boolean z = z.f6201b;
                     d.c("battery", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    boolean z2 = z.f6340b;
+                    boolean z2 = z.f6201b;
                     d.c("battery", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                a.C0522a a = c.a.r0.a.r2.c.a.a(context);
+                a.C0531a a = c.a.r0.a.r2.c.a.a(context);
                 if (a == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                     return false;
                 }
-                if (z.f6340b) {
-                    String str = "/swanAPI/getBatteryInfo = level: " + a.a + " ; plugged: " + a.f8814b;
+                if (z.f6201b) {
+                    String str = "/swanAPI/getBatteryInfo = level: " + a.a + " ; plugged: " + a.f8620b;
                 }
-                JSONObject k2 = k(a);
-                if (k2 == null) {
+                JSONObject k = k(a);
+                if (k == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                    boolean z3 = z.f6340b;
+                    boolean z3 = z.f6201b;
                     return false;
                 }
-                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k2, 0).toString(), optString);
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString(), optString);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

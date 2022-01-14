@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "MarioLog";

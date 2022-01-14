@@ -232,7 +232,7 @@ public class WebChromeClient {
                 try {
                     JSONObject jSONObject = new JSONObject(str.substring(9));
                     String optString = jSONObject.optString("func");
-                    String optString2 = jSONObject.optString("callback");
+                    String optString2 = jSONObject.optString(KEY_ARG_CALLBACK);
                     if (MSG_METHOD_GETVERSION.equals(optString) && !TextUtils.isEmpty(optString2) && this.mWebView != null) {
                         WebView webView = this.mWebView;
                         webView.execJavaScriptExt(optString2 + "(" + CommonUtils.getVersionName(this.mWebView.getContext()) + SmallTailInfo.EMOTION_SUFFIX, new String[0]);

@@ -158,11 +158,11 @@ public class RecommendFrsDelegateStatic extends c.a.s0.i0.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new RecommendFrsControlFragment();
-            cVar.f13111e = 2;
-            cVar.f13108b = R.string.home_recommend;
-            cVar.f13112f = R.raw.lottie_tab_home;
-            cVar.f13115i = c.l;
-            cVar.f13114h = c.a.s0.i0.e.c.d().c("homePage");
+            cVar.f12789e = 2;
+            cVar.f12786b = R.string.home_recommend;
+            cVar.f12790f = R.raw.lottie_tab_home;
+            cVar.f12793i = c.l;
+            cVar.f12792h = c.a.s0.i0.e.c.d().c("homePage");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -176,8 +176,8 @@ public class RecommendFrsDelegateStatic extends c.a.s0.i0.b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f42537f = this.mIndicator;
-            aVar.f42534c = n.d(context, 12.0f);
+            aVar.f41044f = this.mIndicator;
+            aVar.f41041c = n.d(context, 12.0f);
             MessageRedDotView messageRedDotView = this.a;
             aVar.a = messageRedDotView;
             messageRedDotView.setVisibility(8);

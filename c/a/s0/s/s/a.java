@@ -92,14 +92,14 @@ public class a {
 
     /* renamed from: c.a.s0.s.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0870a implements View.OnClickListener {
+    public class View$OnClickListenerC0883a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13877e;
+        public final /* synthetic */ a f13559e;
 
-        public View$OnClickListenerC0870a(a aVar) {
+        public View$OnClickListenerC0883a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,18 +114,18 @@ public class a {
                     return;
                 }
             }
-            this.f13877e = aVar;
+            this.f13559e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a aVar = this.f13877e;
+                a aVar = this.f13559e;
                 aVar.noTipAgainChecked = !aVar.noTipAgainChecked;
-                this.f13877e.setCheckBoxDrawable();
-                if (this.f13877e.onNoTipAgainCheckListener != null) {
-                    this.f13877e.onNoTipAgainCheckListener.a();
+                this.f13559e.setCheckBoxDrawable();
+                if (this.f13559e.onNoTipAgainCheckListener != null) {
+                    this.f13559e.onNoTipAgainCheckListener.a();
                 }
             }
         }
@@ -176,7 +176,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13878e;
+        public final /* synthetic */ a f13560e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -193,14 +193,14 @@ public class a {
                     return;
                 }
             }
-            this.f13878e = aVar;
+            this.f13560e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13878e.show(true);
+                this.f13560e.show(true);
             }
         }
     }
@@ -211,10 +211,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f13879e;
+        public final a f13561e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f13880f;
+        public final e f13562f;
 
         public d(a aVar, a aVar2, e eVar) {
             Interceptable interceptable = $ic;
@@ -231,18 +231,18 @@ public class a {
                     return;
                 }
             }
-            this.f13879e = aVar2;
-            this.f13880f = eVar;
+            this.f13561e = aVar2;
+            this.f13562f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13880f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13562f) == null) {
                 return;
             }
-            eVar.onClick(this.f13879e);
+            eVar.onClick(this.f13561e);
         }
     }
 
@@ -482,7 +482,7 @@ public class a {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().f13328e = !isAutoNight();
+                tbPageContext.getLayoutMode().f13007e = !isAutoNight();
                 tbPageContext.getLayoutMode().j(this.mRootView);
                 if (this.mContentView != null) {
                     tbPageContext.getLayoutMode().j(this.mContentView);
@@ -604,7 +604,7 @@ public class a {
             this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
             setCheckBoxDrawable();
-            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0870a(this));
+            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0883a(this));
             return inflate;
         }
         return (View) invokeV.objValue;

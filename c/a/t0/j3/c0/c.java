@@ -2,7 +2,7 @@ package c.a.t0.j3.c0;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.k;
 import c.a.t0.j3.t;
 import c.a.t0.j3.u;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class c extends k<d2, FrsAppEmptyHolder> implements t {
+public class c extends k<e2, FrsAppEmptyHolder> implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,13 +66,13 @@ public class c extends k<d2, FrsAppEmptyHolder> implements t {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.d1.k, c.a.d.n.e.a
     /* renamed from: n0 */
-    public View S(int i2, View view, ViewGroup viewGroup, d2 d2Var, FrsAppEmptyHolder frsAppEmptyHolder) {
+    public View S(int i2, View view, ViewGroup viewGroup, e2 e2Var, FrsAppEmptyHolder frsAppEmptyHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, frsAppEmptyHolder})) == null) {
-            if (d2Var instanceof AdvertAppInfo) {
-                AdvertAppInfo advertAppInfo = (AdvertAppInfo) d2Var;
-                c.a.s0.s.q.e.c(advertAppInfo.o4, d2Var.position, advertAppInfo.h4 == -1001);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, e2Var, frsAppEmptyHolder})) == null) {
+            if (e2Var instanceof AdvertAppInfo) {
+                AdvertAppInfo advertAppInfo = (AdvertAppInfo) e2Var;
+                c.a.s0.s.q.e.c(advertAppInfo.o4, e2Var.position, advertAppInfo.h4 == -1001);
             }
             return frsAppEmptyHolder.getView();
         }

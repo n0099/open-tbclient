@@ -18,23 +18,23 @@ import java.util.TimeZone;
 public class a extends BdAsyncTask<Void, Void, List<b>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC1165a a;
+    public InterfaceC1179a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f19450b;
+    public Context f18950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19451c;
+    public int f18951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SimpleDateFormat f19452d;
+    public SimpleDateFormat f18952d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SimpleDateFormat f19453e;
+    public SimpleDateFormat f18953e;
 
     /* renamed from: c.a.t0.k4.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1165a {
+    public interface InterfaceC1179a {
         void a(List<b> list);
     }
 
@@ -68,13 +68,13 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
                 return;
             }
         }
-        this.f19450b = context;
-        this.f19451c = context.getResources().getDimensionPixelSize(R.dimen.ds220);
-        this.f19453e = new SimpleDateFormat("mm:ss");
-        this.f19452d = new SimpleDateFormat("HH:mm:ss");
+        this.f18950b = context;
+        this.f18951c = context.getResources().getDimensionPixelSize(R.dimen.ds220);
+        this.f18953e = new SimpleDateFormat("mm:ss");
+        this.f18952d = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.f19453e.setTimeZone(timeZone);
-        this.f19452d.setTimeZone(timeZone);
+        this.f18953e.setTimeZone(timeZone);
+        this.f18952d.setTimeZone(timeZone);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,7 +84,7 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<b> a = c.a(this.f19450b);
+            List<b> a = c.a(this.f18950b);
             c.d("/sdcard", a, false);
             c.d("/sdcard/DCIM", a, true);
             c.e(a);
@@ -100,17 +100,17 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             super.onPostExecute(list);
-            InterfaceC1165a interfaceC1165a = this.a;
-            if (interfaceC1165a != null) {
-                interfaceC1165a.a(list);
+            InterfaceC1179a interfaceC1179a = this.a;
+            if (interfaceC1179a != null) {
+                interfaceC1179a.a(list);
             }
         }
     }
 
-    public void d(InterfaceC1165a interfaceC1165a) {
+    public void d(InterfaceC1179a interfaceC1179a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1165a) == null) {
-            this.a = interfaceC1165a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1179a) == null) {
+            this.a = interfaceC1179a;
         }
     }
 }

@@ -11,16 +11,16 @@ public class n {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60927b;
+    public boolean f58620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60928c;
+    public long f58621c;
 
     public void a() throws IOException {
         if (Thread.interrupted()) {
             throw new InterruptedIOException("thread interrupted");
         }
-        if (this.f60927b && this.f60928c - System.nanoTime() <= 0) {
+        if (this.f58620b && this.f58621c - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }

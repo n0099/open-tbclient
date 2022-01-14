@@ -13,11 +13,11 @@ public class bc extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static bc f37747c;
+    public static bc f36506c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37748b;
+    public boolean f36507b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class bc extends ba {
                 return;
             }
         }
-        f37747c = new bc();
+        f36506c = new bc();
     }
 
     public bc() {
@@ -52,7 +52,7 @@ public class bc extends ba {
     public static bc c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37747c : (bc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36506c : (bc) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -65,7 +65,7 @@ public class bc extends ba {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f37748b = z;
+            this.f36507b = z;
         }
     }
 
@@ -73,6 +73,6 @@ public class bc extends ba {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37748b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36507b : invokeV.booleanValue;
     }
 }

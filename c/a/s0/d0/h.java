@@ -15,10 +15,10 @@ public class h {
     public List<FutureTask<Boolean>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<g> f12630b;
+    public List<g> f12333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ErrorData f12631c;
+    public ErrorData f12334c;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -36,12 +36,12 @@ public class h {
 
     public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.f12631c == null) {
-            this.f12631c = errorData;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.f12334c == null) {
+            this.f12334c = errorData;
             for (FutureTask<Boolean> futureTask : this.a) {
                 futureTask.cancel(true);
             }
-            for (g gVar : this.f12630b) {
+            for (g gVar : this.f12333b) {
                 gVar.a();
             }
         }
@@ -50,7 +50,7 @@ public class h {
     public void b(List<g> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f12630b = list;
+            this.f12333b = list;
         }
     }
 

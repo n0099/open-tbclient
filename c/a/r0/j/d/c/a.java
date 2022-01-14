@@ -15,10 +15,10 @@ public final class a {
     public JsFunction a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsFunction f11180b;
+    public JsFunction f10932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsFunction f11181c;
+    public JsFunction f10933c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public final class a {
             }
             a aVar2 = new a();
             aVar2.a = aVar.u("success");
-            aVar2.f11180b = aVar.u(com.baidu.pass.biometrics.face.liveness.b.a.g0);
-            aVar2.f11181c = aVar.u(TaskProcessData.keyComplete);
+            aVar2.f10932b = aVar.u(com.baidu.pass.biometrics.face.liveness.b.a.g0);
+            aVar2.f10933c = aVar.u(TaskProcessData.keyComplete);
             return aVar2;
         }
         return (a) invokeL.objValue;
@@ -53,11 +53,11 @@ public final class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            JsFunction jsFunction = this.f11180b;
+            JsFunction jsFunction = this.f10932b;
             if (jsFunction != null) {
                 jsFunction.call();
             }
-            JsFunction jsFunction2 = this.f11181c;
+            JsFunction jsFunction2 = this.f10933c;
             if (jsFunction2 != null) {
                 jsFunction2.call();
             }
@@ -68,11 +68,11 @@ public final class a {
     public void b(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            JsFunction jsFunction = this.f11180b;
+            JsFunction jsFunction = this.f10932b;
             if (jsFunction != null) {
                 jsFunction.call(obj);
             }
-            JsFunction jsFunction2 = this.f11181c;
+            JsFunction jsFunction2 = this.f10933c;
             if (jsFunction2 != null) {
                 jsFunction2.call(obj);
             }
@@ -87,11 +87,11 @@ public final class a {
             if (jsFunction != null) {
                 jsFunction.call();
             }
-            JsFunction jsFunction2 = this.f11181c;
+            JsFunction jsFunction2 = this.f10933c;
             if (jsFunction2 != null) {
                 jsFunction2.call();
             }
-            f(this.f11180b);
+            f(this.f10932b);
         }
     }
 
@@ -102,11 +102,11 @@ public final class a {
             if (jsFunction != null) {
                 jsFunction.call(obj);
             }
-            JsFunction jsFunction2 = this.f11181c;
+            JsFunction jsFunction2 = this.f10933c;
             if (jsFunction2 != null) {
                 jsFunction2.call(obj);
             }
-            f(this.f11180b);
+            f(this.f10932b);
         }
     }
 

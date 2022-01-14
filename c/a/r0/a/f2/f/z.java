@@ -24,7 +24,7 @@ public abstract class z extends d<UnitedSchemeBaseDispatcher> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6340b;
+    public static final boolean f6201b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public abstract class z extends d<UnitedSchemeBaseDispatcher> {
                 return;
             }
         }
-        f6340b = c.a.r0.a.k.a;
+        f6201b = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,7 +79,7 @@ public abstract class z extends d<UnitedSchemeBaseDispatcher> {
             try {
                 return new JSONObject(param);
             } catch (JSONException e2) {
-                if (f6340b) {
+                if (f6201b) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -106,7 +106,7 @@ public abstract class z extends d<UnitedSchemeBaseDispatcher> {
                 }
                 return i(context, unitedSchemeEntity, callbackHandler, str, c());
             } catch (Throwable th) {
-                if (f6340b) {
+                if (f6201b) {
                     Log.getStackTraceString(th);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));

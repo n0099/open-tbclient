@@ -14,7 +14,7 @@ public class c {
     public Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f18402b;
+    public Activity f17950b;
 
     public c(Object obj) {
         Interceptable interceptable = $ic;
@@ -43,6 +43,6 @@ public class c {
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18402b : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17950b : (Activity) invokeV.objValue;
     }
 }

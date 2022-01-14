@@ -17,7 +17,7 @@ public class BankSignPayFlow {
     public Action a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.banksign.a f53957b;
+    public com.baidu.wallet.paysdk.banksign.a f51895b;
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.BankSignPayFlow$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -203,7 +203,7 @@ public class BankSignPayFlow {
             }
         }
         this.a = Action.Null;
-        this.f53957b = new b();
+        this.f51895b = new b();
     }
 
     public void a(Action action) {
@@ -219,31 +219,31 @@ public class BankSignPayFlow {
     public void a(Context context) {
         Action action;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f53957b == null || (action = this.a) == null || Action.Null == action) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f51895b == null || (action = this.a) == null || Action.Null == action) {
             return;
         }
         switch (AnonymousClass1.a[action.ordinal()]) {
             case 1:
-                this.f53957b.e(context);
+                this.f51895b.e(context);
                 return;
             case 2:
             case 3:
             case 4:
-                this.f53957b.b(context);
+                this.f51895b.b(context);
                 return;
             case 5:
-                this.f53957b.a();
+                this.f51895b.a();
                 return;
             case 6:
-                this.f53957b.c(context);
+                this.f51895b.c(context);
                 this.a = Action.Cancel;
                 return;
             case 7:
             case 8:
-                this.f53957b.a(context);
+                this.f51895b.a(context);
                 return;
             case 9:
-                this.f53957b.d(context);
+                this.f51895b.d(context);
                 this.a = Action.Cancel;
                 return;
             default:

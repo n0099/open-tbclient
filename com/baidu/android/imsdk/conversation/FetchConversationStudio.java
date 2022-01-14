@@ -104,12 +104,12 @@ public class FetchConversationStudio {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    a.f14646c.removeCallbacks(this.this$0.fetchRunnable);
+                    a.f14300c.removeCallbacks(this.this$0.fetchRunnable);
                     if (this.this$0.mReliableFetchCount.get() > 0) {
                         this.this$0.mReliableFetchCount.set(0);
                         if (ConversationStudioManImpl.getInstance(this.this$0.mContext).isReliable(this.this$0.mCastId)) {
                             this.this$0.fetchCastMsgByMsgId();
-                            a.f14646c.postDelayed(this.this$0.fetchRunnable, 1000L);
+                            a.f14300c.postDelayed(this.this$0.fetchRunnable, 1000L);
                             return;
                         }
                         return;
@@ -165,15 +165,15 @@ public class FetchConversationStudio {
                     this.this$0.mMaxMsgId = j5;
                     if (i4 == 0) {
                         if (i7 >= i6) {
-                            a.f14646c.removeCallbacks(this.this$0.fetchRunnable);
-                            a.f14646c.postDelayed(this.this$0.fetchRunnable, 1000L);
+                            a.f14300c.removeCallbacks(this.this$0.fetchRunnable);
+                            a.f14300c.postDelayed(this.this$0.fetchRunnable, 1000L);
                         }
                     } else if (i4 == 1024) {
                         int unused = FetchConversationStudio.PULL_COUNT = 80;
                         LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg length over 1024*1024");
                     } else if (this.this$0.mFetchNum == 0) {
                         LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
-                        a.f14646c.postDelayed(this.this$0.mReliableRunnable, 1000L);
+                        a.f14300c.postDelayed(this.this$0.mReliableRunnable, 1000L);
                     }
                 }
             }
@@ -208,12 +208,12 @@ public class FetchConversationStudio {
                     FetchConversationStudio.access$708(this.this$0);
                     if (this.this$0.mFetchNum > 3) {
                         this.this$0.mFetchNum = 0;
-                        a.f14646c.removeCallbacks(this);
+                        a.f14300c.removeCallbacks(this);
                         return;
                     }
                     this.this$0.fetchCastMsgByMsgId();
-                    a.f14646c.removeCallbacks(this);
-                    a.f14646c.postDelayed(this, this.this$0.mFetchNum != 3 ? 5000L : 10000L);
+                    a.f14300c.removeCallbacks(this);
+                    a.f14300c.postDelayed(this, this.this$0.mFetchNum != 3 ? 5000L : 10000L);
                 }
             }
         };
@@ -264,7 +264,7 @@ public class FetchConversationStudio {
         }
         LogUtils.d(TAG, "begin set fetchRunnable");
         this.mReliableFetching.set(true);
-        a.f14646c.removeCallbacks(this.fetchRunnable);
-        a.f14646c.postDelayed(this.fetchRunnable, 1000L);
+        a.f14300c.removeCallbacks(this.fetchRunnable);
+        a.f14300c.postDelayed(this.fetchRunnable, 1000L);
     }
 }

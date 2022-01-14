@@ -10,7 +10,7 @@ import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 

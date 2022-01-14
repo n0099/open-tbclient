@@ -23,13 +23,13 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48246b;
+    public View f46448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f48247c;
+    public ViewGroup f46449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f48248d;
+    public TextView f46450d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbChildTitleViewHolder(View view) {
@@ -50,17 +50,17 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f48246b = view.findViewById(i.pb_child_title_top_line);
-        this.f48247c = (ViewGroup) view.findViewById(i.rl_pb_child_title_area);
+        this.f46448b = view.findViewById(i.pb_child_title_top_line);
+        this.f46449c = (ViewGroup) view.findViewById(i.rl_pb_child_title_area);
         TextView textView = (TextView) view.findViewById(i.tv_pb_child_title);
-        this.f48248d = textView;
+        this.f46450d = textView;
         c.d(textView).A(l.F_X02);
     }
 
     public void bindData(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f48248d.setText(eVar.d());
+            this.f46450d.setText(eVar.d());
         }
     }
 
@@ -73,9 +73,9 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.f48246b, f.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f48247c, f.CAM_X0205);
-            SkinManager.setViewTextColor(this.f48248d, f.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f46448b, f.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f46449c, f.CAM_X0205);
+            SkinManager.setViewTextColor(this.f46450d, f.CAM_X0105);
         }
     }
 

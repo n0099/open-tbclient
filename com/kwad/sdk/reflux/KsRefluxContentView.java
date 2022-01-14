@@ -13,7 +13,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     public GestureDetector a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f59405b;
+    public a f57159b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        a aVar = this.f59405b;
+        a aVar = this.f57159b;
         if (aVar == null || aVar.a()) {
             com.kwad.sdk.core.d.a.a("KsRefluxContentView", "dispatchTouchEvent consumed");
             return super.dispatchTouchEvent(motionEvent);
@@ -68,7 +68,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onFling");
-        a aVar = this.f59405b;
+        a aVar = this.f57159b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -83,7 +83,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onScroll");
-        a aVar = this.f59405b;
+        a aVar = this.f57159b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -98,7 +98,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onSingleTapUp");
-        a aVar = this.f59405b;
+        a aVar = this.f57159b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -106,6 +106,6 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     public void setContentViewListener(a aVar) {
-        this.f59405b = aVar;
+        this.f57159b = aVar;
     }
 }

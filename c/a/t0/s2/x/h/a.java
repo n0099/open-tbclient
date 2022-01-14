@@ -41,17 +41,17 @@ public class a {
 
     /* renamed from: c.a.t0.s2.x.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1405a extends ClickableSpan {
+    public static class C1420a extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f23909e;
+        public final /* synthetic */ String f23246e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f23910f;
+        public final /* synthetic */ String f23247f;
 
-        public C1405a(String str, String str2) {
+        public C1420a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,20 +66,20 @@ public class a {
                     return;
                 }
             }
-            this.f23909e = str;
-            this.f23910f = str2;
+            this.f23246e = str;
+            this.f23247f = str2;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f23909e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f23246e)) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13313");
-            statisticItem.param("tid", this.f23910f);
+            statisticItem.param("tid", this.f23247f);
             TiebaStatic.log(statisticItem);
-            c.a.s0.m.a.v(TbadkCoreApplication.getInst().getApplicationContext(), false, this.f23909e);
+            c.a.s0.m.a.v(TbadkCoreApplication.getInst().getApplicationContext(), false, this.f23246e);
         }
     }
 
@@ -151,10 +151,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f23911e;
+        public int f23248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f23912f;
+        public int f23249f;
 
         public c(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -171,8 +171,8 @@ public class a {
                     return;
                 }
             }
-            this.f23911e = i2;
-            this.f23912f = i3;
+            this.f23248e = i2;
+            this.f23249f = i3;
         }
 
         public final TextPaint a(Paint paint) {
@@ -180,8 +180,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, paint)) == null) {
                 TextPaint textPaint = new TextPaint(paint);
-                textPaint.setTextSize(this.f23911e);
-                textPaint.setColor(this.f23912f);
+                textPaint.setTextSize(this.f23248e);
+                textPaint.setColor(this.f23249f);
                 return textPaint;
             }
             return (TextPaint) invokeL.objValue;
@@ -248,7 +248,7 @@ public class a {
         Drawable drawable = SkinManager.getDrawable(h.icon_video_pb_ad_link);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableString.setSpan(new b(drawable, 0), 0, 1, 17);
-        spannableString.setSpan(new C1405a(str2, str3), 0, 1, 17);
+        spannableString.setSpan(new C1420a(str2, str3), 0, 1, 17);
         spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
         SpannableString spannableString2 = new SpannableString(" 广告");
         spannableString2.setSpan(new c(a, color), 0, 3, 17);

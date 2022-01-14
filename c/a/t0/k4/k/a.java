@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f19457d;
+    public long f18957d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -45,7 +46,7 @@ public class a extends d {
                 return;
             }
         }
-        this.f19457d = 88200L;
+        this.f18957d = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
@@ -74,13 +75,13 @@ public class a extends d {
         FileInputStream fileInputStream = null;
         try {
             try {
-                if (aVar.f19459b == 0) {
-                    aVar.f19459b = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                if (aVar.f18959b == 0) {
+                    aVar.f18959b = MediaEncodeParams.AUDIO_SAMPLE_RATE;
                 }
-                if (aVar.f19460c == 0) {
-                    aVar.f19460c = 1;
+                if (aVar.f18960c == 0) {
+                    aVar.f18960c = 1;
                 }
-                aVar.f19457d = (aVar.f19459b * 16) / 8;
+                aVar.f18957d = (aVar.f18959b * 16) / 8;
                 FileInputStream fileInputStream2 = new FileInputStream(aVar.a);
                 try {
                     fileOutputStream = new FileOutputStream(str);
@@ -174,7 +175,7 @@ public class a extends d {
                                     f2.queueInputBuffer(dequeueInputBuffer, 0, i7, j4, 0);
                                     i4 = i8;
                                     i3 = i7;
-                                    j4 = (long) (((i8 / 2.0d) * 1000000.0d) / aVar.f19457d);
+                                    j4 = (long) (((i8 / 2.0d) * 1000000.0d) / aVar.f18957d);
                                     bArr = bArr2;
                                     z2 = z;
                                 }
@@ -252,7 +253,7 @@ public class a extends d {
                 if (i3 >= 13) {
                     i3 = 4;
                     break;
-                } else if (iArr[i3] == this.f19459b) {
+                } else if (iArr[i3] == this.f18959b) {
                     break;
                 } else {
                     i3++;
@@ -262,7 +263,7 @@ public class a extends d {
             bArr[1] = -7;
             bArr[2] = (byte) (64 + (i3 << 2) + 0);
             bArr[3] = (byte) (128 + (i2 >> 11));
-            bArr[4] = (byte) ((i2 & 2047) >> 3);
+            bArr[4] = (byte) ((i2 & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
             bArr[5] = (byte) (((i2 & 7) << 5) + 31);
             bArr[6] = -4;
         }
@@ -277,8 +278,8 @@ public class a extends d {
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString("mime", "audio/mp4a-latm");
             mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.f19460c);
-            mediaFormat.setInteger("sample-rate", this.f19459b);
+            mediaFormat.setInteger("channel-count", this.f18960c);
+            mediaFormat.setInteger("sample-rate", this.f18959b);
             mediaFormat.setInteger("aac-profile", 2);
             createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return createEncoderByType;

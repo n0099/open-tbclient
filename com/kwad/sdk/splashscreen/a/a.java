@@ -9,30 +9,30 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.widget.f f60039b;
+    public com.kwad.sdk.widget.f f57762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60040c;
+    public boolean f57763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.g f60041d = null;
+    public com.kwad.sdk.splashscreen.g f57764d = null;
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
         Object p = p();
         if (p instanceof com.kwad.sdk.splashscreen.g) {
-            this.f60041d = (com.kwad.sdk.splashscreen.g) p;
+            this.f57764d = (com.kwad.sdk.splashscreen.g) p;
         }
-        com.kwad.sdk.splashscreen.g gVar = this.f60041d;
+        com.kwad.sdk.splashscreen.g gVar = this.f57764d;
         if (gVar == null) {
             return;
         }
-        this.f60040c = com.kwad.sdk.core.response.a.c.g(gVar.f60158d);
-        boolean a = i.a(com.kwad.sdk.core.response.a.d.j(this.f60041d.f60158d));
+        this.f57763c = com.kwad.sdk.core.response.a.c.g(gVar.f57875d);
+        boolean a = i.a(com.kwad.sdk.core.response.a.d.j(this.f57764d.f57875d));
         this.a.setVisibility(a ? 0 : 8);
         if (a) {
-            this.f60039b = new com.kwad.sdk.widget.f(this.a.getContext(), this.a, this);
+            this.f57762b = new com.kwad.sdk.widget.f(this.a.getContext(), this.a, this);
         }
     }
 
@@ -41,12 +41,12 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
         com.kwad.sdk.splashscreen.g gVar;
         Context context;
         int i2;
-        if (com.kwad.sdk.splashscreen.g.a(view.getContext(), com.kwad.sdk.core.response.a.d.j(this.f60041d.f60158d))) {
-            gVar = this.f60041d;
+        if (com.kwad.sdk.splashscreen.g.a(view.getContext(), com.kwad.sdk.core.response.a.d.j(this.f57764d.f57875d))) {
+            gVar = this.f57764d;
             context = view.getContext();
             i2 = 53;
         } else {
-            gVar = this.f60041d;
+            gVar = this.f57764d;
             context = view.getContext();
             i2 = 0;
         }
@@ -55,9 +55,9 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
 
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
-        com.kwad.sdk.core.d.a.a("FullScreenTouchConvertPresenter", "onSlide: enableSlickClick: " + this.f60040c);
-        if (this.f60040c) {
-            this.f60041d.a(view.getContext(), 153, 2);
+        com.kwad.sdk.core.d.a.a("FullScreenTouchConvertPresenter", "onSlide: enableSlickClick: " + this.f57763c);
+        if (this.f57763c) {
+            this.f57764d.a(view.getContext(), 153, 2);
         }
     }
 

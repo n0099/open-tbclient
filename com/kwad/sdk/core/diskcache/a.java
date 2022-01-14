@@ -21,36 +21,36 @@ import java.util.concurrent.Future;
 public class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f57847g;
+    public static volatile a f55656g;
     public Future a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f57848b;
+    public File f55657b;
 
     /* renamed from: d  reason: collision with root package name */
-    public PackageManager f57850d;
+    public PackageManager f55659d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f57851e;
+    public final f f55660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f57852f;
+    public volatile boolean f55661f;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f57849c = b.k();
+    public final ExecutorService f55658c = b.k();
 
     /* renamed from: h  reason: collision with root package name */
-    public final Callable<PackageInfo> f57853h = new Callable<PackageInfo>() { // from class: com.kwad.sdk.core.diskcache.a.1
+    public final Callable<PackageInfo> f55662h = new Callable<PackageInfo>() { // from class: com.kwad.sdk.core.diskcache.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public PackageInfo call() {
             PackageInfo a;
             synchronized (a.class) {
-                if (a.this.f57848b != null && a.this.f57848b.exists()) {
-                    for (File file : a.this.b(a.this.f57848b)) {
+                if (a.this.f55657b != null && a.this.f55657b.exists()) {
+                    for (File file : a.this.b(a.this.f55657b)) {
                         if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && com.kwad.sdk.core.a.a().a(file.getAbsolutePath()) != null && (a = a.this.a(file)) != null) {
-                            a.this.f57851e.a(file);
+                            a.this.f55660e.a(file);
                             return a;
                         }
                     }
@@ -62,15 +62,15 @@ public class a {
     };
 
     public a(@NonNull Context context) {
-        this.f57852f = false;
-        this.f57851e = new com.kwad.sdk.core.download.b.a(context);
+        this.f55661f = false;
+        this.f55660e = new com.kwad.sdk.core.download.b.a(context);
         try {
-            this.f57848b = aq.c(context);
-            this.f57850d = context.getPackageManager();
+            this.f55657b = aq.c(context);
+            this.f55659d = context.getPackageManager();
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
         }
-        this.f57852f = true;
+        this.f55661f = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -78,8 +78,8 @@ public class a {
         if (file != null && file.exists()) {
             try {
                 if (file.exists() & (!file.isDirectory())) {
-                    PackageInfo packageArchiveInfo = this.f57850d.getPackageArchiveInfo(file.getPath(), 65);
-                    if (this.f57850d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
+                    PackageInfo packageArchiveInfo = this.f55659d.getPackageArchiveInfo(file.getPath(), 65);
+                    if (this.f55659d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
                         return null;
                     }
                     return packageArchiveInfo;
@@ -92,14 +92,14 @@ public class a {
     }
 
     public static a a(@NonNull Context context) {
-        if (f57847g == null) {
+        if (f55656g == null) {
             synchronized (a.class) {
-                if (f57847g == null) {
-                    f57847g = new a(context);
+                if (f55656g == null) {
+                    f55656g = new a(context);
                 }
             }
         }
-        return f57847g;
+        return f55656g;
     }
 
     private void a(List<File> list) {
@@ -130,10 +130,10 @@ public class a {
 
     public void a() {
         File file;
-        if (this.f57852f && (file = this.f57848b) != null && file.exists()) {
+        if (this.f55661f && (file = this.f55657b) != null && file.exists()) {
             Future future = this.a;
             if (future == null || future.isDone()) {
-                this.a = this.f57849c.submit(this.f57853h);
+                this.a = this.f55658c.submit(this.f55662h);
             }
         }
     }

@@ -19,13 +19,13 @@ public final class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f64874b;
+    public Reader f62444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f64875c;
+    public char f62445c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64876d;
+    public boolean f62446d;
 
     public c(Reader reader) {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public final class c {
                 return;
             }
         }
-        this.f64874b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f64876d = false;
+        this.f62444b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f62446d = false;
         this.a = 0;
     }
 
@@ -76,14 +76,14 @@ public final class c {
             }
             char[] cArr = new char[i2];
             int i3 = 0;
-            if (this.f64876d) {
-                this.f64876d = false;
-                cArr[0] = this.f64875c;
+            if (this.f62446d) {
+                this.f62446d = false;
+                cArr[0] = this.f62445c;
                 i3 = 1;
             }
             while (i3 < i2) {
                 try {
-                    int read = this.f64874b.read(cArr, i3, i2 - i3);
+                    int read = this.f62444b.read(cArr, i3, i2 - i3);
                     if (read == -1) {
                         break;
                     }
@@ -94,7 +94,7 @@ public final class c {
             }
             this.a += i3;
             if (i3 >= i2) {
-                this.f64875c = cArr[i2 - 1];
+                this.f62445c = cArr[i2 - 1];
                 return new String(cArr);
             }
             throw a("Substring bounds error");
@@ -115,11 +115,11 @@ public final class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f64876d || (i2 = this.a) <= 0) {
+            if (this.f62446d || (i2 = this.a) <= 0) {
                 throw new JSONException("Stepping back two steps is not supported");
             }
             this.a = i2 - 1;
-            this.f64876d = true;
+            this.f62446d = true;
         }
     }
 
@@ -127,22 +127,22 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f64876d) {
-                this.f64876d = false;
-                if (this.f64875c != 0) {
+            if (this.f62446d) {
+                this.f62446d = false;
+                if (this.f62445c != 0) {
                     this.a++;
                 }
-                return this.f64875c;
+                return this.f62445c;
             }
             try {
-                int read = this.f64874b.read();
+                int read = this.f62444b.read();
                 if (read <= 0) {
-                    this.f64875c = (char) 0;
+                    this.f62445c = (char) 0;
                     return (char) 0;
                 }
                 this.a++;
                 char c2 = (char) read;
-                this.f64875c = c2;
+                this.f62445c = c2;
                 return c2;
             } catch (IOException e2) {
                 throw new JSONException(e2);

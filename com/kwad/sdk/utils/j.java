@@ -12,22 +12,22 @@ public class j {
     public AudioManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager.OnAudioFocusChangeListener f60236b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.j.1
+    public AudioManager.OnAudioFocusChangeListener f57950b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.j.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i2) {
-            if (j.this.f60237c == null) {
+            if (j.this.f57951c == null) {
                 return;
             }
             if (i2 < 0) {
-                j.this.f60237c.a();
+                j.this.f57951c.a();
             } else {
-                j.this.f60237c.b();
+                j.this.f57951c.b();
             }
         }
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public a f60237c;
+    public a f57951c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -42,16 +42,16 @@ public class j {
 
     @TargetApi(26)
     private AudioFocusRequest b() {
-        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f60236b).build();
+        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f57950b).build();
     }
 
     public void a(a aVar) {
-        this.f60237c = aVar;
+        this.f57951c = aVar;
     }
 
     public boolean a() {
         AudioManager audioManager;
-        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f60236b;
+        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f57950b;
         if (onAudioFocusChangeListener == null || (audioManager = this.a) == null) {
             return false;
         }

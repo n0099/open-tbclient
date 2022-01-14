@@ -16,7 +16,7 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<String> f54920b;
+    public Vector<String> f52833b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class a {
             }
         }
         this.a = str;
-        this.f54920b = new Vector<>();
+        this.f52833b = new Vector<>();
     }
 
     public final int a(String str) {
@@ -42,9 +42,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                this.f54920b.add(str);
+                this.f52833b.add(str);
             }
-            return this.f54920b.size();
+            return this.f52833b.size();
         }
         return invokeL.intValue;
     }
@@ -52,6 +52,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new JSONArray((Collection) this.f54920b).toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new JSONArray((Collection) this.f52833b).toString() : (String) invokeV.objValue;
     }
 }

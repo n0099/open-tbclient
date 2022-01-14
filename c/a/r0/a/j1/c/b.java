@@ -18,31 +18,31 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7457b;
+    public String f7292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7458c;
+    public String f7293c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7459d;
+    public int f7294d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f7460e;
+    public boolean f7295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7461f;
+    public boolean f7296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7462g;
+    public boolean f7297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7463h;
+    public int f7298h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f7464i;
+    public float f7299i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f7465j;
+    public String f7300j;
 
     static {
         InterceptResult invokeClinit;
@@ -74,14 +74,14 @@ public class b {
             }
         }
         this.a = "";
-        this.f7457b = "";
-        this.f7458c = "";
-        this.f7459d = 0;
-        this.f7460e = false;
-        this.f7461f = false;
-        this.f7462g = true;
-        this.f7463h = 0;
-        this.f7464i = 1.0f;
+        this.f7292b = "";
+        this.f7293c = "";
+        this.f7294d = 0;
+        this.f7295e = false;
+        this.f7296f = false;
+        this.f7297g = true;
+        this.f7298h = 0;
+        this.f7299i = 1.0f;
     }
 
     public static b a(JSONObject jSONObject, b bVar) {
@@ -91,15 +91,15 @@ public class b {
             b bVar2 = new b();
             if (jSONObject != null) {
                 bVar2.a = jSONObject.optString("audioId", bVar.a);
-                bVar2.f7457b = jSONObject.optString("slaveId", bVar.f7457b);
-                bVar2.f7460e = jSONObject.optBoolean("autoplay", bVar.f7460e);
-                bVar2.f7461f = jSONObject.optBoolean("loop", bVar.f7461f);
-                bVar2.f7458c = jSONObject.optString("src", bVar.f7458c);
-                bVar2.f7459d = jSONObject.optInt("startTime", bVar.f7459d);
-                bVar2.f7462g = jSONObject.optBoolean("obeyMuteSwitch", bVar.f7462g);
-                bVar2.f7463h = jSONObject.optInt("position", bVar.f7463h);
-                bVar2.f7464i = (float) jSONObject.optDouble("volume", bVar.f7464i);
-                bVar2.f7465j = jSONObject.optString("cb", bVar.f7465j);
+                bVar2.f7292b = jSONObject.optString("slaveId", bVar.f7292b);
+                bVar2.f7295e = jSONObject.optBoolean("autoplay", bVar.f7295e);
+                bVar2.f7296f = jSONObject.optBoolean("loop", bVar.f7296f);
+                bVar2.f7293c = jSONObject.optString("src", bVar.f7293c);
+                bVar2.f7294d = jSONObject.optInt("startTime", bVar.f7294d);
+                bVar2.f7297g = jSONObject.optBoolean("obeyMuteSwitch", bVar.f7297g);
+                bVar2.f7298h = jSONObject.optInt("position", bVar.f7298h);
+                bVar2.f7299i = (float) jSONObject.optDouble("volume", bVar.f7299i);
+                bVar2.f7300j = jSONObject.optString("cb", bVar.f7300j);
             }
             return bVar2;
         }
@@ -116,7 +116,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "playerId : " + this.a + "; slaveId : " + this.f7457b + "; url : " + this.f7458c + "; AutoPlay : " + this.f7460e + "; Loop : " + this.f7461f + "; startTime : " + this.f7459d + "; ObeyMute : " + this.f7462g + "; pos : " + this.f7463h;
+            return "playerId : " + this.a + "; slaveId : " + this.f7292b + "; url : " + this.f7293c + "; AutoPlay : " + this.f7295e + "; Loop : " + this.f7296f + "; startTime : " + this.f7294d + "; ObeyMute : " + this.f7297g + "; pos : " + this.f7298h;
         }
         return (String) invokeV.objValue;
     }

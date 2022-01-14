@@ -23,7 +23,7 @@ public class EmotionDetailModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f44577e;
+    public HttpMessageListener f42937e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -75,14 +75,14 @@ public class EmotionDetailModel extends BdBaseModel {
                 return;
             }
         }
-        this.f44577e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
+        this.f42937e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f44577e.setTag(getUniqueId());
-        this.f44577e.setSelfListener(true);
-        registerListener(this.f44577e);
+        this.f42937e.setTag(getUniqueId());
+        this.f42937e.setSelfListener(true);
+        registerListener(this.f42937e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -91,7 +91,7 @@ public class EmotionDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f44577e);
+            MessageManager.getInstance().unRegisterListener(this.f42937e);
             return true;
         }
         return invokeV.booleanValue;

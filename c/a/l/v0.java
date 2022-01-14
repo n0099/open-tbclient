@@ -27,10 +27,10 @@ public class v0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.q.a f4312e;
+        public final /* synthetic */ c.a.s0.s.q.a f4226e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ v0 f4313f;
+        public final /* synthetic */ v0 f4227f;
 
         public a(v0 v0Var, c.a.s0.s.q.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,15 +47,15 @@ public class v0 extends h {
                     return;
                 }
             }
-            this.f4313f = v0Var;
-            this.f4312e = aVar;
+            this.f4227f = v0Var;
+            this.f4226e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadCardUtils.jumpToPB(this.f4312e, (Context) this.f4313f.l.getPageActivity(), this.f4313f.m, false);
+                ThreadCardUtils.jumpToPB(this.f4226e, (Context) this.f4227f.l.getPageActivity(), this.f4227f.m, false);
             }
         }
     }

@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.share.QQShare;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IUiListener n;
     public final c.a.d.f.l.c<EmotionShareLoaderProc.EmotionShare> o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends c.a.d.f.l.c<EmotionShareLoaderProc.EmotionShare> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class c extends b {
             }
         }
         this.o = new a(this);
-        this.f20296i = 4;
+        this.f19760i = 4;
     }
 
     public final void G(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -100,13 +100,13 @@ public class c extends b {
         if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
             Bundle bundle = new Bundle();
             bundle.putInt("req_type", 7);
-            bundle.putString("title", c.a.t0.n3.f.a.a(this.f20292b));
+            bundle.putString("title", c.a.t0.n3.f.a.a(this.f19756b));
             if (!StringUtils.isNull(shareEntity.getTitle())) {
                 bundle.putString("summary", shareEntity.getTitle());
             } else if (!StringUtils.isNull(shareEntity.getContent())) {
                 bundle.putString("summary", shareEntity.getContent());
             } else {
-                bundle.putString("summary", this.f20292b.getString(R.string.share_qq_default_content));
+                bundle.putString("summary", this.f19756b.getString(R.string.share_qq_default_content));
             }
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             ArrayList<String> arrayList = new ArrayList<>();
@@ -120,7 +120,7 @@ public class c extends b {
             bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
             bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
             if (iUiListener != null) {
-                this.f20295h.shareToQzone((Activity) this.f20292b, bundle, iUiListener);
+                this.f19759h.shareToQzone((Activity) this.f19756b, bundle, iUiListener);
             }
         }
     }
@@ -140,7 +140,7 @@ public class c extends b {
             bundle.putStringArrayList("imageUrl", arrayList);
             IUiListener iUiListener = this.n;
             if (iUiListener != null) {
-                this.f20295h.shareToQzone((Activity) this.f20292b, bundle, iUiListener);
+                this.f19759h.shareToQzone((Activity) this.f19756b, bundle, iUiListener);
             }
         }
     }
@@ -154,7 +154,7 @@ public class c extends b {
             bundle.putInt("cflag", 1);
             IUiListener iUiListener = this.n;
             if (iUiListener != null) {
-                this.f20295h.shareToQQ((Activity) this.f20292b, bundle, iUiListener);
+                this.f19759h.shareToQQ((Activity) this.f19756b, bundle, iUiListener);
             }
         }
     }
@@ -176,8 +176,8 @@ public class c extends b {
     public void a(ShareEntity shareEntity, c.a.t0.n3.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, bVar) == null) {
-            if (shareEntity != null && this.f20295h != null) {
-                Context context = this.f20292b;
+            if (shareEntity != null && this.f19759h != null) {
+                Context context = this.f19756b;
                 if (context != null && (context instanceof Activity)) {
                     this.n = new b.c(this, bVar);
                     if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {

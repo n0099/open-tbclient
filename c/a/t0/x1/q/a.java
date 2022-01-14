@@ -24,37 +24,37 @@ public class a {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f26025b;
+    public View f25257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26026c;
+    public TextView f25258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SlidingTabLayout f26027d;
+    public SlidingTabLayout f25259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f26028e;
+    public Context f25260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f26029f;
+    public Animation f25261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f26030g;
+    public Animation f25262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26031h;
+    public boolean f25263h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f26032i;
+    public d f25264i;
 
     /* renamed from: c.a.t0.x1.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1503a extends d {
+    public class C1519a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1503a(a aVar) {
+        public C1519a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,15 +75,15 @@ public class a {
         @Override // c.a.d.f.m.d
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.f26026c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.f25258c == null) {
                 return;
             }
-            if (animation == this.a.f26029f) {
-                this.a.f26026c.setVisibility(0);
-                this.a.f26026c.setClickable(true);
-            } else if (animation == this.a.f26030g) {
-                this.a.f26026c.setVisibility(8);
-                this.a.f26026c.setClickable(false);
+            if (animation == this.a.f25261f) {
+                this.a.f25258c.setVisibility(0);
+                this.a.f25258c.setClickable(true);
+            } else if (animation == this.a.f25262g) {
+                this.a.f25258c.setVisibility(8);
+                this.a.f25258c.setClickable(false);
             }
         }
     }
@@ -103,23 +103,23 @@ public class a {
                 return;
             }
         }
-        this.f26031h = true;
-        this.f26032i = new C1503a(this);
-        this.f26025b = view;
-        this.f26028e = context;
-        this.f26026c = (TextView) view.findViewById(R.id.tab_widget_switch);
+        this.f25263h = true;
+        this.f25264i = new C1519a(this);
+        this.f25257b = view;
+        this.f25260e = context;
+        this.f25258c = (TextView) view.findViewById(R.id.tab_widget_switch);
         this.a = (ImageView) view.findViewById(R.id.tab_widget_more);
-        this.f26027d = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
+        this.f25259d = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26031h = true;
-            TextView textView = this.f26026c;
+            this.f25263h = true;
+            TextView textView = this.f25258c;
             if (textView != null) {
                 textView.clearAnimation();
-                this.f26026c.startAnimation(f());
+                this.f25258c.startAnimation(f());
             }
             SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
         }
@@ -129,12 +129,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f26029f == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f26028e, R.anim.fade_in);
-                this.f26029f = loadAnimation;
-                loadAnimation.setAnimationListener(this.f26032i);
+            if (this.f25261f == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f25260e, R.anim.fade_in);
+                this.f25261f = loadAnimation;
+                loadAnimation.setAnimationListener(this.f25264i);
             }
-            return this.f26029f;
+            return this.f25261f;
         }
         return (Animation) invokeV.objValue;
     }
@@ -143,12 +143,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f26030g == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f26028e, R.anim.fade_out);
-                this.f26030g = loadAnimation;
-                loadAnimation.setAnimationListener(this.f26032i);
+            if (this.f25262g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f25260e, R.anim.fade_out);
+                this.f25262g = loadAnimation;
+                loadAnimation.setAnimationListener(this.f25264i);
             }
-            return this.f26030g;
+            return this.f25262g;
         }
         return (Animation) invokeV.objValue;
     }
@@ -156,16 +156,16 @@ public class a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f26025b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.f26026c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f26026c, R.color.CAM_X0106, 1);
-            if (this.f26031h) {
+            SkinManager.setBackgroundColor(this.f25257b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.f25258c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.f25258c, R.color.CAM_X0106, 1);
+            if (this.f25263h) {
                 SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
             } else {
                 SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
             }
             SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
-            SlidingTabLayout slidingTabLayout = this.f26027d;
+            SlidingTabLayout slidingTabLayout = this.f25259d;
             if (slidingTabLayout != null) {
                 slidingTabLayout.onChangeSkinType(i2);
             }
@@ -184,7 +184,7 @@ public class a {
     public void i(ViewPager viewPager, int i2) {
         SlidingTabLayout slidingTabLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i2) == null) || (slidingTabLayout = this.f26027d) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i2) == null) || (slidingTabLayout = this.f25259d) == null) {
             return;
         }
         slidingTabLayout.setViewPager(viewPager, i2);
@@ -193,12 +193,12 @@ public class a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f26031h = false;
-            TextView textView = this.f26026c;
+            this.f25263h = false;
+            TextView textView = this.f25258c;
             if (textView != null) {
                 textView.clearAnimation();
-                this.f26026c.setVisibility(0);
-                this.f26026c.startAnimation(e());
+                this.f25258c.setVisibility(0);
+                this.f25258c.startAnimation(e());
             }
             SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
         }

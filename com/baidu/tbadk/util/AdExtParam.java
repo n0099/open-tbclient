@@ -53,7 +53,7 @@ public class AdExtParam {
                 aVar.a = hashMap;
                 hashMap.put(AdExtParam.KEY_IADEX, h.e());
                 if (c.a.t0.a.h().y()) {
-                    aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "4.2.1.3");
+                    aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "4.4.3.3");
                 }
                 return aVar;
             }

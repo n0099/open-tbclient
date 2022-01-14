@@ -26,7 +26,7 @@ public class g extends j {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f4729b;
+        public final /* synthetic */ g f4627b;
 
         public a(g gVar, long j2, int i2) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class g extends j {
                     return;
                 }
             }
-            this.f4729b = gVar;
+            this.f4627b = gVar;
             this.a = i2;
         }
 
@@ -51,7 +51,7 @@ public class g extends j {
         public void onFailed(int i2, int i3, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
-                this.f4729b.y(i3, str, this.a);
+                this.f4627b.y(i3, str, this.a);
             }
         }
 
@@ -60,9 +60,9 @@ public class g extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), obj, str2}) == null) {
                 if (i2 == 0) {
-                    this.f4729b.x(obj, this.a);
+                    this.f4627b.x(obj, this.a);
                 } else {
-                    this.f4729b.y(i3, str, this.a);
+                    this.f4627b.y(i3, str, this.a);
                 }
             }
         }
@@ -75,7 +75,7 @@ public class g extends j {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f4730b;
+        public final /* synthetic */ g f4628b;
 
         public b(g gVar, int i2) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class g extends j {
                     return;
                 }
             }
-            this.f4730b = gVar;
+            this.f4628b = gVar;
             this.a = i2;
         }
 
@@ -100,7 +100,7 @@ public class g extends j {
         public void onFailed(int i2, int i3, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
-                this.f4730b.u(i3, str, this.a);
+                this.f4628b.u(i3, str, this.a);
             }
         }
 
@@ -109,9 +109,9 @@ public class g extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), obj, str2}) == null) {
                 if (i2 == 0) {
-                    this.f4730b.A(obj, this.a);
+                    this.f4628b.A(obj, this.a);
                 } else {
-                    this.f4730b.u(i3, str, this.a);
+                    this.f4628b.u(i3, str, this.a);
                 }
             }
         }
@@ -123,13 +123,13 @@ public class g extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4731f;
+        public final /* synthetic */ int f4629f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f4732g;
+        public final /* synthetic */ Object f4630g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f4733h;
+        public final /* synthetic */ g f4631h;
 
         public c(g gVar, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -146,9 +146,9 @@ public class g extends j {
                     return;
                 }
             }
-            this.f4733h = gVar;
-            this.f4731f = i2;
-            this.f4732g = obj;
+            this.f4631h = gVar;
+            this.f4629f = i2;
+            this.f4630g = obj;
         }
 
         @Override // c.a.p0.k.c
@@ -156,20 +156,20 @@ public class g extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (c.a.p0.b.c.f4659c) {
-                        this.f4733h.e(this.f4731f, 1, 999, this.f4733h.f4750c, "device has risk.", 1);
+                    if (c.a.p0.b.c.f4557c) {
+                        this.f4631h.e(this.f4629f, 1, 999, this.f4631h.f4647c, "device has risk.", 1);
                         return;
                     }
-                    JSONObject jSONObject = new JSONObject((String) this.f4732g);
-                    this.f4733h.f4754g = jSONObject.optString(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
-                    this.f4733h.f4752e = jSONObject.optString(YYInnerSSOLoginActivity.o);
-                    this.f4733h.f4753f = jSONObject.optLong("exp");
+                    JSONObject jSONObject = new JSONObject((String) this.f4630g);
+                    this.f4631h.f4651g = jSONObject.optString(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
+                    this.f4631h.f4649e = jSONObject.optString(YYInnerSSOLoginActivity.o);
+                    this.f4631h.f4650f = jSONObject.optLong("exp");
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.f4733h.a(this.f4733h.f4754g));
-                    this.f4733h.e(this.f4731f, 0, 0, this.f4733h.f4750c, jSONObject2.toString(), 1);
+                    jSONObject2.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.f4631h.a(this.f4631h.f4651g));
+                    this.f4631h.e(this.f4629f, 0, 0, this.f4631h.f4647c, jSONObject2.toString(), 1);
                 } catch (Throwable unused) {
-                    g gVar = this.f4733h;
-                    gVar.e(this.f4731f, 3, 2009, gVar.f4750c, "cu on handle login unknown error.", 1);
+                    g gVar = this.f4631h;
+                    gVar.e(this.f4629f, 3, 2009, gVar.f4647c, "cu on handle login unknown error.", 1);
                 }
             }
         }
@@ -181,16 +181,16 @@ public class g extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4734f;
+        public final /* synthetic */ int f4632f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4735g;
+        public final /* synthetic */ int f4633g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4736h;
+        public final /* synthetic */ String f4634h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f4737i;
+        public final /* synthetic */ g f4635i;
 
         public d(g gVar, int i2, int i3, String str) {
             Interceptable interceptable = $ic;
@@ -207,10 +207,10 @@ public class g extends j {
                     return;
                 }
             }
-            this.f4737i = gVar;
-            this.f4734f = i2;
-            this.f4735g = i3;
-            this.f4736h = str;
+            this.f4635i = gVar;
+            this.f4632f = i2;
+            this.f4633g = i3;
+            this.f4634h = str;
         }
 
         @Override // c.a.p0.k.c
@@ -218,23 +218,23 @@ public class g extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f4737i.f4750c != this.f4737i.f4751d && this.f4734f == 1101) {
-                        this.f4737i.e(this.f4735g, 3, 2002, this.f4737i.f4750c, "pre login error, wrong sim operator", 1);
+                    if (this.f4635i.f4647c != this.f4635i.f4648d && this.f4632f == 1101) {
+                        this.f4635i.e(this.f4633g, 3, 2002, this.f4635i.f4647c, "pre login error, wrong sim operator", 1);
                     } else {
-                        g gVar = this.f4737i;
-                        int i2 = this.f4735g;
-                        int i3 = this.f4734f;
-                        int i4 = this.f4737i.f4750c;
+                        g gVar = this.f4635i;
+                        int i2 = this.f4633g;
+                        int i3 = this.f4632f;
+                        int i4 = this.f4635i.f4647c;
                         StringBuilder sb = new StringBuilder();
                         sb.append("cu pre login error.");
-                        sb.append(this.f4736h);
+                        sb.append(this.f4634h);
                         sb.append(", status ");
-                        sb.append(this.f4734f);
+                        sb.append(this.f4632f);
                         gVar.e(i2, 2, i3, i4, sb.toString(), 1);
                     }
                 } catch (Throwable unused) {
-                    g gVar2 = this.f4737i;
-                    gVar2.e(this.f4735g, 3, 2009, gVar2.f4750c, "cu on handle login unknown error.", 1);
+                    g gVar2 = this.f4635i;
+                    gVar2.e(this.f4633g, 3, 2009, gVar2.f4647c, "cu on handle login unknown error.", 1);
                 }
             }
         }
@@ -246,13 +246,13 @@ public class g extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4738f;
+        public final /* synthetic */ int f4636f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f4739g;
+        public final /* synthetic */ Object f4637g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f4740h;
+        public final /* synthetic */ g f4638h;
 
         public e(g gVar, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -269,9 +269,9 @@ public class g extends j {
                     return;
                 }
             }
-            this.f4740h = gVar;
-            this.f4738f = i2;
-            this.f4739g = obj;
+            this.f4638h = gVar;
+            this.f4636f = i2;
+            this.f4637g = obj;
         }
 
         @Override // c.a.p0.k.c
@@ -279,17 +279,17 @@ public class g extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (c.a.p0.b.c.f4659c) {
-                        this.f4740h.e(this.f4738f, 1, 999, this.f4740h.f4750c, "device has risk.", 3);
+                    if (c.a.p0.b.c.f4557c) {
+                        this.f4638h.e(this.f4636f, 1, 999, this.f4638h.f4647c, "device has risk.", 3);
                         return;
                     }
-                    JSONObject jSONObject = new JSONObject((String) this.f4739g);
-                    this.f4740h.f4755h = jSONObject.optString(YYInnerSSOLoginActivity.o);
-                    this.f4740h.f4756i = jSONObject.optLong("exp");
-                    this.f4740h.e(this.f4738f, 0, 0, this.f4740h.f4750c, "preVerify success", 3);
+                    JSONObject jSONObject = new JSONObject((String) this.f4637g);
+                    this.f4638h.f4652h = jSONObject.optString(YYInnerSSOLoginActivity.o);
+                    this.f4638h.f4653i = jSONObject.optLong("exp");
+                    this.f4638h.e(this.f4636f, 0, 0, this.f4638h.f4647c, "preVerify success", 3);
                 } catch (Throwable unused) {
-                    g gVar = this.f4740h;
-                    gVar.e(this.f4738f, 3, 2009, gVar.f4750c, "cu on handle preVerify unknown error.", 3);
+                    g gVar = this.f4638h;
+                    gVar.e(this.f4636f, 3, 2009, gVar.f4647c, "cu on handle preVerify unknown error.", 3);
                 }
             }
         }
@@ -301,16 +301,16 @@ public class g extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4741f;
+        public final /* synthetic */ int f4639f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4742g;
+        public final /* synthetic */ int f4640g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4743h;
+        public final /* synthetic */ String f4641h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f4744i;
+        public final /* synthetic */ g f4642i;
 
         public f(g gVar, int i2, int i3, String str) {
             Interceptable interceptable = $ic;
@@ -327,10 +327,10 @@ public class g extends j {
                     return;
                 }
             }
-            this.f4744i = gVar;
-            this.f4741f = i2;
-            this.f4742g = i3;
-            this.f4743h = str;
+            this.f4642i = gVar;
+            this.f4639f = i2;
+            this.f4640g = i3;
+            this.f4641h = str;
         }
 
         @Override // c.a.p0.k.c
@@ -338,23 +338,23 @@ public class g extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f4744i.f4750c != this.f4744i.f4751d && this.f4741f == 1101) {
-                        this.f4744i.e(this.f4742g, 3, 2002, this.f4744i.f4750c, "pre verify error, wrong sim operator", 3);
+                    if (this.f4642i.f4647c != this.f4642i.f4648d && this.f4639f == 1101) {
+                        this.f4642i.e(this.f4640g, 3, 2002, this.f4642i.f4647c, "pre verify error, wrong sim operator", 3);
                     } else {
-                        g gVar = this.f4744i;
-                        int i2 = this.f4742g;
-                        int i3 = this.f4741f;
-                        int i4 = this.f4744i.f4750c;
+                        g gVar = this.f4642i;
+                        int i2 = this.f4640g;
+                        int i3 = this.f4639f;
+                        int i4 = this.f4642i.f4647c;
                         StringBuilder sb = new StringBuilder();
                         sb.append("cu pre verify error.");
-                        sb.append(this.f4743h);
+                        sb.append(this.f4641h);
                         sb.append(", status ");
-                        sb.append(this.f4741f);
+                        sb.append(this.f4639f);
                         gVar.e(i2, 2, i3, i4, sb.toString(), 3);
                     }
                 } catch (Throwable unused) {
-                    g gVar2 = this.f4744i;
-                    gVar2.e(this.f4742g, 3, 2009, gVar2.f4750c, "cu on handle verify unknown error.", 3);
+                    g gVar2 = this.f4642i;
+                    gVar2.e(this.f4640g, 3, 2009, gVar2.f4647c, "cu on handle verify unknown error.", 3);
                 }
             }
         }
@@ -379,7 +379,7 @@ public class g extends j {
             }
         }
         this.s = false;
-        this.f4750c = 2;
+        this.f4647c = 2;
     }
 
     public final void A(Object obj, int i2) {
@@ -395,9 +395,9 @@ public class g extends j {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
             super.h(context, i2);
             if (!c.a.p0.b.a.h(this.a).d()) {
-                e(i2, 3, 997, this.f4750c, "pre login error. sdk stop run", 1);
+                e(i2, 3, 997, this.f4647c, "pre login error. sdk stop run", 1);
             } else if (!r()) {
-                e(i2, 3, 2006, this.f4750c, "pre login error. cu has not valid config.", 1);
+                e(i2, 3, 2006, this.f4647c, "pre login error. cu has not valid config.", 1);
             } else if (c.a.p0.b.a.h(this.a).b()) {
                 if (!this.s) {
                     System.currentTimeMillis();
@@ -407,7 +407,7 @@ public class g extends j {
                 }
                 UiOauthManager.getInstance(context).login(8, new a(this, System.currentTimeMillis(), i2));
             } else {
-                e(i2, 3, 995, this.f4750c, "pre login error. cu sdk stop run.", 1);
+                e(i2, 3, 995, this.f4647c, "pre login error. cu sdk stop run.", 1);
             }
         }
     }
@@ -418,9 +418,9 @@ public class g extends j {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2) == null) {
             super.o(context, i2);
             if (!c.a.p0.b.a.h(this.a).d()) {
-                e(i2, 3, 997, this.f4750c, "pre verify error. sdk stop run", 3);
+                e(i2, 3, 997, this.f4647c, "pre verify error. sdk stop run", 3);
             } else if (!r()) {
-                e(i2, 3, 2006, this.f4750c, "pre verify error. cu has not valid config.", 3);
+                e(i2, 3, 2006, this.f4647c, "pre verify error. cu has not valid config.", 3);
             } else if (c.a.p0.b.a.h(this.a).b()) {
                 if (!this.s) {
                     SDKManager.init(this.a, i.o, i.p);
@@ -429,7 +429,7 @@ public class g extends j {
                 }
                 OauthManager.getInstance(this.a).getAuthoriseCode(8, new b(this, i2));
             } else {
-                e(i2, 3, 995, this.f4750c, "pre verify error. cu sdk stop run.", 3);
+                e(i2, 3, 995, this.f4647c, "pre verify error. cu sdk stop run.", 3);
             }
         }
     }

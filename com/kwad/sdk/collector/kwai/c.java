@@ -26,7 +26,7 @@ public class c {
     public static com.kwad.sdk.collector.kwai.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f57698b;
+    public static Context f55512b;
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.collector.kwai.a {
@@ -36,7 +36,7 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f57697b = arrayList;
+            this.f55511b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
@@ -68,7 +68,7 @@ public class c {
                     return i2 > 3;
                 }
             });
-            this.f57697b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.2
+            this.f55511b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return "1".equals(au.a("ro.kernel.qemu"));
@@ -83,7 +83,7 @@ public class c {
 
     /* renamed from: com.kwad.sdk.collector.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2077c extends com.kwad.sdk.collector.kwai.a {
+    public static class C2094c extends com.kwad.sdk.collector.kwai.a {
     }
 
     /* loaded from: classes3.dex */
@@ -94,32 +94,32 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f57697b = arrayList;
+            this.f55511b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return new File("/system/app/Superuser.apk").exists();
                 }
             });
-            this.f57697b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.2
+            this.f55511b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
                     for (int i2 = 0; i2 < 5; i2++) {
-                        if (new File(strArr[i2] + j0.f57257b).exists()) {
+                        if (new File(strArr[i2] + j0.f55090b).exists()) {
                             return true;
                         }
                     }
                     return false;
                 }
             });
-            this.f57697b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.3
+            this.f55511b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.3
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
-                    return c.a(new String[]{"/system/xbin/which", j0.f57257b}) != null;
+                    return c.a(new String[]{"/system/xbin/which", j0.f55090b}) != null;
                 }
             });
-            this.f57697b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.4
+            this.f55511b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.4
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     Charset forName = Charset.forName("UTF-8");
@@ -143,14 +143,14 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f57697b = arrayList;
+            this.f55511b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return ag.a(context, "de.robv.android.xposed.installer") || ag.a(context, "com.saurik.substrate");
                 }
             });
-            this.f57697b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.2
+            this.f55511b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     StackTraceElement[] stackTrace;
@@ -180,7 +180,7 @@ public class c {
                     }
                 }
             });
-            this.f57697b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.3
+            this.f55511b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.3
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     boolean z = false;
@@ -221,12 +221,12 @@ public class c {
                 if (a != null) {
                     return a;
                 }
-                com.kwad.sdk.collector.kwai.d dVar = new com.kwad.sdk.collector.kwai.d(f57698b);
-                boolean a2 = new d().a(f57698b);
-                boolean a3 = new e().a(f57698b);
-                boolean a4 = new b().a(f57698b);
-                boolean a5 = new a().a(f57698b);
-                boolean a6 = new C2077c().a(f57698b);
+                com.kwad.sdk.collector.kwai.d dVar = new com.kwad.sdk.collector.kwai.d(f55512b);
+                boolean a2 = new d().a(f55512b);
+                boolean a3 = new e().a(f55512b);
+                boolean a4 = new b().a(f55512b);
+                boolean a5 = new a().a(f55512b);
+                boolean a6 = new C2094c().a(f55512b);
                 dVar.a(a2);
                 dVar.b(a3);
                 dVar.c(a4);
@@ -274,7 +274,7 @@ public class c {
             if (context == null) {
                 return;
             }
-            f57698b = context.getApplicationContext();
+            f55512b = context.getApplicationContext();
         }
     }
 }

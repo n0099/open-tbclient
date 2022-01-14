@@ -16,7 +16,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f3434b;
+    public static e f3386b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
     public c.a.k0.a.b.c<ISignatureVerifier> a;
@@ -34,7 +34,7 @@ public class e {
                 return;
             }
         }
-        f3434b = new e();
+        f3386b = new e();
     }
 
     public e() {
@@ -56,7 +56,7 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3434b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3386b : (e) invokeV.objValue;
     }
 
     public ISignatureVerifier b() {

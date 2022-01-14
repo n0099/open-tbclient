@@ -16,15 +16,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReentrantLock f11333c;
+    public static final ReentrantLock f11080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f11334d;
+    public static volatile a f11081d;
     public transient /* synthetic */ FieldHolder $fh;
     public List<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f11335b;
+    public d f11082b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f11333c = new ReentrantLock();
+        f11080c = new ReentrantLock();
     }
 
     public a() {
@@ -62,14 +62,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11334d == null) {
+            if (f11081d == null) {
                 synchronized (a.class) {
-                    if (f11334d == null) {
-                        f11334d = new a();
+                    if (f11081d == null) {
+                        f11081d = new a();
                     }
                 }
             }
-            return f11334d;
+            return f11081d;
         }
         return (a) invokeV.objValue;
     }
@@ -77,7 +77,7 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11335b = null;
+            this.f11082b = null;
             this.a.clear();
         }
     }
@@ -85,15 +85,15 @@ public class a {
     public final void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            f11333c.lock();
+            f11080c.lock();
             try {
-                if (this.f11335b != null) {
-                    this.f11335b.a(cVar);
+                if (this.f11082b != null) {
+                    this.f11082b.a(cVar);
                 } else {
                     this.a.add(cVar);
                 }
             } finally {
-                f11333c.unlock();
+                f11080c.unlock();
             }
         }
     }
@@ -110,24 +110,24 @@ public class a {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.isEmpty() || this.f11335b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.isEmpty() || this.f11082b == null) {
             return;
         }
-        f11333c.lock();
+        f11080c.lock();
         try {
             for (c cVar : this.a) {
-                this.f11335b.a(cVar);
+                this.f11082b.a(cVar);
             }
             this.a.clear();
         } finally {
-            f11333c.unlock();
+            f11080c.unlock();
         }
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f11335b = dVar;
+            this.f11082b = dVar;
             e();
         }
     }

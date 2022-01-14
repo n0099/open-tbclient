@@ -17,22 +17,22 @@ public abstract class a<OuT> implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<OuT> f10211e;
+    public final d<OuT> f9987e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OuT f10212f;
+    public OuT f9988f;
 
     /* renamed from: c.a.r0.a.z2.g1.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0644a extends a<OuT> {
+    public static class C0653a extends a<OuT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f10213g;
+        public final /* synthetic */ CountDownLatch f9989g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0644a(d dVar, CountDownLatch countDownLatch) {
+        public C0653a(d dVar, CountDownLatch countDownLatch) {
             super(dVar, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -44,25 +44,25 @@ public abstract class a<OuT> implements Runnable {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((d) objArr2[0], (C0644a) objArr2[1]);
+                    super((d) objArr2[0], (C0653a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f10213g = countDownLatch;
+            this.f9989g = countDownLatch;
         }
 
         @Override // c.a.r0.a.z2.g1.a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10213g.countDown();
+                this.f9989g.countDown();
             }
         }
     }
 
-    public /* synthetic */ a(d dVar, C0644a c0644a) {
+    public /* synthetic */ a(d dVar, C0653a c0653a) {
         this(dVar);
     }
 
@@ -75,15 +75,15 @@ public abstract class a<OuT> implements Runnable {
             }
             if (looper != null && Thread.currentThread() != looper.getThread()) {
                 CountDownLatch countDownLatch = new CountDownLatch(1);
-                C0644a c0644a = new C0644a(dVar, countDownLatch);
-                new Handler(looper).post(c0644a);
+                C0653a c0653a = new C0653a(dVar, countDownLatch);
+                new Handler(looper).post(c0653a);
                 try {
                     countDownLatch.await();
                 } catch (InterruptedException e2) {
                     c.a.r0.a.e0.d.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e2);
                     e2.printStackTrace();
                 }
-                return c0644a.f10212f;
+                return c0653a.f9988f;
             }
             return dVar.create();
         }
@@ -104,7 +104,7 @@ public abstract class a<OuT> implements Runnable {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 try {
-                    this.f10212f = this.f10211e.create();
+                    this.f9988f = this.f9987e.create();
                 } catch (Exception e2) {
                     c.a.r0.a.e0.d.o("Awaiting", "catch: " + e2 + StringUtils.LF + Log.getStackTraceString(e2));
                 }
@@ -129,7 +129,7 @@ public abstract class a<OuT> implements Runnable {
                 return;
             }
         }
-        this.f10212f = null;
-        this.f10211e = dVar;
+        this.f9988f = null;
+        this.f9987e = dVar;
     }
 }

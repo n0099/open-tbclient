@@ -37,10 +37,10 @@ public class m extends c.a.d.n.e.a<x1, CardViewHolder<b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f24831e;
+        public final /* synthetic */ b f24143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f24832f;
+        public final /* synthetic */ m f24144f;
 
         public a(m mVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -57,19 +57,19 @@ public class m extends c.a.d.n.e.a<x1, CardViewHolder<b>> {
                     return;
                 }
             }
-            this.f24832f = mVar;
-            this.f24831e = bVar;
+            this.f24144f = mVar;
+            this.f24143e = bVar;
         }
 
         @Override // c.a.d.n.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f24831e.p();
+                this.f24143e.p();
                 StatisticItem statisticItem = new StatisticItem("c13647");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("obj_id", this.f24832f.C(i2) + 1);
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24832f.n);
+                statisticItem.param("obj_id", this.f24144f.C(i2) + 1);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24144f.n);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -151,10 +151,10 @@ public class m extends c.a.d.n.e.a<x1, CardViewHolder<b>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, x1Var) == null) {
                 if (x1Var != null) {
-                    this.o = x1Var.f13852f;
+                    this.o = x1Var.f13537f;
                     this.n.setScaleType(ImageView.ScaleType.FIT_XY);
                     this.n.setPlaceHolder(2);
-                    this.n.startLoad(x1Var.f13851e, 10, false);
+                    this.n.startLoad(x1Var.f13536e, 10, false);
                 }
                 l(this.m, TbadkCoreApplication.getInst().getSkinType());
             }

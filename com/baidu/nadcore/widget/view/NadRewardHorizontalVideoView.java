@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import c.a.c0.b.e;
-import c.a.c0.b.g;
-import c.a.c0.p.o;
-import c.a.c0.p.p;
-import c.a.c0.u.c;
+import c.a.c0.d.e;
+import c.a.c0.d.g;
+import c.a.c0.s.o;
+import c.a.c0.s.p;
+import c.a.c0.x.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.HorizontalVideoTailView;
@@ -23,9 +23,7 @@ import java.lang.ref.WeakReference;
 public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public HorizontalVideoTailView f38659k;
+    public HorizontalVideoTailView k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NadRewardHorizontalVideoView(Context context) {
@@ -50,12 +48,12 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView
     public void hideTailFrame() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f38659k != null && isShowingTailFrame()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.k != null && isShowingTailFrame()) {
             NadRewardOperateView nadRewardOperateView = this.mOperateBar;
             if (nadRewardOperateView != null) {
                 nadRewardOperateView.setVisibility(0);
             }
-            this.f38659k.hideTailFrame();
+            this.k.hideTailFrame();
         }
     }
 
@@ -76,7 +74,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HorizontalVideoTailView horizontalVideoTailView = this.f38659k;
+            HorizontalVideoTailView horizontalVideoTailView = this.k;
             return horizontalVideoTailView != null && horizontalVideoTailView.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -85,15 +83,15 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView
     public void showTailFrame() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38659k == null || isShowingTailFrame() || !(getTag() instanceof AdBaseModel)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.k == null || isShowingTailFrame() || !(getTag() instanceof AdBaseModel)) {
             return;
         }
         NadRewardOperateView nadRewardOperateView = this.mOperateBar;
         if (nadRewardOperateView != null) {
             nadRewardOperateView.setVisibility(8);
         }
-        this.f38659k.showTailFrame((AdBaseModel) getTag());
-        this.f38659k.bringToFront();
+        this.k.showTailFrame((AdBaseModel) getTag());
+        this.k.bringToFront();
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
@@ -119,7 +117,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         HorizontalVideoTailView horizontalVideoTailView;
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (horizontalVideoTailView = this.f38659k) == null || adBaseModel == null || (pVar = adBaseModel.f38222g) == null || !pVar.f2265k) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (horizontalVideoTailView = this.k) == null || adBaseModel == null || (pVar = adBaseModel.f37019g) == null || !pVar.k) {
             return;
         }
         horizontalVideoTailView.setAdInfo(pVar);
@@ -186,6 +184,6 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
                 return;
             }
         }
-        this.f38659k = (HorizontalVideoTailView) findViewById(e.nad_horizontal_video_tail_frame_view);
+        this.k = (HorizontalVideoTailView) findViewById(e.nad_horizontal_video_tail_frame_view);
     }
 }

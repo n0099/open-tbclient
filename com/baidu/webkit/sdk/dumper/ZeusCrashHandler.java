@@ -9,7 +9,6 @@ import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
-import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.Tun2tornado;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.DumperService;
@@ -171,7 +171,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                     return;
                 }
             }
-            CUID = new ExtraInfo(SearchJsBridge.CUID, 0, SearchJsBridge.CUID);
+            CUID = new ExtraInfo("CUID", 0, "CUID");
             EMULATOR = new ExtraInfo("EMULATOR", 1, "Emulator");
             START_TIME = new ExtraInfo("START_TIME", 2, "StartTime");
             CRASH_TIME = new ExtraInfo("CRASH_TIME", 3, "CrashTime");
@@ -180,7 +180,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             ANDROID_FINGERPRINT = new ExtraInfo("ANDROID_FINGERPRINT", 6, "AndroidFingerprint");
             SDK_LEVEL = new ExtraInfo("SDK_LEVEL", 7, "SdkLevel");
             GPU = new ExtraInfo("GPU", 8, "GPU");
-            CHANNEL_NAME = new ExtraInfo("CHANNEL_NAME", 9, "ChannelName");
+            CHANNEL_NAME = new ExtraInfo(Tun2tornado.ENV_CHANNEL_NAME, 9, "ChannelName");
             ANDROID_BASEBAND = new ExtraInfo("ANDROID_BASEBAND", 10, "AndroidBaseBand");
             ANDROID_DISPLAY = new ExtraInfo("ANDROID_DISPLAY", 11, "AndroidDisplay");
             ExtraInfo extraInfo = new ExtraInfo("LOGCAT", 12, "");

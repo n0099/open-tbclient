@@ -55,15 +55,15 @@ public class c {
             }
             b bVar = new b();
             bVar.m(aVar);
-            bVar.f8157b = l;
-            bVar.f8160e = str3;
+            bVar.f7977b = l;
+            bVar.f7980e = str3;
             bVar.v = str;
             bVar.l = q0.D();
             if (e.a0() != null) {
                 b.a V = e.a0().V();
                 bVar.a = n.n(V.G());
-                bVar.f8161f = V.H();
-                bVar.f8158c = V.T();
+                bVar.f7981f = V.H();
+                bVar.f7978c = V.T();
             }
             bVar.t = str4;
             n.x("1245", bVar);
@@ -85,7 +85,7 @@ public class c {
                 return;
             }
             b bVar = new b();
-            bVar.f8157b = l;
+            bVar.f7977b = l;
             bVar.a(InstallNotifyReceiver.OPPORTUNITY, str2);
             if (str3 == null) {
                 str3 = "";

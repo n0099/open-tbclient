@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ARPMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_MESSAGE_ID = -1;
@@ -31,7 +31,7 @@ public class ARPMessage {
     public List<ArCallback> mMsgHandlers;
     public HandlerThread mThread;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ArCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class ARPMessage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ArMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class ARPMessage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MessageHandler {
         void handleMessage(int i2, int i3, HashMap<String, Object> hashMap);
     }

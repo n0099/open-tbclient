@@ -24,19 +24,19 @@ public class c {
     public final Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.InterfaceC2069b f57516b;
+    public final b.InterfaceC2086b f55332b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b.a f57517c;
+    public final b.a f55333c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f57518d;
+    public boolean f55334d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f57519e;
+    public boolean f55335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.d f57520f;
+    public b.d f55336f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -49,7 +49,7 @@ public class c {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((b.InterfaceC2069b) objArr[0], (b.a) objArr[1]);
+                this((b.InterfaceC2086b) objArr[0], (b.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,12 +57,12 @@ public class c {
         }
     }
 
-    public c(b.InterfaceC2069b interfaceC2069b, b.a aVar) {
+    public c(b.InterfaceC2086b interfaceC2086b, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC2069b, aVar};
+            Object[] objArr = {interfaceC2086b, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -73,41 +73,41 @@ public class c {
             }
         }
         this.a = new HashSet();
-        if (interfaceC2069b == null) {
+        if (interfaceC2086b == null) {
             throw new IllegalArgumentException("Cannot pass null library loader");
         }
         if (aVar == null) {
             throw new IllegalArgumentException("Cannot pass null library installer");
         }
-        this.f57516b = interfaceC2069b;
-        this.f57517c = aVar;
+        this.f55332b = interfaceC2086b;
+        this.f55333c = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, context, str, str2) == null) {
-            if (this.a.contains(str) && !this.f57518d) {
+            if (this.a.contains(str) && !this.f55334d) {
                 a("%s already loaded previously!", str);
                 return;
             }
             try {
-                this.f57516b.a(str);
+                this.f55332b.a(str);
                 this.a.add(str);
                 a("%s (%s) was loaded normally!", str, str2);
             } catch (UnsatisfiedLinkError e2) {
                 a("Loading the library normally failed: %s", Log.getStackTraceString(e2));
                 a("%s (%s) was not loaded normally, re-linking...", str, str2);
                 File a = a(context, str, str2);
-                if (!a.exists() || this.f57518d) {
-                    if (this.f57518d) {
+                if (!a.exists() || this.f55334d) {
+                    if (this.f55334d) {
                         a("Forcing a re-link of %s (%s)...", str, str2);
                     }
                     b(context, str, str2);
-                    this.f57517c.a(context, this.f57516b.a(), this.f57516b.c(str), a, this);
+                    this.f55333c.a(context, this.f55332b.a(), this.f55332b.c(str), a, this);
                 }
                 try {
-                    if (this.f57519e) {
+                    if (this.f55335e) {
                         f fVar = null;
                         try {
                             f fVar2 = new f(a);
@@ -115,7 +115,7 @@ public class c {
                                 List<String> b2 = fVar2.b();
                                 fVar2.close();
                                 for (String str3 : b2) {
-                                    a(context, this.f57516b.d(str3));
+                                    a(context, this.f55332b.d(str3));
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -129,7 +129,7 @@ public class c {
                     }
                 } catch (IOException unused) {
                 }
-                this.f57516b.b(a.getAbsolutePath());
+                this.f55332b.b(a.getAbsolutePath());
                 this.a.add(str);
                 a("%s (%s) was re-linked!", str, str2);
             }
@@ -146,7 +146,7 @@ public class c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2)) == null) {
-            String c2 = this.f57516b.c(str);
+            String c2 = this.f55332b.c(str);
             if (e.a(str2)) {
                 return new File(a(context), c2);
             }
@@ -182,16 +182,16 @@ public class c {
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f57521b;
+                    public final /* synthetic */ String f55337b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f57522c;
+                    public final /* synthetic */ String f55338c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ b.c f57523d;
+                    public final /* synthetic */ b.c f55339d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ c f57524e;
+                    public final /* synthetic */ c f55340e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -208,11 +208,11 @@ public class c {
                                 return;
                             }
                         }
-                        this.f57524e = this;
+                        this.f55340e = this;
                         this.a = context;
-                        this.f57521b = str;
-                        this.f57522c = str2;
-                        this.f57523d = cVar;
+                        this.f55337b = str;
+                        this.f55338c = str2;
+                        this.f55339d = cVar;
                     }
 
                     @Override // java.lang.Runnable
@@ -220,10 +220,10 @@ public class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f57524e.c(this.a, this.f57521b, this.f57522c);
-                                this.f57523d.a(this.f57521b);
+                                this.f55340e.c(this.a, this.f55337b, this.f55338c);
+                                this.f55339d.a(this.f55337b);
                             } catch (Exception | UnsatisfiedLinkError e2) {
-                                this.f57523d.a(this.f57521b, e2);
+                                this.f55339d.a(this.f55337b, e2);
                             }
                         }
                     }
@@ -235,7 +235,7 @@ public class c {
     public void a(String str) {
         b.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (dVar = this.f57520f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (dVar = this.f55336f) == null) {
             return;
         }
         dVar.a(str);
@@ -253,13 +253,13 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, str2) == null) {
             File a = a(context);
             File a2 = a(context, str, str2);
-            File[] listFiles = a.listFiles(new FilenameFilter(this, this.f57516b.c(str)) { // from class: com.kwad.a.c.2
+            File[] listFiles = a.listFiles(new FilenameFilter(this, this.f55332b.c(str)) { // from class: com.kwad.a.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f57525b;
+                public final /* synthetic */ c f55341b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -276,7 +276,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f57525b = this;
+                    this.f55341b = this;
                     this.a = r7;
                 }
 
@@ -291,7 +291,7 @@ public class c {
                 return;
             }
             for (File file : listFiles) {
-                if (this.f57518d || !file.getAbsolutePath().equals(a2.getAbsolutePath())) {
+                if (this.f55334d || !file.getAbsolutePath().equals(a2.getAbsolutePath())) {
                     file.delete();
                 }
             }

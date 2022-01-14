@@ -15,7 +15,7 @@ public class c implements b {
     public final Queue<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f10209b;
+    public a f9985b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             synchronized (this.a) {
-                if (aVar == this.f10209b) {
+                if (aVar == this.f9985b) {
                     e();
                 }
             }
@@ -49,7 +49,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this.a) {
-                if (this.f10209b != null) {
+                if (this.f9985b != null) {
                     return;
                 }
                 e();
@@ -61,9 +61,9 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f10209b != null) {
-                    this.f10209b.a();
-                    this.f10209b = null;
+                if (this.f9985b != null) {
+                    this.f9985b.a();
+                    this.f9985b = null;
                 }
                 this.a.clear();
             }
@@ -88,12 +88,12 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this.a) {
-                this.f10209b = null;
+                this.f9985b = null;
                 if (this.a.isEmpty()) {
                     return;
                 }
                 a poll = this.a.poll();
-                this.f10209b = poll;
+                this.f9985b = poll;
                 if (poll == null) {
                     e();
                 } else {

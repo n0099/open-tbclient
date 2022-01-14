@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.p.m;
-import c.a.t0.o4.j;
+import c.a.t0.p4.j;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -133,7 +133,7 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51741e;
+        public final /* synthetic */ AddLinkActivity f49741e;
 
         public c(AddLinkActivity addLinkActivity) {
             Interceptable interceptable = $ic;
@@ -150,14 +150,14 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51741e = addLinkActivity;
+            this.f49741e = addLinkActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51741e.closePageWithoutData();
+                this.f49741e.closePageWithoutData();
             }
         }
     }
@@ -168,7 +168,7 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51742e;
+        public final /* synthetic */ AddLinkActivity f49742e;
 
         public d(AddLinkActivity addLinkActivity) {
             Interceptable interceptable = $ic;
@@ -185,14 +185,14 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51742e = addLinkActivity;
+            this.f49742e = addLinkActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51742e.closePageWithoutData();
+                this.f49742e.closePageWithoutData();
             }
         }
     }
@@ -203,7 +203,7 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51743e;
+        public final /* synthetic */ AddLinkActivity f49743e;
 
         public e(AddLinkActivity addLinkActivity) {
             Interceptable interceptable = $ic;
@@ -220,20 +220,20 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51743e = addLinkActivity;
+            this.f49743e = addLinkActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51743e.mLinkEditView == null || this.f51743e.mLinkEditView.getText() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49743e.mLinkEditView == null || this.f49743e.mLinkEditView.getText() == null) {
                 return;
             }
-            String obj = this.f51743e.mLinkEditView.getText().toString();
+            String obj = this.f49743e.mLinkEditView.getText().toString();
             if (!m.isEmpty(obj) && UrlManager.getInstance().isUrlValid(obj)) {
-                this.f51743e.closePageWithData(obj);
+                this.f49743e.closePageWithData(obj);
             } else {
-                this.f51743e.showToast(j.link_invalid_cant_add);
+                this.f49743e.showToast(j.link_invalid_cant_add);
             }
         }
     }
@@ -244,7 +244,7 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51744e;
+        public final /* synthetic */ AddLinkActivity f49744e;
 
         public f(AddLinkActivity addLinkActivity) {
             Interceptable interceptable = $ic;
@@ -261,7 +261,7 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51744e = addLinkActivity;
+            this.f49744e = addLinkActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -283,18 +283,18 @@ public class AddLinkActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 if (charSequence == null || charSequence.length() == 0) {
-                    this.f51744e.mCompleteBtn.setEnabled(false);
-                    this.f51744e.mDelBtn.setVisibility(8);
+                    this.f49744e.mCompleteBtn.setEnabled(false);
+                    this.f49744e.mDelBtn.setVisibility(8);
                     return;
                 }
-                this.f51744e.mDelBtn.setVisibility(0);
+                this.f49744e.mDelBtn.setVisibility(0);
                 for (int i5 = 0; i5 < charSequence.length(); i5++) {
                     if (!Character.isWhitespace(charSequence.charAt(i5))) {
-                        this.f51744e.mCompleteBtn.setEnabled(true);
+                        this.f49744e.mCompleteBtn.setEnabled(true);
                         return;
                     }
                 }
-                this.f51744e.mCompleteBtn.setEnabled(false);
+                this.f49744e.mCompleteBtn.setEnabled(false);
             }
         }
     }
@@ -305,7 +305,7 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51745e;
+        public final /* synthetic */ AddLinkActivity f49745e;
 
         public g(AddLinkActivity addLinkActivity) {
             Interceptable interceptable = $ic;
@@ -322,15 +322,15 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51745e = addLinkActivity;
+            this.f49745e = addLinkActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51745e.mLinkEditView.setText("");
-                this.f51745e.mLinkEditView.setSelection(0);
+                this.f49745e.mLinkEditView.setText("");
+                this.f49745e.mLinkEditView.setSelection(0);
             }
         }
     }
@@ -341,7 +341,7 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51746e;
+        public final /* synthetic */ AddLinkActivity f49746e;
 
         public h(AddLinkActivity addLinkActivity) {
             Interceptable interceptable = $ic;
@@ -358,18 +358,18 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51746e = addLinkActivity;
+            this.f49746e = addLinkActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (m.isEmpty(this.f51746e.mBubbleNewLinkContent)) {
-                    this.f51746e.showNewLinkBubble(UtilHelper.getClipBoardContent());
+                if (m.isEmpty(this.f49746e.mBubbleNewLinkContent)) {
+                    this.f49746e.showNewLinkBubble(UtilHelper.getClipBoardContent());
                     return;
                 }
-                AddLinkActivity addLinkActivity = this.f51746e;
+                AddLinkActivity addLinkActivity = this.f49746e;
                 addLinkActivity.showNewLinkBubble(addLinkActivity.mBubbleNewLinkContent);
             }
         }
@@ -381,10 +381,10 @@ public class AddLinkActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f51747e;
+        public final /* synthetic */ String f49747e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AddLinkActivity f51748f;
+        public final /* synthetic */ AddLinkActivity f49748f;
 
         public i(AddLinkActivity addLinkActivity, String str) {
             Interceptable interceptable = $ic;
@@ -401,21 +401,21 @@ public class AddLinkActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f51748f = addLinkActivity;
-            this.f51747e = str;
+            this.f49748f = addLinkActivity;
+            this.f49747e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f51748f.mFindNewLinkBubbleController == null) {
-                    AddLinkActivity addLinkActivity = this.f51748f;
-                    addLinkActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(addLinkActivity.getPageContext(), this.f51748f.mOnBubbleClickListener);
+                if (this.f49748f.mFindNewLinkBubbleController == null) {
+                    AddLinkActivity addLinkActivity = this.f49748f;
+                    addLinkActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(addLinkActivity.getPageContext(), this.f49748f.mOnBubbleClickListener);
                 }
-                WriteTipBubbleController writeTipBubbleController = this.f51748f.mFindNewLinkBubbleController;
-                EditText editText = this.f51748f.mLinkEditView;
-                writeTipBubbleController.d(editText, this.f51748f.getPageContext().getString(j.find_new_link) + StringUtils.LF + this.f51747e, this.f51747e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+                WriteTipBubbleController writeTipBubbleController = this.f49748f.mFindNewLinkBubbleController;
+                EditText editText = this.f49748f.mLinkEditView;
+                writeTipBubbleController.d(editText, this.f49748f.getPageContext().getString(j.find_new_link) + StringUtils.LF + this.f49747e, this.f49747e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
             }
         }
     }
@@ -470,18 +470,18 @@ public class AddLinkActivity extends BaseActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            setContentView(c.a.t0.o4.h.add_link_activity);
+            setContentView(c.a.t0.p4.h.add_link_activity);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.mRootLayout = (ViewGroup) findViewById(c.a.t0.o4.g.add_link_activity_layout);
-            this.mContentLayout = (ViewGroup) findViewById(c.a.t0.o4.g.add_link_content_layout);
-            this.mCancelBtn = (TextView) findViewById(c.a.t0.o4.g.tv_cancel_add_link);
-            this.mTitleText = (TextView) findViewById(c.a.t0.o4.g.tv_title_add_link);
-            this.mCompleteBtn = (TextView) findViewById(c.a.t0.o4.g.tv_complete_add_link);
-            this.mEditAreaLayout = (ViewGroup) findViewById(c.a.t0.o4.g.add_link_edit_layout);
-            this.mLinkEditView = (EditText) findViewById(c.a.t0.o4.g.et_edit_link);
-            this.mDelBtn = (ImageView) findViewById(c.a.t0.o4.g.iv_del_edit_link);
-            this.mAddLinkTip = (TextView) findViewById(c.a.t0.o4.g.add_link_tip);
+            this.mRootLayout = (ViewGroup) findViewById(c.a.t0.p4.g.add_link_activity_layout);
+            this.mContentLayout = (ViewGroup) findViewById(c.a.t0.p4.g.add_link_content_layout);
+            this.mCancelBtn = (TextView) findViewById(c.a.t0.p4.g.tv_cancel_add_link);
+            this.mTitleText = (TextView) findViewById(c.a.t0.p4.g.tv_title_add_link);
+            this.mCompleteBtn = (TextView) findViewById(c.a.t0.p4.g.tv_complete_add_link);
+            this.mEditAreaLayout = (ViewGroup) findViewById(c.a.t0.p4.g.add_link_edit_layout);
+            this.mLinkEditView = (EditText) findViewById(c.a.t0.p4.g.et_edit_link);
+            this.mDelBtn = (ImageView) findViewById(c.a.t0.p4.g.iv_del_edit_link);
+            this.mAddLinkTip = (TextView) findViewById(c.a.t0.p4.g.add_link_tip);
             this.mRootLayout.setOnClickListener(new c(this));
             this.mContentLayout.setClickable(true);
             this.mCancelBtn.setOnClickListener(new d(this));
@@ -494,7 +494,7 @@ public class AddLinkActivity extends BaseActivity {
             this.mDelBtn.setOnClickListener(new g(this));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             addGlobalLayoutListener();
-            adjustResizeForSoftInput(c.a.t0.o4.d.black_alpha70, true);
+            adjustResizeForSoftInput(c.a.t0.p4.d.black_alpha70, true);
             ShowSoftKeyPadDelay(this.mLinkEditView);
             EditText editText2 = this.mLinkEditView;
             editText2.setSelection(editText2.length());
@@ -507,7 +507,7 @@ public class AddLinkActivity extends BaseActivity {
     private void setCompleteBtnColor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            int color = SkinManager.getColor(c.a.t0.o4.d.CAM_X0302);
+            int color = SkinManager.getColor(c.a.t0.p4.d.CAM_X0302);
             this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.a.t0.w3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), c.a.t0.w3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
@@ -542,17 +542,17 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundResource(this.mContentLayout, c.a.t0.o4.f.bg_add_link_content);
-            this.mCancelBtn.setTextColor(SkinManager.getColorStateListWithClickState(c.a.t0.o4.d.CAM_X0105));
-            SkinManager.setViewTextColor(this.mTitleText, c.a.t0.o4.d.CAM_X0105);
+            SkinManager.setBackgroundResource(this.mContentLayout, c.a.t0.p4.f.bg_add_link_content);
+            this.mCancelBtn.setTextColor(SkinManager.getColorStateListWithClickState(c.a.t0.p4.d.CAM_X0105));
+            SkinManager.setViewTextColor(this.mTitleText, c.a.t0.p4.d.CAM_X0105);
             setCompleteBtnColor();
-            SkinManager.setViewTextColor(this.mLinkEditView, c.a.t0.o4.d.CAM_X0105);
-            this.mLinkEditView.setHintTextColor(SkinManager.getColor(c.a.t0.o4.d.CAM_X0109));
+            SkinManager.setViewTextColor(this.mLinkEditView, c.a.t0.p4.d.CAM_X0105);
+            this.mLinkEditView.setHintTextColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0109));
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.mEditAreaLayout);
             d2.n(j.J_X01);
-            d2.f(c.a.t0.o4.d.CAM_X0209);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, c.a.t0.o4.f.icon_pure_search_empty16_svg, c.a.t0.o4.d.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SkinManager.setViewTextColor(this.mAddLinkTip, c.a.t0.o4.d.CAM_X0110);
+            d2.f(c.a.t0.p4.d.CAM_X0209);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, c.a.t0.p4.f.icon_pure_search_empty16_svg, c.a.t0.p4.d.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.mAddLinkTip, c.a.t0.p4.d.CAM_X0110);
         }
     }
 

@@ -27,7 +27,7 @@ public class e extends l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f8926c;
+        public final /* synthetic */ e f8731c;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class e extends l {
                     return;
                 }
             }
-            this.f8926c = eVar;
+            this.f8731c = eVar;
         }
 
         @Override // c.a.r0.a.h0.j.a, c.a.r0.a.h0.j.d
@@ -80,7 +80,7 @@ public class e extends l {
                 return true;
             }
             a3();
-            SwanAppAllianceLoginHelper.f39956d.a(f.d(), f.a());
+            SwanAppAllianceLoginHelper.f38633d.a(f.d(), f.a());
             return false;
         }
         return invokeV.booleanValue;
@@ -125,7 +125,7 @@ public class e extends l {
     public final void a3() {
         c.a.r0.a.m.a d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || SwanAppAllianceLoginHelper.f39956d.c() || (d2 = SwanAppAllianceLoginHelper.f39956d.d()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || SwanAppAllianceLoginHelper.f38633d.c() || (d2 = SwanAppAllianceLoginHelper.f38633d.d()) == null) {
             return;
         }
         d2.onResult(-2);

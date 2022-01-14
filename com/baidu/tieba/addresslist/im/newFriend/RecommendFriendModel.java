@@ -26,17 +26,17 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f43350g;
+    public static final String f41797g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f43351h;
+    public static TbHttpMessageTask f41798h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f43352e;
+    public b f41799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f43353f;
+    public final HttpMessageListener f41800f;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -46,12 +46,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1886a extends k0<Void> {
+        public class C1902a extends k0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C1886a(a aVar, List list) {
+            public C1902a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f43354b;
+            public final /* synthetic */ a f41801b;
 
             public b(a aVar, String str) {
                 Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         return;
                     }
                 }
-                this.f43354b = aVar;
+                this.f41801b = aVar;
                 this.a = str;
             }
 
@@ -121,7 +121,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                    this.f43354b.a.f43352e.a(this.a);
+                    this.f41801b.a.f41799e.a(this.a);
                 }
             }
         }
@@ -153,8 +153,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
                 if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                    if (this.a.f43352e != null) {
-                        this.a.f43352e.onLoadFailed(null);
+                    if (this.a.f41799e != null) {
+                        this.a.f41799e.onLoadFailed(null);
                         return;
                     }
                     return;
@@ -162,13 +162,13 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                 String errMsg = recommendFriendResponseMessage.getErrMsg();
                 if (recommendFriendResponseMessage.getError() != 0) {
-                    if (this.a.f43352e != null) {
-                        this.a.f43352e.onLoadFailed(errMsg);
+                    if (this.a.f41799e != null) {
+                        this.a.f41799e.onLoadFailed(errMsg);
                         return;
                     }
                     return;
                 }
-                n0.c(new C1886a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                n0.c(new C1902a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
             }
         }
     }
@@ -194,11 +194,11 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-        f43350g = str;
+        f41797g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, str);
-        f43351h = tbHttpMessageTask;
+        f41798h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(RecommendFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f43351h);
+        MessageManager.getInstance().registerTask(f41798h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -219,9 +219,9 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 return;
             }
         }
-        this.f43352e = null;
-        this.f43353f = new a(this, CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
-        this.f43352e = bVar;
+        this.f41799e = null;
+        this.f41800f = new a(this, CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
+        this.f41799e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -247,7 +247,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.f43353f);
+            registerListener(this.f41800f);
         }
     }
 

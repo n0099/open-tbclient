@@ -97,7 +97,7 @@ public class BaseWebView extends WebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseWebView f42268e;
+        public final /* synthetic */ BaseWebView f40793e;
 
         public b(BaseWebView baseWebView) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class BaseWebView extends WebView {
                     return;
                 }
             }
-            this.f42268e = baseWebView;
+            this.f40793e = baseWebView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -126,7 +126,7 @@ public class BaseWebView extends WebView {
                     return true;
                 }
                 try {
-                    c.a.s0.m.a.j(this.f42268e.mContext, str);
+                    c.a.s0.m.a.j(this.f40793e.mContext, str);
                 } catch (Exception e2) {
                     BdLog.e(e2.toString());
                 }

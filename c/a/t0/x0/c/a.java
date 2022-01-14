@@ -15,10 +15,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25876b;
+    public int f25116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<EmotionImageData> f25877c;
+    public List<EmotionImageData> f25117c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class a {
     public List<EmotionImageData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25877c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25117c : (List) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25876b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25116b : invokeV.intValue;
     }
 
     public int c() {
@@ -55,14 +55,14 @@ public class a {
     public void d(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f25877c = list;
+            this.f25117c = list;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f25876b = i2;
+            this.f25116b = i2;
         }
     }
 

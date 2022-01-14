@@ -59,43 +59,41 @@ public class a {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.t0.l3.d> f19638b;
+    public List<c.a.t0.l3.d> f19132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.l3.d f19639c;
+    public c.a.t0.l3.d f19133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.t0.i4.c f19640d;
+    public final c.a.t0.i4.c f19134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19641e;
+    public int f19135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19642f;
+    public int f19136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19643g;
+    public boolean f19137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f19644h;
+    public Handler f19138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f19645i;
+    public CustomMessageListener f19139i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f19646j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public CustomMessageListener f19647k;
+    public CustomMessageListener f19140j;
+    public CustomMessageListener k;
     public CustomMessageListener l;
 
     /* renamed from: c.a.t0.l3.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class HandlerC1183a extends Handler {
+    public class HandlerC1197a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public HandlerC1183a(a aVar) {
+        public HandlerC1197a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +266,7 @@ public class a {
                 int hours = new Date(System.currentTimeMillis()).getHours();
                 if ((hours < 0 || hours > 7) && hours < 23) {
                     RemindRecommendMessage remindRecommendMessage = (RemindRecommendMessage) customResponsedMessage;
-                    if (this.a.f19640d.c()) {
+                    if (this.a.f19134d.c()) {
                         this.a.p(remindRecommendMessage);
                     } else {
                         this.a.o(remindRecommendMessage);
@@ -289,7 +287,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19648e;
+        public final /* synthetic */ a f19141e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -306,14 +304,14 @@ public class a {
                     return;
                 }
             }
-            this.f19648e = aVar;
+            this.f19141e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19648e.f19640d.e();
+                this.f19141e.f19134d.e();
             }
         }
     }
@@ -331,22 +329,22 @@ public class a {
                 return;
             }
         }
-        this.f19638b = new LinkedList();
-        this.f19639c = null;
-        this.f19644h = new HandlerC1183a(this);
-        this.f19645i = new b(this, 0);
-        this.f19646j = new c(this, 0);
-        this.f19647k = new d(this, 2005016);
+        this.f19132b = new LinkedList();
+        this.f19133c = null;
+        this.f19138h = new HandlerC1197a(this);
+        this.f19139i = new b(this, 0);
+        this.f19140j = new c(this, 0);
+        this.k = new d(this, 2005016);
         this.l = new e(this, 2001355);
         this.a = TbadkApplication.getInst().getApp();
-        MessageManager.getInstance().registerListener(2016004, this.f19645i);
-        MessageManager.getInstance().registerListener(this.f19647k);
-        MessageManager.getInstance().registerListener(2012125, this.f19646j);
-        MessageManager.getInstance().registerListener(2012121, this.f19646j);
-        MessageManager.getInstance().registerListener(2012123, this.f19646j);
+        MessageManager.getInstance().registerListener(2016004, this.f19139i);
+        MessageManager.getInstance().registerListener(this.k);
+        MessageManager.getInstance().registerListener(2012125, this.f19140j);
+        MessageManager.getInstance().registerListener(2012121, this.f19140j);
+        MessageManager.getInstance().registerListener(2012123, this.f19140j);
         MessageManager.getInstance().registerListener(this.l);
-        this.f19642f = 0;
-        this.f19640d = new c.a.t0.i4.c();
+        this.f19136f = 0;
+        this.f19134d = new c.a.t0.i4.c();
     }
 
     public static a j() {
@@ -376,7 +374,7 @@ public class a {
     public void c(c.a.t0.l3.d dVar) {
         List<c.a.t0.l3.d> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || (list = this.f19638b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || (list = this.f19132b) == null) {
             return;
         }
         list.add(dVar);
@@ -413,17 +411,17 @@ public class a {
             if (imMessageCenterPojo == null) {
                 return dVar;
             }
-            dVar.f19662i = imMessageCenterPojo.getUnread_count();
-            dVar.f19663j = imMessageCenterPojo.getGid();
-            dVar.f19661h = imMessageCenterPojo.getCustomGroupType();
+            dVar.f19155i = imMessageCenterPojo.getUnread_count();
+            dVar.f19156j = imMessageCenterPojo.getGid();
+            dVar.f19154h = imMessageCenterPojo.getCustomGroupType();
             dVar.a = imMessageCenterPojo.getGroup_name();
-            dVar.f19655b = imMessageCenterPojo.getLast_user_name();
-            dVar.f19656c = imMessageCenterPojo.getNameShow();
+            dVar.f19148b = imMessageCenterPojo.getLast_user_name();
+            dVar.f19149c = imMessageCenterPojo.getNameShow();
             dVar.l = imMessageCenterPojo.getLast_content_time();
-            if (dVar.f19661h == 1) {
-                dVar.f19658e = dVar.f19655b + ":" + imMessageCenterPojo.getLast_content();
+            if (dVar.f19154h == 1) {
+                dVar.f19151e = dVar.f19148b + ":" + imMessageCenterPojo.getLast_content();
             } else {
-                dVar.f19658e = imMessageCenterPojo.getLast_content();
+                dVar.f19151e = imMessageCenterPojo.getLast_content();
             }
             dVar.s = c.a.d.f.m.b.g(imMessageCenterPojo.getTaskId(), 0L);
             return dVar;
@@ -433,15 +431,15 @@ public class a {
 
     public c.a.t0.l3.d f(ChatMessage chatMessage, int i2) {
         InterceptResult invokeLI;
-        a.C1354a c1354a;
+        a.C1369a c1369a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, chatMessage, i2)) == null) {
             c.a.t0.l3.d dVar = new c.a.t0.l3.d();
-            dVar.f19662i = 0;
+            dVar.f19155i = 0;
             chatMessage.getMsgType();
-            dVar.f19661h = i2;
-            dVar.f19655b = chatMessage.getUserInfo().getUserName();
-            dVar.f19656c = chatMessage.getUserInfo().getName_show();
+            dVar.f19154h = i2;
+            dVar.f19148b = chatMessage.getUserInfo().getUserName();
+            dVar.f19149c = chatMessage.getUserInfo().getName_show();
             chatMessage.getRecordId();
             dVar.m = chatMessage.getMsgId();
             dVar.n = true;
@@ -449,71 +447,71 @@ public class a {
             dVar.p = 1;
             dVar.s = chatMessage.getStatTaskId();
             dVar.t = chatMessage.getStatisticsServiceId();
-            int i3 = dVar.f19661h;
+            int i3 = dVar.f19154h;
             if (i3 == 1) {
                 ImMessageCenterPojo i4 = c.a.t0.s1.k.b.o().i(chatMessage.getGroupId(), 1);
                 if (i4 != null) {
                     dVar.a = i4.getGroup_name();
-                    dVar.f19662i = i4.getUnread_count();
+                    dVar.f19155i = i4.getUnread_count();
                     dVar.l = i4.getLast_content_time();
                 }
-                dVar.f19658e = dVar.f19655b + ":" + c.a.t0.s1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
-                dVar.f19663j = chatMessage.getGroupId();
+                dVar.f19151e = dVar.f19148b + ":" + c.a.t0.s1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
+                dVar.f19156j = chatMessage.getGroupId();
                 if (!c.a.s0.t.d.d.d().p()) {
                     dVar.n = false;
                 } else {
-                    dVar.n = c.a.t0.s1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), dVar.f19663j);
+                    dVar.n = c.a.t0.s1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), dVar.f19156j);
                 }
             } else if (i3 == 2) {
-                dVar.f19663j = chatMessage.getUserInfo().getUserId();
-                ImMessageCenterPojo i5 = c.a.t0.s1.k.b.o().i(dVar.f19663j, 2);
+                dVar.f19156j = chatMessage.getUserInfo().getUserId();
+                ImMessageCenterPojo i5 = c.a.t0.s1.k.b.o().i(dVar.f19156j, 2);
                 if (i5 != null) {
-                    dVar.f19662i = i5.getUnread_count();
+                    dVar.f19155i = i5.getUnread_count();
                     dVar.l = i5.getLast_content_time();
                     dVar.o = i5.getIsFriend() == 1;
                     dVar.p = i5.getFollowStatus();
                 }
                 dVar.a = chatMessage.getUserInfo().getUserName();
-                dVar.f19658e = c.a.t0.s1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
+                dVar.f19151e = c.a.t0.s1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
                 if (dVar.o) {
                     if (!c.a.s0.t.d.d.d().r()) {
                         dVar.n = false;
                     } else {
-                        dVar.n = c.a.t0.s1.t.e.j().c(TbadkCoreApplication.getCurrentAccount(), dVar.f19663j);
+                        dVar.n = c.a.t0.s1.t.e.j().c(TbadkCoreApplication.getCurrentAccount(), dVar.f19156j);
                     }
                 } else if (!c.a.s0.t.d.d.d().r()) {
                     dVar.n = false;
                 } else if (!c.a.s0.t.d.d.d().B()) {
                     dVar.n = false;
                 } else {
-                    dVar.n = c.a.t0.s1.t.e.j().c(TbadkCoreApplication.getCurrentAccount(), dVar.f19663j);
+                    dVar.n = c.a.t0.s1.t.e.j().c(TbadkCoreApplication.getCurrentAccount(), dVar.f19156j);
                 }
             } else if (i3 == 4) {
                 String userId = chatMessage.getUserInfo().getUserId();
-                dVar.f19663j = userId;
-                if (!TbConfig.IM_USER_ID_TBJX.equals(userId) && !"2807977073".equals(dVar.f19663j)) {
+                dVar.f19156j = userId;
+                if (!TbConfig.IM_USER_ID_TBJX.equals(userId) && !"2807977073".equals(dVar.f19156j)) {
                     return null;
                 }
-                ImMessageCenterPojo i6 = c.a.t0.s1.k.b.o().i(dVar.f19663j, 4);
+                ImMessageCenterPojo i6 = c.a.t0.s1.k.b.o().i(dVar.f19156j, 4);
                 if (i6 != null) {
-                    dVar.f19662i = i6.getUnread_count();
+                    dVar.f19155i = i6.getUnread_count();
                     dVar.l = i6.getLast_content_time();
                     dVar.o = i6.getIsFriend() == 1;
                     dVar.p = i6.getFollowStatus();
                 }
                 dVar.a = chatMessage.getUserInfo().getUserName();
                 if (chatMessage.getMsgType() == 7) {
-                    List<a.C1354a> a = c.a.t0.s1.l.c.a.a(chatMessage.getContent(), null, chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-                    if (a != null && a.size() > 0 && (c1354a = a.get(0)) != null) {
-                        dVar.f19657d = c1354a.a;
-                        dVar.f19658e = c1354a.f22779b;
-                        dVar.f19659f = c1354a.f22780c;
-                        dVar.q = c1354a.f22781d;
-                        dVar.s = c1354a.f22788k;
-                        dVar.t = c1354a.l;
+                    List<a.C1369a> a = c.a.t0.s1.l.c.a.a(chatMessage.getContent(), null, chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                    if (a != null && a.size() > 0 && (c1369a = a.get(0)) != null) {
+                        dVar.f19150d = c1369a.a;
+                        dVar.f19151e = c1369a.f22153b;
+                        dVar.f19152f = c1369a.f22154c;
+                        dVar.q = c1369a.f22155d;
+                        dVar.s = c1369a.k;
+                        dVar.t = c1369a.l;
                     }
                 } else {
-                    dVar.f19658e = c.a.t0.s1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
+                    dVar.f19151e = c.a.t0.s1.w.c.u(chatMessage.getMsgType(), chatMessage.getContent());
                 }
                 if (!c.a.s0.t.d.d.d().m()) {
                     dVar.n = false;
@@ -535,7 +533,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f19638b.remove(dVar);
+        this.f19132b.remove(dVar);
     }
 
     public final String i(String str) {
@@ -622,7 +620,7 @@ public class a {
     public c.a.t0.l3.d l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19639c : (c.a.t0.l3.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19133c : (c.a.t0.l3.d) invokeV.objValue;
     }
 
     public List<c.a.t0.l3.d> m() {
@@ -630,7 +628,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            linkedList.addAll(this.f19638b);
+            linkedList.addAll(this.f19132b);
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -642,14 +640,14 @@ public class a {
             return;
         }
         c.a.t0.l3.d dVar = new c.a.t0.l3.d();
-        dVar.f19662i = 0;
-        dVar.f19663j = "-1";
-        dVar.f19661h = 4;
+        dVar.f19155i = 0;
+        dVar.f19156j = "-1";
+        dVar.f19154h = 4;
         String str = remindRecommendMessage.name;
         dVar.a = str;
-        dVar.f19655b = str;
-        dVar.f19657d = remindRecommendMessage.title;
-        dVar.f19659f = remindRecommendMessage.picture;
+        dVar.f19148b = str;
+        dVar.f19150d = remindRecommendMessage.title;
+        dVar.f19152f = remindRecommendMessage.picture;
         dVar.q = remindRecommendMessage.url;
         dVar.l = System.currentTimeMillis();
         dVar.n = true;
@@ -672,11 +670,11 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, remindRecommendMessage) == null) || remindRecommendMessage == null || (str = remindRecommendMessage.url) == null || str.length() <= 0) {
             return;
         }
-        Intent k2 = k(this.a, new z0(-1L, -1L, remindRecommendMessage.url, remindRecommendMessage.title, "", -1L), str);
-        if (k2 == null) {
+        Intent k = k(this.a, new z0(-1L, -1L, remindRecommendMessage.url, remindRecommendMessage.title, "", -1L), str);
+        if (k == null) {
             return;
         }
-        PendingIntent service = PendingIntent.getService(this.a, 0, k2, 134217728);
+        PendingIntent service = PendingIntent.getService(this.a, 0, k, 134217728);
         Context context = this.a;
         String str2 = remindRecommendMessage.name;
         String str3 = remindRecommendMessage.title;
@@ -716,8 +714,8 @@ public class a {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f19638b.clear();
-            this.f19639c = null;
+            this.f19132b.clear();
+            this.f19133c = null;
         }
     }
 
@@ -732,8 +730,8 @@ public class a {
                 if (j2 == 0 || StringUtils.isNull(i2) || UtilHelper.getTodayZeroTime() < TbSingleton.getInstance().getLastResumeTime()) {
                     return false;
                 }
-                if (!this.f19640d.c()) {
-                    Activity b2 = c.a.d.a.b.g().b();
+                if (!this.f19134d.c()) {
+                    Activity b2 = c.a.d.a.b.f().b();
                     if (b2 != null && b2.getClass() != null && b2.getClass().getName().equals(ScreenLockActivity.class.getName())) {
                         b2.finish();
                     }
@@ -753,19 +751,19 @@ public class a {
         c.a.t0.l3.d dVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && g()) {
-            List<c.a.t0.l3.d> list = this.f19638b;
-            if ((list == null || list.size() == 0) && this.f19639c == null) {
+            List<c.a.t0.l3.d> list = this.f19132b;
+            if ((list == null || list.size() == 0) && this.f19133c == null) {
                 return;
             }
-            if (!this.f19640d.c() || this.f19642f == 1) {
-                Activity b2 = c.a.d.a.b.g().b();
+            if (!this.f19134d.c() || this.f19136f == 1) {
+                Activity b2 = c.a.d.a.b.f().b();
                 if (b2 != null && b2.getClass() != null && b2.getClass().getName().equals("com.baidu.tieba.pushdialog.PushDialogActivity")) {
                     b2.finish();
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ScreenLockActivityConfig(this.a)));
-                this.f19644h.postDelayed(new f(this), 1000L);
-                List<c.a.t0.l3.d> list2 = this.f19638b;
-                if (list2 == null || list2.size() <= 0 || (dVar = this.f19638b.get(0)) == null) {
+                this.f19138h.postDelayed(new f(this), 1000L);
+                List<c.a.t0.l3.d> list2 = this.f19132b;
+                if (list2 == null || list2.size() <= 0 || (dVar = this.f19132b.get(0)) == null) {
                     return;
                 }
                 TiebaStatic.logPagePV(new StatisticItem("c11702").param("msg_id", dVar.m / 100).param("task_id", dVar.s));
@@ -781,7 +779,7 @@ public class a {
         }
         boolean z = false;
         for (ChatMessage chatMessage : list) {
-            if (chatMessage != null && d(chatMessage) && (f2 = f(chatMessage, i2)) != null && f2.f19662i > 0) {
+            if (chatMessage != null && d(chatMessage) && (f2 = f(chatMessage, i2)) != null && f2.f19155i > 0) {
                 if (f2.n) {
                     if (i2 == 4) {
                         if (t(chatMessage, f2)) {
@@ -789,7 +787,7 @@ public class a {
                         }
                         c(f2);
                     } else {
-                        this.f19639c = f2;
+                        this.f19133c = f2;
                     }
                     z = true;
                 } else {

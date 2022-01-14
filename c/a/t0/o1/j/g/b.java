@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c.a.d.n.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,13 +28,13 @@ public class b extends c.a.d.n.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
     public String q;
     public c.a.s0.n.f r;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements c.a.s0.n.f<MetaData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21167e;
+        public final /* synthetic */ b f20607e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class b extends c.a.d.n.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
                     return;
                 }
             }
-            this.f21167e = bVar;
+            this.f20607e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class b extends c.a.d.n.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || metaData == null) {
                 return;
             }
-            c.a.t0.o1.j.c.b("c13758", metaData, i2 + 1, this.f21167e.q);
+            c.a.t0.o1.j.c.b("c13758", metaData, i2 + 1, this.f20607e.q);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class b extends c.a.d.n.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
             if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || metaData == null) {
                 return;
             }
-            c.a.t0.o1.j.c.a("c13758", metaData, i2 + 1, this.f21167e.q);
+            c.a.t0.o1.j.c.a("c13758", metaData, i2 + 1, this.f20607e.q);
         }
     }
 

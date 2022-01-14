@@ -60,23 +60,21 @@ public class i extends c.a.r0.a.u.e.i.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f9309f;
+    public static final Set<String> f9107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Set<String> f9310g;
+    public static final Set<String> f9108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Set<String> f9311h;
+    public static final Set<String> f9109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Set<String> f9312i;
+    public static final Set<String> f9110i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final List<String> f9313j;
+    public static final List<String> f9111j;
     @SuppressLint({"BDOfflineUrl"})
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final String[] f9314k;
+    public static final String[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -114,7 +112,7 @@ public class i extends c.a.r0.a.u.e.i.a {
                 }
                 i iVar = this.a;
                 iVar.q("#cancelRequest cancelTag=" + optString, false);
-                SwanAppNetworkUtils.a((i.f9313j.remove(optString) ? c.a.r0.p.e.a.l() : c.a.r0.p.e.a.g()).getOkHttpClient(), optString);
+                SwanAppNetworkUtils.a((i.f9111j.remove(optString) ? c.a.r0.p.e.a.l() : c.a.r0.p.e.a.g()).getOkHttpClient(), optString);
                 return c.a.r0.a.u.h.b.f();
             }
             return (c.a.r0.a.u.h.b) invokeLLL.objValue;
@@ -127,19 +125,19 @@ public class i extends c.a.r0.a.u.e.i.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9315e;
+        public final /* synthetic */ c.a.r0.a.d2.e f9112e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9316f;
+        public final /* synthetic */ JSONObject f9113f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9317g;
+        public final /* synthetic */ String f9114g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9318h;
+        public final /* synthetic */ String f9115h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i f9319i;
+        public final /* synthetic */ i f9116i;
 
         public b(i iVar, c.a.r0.a.d2.e eVar, JSONObject jSONObject, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -156,18 +154,18 @@ public class i extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9319i = iVar;
-            this.f9315e = eVar;
-            this.f9316f = jSONObject;
-            this.f9317g = str;
-            this.f9318h = str2;
+            this.f9116i = iVar;
+            this.f9112e = eVar;
+            this.f9113f = jSONObject;
+            this.f9114g = str;
+            this.f9115h = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9319i.N(this.f9315e, this.f9316f, this.f9317g, this.f9318h);
+                this.f9116i.N(this.f9112e, this.f9113f, this.f9114g, this.f9115h);
             }
         }
     }
@@ -178,22 +176,22 @@ public class i extends c.a.r0.a.u.e.i.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9320e;
+        public final /* synthetic */ String f9117e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HttpUrl f9321f;
+        public final /* synthetic */ HttpUrl f9118f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9322g;
+        public final /* synthetic */ String f9119g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f9323h;
+        public final /* synthetic */ int f9120h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ long f9324i;
+        public final /* synthetic */ long f9121i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f9325j;
+        public final /* synthetic */ e f9122j;
 
         public c(i iVar, String str, HttpUrl httpUrl, String str2, int i2, long j2, e eVar, HttpRequest httpRequest) {
             Interceptable interceptable = $ic;
@@ -210,23 +208,23 @@ public class i extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9320e = str;
-            this.f9321f = httpUrl;
-            this.f9322g = str2;
-            this.f9323h = i2;
-            this.f9324i = j2;
-            this.f9325j = eVar;
+            this.f9117e = str;
+            this.f9118f = httpUrl;
+            this.f9119g = str2;
+            this.f9120h = i2;
+            this.f9121i = j2;
+            this.f9122j = eVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                n.C(this.f9322g, this.f9323h, null, this.f9324i, System.currentTimeMillis(), this.f9320e);
+                n.C(this.f9119g, this.f9120h, null, this.f9121i, System.currentTimeMillis(), this.f9117e);
                 if (exc instanceof IOException) {
-                    this.f9325j.onFailure(null, (IOException) exc);
+                    this.f9122j.onFailure(null, (IOException) exc);
                 } else {
-                    this.f9325j.onFailure(null, new IOException("request fail"));
+                    this.f9122j.onFailure(null, new IOException("request fail"));
                 }
             }
         }
@@ -243,9 +241,9 @@ public class i extends c.a.r0.a.u.e.i.a {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i2, networkStatRecord)) == null) {
-                c.a.r0.a.h0.q.b.k().C(this.f9320e, this.f9321f, networkStatRecord);
-                n.C(this.f9322g, this.f9323h, networkStatRecord, this.f9324i, System.currentTimeMillis(), this.f9320e);
-                this.f9325j.onResponse(null, response);
+                c.a.r0.a.h0.q.b.k().C(this.f9117e, this.f9118f, networkStatRecord);
+                n.C(this.f9119g, this.f9120h, networkStatRecord, this.f9121i, System.currentTimeMillis(), this.f9117e);
+                this.f9122j.onResponse(null, response);
                 return response;
             }
             return invokeLIL.objValue;
@@ -258,10 +256,10 @@ public class i extends c.a.r0.a.u.e.i.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9326e;
+        public final /* synthetic */ String f9123e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f9327f;
+        public final /* synthetic */ i f9124f;
 
         public d(i iVar, String str) {
             Interceptable interceptable = $ic;
@@ -278,8 +276,8 @@ public class i extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9327f = iVar;
-            this.f9326e = str;
+            this.f9124f = iVar;
+            this.f9123e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -288,7 +286,7 @@ public class i extends c.a.r0.a.u.e.i.a {
         public void onCallback(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f9327f.d(this.f9326e, new c.a.r0.a.u.h.b(1001, str));
+                this.f9124f.d(this.f9123e, new c.a.r0.a.u.h.b(1001, str));
             }
         }
     }
@@ -300,25 +298,25 @@ public class i extends c.a.r0.a.u.e.i.a {
         public c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f9328b;
+        public JSONObject f9125b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9329c;
+        public String f9126c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9330d;
+        public String f9127d;
 
         /* renamed from: e  reason: collision with root package name */
-        public f f9331e;
+        public f f9128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9332f;
+        public String f9129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f9333g;
+        public long f9130g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ i f9334h;
+        public final /* synthetic */ i f9131h;
 
         public e(@NonNull i iVar, @NonNull c.a.r0.a.d2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, String str2, @NonNull f fVar, String str3) {
             Interceptable interceptable = $ic;
@@ -335,14 +333,14 @@ public class i extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9334h = iVar;
+            this.f9131h = iVar;
             this.a = eVar;
-            this.f9328b = jSONObject;
-            this.f9329c = str;
-            this.f9330d = str2;
-            this.f9331e = fVar;
-            this.f9332f = str3;
-            this.f9333g = System.currentTimeMillis();
+            this.f9125b = jSONObject;
+            this.f9126c = str;
+            this.f9127d = str2;
+            this.f9128e = fVar;
+            this.f9129f = str3;
+            this.f9130g = System.currentTimeMillis();
         }
 
         @Override // okhttp3.Callback
@@ -352,9 +350,9 @@ public class i extends c.a.r0.a.u.e.i.a {
                 int G = this.a.X().G();
                 String l = n.l();
                 String f2 = q0.n().f();
-                SwanAppNetworkUtils.a((i.f9313j.remove(this.f9330d) ? c.a.r0.p.e.a.l() : c.a.r0.p.e.a.g()).getOkHttpClient(), this.f9330d);
-                this.f9334h.d(this.f9332f, new c.a.r0.a.u.h.b(1001, iOException.getMessage()));
-                n.Q(0, this.f9329c, G, iOException.getMessage(), l, f2, this.f9333g, System.currentTimeMillis(), this.f9330d);
+                SwanAppNetworkUtils.a((i.f9111j.remove(this.f9127d) ? c.a.r0.p.e.a.l() : c.a.r0.p.e.a.g()).getOkHttpClient(), this.f9127d);
+                this.f9131h.d(this.f9129f, new c.a.r0.a.u.h.b(1001, iOException.getMessage()));
+                n.Q(0, this.f9126c, G, iOException.getMessage(), l, f2, this.f9130g, System.currentTimeMillis(), this.f9127d);
             }
         }
 
@@ -362,11 +360,11 @@ public class i extends c.a.r0.a.u.e.i.a {
         public void onResponse(Call call, Response response) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (!n.o(this.f9329c)) {
-                    c.a.r0.a.p2.b.l().x(this.f9329c, response.headers("Set-cookie"));
+                if (!n.o(this.f9126c)) {
+                    c.a.r0.a.p2.b.l().x(this.f9126c, response.headers("Set-cookie"));
                 }
-                String J = i.J(this.f9328b);
-                String L = i.L(this.f9328b);
+                String J = i.J(this.f9125b);
+                String L = i.L(this.f9125b);
                 int G = this.a.X().G();
                 long currentTimeMillis = System.currentTimeMillis();
                 String l = n.l();
@@ -378,18 +376,18 @@ public class i extends c.a.r0.a.u.e.i.a {
                         jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, response.code());
                         jSONObject.put("header", j.g(response.headers()));
                         i.R(jSONObject, response.body(), J, L);
-                        if (this.f9331e != null) {
-                            this.f9331e.a(jSONObject);
+                        if (this.f9128e != null) {
+                            this.f9128e.a(jSONObject);
                         }
-                        this.f9334h.d(this.f9332f, new c.a.r0.a.u.h.b(0, jSONObject, true));
+                        this.f9131h.d(this.f9129f, new c.a.r0.a.u.h.b(0, jSONObject, true));
                     } else {
-                        this.f9334h.d(this.f9332f, new c.a.r0.a.u.h.b(201, "response json length over limits"));
-                        i.S(this.a, this.f9329c, K, currentTimeMillis);
+                        this.f9131h.d(this.f9129f, new c.a.r0.a.u.h.b(201, "response json length over limits"));
+                        i.S(this.a, this.f9126c, K, currentTimeMillis);
                     }
                 } catch (IOException | JSONException e2) {
-                    this.f9334h.d(this.f9332f, new c.a.r0.a.u.h.b(201, e2.getMessage()));
+                    this.f9131h.d(this.f9129f, new c.a.r0.a.u.h.b(201, e2.getMessage()));
                 }
-                n.Q(response.code(), this.f9329c, G, response.message(), l, f2, this.f9333g, System.currentTimeMillis(), this.f9330d);
+                n.Q(response.code(), this.f9126c, G, response.message(), l, f2, this.f9130g, System.currentTimeMillis(), this.f9127d);
             }
         }
     }
@@ -412,12 +410,12 @@ public class i extends c.a.r0.a.u.e.i.a {
                 return;
             }
         }
-        f9309f = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
-        f9310g = Sets.newHashSet("json", "string");
-        f9311h = Sets.newHashSet("text", "arraybuffer");
-        f9312i = Sets.newHashSet("REFERER");
-        f9313j = Collections.synchronizedList(new ArrayList());
-        f9314k = new String[]{"https://hmma.baidu.com/mini.gif", "https://eclick.baidu.com/", "https://miniapp-ad.cdn.bcebos.com/", "https://mobads.baidu.com/", "https://als.baidu.com/", "https://wn.pos.baidu.com/"};
+        f9107f = Sets.newHashSet(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+        f9108g = Sets.newHashSet("json", "string");
+        f9109h = Sets.newHashSet("text", "arraybuffer");
+        f9110i = Sets.newHashSet("REFERER");
+        f9111j = Collections.synchronizedList(new ArrayList());
+        k = new String[]{"https://hmma.baidu.com/mini.gif", "https://eclick.baidu.com/", "https://miniapp-ad.cdn.bcebos.com/", "https://mobads.baidu.com/", "https://als.baidu.com/", "https://wn.pos.baidu.com/"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -509,7 +507,7 @@ public class i extends c.a.r0.a.u.e.i.a {
                 }
                 String httpUrl3 = f2.toString();
                 if (c.a.r0.a.u1.l.b.a() == 1) {
-                    String[] strArr = f9314k;
+                    String[] strArr = k;
                     int length = strArr.length;
                     int i3 = 0;
                     while (true) {
@@ -524,7 +522,7 @@ public class i extends c.a.r0.a.u.e.i.a {
                         }
                     }
                     if (z) {
-                        f9313j.add(str);
+                        f9111j.add(str);
                     }
                     g2 = z ? c.a.r0.p.e.a.l() : c.a.r0.p.e.a.g();
                 } else {
@@ -545,12 +543,12 @@ public class i extends c.a.r0.a.u.e.i.a {
                     optString2 = "GET";
                 }
                 String upperCase = optString2.toUpperCase();
-                if (!f9309f.contains(upperCase)) {
+                if (!f9107f.contains(upperCase)) {
                     return new Pair<>(null, 4);
                 }
                 HashMap hashMap = new HashMap();
                 c.a.r0.p.d.a aVar = new c.a.r0.p.d.a();
-                aVar.f11714b = upperCase;
+                aVar.f11449b = upperCase;
                 HttpRequestBuilder b2 = c.a.r0.p.e.b.b(aVar, g2);
                 W(httpUrl3, b2, jSONObject.optJSONObject("header"), hashMap);
                 b2.setHeader("Referer", j.d());
@@ -581,11 +579,11 @@ public class i extends c.a.r0.a.u.e.i.a {
                             ((HttpCommonRequestBuilder) b2).requestBody(G);
                         }
                         aVar.a = httpUrl2.toString();
-                        aVar.f11718f = X();
-                        aVar.f11719g = false;
-                        aVar.f11720h = true;
-                        aVar.f11721i = str;
-                        aVar.f11723k = 3;
+                        aVar.f11453f = X();
+                        aVar.f11454g = false;
+                        aVar.f11455h = true;
+                        aVar.f11456i = str;
+                        aVar.k = 3;
                         g2.u(b2, aVar);
                         HttpRequest build = b2.build();
                         if (!optBoolean) {
@@ -601,11 +599,11 @@ public class i extends c.a.r0.a.u.e.i.a {
                 if (b2 instanceof HttpCommonRequestBuilder) {
                 }
                 aVar.a = httpUrl2.toString();
-                aVar.f11718f = X();
-                aVar.f11719g = false;
-                aVar.f11720h = true;
-                aVar.f11721i = str;
-                aVar.f11723k = 3;
+                aVar.f11453f = X();
+                aVar.f11454g = false;
+                aVar.f11455h = true;
+                aVar.f11456i = str;
+                aVar.k = 3;
                 g2.u(b2, aVar);
                 HttpRequest build2 = b2.build();
                 if (!optBoolean) {
@@ -690,7 +688,7 @@ public class i extends c.a.r0.a.u.e.i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONObject)) == null) {
             String optString = jSONObject.optString("dataType");
-            return TextUtils.isEmpty(optString) ? "json" : !f9310g.contains(optString) ? "string" : optString;
+            return TextUtils.isEmpty(optString) ? "json" : !f9108g.contains(optString) ? "string" : optString;
         }
         return (String) invokeL.objValue;
     }
@@ -713,7 +711,7 @@ public class i extends c.a.r0.a.u.e.i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
             String optString = jSONObject.optString("responseType");
-            return !f9311h.contains(optString) ? "text" : optString;
+            return !f9109h.contains(optString) ? "text" : optString;
         }
         return (String) invokeL.objValue;
     }
@@ -826,7 +824,7 @@ public class i extends c.a.r0.a.u.e.i.a {
                 String str2 = "";
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    if (!TextUtils.isEmpty(next) && !f9312i.contains(next.toUpperCase())) {
+                    if (!TextUtils.isEmpty(next) && !f9110i.contains(next.toUpperCase())) {
                         String f2 = q0.f(jSONObject.optString(next));
                         if (TextUtils.isEmpty(f2)) {
                             f2 = "";
@@ -975,7 +973,7 @@ public class i extends c.a.r0.a.u.e.i.a {
                 return new c.a.r0.a.u.h.b(1001, "illegal url");
             }
             q("#request url=" + optString, false);
-            String a2 = j.a(eVar.f5660f);
+            String a2 = j.a(eVar.f5537f);
             JSONObject c2 = j.c(a2);
             c.a.r0.a.u.f.a.d().c(new c.a.r0.a.u.f.b.g.c(this, eVar, jSONObject, a2, str));
             return new c.a.r0.a.u.h.b(0, c2);

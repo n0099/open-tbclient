@@ -40,16 +40,16 @@ public class CaptureDownloadService extends Service {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f52307b;
+        public d f50286b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LocalBroadcastManager f52308c;
+        public LocalBroadcastManager f50287c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f52309d;
+        public long f50288d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f52310e;
+        public int f50289e;
 
         public a(int i2, d dVar, Context context) {
             Interceptable interceptable = $ic;
@@ -67,18 +67,18 @@ public class CaptureDownloadService extends Service {
                 }
             }
             this.a = i2;
-            this.f52307b = dVar;
-            this.f52308c = LocalBroadcastManager.getInstance(context);
+            this.f50286b = dVar;
+            this.f50287c = LocalBroadcastManager.getInstance(context);
         }
 
         @Override // c.a.a1.k.e.a
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f52307b.f(6);
-                this.f52307b.d(100);
-                this.f52307b.e(str);
-                j(this.f52307b);
+                this.f50286b.f(6);
+                this.f50286b.d(100);
+                this.f50286b.e(str);
+                j(this.f50286b);
             }
         }
 
@@ -86,10 +86,10 @@ public class CaptureDownloadService extends Service {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f52307b.f(0);
-                this.f52307b.d(0);
-                this.f52307b.c("");
-                j(this.f52307b);
+                this.f50286b.f(0);
+                this.f50286b.d(0);
+                this.f50286b.c("");
+                j(this.f50286b);
             }
         }
 
@@ -97,8 +97,8 @@ public class CaptureDownloadService extends Service {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f52307b.f(4);
-                j(this.f52307b);
+                this.f50286b.f(4);
+                j(this.f50286b);
             }
         }
 
@@ -107,8 +107,8 @@ public class CaptureDownloadService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
                 downloadException.printStackTrace();
-                this.f52307b.f(5);
-                j(this.f52307b);
+                this.f50286b.f(5);
+                j(this.f50286b);
             }
         }
 
@@ -116,14 +116,14 @@ public class CaptureDownloadService extends Service {
         public void g(long j2, long j3, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
-                if (this.f52309d == 0) {
-                    this.f52309d = System.currentTimeMillis();
+                if (this.f50288d == 0) {
+                    this.f50288d = System.currentTimeMillis();
                 }
-                this.f52307b.f(3);
-                this.f52307b.d(i2);
-                this.f52307b.c(e.a(j2, j3));
+                this.f50286b.f(3);
+                this.f50286b.d(i2);
+                this.f50286b.c(e.a(j2, j3));
                 if (i(i2)) {
-                    j(this.f52307b);
+                    j(this.f50286b);
                 }
             }
         }
@@ -133,11 +133,11 @@ public class CaptureDownloadService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f52309d <= 300 || i2 == this.f52310e) {
+                if (currentTimeMillis - this.f50288d <= 300 || i2 == this.f50289e) {
                     return false;
                 }
-                this.f52309d = currentTimeMillis;
-                this.f52310e = i2;
+                this.f50288d = currentTimeMillis;
+                this.f50289e = i2;
                 return true;
             }
             return invokeI.booleanValue;
@@ -150,7 +150,7 @@ public class CaptureDownloadService extends Service {
                 intent.setAction("com.baidu.ugc.download.ACTION_BROAD_CAST");
                 intent.putExtra("extra_position", this.a);
                 intent.putExtra("extra_file_info", dVar.g().toString());
-                this.f52308c.sendBroadcast(intent);
+                this.f50287c.sendBroadcast(intent);
             }
         }
     }

@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
 import c.a.s0.e1.s;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -340,12 +340,12 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f46527b == null || (tbPageContext = aVar.a) == null) {
+            if (aVar.f44808b == null || (tbPageContext = aVar.a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
             msgMultiImageTextViewItemAdapter.e0(true);
-            aVar.f46527b.add(msgMultiImageTextViewItemAdapter);
+            aVar.f44808b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
@@ -483,9 +483,9 @@ public class TiebaIMActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
-                        String c2 = w0.c(str, "barid=");
-                        String c3 = w0.c(str, "barname=");
-                        String c4 = w0.c(str, "portrait=");
+                        String c2 = v0.c(str, "barid=");
+                        String c3 = v0.c(str, "barname=");
+                        String c4 = v0.c(str, "portrait=");
                         if (c2 == null || c2.length() <= 0) {
                             return 1;
                         }
@@ -663,16 +663,16 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f46527b == null || (tbPageContext = aVar.a) == null) {
+            if (aVar.f44808b == null || (tbPageContext = aVar.a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
             msgPhotoLiveItemAdapter.d0(true);
-            aVar.f46527b.add(msgPhotoLiveItemAdapter);
+            aVar.f44808b.add(msgPhotoLiveItemAdapter);
             MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
             msgActivityViewItemAdapter.d0(true);
             msgActivityViewItemAdapter.e0(true);
-            aVar.f46527b.add(msgActivityViewItemAdapter);
+            aVar.f44808b.add(msgActivityViewItemAdapter);
         }
     }
 

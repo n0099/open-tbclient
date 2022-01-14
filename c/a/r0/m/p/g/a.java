@@ -68,12 +68,12 @@ public class a extends d implements c.a.r0.m.p.b, OnGetPoiSearchResultListener, 
 
     /* renamed from: c.a.r0.m.p.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0781a extends RecyclerView.OnScrollListener {
+    public class C0790a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0781a(a aVar) {
+        public C0790a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class a extends d implements c.a.r0.m.p.b, OnGetPoiSearchResultListener, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11673e;
+        public final /* synthetic */ a f11411e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -127,14 +127,14 @@ public class a extends d implements c.a.r0.m.p.b, OnGetPoiSearchResultListener, 
                     return;
                 }
             }
-            this.f11673e = aVar;
+            this.f11411e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f11673e;
+                a aVar = this.f11411e;
                 aVar.a3(aVar.J0, true);
             }
         }
@@ -269,7 +269,7 @@ public class a extends d implements c.a.r0.m.p.b, OnGetPoiSearchResultListener, 
             this.J0.setOnFocusChangeListener(this);
             this.J0.setOnKeyListener(this);
             this.J0.requestFocus();
-            this.M0.addOnScrollListener(new C0781a(this));
+            this.M0.addOnScrollListener(new C0790a(this));
             this.J0.postDelayed(new b(this), 100L);
         }
     }
@@ -385,7 +385,7 @@ public class a extends d implements c.a.r0.m.p.b, OnGetPoiSearchResultListener, 
             return;
         }
         g.b i2 = V.i("navigateTo");
-        i2.n(g.f6540g, g.f6542i);
+        i2.n(g.f6399g, g.f6401i);
         i2.j(this);
         i2.b();
     }

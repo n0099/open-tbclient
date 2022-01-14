@@ -33,11 +33,11 @@ public class MiPushClient4VR {
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
             ie ieVar = new ie();
             ieVar.c(hp.O.f514a);
-            ieVar.b(b.m163a(context).m164a());
+            ieVar.b(b.m175a(context).m176a());
             ieVar.d(context.getPackageName());
             ieVar.a("data", str);
             ieVar.a(com.xiaomi.push.service.at.a());
-            an.a(context).a((an) ieVar, hf.f63551i, (hs) null);
+            an.a(context).a((an) ieVar, hf.f61166i, (hs) null);
         }
     }
 }

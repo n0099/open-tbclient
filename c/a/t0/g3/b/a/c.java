@@ -17,13 +17,13 @@ public class c extends AsyncTask<Void, Void, String> {
     public Camera a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f18379b;
+    public byte[] f17928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f18380c;
+    public a f17929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18381d;
+    public int f17930d;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -46,9 +46,9 @@ public class c extends AsyncTask<Void, Void, String> {
             }
         }
         this.a = camera;
-        this.f18379b = bArr;
-        this.f18380c = aVar;
-        this.f18381d = i2;
+        this.f17928b = bArr;
+        this.f17929c = aVar;
+        this.f17930d = i2;
     }
 
     public void a() {
@@ -83,12 +83,12 @@ public class c extends AsyncTask<Void, Void, String> {
             Camera.Size previewSize = parameters.getPreviewSize();
             int i2 = previewSize.width;
             int i3 = previewSize.height;
-            byte[] bArr = this.f18379b;
-            if (this.f18381d == 0) {
+            byte[] bArr = this.f17928b;
+            if (this.f17930d == 0) {
                 bArr = new byte[bArr.length];
                 for (int i4 = 0; i4 < i3; i4++) {
                     for (int i5 = 0; i5 < i2; i5++) {
-                        bArr[(((i5 * i3) + i3) - i4) - 1] = this.f18379b[(i4 * i2) + i5];
+                        bArr[(((i5 * i3) + i3) - i4) - 1] = this.f17928b[(i4 * i2) + i5];
                     }
                 }
                 i2 = i3;
@@ -96,15 +96,15 @@ public class c extends AsyncTask<Void, Void, String> {
             }
             try {
                 try {
-                    if (this.f18380c == null) {
+                    if (this.f17929c == null) {
                         return null;
                     }
-                    return this.f18380c.processData(bArr, i2, i3, false);
+                    return this.f17929c.processData(bArr, i2, i3, false);
                 } catch (Exception unused) {
                     return null;
                 }
             } catch (Exception unused2) {
-                return this.f18380c.processData(bArr, i2, i3, true);
+                return this.f17929c.processData(bArr, i2, i3, true);
             }
         }
         return (String) invokeL.objValue;
@@ -129,7 +129,7 @@ public class c extends AsyncTask<Void, Void, String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onCancelled();
-            this.f18380c = null;
+            this.f17929c = null;
         }
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -51,9 +51,9 @@ public class a {
             for (String str : list) {
                 if (!TextUtils.isEmpty(str)) {
                     File file = new File(str);
-                    File k2 = u.k(file.getName());
-                    if (u.b(file, k2, (int) (100.0f * f2))) {
-                        arrayList.add(k2);
+                    File k = u.k(file.getName());
+                    if (u.b(file, k, (int) (100.0f * f2))) {
+                        arrayList.add(k);
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class a {
                         if (v0) {
                             J = n.Z(next.getAbsolutePath());
                         } else {
-                            J = c.a.r0.a.o2.b.J(next.getAbsolutePath(), eVar.f5660f);
+                            J = c.a.r0.a.o2.b.J(next.getAbsolutePath(), eVar.f5537f);
                         }
                         if (a) {
                             String str = "isSwanGame: " + v0 + "; path: " + J;

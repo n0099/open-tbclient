@@ -939,7 +939,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.H = true;
                     cardPersonDynamicThreadData.G = true;
-                    long j2 = cardPersonDynamicThreadData.f43970k * 1000;
+                    long j2 = cardPersonDynamicThreadData.k * 1000;
                     String yearBytime2 = StringHelper.getYearBytime(j2);
                     String chineseMonthBytime = StringHelper.getChineseMonthBytime(j2);
                     String dateBytime = StringHelper.getDateBytime(j2);
@@ -1062,11 +1062,11 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst().getApp());
+            int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst().getApp());
             int i2 = c.a.d.f.p.n.i(TbadkCoreApplication.getInst().getApp());
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
-            userPostPageRequestMessage.set_scr_w(k2);
+            userPostPageRequestMessage.set_scr_w(k);
             userPostPageRequestMessage.set_scr_h(i2);
             userPostPageRequestMessage.set_scr_dip(f2);
             userPostPageRequestMessage.set_q_type(i3);
@@ -1199,11 +1199,11 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst().getApp());
+            int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst().getApp());
             int i3 = c.a.d.f.p.n.i(TbadkCoreApplication.getInst().getApp());
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i4 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
-            userPostPageRequestMessage.set_scr_w(k2);
+            userPostPageRequestMessage.set_scr_w(k);
             userPostPageRequestMessage.set_scr_h(i3);
             userPostPageRequestMessage.set_scr_dip(f2);
             userPostPageRequestMessage.set_q_type(i4);

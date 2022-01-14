@@ -46,7 +46,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f32155e;
+        public final /* synthetic */ BdBaseActivity f31144e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f32155e = bdBaseActivity;
+            this.f31144e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f32155e;
+                BdBaseActivity bdBaseActivity = this.f31144e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }
@@ -177,7 +177,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             c.a.d.a.a.b(this);
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.g().o(getPageContext().getPageActivity());
+            b.f().n(getPageContext().getPageActivity());
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -190,7 +190,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
-            b.g().m(getPageContext().getPageActivity());
+            b.f().l(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
@@ -356,7 +356,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            n.M(getApplicationContext(), str);
+            n.N(getApplicationContext(), str);
         }
     }
 

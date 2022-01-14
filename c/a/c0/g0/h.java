@@ -1,105 +1,381 @@
 package c.a.c0.g0;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
-public final class h {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int abc_action_bar_title_item = 2131492864;
-    public static final int abc_action_bar_up_container = 2131492865;
-    public static final int abc_action_menu_item_layout = 2131492866;
-    public static final int abc_action_menu_layout = 2131492867;
-    public static final int abc_action_mode_bar = 2131492868;
-    public static final int abc_action_mode_close_item_material = 2131492869;
-    public static final int abc_activity_chooser_view = 2131492870;
-    public static final int abc_activity_chooser_view_list_item = 2131492871;
-    public static final int abc_alert_dialog_button_bar_material = 2131492872;
-    public static final int abc_alert_dialog_material = 2131492873;
-    public static final int abc_alert_dialog_title_material = 2131492874;
-    public static final int abc_cascading_menu_item_layout = 2131492875;
-    public static final int abc_dialog_title_material = 2131492876;
-    public static final int abc_expanded_menu_layout = 2131492877;
-    public static final int abc_list_menu_item_checkbox = 2131492878;
-    public static final int abc_list_menu_item_icon = 2131492879;
-    public static final int abc_list_menu_item_layout = 2131492880;
-    public static final int abc_list_menu_item_radio = 2131492881;
-    public static final int abc_popup_menu_header_item_layout = 2131492882;
-    public static final int abc_popup_menu_item_layout = 2131492883;
-    public static final int abc_screen_content_include = 2131492884;
-    public static final int abc_screen_simple = 2131492885;
-    public static final int abc_screen_simple_overlay_action_mode = 2131492886;
-    public static final int abc_screen_toolbar = 2131492887;
-    public static final int abc_search_dropdown_item_icons_2line = 2131492888;
-    public static final int abc_search_view = 2131492889;
-    public static final int abc_select_dialog_material = 2131492890;
-    public static final int abc_tooltip = 2131492891;
-    public static final int custom_dialog = 2131493389;
-    public static final int nad_activity_ad_web = 2131494328;
-    public static final int nad_bd_embeded_net_tips_layout = 2131494330;
-    public static final int nad_bd_layer_control_bg = 2131494331;
-    public static final int nad_bd_layer_poster_layout = 2131494332;
-    public static final int nad_bd_layer_seek_bar = 2131494333;
-    public static final int nad_bdvideoplayer_layout_kernel_error = 2131494334;
-    public static final int nad_bdvideoplayer_layout_net_error = 2131494335;
-    public static final int nad_bdvideoplayer_seek_bar_view = 2131494336;
-    public static final int nad_browser_http_authentication = 2131494337;
-    public static final int nad_browser_video_loading_progress = 2131494338;
-    public static final int nad_bubble_tip = 2131494339;
-    public static final int nad_bubble_tip_d20 = 2131494340;
-    public static final int nad_call_action_loading_dialog = 2131494341;
-    public static final int nad_custom_dialog_layout = 2131494343;
-    public static final int nad_dialog_menu_new_dislike = 2131494344;
-    public static final int nad_enhance_button_view = 2131494348;
-    public static final int nad_feed_base_title = 2131494349;
-    public static final int nad_feed_big_image = 2131494350;
-    public static final int nad_feed_video = 2131494351;
-    public static final int nad_interaction_view = 2131494354;
-    public static final int nad_item_hv_dialog = 2131494355;
-    public static final int nad_item_menu_new_dislike = 2131494356;
-    public static final int nad_js_prompt = 2131494357;
-    public static final int nad_layer_debug_info_layout = 2131494358;
-    public static final int nad_light_browser_activity = 2131494359;
-    public static final int nad_light_browser_geolocation_dialog = 2131494360;
-    public static final int nad_mini_video_ad_info_view = 2131494361;
-    public static final int nad_mini_video_control_layer = 2131494362;
-    public static final int nad_mini_video_detail_ad_item_over_info = 2131494363;
-    public static final int nad_ngwebview_copy_search_view = 2131494365;
-    public static final int nad_operate_app_info_layout = 2131494366;
-    public static final int nad_operate_app_info_view = 2131494367;
-    public static final int nad_operate_command = 2131494368;
-    public static final int nad_operate_download = 2131494369;
-    public static final int nad_operate_recommend = 2131494370;
-    public static final int nad_portrait_video = 2131494371;
-    public static final int nad_portrait_video_container = 2131494372;
-    public static final int nad_portrait_video_tail_view = 2131494373;
-    public static final int nad_single_image = 2131494380;
-    public static final int nad_single_image_for_img_right = 2131494381;
-    public static final int nad_ssl_certificate = 2131494382;
-    public static final int nad_ssl_content_header = 2131494383;
-    public static final int nad_tpl_triple_image = 2131494384;
-    public static final int nad_videoplayer_bd_layer_control_bottom_view = 2131494386;
-    public static final int nad_videoplayer_bd_layer_control_landscape_bottom_view = 2131494387;
-    public static final int nad_videoplayer_bd_layer_control_titlebar_layout = 2131494388;
-    public static final int nad_videoplayer_bd_layer_local_bottom_view = 2131494389;
-    public static final int nad_videoplayer_bd_local_video_title = 2131494390;
-    public static final int nad_videoplayer_bd_video_control_bottom_bar_view = 2131494391;
-    public static final int nad_videoplayer_bd_video_detail_control_bottom_bar_view = 2131494392;
-    public static final int nad_videoplayer_bd_video_layer_control_landscape_bottom_view = 2131494393;
-    public static final int nad_view_hv_dialog = 2131494394;
-    public static final int nad_view_safe_dialog = 2131494395;
-    public static final int nad_view_ssl_certificate_dialog = 2131494396;
-    public static final int nad_web_view_titlebar = 2131494397;
-    public static final int nad_widget_errorview = 2131494398;
-    public static final int nad_widget_loadingview = 2131494399;
-    public static final int notification_action = 2131494467;
-    public static final int notification_action_tombstone = 2131494468;
-    public static final int notification_template_custom_big = 2131494475;
-    public static final int notification_template_icon_group = 2131494476;
-    public static final int notification_template_part_chronometer = 2131494480;
-    public static final int notification_template_part_time = 2131494481;
-    public static final int select_dialog_item_material = 2131494785;
-    public static final int select_dialog_multichoice_material = 2131494786;
-    public static final int select_dialog_singlechoice_material = 2131494787;
-    public static final int support_simple_spinner_dropdown_item = 2131494876;
+public class h {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1412378877, "Lc/a/c0/g0/h;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1412378877, "Lc/a/c0/g0/h;");
+        }
+    }
+
+    public static long a(File file, File file2) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
+            long j2 = 0;
+            if (file == null || file2 == null || !file.exists()) {
+                return 0L;
+            }
+            FileInputStream fileInputStream2 = null;
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    fileOutputStream = new FileOutputStream(file2);
+                } catch (Exception e2) {
+                    e = e2;
+                    fileOutputStream = null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
+            }
+            try {
+                j2 = b(fileInputStream, fileOutputStream);
+                c.a.c0.h.d.a(fileInputStream);
+            } catch (Exception e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                try {
+                    e.printStackTrace();
+                    c.a.c0.h.d.a(fileInputStream2);
+                    c.a.c0.h.d.a(fileOutputStream);
+                    return j2;
+                } catch (Throwable th3) {
+                    th = th3;
+                    c.a.c0.h.d.a(fileInputStream2);
+                    c.a.c0.h.d.a(fileOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                fileInputStream2 = fileInputStream;
+                c.a.c0.h.d.a(fileInputStream2);
+                c.a.c0.h.d.a(fileOutputStream);
+                throw th;
+            }
+            c.a.c0.h.d.a(fileOutputStream);
+            return j2;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static long b(InputStream inputStream, FileOutputStream fileOutputStream) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, fileOutputStream)) == null) {
+            if (inputStream != null && fileOutputStream != null) {
+                try {
+                    byte[] bArr = new byte[3072];
+                    long j2 = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            fileOutputStream.write(bArr, 0, read);
+                            j2 += read;
+                        } else {
+                            fileOutputStream.flush();
+                            return j2;
+                        }
+                    }
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return 0L;
+        }
+        return invokeLL.longValue;
+    }
+
+    @Nullable
+    public static String c(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String decode = Uri.decode(str);
+            if (decode != null) {
+                int indexOf = decode.indexOf(63);
+                if (indexOf > 0) {
+                    decode = decode.substring(0, indexOf);
+                }
+                if (!decode.endsWith("/") && (lastIndexOf = decode.lastIndexOf(47) + 1) > 0) {
+                    return decode.substring(lastIndexOf);
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String d(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Throwable th;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            String str = null;
+            if (file == null) {
+                return null;
+            }
+            System.currentTimeMillis();
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    try {
+                        StringBuilder sb = new StringBuilder();
+                        while (true) {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                            sb.append(StringUtils.LF);
+                        }
+                        str = sb.toString();
+                    } catch (IOException unused) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        g(fileInputStream);
+                        g(bufferedReader);
+                        throw th;
+                    }
+                } catch (IOException unused2) {
+                    bufferedReader = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader = null;
+                }
+            } catch (IOException unused3) {
+                bufferedReader = null;
+                fileInputStream = null;
+            } catch (Throwable th4) {
+                fileInputStream = null;
+                th = th4;
+                bufferedReader = null;
+            }
+            g(fileInputStream);
+            g(bufferedReader);
+            System.currentTimeMillis();
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return d(c.a.c0.h.a.b().getFileStreamPath(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static byte[] f(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, file)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        if (file == null) {
+            return new byte[0];
+        }
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        try {
+            if (!file.exists()) {
+                byte[] bArr = new byte[0];
+                c.a.c0.h.d.a(null);
+                c.a.c0.h.d.a(null);
+                return bArr;
+            }
+            fileInputStream = new FileInputStream(file);
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+            } catch (IOException unused) {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr2 = new byte[32768];
+                while (true) {
+                    int read = fileInputStream.read(bArr2);
+                    if (read != -1) {
+                        byteArrayOutputStream.write(bArr2, 0, read);
+                    } else {
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        c.a.c0.h.d.a(byteArrayOutputStream);
+                        c.a.c0.h.d.a(fileInputStream);
+                        return byteArray;
+                    }
+                }
+            } catch (IOException unused2) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                c.a.c0.h.d.a(byteArrayOutputStream2);
+                c.a.c0.h.d.a(fileInputStream);
+                return new byte[0];
+            } catch (Throwable th2) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                th = th2;
+                c.a.c0.h.d.a(byteArrayOutputStream2);
+                c.a.c0.h.d.a(fileInputStream);
+                throw th;
+            }
+        } catch (IOException unused3) {
+            fileInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
+        }
+    }
+
+    public static void g(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+        }
+    }
+
+    public static boolean h(byte[] bArr, File file) {
+        InterceptResult invokeLL;
+        BufferedOutputStream bufferedOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, bArr, file)) != null) {
+            return invokeLL.booleanValue;
+        }
+        if (file == null) {
+            return false;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            if (!file.exists() && !file.createNewFile()) {
+                c.a.c0.h.d.a(null);
+                c.a.c0.h.d.a(null);
+                return false;
+            }
+            FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+            try {
+                bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
+            } catch (Throwable unused) {
+                bufferedOutputStream = null;
+            }
+            try {
+                bufferedOutputStream.write(bArr);
+                fileOutputStream2.flush();
+                bufferedOutputStream.flush();
+                c.a.c0.h.d.a(fileOutputStream2);
+                c.a.c0.h.d.a(bufferedOutputStream);
+                return true;
+            } catch (Throwable unused2) {
+                fileOutputStream = fileOutputStream2;
+                c.a.c0.h.d.a(fileOutputStream);
+                c.a.c0.h.d.a(bufferedOutputStream);
+                return false;
+            }
+        } catch (Throwable unused3) {
+            bufferedOutputStream = null;
+        }
+    }
+
+    public static boolean i(String str, String str2) {
+        InterceptResult invokeLL;
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream = null;
+                try {
+                    FileOutputStream openFileOutput = c.a.c0.h.a.b().openFileOutput(str2, 0);
+                    try {
+                        bufferedWriter = new BufferedWriter(new OutputStreamWriter(openFileOutput));
+                    } catch (IOException unused) {
+                        bufferedWriter = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedWriter = null;
+                    }
+                    try {
+                        bufferedWriter.write(str);
+                        bufferedWriter.flush();
+                        g(openFileOutput);
+                        g(bufferedWriter);
+                        return true;
+                    } catch (IOException unused2) {
+                        fileOutputStream = openFileOutput;
+                        g(fileOutputStream);
+                        g(bufferedWriter);
+                        return false;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = openFileOutput;
+                        g(fileOutputStream);
+                        g(bufferedWriter);
+                        throw th;
+                    }
+                } catch (IOException unused3) {
+                    bufferedWriter = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedWriter = null;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 }

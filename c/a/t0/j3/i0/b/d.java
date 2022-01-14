@@ -16,16 +16,16 @@ public class d {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f18869b;
+    public double f18399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f18870c;
+    public List<String> f18400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18871d;
+    public int f18401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18872e;
+    public int f18402e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class d {
             }
             d dVar = new d();
             dVar.a = jSONObject.optInt("label_measure") == 2;
-            dVar.f18869b = jSONObject.optDouble("show_width_scale", 1.0d);
+            dVar.f18399b = jSONObject.optDouble("show_width_scale", 1.0d);
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
             if (optJSONArray != null) {
@@ -62,9 +62,9 @@ public class d {
                     }
                 }
             }
-            dVar.f18870c = arrayList;
-            dVar.f18871d = jSONObject.optInt("width");
-            dVar.f18872e = jSONObject.optInt("height");
+            dVar.f18400c = arrayList;
+            dVar.f18401d = jSONObject.optInt("width");
+            dVar.f18402e = jSONObject.optInt("height");
             return dVar;
         }
         return (d) invokeL.objValue;

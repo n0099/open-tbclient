@@ -49,7 +49,7 @@ public class d {
         reportAction.aW = z;
         reportAction.aX = str;
         if (ksScene instanceof SceneImpl) {
-            reportAction.f58217b = (SceneImpl) ksScene;
+            reportAction.f56017b = (SceneImpl) ksScene;
         }
         f.a(reportAction);
     }
@@ -120,21 +120,21 @@ public class d {
     public static void a(com.kwad.sdk.h.a.b bVar) {
         ReportAction reportAction = new ReportAction(10215L);
         reportAction.bl = bVar.a;
-        reportAction.bp = bVar.f59190b;
-        reportAction.bm = bVar.f59191c;
-        reportAction.bn = bVar.f59192d;
+        reportAction.bp = bVar.f56962b;
+        reportAction.bm = bVar.f56963c;
+        reportAction.bn = bVar.f56964d;
         f.a(reportAction);
     }
 
     public static void a(SceneImpl sceneImpl, com.kwad.sdk.core.network.a.a aVar) {
         ReportAction reportAction = new ReportAction(10214L);
-        reportAction.f58217b = sceneImpl;
-        reportAction.bf = aVar.f58079g;
+        reportAction.f56017b = sceneImpl;
+        reportAction.bf = aVar.f55883g;
         reportAction.bg = aVar.a;
-        reportAction.bh = aVar.f58075c;
-        reportAction.bi = aVar.f58076d;
-        reportAction.bj = aVar.f58077e;
-        reportAction.bk = aVar.f58078f;
+        reportAction.bh = aVar.f55879c;
+        reportAction.bi = aVar.f55880d;
+        reportAction.bj = aVar.f55881e;
+        reportAction.bk = aVar.f55882f;
         f.a(reportAction);
     }
 

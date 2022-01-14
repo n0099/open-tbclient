@@ -16,7 +16,7 @@ public final class e extends d implements l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Pipe f28791e;
+    public final Pipe f27908e;
 
     public e(long j2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class e extends d implements l {
             }
         }
         Pipe pipe = new Pipe(8192L);
-        this.f28791e = pipe;
+        this.f27908e = pipe;
         f(Okio.buffer(pipe.sink()), j2);
     }
 
@@ -43,7 +43,7 @@ public final class e extends d implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bufferedSink) == null) {
             Buffer buffer = new Buffer();
-            while (this.f28791e.source().read(buffer, 8192L) != -1) {
+            while (this.f27908e.source().read(buffer, 8192L) != -1) {
                 bufferedSink.write(buffer, buffer.size());
             }
         }

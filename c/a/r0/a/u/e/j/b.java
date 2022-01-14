@@ -28,19 +28,19 @@ public class b extends c.a.r0.a.u.e.j.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9336e;
+        public final /* synthetic */ int f9133e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.d f9337f;
+        public final /* synthetic */ c.a.r0.a.h0.g.d f9134f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f9338g;
+        public final /* synthetic */ g f9135g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g.b f9339h;
+        public final /* synthetic */ g.b f9136h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f9340i;
+        public final /* synthetic */ b f9137i;
 
         public a(b bVar, int i2, c.a.r0.a.h0.g.d dVar, g gVar, g.b bVar2) {
             Interceptable interceptable = $ic;
@@ -57,21 +57,21 @@ public class b extends c.a.r0.a.u.e.j.a {
                     return;
                 }
             }
-            this.f9340i = bVar;
-            this.f9336e = i2;
-            this.f9337f = dVar;
-            this.f9338g = gVar;
-            this.f9339h = bVar2;
+            this.f9137i = bVar;
+            this.f9133e = i2;
+            this.f9134f = dVar;
+            this.f9135g = gVar;
+            this.f9136h = bVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f9336e > 1 && !this.f9337f.H0) {
-                    c.a.r0.a.z2.g.b(this.f9338g, this.f9340i.getContext(), 1);
+                if (this.f9133e > 1 && !this.f9134f.H0) {
+                    c.a.r0.a.z2.g.b(this.f9135g, this.f9137i.getContext(), 1);
                 }
-                this.f9339h.a();
+                this.f9136h.a();
             }
         }
     }
@@ -147,13 +147,13 @@ public class b extends c.a.r0.a.u.e.j.a {
                 c.a.r0.a.e0.d.c("NavigateBackApi", "manager is null");
                 return new c.a.r0.a.u.h.b(1001, "manager is null");
             }
-            int k2 = V.k();
-            if (k2 == 1) {
+            int k = V.k();
+            if (k == 1) {
                 c.a.r0.a.e0.d.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
                 return new c.a.r0.a.u.h.b(1001, "navigateBack api can only work when slave's count greater than 1");
             }
-            if (i2 >= k2) {
-                i2 = k2 - 1;
+            if (i2 >= k) {
+                i2 = k - 1;
             }
             c.a.r0.a.m1.b f2 = c.a.r0.a.n2.i.f(uuid, i2);
             c.a.r0.a.h0.g.d m = V.m();
@@ -166,9 +166,9 @@ public class b extends c.a.r0.a.u.e.j.a {
             } else {
                 i.c(i3, uuid);
                 g.b i4 = V.i(str);
-                i4.n(g.f6542i, g.f6541h);
+                i4.n(g.f6401i, g.f6400h);
                 i4.h(i2);
-                q0.a0(new a(this, k2, m, V, i4));
+                q0.a0(new a(this, k, m, V, i4));
                 c.a.r0.a.h0.g.f o = V.o();
                 c.a.r0.a.m1.b g3 = o == null ? null : o.g3();
                 h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, uuid).F(new UbcFlowEvent("na_push_page_end"));

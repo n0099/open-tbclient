@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
 import c.a.s0.e1.s;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import c.a.s0.s.s.c;
 import c.a.t0.x.e.a.a;
 import com.baidu.adp.framework.MessageManager;
@@ -52,7 +52,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public final /* synthetic */ c.a.t0.s1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f43346b;
+        public final /* synthetic */ NewFriendsActivity f41793b;
 
         public a(NewFriendsActivity newFriendsActivity, c.a.t0.s1.g.a aVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f43346b = newFriendsActivity;
+            this.f41793b = newFriendsActivity;
             this.a = aVar;
         }
 
@@ -90,7 +90,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public final /* synthetic */ c.a.t0.s1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f43347b;
+        public final /* synthetic */ NewFriendsActivity f41794b;
 
         public b(NewFriendsActivity newFriendsActivity, c.a.t0.s1.g.a aVar) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f43347b = newFriendsActivity;
+            this.f41794b = newFriendsActivity;
             this.a = aVar;
         }
 
@@ -117,7 +117,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool.booleanValue()) {
-                this.f43347b.mView.f(this.a);
+                this.f41794b.mView.f(this.a);
             }
         }
     }
@@ -128,7 +128,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f43348e;
+        public final /* synthetic */ NewFriendsActivity f41795e;
 
         public c(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -145,16 +145,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f43348e = newFriendsActivity;
+            this.f41795e = newFriendsActivity;
         }
 
-        @Override // c.a.s0.s.i0.f.g
+        @Override // c.a.s0.s.j0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || z) {
                 return;
             }
-            this.f43348e.loadNewFriendList();
+            this.f41795e.loadNewFriendList();
         }
     }
 
@@ -540,13 +540,13 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes12.dex */
-    public class n implements c.InterfaceC0871c {
+    public class n implements c.InterfaceC0884c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c.a.t0.s1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f43349b;
+        public final /* synthetic */ NewFriendsActivity f41796b;
 
         public n(NewFriendsActivity newFriendsActivity, c.a.t0.s1.g.a aVar) {
             Interceptable interceptable = $ic;
@@ -563,18 +563,18 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f43349b = newFriendsActivity;
+            this.f41796b = newFriendsActivity;
             this.a = aVar;
         }
 
-        @Override // c.a.s0.s.s.c.InterfaceC0871c
+        @Override // c.a.s0.s.s.c.InterfaceC0884c
         public void a(c.a.s0.s.s.c cVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) {
                 cVar.e();
                 c.a.t0.s1.g.a aVar = this.a;
                 if (aVar != null) {
-                    this.f43349b.deleteNewFriend(aVar);
+                    this.f41796b.deleteNewFriend(aVar);
                 }
             }
         }

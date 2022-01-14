@@ -19,7 +19,7 @@ public interface q0<K, V> {
 
     boolean equals(Object obj);
 
-    Collection<V> get(K k2);
+    Collection<V> get(K k);
 
     int hashCode();
 
@@ -29,17 +29,17 @@ public interface q0<K, V> {
 
     s0<K> keys();
 
-    boolean put(K k2, V v);
+    boolean put(K k, V v);
 
     boolean putAll(q0<? extends K, ? extends V> q0Var);
 
-    boolean putAll(K k2, Iterable<? extends V> iterable);
+    boolean putAll(K k, Iterable<? extends V> iterable);
 
     boolean remove(Object obj, Object obj2);
 
     Collection<V> removeAll(Object obj);
 
-    Collection<V> replaceValues(K k2, Iterable<? extends V> iterable);
+    Collection<V> replaceValues(K k, Iterable<? extends V> iterable);
 
     int size();
 

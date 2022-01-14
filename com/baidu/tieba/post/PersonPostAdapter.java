@@ -19,10 +19,10 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f49245b;
+    public PersonThreadFragment f47393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f49246c;
+    public PersonReplyFragment f47394c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
@@ -47,14 +47,14 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f49246c = personReplyFragment;
+        this.f47394c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f49246c.setNoNetRefreshListener(personPostActivity);
+        this.f47394c.setNoNetRefreshListener(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f49245b = personThreadFragment;
+        this.f47393b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f49245b.setNoNetRefreshListener(personPostActivity);
-        this.f49245b.setNavigationBarRedTipListener(personPostActivity);
+        this.f47393b.setNoNetRefreshListener(personPostActivity);
+        this.f47393b.setNavigationBarRedTipListener(personPostActivity);
         this.a = new int[]{0, 1};
     }
 
@@ -77,9 +77,9 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
                 if (i2 != 1) {
                     return null;
                 }
-                return this.f49246c;
+                return this.f47394c;
             }
-            return this.f49245b;
+            return this.f47393b;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -93,6 +93,6 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public PersonThreadFragment getPersonThreadFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49245b : (PersonThreadFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47393b : (PersonThreadFragment) invokeV.objValue;
     }
 }

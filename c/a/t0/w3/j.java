@@ -14,7 +14,7 @@ public class j {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25543b;
+    public int f24828b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25543b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24828b == 1 : invokeV.booleanValue;
     }
 
     public void c(BusinessPromotCommentList businessPromotCommentList) {
@@ -50,6 +50,6 @@ public class j {
         this.a = businessPromotCommentList.title;
         String str = businessPromotCommentList.username;
         businessPromotCommentList.uid.longValue();
-        this.f25543b = businessPromotCommentList.is_lz.intValue();
+        this.f24828b = businessPromotCommentList.is_lz.intValue();
     }
 }

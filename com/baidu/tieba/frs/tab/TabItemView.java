@@ -13,7 +13,7 @@ import c.a.t0.d1.d1;
 import c.a.t0.d1.e1;
 import c.a.t0.d1.o1;
 import c.a.t0.d1.p1;
-import c.a.t0.d1.w2.e;
+import c.a.t0.d1.x2.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,16 +34,16 @@ public class TabItemView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f45360e;
+    public e f43712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45361f;
+    public int f43713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45362g;
+    public boolean f43714g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45363h;
+    public int f43715h;
 
     static {
         InterceptResult invokeClinit;
@@ -78,10 +78,10 @@ public class TabItemView extends TextView {
                 return;
             }
         }
-        this.f45361f = STATE_UNCHECKED;
-        this.f45363h = 0;
-        this.f45360e = eVar;
-        this.f45362g = z;
+        this.f43713f = STATE_UNCHECKED;
+        this.f43715h = 0;
+        this.f43712e = eVar;
+        this.f43714g = z;
         a(context, i2);
     }
 
@@ -103,7 +103,7 @@ public class TabItemView extends TextView {
     public final void a(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            if (this.f45362g) {
+            if (this.f43714g) {
                 setPadding(0, n.f(getContext(), d1.tbds20), 0, 0);
                 setTextSize(0, n.f(context, d1.tbds42));
             } else {
@@ -111,7 +111,7 @@ public class TabItemView extends TextView {
             }
             setSingleLine();
             setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
-            e eVar = this.f45360e;
+            e eVar = this.f43712e;
             if (eVar != null) {
                 setText(eVar.a);
             }
@@ -122,7 +122,7 @@ public class TabItemView extends TextView {
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setState(this.f45361f);
+            setState(this.f43713f);
         }
     }
 
@@ -143,18 +143,18 @@ public class TabItemView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45361f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43713f : invokeV.intValue;
     }
 
     public int getTabId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            e eVar = this.f45360e;
+            e eVar = this.f43712e;
             if (eVar == null) {
                 return -1;
             }
-            return eVar.f17046b;
+            return eVar.f16765b;
         }
         return invokeV.intValue;
     }
@@ -163,11 +163,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            e eVar = this.f45360e;
+            e eVar = this.f43712e;
             if (eVar == null) {
                 return null;
             }
-            return eVar.f17048d;
+            return eVar.f16767d;
         }
         return (String) invokeV.objValue;
     }
@@ -190,7 +190,7 @@ public class TabItemView extends TextView {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int spaceWidth = getSpaceWidth();
             if (spaceWidth >= 0) {
-                if (this.f45362g) {
+                if (this.f43714g) {
                     setPadding(0, n.f(getContext(), d1.ds16), spaceWidth, 0);
                 } else {
                     setPadding(0, 0, spaceWidth, 0);
@@ -203,14 +203,14 @@ public class TabItemView extends TextView {
     public void setForNewFrame(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f45362g = z;
+            this.f43714g = z;
         }
     }
 
     public void setSelectItemColorResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f45363h = i2;
+            this.f43715h = i2;
         }
     }
 
@@ -219,10 +219,10 @@ public class TabItemView extends TextView {
         List<o1> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            e eVar = this.f45360e;
-            if (eVar != null && (p1Var = eVar.f17047c) != null && (list = p1Var.f16663b) != null && list.size() > 0) {
+            e eVar = this.f43712e;
+            if (eVar != null && (p1Var = eVar.f16766c) != null && (list = p1Var.f16353b) != null && list.size() > 0) {
                 int i3 = -n.f(getContext(), d1.tbds20);
-                if (!this.f45362g) {
+                if (!this.f43714g) {
                     i3 = 0;
                 }
                 if (i2 == STATE_EXPANDED) {
@@ -236,13 +236,13 @@ public class TabItemView extends TextView {
                 }
                 setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(d1.tbds20));
             }
-            if (this.f45362g) {
+            if (this.f43714g) {
                 SkinManager.setViewTextColor(this, c1.CAM_X0105, 1);
             } else {
                 if (i2 != STATE_CHECKED && i2 != STATE_EXPANDED) {
                     SkinManager.setViewTextColor(this, c1.CAM_X0106, 1);
                 } else {
-                    int i4 = this.f45363h;
+                    int i4 = this.f43715h;
                     if (i4 == 0) {
                         SkinManager.setViewTextColor(this, c1.CAM_X0302, 1);
                     } else {
@@ -251,7 +251,7 @@ public class TabItemView extends TextView {
                 }
                 setGravity(17);
             }
-            this.f45361f = i2;
+            this.f43713f = i2;
             invalidate();
         }
     }

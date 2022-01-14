@@ -14,7 +14,7 @@ public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
     public static final String a = "PhoneNumberEditTextPasteFilter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52930b = "86";
+    public static final String f50889b = "86";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

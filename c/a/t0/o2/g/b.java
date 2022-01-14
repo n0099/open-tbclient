@@ -34,37 +34,37 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f21425b;
+    public final BdUniqueId f20858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f21426c;
+    public Gson f20859c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f21427d;
+    public d f20860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f21428e;
+    public c f20861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.t0.o2.c.b> f21429f;
+    public List<c.a.t0.o2.c.b> f20862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21430g;
+    public boolean f20863g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f21431h;
+    public c.a.d.c.g.a f20864h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpMessageListener f21432i;
+    public HttpMessageListener f20865i;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,11 +96,11 @@ public class b {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f21430g = false;
+                this.a.f20863g = false;
                 if (responsedMessage == null) {
                     return;
                 }
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.f21425b) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.f20858b) {
                     c.a.t0.o2.c.c cVar = null;
                     if (responsedMessage instanceof InterestedForumHttpResMsg) {
                         cVar = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
@@ -108,17 +108,17 @@ public class b {
                         cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() != 0) {
-                        if (this.a.f21427d != null) {
-                            this.a.f21427d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        if (this.a.f20860d != null) {
+                            this.a.f20860d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         }
                     } else if (cVar == null || ListUtils.isEmpty(cVar.a)) {
-                        if (this.a.f21427d != null) {
-                            this.a.f21427d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                        if (this.a.f20860d != null) {
+                            this.a.f20860d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
-                    } else if (cVar == null || this.a.f21427d == null) {
+                    } else if (cVar == null || this.a.f20860d == null) {
                     } else {
                         b.c(this.a);
-                        this.a.f21427d.c(cVar);
+                        this.a.f20860d.c(cVar);
                     }
                 }
             }
@@ -126,14 +126,14 @@ public class b {
     }
 
     /* renamed from: c.a.t0.o2.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1291b extends HttpMessageListener {
+    /* loaded from: classes8.dex */
+    public class C1305b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1291b(b bVar, int i2) {
+        public C1305b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -160,29 +160,29 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.a.f21425b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
+            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.a.f20858b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                 InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                 if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                    if (this.a.f21427d != null) {
-                        this.a.f21427d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (this.a.f20860d != null) {
+                        this.a.f20860d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                if (this.a.f21428e != null) {
-                    this.a.f21428e.b();
+                if (this.a.f20861e != null) {
+                    this.a.f20861e.b();
                 }
-                c.a.s0.s.g0.b.j().w("key_select_interest_flag", System.currentTimeMillis());
+                c.a.s0.s.h0.b.k().x("key_select_interest_flag", System.currentTimeMillis());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void b();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         void c(c.a.t0.o2.c.c cVar);
 
@@ -204,15 +204,15 @@ public class b {
                 return;
             }
         }
-        this.f21426c = new Gson();
-        this.f21430g = false;
-        this.f21431h = new a(this, CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
-        this.f21432i = new C1291b(this, CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
-        this.f21425b = bdUniqueId;
-        this.f21431h.setTag(bdUniqueId);
-        this.f21432i.setTag(this.f21425b);
-        MessageManager.getInstance().registerListener(this.f21431h);
-        MessageManager.getInstance().registerListener(this.f21432i);
+        this.f20859c = new Gson();
+        this.f20863g = false;
+        this.f20864h = new a(this, CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
+        this.f20865i = new C1305b(this, CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
+        this.f20858b = bdUniqueId;
+        this.f20864h.setTag(bdUniqueId);
+        this.f20865i.setTag(this.f20858b);
+        MessageManager.getInstance().registerListener(this.f20864h);
+        MessageManager.getInstance().registerListener(this.f20865i);
         o();
         n();
     }
@@ -247,7 +247,7 @@ public class b {
             }
             httpMessage.addParam("interestList", str);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f21425b);
+            httpMessage.setTag(this.f20858b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -257,12 +257,12 @@ public class b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
             String encode = URLEncoder.encode(j(list), "utf-8");
-            if (c.a.s0.b.d.q() && !TbadkCoreApplication.isLogin()) {
-                c.a.s0.s.g0.b.j().x("user_interest_info", encode);
+            if (c.a.s0.b.d.n() && !TbadkCoreApplication.isLogin()) {
+                c.a.s0.s.h0.b.k().y("user_interest_info", encode);
             }
             httpMessage.addParam("interestList", encode);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f21425b);
+            httpMessage.setTag(this.f20858b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -272,12 +272,12 @@ public class b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
             String encode = URLEncoder.encode(k(list), "utf-8");
-            if (c.a.s0.b.d.q() && !TbadkCoreApplication.isLogin()) {
-                c.a.s0.s.g0.b.j().x("user_interest_info", encode);
+            if (c.a.s0.b.d.n() && !TbadkCoreApplication.isLogin()) {
+                c.a.s0.s.h0.b.k().y("user_interest_info", encode);
             }
             httpMessage.addParam("interestList", encode);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f21425b);
+            httpMessage.setTag(this.f20858b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -287,14 +287,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashMap hashMap = new HashMap();
-            if (!ListUtils.isEmpty(this.f21429f)) {
-                for (c.a.t0.o2.c.b bVar : this.f21429f) {
+            if (!ListUtils.isEmpty(this.f20862f)) {
+                for (c.a.t0.o2.c.b bVar : this.f20862f) {
                     if (bVar != null) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f21426c.toJson(hashMap);
+            return this.f20859c.toJson(hashMap);
         }
         return (String) invokeV.objValue;
     }
@@ -322,21 +322,21 @@ public class b {
             for (c.a.t0.o2.c.a aVar : list) {
                 HashMap hashMap2 = new HashMap();
                 for (g gVar : aVar.a) {
-                    if (gVar.f21423b) {
+                    if (gVar.f20856b) {
                         RecommendForumInfo recommendForumInfo = gVar.a;
                         hashMap2.put(recommendForumInfo.forum_id, recommendForumInfo.forum_name);
                     }
                 }
-                hashMap.put(aVar.f21400c, hashMap2);
+                hashMap.put(aVar.f20834c, hashMap2);
             }
-            if (!ListUtils.isEmpty(this.f21429f)) {
-                for (c.a.t0.o2.c.b bVar : this.f21429f) {
+            if (!ListUtils.isEmpty(this.f20862f)) {
+                for (c.a.t0.o2.c.b bVar : this.f20862f) {
                     if (bVar != null && !hashMap.containsKey(bVar.f())) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f21426c.toJson(hashMap);
+            return this.f20859c.toJson(hashMap);
         }
         return (String) invokeL.objValue;
     }
@@ -365,14 +365,14 @@ public class b {
             if (!StringUtils.isNull(str)) {
                 hashMap.put(str, hashMap2);
             }
-            if (!ListUtils.isEmpty(this.f21429f)) {
-                for (c.a.t0.o2.c.b bVar : this.f21429f) {
+            if (!ListUtils.isEmpty(this.f20862f)) {
+                for (c.a.t0.o2.c.b bVar : this.f20862f) {
                     if (bVar != null && !hashMap.containsKey(bVar.f())) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f21426c.toJson(hashMap);
+            return this.f20859c.toJson(hashMap);
         }
         return (String) invokeL.objValue;
     }
@@ -381,14 +381,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-            List<c.a.t0.o2.c.b> list = this.f21429f;
+            List<c.a.t0.o2.c.b> list = this.f20862f;
             if (list == null) {
                 interestedForumReqMsg.classidList = i(null);
             } else {
                 interestedForumReqMsg.classidList = i(list.subList((this.a - 1) * 3, Math.min(list.size(), this.a * 3)));
             }
-            interestedForumReqMsg.setTag(this.f21425b);
-            this.f21430g = true;
+            interestedForumReqMsg.setTag(this.f20858b);
+            this.f20863g = true;
             MessageManager.getInstance().sendMessage(interestedForumReqMsg);
         }
     }
@@ -396,7 +396,7 @@ public class b {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a - 1) * 3 < this.f21429f.size() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a - 1) * 3 < this.f20862f.size() : invokeV.booleanValue;
     }
 
     public final void n() {
@@ -424,7 +424,7 @@ public class b {
     public void q(List<c.a.t0.o2.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f21429f = list;
+            this.f20862f = list;
             this.a = 1;
         }
     }
@@ -432,14 +432,14 @@ public class b {
     public void r(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f21428e = cVar;
+            this.f20861e = cVar;
         }
     }
 
     public void s(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f21427d = dVar;
+            this.f20860d = dVar;
         }
     }
 }

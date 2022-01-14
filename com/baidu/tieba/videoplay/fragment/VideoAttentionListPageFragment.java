@@ -47,25 +47,23 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoAttentionPageRecomendListAdapter f50828e;
+    public VideoAttentionPageRecomendListAdapter f48897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoItemModel f50829f;
+    public VideoItemModel f48898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50830g;
+    public int f48899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50831h;
+    public int f48900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdRecyclerView f50832i;
+    public BdRecyclerView f48901i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f50833j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f50834k;
+    public View f48902j;
+    public View k;
     public EMTextView l;
     public List<? extends VideoAttentionPersonListData> m;
     public String n;
@@ -117,7 +115,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f50835e;
+        public final /* synthetic */ View f48903e;
 
         public b(View view) {
             Interceptable interceptable = $ic;
@@ -134,7 +132,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                     return;
                 }
             }
-            this.f50835e = view;
+            this.f48903e = view;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -148,7 +146,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                     if (TbSingleton.getInstance().isFromFeedVideoClick()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
                     }
-                    this.f50835e.cancelLongPress();
+                    this.f48903e.cancelLongPress();
                     return true;
                 }
                 return false;
@@ -170,7 +168,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                 return;
             }
         }
-        this.f50830g = -1;
+        this.f48899g = -1;
         this.o = new a(this);
     }
 
@@ -197,33 +195,33 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
     public VideoItemModel getCurrentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50829f : (VideoItemModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48898f : (VideoItemModel) invokeV.objValue;
     }
 
     @Override // c.a.t0.m4.s.b.a
     public int getFragmentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50830g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48899g : invokeV.intValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdRecyclerView bdRecyclerView = this.f50832i;
+            BdRecyclerView bdRecyclerView = this.f48901i;
             VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = null;
             if (bdRecyclerView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("listView");
                 bdRecyclerView = null;
             }
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
-            this.f50828e = new VideoAttentionPageRecomendListAdapter(getContext(), this.f50831h);
-            BdRecyclerView bdRecyclerView2 = this.f50832i;
+            this.f48897e = new VideoAttentionPageRecomendListAdapter(getContext(), this.f48900h);
+            BdRecyclerView bdRecyclerView2 = this.f48901i;
             if (bdRecyclerView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("listView");
                 bdRecyclerView2 = null;
             }
-            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter2 = this.f50828e;
+            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter2 = this.f48897e;
             if (videoAttentionPageRecomendListAdapter2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adapter");
             } else {
@@ -237,20 +235,20 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BdRecyclerView bdRecyclerView = this.f50832i;
+            BdRecyclerView bdRecyclerView = this.f48901i;
             BdRecyclerView bdRecyclerView2 = null;
             if (bdRecyclerView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("listView");
                 bdRecyclerView = null;
             }
             if (bdRecyclerView.getFirstVisiblePosition() == 0) {
-                View view = this.f50833j;
+                View view = this.f48902j;
                 if (view == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("headerView");
                     view = null;
                 }
                 int top = view.getTop();
-                BdRecyclerView bdRecyclerView3 = this.f50832i;
+                BdRecyclerView bdRecyclerView3 = this.f48901i;
                 if (bdRecyclerView3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("listView");
                 } else {
@@ -272,7 +270,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = this.f50828e;
+            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = this.f48897e;
             String str = null;
             VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter2 = videoAttentionPageRecomendListAdapter;
             if (videoAttentionPageRecomendListAdapter == null) {
@@ -291,23 +289,23 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                 list2 = null;
             }
             if (!list2.isEmpty()) {
-                BdRecyclerView bdRecyclerView = this.f50832i;
+                BdRecyclerView bdRecyclerView = this.f48901i;
                 if (bdRecyclerView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("listView");
                     bdRecyclerView = null;
                 }
-                View view = this.f50833j;
+                View view = this.f48902j;
                 if (view == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("headerView");
                     view = null;
                 }
                 bdRecyclerView.addHeaderView(view);
-                BdRecyclerView bdRecyclerView2 = this.f50832i;
+                BdRecyclerView bdRecyclerView2 = this.f48901i;
                 if (bdRecyclerView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("listView");
                     bdRecyclerView2 = null;
                 }
-                View view2 = this.f50834k;
+                View view2 = this.k;
                 if (view2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("lastView");
                     view2 = null;
@@ -359,14 +357,14 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                     String str = (String) obj;
                 }
                 Object obj2 = arguments.get("video_data");
-                this.f50829f = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
+                this.f48898f = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
                 Object obj3 = arguments.get("video_attention_list");
                 if (obj3 != null) {
                     this.m = (List) obj3;
                     Object obj4 = arguments.get("video_attention_showword");
                     if (obj4 != null) {
                         this.n = (String) obj4;
-                        this.f50831h = arguments.getInt("current_type");
+                        this.f48900h = arguments.getInt("current_type");
                     } else {
                         throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
                     }
@@ -378,7 +376,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
             if (inflate != null) {
                 View inflate2 = inflater.inflate(g.video_attention_list_head_view, viewGroup, false);
                 if (inflate2 != null) {
-                    this.f50833j = inflate2;
+                    this.f48902j = inflate2;
                     if (inflate2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("headerView");
                         inflate2 = null;
@@ -388,8 +386,8 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                     d2.g(SkinManager.getColor(0, c.a.t0.m4.c.CAM_X0105));
                     View inflate3 = inflater.inflate(g.video_attention_list_last_view, viewGroup, false);
                     if (inflate3 != null) {
-                        this.f50834k = inflate3;
-                        View view = this.f50833j;
+                        this.k = inflate3;
+                        View view = this.f48902j;
                         if (view == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("headerView");
                             view = null;
@@ -400,7 +398,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                         View findViewById2 = inflate.findViewById(f.viedo_attention_list);
                         Intrinsics.checkNotNullExpressionValue(findViewById2, "rooView.findViewById(R.id.viedo_attention_list)");
                         BdRecyclerView bdRecyclerView2 = (BdRecyclerView) findViewById2;
-                        this.f50832i = bdRecyclerView2;
+                        this.f48901i = bdRecyclerView2;
                         if (bdRecyclerView2 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("listView");
                         } else {
@@ -420,7 +418,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                                 return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) ? VideoAttentionListPageFragment.j(GestureDetectorCompat.this, view2, motionEvent) : invokeLL.booleanValue;
                             }
                         });
-                        inflate.setOnLongClickListener(m.f20078e);
+                        inflate.setOnLongClickListener(m.f19549e);
                         return inflate;
                     }
                     throw new NullPointerException("null cannot be cast to non-null type android.view.View");
@@ -435,7 +433,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
     public final void scrollToPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            BdRecyclerView bdRecyclerView = this.f50832i;
+            BdRecyclerView bdRecyclerView = this.f48901i;
             if (bdRecyclerView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("listView");
                 bdRecyclerView = null;
@@ -448,7 +446,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
     public void setFragmentIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f50830g = i2;
+            this.f48899g = i2;
         }
     }
 }

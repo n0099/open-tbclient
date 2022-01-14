@@ -19,7 +19,7 @@ public class n0 {
     public static final BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdAsyncTaskParallel f12700b;
+    public static final BdAsyncTaskParallel f12401b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -29,7 +29,7 @@ public class n0 {
         public k0<T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public s<T> f12701b;
+        public s<T> f12402b;
 
         public a(k0<T> k0Var, s<T> sVar) {
             Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class n0 {
                 }
             }
             this.a = null;
-            this.f12701b = null;
+            this.f12402b = null;
             this.a = k0Var;
-            this.f12701b = sVar;
+            this.f12402b = sVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class n0 {
         public void onPostExecute(T t) {
             s<T> sVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (sVar = this.f12701b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || (sVar = this.f12402b) == null) {
                 return;
             }
             sVar.onReturnDataInUI(t);
@@ -97,7 +97,7 @@ public class n0 {
             }
         }
         a = BdUniqueId.gen();
-        f12700b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
+        f12401b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
     }
 
     public static void a() {
@@ -113,7 +113,7 @@ public class n0 {
             return;
         }
         a aVar = new a(k0Var, sVar);
-        aVar.setParallel(f12700b);
+        aVar.setParallel(f12401b);
         aVar.setTag(a);
         aVar.setPriority(4);
         aVar.execute(new String[0]);

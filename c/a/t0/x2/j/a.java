@@ -34,7 +34,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.x2.e.c> {
 
     /* renamed from: c.a.t0.x2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1520a {
+    public static /* synthetic */ class C1536a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -78,10 +78,10 @@ public class a extends c.a.t0.g0.b<c.a.t0.x2.e.c> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.o == null || ListUtils.isEmpty(this.a.o.f26186e)) {
+                if (this.a.o == null || ListUtils.isEmpty(this.a.o.f25409e)) {
                     return 0;
                 }
-                return this.a.o.f26186e.size() % 4 == 0 ? this.a.o.f26186e.size() / 4 : (this.a.o.f26186e.size() / 4) + 1;
+                return this.a.o.f25409e.size() % 4 == 0 ? this.a.o.f25409e.size() / 4 : (this.a.o.f25409e.size() / 4) + 1;
             }
             return invokeV.intValue;
         }
@@ -112,7 +112,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.x2.e.c> {
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
         }
 
-        public /* synthetic */ b(a aVar, C1520a c1520a) {
+        public /* synthetic */ b(a aVar, C1536a c1536a) {
             this(aVar);
         }
     }
@@ -188,13 +188,13 @@ public class a extends c.a.t0.g0.b<c.a.t0.x2.e.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             c.a.t0.x2.e.c cVar = this.o;
-            if (cVar == null || ListUtils.isEmpty(cVar.f26186e)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f25409e)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i3 = i2 * 4;
             for (int i4 = i3; i4 < i3 + 4; i4++) {
-                c.a.t0.x2.e.f fVar = (c.a.t0.x2.e.f) ListUtils.getItem(this.o.f26186e, i4);
+                c.a.t0.x2.e.f fVar = (c.a.t0.x2.e.f) ListUtils.getItem(this.o.f25409e, i4);
                 if (fVar != null) {
                     arrayList.add(fVar);
                 }
@@ -209,18 +209,18 @@ public class a extends c.a.t0.g0.b<c.a.t0.x2.e.c> {
         c.a.t0.x2.e.c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-            if (cVar == null || ListUtils.isEmpty(cVar.f26186e) || cVar == (cVar2 = this.o)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f25409e) || cVar == (cVar2 = this.o)) {
                 return false;
             }
-            if (cVar2 == null || ListUtils.isEmpty(cVar2.f26186e)) {
+            if (cVar2 == null || ListUtils.isEmpty(cVar2.f25409e)) {
                 return true;
             }
-            if (!ListUtils.isEmpty(cVar.f26186e)) {
-                if (cVar.f26186e.size() != this.o.f26186e.size()) {
+            if (!ListUtils.isEmpty(cVar.f25409e)) {
+                if (cVar.f25409e.size() != this.o.f25409e.size()) {
                     return true;
                 }
-                for (int i2 = 0; i2 < cVar.f26186e.size(); i2++) {
-                    if (this.o.f26186e.get(i2) == null || cVar.f26186e.get(i2).f26199e != this.o.f26186e.get(i2).f26199e) {
+                for (int i2 = 0; i2 < cVar.f25409e.size(); i2++) {
+                    if (this.o.f25409e.get(i2) == null || cVar.f25409e.get(i2).f25421e != this.o.f25409e.get(i2).f25421e) {
                         return true;
                     }
                 }
@@ -238,7 +238,7 @@ public class a extends c.a.t0.g0.b<c.a.t0.x2.e.c> {
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
             if (v(cVar)) {
                 this.o = cVar;
-                if (ListUtils.getCount(cVar.f26186e) <= 2) {
+                if (ListUtils.getCount(cVar.f25409e) <= 2) {
                     this.s.getLayoutParams().height = c.a.d.f.p.n.f(this.m.getPageActivity(), c.a.t0.y2.b.ds140);
                 }
                 this.s.setAdapter(this.p);

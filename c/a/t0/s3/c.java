@@ -35,28 +35,28 @@ public class c {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.s3.b f24119b;
+    public final c.a.t0.s3.b f23445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.t0.s3.a f24120c;
+    public final c.a.t0.s3.a f23446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d.c.g.a f24121d;
+    public c.a.d.c.g.a f23447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View.OnClickListener f24122e;
+    public final View.OnClickListener f23448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f24123f;
+    public View.OnClickListener f23449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LeftAdapter.b f24124g;
+    public LeftAdapter.b f23450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f24125h;
+    public RecyclerView.OnScrollListener f23451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView.p f24126i;
+    public BdListView.p f23452i;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.d.c.g.a {
@@ -105,8 +105,8 @@ public class c {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.a.getResources().getString(R.string.enter_forum_search_tip);
                 }
-                if (this.a.f24119b != null) {
-                    this.a.f24119b.A(str);
+                if (this.a.f23445b != null) {
+                    this.a.f23445b.A(str);
                 }
             }
         }
@@ -118,7 +118,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f24127e;
+        public final /* synthetic */ c f23453e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -135,28 +135,28 @@ public class c {
                     return;
                 }
             }
-            this.f24127e = cVar;
+            this.f23453e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f24127e.f24120c.j();
+                this.f23453e.f23446c.j();
             }
         }
     }
 
     /* renamed from: c.a.t0.s3.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1417c implements View.OnClickListener {
+    public class View$OnClickListenerC1432c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f24128e;
+        public final /* synthetic */ c f23454e;
 
-        public View$OnClickListenerC1417c(c cVar) {
+        public View$OnClickListenerC1432c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +171,7 @@ public class c {
                     return;
                 }
             }
-            this.f24128e = cVar;
+            this.f23454e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -179,7 +179,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("c13654").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                this.f24128e.f();
+                this.f23454e.f();
             }
         }
     }
@@ -212,7 +212,7 @@ public class c {
         public void a(View view, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, str) == null) {
-                this.a.f24120c.k(str);
+                this.a.f23446c.k(str);
             }
         }
     }
@@ -261,7 +261,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f24129e;
+        public final /* synthetic */ c f23455e;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -278,14 +278,14 @@ public class c {
                     return;
                 }
             }
-            this.f24129e = cVar;
+            this.f23455e = cVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24129e.f24120c.i();
+                this.f23455e.f23446c.i();
             }
         }
     }
@@ -305,20 +305,20 @@ public class c {
                 return;
             }
         }
-        this.f24121d = new a(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
-        this.f24122e = new b(this);
-        this.f24123f = new View$OnClickListenerC1417c(this);
-        this.f24124g = new d(this);
-        this.f24125h = new e(this);
-        this.f24126i = new f(this);
+        this.f23447d = new a(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+        this.f23448e = new b(this);
+        this.f23449f = new View$OnClickListenerC1432c(this);
+        this.f23450g = new d(this);
+        this.f23451h = new e(this);
+        this.f23452i = new f(this);
         this.a = context;
-        this.f24119b = bVar;
-        this.f24120c = aVar;
-        bVar.v(this.f24123f);
-        this.f24119b.x(this.f24122e);
-        this.f24119b.w(this.f24124g);
-        this.f24119b.z(this.f24126i);
-        this.f24119b.y(this.f24125h);
+        this.f23445b = bVar;
+        this.f23446c = aVar;
+        bVar.v(this.f23449f);
+        this.f23445b.x(this.f23448e);
+        this.f23445b.w(this.f23450g);
+        this.f23445b.z(this.f23452i);
+        this.f23445b.y(this.f23451h);
     }
 
     public void e() {
@@ -326,10 +326,10 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String hotSearch = TbSingleton.getInstance().getHotSearch();
             if (!TextUtils.isEmpty(hotSearch)) {
-                this.f24119b.A(hotSearch);
+                this.f23445b.A(hotSearch);
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
             } else {
-                MessageManager.getInstance().registerListener(this.f24121d);
+                MessageManager.getInstance().registerListener(this.f23447d);
                 g();
             }
         }

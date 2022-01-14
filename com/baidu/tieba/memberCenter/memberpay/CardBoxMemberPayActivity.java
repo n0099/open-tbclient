@@ -372,7 +372,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         }
         if (view == aVar.h() && this.mView.d() != null) {
             f.d d2 = this.mView.d();
-            startDealIntentService(d2.f18046i, d2.f18047j / 100, d2.l, d2.n);
+            startDealIntentService(d2.f17609i, d2.f17610j / 100, d2.l, d2.n);
         } else if (view == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
         } else if (view == this.mView.e()) {

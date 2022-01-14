@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import c.a.d.a.f;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -25,7 +25,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f49671e;
+    public HttpMessageListener f47803e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -60,8 +60,8 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetFriendAndStrangerSwitchResMsg) && (i2 = (getFriendAndStrangerSwitchResMsg = (GetFriendAndStrangerSwitchResMsg) httpResponsedMessage).mMaskType) > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i2;
-                b j2 = b.j();
-                j2.v(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
+                b k = b.k();
+                k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
             }
         }
     }
@@ -100,7 +100,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f49671e = aVar;
+        this.f47803e = aVar;
         registerListener(aVar);
         loadData();
     }

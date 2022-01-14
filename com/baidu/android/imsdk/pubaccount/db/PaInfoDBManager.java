@@ -512,17 +512,17 @@ public class PaInfoDBManager extends DBBase {
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a4 */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0143, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a6 */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0145, code lost:
         if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0145, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0147, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x015e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0160, code lost:
         if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0162, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0164, code lost:
         return;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -622,16 +622,16 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c5, code lost:
         if (r11 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c7, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d5, code lost:
         if (r11 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d9, code lost:
         return r0;
      */
     /*

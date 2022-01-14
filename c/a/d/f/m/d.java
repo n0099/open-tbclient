@@ -17,10 +17,10 @@ public abstract class d implements Animation.AnimationListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f2906e;
+        public final /* synthetic */ Animation f2879e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2907f;
+        public final /* synthetic */ d f2880f;
 
         public a(d dVar, Animation animation) {
             Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public abstract class d implements Animation.AnimationListener {
                     return;
                 }
             }
-            this.f2907f = dVar;
-            this.f2906e = animation;
+            this.f2880f = dVar;
+            this.f2879e = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2907f.c(this.f2906e);
+                this.f2880f.c(this.f2879e);
             }
         }
     }
@@ -56,10 +56,10 @@ public abstract class d implements Animation.AnimationListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f2908e;
+        public final /* synthetic */ Animation f2881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2909f;
+        public final /* synthetic */ d f2882f;
 
         public b(d dVar, Animation animation) {
             Interceptable interceptable = $ic;
@@ -76,15 +76,15 @@ public abstract class d implements Animation.AnimationListener {
                     return;
                 }
             }
-            this.f2909f = dVar;
-            this.f2908e = animation;
+            this.f2882f = dVar;
+            this.f2881e = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2909f.a(this.f2908e);
+                this.f2882f.a(this.f2881e);
             }
         }
     }
@@ -95,10 +95,10 @@ public abstract class d implements Animation.AnimationListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f2910e;
+        public final /* synthetic */ Animation f2883e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2911f;
+        public final /* synthetic */ d f2884f;
 
         public c(d dVar, Animation animation) {
             Interceptable interceptable = $ic;
@@ -115,15 +115,15 @@ public abstract class d implements Animation.AnimationListener {
                     return;
                 }
             }
-            this.f2911f = dVar;
-            this.f2910e = animation;
+            this.f2884f = dVar;
+            this.f2883e = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2911f.b(this.f2910e);
+                this.f2884f.b(this.f2883e);
             }
         }
     }

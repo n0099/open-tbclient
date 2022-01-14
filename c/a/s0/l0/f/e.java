@@ -22,19 +22,19 @@ public abstract class e<D, S extends c.a.s0.l0.d.b> implements u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewEventCenter f13192e;
+    public final ViewEventCenter f12871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public D f13193f;
+    public D f12872f;
 
     /* renamed from: g  reason: collision with root package name */
-    public S f13194g;
+    public S f12873g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f13195h;
+    public final View f12874h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f13196i;
+    public TbPageContext<?> f12875i;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
@@ -51,39 +51,39 @@ public abstract class e<D, S extends c.a.s0.l0.d.b> implements u {
                 return;
             }
         }
-        this.f13196i = tbPageContext;
-        this.f13195h = view;
-        this.f13192e = viewEventCenter;
+        this.f12875i = tbPageContext;
+        this.f12874h = view;
+        this.f12871e = viewEventCenter;
     }
 
     public D a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13193f : (D) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12872f : (D) invokeV.objValue;
     }
 
     public ViewEventCenter b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13192e : (ViewEventCenter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12871e : (ViewEventCenter) invokeV.objValue;
     }
 
     public TbPageContext<?> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13196i : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12875i : (TbPageContext) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13195h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12874h : (View) invokeV.objValue;
     }
 
     public S e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13194g : (S) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12873g : (S) invokeV.objValue;
     }
 
     public String f(int i2) {
@@ -95,31 +95,31 @@ public abstract class e<D, S extends c.a.s0.l0.d.b> implements u {
     public BdUniqueId g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13196i.getUniqueId() : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12875i.getUniqueId() : (BdUniqueId) invokeV.objValue;
     }
 
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13196i.getPageActivity() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12875i.getPageActivity() : (Activity) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13196i.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12875i.getContext() : (Context) invokeV.objValue;
     }
 
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13196i.getResources() : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f12875i.getResources() : (Resources) invokeV.objValue;
     }
 
     public void h(D d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, d2) == null) {
-            this.f13193f = d2;
+            this.f12872f = d2;
         }
     }
 
@@ -134,7 +134,7 @@ public abstract class e<D, S extends c.a.s0.l0.d.b> implements u {
     public void j(S s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, s) == null) {
-            this.f13194g = s;
+            this.f12873g = s;
         }
     }
 }

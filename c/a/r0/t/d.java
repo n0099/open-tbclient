@@ -22,7 +22,7 @@ public class d {
     public Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.t.e.a<List<c.a.r0.t.a>> f12048b;
+    public c.a.r0.t.e.a<List<c.a.r0.t.a>> f11770b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -89,7 +89,7 @@ public class d {
     public c.a.r0.t.e.a<List<c.a.r0.t.a>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12048b : (c.a.r0.t.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11770b : (c.a.r0.t.e.a) invokeV.objValue;
     }
 
     public Set<String> d() {

@@ -30,34 +30,32 @@ public class h {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<ICardInfo> f25880b;
+    public final List<ICardInfo> f25120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25881c;
+    public int f25121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25882d;
+    public boolean f25122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25883e;
+    public String f25123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25884f;
+    public boolean f25124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25885g;
+    public boolean f25125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final BdListView f25886h;
+    public final BdListView f25126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.t0.x1.n.a f25887i;
+    public final c.a.t0.x1.n.a f25127i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f25888j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f25889k;
+    public long f25128j;
+    public String k;
 
     /* loaded from: classes8.dex */
     public class a extends k0<DataRes> {
@@ -66,10 +64,10 @@ public class h {
         public final /* synthetic */ c.a.d.f.d.l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f25890b;
+        public final /* synthetic */ long f25129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f25891c;
+        public final /* synthetic */ String f25130c;
 
         public a(h hVar, c.a.d.f.d.l lVar, long j2, String str) {
             Interceptable interceptable = $ic;
@@ -87,8 +85,8 @@ public class h {
                 }
             }
             this.a = lVar;
-            this.f25890b = j2;
-            this.f25891c = str;
+            this.f25129b = j2;
+            this.f25130c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,9 +98,9 @@ public class h {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 c.a.d.f.d.l lVar = this.a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f25890b);
+                sb.append(this.f25129b);
                 sb.append("_");
-                sb.append(TextUtils.isEmpty(this.f25891c) ? "" : this.f25891c);
+                sb.append(TextUtils.isEmpty(this.f25130c) ? "" : this.f25130c);
                 byte[] bArr = (byte[]) lVar.get(sb.toString());
                 if (bArr != null && bArr.length != 0) {
                     try {
@@ -183,31 +181,31 @@ public class h {
             }
         }
         this.a = null;
-        this.f25880b = new LinkedList();
-        this.f25881c = 1;
-        this.f25883e = "";
-        this.f25884f = false;
-        this.f25885g = false;
-        this.f25886h = bdListView;
-        this.f25887i = aVar;
+        this.f25120b = new LinkedList();
+        this.f25121c = 1;
+        this.f25123e = "";
+        this.f25124f = false;
+        this.f25125g = false;
+        this.f25126h = bdListView;
+        this.f25127i = aVar;
     }
 
     public List<ICardInfo> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25880b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25120b : (List) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25882d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25122d : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25884f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25124f : invokeV.booleanValue;
     }
 
     public final void e(long j2, String str) {
@@ -232,24 +230,24 @@ public class h {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || d() || this.a == null) {
             return;
         }
-        this.f25881c++;
+        this.f25121c++;
         k(true);
-        this.a.c(this.f25881c, this.f25883e);
+        this.a.c(this.f25121c, this.f25123e);
     }
 
     public final void h(DataRes dataRes) {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.f25885g = true;
+            this.f25125g = true;
             if (dataRes != null) {
                 if (j(true, dataRes) && (cVar = this.a) != null) {
                     cVar.onSuccess();
                 }
-                f(this.f25888j, this.f25889k);
+                f(this.f25128j, this.k);
                 return;
             }
-            f(this.f25888j, this.f25889k);
+            f(this.f25128j, this.k);
         }
     }
 
@@ -258,7 +256,7 @@ public class h {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), dataRes, Integer.valueOf(i2), str}) == null) {
             k(false);
             if (z) {
-                this.f25886h.completePullRefresh();
+                this.f25126h.completePullRefresh();
             }
             if (i2 == 0 && dataRes != null && j(z, dataRes)) {
                 c cVar = this.a;
@@ -268,7 +266,7 @@ public class h {
                 if (z) {
                     m(dataRes);
                 }
-            } else if (this.f25880b.size() > 0) {
+            } else if (this.f25120b.size() > 0) {
                 c cVar2 = this.a;
                 if (cVar2 != null) {
                     cVar2.onError(1, str);
@@ -295,9 +293,9 @@ public class h {
                 return false;
             }
             if (z) {
-                this.f25880b.clear();
+                this.f25120b.clear();
             }
-            this.f25882d = dataRes.has_more.intValue() == 1;
+            this.f25122d = dataRes.has_more.intValue() == 1;
             ArrayList arrayList = new ArrayList();
             try {
                 JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
@@ -318,13 +316,13 @@ public class h {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                         if (optJSONObject2 != null) {
                             c.a.t0.x1.p.e eVar = new c.a.t0.x1.p.e();
-                            eVar.f26022c = optJSONObject2.optString("title");
+                            eVar.f25254c = optJSONObject2.optString("title");
                             jSONObject2 = jSONObject3;
                             eVar.a = optJSONObject2.optLong("page_id");
                             optJSONObject2.optInt("page_type");
-                            eVar.f26023d = optJSONObject2.optInt("rn");
-                            eVar.f26021b = optJSONObject2.optString("item_id");
-                            eVar.f26024e = optJSONObject2.optString("params");
+                            eVar.f25255d = optJSONObject2.optInt("rn");
+                            eVar.f25253b = optJSONObject2.optString("item_id");
+                            eVar.f25256e = optJSONObject2.optString("params");
                             eVar.b();
                             arrayList.add(eVar);
                         } else {
@@ -360,19 +358,19 @@ public class h {
                 for (int i4 = 0; i4 < dataRes.cards.size(); i4++) {
                     ICardInfo i5 = c.a.t0.x1.o.b.i(dataRes.cards.get(i4));
                     if (i5 != null && i5.isValid()) {
-                        this.f25880b.add(i5);
+                        this.f25120b.add(i5);
                     }
                 }
             }
-            if (this.f25880b.size() == 0) {
+            if (this.f25120b.size() == 0) {
                 return false;
             }
             try {
-                this.f25883e = this.f25880b.get(this.f25880b.size() - 1).getFlipId();
+                this.f25123e = this.f25120b.get(this.f25120b.size() - 1).getFlipId();
             } catch (Exception unused) {
-                this.f25883e = "";
+                this.f25123e = "";
             }
-            this.f25887i.A(this.f25880b);
+            this.f25127i.A(this.f25120b);
             return true;
         }
         return invokeZL.booleanValue;
@@ -381,7 +379,7 @@ public class h {
     public final void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f25884f = z;
+            this.f25124f = z;
         }
     }
 
@@ -400,19 +398,19 @@ public class h {
         c.a.s0.s.r.a.f();
         c.a.d.f.d.l<byte[]> d2 = c.a.s0.s.r.a.d("tb.lego_update");
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f25888j);
+        sb.append(this.f25128j);
         sb.append("_");
-        sb.append(TextUtils.isEmpty(this.f25889k) ? "" : this.f25889k);
+        sb.append(TextUtils.isEmpty(this.k) ? "" : this.k);
         d2.a(sb.toString(), dataRes.toByteArray());
     }
 
     public void update(long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048588, this, j2, str) == null) {
-            this.f25881c = 1;
-            this.f25888j = j2;
-            this.f25889k = str;
-            if (this.f25880b.size() == 0 && !this.f25885g) {
+            this.f25121c = 1;
+            this.f25128j = j2;
+            this.k = str;
+            if (this.f25120b.size() == 0 && !this.f25125g) {
                 e(j2, str);
             } else {
                 f(j2, str);

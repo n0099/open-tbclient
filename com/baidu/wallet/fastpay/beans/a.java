@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.fastpay.datamodel.GetBindMobileResponse;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
@@ -53,7 +54,7 @@ public class a extends BaseBean<GetBindMobileResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("cmd", "1102"));
-            arrayList.add(new RestNameValuePair("callback", "getUserInfo"));
+            arrayList.add(new RestNameValuePair(WebChromeClient.KEY_ARG_CALLBACK, "getUserInfo"));
             arrayList.add(new RestNameValuePair("device_token", "BaiduWallet_APP_common_charge"));
             return arrayList;
         }

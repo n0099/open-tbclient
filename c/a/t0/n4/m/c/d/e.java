@@ -27,51 +27,51 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f20528b;
+    public static volatile e f19979b;
     public transient /* synthetic */ FieldHolder $fh;
     public List<b> a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends MediaMetadataRetriever implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile boolean f20529e;
+        public volatile boolean f19980e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f20530f;
+        public String f19981f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f20531g;
+        public boolean f19982g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile boolean f20532h;
+        public volatile boolean f19983h;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ n f20533e;
+            public final /* synthetic */ n f19984e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ m f20534f;
+            public final /* synthetic */ m f19985f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f20535g;
+            public final /* synthetic */ b f19986g;
 
             public a(b bVar, n nVar, m mVar) {
                 Interceptable interceptable = $ic;
@@ -88,9 +88,9 @@ public class e {
                         return;
                     }
                 }
-                this.f20535g = bVar;
-                this.f20533e = nVar;
-                this.f20534f = mVar;
+                this.f19986g = bVar;
+                this.f19984e = nVar;
+                this.f19985f = mVar;
             }
 
             @Override // java.lang.Runnable
@@ -100,8 +100,8 @@ public class e {
                     ArrayList<h> arrayList = new ArrayList();
                     ArrayList<h> arrayList2 = new ArrayList();
                     ArrayList arrayList3 = new ArrayList();
-                    for (h hVar : this.f20533e.f20562e) {
-                        int i2 = hVar.f20549g;
+                    for (h hVar : this.f19984e.f20013e) {
+                        int i2 = hVar.f20000g;
                         if (i2 == 0) {
                             arrayList.add(hVar);
                         } else if (i2 == 1) {
@@ -112,11 +112,11 @@ public class e {
                         for (h hVar2 : arrayList) {
                             Bitmap d2 = i.f().d(hVar2.a);
                             if (d2 == null || d2.isRecycled()) {
-                                d2 = c.a.a1.t.d.e(hVar2.f20544b, hVar2.f20550h, hVar2.f20551i, hVar2.f20545c);
+                                d2 = c.a.a1.t.d.e(hVar2.f19995b, hVar2.f20001h, hVar2.f20002i, hVar2.f19996c);
                                 i.f().g().b(hVar2.a, d2);
                                 i.f().e().c(hVar2.a, d2);
                             }
-                            hVar2.f20547e = d2;
+                            hVar2.f19998e = d2;
                             hVar2.a();
                         }
                     }
@@ -124,7 +124,7 @@ public class e {
                         for (h hVar3 : arrayList2) {
                             Bitmap d3 = i.f().d(hVar3.a);
                             if (d3 != null && !d3.isRecycled()) {
-                                hVar3.f20547e = d3;
+                                hVar3.f19998e = d3;
                                 hVar3.a();
                             } else {
                                 arrayList3.add(hVar3);
@@ -132,33 +132,33 @@ public class e {
                         }
                     }
                     if (c.a.a1.t.h.e(arrayList3)) {
-                        this.f20535g.k(this.f20534f);
+                        this.f19986g.k(this.f19985f);
                         return;
                     }
-                    this.f20533e.f20562e = arrayList3;
-                    if (!this.f20535g.g()) {
-                        this.f20535g.j(this.f20533e);
+                    this.f19984e.f20013e = arrayList3;
+                    if (!this.f19986g.g()) {
+                        this.f19986g.j(this.f19984e);
                     } else {
-                        this.f20535g.i(this.f20533e);
+                        this.f19986g.i(this.f19984e);
                     }
-                    this.f20535g.k(this.f20534f);
+                    this.f19986g.k(this.f19985f);
                 }
             }
         }
 
         /* renamed from: c.a.t0.n4.m.c.d.e$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC1242b implements Runnable {
+        /* loaded from: classes8.dex */
+        public class RunnableC1256b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f20536e;
+            public final /* synthetic */ m f19987e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f20537f;
+            public final /* synthetic */ b f19988f;
 
-            public RunnableC1242b(b bVar, m mVar) {
+            public RunnableC1256b(b bVar, m mVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,18 +173,18 @@ public class e {
                         return;
                     }
                 }
-                this.f20537f = bVar;
-                this.f20536e = mVar;
+                this.f19988f = bVar;
+                this.f19987e = mVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 m mVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mVar = this.f20536e) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mVar = this.f19987e) == null) {
                     return;
                 }
-                mVar.a(this.f20537f);
+                mVar.a(this.f19988f);
             }
         }
 
@@ -214,7 +214,7 @@ public class e {
                 int i5 = 0;
                 if (c.a.a1.t.h.b(list) == 1) {
                     h hVar = (h) c.a.a1.t.h.c(list, 0);
-                    long j4 = hVar != null ? hVar.f20546d : 0L;
+                    long j4 = hVar != null ? hVar.f19997d : 0L;
                     if (j4 <= 0) {
                         j4 = 1;
                     }
@@ -227,7 +227,7 @@ public class e {
                 int i6 = 0;
                 boolean z = false;
                 boolean z2 = false;
-                while (!z && !this.f20529e) {
+                while (!z && !this.f19980e) {
                     if (z2 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
                         str = "VideoFrameMetadataRetriever";
                         i3 = i6;
@@ -270,17 +270,17 @@ public class e {
                                     baseOutputSurface.awaitNewImage();
                                     baseOutputSurface.drawImage((int) (((float) bufferInfo.presentationTimeUs) / 1000.0f));
                                     if (hVar2 != null) {
-                                        long j5 = hVar2.f20546d;
+                                        long j5 = hVar2.f19997d;
                                         if (j5 <= j2) {
                                             j5 = 1;
                                         } else if (i4 == list.size() - 1) {
                                             j5 -= 800000;
                                         }
                                         if (bufferInfo.presentationTimeUs >= j5) {
-                                            hVar2.f20547e = baseOutputSurface.getFrameBitmap();
-                                            i.f().g().b(hVar2.a, hVar2.f20547e);
+                                            hVar2.f19998e = baseOutputSurface.getFrameBitmap();
+                                            i.f().g().b(hVar2.a, hVar2.f19998e);
                                             hVar2.a();
-                                            i.f().e().c(hVar2.a, hVar2.f20547e);
+                                            i.f().e().c(hVar2.a, hVar2.f19998e);
                                             if (i4 == list.size() - 1) {
                                                 z3 = true;
                                             }
@@ -431,20 +431,20 @@ public class e {
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20532h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19983h : invokeV.booleanValue;
         }
 
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20531g && !w.a(this.f20530f) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19982g && !w.a(this.f19981f) : invokeV.booleanValue;
         }
 
         public void h(n nVar, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, nVar, mVar) == null) {
-                if (nVar != null && !c.a.a1.t.h.e(nVar.f20562e)) {
-                    this.f20532h = true;
+                if (nVar != null && !c.a.a1.t.h.e(nVar.f20013e)) {
+                    this.f19983h = true;
                     ThreadPool.b().e(new a(this, nVar, mVar));
                     return;
                 }
@@ -456,7 +456,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, nVar) == null) {
                 try {
-                    e(nVar.a, nVar.f20562e, nVar.f20560c, nVar.f20561d, nVar.f20559b);
+                    e(nVar.a, nVar.f20013e, nVar.f20011c, nVar.f20012d, nVar.f20010b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     j(nVar);
@@ -468,11 +468,11 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, nVar) == null) {
                 try {
-                    for (h hVar : nVar.f20562e) {
-                        Bitmap frameAtTime = getFrameAtTime(hVar.f20546d, 2);
+                    for (h hVar : nVar.f20013e) {
+                        Bitmap frameAtTime = getFrameAtTime(hVar.f19997d, 2);
                         if (frameAtTime != null) {
-                            if (nVar.f20560c != 0 && nVar.f20561d != 0) {
-                                hVar.f20547e = ThumbnailUtils.extractThumbnail(frameAtTime, nVar.f20560c, nVar.f20561d, 2);
+                            if (nVar.f20011c != 0 && nVar.f20012d != 0) {
+                                hVar.f19998e = ThumbnailUtils.extractThumbnail(frameAtTime, nVar.f20011c, nVar.f20012d, 2);
                             }
                             hVar.a();
                         }
@@ -486,22 +486,22 @@ public class e {
         public final void k(m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mVar) == null) {
-                this.f20532h = false;
-                u.a().post(new RunnableC1242b(this, mVar));
+                this.f19983h = false;
+                u.a().post(new RunnableC1256b(this, mVar));
             }
         }
 
         public void l(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-                this.f20532h = z;
+                this.f19983h = z;
             }
         }
 
         public void m(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                this.f20531g = z;
+                this.f19982g = z;
             }
         }
 
@@ -510,8 +510,8 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
                 super.release();
-                this.f20529e = true;
-                this.f20532h = false;
+                this.f19980e = true;
+                this.f19983h = false;
             }
         }
 
@@ -521,7 +521,7 @@ public class e {
             if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
                 try {
                     super.setDataSource(str);
-                    this.f20530f = str;
+                    this.f19981f = str;
                 } catch (Exception e2) {
                     c.a.a1.t.c.g(e2);
                 }
@@ -541,7 +541,7 @@ public class e {
                     return;
                 }
             }
-            this.f20531g = true;
+            this.f19982g = true;
         }
     }
 
@@ -568,14 +568,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f20528b == null) {
+            if (f19979b == null) {
                 synchronized (e.class) {
-                    if (f20528b == null) {
-                        f20528b = new e();
+                    if (f19979b == null) {
+                        f19979b = new e();
                     }
                 }
             }
-            return f20528b;
+            return f19979b;
         }
         return (e) invokeV.objValue;
     }

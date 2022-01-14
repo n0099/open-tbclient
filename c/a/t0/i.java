@@ -13,7 +13,7 @@ public class i {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18610b;
+    public int f18146b;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -33,13 +33,13 @@ public class i {
                 return;
             }
         }
-        this.f18610b = 0;
+        this.f18146b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18610b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18146b : invokeV.intValue;
     }
 
     public void b(a aVar) {
@@ -52,20 +52,20 @@ public class i {
     public void c(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (i3 = this.f18610b) == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (i3 = this.f18146b) == i2) {
             return;
         }
         a aVar = this.a;
         if (aVar != null) {
             aVar.a(i3, i2);
         }
-        this.f18610b = i2;
+        this.f18146b = i2;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f18610b = i2;
+            this.f18146b = i2;
         }
     }
 }

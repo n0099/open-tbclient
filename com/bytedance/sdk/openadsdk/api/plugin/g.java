@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class g implements TTInitializer {
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile TTInitializer f55344b;
+    public volatile TTInitializer f53243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Bundle f55343c = new Bundle();
+    public static final Bundle f53242c = new Bundle();
     public static ScheduledExecutorService a = Executors.newSingleThreadScheduledExecutor(new a());
 
     @Override // com.bytedance.sdk.openadsdk.TTInitializer
@@ -38,8 +38,8 @@ public class g implements TTInitializer {
             return;
         }
         f.a(context);
-        if (this.f55344b != null) {
-            this.f55344b.init(context, adConfig, initCallback);
+        if (this.f53243b != null) {
+            this.f53243b.init(context, adConfig, initCallback);
         } else {
             a(context, adConfig, initCallback);
         }
@@ -47,8 +47,8 @@ public class g implements TTInitializer {
 
     @Override // com.bytedance.sdk.openadsdk.TTInitializer
     public boolean isInitSuccess() {
-        if (this.f55344b != null) {
-            return this.f55344b.isInitSuccess();
+        if (this.f53243b != null) {
+            return this.f53243b.isInitSuccess();
         }
         return false;
     }
@@ -57,7 +57,7 @@ public class g implements TTInitializer {
         if (TextUtils.isEmpty(str) || bundle == null) {
             return;
         }
-        f55343c.putBundle(str, bundle);
+        f53242c.putBundle(str, bundle);
     }
 
     /* loaded from: classes2.dex */
@@ -65,21 +65,21 @@ public class g implements TTInitializer {
         public final ThreadGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final AtomicInteger f55348b;
+        public final AtomicInteger f53247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f55349c;
+        public final String f53248c;
 
         public a() {
-            this.f55348b = new AtomicInteger(1);
+            this.f53247b = new AtomicInteger(1);
             this.a = new ThreadGroup("tt_pangle_group_pl_init");
-            this.f55349c = "tt_pangle_thread_pl_init";
+            this.f53248c = "tt_pangle_thread_pl_init";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
             ThreadGroup threadGroup = this.a;
-            Thread thread = new Thread(threadGroup, runnable, this.f55349c + this.f55348b.getAndIncrement(), 0L);
+            Thread thread = new Thread(threadGroup, runnable, this.f53248c + this.f53247b.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -90,9 +90,9 @@ public class g implements TTInitializer {
         }
 
         public a(String str) {
-            this.f55348b = new AtomicInteger(1);
+            this.f53247b = new AtomicInteger(1);
             this.a = new ThreadGroup("tt_pangle_group_pl_init");
-            this.f55349c = str;
+            this.f53248c = str;
         }
     }
 
@@ -103,7 +103,7 @@ public class g implements TTInitializer {
                 TTInitializer a2 = g.this.a(context, adConfig);
                 if (a2 != null) {
                     a2.init(context, adConfig, initCallback);
-                    com.bytedance.sdk.openadsdk.api.plugin.a.a.a(g.this.f55344b.getAdManager());
+                    com.bytedance.sdk.openadsdk.api.plugin.a.a.a(g.this.f53243b.getAdManager());
                     e.a();
                     return;
                 }
@@ -114,13 +114,13 @@ public class g implements TTInitializer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public TTInitializer a(Context context, AdConfig adConfig) {
-        if (this.f55344b == null) {
+        if (this.f53243b == null) {
             synchronized (this) {
-                if (this.f55344b == null) {
+                if (this.f53243b == null) {
                     e.a(adConfig);
                     com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Create initializer");
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.f55344b = a(context);
+                    this.f53243b = a(context);
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -132,7 +132,7 @@ public class g implements TTInitializer {
                 }
             }
         }
-        return this.f55344b;
+        return this.f53243b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTInitializer
@@ -156,7 +156,7 @@ public class g implements TTInitializer {
         Class<?> loadClass = a2.loadClass(TTAdSdk.INITIALIZER_CLASS_NAME);
         Bundle bundle = new Bundle();
         bundle.putSerializable(PluginConstants.KEY_PL_UPDATE_LISTENER, new f.b());
-        bundle.putBundle(PluginConstants.KEY_PL_CONFIG_INFO, f55343c);
+        bundle.putBundle(PluginConstants.KEY_PL_CONFIG_INFO, f53242c);
         TTInitializer tTInitializer = (TTInitializer) loadClass.getDeclaredMethod("getInstance", Bundle.class).invoke(null, bundle);
         com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Create initializer success");
         return tTInitializer;

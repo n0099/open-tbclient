@@ -26,34 +26,32 @@ public class w {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27340b;
+    public int f26523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f27341c;
+    public JSONObject f26524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f27342d;
+    public JSONObject f26525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f27343e;
+    public JSONObject f26526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27344f;
+    public String f26527f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27345g;
+    public int f26528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27346h;
+    public int f26529h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27347i;
+    public int f26530i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27348j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f27349k;
+    public int f26531j;
+    public int k;
     public int l;
     public List<j> m;
 
@@ -89,13 +87,13 @@ public class w {
             }
         }
         this.m = new ArrayList();
-        this.f27341c = jSONObject;
+        this.f26524c = jSONObject;
     }
 
     public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27343e : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26526e : (JSONObject) invokeV.objValue;
     }
 
     public List<j> b() {
@@ -107,31 +105,31 @@ public class w {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27345g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26528g : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27348j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26531j : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27347i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26530i : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27346h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26529h : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27344f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26527f : (String) invokeV.objValue;
     }
 
     public int h() {
@@ -143,13 +141,13 @@ public class w {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27340b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26523b : invokeV.intValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27349k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int k() {
@@ -164,26 +162,26 @@ public class w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             try {
-                if (this.f27341c != null && this.f27341c.length() != 0) {
-                    JSONObject jSONObject = this.f27341c;
-                    this.f27342d = jSONObject.optJSONObject("set");
+                if (this.f26524c != null && this.f26524c.length() != 0) {
+                    JSONObject jSONObject = this.f26524c;
+                    this.f26525d = jSONObject.optJSONObject("set");
                     this.a = jSONObject.optInt("threshold", 10000);
-                    this.f27340b = jSONObject.optInt("timeup", 604800000);
-                    this.f27344f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
+                    this.f26523b = jSONObject.optInt("timeup", 604800000);
+                    this.f26527f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
                     jSONObject.optString(StickerDataChangeType.REPLACE);
-                    this.f27343e = jSONObject.optJSONObject("del");
-                    this.f27345g = jSONObject.optInt("all_size", 614400);
-                    this.f27346h = jSONObject.optInt("single_size", 153600);
-                    this.f27347i = jSONObject.optInt("real_size", 614400);
-                    this.f27348j = jSONObject.optInt("non_real_size", 614400);
-                    this.f27349k = jSONObject.optInt("trigger_number", 100);
+                    this.f26526e = jSONObject.optJSONObject("del");
+                    this.f26528g = jSONObject.optInt("all_size", 614400);
+                    this.f26529h = jSONObject.optInt("single_size", 153600);
+                    this.f26530i = jSONObject.optInt("real_size", 614400);
+                    this.f26531j = jSONObject.optInt("non_real_size", 614400);
+                    this.k = jSONObject.optInt("trigger_number", 100);
                     this.l = jSONObject.optInt("trigger_interval", 180);
                     int i2 = 1;
-                    if (this.f27342d != null) {
-                        Iterator<String> keys = this.f27342d.keys();
+                    if (this.f26525d != null) {
+                        Iterator<String> keys = this.f26525d.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();
-                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.f27342d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.f26525d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
                                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
                                 String optString = optJSONObject.optString("version");
                                 if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {

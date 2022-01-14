@@ -11,7 +11,7 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24656b;
+    public int f23973b;
 
     public h(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public class h {
             }
         }
         this.a = str;
-        this.f24656b = i2;
+        this.f23973b = i2;
     }
 }

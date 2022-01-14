@@ -10,32 +10,32 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31719b = "com.alipay.sdk";
+    public static final String f30726b = "com.alipay.sdk";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31720c = "com.alipay.sdk";
+    public static final String f30727c = "com.alipay.sdk";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31721d = "release";
+    public static final String f30728d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31722e = "alipaySdk";
+    public static final String f30729e = "alipaySdk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f31723f = 1;
+    public static final int f30730f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f31724g = "15.8.02";
+    public static final String f30731g = "15.8.02";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f31725h = "ad163e0-clean";
+    public static final String f30732h = "ad163e0-clean";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f31726i = "15.8.02";
+    public static final String f30733i = "15.8.02";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f31727j = "h.a.3.8.02";
+    public static final String f30734j = "h.a.3.8.02";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

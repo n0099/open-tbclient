@@ -34,7 +34,7 @@ public class d implements c.a.r0.a.m.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9712e;
+    public static final boolean f9502e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -104,7 +104,7 @@ public class d implements c.a.r0.a.m.c {
                 return;
             }
             if (jSONObject != null) {
-                if (d.f9712e) {
+                if (d.f9502e) {
                     String str = "上报数据 onSuccess: response=" + jSONObject;
                 }
                 if (jSONObject.optInt("errno", -1) == 0) {
@@ -174,11 +174,11 @@ public class d implements c.a.r0.a.m.c {
 
     /* renamed from: c.a.r0.a.w0.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0597d implements c.a.r0.a.w0.a {
+    public static class C0606d implements c.a.r0.a.w0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0597d() {
+        public C0606d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,7 +237,7 @@ public class d implements c.a.r0.a.m.c {
                 return;
             }
             if (jSONObject != null) {
-                if (d.f9712e) {
+                if (d.f9502e) {
                     String str = "下拉数据 onSuccess: response=" + jSONObject;
                 }
                 if (jSONObject.optInt("errno", -1) != 0) {
@@ -330,7 +330,7 @@ public class d implements c.a.r0.a.m.c {
                 return;
             }
         }
-        f9712e = k.a;
+        f9502e = k.a;
     }
 
     public /* synthetic */ d(a aVar) {
@@ -338,9 +338,9 @@ public class d implements c.a.r0.a.m.c {
     }
 
     @WorkerThread
-    public static void c(c.a.r0.a.d2.e eVar, b.C0462b c0462b) {
+    public static void c(c.a.r0.a.d2.e eVar, b.C0471b c0471b) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar, c0462b) == null) || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar, c0471b) == null) || eVar == null) {
             return;
         }
         b.a V = eVar.V();
@@ -350,12 +350,12 @@ public class d implements c.a.r0.a.m.c {
         }
         c.a.r0.a.e0.d.b("SwanHistoryManager", "add history: " + V.H() + "/" + V.K());
         c.a.r0.a.w0.c a2 = c.a.r0.a.w0.c.a(V);
-        boolean c2 = c.a.r0.a.j0.c.b.c(AppRuntime.getAppContext().getContentResolver(), a2, c0462b);
+        boolean c2 = c.a.r0.a.j0.c.b.c(AppRuntime.getAppContext().getContentResolver(), a2, c0471b);
         a aVar = new a(V);
         if (c2) {
-            j("ADD", a2.a, a2.f9706e, a2.f9703b, a2.f9708g, a2.f9711j, aVar);
+            j("ADD", a2.a, a2.f9496e, a2.f9493b, a2.f9498g, a2.f9501j, aVar);
         }
-        boolean z = f9712e;
+        boolean z = f9502e;
     }
 
     public static String d(String str, List<c.a.r0.a.w0.c> list) {
@@ -373,13 +373,13 @@ public class d implements c.a.r0.a.m.c {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("cmd", str);
                         jSONObject2.put("bundle_id", cVar.a);
-                        jSONObject2.put("time", cVar.f9706e);
+                        jSONObject2.put("time", cVar.f9496e);
                         jSONArray.put(jSONObject2);
                     }
                 }
                 jSONObject.put("items", jSONArray);
             } catch (JSONException e2) {
-                if (f9712e) {
+                if (f9502e) {
                     e2.printStackTrace();
                 }
             }
@@ -415,7 +415,7 @@ public class d implements c.a.r0.a.m.c {
                 jSONArray.put(jSONObject2);
                 jSONObject.put("items", jSONArray);
             } catch (JSONException e2) {
-                if (f9712e) {
+                if (f9502e) {
                     e2.printStackTrace();
                 }
             }
@@ -439,19 +439,19 @@ public class d implements c.a.r0.a.m.c {
             hashMap.put(ImageViewerConfig.LAST_ID, h.a().getString("fetch_history_data_last_id", ""));
             String b2 = o0.b(p, hashMap);
             String d2 = d(str, list);
-            if (f9712e) {
+            if (f9502e) {
                 String str2 = "fetchHistoryDataFromServer: url=" + b2 + "  params=" + d2;
             }
             e eVar = new e(aVar);
             c.a.r0.p.d.a aVar2 = new c.a.r0.p.d.a();
-            aVar2.f11714b = "POST";
+            aVar2.f11449b = "POST";
             aVar2.a = b2;
-            aVar2.f11718f = true;
-            aVar2.f11719g = true;
+            aVar2.f11453f = true;
+            aVar2.f11454g = true;
             if (!TextUtils.isEmpty(d2)) {
-                aVar2.f11716d = RequestBody.create(c.a.r0.a.p1.f.a, d2);
+                aVar2.f11451d = RequestBody.create(c.a.r0.a.p1.f.a, d2);
             }
-            aVar2.f11717e = eVar;
+            aVar2.f11452e = eVar;
             c.a.r0.p.e.a.g().e(aVar2);
         }
     }
@@ -461,7 +461,7 @@ public class d implements c.a.r0.a.m.c {
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
             List<c.a.r0.a.w0.c> r = c.a.r0.a.j0.c.b.r();
             if (z || (r != null && r.size() > 0)) {
-                g("ADD", r, new C0597d());
+                g("ADD", r, new C0606d());
             }
         }
     }
@@ -480,17 +480,17 @@ public class d implements c.a.r0.a.m.c {
             if (TextUtils.isEmpty(e2)) {
                 return;
             }
-            if (f9712e) {
+            if (f9502e) {
                 String str6 = "reportHistoryDataToServer: 上行参数" + e2;
             }
             b bVar2 = new b(bVar);
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a();
-            aVar.f11714b = "POST";
+            aVar.f11449b = "POST";
             aVar.a = c2;
-            aVar.f11718f = true;
-            aVar.f11719g = true;
-            aVar.f11716d = RequestBody.create(c.a.r0.a.p1.f.a, e2);
-            aVar.f11717e = bVar2;
+            aVar.f11453f = true;
+            aVar.f11454g = true;
+            aVar.f11451d = RequestBody.create(c.a.r0.a.p1.f.a, e2);
+            aVar.f11452e = bVar2;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }

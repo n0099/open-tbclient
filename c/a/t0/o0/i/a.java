@@ -19,23 +19,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, b> f20627b;
+    public HashMap<String, b> f20077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f20628c;
+    public long f20078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f20629d;
+    public long f20079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20630e;
+    public String f20080e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class a {
             }
         }
         this.a = new HashMap<>();
-        this.f20627b = new HashMap<>();
+        this.f20077b = new HashMap<>();
     }
 
     public static final a a(ConnectPointData connectPointData) {
@@ -62,9 +62,9 @@ public class a {
                 return null;
             }
             a aVar = new a();
-            aVar.f20630e = connectPointData.name;
-            aVar.f20628c = connectPointData.last_connect_rate_update_time.longValue();
-            aVar.f20629d = connectPointData.last_speed_data_update_time.longValue();
+            aVar.f20080e = connectPointData.name;
+            aVar.f20078c = connectPointData.last_connect_rate_update_time.longValue();
+            aVar.f20079d = connectPointData.last_speed_data_update_time.longValue();
             for (DnsIpData dnsIpData : connectPointData.dns_ip_connect_rate) {
                 b c2 = b.c(dnsIpData);
                 if (c2 != null) {
@@ -74,7 +74,7 @@ public class a {
             for (DnsIpData dnsIpData2 : connectPointData.dns_ip_speed_data) {
                 b c3 = b.c(dnsIpData2);
                 if (c3 != null) {
-                    aVar.f20627b.put(c3.a, c3);
+                    aVar.f20077b.put(c3.a, c3);
                 }
             }
             return aVar;
@@ -123,9 +123,9 @@ public class a {
                 return null;
             }
             ConnectPointData.Builder builder = new ConnectPointData.Builder();
-            builder.name = aVar.f20630e;
-            builder.last_connect_rate_update_time = Long.valueOf(aVar.f20628c);
-            builder.last_speed_data_update_time = Long.valueOf(aVar.f20629d);
+            builder.name = aVar.f20080e;
+            builder.last_connect_rate_update_time = Long.valueOf(aVar.f20078c);
+            builder.last_speed_data_update_time = Long.valueOf(aVar.f20079d);
             builder.dns_ip_connect_rate = new ArrayList();
             builder.dns_ip_speed_data = new ArrayList();
             for (Map.Entry<String, b> entry : aVar.a.entrySet()) {
@@ -134,7 +134,7 @@ public class a {
                     builder.dns_ip_connect_rate.add(d2);
                 }
             }
-            for (Map.Entry<String, b> entry2 : aVar.f20627b.entrySet()) {
+            for (Map.Entry<String, b> entry2 : aVar.f20077b.entrySet()) {
                 DnsIpData d3 = b.d(entry2.getValue());
                 if (d3 != null) {
                     builder.dns_ip_speed_data.add(d3);

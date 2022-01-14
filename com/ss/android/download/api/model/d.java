@@ -4,14 +4,14 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61698b;
+    public String f59360b;
 
     /* loaded from: classes3.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61699b;
+        public String f59361b;
 
         public a a(String str) {
             this.a = str;
@@ -25,7 +25,7 @@ public class d {
 
     public d(a aVar) {
         this.a = aVar.a;
-        this.f61698b = aVar.f61699b;
+        this.f59360b = aVar.f59361b;
     }
 
     public String a() {

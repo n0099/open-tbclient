@@ -11,7 +11,7 @@ public class c {
     public static volatile c.a.v0.n0.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f27314b;
+    public static e f26498b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class c {
                 return;
             }
         }
-        f27314b = new e();
+        f26498b = new e();
     }
 
     public static c.a.v0.n0.d a() {
@@ -35,7 +35,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (a == null) {
-                a = f27314b.a();
+                a = f26498b.a();
             }
             return a;
         }

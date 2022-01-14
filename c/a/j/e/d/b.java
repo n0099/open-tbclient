@@ -14,10 +14,10 @@ public final class b<VD extends ToastViewData, VM extends c.a.j.h.c.d.a<VD>, Vie
     public final View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final VM f3908b;
+    public final VM f3846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VD f3909c;
+    public final VD f3847c;
 
     public b(View view, VM vm, VD vd) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public final class b<VD extends ToastViewData, VM extends c.a.j.h.c.d.a<VD>, Vie
             }
         }
         this.a = view;
-        this.f3908b = vm;
-        this.f3909c = vd;
+        this.f3846b = vm;
+        this.f3847c = vd;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.f3908b);
-            this.f3908b.b(this.f3909c);
+            this.a.a(this.f3846b);
+            this.f3846b.b(this.f3847c);
         }
     }
 }

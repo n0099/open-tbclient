@@ -78,7 +78,7 @@ public class a {
                     if (optJSONObject2 != null) {
                         String optString = optJSONObject2.optString("cmd");
                         SplashStyleRecorder.b(optJSONObject2.optJSONObject("style_desc"));
-                        f.p(optJSONObject2.optString("src_ext_info"));
+                        f.z(optJSONObject2.optString("src_ext_info"));
                         if (TextUtils.equals("update", optString)) {
                             arrayList = a(optJSONArray, str, false);
                             String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -91,7 +91,7 @@ public class a {
                             if (optInt != 1 && optInt2 != 1) {
                                 String optString3 = optJSONObject2.optString("ukey");
                                 if (TextUtils.isEmpty(optString3)) {
-                                    BaseVM.g(32);
+                                    BaseVM.h(32);
                                     return arrayList;
                                 }
                                 List<g> t = e.t();
@@ -104,18 +104,18 @@ public class a {
                                         break;
                                     }
                                     g next = it.next();
-                                    if (TextUtils.equals(next.f3840c, optString3)) {
-                                        c.a.c0.u.a.b(arrayList, next);
+                                    if (TextUtils.equals(next.f3782c, optString3)) {
+                                        c.a.c0.x.a.b(arrayList, next);
                                         break;
                                     }
                                 }
                                 if (arrayList.size() == 0) {
-                                    BaseVM.g(64);
+                                    BaseVM.h(64);
                                 }
                             } else {
                                 List<g> a = a(optJSONArray, str, true);
                                 if (a == null || a.size() == 0) {
-                                    BaseVM.g(128);
+                                    BaseVM.h(128);
                                 }
                                 arrayList = a;
                             }

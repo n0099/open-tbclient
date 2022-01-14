@@ -27,17 +27,17 @@ public class c {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f23295b;
+    public ViewGroup f22651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f23296c;
+    public EMTextView f22652c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public g0<String> f23297d;
+    public g0<String> f22653d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23298e;
+    public boolean f22654e;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -59,18 +59,18 @@ public class c {
                 return;
             }
         }
-        this.f23297d = g0.b();
-        this.f23298e = false;
+        this.f22653d = g0.b();
+        this.f22654e = false;
         this.a = LayoutInflater.from(context).inflate(c.a.t0.s2.j.new_pb_notice_bar, (ViewGroup) null);
         b();
     }
 
     public void a(@NonNull BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) || this.f23298e) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) || this.f22654e) {
             return;
         }
-        this.f23298e = true;
+        this.f22654e = true;
         this.a.setVisibility(0);
         bdTypeListView.addHeaderView(this.a, 1);
     }
@@ -78,9 +78,9 @@ public class c {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f23295b = (ViewGroup) this.a.findViewById(c.a.t0.s2.i.container);
+            this.f22651b = (ViewGroup) this.a.findViewById(c.a.t0.s2.i.container);
             EMTextView eMTextView = (EMTextView) this.a.findViewById(c.a.t0.s2.i.tv_pb_notice_bar);
-            this.f23296c = eMTextView;
+            this.f22652c = eMTextView;
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(eMTextView);
             d2.w(c.a.t0.s2.g.M_H_X003);
             d2.v(c.a.t0.s2.f.CAM_X0109);
@@ -91,31 +91,36 @@ public class c {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f23295b);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f22651b);
             d2.n(c.a.t0.s2.l.J_X05);
             d2.f(c.a.t0.s2.f.CAM_X0206);
-            SkinManager.setViewTextColor(this.f23296c, c.a.t0.s2.f.CAM_X0109);
+            SkinManager.setViewTextColor(this.f22652c, c.a.t0.s2.f.CAM_X0109);
         }
     }
 
     public void d(@NonNull BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.f23298e) {
-            this.f23298e = false;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.f22654e) {
+            this.f22654e = false;
             this.a.setVisibility(8);
             bdTypeListView.removeHeaderView(this.a);
         }
     }
 
-    public void e(@Nullable c.a.t0.s2.r.f fVar, int i2, @Nullable a aVar) {
+    public void e(@NonNull c.a.t0.s2.r.f fVar, int i2, @Nullable a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048580, this, fVar, i2, aVar) == null) {
-            boolean z = i2 == 4;
+            boolean z = true;
+            boolean z2 = i2 == 4;
+            boolean z3 = i2 == 25;
+            if (!z2 && !z3) {
+                z = false;
+            }
             boolean o0 = fVar.o0(z);
             if (o0) {
-                this.f23296c.setText(fVar.x());
+                this.f22652c.setText(fVar.x());
                 this.a.setVisibility(0);
-                f(fVar.Q(), fVar.m(), fVar.n(), z);
+                f(fVar.Q(), fVar.m(), fVar.n(), z2, z3);
             } else {
                 this.a.setVisibility(8);
             }
@@ -125,10 +130,14 @@ public class c {
         }
     }
 
-    public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
+    public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) && this.f23297d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", z ? 1 : 2));
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f22653d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
+            int i2 = z ? 1 : 2;
+            if (z2) {
+                i2 = 3;
+            }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", i2));
         }
     }
 
@@ -147,8 +156,8 @@ public class c {
                 return;
             }
         }
-        this.f23297d = g0.b();
-        this.f23298e = false;
+        this.f22653d = g0.b();
+        this.f22654e = false;
         this.a = view;
         b();
     }

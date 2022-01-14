@@ -87,8 +87,8 @@ public final class Headers {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                c.a.c0.u.a.b(this.a, str);
-                c.a.c0.u.a.b(this.a, str2.trim());
+                c.a.c0.x.a.b(this.a, str);
+                c.a.c0.x.a.b(this.a, str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -105,10 +105,10 @@ public final class Headers {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 int i2 = 0;
-                while (i2 < c.a.c0.u.a.k(this.a)) {
-                    if (str.equalsIgnoreCase((String) c.a.c0.u.a.d(this.a, i2))) {
-                        c.a.c0.u.a.i(this.a, i2);
-                        c.a.c0.u.a.i(this.a, i2);
+                while (i2 < c.a.c0.x.a.k(this.a)) {
+                    if (str.equalsIgnoreCase((String) c.a.c0.x.a.d(this.a, i2))) {
+                        c.a.c0.x.a.i(this.a, i2);
+                        c.a.c0.x.a.i(this.a, i2);
                         i2 -= 2;
                     }
                     i2 += 2;
@@ -151,7 +151,7 @@ public final class Headers {
             }
         }
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[c.a.c0.u.a.k(list)]);
+        this.a = (String[]) list.toArray(new String[c.a.c0.x.a.k(list)]);
     }
 
     public static void a(String str) throws IllegalUnicodeException {

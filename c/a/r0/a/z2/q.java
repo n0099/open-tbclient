@@ -22,16 +22,16 @@ public final class q {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f10230b;
+    public static volatile k f10006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f10231c;
+    public static volatile k f10007c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile k f10232d;
+    public static volatile k f10008d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final i.n.b f10233e;
+    public static final i.n.b f10009e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -101,7 +101,7 @@ public final class q {
         public i.d<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.io()).f(q.f10233e).l() : (i.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.io()).f(q.f10009e).l() : (i.d) invokeL.objValue;
         }
     }
 
@@ -129,7 +129,7 @@ public final class q {
         public i.d<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.computation()).f(q.f10233e).l() : (i.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.computation()).f(q.f10009e).l() : (i.d) invokeL.objValue;
         }
     }
 
@@ -139,7 +139,7 @@ public final class q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10234e;
+        public final /* synthetic */ String f10010e;
 
         public d(String str) {
             Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public final class q {
                     return;
                 }
             }
-            this.f10234e = str;
+            this.f10010e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public final class q {
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && q.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f10234e + "] fail!", th);
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f10010e + "] fail!", th);
             }
         }
     }
@@ -204,7 +204,7 @@ public final class q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10235e;
+        public final /* synthetic */ String f10011e;
 
         public f(String str) {
             Interceptable interceptable = $ic;
@@ -221,7 +221,7 @@ public final class q {
                     return;
                 }
             }
-            this.f10235e = str;
+            this.f10011e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -229,7 +229,7 @@ public final class q {
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && q.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f10235e + "] fail!", th);
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f10011e + "] fail!", th);
             }
         }
     }
@@ -269,7 +269,7 @@ public final class q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10236e;
+        public final /* synthetic */ String f10012e;
 
         public h(String str) {
             Interceptable interceptable = $ic;
@@ -286,7 +286,7 @@ public final class q {
                     return;
                 }
             }
-            this.f10236e = str;
+            this.f10012e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -294,7 +294,7 @@ public final class q {
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && q.a) {
-                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f10236e + "] fail!", th);
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.f10012e + "] fail!", th);
             }
         }
     }
@@ -389,7 +389,7 @@ public final class q {
             }
         }
         a = c.a.r0.a.k.a;
-        f10233e = new a();
+        f10009e = new a();
     }
 
     public q() {
@@ -428,15 +428,15 @@ public final class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f10231c == null) {
+            if (f10007c == null) {
                 synchronized (q.class) {
-                    if (f10231c == null) {
-                        f10231c = new k(PublishSubject.F());
-                        f10231c.n().d(new c()).s().t();
+                    if (f10007c == null) {
+                        f10007c = new k(PublishSubject.F());
+                        f10007c.n().d(new c()).s().t();
                     }
                 }
             }
-            return f10231c;
+            return f10007c;
         }
         return (j) invokeV.objValue;
     }
@@ -445,15 +445,15 @@ public final class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f10230b == null) {
+            if (f10006b == null) {
                 synchronized (q.class) {
-                    if (f10230b == null) {
-                        f10230b = new k(PublishSubject.F());
-                        f10230b.n().d(new b()).s().t();
+                    if (f10006b == null) {
+                        f10006b = new k(PublishSubject.F());
+                        f10006b.n().d(new b()).s().t();
                     }
                 }
             }
-            return f10230b;
+            return f10006b;
         }
         return (j) invokeV.objValue;
     }
@@ -462,15 +462,15 @@ public final class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f10232d == null) {
+            if (f10008d == null) {
                 synchronized (q.class) {
-                    if (f10232d == null) {
-                        f10232d = new k(PublishSubject.F());
-                        f10232d.n().k(Schedulers.io()).b(f10233e).s().t();
+                    if (f10008d == null) {
+                        f10008d = new k(PublishSubject.F());
+                        f10008d.n().k(Schedulers.io()).b(f10009e).s().t();
                     }
                 }
             }
-            return f10232d;
+            return f10008d;
         }
         return (j) invokeV.objValue;
     }

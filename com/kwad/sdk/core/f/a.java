@@ -28,17 +28,17 @@ public class a {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static InterfaceC2085a f58022b;
+    public static InterfaceC2102a f55826b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f58023c;
+    public static boolean f55827c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f58024d;
+    public static boolean f55828d;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2085a {
+    public interface InterfaceC2102a {
         @WorkerThread
         void a(String str);
     }
@@ -88,7 +88,7 @@ public class a {
         }
         c(context);
         if (com.kwad.sdk.g.a.a()) {
-            com.kwad.sdk.g.a.a(context, new a.InterfaceC2111a() { // from class: com.kwad.sdk.core.f.a.1
+            com.kwad.sdk.g.a.a(context, new a.InterfaceC2128a() { // from class: com.kwad.sdk.core.f.a.1
             });
         } else if (com.kwad.sdk.g.b.a()) {
             com.kwad.sdk.g.b.a(context, new b.a() { // from class: com.kwad.sdk.core.f.a.2
@@ -97,11 +97,11 @@ public class a {
     }
 
     public static void c(Context context) {
-        if (!TextUtils.isEmpty(a) || context == null || f58023c) {
+        if (!TextUtils.isEmpty(a) || context == null || f55827c) {
             return;
         }
-        f58023c = true;
-        if (context == null || f58024d) {
+        f55827c = true;
+        if (context == null || f55828d) {
             return;
         }
         final Context applicationContext = context.getApplicationContext();
@@ -122,7 +122,7 @@ public class a {
                         c2 = 65535;
                         break;
                     case -1712043046:
-                        if (upperCase.equals(g.f57226j)) {
+                        if (upperCase.equals(g.f55062j)) {
                             c2 = '\n';
                             break;
                         }
@@ -281,12 +281,12 @@ public class a {
                 }
                 com.kwad.sdk.core.d.a.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.a);
                 if (TextUtils.isEmpty(a.a)) {
-                    boolean unused3 = a.f58024d = true;
+                    boolean unused3 = a.f55828d = true;
                 } else {
                     as.i(applicationContext, a.a);
                 }
                 a.h();
-                boolean unused4 = a.f58023c = false;
+                boolean unused4 = a.f55827c = false;
             }
         });
     }
@@ -302,9 +302,9 @@ public class a {
     }
 
     public static void h() {
-        InterfaceC2085a interfaceC2085a = f58022b;
-        if (interfaceC2085a != null) {
-            interfaceC2085a.a(a);
+        InterfaceC2102a interfaceC2102a = f55826b;
+        if (interfaceC2102a != null) {
+            interfaceC2102a.a(a);
         }
     }
 }

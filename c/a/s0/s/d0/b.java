@@ -13,16 +13,16 @@ public class b {
     public static a a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f13330b = 0;
+    public static int f13009b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f13331c = 0;
+    public static int f13010c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f13332d = 0;
+    public static int f13011d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f13333e = 1;
+    public static int f13012e = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

@@ -834,12 +834,12 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     }
                     return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i2, str);
                 } catch (RuntimeException unused) {
-                    i3 = cursor.getPosition();
+                    i3 = -1;
                     String str3 = "Search suggestions cursor at row " + i3 + " returned exception.";
                     return null;
                 }
             } catch (RuntimeException unused2) {
-                i3 = -1;
+                i3 = cursor.getPosition();
                 String str32 = "Search suggestions cursor at row " + i3 + " returned exception.";
                 return null;
             }

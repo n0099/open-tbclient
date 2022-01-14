@@ -21,16 +21,16 @@ public class a {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GodSquareRecGodAdapter f18620b;
+    public GodSquareRecGodAdapter f18156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GodSquareHotGodAdapter f18621c;
+    public GodSquareHotGodAdapter f18157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f18622d;
+    public List<c.a.d.n.e.a> f18158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f18623e;
+    public BdTypeListView f18159e;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -47,27 +47,27 @@ public class a {
                 return;
             }
         }
-        this.f18622d = new ArrayList();
-        this.f18623e = bdTypeListView;
+        this.f18158d = new ArrayList();
+        this.f18159e = bdTypeListView;
         this.a = new d(tbPageContext);
-        this.f18620b = new GodSquareRecGodAdapter(tbPageContext);
-        this.f18621c = new GodSquareHotGodAdapter(tbPageContext);
-        this.f18622d.add(this.a);
-        this.f18622d.add(this.f18620b);
-        this.f18622d.add(this.f18621c);
+        this.f18156b = new GodSquareRecGodAdapter(tbPageContext);
+        this.f18157c = new GodSquareHotGodAdapter(tbPageContext);
+        this.f18158d.add(this.a);
+        this.f18158d.add(this.f18156b);
+        this.f18158d.add(this.f18157c);
     }
 
     public List<c.a.d.n.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18622d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18158d : (List) invokeV.objValue;
     }
 
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f18623e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f18623e.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f18159e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
+            this.f18159e.getAdapter2().notifyDataSetChanged();
         }
     }
 }

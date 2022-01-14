@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends c.a.t0.g0.b<c.a.t0.o1.k.b.c.d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.o1.k.b.c.d> {
         this.p = (TbImageView) j2.findViewById(R.id.topic_special_thread_img);
         this.q = (TextView) j2.findViewById(R.id.topic_special_thread_title);
         this.r = (TextView) j2.findViewById(R.id.topic_special_thread_discuss);
-        this.p.setRadius(n.f(this.f18211g, R.dimen.tbds10));
+        this.p.setRadius(n.f(this.f17768g, R.dimen.tbds10));
         this.p.setConrers(15);
         this.p.setPlaceHolder(2);
         this.n.setTopicOnClickListener(this);
@@ -91,17 +91,17 @@ public class e extends c.a.t0.g0.b<c.a.t0.o1.k.b.c.d> {
     public void onClick(View view) {
         c.a.t0.o1.k.b.c.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (dVar = this.s) == null || dVar.f21256i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (dVar = this.s) == null || dVar.f20694i == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.f21256i.E).param("topic_id", this.s.f21254g).param("obj_locate", this.s.f21253f));
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f18210f.getPageActivity()).createFromThreadCfg(this.s.f21256i, null, "", 18005, true, false, false);
-        if (this.s.f21256i.Z() == null) {
-            createFromThreadCfg.setForumId(String.valueOf(this.s.f21256i.U()));
-            createFromThreadCfg.setForumName(this.s.f21256i.a0());
+        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.f20694i.E).param("topic_id", this.s.f20692g).param("obj_locate", this.s.f20691f));
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f17767f.getPageActivity()).createFromThreadCfg(this.s.f20694i, null, "", 18005, true, false, false);
+        if (this.s.f20694i.Z() == null) {
+            createFromThreadCfg.setForumId(String.valueOf(this.s.f20694i.U()));
+            createFromThreadCfg.setForumName(this.s.f20694i.a0());
         } else {
-            createFromThreadCfg.setForumId(this.s.f21256i.Z().getForumId());
-            createFromThreadCfg.setForumName(this.s.f21256i.Z().getForumName());
+            createFromThreadCfg.setForumId(this.s.f20694i.Z().getForumId());
+            createFromThreadCfg.setForumName(this.s.f20694i.Z().getForumName());
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
@@ -111,21 +111,21 @@ public class e extends c.a.t0.g0.b<c.a.t0.o1.k.b.c.d> {
     /* renamed from: p */
     public void k(c.a.t0.o1.k.b.c.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null || dVar.f21256i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null || dVar.f20694i == null) {
             return;
         }
         this.s = dVar;
-        if (dVar.f21252e) {
-            if (StringUtils.isNull(dVar.f21255h)) {
+        if (dVar.f20690e) {
+            if (StringUtils.isNull(dVar.f20693h)) {
                 this.o.setText(R.string.topic_special_title_default);
             } else {
-                this.o.setText(dVar.f21255h);
+                this.o.setText(dVar.f20693h);
             }
         }
-        this.o.setVisibility(dVar.f21252e ? 0 : 8);
+        this.o.setVisibility(dVar.f20690e ? 0 : 8);
         String str = null;
-        if (!ListUtils.isEmpty(dVar.f21256i.F0())) {
-            Iterator<MediaData> it = dVar.f21256i.F0().iterator();
+        if (!ListUtils.isEmpty(dVar.f20694i.F0())) {
+            Iterator<MediaData> it = dVar.f20694i.F0().iterator();
             while (it.hasNext()) {
                 MediaData next = it.next();
                 if (next != null && next.getType() == 3) {
@@ -149,12 +149,12 @@ public class e extends c.a.t0.g0.b<c.a.t0.o1.k.b.c.d> {
             this.p.reset();
         }
         this.p.startLoad(str, 10, false);
-        if (StringUtils.isNull(dVar.f21256i.getTitle())) {
+        if (StringUtils.isNull(dVar.f20694i.getTitle())) {
             this.q.setVisibility(8);
         } else {
             this.q.setVisibility(0);
-            this.q.setText(dVar.f21256i.getTitle());
+            this.q.setText(dVar.f20694i.getTitle());
         }
-        this.r.setText(String.format(this.f18211g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.f21256i.V0())));
+        this.r.setText(String.format(this.f17768g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.f20694i.V0())));
     }
 }

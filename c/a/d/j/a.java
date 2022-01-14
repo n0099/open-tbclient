@@ -29,30 +29,30 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f3248e;
+    public static boolean f3210e;
     public transient /* synthetic */ FieldHolder $fh;
     public IPackageGetCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ResultData f3249b;
+    public volatile ResultData f3211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ErrorInfo f3250c;
+    public volatile ErrorInfo f3212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestParams.Channel f3251d;
+    public RequestParams.Channel f3213d;
 
     /* renamed from: c.a.d.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0114a implements PackageCallback {
+    public class C0122a implements PackageCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IPackageGetCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f3252b;
+        public final /* synthetic */ a f3214b;
 
-        public C0114a(a aVar, IPackageGetCallback iPackageGetCallback) {
+        public C0122a(a aVar, IPackageGetCallback iPackageGetCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f3252b = aVar;
+            this.f3214b = aVar;
             this.a = iPackageGetCallback;
         }
 
@@ -82,7 +82,7 @@ public class a {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                this.f3252b.n(errorInfo, this.a);
+                this.f3214b.n(errorInfo, this.a);
             }
         }
 
@@ -90,7 +90,7 @@ public class a {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                this.f3252b.o(resultData, this.a);
+                this.f3214b.o(resultData, this.a);
             }
         }
     }
@@ -131,7 +131,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
                 synchronized (this.a) {
-                    this.a.f3250c = errorInfo;
+                    this.a.f3212c = errorInfo;
                     this.a.p();
                 }
             }
@@ -142,8 +142,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
                 synchronized (this.a) {
-                    boolean unused = a.f3248e = true;
-                    this.a.f3249b = resultData;
+                    boolean unused = a.f3210e = true;
+                    this.a.f3211b = resultData;
                     this.a.p();
                 }
             }
@@ -182,7 +182,7 @@ public class a {
     public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f3248e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f3210e : invokeV.booleanValue;
     }
 
     public final List<IBundleInfo> g(List<PackageInfo> list) {
@@ -248,7 +248,7 @@ public class a {
                 arrayList.add(iBundleInfo.getPackageName());
             }
             channel.setPackageNames(arrayList);
-            channel.setCallback(new C0114a(this, iPackageGetCallback));
+            channel.setCallback(new C0122a(this, iPackageGetCallback));
             requestParams.addChannel(channel);
             PmsManager.getInstance().execute(requestParams);
         }
@@ -272,16 +272,16 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequestParams.Channel channel = this.f3251d;
+            RequestParams.Channel channel = this.f3213d;
             if (channel != null) {
                 return channel;
             }
             RequestParams.Channel channel2 = new RequestParams.Channel();
-            this.f3251d = channel2;
+            this.f3213d = channel2;
             channel2.setFetchAllPackages(true);
-            this.f3251d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-            this.f3251d.setCallback(new b(this));
-            return this.f3251d;
+            this.f3213d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+            this.f3213d.setCallback(new b(this));
+            return this.f3213d;
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -308,14 +308,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null) {
             return;
         }
-        if (this.f3250c != null) {
-            n(this.f3250c, this.a);
+        if (this.f3212c != null) {
+            n(this.f3212c, this.a);
             this.a = null;
-            this.f3250c = null;
-        } else if (this.f3249b != null) {
-            o(this.f3249b, this.a);
+            this.f3212c = null;
+        } else if (this.f3211b != null) {
+            o(this.f3211b, this.a);
             this.a = null;
-            this.f3249b = null;
+            this.f3211b = null;
         }
     }
 }

@@ -28,7 +28,7 @@ public class y implements v {
     public static final AtomicReference<v> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final v f19016b;
+    public static final v f18535b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class y implements v {
             }
         }
         a = new AtomicReference<>(null);
-        f19016b = new y();
+        f18535b = new y();
     }
 
     public y() {
@@ -67,7 +67,7 @@ public class y implements v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             v vVar = a.get();
-            return vVar == null ? f19016b : vVar;
+            return vVar == null ? f18535b : vVar;
         }
         return (v) invokeV.objValue;
     }

@@ -20,43 +20,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20836b;
+    public View f20278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GameVideoGridView f20837c;
+    public GameVideoGridView f20279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.o1.e.a.b f20838d;
+    public c.a.t0.o1.e.a.b f20280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20839e;
+    public TextView f20281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f20840f;
+    public b f20282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f20841g;
+    public BdUniqueId f20283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f20842h;
+    public AdapterView.OnItemClickListener f20284h;
 
     /* renamed from: c.a.t0.o1.e.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1258a implements AdapterView.OnItemClickListener {
+    /* loaded from: classes8.dex */
+    public class C1272a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20843e;
+        public final /* synthetic */ a f20285e;
 
-        public C1258a(a aVar) {
+        public C1272a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,30 +71,30 @@ public class a {
                     return;
                 }
             }
-            this.f20843e = aVar;
+            this.f20285e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f20843e.f20838d == null || i2 >= this.f20843e.f20838d.getCount() || this.f20843e.f20838d.getItem(i2) == null || !(this.f20843e.f20838d.getItem(i2) instanceof c.a.t0.o1.e.c.a)) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f20285e.f20280d == null || i2 >= this.f20285e.f20280d.getCount() || this.f20285e.f20280d.getItem(i2) == null || !(this.f20285e.f20280d.getItem(i2) instanceof c.a.t0.o1.e.c.a)) {
                 return;
             }
-            c.a.t0.o1.e.c.a aVar = (c.a.t0.o1.e.c.a) this.f20843e.f20838d.getItem(i2);
-            if (aVar.f20874d == 1) {
-                this.f20843e.f20838d.c(aVar.a);
-                if (this.f20843e.f20840f != null) {
-                    this.f20843e.f20840f.a(aVar);
+            c.a.t0.o1.e.c.a aVar = (c.a.t0.o1.e.c.a) this.f20285e.f20280d.getItem(i2);
+            if (aVar.f20314d == 1) {
+                this.f20285e.f20280d.c(aVar.a);
+                if (this.f20285e.f20282f != null) {
+                    this.f20285e.f20282f.a(aVar);
                 }
-                this.f20843e.d();
-                c.a.s0.s.g0.b.j().v("key_game_video_tab_has_choosed_sub_class_id", aVar.a);
-                c.a.s0.s.g0.b.j().x("key_game_video_tab_has_choosed_sub_class_name", aVar.f20872b);
+                this.f20285e.d();
+                c.a.s0.s.h0.b.k().w("key_game_video_tab_has_choosed_sub_class_id", aVar.a);
+                c.a.s0.s.h0.b.k().y("key_game_video_tab_has_choosed_sub_class_name", aVar.f20312b);
                 TiebaStatic.log(new StatisticItem("c13485").param("obj_type", aVar.a));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(c.a.t0.o1.e.c.a aVar);
     }
@@ -114,45 +114,45 @@ public class a {
                 return;
             }
         }
-        this.f20842h = new C1258a(this);
+        this.f20284h = new C1272a(this);
         this.a = tbPageContext;
-        this.f20841g = bdUniqueId;
+        this.f20283g = bdUniqueId;
         e();
     }
 
     public void c(ViewGroup viewGroup) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null || (view = this.f20836b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null || (view = this.f20278b) == null) {
             return;
         }
         if (view.getParent() != null) {
-            ((ViewGroup) this.f20836b.getParent()).removeView(this.f20836b);
+            ((ViewGroup) this.f20278b.getParent()).removeView(this.f20278b);
         }
-        viewGroup.addView(this.f20836b);
+        viewGroup.addView(this.f20278b);
         TiebaStatic.log("c13484");
     }
 
     public void d() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f20836b) == null || view.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f20278b) == null || view.getParent() == null) {
             return;
         }
-        ((ViewGroup) this.f20836b.getParent()).removeView(this.f20836b);
+        ((ViewGroup) this.f20278b.getParent()).removeView(this.f20278b);
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-            this.f20836b = inflate;
-            this.f20837c = (GameVideoGridView) inflate.findViewById(R.id.id_game_video_choose_full_gridview);
-            this.f20838d = new c.a.t0.o1.e.a.b(this.a, 101, this.f20841g);
-            this.f20837c.setNumColumns(4);
-            this.f20837c.setAdapter((ListAdapter) this.f20838d);
-            this.f20837c.setOnItemClickListener(this.f20842h);
-            this.f20839e = (TextView) this.f20836b.findViewById(R.id.id_game_video_choose_full_title);
+            this.f20278b = inflate;
+            this.f20279c = (GameVideoGridView) inflate.findViewById(R.id.id_game_video_choose_full_gridview);
+            this.f20280d = new c.a.t0.o1.e.a.b(this.a, 101, this.f20283g);
+            this.f20279c.setNumColumns(4);
+            this.f20279c.setAdapter((ListAdapter) this.f20280d);
+            this.f20279c.setOnItemClickListener(this.f20284h);
+            this.f20281e = (TextView) this.f20278b.findViewById(R.id.id_game_video_choose_full_title);
             f();
         }
     }
@@ -160,11 +160,11 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TextView textView = this.f20839e;
+            TextView textView = this.f20281e;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
             }
-            View view = this.f20836b;
+            View view = this.f20278b;
             if (view != null) {
                 SkinManager.setBackgroundResource(view, R.color.CAM_X0201);
             }
@@ -174,7 +174,7 @@ public class a {
     public void g() {
         GameVideoGridView gameVideoGridView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gameVideoGridView = this.f20837c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gameVideoGridView = this.f20279c) == null) {
             return;
         }
         gameVideoGridView.onDestroy();
@@ -185,14 +185,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f20838d.b(list);
-        this.f20838d.notifyDataSetChanged();
+        this.f20280d.b(list);
+        this.f20280d.notifyDataSetChanged();
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f20840f = bVar;
+            this.f20282f = bVar;
         }
     }
 }

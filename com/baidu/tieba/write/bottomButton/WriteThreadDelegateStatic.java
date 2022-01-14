@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.s0.i0.b;
 import c.a.s0.i0.c;
-import c.a.t0.o4.f;
-import c.a.t0.o4.h;
-import c.a.t0.o4.j;
+import c.a.t0.p4.f;
+import c.a.t0.p4.h;
+import c.a.t0.p4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
@@ -42,10 +42,10 @@ public class WriteThreadDelegateStatic extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new WriteThreadFragment();
-            cVar.f13111e = 9;
-            cVar.f13108b = j.send;
-            cVar.f13110d = f.icon_tabbar_add_n;
-            cVar.f13115i = c.f13106j;
+            cVar.f12789e = 9;
+            cVar.f12786b = j.send;
+            cVar.f12788d = f.icon_tabbar_add_n;
+            cVar.f12793i = c.f12785j;
             return cVar;
         }
         return (c) invokeV.objValue;

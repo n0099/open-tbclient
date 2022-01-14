@@ -37,7 +37,7 @@ public class fj implements fx {
     public SimpleDateFormat f393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f63460b;
+    public a f61077b;
 
     /* loaded from: classes4.dex */
     public class a implements fq, fy {
@@ -90,7 +90,7 @@ public class fj implements fx {
                     sb.append(this.a.f393a.format(new Date()));
                     sb.append(this.f394a);
                     sb.append(" Blob [");
-                    sb.append(faVar.m354a());
+                    sb.append(faVar.m366a());
                     sb.append(",");
                     sb.append(faVar.a());
                     sb.append(",");
@@ -102,18 +102,18 @@ public class fj implements fx {
                 if (faVar == null || faVar.a() != 99999) {
                     return;
                 }
-                String m354a = faVar.m354a();
+                String m366a = faVar.m366a();
                 fa faVar2 = null;
                 if (!this.f395a) {
-                    if ("BIND".equals(m354a)) {
-                        com.xiaomi.channel.commonutils.logger.b.m122a("build binded result for loopback.");
+                    if ("BIND".equals(m366a)) {
+                        com.xiaomi.channel.commonutils.logger.b.m134a("build binded result for loopback.");
                         du.d dVar = new du.d();
                         dVar.a(true);
                         dVar.c("login success.");
                         dVar.b("success");
                         dVar.a("success");
                         fa faVar3 = new fa();
-                        faVar3.a(dVar.m333a(), (String) null);
+                        faVar3.a(dVar.m345a(), (String) null);
                         faVar3.a((short) 2);
                         faVar3.a(VideoItemModel.TYPE_LOADING);
                         faVar3.a("BIND", (String) null);
@@ -121,20 +121,20 @@ public class fj implements fx {
                         faVar3.b(null);
                         faVar3.c(faVar.g());
                         faVar2 = faVar3;
-                    } else if (!"UBND".equals(m354a) && "SECMSG".equals(m354a)) {
+                    } else if (!"UBND".equals(m366a) && "SECMSG".equals(m366a)) {
                         fa faVar4 = new fa();
                         faVar4.a(VideoItemModel.TYPE_LOADING);
                         faVar4.a("SECMSG", (String) null);
                         faVar4.c(faVar.g());
                         faVar4.a(faVar.e());
-                        faVar4.a(faVar.m356a());
+                        faVar4.a(faVar.m368a());
                         faVar4.b(faVar.f());
-                        faVar4.a(faVar.m359a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f63822h), (String) null);
+                        faVar4.a(faVar.m371a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f61424h), (String) null);
                         faVar2 = faVar4;
                     }
                 }
                 if (faVar2 != null) {
-                    for (Map.Entry<fq, fl.a> entry : this.a.f390a.m374a().entrySet()) {
+                    for (Map.Entry<fq, fl.a> entry : this.a.f390a.m386a().entrySet()) {
                         if (this.a.f389a != entry.getKey()) {
                             entry.getValue().a(faVar2);
                         }
@@ -155,7 +155,7 @@ public class fj implements fx {
                     sb.append(this.a.f393a.format(new Date()));
                     sb.append(this.f394a);
                     sb.append(" PKT ");
-                    str = gcVar.m397a();
+                    str = gcVar.m409a();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
@@ -216,7 +216,7 @@ public class fj implements fx {
         this.f393a = new SimpleDateFormat("hh:mm:ss aaa");
         this.f390a = null;
         this.f389a = null;
-        this.f63460b = null;
+        this.f61077b = null;
         this.f391a = null;
         this.f392a = "[Slim] ";
         this.f390a = flVar;
@@ -227,12 +227,12 @@ public class fj implements fx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.f389a = new a(this, true);
-            this.f63460b = new a(this, false);
+            this.f61077b = new a(this, false);
             fl flVar = this.f390a;
             a aVar = this.f389a;
             flVar.a(aVar, aVar);
             fl flVar2 = this.f390a;
-            a aVar2 = this.f63460b;
+            a aVar2 = this.f61077b;
             flVar2.b(aVar2, aVar2);
             this.f391a = new fk(this);
         }

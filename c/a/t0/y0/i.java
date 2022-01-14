@@ -16,24 +16,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f26465e;
+    public Context f25679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f26466f;
+    public ArrayList<String> f25680f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,14 +75,14 @@ public class i extends BaseAdapter {
                 return;
             }
         }
-        this.f26465e = context;
-        this.f26466f = arrayList;
+        this.f25679e = context;
+        this.f25680f = arrayList;
     }
 
     public void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f26466f = arrayList;
+            this.f25680f = arrayList;
         }
     }
 
@@ -91,7 +91,7 @@ public class i extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f26466f;
+            ArrayList<String> arrayList = this.f25680f;
             if (arrayList == null) {
                 return 0;
             }
@@ -105,11 +105,11 @@ public class i extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            ArrayList<String> arrayList = this.f26466f;
-            if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f26466f.size()) {
+            ArrayList<String> arrayList = this.f25680f;
+            if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f25680f.size()) {
                 return null;
             }
-            return this.f26466f.get(i2);
+            return this.f25680f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -126,19 +126,19 @@ public class i extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
-            int k2 = (c.a.d.f.p.n.k(this.f26465e) - c.a.d.f.p.n.f(this.f26465e, R.dimen.ds22)) / 4;
+            int k = (c.a.d.f.p.n.k(this.f25679e) - c.a.d.f.p.n.f(this.f25679e, R.dimen.ds22)) / 4;
             if (view == null) {
                 b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.f26465e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f25679e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
                 bVar.a = (TbImageView) inflate.findViewById(R.id.image);
                 inflate.setTag(bVar);
-                inflate.setLayoutParams(new AbsListView.LayoutParams(k2, k2));
+                inflate.setLayoutParams(new AbsListView.LayoutParams(k, k));
                 view = inflate;
             }
             b bVar2 = (b) view.getTag();
             String obj = getItem(i2).toString();
             SkinManager.setBackgroundResource(bVar2.a, R.drawable.btn_choose_face_selector);
-            bVar2.a.startLoad(obj, 10, k2, k2, false);
+            bVar2.a.startLoad(obj, 10, k, k, false);
             if (i2 == getCount() - 1) {
                 viewGroup.invalidate();
             }

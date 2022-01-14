@@ -32,22 +32,22 @@ public class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f24489b;
+    public BdUniqueId f23800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f24490c;
+    public long f23801c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f24491d;
+    public c f23802d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f24492e;
+    public ArrayList<n> f23803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f24493f;
+    public boolean f23804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f24494g;
+    public c.a.d.c.g.a f23805g;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.d.c.g.a {
@@ -84,8 +84,8 @@ public class b {
                 return;
             }
             if (responsedMessage.hasError()) {
-                if (this.a.f24491d != null) {
-                    this.a.f24491d.onFailed(responsedMessage.getErrorString());
+                if (this.a.f23802d != null) {
+                    this.a.f23802d.onFailed(responsedMessage.getErrorString());
                     return;
                 }
                 return;
@@ -97,23 +97,23 @@ public class b {
             if (responsedMessage instanceof AgreeMeHTTPResponseMessage) {
                 AgreeMeHTTPResponseMessage agreeMeHTTPResponseMessage = (AgreeMeHTTPResponseMessage) responsedMessage;
                 this.a.i(agreeMeHTTPResponseMessage.datas, z);
-                this.a.f24493f = agreeMeHTTPResponseMessage.hasMore;
+                this.a.f23804f = agreeMeHTTPResponseMessage.hasMore;
             } else if (responsedMessage instanceof AgreeMeSocketResponseMessage) {
                 AgreeMeSocketResponseMessage agreeMeSocketResponseMessage = (AgreeMeSocketResponseMessage) responsedMessage;
                 this.a.i(agreeMeSocketResponseMessage.datas, z);
-                this.a.f24493f = agreeMeSocketResponseMessage.hasMore;
+                this.a.f23804f = agreeMeSocketResponseMessage.hasMore;
             }
         }
     }
 
     /* renamed from: c.a.t0.t1.b.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1435b extends BdAsyncTask<Void, Void, ArrayList<c.a.t0.t1.b.p.a>> {
+    public class C1450b extends BdAsyncTask<Void, Void, ArrayList<c.a.t0.t1.b.p.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1435b(b bVar) {
+        public C1450b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class b {
                 try {
                     AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
                     if (agreeMeResIdl.data != null) {
-                        this.a.f24493f = agreeMeResIdl.data.has_more.intValue() == 1;
+                        this.a.f23804f = agreeMeResIdl.data.has_more.intValue() == 1;
                         for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                             if (agreeList != null) {
                                 c.a.t0.t1.b.p.a aVar = new c.a.t0.t1.b.p.a();
@@ -220,12 +220,12 @@ public class b {
             }
         }
         this.a = false;
-        this.f24490c = 0L;
-        this.f24494g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
+        this.f23801c = 0L;
+        this.f23805g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
         if (tbPageContext != null) {
-            this.f24489b = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.f24494g);
-            this.f24491d = cVar;
+            this.f23800b = tbPageContext.getUniqueId();
+            tbPageContext.registerListener(this.f23805g);
+            this.f23802d = cVar;
         }
     }
 
@@ -240,7 +240,7 @@ public class b {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new C1435b(this).execute(new Void[0]);
+            new C1450b(this).execute(new Void[0]);
         }
     }
 
@@ -248,8 +248,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-            agreeMeRequestMessage.id = this.f24490c;
-            agreeMeRequestMessage.setTag(this.f24489b);
+            agreeMeRequestMessage.id = this.f23801c;
+            agreeMeRequestMessage.setTag(this.f23800b);
             MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
         }
     }
@@ -266,44 +266,44 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || this.a) {
             return;
         }
-        if (ListUtils.isEmpty(this.f24492e)) {
-            this.f24492e = new ArrayList<>();
+        if (ListUtils.isEmpty(this.f23803e)) {
+            this.f23803e = new ArrayList<>();
         } else {
-            this.f24492e.clear();
+            this.f23803e.clear();
         }
-        this.f24492e.addAll(arrayList);
-        ArrayList<n> arrayList2 = this.f24492e;
+        this.f23803e.addAll(arrayList);
+        ArrayList<n> arrayList2 = this.f23803e;
         n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
         if (nVar instanceof c.a.t0.t1.b.p.a) {
-            this.f24490c = ((c.a.t0.t1.b.p.a) nVar).k();
+            this.f23801c = ((c.a.t0.t1.b.p.a) nVar).k();
         }
-        if (this.f24491d == null || ListUtils.isEmpty(this.f24492e)) {
+        if (this.f23802d == null || ListUtils.isEmpty(this.f23803e)) {
             return;
         }
-        this.f24491d.onSuccess(this.f24492e);
+        this.f23802d.onSuccess(this.f23803e);
     }
 
     public final void i(ArrayList<c.a.t0.t1.b.p.a> arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, arrayList, z) == null) {
             this.a = true;
-            if (ListUtils.isEmpty(this.f24492e)) {
-                this.f24492e = new ArrayList<>();
+            if (ListUtils.isEmpty(this.f23803e)) {
+                this.f23803e = new ArrayList<>();
             }
             if (!z) {
-                this.f24492e.addAll(arrayList);
+                this.f23803e.addAll(arrayList);
             } else {
-                this.f24492e.clear();
-                this.f24492e.addAll(0, arrayList);
+                this.f23803e.clear();
+                this.f23803e.addAll(0, arrayList);
             }
-            ArrayList<n> arrayList2 = this.f24492e;
+            ArrayList<n> arrayList2 = this.f23803e;
             n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
             if (nVar instanceof c.a.t0.t1.b.p.a) {
-                this.f24490c = ((c.a.t0.t1.b.p.a) nVar).k();
+                this.f23801c = ((c.a.t0.t1.b.p.a) nVar).k();
             }
-            c cVar = this.f24491d;
+            c cVar = this.f23802d;
             if (cVar != null) {
-                cVar.onSuccess(this.f24492e);
+                cVar.onSuccess(this.f23803e);
             }
         }
     }
@@ -311,7 +311,7 @@ public class b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f24490c = 0L;
+            this.f23801c = 0L;
             f();
         }
     }

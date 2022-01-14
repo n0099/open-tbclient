@@ -23,16 +23,16 @@ public class e {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f24711b;
+    public View f24025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PopupWindow f24712c;
+    public PopupWindow f24026c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f24713d;
+    public Handler f24027d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f24714e;
+    public Runnable f24028e;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f24715e;
+        public final /* synthetic */ e f24029e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public class e {
                     return;
                 }
             }
-            this.f24715e = eVar;
+            this.f24029e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24715e.f24712c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24029e.f24026c == null) {
                 return;
             }
-            g.c(this.f24715e.f24712c);
+            g.c(this.f24029e.f24026c);
         }
     }
 
@@ -76,13 +76,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f24716e;
+        public final /* synthetic */ int f24030e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f24717f;
+        public final /* synthetic */ int f24031f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f24718g;
+        public final /* synthetic */ e f24032g;
 
         public b(e eVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -99,16 +99,16 @@ public class e {
                     return;
                 }
             }
-            this.f24718g = eVar;
-            this.f24716e = i2;
-            this.f24717f = i3;
+            this.f24032g = eVar;
+            this.f24030e = i2;
+            this.f24031f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24718g.g(this.f24716e, this.f24717f);
+                this.f24032g.g(this.f24030e, this.f24031f);
             }
         }
     }
@@ -119,7 +119,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f24719e;
+        public final /* synthetic */ e f24033e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -136,14 +136,14 @@ public class e {
                     return;
                 }
             }
-            this.f24719e = eVar;
+            this.f24033e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f24719e.e();
+                this.f24033e.e();
             }
         }
     }
@@ -163,8 +163,8 @@ public class e {
                 return;
             }
         }
-        this.f24713d = new Handler();
-        this.f24714e = new a(this);
+        this.f24027d = new Handler();
+        this.f24028e = new a(this);
         this.a = tbPageContext;
     }
 
@@ -174,16 +174,16 @@ public class e {
             if (linkedList != null && linkedList.size() >= 1) {
                 int d2 = d(linkedList);
                 if (d2 < 0) {
-                    c.a.s0.s.g0.b.j().t("key_enter_forum_ufan_recent_visit_tip_show", true);
+                    c.a.s0.s.h0.b.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
                     return;
-                } else if (c.a.s0.s.g0.b.j().g("key_enter_forum_ufan_recent_visit_tip_show", false)) {
+                } else if (c.a.s0.s.h0.b.k().h("key_enter_forum_ufan_recent_visit_tip_show", false)) {
                     return;
                 } else {
-                    this.f24713d.postDelayed(new b(this, i2, d2), 100L);
+                    this.f24027d.postDelayed(new b(this, i2, d2), 100L);
                     return;
                 }
             }
-            c.a.s0.s.g0.b.j().t("key_enter_forum_ufan_recent_visit_tip_show", true);
+            c.a.s0.s.h0.b.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
         }
     }
 
@@ -206,7 +206,7 @@ public class e {
     public void e() {
         PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.f24712c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.f24026c) == null) {
             return;
         }
         g.c(popupWindow);
@@ -215,28 +215,28 @@ public class e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24713d.removeCallbacksAndMessages(null);
+            this.f24027d.removeCallbacksAndMessages(null);
         }
     }
 
     public final void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            c.a.s0.s.g0.b.j().t("key_enter_forum_ufan_recent_visit_tip_show", true);
-            PopupWindow popupWindow = this.f24712c;
+            c.a.s0.s.h0.b.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
+            PopupWindow popupWindow = this.f24026c;
             if (popupWindow == null || !popupWindow.isShowing()) {
-                if (this.f24711b == null) {
+                if (this.f24025b == null) {
                     View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.enter_forum_ufan_item_tip, (ViewGroup) null);
-                    this.f24711b = inflate;
+                    this.f24025b = inflate;
                     inflate.setOnClickListener(new c(this));
                 }
-                if (this.f24712c == null) {
-                    PopupWindow popupWindow2 = new PopupWindow(this.f24711b, -2, -2);
-                    this.f24712c = popupWindow2;
+                if (this.f24026c == null) {
+                    PopupWindow popupWindow2 = new PopupWindow(this.f24025b, -2, -2);
+                    this.f24026c = popupWindow2;
                     popupWindow2.setOutsideTouchable(true);
                 }
-                g.m(this.f24712c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i3 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i2);
-                this.f24713d.postDelayed(this.f24714e, 5000L);
+                g.m(this.f24026c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i3 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i2);
+                this.f24027d.postDelayed(this.f24028e, 5000L);
             }
         }
     }

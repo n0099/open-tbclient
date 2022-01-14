@@ -15,19 +15,19 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25132b;
+    public int f24429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f25133c;
+    public List<b> f24430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25134d;
+    public String f24431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25135e;
+    public String f24432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25136f;
+    public String f24433f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -49,18 +49,18 @@ public class a {
             return;
         }
         this.a = tbBookrack.booktown;
-        this.f25132b = tbBookrack.num.intValue();
-        this.f25134d = tbBookrack.title;
-        this.f25135e = tbBookrack.icon;
-        this.f25136f = tbBookrack.tip;
-        this.f25133c = new ArrayList();
+        this.f24429b = tbBookrack.num.intValue();
+        this.f24431d = tbBookrack.title;
+        this.f24432e = tbBookrack.icon;
+        this.f24433f = tbBookrack.tip;
+        this.f24430c = new ArrayList();
         List<BookInfo> list = tbBookrack.book_list;
         if (list != null) {
             for (BookInfo bookInfo : list) {
                 if (bookInfo != null) {
                     b bVar = new b();
                     bVar.a(bookInfo);
-                    this.f25133c.add(bVar);
+                    this.f24430c.add(bVar);
                 }
             }
         }

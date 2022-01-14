@@ -12,7 +12,7 @@ public abstract class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f10208e;
+    public b f9984e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,18 +31,18 @@ public abstract class a implements Runnable {
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f10208e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f9984e) == null) {
             return;
         }
         bVar.a(this);
-        this.f10208e = null;
+        this.f9984e = null;
     }
 
     public a b(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-            this.f10208e = bVar;
+            this.f9984e = bVar;
             return this;
         }
         return (a) invokeL.objValue;

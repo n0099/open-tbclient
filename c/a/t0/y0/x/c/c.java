@@ -1,6 +1,6 @@
 package c.a.t0.y0.x.c;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<c.a.s0.s.w.b.a> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements c.a.s0.s.w.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26593b;
+        public String f25805b;
 
-        public a(c cVar, d2 d2Var, String str, String str2, String str3, String str4, int i2) {
+        public a(c cVar, e2 e2Var, String str, String str2, String str3, String str4, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, d2Var, str, str2, str3, str4, Integer.valueOf(i2)};
+                Object[] objArr = {cVar, e2Var, str, str2, str3, str4, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -42,7 +42,7 @@ public class c {
                 }
             }
             this.a = str;
-            this.f26593b = str2;
+            this.f25805b = str2;
         }
 
         @Override // c.a.s0.s.w.b.a
@@ -56,7 +56,7 @@ public class c {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26593b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25805b : (String) invokeV.objValue;
         }
     }
 

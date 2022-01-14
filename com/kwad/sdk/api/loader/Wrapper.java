@@ -36,38 +36,38 @@ public class Wrapper {
         public WeakReference<Context> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57566b;
+        public int f55381b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StackTraceElement[] f57567c;
+        public StackTraceElement[] f55382c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f57568d;
+        public int f55383d;
 
         public a() {
             this.a = new WeakReference<>(null);
-            this.f57566b = 0;
-            this.f57567c = null;
-            this.f57568d = 0;
+            this.f55381b = 0;
+            this.f55382c = null;
+            this.f55383d = 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             this.a = new WeakReference<>(null);
-            this.f57566b = 0;
-            this.f57567c = null;
-            this.f57568d = 0;
+            this.f55381b = 0;
+            this.f55382c = null;
+            this.f55383d = 0;
         }
 
         public static /* synthetic */ int b(a aVar) {
-            int i2 = aVar.f57566b;
-            aVar.f57566b = i2 + 1;
+            int i2 = aVar.f55381b;
+            aVar.f55381b = i2 + 1;
             return i2;
         }
 
         public static /* synthetic */ int f(a aVar) {
-            int i2 = aVar.f57568d;
-            aVar.f57568d = i2 + 1;
+            int i2 = aVar.f55383d;
+            aVar.f55383d = i2 + 1;
             return i2;
         }
     }
@@ -83,15 +83,15 @@ public class Wrapper {
         Context context2 = sResContextCache.get(context);
         String name = context2 != null ? context2.getClass().getName() : "";
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        if (Arrays.equals(stackTrace, aVar.f57567c)) {
+        if (Arrays.equals(stackTrace, aVar.f55382c)) {
             a.f(aVar);
-            aVar.f57567c = stackTrace;
-            return aVar.f57568d >= 5;
-        } else if (aVar.f57567c != null) {
+            aVar.f55382c = stackTrace;
+            return aVar.f55383d >= 5;
+        } else if (aVar.f55382c != null) {
             aVar.a();
             return false;
         } else {
-            aVar.f57567c = stackTrace;
+            aVar.f55382c = stackTrace;
             int i2 = 0;
             int i3 = 0;
             while (i2 < stackTrace.length) {
@@ -149,7 +149,7 @@ public class Wrapper {
             return false;
         } else {
             a.b(aVar);
-            if (aVar.f57566b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
+            if (aVar.f55381b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
                 return false;
             }
             aVar.a();

@@ -51,6 +51,8 @@ public class TbadkCoreStatisticKey {
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_CLICK = "c13348";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_SHOW = "c13347";
     public static final String HOST_START = "c11894";
+    public static final String HOT_SPLASH_APP_START = "c14555";
+    public static final String HOT_SPLASH_TIMEOUT = "c14535";
     public static final String HOT_TOPIC_CLICK = "c11455";
     public static final String HOT_TOPIC_CLICK_FRS = "frs";
     public static final String HOT_TOPIC_CLICK_HOME = "index";
@@ -124,6 +126,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_RATE_SCORE_CLICK_SCORE = "c13074";
     public static final String KEY_RATE_SCORE_DIALOG_SHOW = "c13073";
     public static final String KEY_RICH_TEXT_VIDEO_CLICK = "c10643";
+    public static final String KEY_SCHEMA_OPEN_WORKPUBLISH = "c14550";
     public static final String KEY_SCHEME_JUMP_CALL_NATIVE = "c10320";
     public static final String KEY_SEARCH_SUG_FORUM_CLICK = "c14288";
     public static final String KEY_SEARCH_SUG_FORUM_SHOW = "c14287";

@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewHottopic.TimeLine;
 import tbclient.NewHottopic.TimeLineInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f21262b;
+    public List<e> f20700b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public class f {
             return;
         }
         this.a = timeLine.title;
-        this.f21262b = new ArrayList();
+        this.f20700b = new ArrayList();
         int i2 = 0;
         for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
             if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
                 e eVar = new e();
                 eVar.a = j2;
-                eVar.f21261f = i2;
+                eVar.f20699f = i2;
                 eVar.a(timeLineInfo);
-                this.f21262b.add(eVar);
+                this.f20700b.add(eVar);
                 i2++;
             }
         }

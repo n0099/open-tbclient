@@ -21,28 +21,28 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<DressItemData>> f15993e;
+    public List<List<DressItemData>> f15586e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f15994f;
+    public TbPageContext<?> f15587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.c4.f.a.a f15995g;
+    public c.a.t0.c4.f.a.a f15588g;
 
     /* renamed from: c.a.t0.c4.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0985a {
+    public static class C0998a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BubbleItemView f15996b;
+        public BubbleItemView f15589b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BubbleItemView f15997c;
+        public BubbleItemView f15590c;
 
-        public C0985a() {
+        public C0998a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,8 +72,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f15994f = tbPageContext;
-        this.f15995g = aVar;
+        this.f15587f = tbPageContext;
+        this.f15588g = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,11 +83,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<List<DressItemData>> list = this.f15993e;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f15993e.size()) {
+            List<List<DressItemData>> list = this.f15586e;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f15586e.size()) {
                 return null;
             }
-            return this.f15993e.get(i2);
+            return this.f15586e.get(i2);
         }
         return (List) invokeI.objValue;
     }
@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
     public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f15993e = list;
+            this.f15586e = list;
         }
     }
 
@@ -104,7 +104,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.f15993e;
+            List<List<DressItemData>> list = this.f15586e;
             if (list != null) {
                 return list.size();
             }
@@ -126,38 +126,38 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0985a c0985a;
+        C0998a c0998a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             List<DressItemData> item = getItem(i2);
             if (view != null) {
-                c0985a = (C0985a) view.getTag();
+                c0998a = (C0998a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15994f.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
-                c0985a = new C0985a();
-                c0985a.a = view.findViewById(R.id.top_white_line);
-                c0985a.f15996b = (BubbleItemView) view.findViewById(R.id.bg_view1);
-                c0985a.f15997c = (BubbleItemView) view.findViewById(R.id.bg_view2);
-                view.setTag(c0985a);
+                view = LayoutInflater.from(this.f15587f.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
+                c0998a = new C0998a();
+                c0998a.a = view.findViewById(R.id.top_white_line);
+                c0998a.f15589b = (BubbleItemView) view.findViewById(R.id.bg_view1);
+                c0998a.f15590c = (BubbleItemView) view.findViewById(R.id.bg_view2);
+                view.setTag(c0998a);
             }
             if (item != null) {
                 if (i2 == 0) {
-                    c0985a.a.setVisibility(0);
+                    c0998a.a.setVisibility(0);
                 } else {
-                    c0985a.a.setVisibility(8);
+                    c0998a.a.setVisibility(8);
                 }
-                c0985a.f15996b.fillView(item.get(0));
-                c0985a.f15996b.setController(this.f15995g);
-                c0985a.f15996b.setFromBubbleGroup(false);
+                c0998a.f15589b.fillView(item.get(0));
+                c0998a.f15589b.setController(this.f15588g);
+                c0998a.f15589b.setFromBubbleGroup(false);
                 if (item.size() > 1) {
-                    c0985a.f15997c.fillView(item.get(1));
-                    c0985a.f15997c.setController(this.f15995g);
-                    c0985a.f15997c.setFromBubbleGroup(false);
+                    c0998a.f15590c.fillView(item.get(1));
+                    c0998a.f15590c.setController(this.f15588g);
+                    c0998a.f15590c.setFromBubbleGroup(false);
                 } else {
-                    c0985a.f15997c.hide();
+                    c0998a.f15590c.hide();
                 }
             }
-            this.f15994f.getLayoutMode().j(view);
+            this.f15587f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

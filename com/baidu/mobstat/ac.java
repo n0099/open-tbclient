@@ -14,10 +14,10 @@ public class ac {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37602b;
+    public String f36368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37603c;
+    public boolean f36369c;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class ac {
             }
         }
         this.a = false;
-        this.f37602b = "";
-        this.f37603c = false;
+        this.f36368b = "";
+        this.f36369c = false;
     }
 
     public JSONObject a() {
@@ -48,12 +48,12 @@ public class ac {
                 bb.c().b(e2);
             }
             try {
-                jSONObject.put("SDK_PRODUCT_LY", this.f37602b);
+                jSONObject.put("SDK_PRODUCT_LY", this.f36368b);
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
             try {
-                jSONObject.put("SDK_LOCAL_SERVER", this.f37603c);
+                jSONObject.put("SDK_LOCAL_SERVER", this.f36369c);
             } catch (JSONException e4) {
                 bb.c().b(e4);
             }
@@ -78,20 +78,20 @@ public class ac {
             }
         }
         this.a = false;
-        this.f37602b = "";
-        this.f37603c = false;
+        this.f36368b = "";
+        this.f36369c = false;
         try {
             this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f37602b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f36368b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e3) {
             bb.c().b(e3);
         }
         try {
-            this.f37603c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+            this.f36369c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e4) {
             bb.c().b(e4);
         }

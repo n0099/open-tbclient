@@ -16,7 +16,7 @@ public class g implements c {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TreeMap<String, String> f64122b;
+    public TreeMap<String, String> f61719b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class g implements c {
                 return;
             }
         }
-        this.f64122b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        this.f61719b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     @Override // h.b.i.f
@@ -39,7 +39,7 @@ public class g implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.f64122b.get(str);
+            String str2 = this.f61719b.get(str);
             return str2 == null ? "" : str2;
         }
         return (String) invokeL.objValue;
@@ -49,14 +49,14 @@ public class g implements c {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f64122b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f61719b.containsKey(str) : invokeL.booleanValue;
     }
 
     @Override // h.b.i.f
     public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f64122b.keySet()).iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f61719b.keySet()).iterator() : (Iterator) invokeV.objValue;
     }
 
     @Override // h.b.i.f
@@ -70,7 +70,7 @@ public class g implements c {
     public void put(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.f64122b.put(str, str2);
+            this.f61719b.put(str, str2);
         }
     }
 }

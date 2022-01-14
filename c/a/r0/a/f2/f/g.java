@@ -44,10 +44,10 @@ public class g extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.r0.a.k0.a f6060c;
+    public static c.a.r0.a.k0.a f5929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c.a.r0.a.z2.g1.e<List<f.b>, List<String>> f6061d;
+    public static final c.a.r0.a.z2.g1.e<List<f.b>, List<String>> f5930d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -56,16 +56,16 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f6062e;
+        public final /* synthetic */ JSONArray f5931e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6063f;
+        public final /* synthetic */ UnitedSchemeEntity f5932f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6064g;
+        public final /* synthetic */ CallbackHandler f5933g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f6065h;
+        public final /* synthetic */ g f5934h;
 
         public a(g gVar, JSONArray jSONArray, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -82,17 +82,17 @@ public class g extends z {
                     return;
                 }
             }
-            this.f6065h = gVar;
-            this.f6062e = jSONArray;
-            this.f6063f = unitedSchemeEntity;
-            this.f6064g = callbackHandler;
+            this.f5934h = gVar;
+            this.f5931e = jSONArray;
+            this.f5932f = unitedSchemeEntity;
+            this.f5933g = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6065h.r(this.f6062e, this.f6063f, this.f6064g);
+                this.f5934h.r(this.f5931e, this.f5932f, this.f5933g);
             }
         }
     }
@@ -103,13 +103,13 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f6066e;
+        public final /* synthetic */ JSONObject f5935e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6067f;
+        public final /* synthetic */ String f5936f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f6068g;
+        public final /* synthetic */ g f5937g;
 
         public b(g gVar, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
@@ -126,16 +126,16 @@ public class g extends z {
                     return;
                 }
             }
-            this.f6068g = gVar;
-            this.f6066e = jSONObject;
-            this.f6067f = str;
+            this.f5937g = gVar;
+            this.f5935e = jSONObject;
+            this.f5936f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6068g.v(this.f6066e, this.f6067f);
+                this.f5937g.v(this.f5935e, this.f5936f);
             }
         }
     }
@@ -146,19 +146,19 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6069e;
+        public final /* synthetic */ UnitedSchemeEntity f5938e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6070f;
+        public final /* synthetic */ CallbackHandler f5939f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f6071g;
+        public final /* synthetic */ JSONArray f5940g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6072h;
+        public final /* synthetic */ String f5941h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f6073i;
+        public final /* synthetic */ g f5942i;
 
         public c(g gVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
             Interceptable interceptable = $ic;
@@ -175,11 +175,11 @@ public class g extends z {
                     return;
                 }
             }
-            this.f6073i = gVar;
-            this.f6069e = unitedSchemeEntity;
-            this.f6070f = callbackHandler;
-            this.f6071g = jSONArray;
-            this.f6072h = str;
+            this.f5942i = gVar;
+            this.f5938e = unitedSchemeEntity;
+            this.f5939f = callbackHandler;
+            this.f5940g = jSONArray;
+            this.f5941h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -188,7 +188,7 @@ public class g extends z {
         public void onCallback(c.a.r0.a.h2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f6073i.t(iVar, this.f6069e, this.f6070f, this.f6071g, this.f6072h);
+                this.f5942i.t(iVar, this.f5938e, this.f5939f, this.f5940g, this.f5941h);
             }
         }
     }
@@ -199,10 +199,10 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f6074e;
+        public final /* synthetic */ List f5943e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6075f;
+        public final /* synthetic */ String f5944f;
 
         /* loaded from: classes.dex */
         public class a implements c.a.r0.q.f.c {
@@ -241,7 +241,7 @@ public class g extends z {
                 if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || map == null) {
                     return;
                 }
-                for (f.b bVar : this.a.f6074e) {
+                for (f.b bVar : this.a.f5943e) {
                     String b2 = bVar.b();
                     String str = map.get(b2);
                     if (!TextUtils.equals(b2, str)) {
@@ -249,7 +249,7 @@ public class g extends z {
                     }
                 }
                 d dVar = this.a;
-                c.a.r0.a.h0.c.a.b.a(dVar.f6074e, dVar.f6075f, null);
+                c.a.r0.a.h0.c.a.b.a(dVar.f5943e, dVar.f5944f, null);
             }
         }
 
@@ -268,8 +268,8 @@ public class g extends z {
                     return;
                 }
             }
-            this.f6074e = list;
-            this.f6075f = str;
+            this.f5943e = list;
+            this.f5944f = str;
         }
 
         @Override // java.lang.Runnable
@@ -277,9 +277,9 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!c.a.r0.q.k.j.b.e().g(!q0.G())) {
-                    c.a.r0.a.h0.c.a.b.a(this.f6074e, this.f6075f, null);
+                    c.a.r0.a.h0.c.a.b.a(this.f5943e, this.f5944f, null);
                 } else if (PMSConstants.a(c.a.r0.q.c.b())) {
-                    c.a.r0.q.b.e((List) g.f6061d.a(this.f6074e), g.f6060c.c(), new a(this));
+                    c.a.r0.q.b.e((List) g.f5930d.a(this.f5943e), g.f5929c.c(), new a(this));
                 } else {
                     c.a.r0.a.e0.d.c("DownloadPackagesAction", "STOP :: Not Support BDTLS");
                 }
@@ -332,10 +332,10 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f6076e;
+        public final /* synthetic */ List f5945e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6077f;
+        public final /* synthetic */ String f5946f;
 
         public f(g gVar, List list, String str) {
             Interceptable interceptable = $ic;
@@ -352,20 +352,20 @@ public class g extends z {
                     return;
                 }
             }
-            this.f6076e = list;
-            this.f6077f = str;
+            this.f5945e = list;
+            this.f5946f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<String> h2 = c.a.r0.a.h0.m.s.a.h(this.f6076e);
+                List<String> h2 = c.a.r0.a.h0.m.s.a.h(this.f5945e);
                 if (h2.isEmpty()) {
                     return;
                 }
                 c.a.r0.q.j.m.c cVar = new c.a.r0.q.j.m.c((Collection<String>) h2, (c.a.r0.q.p.b) u0.b());
-                cVar.e(this.f6077f);
+                cVar.e(this.f5946f);
                 cVar.d("1");
                 c.a.r0.a.h0.m.d dVar = new c.a.r0.a.h0.m.d();
                 dVar.M(5);
@@ -387,7 +387,7 @@ public class g extends z {
                 return;
             }
         }
-        f6061d = new e();
+        f5930d = new e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -523,13 +523,13 @@ public class g extends z {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202, "runtime parameter error"));
                 return;
             }
-            c.a.r0.a.k0.a aVar = f6060c;
+            c.a.r0.a.k0.a aVar = f5929c;
             if (aVar == null || !aVar.d(a2)) {
-                f6060c = new c.a.r0.a.k0.a(a2, c.a.r0.q.k.i.t.a.a(a2));
+                f5929c = new c.a.r0.a.k0.a(a2, c.a.r0.q.k.i.t.a.a(a2));
             }
-            if (f6060c.e()) {
+            if (f5929c.e()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(o(jSONArray2, 402, "over max limit"), 402, "over max limit"));
-            } else if (!f6060c.b()) {
+            } else if (!f5929c.b()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(o(jSONArray2, 402, "over time interval limit"), 402, "over time interval limit"));
             } else {
                 JSONObject jSONObject = new JSONObject();
@@ -553,7 +553,7 @@ public class g extends z {
                                             f2 = f2.substring(1);
                                         }
                                         i2++;
-                                        boolean a3 = f6060c.a(i2);
+                                        boolean a3 = f5929c.a(i2);
                                         if (a3) {
                                             arraySet.add(f2);
                                         }
@@ -564,7 +564,7 @@ public class g extends z {
                             }
                             if (jSONArray3.length() == 0) {
                                 i2++;
-                                boolean a4 = f6060c.a(i2);
+                                boolean a4 = f5929c.a(i2);
                                 jSONArray3.put(q("", a4));
                                 if (a4) {
                                     arrayList.add(bVar);

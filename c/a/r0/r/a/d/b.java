@@ -22,7 +22,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final e f12039e;
+        public final e f11761e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class b {
                     return;
                 }
             }
-            this.f12039e = eVar;
+            this.f11761e = eVar;
         }
 
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) ? this.f12039e.onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) ? this.f11761e.onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return getClass().getName() + StringUtil.ARRAY_START + this.f12039e + "}";
+                return getClass().getName() + StringUtil.ARRAY_START + this.f11761e + "}";
             }
             return (String) invokeV.objValue;
         }

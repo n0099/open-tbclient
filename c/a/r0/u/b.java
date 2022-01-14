@@ -67,7 +67,7 @@ public class b {
                                 }
                                 JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                                 if (jSONObject.has("abtest")) {
-                                    uVar.f12201f = "1";
+                                    uVar.f11917f = "1";
                                 }
                                 long j4 = jSONObject.getLong("timestamp");
                                 if (j4 > 0) {
@@ -156,7 +156,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                uVar.f12201f = "1";
+                                uVar.f11917f = "1";
                             }
                             long j4 = jSONObject.getLong("timestamp");
                             if (j4 > 0) {
@@ -201,19 +201,19 @@ public class b {
             if (!file2.exists()) {
                 file2.mkdirs();
             }
-            if (!TextUtils.isEmpty(iVar.f12127k)) {
+            if (!TextUtils.isEmpty(iVar.k)) {
                 File file3 = new File(file2, "proc");
                 if (!file3.exists()) {
                     file3.mkdirs();
                 }
-                file = new File(file3, iVar.f12127k);
+                file = new File(file3, iVar.k);
             } else {
                 file = new File(file2, z ? "filereal" : "filedata");
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                if (iVar.f12121e != null) {
-                    JSONObject jSONObject2 = iVar.f12121e;
+                if (iVar.f11840e != null) {
+                    JSONObject jSONObject2 = iVar.f11840e;
                     if (jSONObject2.has("bizId")) {
                         try {
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
@@ -229,19 +229,19 @@ public class b {
                     } else {
                         jSONObject.put("content", jSONObject2);
                     }
-                } else if (!TextUtils.isEmpty(iVar.f12120d)) {
-                    jSONObject.put("content", iVar.f12120d);
+                } else if (!TextUtils.isEmpty(iVar.f11839d)) {
+                    jSONObject.put("content", iVar.f11839d);
                 }
                 jSONObject.put("bizId", iVar.a);
-                jSONObject.put("timestamp", iVar.f12122f);
+                jSONObject.put("timestamp", iVar.f11841f);
                 jSONObject.put("eventType", "0");
-                if (!TextUtils.isEmpty(iVar.f12124h)) {
-                    jSONObject.put("abtest", iVar.f12124h);
+                if (!TextUtils.isEmpty(iVar.f11843h)) {
+                    jSONObject.put("abtest", iVar.f11843h);
                 }
-                if (!TextUtils.isEmpty(iVar.f12125i)) {
-                    jSONObject.put("c", iVar.f12125i);
+                if (!TextUtils.isEmpty(iVar.f11844i)) {
+                    jSONObject.put("c", iVar.f11844i);
                 }
-                if (iVar.f12126j) {
+                if (iVar.f11845j) {
                     jSONObject.put("of", "1");
                 }
                 jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.a));

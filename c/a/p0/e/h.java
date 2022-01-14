@@ -13,13 +13,13 @@ public class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4745b;
+    public int f4643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4746c;
+    public int f4644c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4747d;
+    public String f4645d;
 
     public h(int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
@@ -38,16 +38,16 @@ public class h {
         }
         this.a = -1;
         this.a = i2;
-        this.f4745b = i3;
-        this.f4746c = i4;
-        this.f4747d = str;
+        this.f4643b = i3;
+        this.f4644c = i4;
+        this.f4645d = str;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.f4745b + ", op='" + this.f4746c + ExtendedMessageFormat.QUOTE + ", data='" + this.f4747d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.f4643b + ", op='" + this.f4644c + ExtendedMessageFormat.QUOTE + ", data='" + this.f4645d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

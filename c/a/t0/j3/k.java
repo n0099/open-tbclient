@@ -15,16 +15,16 @@ public class k {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18924b;
+    public int f18451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18925c;
+    public int f18452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18926d;
+    public int f18453d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18927e;
+    public int f18454e;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class k {
                 return;
             }
         }
-        this.f18924b = 0;
-        this.f18925c = 0;
-        this.f18926d = 0;
-        this.f18927e = 0;
+        this.f18451b = 0;
+        this.f18452c = 0;
+        this.f18453d = 0;
+        this.f18454e = 0;
     }
 
     public void a(boolean z, boolean z2) {
@@ -50,14 +50,14 @@ public class k {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
                 if (z) {
-                    this.f18927e++;
+                    this.f18454e++;
                 } else {
-                    this.f18926d++;
+                    this.f18453d++;
                 }
             } else if (z) {
-                this.f18924b++;
+                this.f18451b++;
             } else {
-                this.f18925c++;
+                this.f18452c++;
             }
         }
     }
@@ -65,7 +65,7 @@ public class k {
     public int b(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z2 ? z ? this.f18927e : this.f18926d : z ? this.f18924b : this.f18925c : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z2 ? z ? this.f18454e : this.f18453d : z ? this.f18451b : this.f18452c : invokeCommon.intValue;
     }
 
     public JSONObject c() {
@@ -75,10 +75,10 @@ public class k {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("forum_name", this.a);
-                jSONObject.put("refresh_count", this.f18924b);
-                jSONObject.put("loadmore_count", this.f18925c);
-                jSONObject.put("loadmore_count_pb", this.f18926d);
-                jSONObject.put("refresh_count_pb", this.f18927e);
+                jSONObject.put("refresh_count", this.f18451b);
+                jSONObject.put("loadmore_count", this.f18452c);
+                jSONObject.put("loadmore_count_pb", this.f18453d);
+                jSONObject.put("refresh_count_pb", this.f18454e);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;
@@ -102,16 +102,16 @@ public class k {
                 return;
             }
         }
-        this.f18924b = 0;
-        this.f18925c = 0;
-        this.f18926d = 0;
-        this.f18927e = 0;
+        this.f18451b = 0;
+        this.f18452c = 0;
+        this.f18453d = 0;
+        this.f18454e = 0;
         if (jSONObject != null) {
             this.a = jSONObject.optString("forum_name");
-            this.f18924b = jSONObject.optInt("refresh_count");
-            this.f18925c = jSONObject.optInt("loadmore_count");
-            this.f18926d = jSONObject.optInt("loadmore_count_pb");
-            this.f18927e = jSONObject.optInt("refresh_count_pb");
+            this.f18451b = jSONObject.optInt("refresh_count");
+            this.f18452c = jSONObject.optInt("loadmore_count");
+            this.f18453d = jSONObject.optInt("loadmore_count_pb");
+            this.f18454e = jSONObject.optInt("refresh_count_pb");
         }
     }
 }

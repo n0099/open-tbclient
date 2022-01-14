@@ -130,7 +130,7 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f26104e;
+        public final /* synthetic */ i f25334e;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
                     return;
                 }
             }
-            this.f26104e = iVar;
+            this.f25334e = iVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -156,12 +156,12 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof l) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 l lVar = (l) nVar;
-                lVar.f18228k = 1;
-                if (this.f26104e.s != null) {
-                    this.f26104e.s.a(threadCardViewHolder.getView(), lVar);
+                lVar.k = 1;
+                if (this.f25334e.s != null) {
+                    this.f25334e.s.a(threadCardViewHolder.getView(), lVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.s0.s.q.a) lVar, view.getContext(), 4, false, c.a.l.e.a((s) viewGroup, view, i2));
-                threadCardViewHolder.getCardView().o(new a.C0186a(1));
+                threadCardViewHolder.getCardView().o(new a.C0195a(1));
             }
         }
     }
@@ -173,10 +173,10 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
         public final /* synthetic */ ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f26105b;
+        public final /* synthetic */ View f25335b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f26106c;
+        public final /* synthetic */ int f25336c;
 
         public d(i iVar, ViewGroup viewGroup, View view, int i2) {
             Interceptable interceptable = $ic;
@@ -194,15 +194,15 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
                 }
             }
             this.a = viewGroup;
-            this.f26105b = view;
-            this.f26106c = i2;
+            this.f25335b = view;
+            this.f25336c = i2;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((s) this.a, this.f26105b, this.f26106c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((s) this.a, this.f25335b, this.f25336c));
             }
         }
     }
@@ -265,7 +265,7 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
             mVar.t("profile");
             mVar.x(null);
             bVar.n(mVar);
-            bVar.l().g(c.a.d.f.p.n.f(this.f3299e, R.dimen.tbds25));
+            bVar.l().g(c.a.d.f.p.n.f(this.f3258e, R.dimen.tbds25));
             c.a.l.s sVar = new c.a.l.s(this.n.getPageActivity());
             sVar.v(true);
             bVar.h(sVar);
@@ -274,8 +274,8 @@ public class i extends c.a.d.n.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
             bVar.h(new c.a.l.k(this.n.getPageActivity()));
             n0 n0Var = new n0(this.n.getPageActivity());
             c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-            fVar.f13685b = 3;
-            fVar.f13691h = 3;
+            fVar.f13371b = 3;
+            fVar.f13377h = 3;
             n0Var.u(fVar);
             n0Var.v(8);
             n0Var.A("personalize_page");

@@ -38,7 +38,7 @@ public class ForumManagerDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumManagerDialog f44331e;
+        public final /* synthetic */ ForumManagerDialog f42703e;
 
         public a(ForumManagerDialog forumManagerDialog) {
             Interceptable interceptable = $ic;
@@ -55,20 +55,20 @@ public class ForumManagerDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f44331e = forumManagerDialog;
+            this.f42703e = forumManagerDialog;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f44331e.dismiss();
+                this.f42703e.dismiss();
                 if (!l.z()) {
-                    n.L(this.f44331e.o, R.string.network_not_available);
+                    n.M(this.f42703e.o, R.string.network_not_available);
                 } else if (i2 == 2) {
-                    this.f44331e.p.dispatchMvcEvent(new b(4, this.f44331e.r, null, null));
+                    this.f42703e.p.dispatchMvcEvent(new b(4, this.f42703e.r, null, null));
                 } else if (i2 == 1) {
-                    this.f44331e.p.dispatchMvcEvent(new b(13, this.f44331e.r, null, null));
+                    this.f42703e.p.dispatchMvcEvent(new b(13, this.f42703e.r, null, null));
                 }
             }
         }
@@ -99,7 +99,7 @@ public class ForumManagerDialog extends PopupDialog {
         this.s = new ArrayList();
         j jVar = new j(this.o);
         this.q = jVar;
-        jVar.m(this.t);
+        jVar.n(this.t);
         setContentView(this.q);
     }
 

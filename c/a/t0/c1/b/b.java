@@ -43,25 +43,23 @@ public class b implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15708e;
+    public TbPageContext f15312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.t0.c1.b.c f15709f;
+    public final c.a.t0.c1.b.c f15313f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.t0.c1.b.d f15710g;
+    public final c.a.t0.c1.b.d f15314g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.t0.c1.b.a f15711h;
+    public final c.a.t0.c1.b.a f15315h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<n> f15712i;
+    public ArrayList<n> f15316i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15713j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f15714k;
+    public String f15317j;
+    public int k;
     public long l;
     public String m;
     public BaijiahaoData n;
@@ -80,7 +78,7 @@ public class b implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15715e;
+        public final /* synthetic */ b f15318e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -97,7 +95,7 @@ public class b implements View.OnClickListener {
                     return;
                 }
             }
-            this.f15715e = bVar;
+            this.f15318e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -105,21 +103,21 @@ public class b implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof c.a.t0.c1.c.b)) {
                 Intent intent = new Intent();
-                this.f15715e.f15708e.getPageActivity().setResult(-1, intent);
+                this.f15318e.f15312e.getPageActivity().setResult(-1, intent);
                 c.a.t0.c1.c.b bVar = (c.a.t0.c1.c.b) view.getTag();
-                if (this.f15715e.f15714k == 1) {
-                    this.f15715e.q(bVar.k(), bVar.o());
-                } else if (this.f15715e.f15714k == 2) {
-                    this.f15715e.s(bVar);
+                if (this.f15318e.k == 1) {
+                    this.f15318e.q(bVar.k(), bVar.o());
+                } else if (this.f15318e.k == 2) {
+                    this.f15318e.s(bVar);
                     TiebaStatic.log(new StatisticItem("c12609").param("fid", bVar.k()));
-                } else if (this.f15715e.f15714k != 3) {
-                    if (this.f15715e.f15714k == 4) {
-                        this.f15715e.r(String.valueOf(bVar.k()), bVar.o());
+                } else if (this.f15318e.k != 3) {
+                    if (this.f15318e.k == 4) {
+                        this.f15318e.r(String.valueOf(bVar.k()), bVar.o());
                     }
                 } else {
                     intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_ID, String.valueOf(bVar.k()));
                     intent.putExtra(SelectForumActivityConfig.SELECT_FORUM_NAME, bVar.o());
-                    this.f15715e.f15708e.getPageActivity().finish();
+                    this.f15318e.f15312e.getPageActivity().finish();
                 }
             }
         }
@@ -127,14 +125,14 @@ public class b implements View.OnClickListener {
 
     /* renamed from: c.a.t0.c1.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC0971b implements Runnable {
+    public class RunnableC0984b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15716e;
+        public final /* synthetic */ b f15319e;
 
-        public RunnableC0971b(b bVar) {
+        public RunnableC0984b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,14 +147,14 @@ public class b implements View.OnClickListener {
                     return;
                 }
             }
-            this.f15716e = bVar;
+            this.f15319e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.d.f.p.n.K(this.f15716e.f15708e.getPageActivity(), this.f15716e.f15709f.f15721d);
+                c.a.d.f.p.n.L(this.f15319e.f15312e.getPageActivity(), this.f15319e.f15313f.f15324d);
             }
         }
     }
@@ -194,8 +192,8 @@ public class b implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                this.a.f15709f.f15721d.setText(str);
-                this.a.f15709f.f15721d.setSelection(str.length());
+                this.a.f15313f.f15324d.setText(str);
+                this.a.f15313f.f15324d.setSelection(str.length());
                 this.a.n();
             }
         }
@@ -268,7 +266,7 @@ public class b implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
                 if (!z || cVar == null || ListUtils.isEmpty(cVar.a())) {
-                    if (StringUtils.isNull(this.a.f15713j)) {
+                    if (StringUtils.isNull(this.a.f15317j)) {
                         this.a.F();
                         return;
                     } else {
@@ -276,9 +274,9 @@ public class b implements View.OnClickListener {
                         return;
                     }
                 }
-                this.a.f15712i = cVar.a();
+                this.a.f15316i = cVar.a();
                 b bVar = this.a;
-                bVar.v(bVar.f15712i);
+                bVar.v(bVar.f15316i);
             }
         }
     }
@@ -328,7 +326,7 @@ public class b implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15717e;
+        public final /* synthetic */ b f15320e;
 
         public g(b bVar) {
             Interceptable interceptable = $ic;
@@ -345,14 +343,14 @@ public class b implements View.OnClickListener {
                     return;
                 }
             }
-            this.f15717e = bVar;
+            this.f15320e = bVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f15717e.n();
+                this.f15320e.n();
             }
         }
 
@@ -377,7 +375,7 @@ public class b implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15718e;
+        public final /* synthetic */ b f15321e;
 
         public h(b bVar) {
             Interceptable interceptable = $ic;
@@ -394,7 +392,7 @@ public class b implements View.OnClickListener {
                     return;
                 }
             }
-            this.f15718e = bVar;
+            this.f15321e = bVar;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -402,9 +400,9 @@ public class b implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    c.a.d.f.p.n.w(this.f15718e.f15708e.getPageActivity(), view);
+                    c.a.d.f.p.n.w(this.f15321e.f15312e.getPageActivity(), view);
                 } else {
-                    this.f15718e.n();
+                    this.f15321e.n();
                 }
             }
         }
@@ -426,19 +424,19 @@ public class b implements View.OnClickListener {
             }
         }
         this.r = new a(this);
-        this.s = new RunnableC0971b(this);
+        this.s = new RunnableC0984b(this);
         this.t = new c(this, 2921021);
         this.u = new d(this, 2921020);
         this.v = new e(this);
-        this.f15708e = tbPageContext;
-        this.f15709f = new c.a.t0.c1.b.c(tbPageContext);
+        this.f15312e = tbPageContext;
+        this.f15313f = new c.a.t0.c1.b.c(tbPageContext);
         m();
         c.a.t0.c1.b.d dVar = new c.a.t0.c1.b.d(tbPageContext, tbPageContext.getUniqueId());
-        this.f15710g = dVar;
+        this.f15314g = dVar;
         dVar.e(this.v);
-        this.f15712i = new ArrayList<>();
-        c.a.t0.c1.b.a aVar = new c.a.t0.c1.b.a(tbPageContext, this.f15709f.f15724g);
-        this.f15711h = aVar;
+        this.f15316i = new ArrayList<>();
+        c.a.t0.c1.b.a aVar = new c.a.t0.c1.b.a(tbPageContext, this.f15313f.f15327g);
+        this.f15315h = aVar;
         aVar.a(this.r);
         F();
         tbPageContext.registerListener(this.u);
@@ -483,63 +481,63 @@ public class b implements View.OnClickListener {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f15710g.c();
-            this.f15712i.clear();
+            this.f15314g.c();
+            this.f15316i.clear();
             ArrayList<String> c2 = c.a.t0.c1.b.e.c();
             if (!ListUtils.isEmpty(c2)) {
                 c.a.t0.c1.c.a aVar = new c.a.t0.c1.c.a();
-                aVar.i(c.a.t0.c1.c.a.f15731h);
-                this.f15712i.add(aVar);
-                this.f15712i.add(new c.a.t0.c1.c.a(c2));
-                v(this.f15712i);
+                aVar.i(c.a.t0.c1.c.a.f15334h);
+                this.f15316i.add(aVar);
+                this.f15316i.add(new c.a.t0.c1.c.a(c2));
+                v(this.f15316i);
                 return;
             }
-            this.f15712i.clear();
-            v(this.f15712i);
+            this.f15316i.clear();
+            v(this.f15316i);
         }
     }
 
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f15712i.clear();
+            this.f15316i.clear();
             c.a.t0.c1.c.a aVar = new c.a.t0.c1.c.a();
-            aVar.i(c.a.t0.c1.c.a.f15732i);
-            this.f15712i.add(aVar);
-            v(this.f15712i);
+            aVar.i(c.a.t0.c1.c.a.f15335i);
+            this.f15316i.add(aVar);
+            v(this.f15316i);
         }
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15709f.f15719b.setOnClickListener(this);
-            this.f15709f.f15721d.setOnEditorActionListener(new f(this));
-            this.f15709f.f15721d.addTextChangedListener(new g(this));
-            this.f15709f.f15721d.setOnFocusChangeListener(new h(this));
-            this.f15709f.f15721d.setOnClickListener(this);
-            this.f15709f.f15722e.setOnClickListener(this);
-            this.f15709f.f15723f.setOnClickListener(this);
+            this.f15313f.f15322b.setOnClickListener(this);
+            this.f15313f.f15324d.setOnEditorActionListener(new f(this));
+            this.f15313f.f15324d.addTextChangedListener(new g(this));
+            this.f15313f.f15324d.setOnFocusChangeListener(new h(this));
+            this.f15313f.f15324d.setOnClickListener(this);
+            this.f15313f.f15325e.setOnClickListener(this);
+            this.f15313f.f15326f.setOnClickListener(this);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.f15709f.f15721d.getText() != null && !StringUtils.isNull(this.f15709f.f15721d.getText().toString())) {
-                n nVar = (n) ListUtils.getItem(this.f15712i, 0);
-                if (nVar != null && nVar.getType() == c.a.t0.c1.c.a.f15731h) {
-                    this.f15712i.clear();
-                    v(this.f15712i);
+            if (this.f15313f.f15324d.getText() != null && !StringUtils.isNull(this.f15313f.f15324d.getText().toString())) {
+                n nVar = (n) ListUtils.getItem(this.f15316i, 0);
+                if (nVar != null && nVar.getType() == c.a.t0.c1.c.a.f15334h) {
+                    this.f15316i.clear();
+                    v(this.f15316i);
                 }
-                this.f15709f.f15722e.setVisibility(0);
-                String obj = this.f15709f.f15721d.getText().toString();
-                this.f15713j = obj;
-                this.f15710g.d(obj);
+                this.f15313f.f15325e.setVisibility(0);
+                String obj = this.f15313f.f15324d.getText().toString();
+                this.f15317j = obj;
+                this.f15314g.d(obj);
                 return;
             }
-            this.f15709f.f15722e.setVisibility(8);
-            this.f15713j = null;
+            this.f15313f.f15325e.setVisibility(8);
+            this.f15317j = null;
             F();
         }
     }
@@ -547,24 +545,24 @@ public class b implements View.OnClickListener {
     public c.a.t0.c1.b.c o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15709f : (c.a.t0.c1.b.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15313f : (c.a.t0.c1.b.c) invokeV.objValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            c.a.t0.c1.b.c cVar = this.f15709f;
-            EditText editText = cVar.f15721d;
+            c.a.t0.c1.b.c cVar = this.f15313f;
+            EditText editText = cVar.f15324d;
             if (view == editText) {
                 n();
-            } else if (view == cVar.f15723f) {
-                c.a.d.f.p.n.w(this.f15708e.getPageActivity(), this.f15709f.f15721d);
-                this.f15708e.getPageActivity().finish();
-            } else if (view == cVar.f15722e) {
+            } else if (view == cVar.f15326f) {
+                c.a.d.f.p.n.w(this.f15312e.getPageActivity(), this.f15313f.f15324d);
+                this.f15312e.getPageActivity().finish();
+            } else if (view == cVar.f15325e) {
                 editText.setText("");
-            } else if (view == cVar.f15719b) {
-                v(this.f15712i);
+            } else if (view == cVar.f15322b) {
+                v(this.f15316i);
             }
         }
     }
@@ -600,8 +598,8 @@ public class b implements View.OnClickListener {
             transmitForumData.tabItemDatas = new ArrayList<>();
             ArrayList arrayList = new ArrayList();
             arrayList.add(transmitForumData);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaWriteShareInBarActivityConfig(this.f15708e.getPageActivity(), arrayList, String.valueOf(this.l), this.m)));
-            this.f15708e.getPageActivity().finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaWriteShareInBarActivityConfig(this.f15312e.getPageActivity(), arrayList, String.valueOf(this.l), this.m)));
+            this.f15312e.getPageActivity().finish();
         }
     }
 
@@ -610,8 +608,8 @@ public class b implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) || WriteActivityConfig.isAsyncWriting()) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f15708e.getPageActivity()).setType(9).setForumId(str).setForumName(str2).setFrom(WriteActivityConfig.FROM_FORUM_SHARE).send();
-        this.f15708e.getPageActivity().finish();
+        WriteActivityConfig.newInstance(this.f15312e.getPageActivity()).setType(9).setForumId(str).setForumName(str2).setFrom(WriteActivityConfig.FROM_FORUM_SHARE).send();
+        this.f15312e.getPageActivity().finish();
     }
 
     public final void s(c.a.t0.c1.c.b bVar) {
@@ -619,14 +617,14 @@ public class b implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) || bVar == null) {
             return;
         }
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.f15708e.getPageActivity(), 9, String.valueOf(bVar.k()), bVar.o(), null, null, w0.B6, null, null, null, this.o);
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.f15312e.getPageActivity(), 9, String.valueOf(bVar.k()), bVar.o(), null, null, w0.B6, null, null, null, this.o);
         transmitPostEditActivityConfig.setCallFrom("2");
         transmitPostEditActivityConfig.setBaijiahaoData(this.n);
         transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.p);
         transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.q);
         transmitPostEditActivityConfig.setFrsTabInfo(p(bVar));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
-        this.f15708e.getPageActivity().finish();
+        this.f15312e.getPageActivity().finish();
     }
 
     public void t() {
@@ -648,15 +646,15 @@ public class b implements View.OnClickListener {
     public void v(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) {
-            this.f15712i = arrayList;
-            this.f15709f.f15724g.setData(arrayList);
+            this.f15316i = arrayList;
+            this.f15313f.f15327g.setData(arrayList);
         }
     }
 
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f15714k = i2;
+            this.k = i2;
         }
     }
 

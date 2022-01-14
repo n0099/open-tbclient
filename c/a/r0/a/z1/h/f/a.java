@@ -32,42 +32,42 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10119e;
+    public int f9896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10120f;
+    public int f9897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10121g;
+    public int f9898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f10122h;
+    public List<String> f9899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f10123i;
+    public Context f9900i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PhotoChooseView.b f10124j;
+    public PhotoChooseView.b f9901j;
 
     /* renamed from: c.a.r0.a.z1.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0641a implements View.OnClickListener {
+    public class View$OnClickListenerC0650a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f10125e;
+        public final /* synthetic */ int f9902e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f10126f;
+        public final /* synthetic */ a f9903f;
 
-        public View$OnClickListenerC0641a(a aVar, int i2) {
+        public View$OnClickListenerC0650a(a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,18 +82,18 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f10126f = aVar;
-            this.f10125e = i2;
+            this.f9903f = aVar;
+            this.f9902e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f10126f.f10122h.remove(this.f10125e);
-                this.f10126f.notifyDataSetChanged();
-                if (this.f10126f.f10124j != null) {
-                    this.f10126f.f10124j.a(this.f10126f.f10122h.size());
+                this.f9903f.f9899h.remove(this.f9902e);
+                this.f9903f.notifyDataSetChanged();
+                if (this.f9903f.f9901j != null) {
+                    this.f9903f.f9901j.a(this.f9903f.f9899h.size());
                 }
             }
         }
@@ -106,13 +106,13 @@ public class a extends BaseAdapter {
         public SimpleDraweeView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f10127b;
+        public ImageView f9904b;
 
         /* renamed from: c  reason: collision with root package name */
-        public RelativeLayout f10128c;
+        public RelativeLayout f9905c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f10129d;
+        public TextView f9906d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -144,17 +144,17 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f10121g = 9;
-        this.f10122h = new ArrayList(0);
-        this.f10123i = context;
-        this.f10119e = i2;
-        this.f10120f = i3;
+        this.f9898g = 9;
+        this.f9899h = new ArrayList(0);
+        this.f9900i = context;
+        this.f9896e = i2;
+        this.f9897f = i3;
     }
 
     public List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10122h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9899h : (List) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -163,13 +163,13 @@ public class a extends BaseAdapter {
     public String getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 < this.f10122h.size() ? this.f10122h.get(i2) : "more_option" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 < this.f9899h.size() ? this.f9899h.get(i2) : "more_option" : (String) invokeI.objValue;
     }
 
     public boolean e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == getCount() - 1 && this.f10122h.size() < this.f10121g : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == getCount() - 1 && this.f9899h.size() < this.f9898g : invokeI.booleanValue;
     }
 
     public void f(List<String> list) {
@@ -178,8 +178,8 @@ public class a extends BaseAdapter {
             return;
         }
         for (String str : list) {
-            if (!this.f10122h.contains(str)) {
-                this.f10122h.add(str);
+            if (!this.f9899h.contains(str)) {
+                this.f9899h.add(str);
             }
         }
     }
@@ -187,7 +187,7 @@ public class a extends BaseAdapter {
     public void g(PhotoChooseView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f10124j = bVar;
+            this.f9901j = bVar;
         }
     }
 
@@ -196,8 +196,8 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int size = this.f10122h.size();
-            int i2 = this.f10121g;
+            int size = this.f9899h.size();
+            int i2 = this.f9898g;
             return size < i2 ? size + 1 : i2;
         }
         return invokeV.intValue;
@@ -219,52 +219,52 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 bVar = new b();
-                view2 = LayoutInflater.from(this.f10123i).inflate(g.swanapp_publisher_photo_choose_layout, viewGroup, false);
+                view2 = LayoutInflater.from(this.f9900i).inflate(g.swanapp_publisher_photo_choose_layout, viewGroup, false);
                 bVar.a = (SimpleDraweeView) view2.findViewById(f.publish_img);
-                bVar.f10127b = (ImageView) view2.findViewById(f.publish_delete);
-                bVar.f10128c = (RelativeLayout) view2.findViewById(f.publish_right_bottom_bg);
-                bVar.f10129d = (TextView) view2.findViewById(f.publish_right_bottom_tip);
+                bVar.f9904b = (ImageView) view2.findViewById(f.publish_delete);
+                bVar.f9905c = (RelativeLayout) view2.findViewById(f.publish_right_bottom_bg);
+                bVar.f9906d = (TextView) view2.findViewById(f.publish_right_bottom_tip);
                 bVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                int o = n0.o(this.f10123i) - n0.g(30.0f);
-                int i3 = this.f10119e;
-                int i4 = this.f10120f;
+                int o = n0.o(this.f9900i) - n0.g(30.0f);
+                int i3 = this.f9896e;
+                int i4 = this.f9897f;
                 int i5 = (o - (i3 * (i4 - 1))) / i4;
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.a.getLayoutParams();
                 layoutParams.width = i5;
                 layoutParams.height = i5;
                 bVar.a.setLayoutParams(layoutParams);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.f10123i, e.swanapp_ugc_img_stroke_bg));
+                bVar.a.setBackground(ContextCompat.getDrawable(this.f9900i, e.swanapp_ugc_img_stroke_bg));
                 view2.setTag(bVar);
             } else {
                 view2 = view;
                 bVar = (b) view.getTag();
             }
-            int o2 = n0.o(this.f10123i) / 3;
-            int o3 = n0.o(this.f10123i) / 3;
-            bVar.f10127b.setImageResource(e.swanapp_ugc_delete_selected_img);
-            bVar.f10127b.setVisibility(8);
+            int o2 = n0.o(this.f9900i) / 3;
+            int o3 = n0.o(this.f9900i) / 3;
+            bVar.f9904b.setImageResource(e.swanapp_ugc_delete_selected_img);
+            bVar.f9904b.setVisibility(8);
             if (e(i2)) {
-                bVar.f10128c.setVisibility(8);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.f10123i, e.swanapp_ugc_add_photo_stroke_bg));
+                bVar.f9905c.setVisibility(8);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.f9900i, e.swanapp_ugc_add_photo_stroke_bg));
                 bVar.a.setImageResource(e.swanapp_ugc_add_localalbum_selector);
             } else {
-                bVar.f10127b.setVisibility(0);
+                bVar.f9904b.setVisibility(0);
                 String item = getItem(i2);
                 if (!TextUtils.isEmpty(item)) {
                     if (h0.c(item)) {
-                        bVar.f10128c.setVisibility(0);
-                        bVar.f10129d.setText(this.f10123i.getString(h.swanapp_album_gif_photo));
+                        bVar.f9905c.setVisibility(0);
+                        bVar.f9906d.setText(this.f9900i.getString(h.swanapp_album_gif_photo));
                     } else if (h0.f(item)) {
-                        bVar.f10128c.setVisibility(0);
-                        bVar.f10129d.setText(this.f10123i.getString(h.swanapp_album_large_photo));
+                        bVar.f9905c.setVisibility(0);
+                        bVar.f9906d.setText(this.f9900i.getString(h.swanapp_album_large_photo));
                     } else {
-                        bVar.f10128c.setVisibility(8);
+                        bVar.f9905c.setVisibility(8);
                     }
                     Fresco.getImagePipeline().evictFromCache(o0.p(item));
                     bVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setOldController(bVar.a.getController()).setImageRequest(ImageRequestBuilder.newBuilderWithSource(o0.p(item)).setResizeOptions(new ResizeOptions((int) (o2 / 2.0f), (int) (o3 / 2.0f))).setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build()).build()).build());
                 }
             }
-            bVar.f10127b.setOnClickListener(new View$OnClickListenerC0641a(this, i2));
+            bVar.f9904b.setOnClickListener(new View$OnClickListenerC0650a(this, i2));
             return view2;
         }
         return (View) invokeILL.objValue;
@@ -273,7 +273,7 @@ public class a extends BaseAdapter {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f10121g = i2;
+            this.f9898g = i2;
         }
     }
 }

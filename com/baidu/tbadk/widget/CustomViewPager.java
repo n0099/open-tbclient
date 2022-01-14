@@ -23,13 +23,11 @@ public class CustomViewPager extends TbViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42623i;
+    public boolean f41124i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42624j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f42625k;
+    public int f41125j;
+    public boolean k;
     public int l;
     public ViewPager.OnPageChangeListener m;
     public GestureDetector n;
@@ -41,7 +39,7 @@ public class CustomViewPager extends TbViewPager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomViewPager f42626e;
+        public final /* synthetic */ CustomViewPager f41126e;
 
         public a(CustomViewPager customViewPager) {
             Interceptable interceptable = $ic;
@@ -58,19 +56,19 @@ public class CustomViewPager extends TbViewPager {
                     return;
                 }
             }
-            this.f42626e = customViewPager;
+            this.f41126e = customViewPager;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f42626e.f42625k = i2 == 1;
+                this.f41126e.k = i2 == 1;
                 if (i2 == 2) {
-                    this.f42626e.f42624j = 0;
+                    this.f41126e.f41125j = 0;
                 }
-                if (this.f42626e.m != null) {
-                    this.f42626e.m.onPageScrollStateChanged(i2);
+                if (this.f41126e.m != null) {
+                    this.f41126e.m.onPageScrollStateChanged(i2);
                 }
             }
         }
@@ -79,18 +77,18 @@ public class CustomViewPager extends TbViewPager {
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
-                if (this.f42626e.f42625k) {
-                    if (this.f42626e.l > i3) {
-                        this.f42626e.f42624j = -1;
-                    } else if (this.f42626e.l < i3) {
-                        this.f42626e.f42624j = 1;
-                    } else if (this.f42626e.l == i3) {
-                        this.f42626e.f42624j = 0;
+                if (this.f41126e.k) {
+                    if (this.f41126e.l > i3) {
+                        this.f41126e.f41125j = -1;
+                    } else if (this.f41126e.l < i3) {
+                        this.f41126e.f41125j = 1;
+                    } else if (this.f41126e.l == i3) {
+                        this.f41126e.f41125j = 0;
                     }
                 }
-                this.f42626e.l = i3;
-                if (this.f42626e.m != null) {
-                    this.f42626e.m.onPageScrolled(i2, f2, i3);
+                this.f41126e.l = i3;
+                if (this.f41126e.m != null) {
+                    this.f41126e.m.onPageScrolled(i2, f2, i3);
                 }
             }
         }
@@ -98,10 +96,10 @@ public class CustomViewPager extends TbViewPager {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f42626e.m == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f41126e.m == null) {
                 return;
             }
-            this.f42626e.m.onPageSelected(i2);
+            this.f41126e.m.onPageSelected(i2);
         }
     }
 
@@ -123,9 +121,9 @@ public class CustomViewPager extends TbViewPager {
                 return;
             }
         }
-        this.f42623i = true;
-        this.f42624j = 0;
-        this.f42625k = false;
+        this.f41124i = true;
+        this.f41125j = 0;
+        this.k = false;
         this.l = -1;
         this.o = 0;
         b();
@@ -156,7 +154,7 @@ public class CustomViewPager extends TbViewPager {
     public int getDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42624j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41125j : invokeV.intValue;
     }
 
     public final void j(int i2) {
@@ -171,7 +169,7 @@ public class CustomViewPager extends TbViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (!this.f42623i) {
+            if (!this.f41124i) {
                 GestureDetector gestureDetector = this.n;
                 if (gestureDetector != null) {
                     return gestureDetector.onTouchEvent(motionEvent);
@@ -215,7 +213,7 @@ public class CustomViewPager extends TbViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.f42623i) {
+            if (this.f41124i) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -241,14 +239,14 @@ public class CustomViewPager extends TbViewPager {
     public void setScrollable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f42623i = z;
+            this.f41124i = z;
         }
     }
 
     public void setScrollable(boolean z, GestureDetector gestureDetector) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048586, this, z, gestureDetector) == null) {
-            this.f42623i = z;
+            this.f41124i = z;
             this.n = gestureDetector;
         }
     }
@@ -272,9 +270,9 @@ public class CustomViewPager extends TbViewPager {
                 return;
             }
         }
-        this.f42623i = true;
-        this.f42624j = 0;
-        this.f42625k = false;
+        this.f41124i = true;
+        this.f41125j = 0;
+        this.k = false;
         this.l = -1;
         this.o = 0;
         b();

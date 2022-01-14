@@ -12,15 +12,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f25664d;
+    public static b f24946d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocationData f25665b;
+    public LocationData f24947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25666c;
+    public boolean f24948c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class b {
                 return;
             }
         }
-        this.f25666c = c.a.s0.s.g0.b.j().g("no_longer_show_address", false);
+        this.f24948c = c.a.s0.s.h0.b.k().h("no_longer_show_address", false);
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f25664d == null) {
+            if (f24946d == null) {
                 synchronized (b.class) {
-                    if (f25664d == null) {
-                        f25664d = new b();
+                    if (f24946d == null) {
+                        f24946d = new b();
                     }
                 }
             }
-            return f25664d;
+            return f24946d;
         }
         return (b) invokeV.objValue;
     }
@@ -57,7 +57,7 @@ public class b {
     public LocationData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25665b : (LocationData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24947b : (LocationData) invokeV.objValue;
     }
 
     public long c() {
@@ -69,20 +69,20 @@ public class b {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25666c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24948c : invokeV.booleanValue;
     }
 
     public void e(LocationData locationData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, locationData) == null) {
-            this.f25665b = locationData;
+            this.f24947b = locationData;
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f25666c = z;
+            this.f24948c = z;
         }
     }
 

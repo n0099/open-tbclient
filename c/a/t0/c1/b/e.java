@@ -16,7 +16,7 @@ public class e {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            c.a.s0.s.g0.b.j().x(c.a.s0.s.g0.b.n("search_forum_history"), "");
+            c.a.s0.s.h0.b.k().y(c.a.s0.s.h0.b.o("search_forum_history"), "");
         }
     }
 
@@ -25,12 +25,12 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String p = c.a.s0.s.g0.b.j().p(c.a.s0.s.g0.b.n("search_forum_history"), "");
-        if (StringUtils.isNull(p)) {
+        String q = c.a.s0.s.h0.b.k().q(c.a.s0.s.h0.b.o("search_forum_history"), "");
+        if (StringUtils.isNull(q)) {
             return;
         }
         try {
-            JSONArray jSONArray = new JSONArray(p);
+            JSONArray jSONArray = new JSONArray(q);
             if (jSONArray.length() <= 0) {
                 return;
             }
@@ -41,7 +41,7 @@ public class e {
                     arrayList.add((String) obj);
                 }
             }
-            c.a.s0.s.g0.b.j().x(c.a.s0.s.g0.b.n("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            c.a.s0.s.h0.b.k().y(c.a.s0.s.h0.b.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -53,13 +53,13 @@ public class e {
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (ArrayList) invokeV.objValue;
         }
-        String p = c.a.s0.s.g0.b.j().p(c.a.s0.s.g0.b.n("search_forum_history"), "");
+        String q = c.a.s0.s.h0.b.k().q(c.a.s0.s.h0.b.o("search_forum_history"), "");
         ArrayList<String> arrayList = null;
-        if (StringUtils.isNull(p)) {
+        if (StringUtils.isNull(q)) {
             return null;
         }
         try {
-            JSONArray jSONArray = new JSONArray(p);
+            JSONArray jSONArray = new JSONArray(q);
             if (jSONArray.length() <= 0) {
                 return null;
             }
@@ -88,9 +88,9 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String p = c.a.s0.s.g0.b.j().p(c.a.s0.s.g0.b.n("search_forum_history"), "");
+        String q = c.a.s0.s.h0.b.k().q(c.a.s0.s.h0.b.o("search_forum_history"), "");
         try {
-            JSONArray jSONArray = StringUtils.isNull(p) ? new JSONArray() : new JSONArray(p);
+            JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             int i2 = 1;
@@ -104,7 +104,7 @@ public class e {
                     break;
                 }
             }
-            c.a.s0.s.g0.b.j().x(c.a.s0.s.g0.b.n("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            c.a.s0.s.h0.b.k().y(c.a.s0.s.h0.b.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

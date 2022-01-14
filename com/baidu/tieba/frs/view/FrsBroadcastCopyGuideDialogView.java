@@ -26,22 +26,22 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f45449e;
+    public LinearLayout f43794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f45450f;
+    public Context f43795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45451g;
+    public TextView f43796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45452h;
+    public TextView f43797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f45453i;
+    public ImageView f43798i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f45454j;
+    public TextView f43799j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsBroadcastCopyGuideDialogView(Context context) {
@@ -61,7 +61,7 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
                 return;
             }
         }
-        this.f45450f = context;
+        this.f43795f = context;
         a(context);
     }
 
@@ -70,19 +70,19 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.frs_broadcast_major_copy_guide_dialog, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(f1.frs_broadcast_guide_main);
-            this.f45449e = linearLayout;
-            this.f45451g = (TextView) linearLayout.findViewById(f1.frs_broadcast_guide_title);
-            this.f45452h = (TextView) this.f45449e.findViewById(f1.frs_broadcast_guide_content);
-            this.f45453i = (ImageView) this.f45449e.findViewById(f1.guide_iv);
-            this.f45454j = (TextView) this.f45449e.findViewById(f1.to_next_tv);
-            this.f45451g.setText(i1.forum_broadcast_copy_guide_title);
-            this.f45452h.setText(i1.forum_broadcast_copy_guide_hint);
-            this.f45454j.setText(i1.comment_tab_dialog_botton_text);
-            SkinManager.setViewTextColor(this.f45451g, c1.CAM_X0105);
-            SkinManager.setViewTextColor(this.f45452h, c1.CAM_X0107);
-            SkinManager.setViewTextColor(this.f45454j, c1.CAM_X0302);
-            SkinManager.setImageResource(this.f45453i, e1.pic_frs_guide_copylink);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(c1.CAM_X0211).blRadius(n.f(this.f45450f, d1.tbds30)).brRadius(n.f(this.f45450f, d1.tbds30)).tlRadius(n.f(this.f45450f, d1.tbds32)).trRadius(n.f(this.f45450f, d1.tbds32)).into(this.f45449e);
+            this.f43794e = linearLayout;
+            this.f43796g = (TextView) linearLayout.findViewById(f1.frs_broadcast_guide_title);
+            this.f43797h = (TextView) this.f43794e.findViewById(f1.frs_broadcast_guide_content);
+            this.f43798i = (ImageView) this.f43794e.findViewById(f1.guide_iv);
+            this.f43799j = (TextView) this.f43794e.findViewById(f1.to_next_tv);
+            this.f43796g.setText(i1.forum_broadcast_copy_guide_title);
+            this.f43797h.setText(i1.forum_broadcast_copy_guide_hint);
+            this.f43799j.setText(i1.comment_tab_dialog_botton_text);
+            SkinManager.setViewTextColor(this.f43796g, c1.CAM_X0105);
+            SkinManager.setViewTextColor(this.f43797h, c1.CAM_X0107);
+            SkinManager.setViewTextColor(this.f43799j, c1.CAM_X0302);
+            SkinManager.setImageResource(this.f43798i, e1.pic_frs_guide_copylink);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(c1.CAM_X0211).blRadius(n.f(this.f43795f, d1.tbds30)).brRadius(n.f(this.f43795f, d1.tbds30)).tlRadius(n.f(this.f43795f, d1.tbds32)).trRadius(n.f(this.f43795f, d1.tbds32)).into(this.f43794e);
         }
     }
 
@@ -91,6 +91,6 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f45454j.setOnClickListener(onClickListener);
+        this.f43799j.setOnClickListener(onClickListener);
     }
 }

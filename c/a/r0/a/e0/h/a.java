@@ -17,26 +17,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f5855d;
+    public static int f5727d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f5856b;
+    public b f5728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f5857c;
+    public c f5729c;
 
     /* renamed from: c.a.r0.a.e0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0296a implements Runnable {
+    public class RunnableC0305a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5858e;
+        public final /* synthetic */ a f5730e;
 
-        public RunnableC0296a(a aVar) {
+        public RunnableC0305a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class a {
                     return;
                 }
             }
-            this.f5858e = aVar;
+            this.f5730e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -59,14 +59,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (c.a.r0.a.e0.f.b.e() || a.e() != 0) {
-                    this.f5858e.f5857c = new c.a.r0.a.e0.h.c.c(String.format("v8in%s_devtools_remote", this.f5858e.a.getPackageName()), this.f5858e.f5856b);
+                    this.f5730e.f5729c = new c.a.r0.a.e0.h.c.c(String.format("v8in%s_devtools_remote", this.f5730e.a.getPackageName()), this.f5730e.f5728b);
                 } else if (c.a.r0.a.e0.f.b.f()) {
-                    this.f5858e.f5857c = new c.a.r0.a.e0.h.c.b(d.e(), this.f5858e.f5856b);
+                    this.f5730e.f5729c = new c.a.r0.a.e0.h.c.b(d.e(), this.f5730e.f5728b);
                 } else {
                     c.a.r0.a.e0.d.c("V8Inspector", "Unknown inspect mode");
                     return;
                 }
-                this.f5858e.f5857c.start();
+                this.f5730e.f5729c.start();
             }
         }
     }
@@ -96,7 +96,7 @@ public class a {
                 return;
             }
         }
-        f5855d = h.a().getBoolean("Inspector", false) ? 2 : 0;
+        f5727d = h.a().getBoolean("Inspector", false) ? 2 : 0;
     }
 
     public a(Context context) {
@@ -120,38 +120,38 @@ public class a {
     public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f5855d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f5727d : invokeV.intValue;
     }
 
     public static void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
             h.a().putBoolean("Inspector", i2 == 2);
-            f5855d = i2;
+            f5727d = i2;
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f5856b = bVar;
+            this.f5728b = bVar;
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ExecutorUtilsExt.postOnSerial(new RunnableC0296a(this), "V8Inspector");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0305a(this), "V8Inspector");
         }
     }
 
     public void i() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f5857c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f5729c) == null) {
             return;
         }
         cVar.stop();
-        this.f5857c = null;
+        this.f5729c = null;
     }
 }

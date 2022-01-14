@@ -21,7 +21,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f60597b;
+    public final int f58301b;
 
     /* loaded from: classes3.dex */
     public static class NoFieldException extends IllegalStateException {
@@ -164,7 +164,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C2145d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C2162d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -172,7 +172,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C2146h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C2163h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {
@@ -214,7 +214,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        this.f60597b = i2;
+        this.f58301b = i2;
     }
 
     public MessageSnapshot(Parcel parcel) {
@@ -232,7 +232,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        this.f60597b = parcel.readInt();
+        this.f58301b = parcel.readInt();
     }
 
     public int a() {
@@ -338,7 +338,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f60597b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f58301b : invokeV.intValue;
     }
 
     public boolean n() {
@@ -353,7 +353,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
             parcel.writeByte(this.a ? (byte) 1 : (byte) 0);
             parcel.writeByte(b());
-            parcel.writeInt(this.f60597b);
+            parcel.writeInt(this.f58301b);
         }
     }
 }

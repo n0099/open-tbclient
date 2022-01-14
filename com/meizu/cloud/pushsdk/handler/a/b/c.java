@@ -24,19 +24,19 @@ public class c implements Parcelable {
     public MessageV3 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61084b;
+    public String f58771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61085c;
+    public int f58772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61086d;
+    public int f58773d;
 
     public c(Parcel parcel) {
         this.a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
-        this.f61084b = parcel.readString();
-        this.f61085c = parcel.readInt();
-        this.f61086d = parcel.readInt();
+        this.f58771b = parcel.readString();
+        this.f58772c = parcel.readInt();
+        this.f58773d = parcel.readInt();
     }
 
     public c(MessageV3 messageV3) {
@@ -48,23 +48,23 @@ public class c implements Parcelable {
     }
 
     public void a(int i2) {
-        this.f61085c = i2;
+        this.f58772c = i2;
     }
 
     public void a(String str) {
-        this.f61084b = str;
+        this.f58771b = str;
     }
 
     public int b() {
-        return this.f61085c;
+        return this.f58772c;
     }
 
     public void b(int i2) {
-        this.f61086d = i2;
+        this.f58773d = i2;
     }
 
     public int c() {
-        return this.f61086d;
+        return this.f58773d;
     }
 
     @Override // android.os.Parcelable
@@ -73,14 +73,14 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationState{messageV3=" + this.a + ", notificationPkg='" + this.f61084b + ExtendedMessageFormat.QUOTE + ", notificationId='" + this.f61085c + ExtendedMessageFormat.QUOTE + ", state='" + this.f61086d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NotificationState{messageV3=" + this.a + ", notificationPkg='" + this.f58771b + ExtendedMessageFormat.QUOTE + ", notificationId='" + this.f58772c + ExtendedMessageFormat.QUOTE + ", state='" + this.f58773d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeParcelable(this.a, i2);
-        parcel.writeString(this.f61084b);
-        parcel.writeInt(this.f61085c);
-        parcel.writeInt(this.f61086d);
+        parcel.writeString(this.f58771b);
+        parcel.writeInt(this.f58772c);
+        parcel.writeInt(this.f58773d);
     }
 }

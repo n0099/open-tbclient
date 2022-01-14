@@ -282,8 +282,8 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                     DXMSdkSAUtils.onEventWithValues("CouponListToUseBtnClick", Arrays.asList(jSONObject.toString()));
                     CouponList.Coupon.AppSceneService appSceneService = item.app_scene_service;
                     if (appSceneService != null) {
-                        if (appSceneService.f54647android > 0) {
-                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.a).mAct, item.app_scene_service.f54647android, "");
+                        if (appSceneService.f52564android > 0) {
+                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.a).mAct, item.app_scene_service.f52564android, "");
                         } else if (!TextUtils.isEmpty(appSceneService.url)) {
                             baiduWalletDelegate = BaiduWalletDelegate.getInstance();
                             baseActivity = ((BaseFragment) this.a).mAct;
@@ -328,13 +328,13 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f54673b;
+                public final /* synthetic */ int f52590b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f54674c;
+                public final /* synthetic */ String f52591c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f54675d;
+                public final /* synthetic */ UsedCouponListFragment f52592d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -351,17 +351,17 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f54675d = this;
+                    this.f52592d = this;
                     this.a = i2;
-                    this.f54673b = i3;
-                    this.f54674c = str;
+                    this.f52590b = i3;
+                    this.f52591c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f54675d.handleResFailure(this.a, this.f54673b, this.f54674c);
+                        this.f52592d.handleResFailure(this.a, this.f52590b, this.f52591c);
                     }
                 }
             });
@@ -379,13 +379,13 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f54670b;
+                public final /* synthetic */ Object f52587b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f54671c;
+                public final /* synthetic */ String f52588c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f54672d;
+                public final /* synthetic */ UsedCouponListFragment f52589d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -402,17 +402,17 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f54672d = this;
+                    this.f52589d = this;
                     this.a = i2;
-                    this.f54670b = obj;
-                    this.f54671c = str;
+                    this.f52587b = obj;
+                    this.f52588c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f54672d.handleResSuccess(this.a, this.f54670b, this.f54671c);
+                        this.f52589d.handleResSuccess(this.a, this.f52587b, this.f52588c);
                     }
                 }
             });

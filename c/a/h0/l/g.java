@@ -26,7 +26,7 @@ public class g implements f {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3568b;
+    public boolean f3515b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -34,30 +34,30 @@ public class g implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3569e;
+        public final /* synthetic */ String f3516e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.l.c f3570f;
+        public final /* synthetic */ c.a.h0.l.c f3517f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.l.a f3571g;
+        public final /* synthetic */ c.a.h0.l.a f3518g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f3572h;
+        public final /* synthetic */ g f3519h;
 
         /* renamed from: c.a.h0.l.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0129a implements Runnable {
+        public class RunnableC0137a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3573e;
+            public final /* synthetic */ String f3520e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f3574f;
+            public final /* synthetic */ a f3521f;
 
-            public RunnableC0129a(a aVar, String str) {
+            public RunnableC0137a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,15 +72,15 @@ public class g implements f {
                         return;
                     }
                 }
-                this.f3574f = aVar;
-                this.f3573e = str;
+                this.f3521f = aVar;
+                this.f3520e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3574f.f3571g.c(this.f3573e);
+                    this.f3521f.f3518g.c(this.f3520e);
                 }
             }
         }
@@ -91,13 +91,13 @@ public class g implements f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f3575e;
+            public final /* synthetic */ int f3522e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f3576f;
+            public final /* synthetic */ String f3523f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f3577g;
+            public final /* synthetic */ a f3524g;
 
             public b(a aVar, int i2, String str) {
                 Interceptable interceptable = $ic;
@@ -114,17 +114,17 @@ public class g implements f {
                         return;
                     }
                 }
-                this.f3577g = aVar;
-                this.f3575e = i2;
-                this.f3576f = str;
+                this.f3524g = aVar;
+                this.f3522e = i2;
+                this.f3523f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.h0.l.a aVar = this.f3577g.f3571g;
-                    aVar.a(new IOException("status code " + this.f3575e + ", response " + this.f3576f), 119501, this.f3576f);
+                    c.a.h0.l.a aVar = this.f3524g.f3518g;
+                    aVar.a(new IOException("status code " + this.f3522e + ", response " + this.f3523f), 119501, this.f3523f);
                 }
             }
         }
@@ -135,10 +135,10 @@ public class g implements f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f3578e;
+            public final /* synthetic */ Throwable f3525e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f3579f;
+            public final /* synthetic */ a f3526f;
 
             public c(a aVar, Throwable th) {
                 Interceptable interceptable = $ic;
@@ -155,16 +155,16 @@ public class g implements f {
                         return;
                     }
                 }
-                this.f3579f = aVar;
-                this.f3578e = th;
+                this.f3526f = aVar;
+                this.f3525e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.h0.l.a aVar = this.f3579f.f3571g;
-                    Throwable th = this.f3578e;
+                    c.a.h0.l.a aVar = this.f3526f.f3518g;
+                    Throwable th = this.f3525e;
                     aVar.a(th, 119501, th.getMessage());
                 }
             }
@@ -185,10 +185,10 @@ public class g implements f {
                     return;
                 }
             }
-            this.f3572h = gVar;
-            this.f3569e = str;
-            this.f3570f = cVar;
-            this.f3571g = aVar;
+            this.f3519h = gVar;
+            this.f3516e = str;
+            this.f3517f = cVar;
+            this.f3518g = aVar;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ce */
@@ -212,8 +212,8 @@ public class g implements f {
                 ?? r0 = 119501;
                 r0 = 119501;
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.f3569e).openConnection();
-                    for (Map.Entry<String, String> entry : this.f3570f.c().entrySet()) {
+                    httpURLConnection = (HttpURLConnection) new URL(this.f3516e).openConnection();
+                    for (Map.Entry<String, String> entry : this.f3517f.c().entrySet()) {
                         httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                     }
                     httpURLConnection.setConnectTimeout(15000);
@@ -229,12 +229,12 @@ public class g implements f {
                         InputStream inputStream = httpURLConnection.getInputStream();
                         String c2 = c.a.h0.r.f.c(inputStream);
                         httpURLConnection = inputStream;
-                        if (this.f3571g != null) {
-                            if (this.f3572h.f3568b) {
-                                this.f3572h.a.post(new RunnableC0129a(this, c2));
+                        if (this.f3518g != null) {
+                            if (this.f3519h.f3515b) {
+                                this.f3519h.a.post(new RunnableC0137a(this, c2));
                                 httpURLConnection = inputStream;
                             } else {
-                                this.f3571g.c(c2);
+                                this.f3518g.c(c2);
                                 httpURLConnection = inputStream;
                             }
                         }
@@ -242,12 +242,12 @@ public class g implements f {
                         InputStream errorStream = httpURLConnection.getErrorStream();
                         String c3 = c.a.h0.r.f.c(errorStream);
                         httpURLConnection = errorStream;
-                        if (this.f3571g != null) {
-                            if (this.f3572h.f3568b) {
-                                this.f3572h.a.post(new b(this, responseCode, c3));
+                        if (this.f3518g != null) {
+                            if (this.f3519h.f3515b) {
+                                this.f3519h.a.post(new b(this, responseCode, c3));
                                 httpURLConnection = errorStream;
                             } else {
-                                c.a.h0.l.a aVar = this.f3571g;
+                                c.a.h0.l.a aVar = this.f3518g;
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("status code ");
                                 sb.append(responseCode);
@@ -263,12 +263,12 @@ public class g implements f {
                 } catch (Throwable th3) {
                     th = th3;
                     try {
-                        if (this.f3571g != null) {
+                        if (this.f3518g != null) {
                             h.c("GET FAILED", th);
-                            if (this.f3572h.f3568b) {
-                                this.f3572h.a.post(new c(this, th));
+                            if (this.f3519h.f3515b) {
+                                this.f3519h.a.post(new c(this, th));
                             } else {
-                                this.f3571g.a(th, r0, th.getMessage());
+                                this.f3518g.a(th, r0, th.getMessage());
                             }
                         }
                         c.a.h0.r.f.a(new Closeable[]{httpURLConnection});
@@ -287,19 +287,19 @@ public class g implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3580e;
+        public final /* synthetic */ String f3527e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.l.c f3581f;
+        public final /* synthetic */ c.a.h0.l.c f3528f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.l.b f3582g;
+        public final /* synthetic */ c.a.h0.l.b f3529g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.l.a f3583h;
+        public final /* synthetic */ c.a.h0.l.a f3530h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f3584i;
+        public final /* synthetic */ g f3531i;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -307,10 +307,10 @@ public class g implements f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3585e;
+            public final /* synthetic */ String f3532e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f3586f;
+            public final /* synthetic */ b f3533f;
 
             public a(b bVar, String str) {
                 Interceptable interceptable = $ic;
@@ -327,35 +327,35 @@ public class g implements f {
                         return;
                     }
                 }
-                this.f3586f = bVar;
-                this.f3585e = str;
+                this.f3533f = bVar;
+                this.f3532e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3586f.f3583h.c(this.f3585e);
+                    this.f3533f.f3530h.c(this.f3532e);
                 }
             }
         }
 
         /* renamed from: c.a.h0.l.g$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0130b implements Runnable {
+        public class RunnableC0138b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f3587e;
+            public final /* synthetic */ int f3534e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f3588f;
+            public final /* synthetic */ String f3535f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f3589g;
+            public final /* synthetic */ b f3536g;
 
-            public RunnableC0130b(b bVar, int i2, String str) {
+            public RunnableC0138b(b bVar, int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -370,17 +370,17 @@ public class g implements f {
                         return;
                     }
                 }
-                this.f3589g = bVar;
-                this.f3587e = i2;
-                this.f3588f = str;
+                this.f3536g = bVar;
+                this.f3534e = i2;
+                this.f3535f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.h0.l.a aVar = this.f3589g.f3583h;
-                    aVar.a(new IOException("status code " + this.f3587e + ", response " + this.f3588f), this.f3587e, l.a().getResources().getString(i.poly_error_tips));
+                    c.a.h0.l.a aVar = this.f3536g.f3530h;
+                    aVar.a(new IOException("status code " + this.f3534e + ", response " + this.f3535f), this.f3534e, l.a().getResources().getString(i.poly_error_tips));
                 }
             }
         }
@@ -391,10 +391,10 @@ public class g implements f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f3590e;
+            public final /* synthetic */ Throwable f3537e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f3591f;
+            public final /* synthetic */ b f3538f;
 
             public c(b bVar, Throwable th) {
                 Interceptable interceptable = $ic;
@@ -411,15 +411,15 @@ public class g implements f {
                         return;
                     }
                 }
-                this.f3591f = bVar;
-                this.f3590e = th;
+                this.f3538f = bVar;
+                this.f3537e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3591f.f3583h.a(this.f3590e, -1000, l.a().getResources().getString(i.poly_error_tips));
+                    this.f3538f.f3530h.a(this.f3537e, -1000, l.a().getResources().getString(i.poly_error_tips));
                 }
             }
         }
@@ -439,11 +439,11 @@ public class g implements f {
                     return;
                 }
             }
-            this.f3584i = gVar;
-            this.f3580e = str;
-            this.f3581f = cVar;
-            this.f3582g = bVar;
-            this.f3583h = aVar;
+            this.f3531i = gVar;
+            this.f3527e = str;
+            this.f3528f = cVar;
+            this.f3529g = bVar;
+            this.f3530h = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -456,8 +456,8 @@ public class g implements f {
             }
             c.a.h0.p.b.a("1.03", System.currentTimeMillis());
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f3580e).openConnection();
-                for (Map.Entry<String, String> entry : this.f3581f.c().entrySet()) {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f3527e).openConnection();
+                for (Map.Entry<String, String> entry : this.f3528f.c().entrySet()) {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
                 httpURLConnection.setDoInput(true);
@@ -467,7 +467,7 @@ public class g implements f {
                 httpURLConnection.setConnectTimeout(15000);
                 httpURLConnection.setReadTimeout(15000);
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry2 : this.f3582g.c().entrySet()) {
+                for (Map.Entry<String, String> entry2 : this.f3529g.c().entrySet()) {
                     String encode = URLEncoder.encode(entry2.getValue());
                     sb.append(entry2.getKey());
                     sb.append("=");
@@ -485,21 +485,21 @@ public class g implements f {
                     if (responseCode >= 200 && responseCode <= 299) {
                         errorStream = httpURLConnection.getInputStream();
                         String c2 = c.a.h0.r.f.c(errorStream);
-                        if (this.f3583h != null) {
-                            if (this.f3584i.f3568b) {
-                                this.f3584i.a.post(new a(this, c2));
+                        if (this.f3530h != null) {
+                            if (this.f3531i.f3515b) {
+                                this.f3531i.a.post(new a(this, c2));
                             } else {
-                                this.f3583h.c(c2);
+                                this.f3530h.c(c2);
                             }
                         }
                     } else {
                         errorStream = httpURLConnection.getErrorStream();
                         String c3 = c.a.h0.r.f.c(errorStream);
-                        if (this.f3583h != null) {
-                            if (this.f3584i.f3568b) {
-                                this.f3584i.a.post(new RunnableC0130b(this, responseCode, c3));
+                        if (this.f3530h != null) {
+                            if (this.f3531i.f3515b) {
+                                this.f3531i.a.post(new RunnableC0138b(this, responseCode, c3));
                             } else {
-                                c.a.h0.l.a aVar = this.f3583h;
+                                c.a.h0.l.a aVar = this.f3530h;
                                 StringBuilder sb2 = new StringBuilder();
                                 sb2.append("status code ");
                                 sb2.append(responseCode);
@@ -514,11 +514,11 @@ public class g implements f {
                     th = th;
                     try {
                         h.c("POST FAILED", th);
-                        if (this.f3583h != null) {
-                            if (this.f3584i.f3568b) {
-                                this.f3584i.a.post(new c(this, th));
+                        if (this.f3530h != null) {
+                            if (this.f3531i.f3515b) {
+                                this.f3531i.a.post(new c(this, th));
                             } else {
-                                this.f3583h.a(th, -1000, l.a().getResources().getString(i.poly_error_tips));
+                                this.f3530h.a(th, -1000, l.a().getResources().getString(i.poly_error_tips));
                             }
                         }
                         c.a.h0.r.f.a(null, dataOutputStream);
@@ -587,6 +587,6 @@ public class g implements f {
             }
         }
         this.a = new Handler(Looper.getMainLooper());
-        this.f3568b = z;
+        this.f3515b = z;
     }
 }

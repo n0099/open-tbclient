@@ -11,13 +11,13 @@ public class c implements c.a.s0.l0.d.b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f24638b;
+    public boolean f23956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24639c;
+    public int f23957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24640d;
+    public int f23958d;
 
     public c() {
         Interceptable interceptable = $ic;

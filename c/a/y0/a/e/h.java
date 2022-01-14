@@ -16,7 +16,7 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f27661e;
+    public a f26829e;
 
     public h(a aVar) {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class h implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f27661e = aVar;
+        this.f26829e = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            synchronized (this.f27661e.b()) {
-                for (a.InterfaceC1590a interfaceC1590a : this.f27661e.b()) {
-                    interfaceC1590a.a(activity);
+            synchronized (this.f26829e.b()) {
+                for (a.InterfaceC1606a interfaceC1606a : this.f26829e.b()) {
+                    interfaceC1606a.a(activity);
                 }
             }
         }
@@ -52,9 +52,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public final void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            synchronized (this.f27661e.b()) {
-                for (a.InterfaceC1590a interfaceC1590a : this.f27661e.b()) {
-                    interfaceC1590a.onActivityDestroyed(activity);
+            synchronized (this.f26829e.b()) {
+                for (a.InterfaceC1606a interfaceC1606a : this.f26829e.b()) {
+                    interfaceC1606a.onActivityDestroyed(activity);
                 }
             }
         }
@@ -64,9 +64,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public final void onActivityPaused(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            synchronized (this.f27661e.b()) {
-                for (a.InterfaceC1590a interfaceC1590a : this.f27661e.b()) {
-                    interfaceC1590a.c();
+            synchronized (this.f26829e.b()) {
+                for (a.InterfaceC1606a interfaceC1606a : this.f26829e.b()) {
+                    interfaceC1606a.c();
                 }
             }
         }
@@ -76,9 +76,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public final void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            synchronized (this.f27661e.b()) {
-                for (a.InterfaceC1590a interfaceC1590a : this.f27661e.b()) {
-                    interfaceC1590a.b();
+            synchronized (this.f26829e.b()) {
+                for (a.InterfaceC1606a interfaceC1606a : this.f26829e.b()) {
+                    interfaceC1606a.b();
                 }
             }
         }
@@ -88,8 +88,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            synchronized (this.f27661e.b()) {
-                Iterator<a.InterfaceC1590a> it = this.f27661e.b().iterator();
+            synchronized (this.f26829e.b()) {
+                Iterator<a.InterfaceC1606a> it = this.f26829e.b().iterator();
                 while (it.hasNext()) {
                     it.next();
                 }
@@ -101,8 +101,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public final void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            synchronized (this.f27661e.b()) {
-                Iterator<a.InterfaceC1590a> it = this.f27661e.b().iterator();
+            synchronized (this.f26829e.b()) {
+                Iterator<a.InterfaceC1606a> it = this.f26829e.b().iterator();
                 while (it.hasNext()) {
                     it.next();
                 }
@@ -114,8 +114,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
     public final void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            synchronized (this.f27661e.b()) {
-                Iterator<a.InterfaceC1590a> it = this.f27661e.b().iterator();
+            synchronized (this.f26829e.b()) {
+                Iterator<a.InterfaceC1606a> it = this.f26829e.b().iterator();
                 while (it.hasNext()) {
                     it.next();
                 }

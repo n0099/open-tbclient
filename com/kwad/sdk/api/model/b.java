@@ -4,25 +4,25 @@ public class b implements a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57617b;
+    public int f55432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57618c;
+    public String f55433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57619d;
+    public String f55434d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57620e;
+    public String f55435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57621f;
+    public String f55436f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57622g;
+    public String f55437g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f57623h;
+    public long f55438h;
 
     @Override // com.kwad.sdk.api.model.a
     public int a() {
@@ -31,36 +31,36 @@ public class b implements a {
 
     @Override // com.kwad.sdk.api.model.a
     public int b() {
-        return this.f57617b;
+        return this.f55432b;
     }
 
     @Override // com.kwad.sdk.api.model.a
     public String c() {
-        return this.f57618c;
+        return this.f55433c;
     }
 
     @Override // com.kwad.sdk.api.model.a
     public String d() {
-        return this.f57619d;
+        return this.f55434d;
     }
 
     @Override // com.kwad.sdk.api.model.a
     public String e() {
-        return this.f57620e;
+        return this.f55435e;
     }
 
     @Override // com.kwad.sdk.api.model.a
     public String f() {
-        return this.f57621f;
+        return this.f55436f;
     }
 
     @Override // com.kwad.sdk.api.model.a
     public String g() {
-        return this.f57622g;
+        return this.f55437g;
     }
 
     @Override // com.kwad.sdk.api.model.a
     public long h() {
-        return this.f57623h;
+        return this.f55438h;
     }
 }

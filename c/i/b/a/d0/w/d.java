@@ -28,35 +28,33 @@ public class d {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.h0.e f30217b;
+    public final c.i.b.a.h0.e f29278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.h0.e f30218c;
+    public final c.i.b.a.h0.e f29279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final m f30219d;
+    public final m f29280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a.C1643a[] f30220e;
+    public final a.C1659a[] f29281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HlsPlaylistTracker f30221f;
+    public final HlsPlaylistTracker f29282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final s f30222g;
+    public final s f29283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<Format> f30223h;
+    public final List<Format> f29284h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f30224i;
+    public boolean f29285i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f30225j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public IOException f30226k;
-    public a.C1643a l;
+    public byte[] f29286j;
+    public IOException k;
+    public a.C1659a l;
     public boolean m;
     public Uri n;
     public byte[] o;
@@ -116,10 +114,10 @@ public class d {
         public c.i.b.a.d0.u.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f30227b;
+        public boolean f29287b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a.C1643a f30228c;
+        public a.C1659a f29288c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -141,8 +139,8 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a = null;
-                this.f30227b = false;
-                this.f30228c = null;
+                this.f29287b = false;
+                this.f29288c = null;
             }
         }
     }
@@ -153,7 +151,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30229g;
+        public int f29289g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(s sVar, int[] iArr) {
@@ -174,14 +172,14 @@ public class d {
                     return;
                 }
             }
-            this.f30229g = k(sVar.a(0));
+            this.f29289g = k(sVar.a(0));
         }
 
         @Override // c.i.b.a.f0.f
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30229g : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29289g : invokeV.intValue;
         }
 
         @Override // c.i.b.a.f0.f
@@ -189,10 +187,10 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (m(this.f30229g, elapsedRealtime)) {
-                    for (int i2 = this.f30527b - 1; i2 >= 0; i2--) {
+                if (m(this.f29289g, elapsedRealtime)) {
+                    for (int i2 = this.f29570b - 1; i2 >= 0; i2--) {
                         if (!m(i2, elapsedRealtime)) {
-                            this.f30229g = i2;
+                            this.f29289g = i2;
                             return;
                         }
                     }
@@ -222,12 +220,12 @@ public class d {
         }
     }
 
-    public d(f fVar, HlsPlaylistTracker hlsPlaylistTracker, a.C1643a[] c1643aArr, e eVar, m mVar, List<Format> list) {
+    public d(f fVar, HlsPlaylistTracker hlsPlaylistTracker, a.C1659a[] c1659aArr, e eVar, m mVar, List<Format> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, hlsPlaylistTracker, c1643aArr, eVar, mVar, list};
+            Object[] objArr = {fVar, hlsPlaylistTracker, c1659aArr, eVar, mVar, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -238,21 +236,21 @@ public class d {
             }
         }
         this.a = fVar;
-        this.f30221f = hlsPlaylistTracker;
-        this.f30220e = c1643aArr;
-        this.f30219d = mVar;
-        this.f30223h = list;
+        this.f29282f = hlsPlaylistTracker;
+        this.f29281e = c1659aArr;
+        this.f29280d = mVar;
+        this.f29284h = list;
         this.s = -9223372036854775807L;
-        Format[] formatArr = new Format[c1643aArr.length];
-        int[] iArr = new int[c1643aArr.length];
-        for (int i4 = 0; i4 < c1643aArr.length; i4++) {
-            formatArr[i4] = c1643aArr[i4].f30268b;
+        Format[] formatArr = new Format[c1659aArr.length];
+        int[] iArr = new int[c1659aArr.length];
+        for (int i4 = 0; i4 < c1659aArr.length; i4++) {
+            formatArr[i4] = c1659aArr[i4].f29324b;
             iArr[i4] = i4;
         }
-        this.f30217b = eVar.a(1);
-        this.f30218c = eVar.a(3);
+        this.f29278b = eVar.a(1);
+        this.f29279c = eVar.a(3);
         s sVar = new s(formatArr);
-        this.f30222g = sVar;
+        this.f29283g = sVar;
         this.r = new c(sVar, iArr);
     }
 
@@ -278,88 +276,88 @@ public class d {
         if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{hVar, Long.valueOf(j2), Long.valueOf(j3), bVar}) != null) {
             return;
         }
-        int b2 = hVar == null ? -1 : this.f30222g.b(hVar.f30080c);
+        int b2 = hVar == null ? -1 : this.f29283g.b(hVar.f29148c);
         this.l = null;
         long j4 = j3 - j2;
-        long k2 = k(j2);
+        long k = k(j2);
         if (hVar != null && !this.m) {
             long c2 = hVar.c();
             j4 = Math.max(0L, j4 - c2);
-            if (k2 != -9223372036854775807L) {
-                k2 = Math.max(0L, k2 - c2);
+            if (k != -9223372036854775807L) {
+                k = Math.max(0L, k - c2);
             }
         }
-        this.r.i(j2, j4, k2);
+        this.r.i(j2, j4, k);
         int e2 = this.r.e();
         boolean z = false;
         boolean z2 = b2 != e2;
-        a.C1643a c1643a = this.f30220e[e2];
-        if (!this.f30221f.x(c1643a)) {
-            bVar.f30228c = c1643a;
-            this.l = c1643a;
+        a.C1659a c1659a = this.f29281e[e2];
+        if (!this.f29282f.x(c1659a)) {
+            bVar.f29288c = c1659a;
+            this.l = c1659a;
             return;
         }
-        c.i.b.a.d0.w.o.b v = this.f30221f.v(c1643a);
-        this.m = v.f30277k;
+        c.i.b.a.d0.w.o.b v = this.f29282f.v(c1659a);
+        this.m = v.k;
         o(v);
         if (hVar != null && !z2) {
             i2 = hVar.d();
         } else {
-            long j5 = (hVar == null || this.m) ? j3 : hVar.f30083f;
+            long j5 = (hVar == null || this.m) ? j3 : hVar.f29151f;
             if (!v.l && j5 >= v.c()) {
-                i2 = v.f30274h + v.p.size();
+                i2 = v.f29330h + v.p.size();
             } else {
-                int c3 = v.c(v.p, Long.valueOf(j5 - v.f30271e), true, (!this.f30221f.w() || hVar == null) ? true : true);
-                int i4 = v.f30274h;
+                int c3 = v.c(v.p, Long.valueOf(j5 - v.f29327e), true, (!this.f29282f.w() || hVar == null) ? true : true);
+                int i4 = v.f29330h;
                 i2 = c3 + i4;
                 if (i2 < i4 && hVar != null) {
-                    c1643a = this.f30220e[b2];
-                    c.i.b.a.d0.w.o.b v2 = this.f30221f.v(c1643a);
+                    c1659a = this.f29281e[b2];
+                    c.i.b.a.d0.w.o.b v2 = this.f29282f.v(c1659a);
                     i2 = hVar.d();
                     v = v2;
-                    a.C1643a c1643a2 = c1643a;
+                    a.C1659a c1659a2 = c1659a;
                     c.i.b.a.d0.w.o.b bVar2 = v;
-                    i3 = bVar2.f30274h;
+                    i3 = bVar2.f29330h;
                     if (i2 >= i3) {
-                        this.f30226k = new BehindLiveWindowException();
+                        this.k = new BehindLiveWindowException();
                         return;
                     }
                     int i5 = i2 - i3;
                     if (i5 >= bVar2.p.size()) {
                         if (bVar2.l) {
-                            bVar.f30227b = true;
+                            bVar.f29287b = true;
                             return;
                         }
-                        bVar.f30228c = c1643a2;
-                        this.l = c1643a2;
+                        bVar.f29288c = c1659a2;
+                        this.l = c1659a2;
                         return;
                     }
                     b.a aVar = bVar2.p.get(i5);
-                    String str = aVar.f30282i;
+                    String str = aVar.f29337i;
                     if (str != null) {
                         Uri d2 = u.d(bVar2.a, str);
                         if (!d2.equals(this.n)) {
-                            bVar.a = f(d2, aVar.f30283j, b2, this.r.l(), this.r.j());
+                            bVar.a = f(d2, aVar.f29338j, b2, this.r.l(), this.r.j());
                             return;
-                        } else if (!v.a(aVar.f30283j, this.p)) {
-                            m(d2, aVar.f30283j, this.o);
+                        } else if (!v.a(aVar.f29338j, this.p)) {
+                            m(d2, aVar.f29338j, this.o);
                         }
                     } else {
                         a();
                     }
                     b.a aVar2 = bVar2.o;
-                    c.i.b.a.h0.g gVar = aVar2 != null ? new c.i.b.a.h0.g(u.d(bVar2.a, aVar2.f30278e), aVar2.f30284k, aVar2.l, null) : null;
-                    long j6 = bVar2.f30271e + aVar.f30281h;
-                    int i6 = bVar2.f30273g + aVar.f30280g;
-                    bVar.a = new h(this.a, this.f30217b, new c.i.b.a.h0.g(u.d(bVar2.a, aVar.f30278e), aVar.f30284k, aVar.l, null), gVar, c1643a2, this.f30223h, this.r.l(), this.r.j(), j6, j6 + aVar.f30279f, i2, i6, this.f30224i, this.f30219d.a(i6), hVar, bVar2.n, this.o, this.q);
+                    c.i.b.a.h0.g gVar = aVar2 != null ? new c.i.b.a.h0.g(u.d(bVar2.a, aVar2.f29333e), aVar2.k, aVar2.l, null) : null;
+                    long j6 = bVar2.f29327e + aVar.f29336h;
+                    int i6 = bVar2.f29329g + aVar.f29335g;
+                    bVar.a = new h(this.a, this.f29278b, new c.i.b.a.h0.g(u.d(bVar2.a, aVar.f29333e), aVar.k, aVar.l, null), gVar, c1659a2, this.f29284h, this.r.l(), this.r.j(), j6, j6 + aVar.f29334f, i2, i6, this.f29285i, this.f29280d.a(i6), hVar, bVar2.n, this.o, this.q);
                     return;
                 }
             }
         }
         b2 = e2;
-        a.C1643a c1643a22 = c1643a;
+        a.C1659a c1659a22 = c1659a;
         c.i.b.a.d0.w.o.b bVar22 = v;
-        i3 = bVar22.f30274h;
+        i3 = bVar22.f29330h;
         if (i2 >= i3) {
         }
     }
@@ -367,7 +365,7 @@ public class d {
     public s c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30222g : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29283g : (s) invokeV.objValue;
     }
 
     public c.i.b.a.f0.f d() {
@@ -379,11 +377,11 @@ public class d {
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            IOException iOException = this.f30226k;
+            IOException iOException = this.k;
             if (iOException == null) {
-                a.C1643a c1643a = this.l;
-                if (c1643a != null) {
-                    this.f30221f.A(c1643a);
+                a.C1659a c1659a = this.l;
+                if (c1659a != null) {
+                    this.f29282f.A(c1659a);
                     return;
                 }
                 return;
@@ -395,14 +393,14 @@ public class d {
     public final a f(Uri uri, String str, int i2, int i3, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{uri, str, Integer.valueOf(i2), Integer.valueOf(i3), obj})) == null) ? new a(this.f30218c, new c.i.b.a.h0.g(uri, 0L, -1L, null, 1), this.f30220e[i2].f30268b, i3, obj, this.f30225j, str) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{uri, str, Integer.valueOf(i2), Integer.valueOf(i3), obj})) == null) ? new a(this.f29279c, new c.i.b.a.h0.g(uri, 0L, -1L, null, 1), this.f29281e[i2].f29324b, i3, obj, this.f29286j, str) : (a) invokeCommon.objValue;
     }
 
     public void g(c.i.b.a.d0.u.c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) && (cVar instanceof a)) {
             a aVar = (a) cVar;
-            this.f30225j = aVar.e();
+            this.f29286j = aVar.e();
             m(aVar.a.a, aVar.l, aVar.g());
         }
     }
@@ -413,7 +411,7 @@ public class d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{cVar, Boolean.valueOf(z), iOException})) == null) {
             if (z) {
                 c.i.b.a.f0.f fVar = this.r;
-                if (c.i.b.a.d0.u.h.a(fVar, fVar.c(this.f30222g.b(cVar.f30080c)), iOException)) {
+                if (c.i.b.a.d0.u.h.a(fVar, fVar.c(this.f29283g.b(cVar.f29148c)), iOException)) {
                     return true;
                 }
             }
@@ -422,11 +420,11 @@ public class d {
         return invokeCommon.booleanValue;
     }
 
-    public void i(a.C1643a c1643a, long j2) {
+    public void i(a.C1659a c1659a, long j2) {
         int b2;
         int c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, c1643a, j2) == null) || (b2 = this.f30222g.b(c1643a.f30268b)) == -1 || (c2 = this.r.c(b2)) == -1) {
+        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, c1659a, j2) == null) || (b2 = this.f29283g.b(c1659a.f29324b)) == -1 || (c2 = this.r.c(b2)) == -1) {
             return;
         }
         this.r.g(c2, j2);
@@ -435,7 +433,7 @@ public class d {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f30226k = null;
+            this.k = null;
         }
     }
 
@@ -475,7 +473,7 @@ public class d {
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f30224i = z;
+            this.f29285i = z;
         }
     }
 

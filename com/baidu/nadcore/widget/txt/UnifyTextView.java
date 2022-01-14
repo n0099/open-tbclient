@@ -9,9 +9,9 @@ import android.text.style.LineHeightSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import c.a.c0.d0.f;
-import c.a.c0.h0.p;
-import c.a.c0.h0.v;
+import c.a.c0.g0.f;
+import c.a.c0.k0.k;
+import c.a.c0.k0.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,25 +30,23 @@ public class UnifyTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f38551e;
+    public final String f37329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f38552f;
+    public final boolean f37330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38553g;
+    public int f37331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38554h;
+    public int f37332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38555i;
+    public int f37333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f38556j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f38557k;
+    public int f37334j;
+    public int k;
     public HashMap l;
 
     /* loaded from: classes10.dex */
@@ -57,25 +55,23 @@ public class UnifyTextView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f38558e;
+        public final String f37335e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TextView f38559f;
+        public final TextView f37336f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f38560g;
+        public final int f37337g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f38561h;
+        public final int f37338h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f38562i;
+        public final int f37339i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final int f38563j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final int f38564k;
+        public final int f37340j;
+        public final int k;
 
         public a(TextView textView, int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
@@ -93,13 +89,13 @@ public class UnifyTextView extends TextView {
                 }
             }
             Intrinsics.checkNotNullParameter(textView, "textView");
-            this.f38559f = textView;
-            this.f38560g = i2;
-            this.f38561h = i3;
-            this.f38562i = i4;
-            this.f38563j = i5;
-            this.f38564k = i6;
-            this.f38558e = "meizu_15_CN";
+            this.f37336f = textView;
+            this.f37337g = i2;
+            this.f37338h = i3;
+            this.f37339i = i4;
+            this.f37340j = i5;
+            this.k = i6;
+            this.f37335e = "meizu_15_CN";
         }
 
         @Override // android.text.style.LineHeightSpan
@@ -113,25 +109,25 @@ public class UnifyTextView extends TextView {
                 if (i6 <= 0) {
                     return;
                 }
-                int textSize = (int) this.f38559f.getTextSize();
+                int textSize = (int) this.f37336f.getTextSize();
                 int round = Math.round(fm.descent * ((textSize * 1.0f) / i6));
                 fm.descent = round;
                 int i7 = round - textSize;
                 fm.ascent = i7;
-                fm.top = (i7 - this.f38560g) - this.f38563j;
+                fm.top = (i7 - this.f37337g) - this.f37340j;
                 String a = f.a.a();
                 int a2 = f.b.a();
                 int i8 = 0;
                 try {
                     if (text.length() == i3 && (subSequence = text.subSequence(i2, i3)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
-                        i8 = this.f38561h;
+                        i8 = this.f37338h;
                     }
                 } catch (Exception unused) {
                 }
-                if (TextUtils.equals(a, this.f38558e) && a2 == 25 && i2 > 0) {
-                    fm.bottom = ((fm.descent + i8) + this.f38564k) - this.f38562i;
+                if (TextUtils.equals(a, this.f37335e) && a2 == 25 && i2 > 0) {
+                    fm.bottom = ((fm.descent + i8) + this.k) - this.f37339i;
                 } else {
-                    fm.bottom = fm.descent + i8 + this.f38564k;
+                    fm.bottom = fm.descent + i8 + this.k;
                 }
             }
         }
@@ -192,21 +188,21 @@ public class UnifyTextView extends TextView {
             if (hasEmoji(charSequence)) {
                 Context context = getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.f38554h = Math.round(getDimensionPixelSize(context, p.nad_spannable_exclude_padding_text_top_buffer) * 1.5f);
-                if (this.f38552f) {
-                    String str = "has emoji, mTopBuffer: " + this.f38554h;
+                this.f37332h = Math.round(getDimensionPixelSize(context, k.nad_spannable_exclude_padding_text_top_buffer) * 1.5f);
+                if (this.f37330f) {
+                    String str = "has emoji, mTopBuffer: " + this.f37332h;
                 }
             } else {
                 Context context2 = getContext();
                 Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.f38554h = getDimensionPixelSize(context2, p.nad_spannable_exclude_padding_text_top_buffer);
-                if (this.f38552f) {
-                    String str2 = "has no emoji, mTopBuffer: " + this.f38554h;
+                this.f37332h = getDimensionPixelSize(context2, k.nad_spannable_exclude_padding_text_top_buffer);
+                if (this.f37330f) {
+                    String str2 = "has no emoji, mTopBuffer: " + this.f37332h;
                 }
             }
             Context context3 = getContext();
             Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.f38555i = getDimensionPixelSize(context3, p.nad_spannable_exclude_padding_text_bottom_buffer);
+            this.f37333i = getDimensionPixelSize(context3, k.nad_spannable_exclude_padding_text_bottom_buffer);
         }
     }
 
@@ -229,7 +225,7 @@ public class UnifyTextView extends TextView {
     public final void setBottomPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f38557k = i2;
+            this.k = i2;
         }
     }
 
@@ -243,10 +239,10 @@ public class UnifyTextView extends TextView {
         float lineSpacingExtra = getLineSpacingExtra();
         if (charSequence instanceof SpannableStringBuilder) {
             spannableStringBuilder = (SpannableStringBuilder) charSequence;
-            spannableStringBuilder.setSpan(new a(this, this.f38554h, this.f38555i, (int) lineSpacingExtra, this.f38556j, this.f38557k), 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(new a(this, this.f37332h, this.f37333i, (int) lineSpacingExtra, this.f37334j, this.k), 0, charSequence.length(), 33);
         } else {
             spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            spannableStringBuilder.setSpan(new a(this, this.f38554h, this.f38555i, (int) lineSpacingExtra, this.f38556j, this.f38557k), 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(new a(this, this.f37332h, this.f37333i, (int) lineSpacingExtra, this.f37334j, this.k), 0, charSequence.length(), 33);
         }
         setText(spannableStringBuilder, bufferType);
     }
@@ -254,7 +250,7 @@ public class UnifyTextView extends TextView {
     public final void setTopPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f38556j = i2;
+            this.f37334j = i2;
         }
     }
 
@@ -300,11 +296,11 @@ public class UnifyTextView extends TextView {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f38551e = "UnifyTextView";
-        this.f38553g = getDimensionPixelSize(context, p.nad_spannable_exclude_padding_text_top_bottom_extra);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, v.NADUnifyTextView);
-        this.f38556j = obtainStyledAttributes.getDimensionPixelSize(v.NADUnifyTextView_spannable_top_padding, this.f38553g);
-        this.f38557k = obtainStyledAttributes.getDimensionPixelSize(v.NADUnifyTextView_spannable_bottom_padding, this.f38553g);
+        this.f37329e = "UnifyTextView";
+        this.f37331g = getDimensionPixelSize(context, k.nad_spannable_exclude_padding_text_top_bottom_extra);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q.NADUnifyTextView);
+        this.f37334j = obtainStyledAttributes.getDimensionPixelSize(q.NADUnifyTextView_spannable_top_padding, this.f37331g);
+        this.k = obtainStyledAttributes.getDimensionPixelSize(q.NADUnifyTextView_spannable_bottom_padding, this.f37331g);
         obtainStyledAttributes.recycle();
     }
 }

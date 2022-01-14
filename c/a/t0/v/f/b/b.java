@@ -23,7 +23,7 @@ public class b extends WebChromeClient {
     public AdWebViewActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.w3.n0.c f25166b;
+    public c.a.t0.w3.n0.c f24463b;
 
     public b(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b extends WebChromeClient {
     public void a(c.a.t0.w3.n0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f25166b = cVar;
+            this.f24463b = cVar;
         }
     }
 
@@ -119,7 +119,7 @@ public class b extends WebChromeClient {
         AdWebViewActivity adWebViewActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c.a.t0.w3.n0.c cVar = this.f25166b;
+            c.a.t0.w3.n0.c cVar = this.f24463b;
             if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.a) != null && g.f(adWebViewActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }

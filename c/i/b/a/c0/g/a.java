@@ -34,13 +34,13 @@ public final class a implements c.i.b.a.c0.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f29924b;
+    public static final int f29002b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InterfaceC1638a a;
+    public final InterfaceC1654a a;
 
     /* renamed from: c.i.b.a.c0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1638a {
+    public interface InterfaceC1654a {
         boolean a(int i2, int i3, int i4, int i5, int i6);
     }
 
@@ -51,10 +51,10 @@ public final class a implements c.i.b.a.c0.a {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f29925b;
+        public final boolean f29003b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29926c;
+        public final int f29004c;
 
         public b(int i2, boolean z, int i3) {
             Interceptable interceptable = $ic;
@@ -72,8 +72,8 @@ public final class a implements c.i.b.a.c0.a {
                 }
             }
             this.a = i2;
-            this.f29925b = z;
-            this.f29926c = i3;
+            this.f29003b = z;
+            this.f29004c = i3;
         }
     }
 
@@ -90,7 +90,7 @@ public final class a implements c.i.b.a.c0.a {
                 return;
             }
         }
-        f29924b = v.q("ID3");
+        f29002b = v.q("ID3");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -103,7 +103,7 @@ public final class a implements c.i.b.a.c0.a {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this((InterfaceC1638a) newInitContext.callArgs[0]);
+                this((InterfaceC1654a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -161,10 +161,10 @@ public final class a implements c.i.b.a.c0.a {
         return (BinaryFrame) invokeLIL.objValue;
     }
 
-    public static ChapterFrame f(l lVar, int i2, int i3, boolean z, int i4, InterfaceC1638a interfaceC1638a) throws UnsupportedEncodingException {
+    public static ChapterFrame f(l lVar, int i2, int i3, boolean z, int i4, InterfaceC1654a interfaceC1654a) throws UnsupportedEncodingException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{lVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), interfaceC1638a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{lVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), interfaceC1654a})) == null) {
             int c2 = lVar.c();
             int u = u(lVar.a, c2);
             String str = new String(lVar.a, c2, u - c2, "ISO-8859-1");
@@ -178,7 +178,7 @@ public final class a implements c.i.b.a.c0.a {
             ArrayList arrayList = new ArrayList();
             int i7 = c2 + i2;
             while (lVar.c() < i7) {
-                Id3Frame i8 = i(i3, lVar, z, i4, interfaceC1638a);
+                Id3Frame i8 = i(i3, lVar, z, i4, interfaceC1654a);
                 if (i8 != null) {
                     arrayList.add(i8);
                 }
@@ -190,10 +190,10 @@ public final class a implements c.i.b.a.c0.a {
         return (ChapterFrame) invokeCommon.objValue;
     }
 
-    public static ChapterTocFrame g(l lVar, int i2, int i3, boolean z, int i4, InterfaceC1638a interfaceC1638a) throws UnsupportedEncodingException {
+    public static ChapterTocFrame g(l lVar, int i2, int i3, boolean z, int i4, InterfaceC1654a interfaceC1654a) throws UnsupportedEncodingException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{lVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), interfaceC1638a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{lVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), interfaceC1654a})) == null) {
             int c2 = lVar.c();
             int u = u(lVar.a, c2);
             String str = new String(lVar.a, c2, u - c2, "ISO-8859-1");
@@ -212,7 +212,7 @@ public final class a implements c.i.b.a.c0.a {
             ArrayList arrayList = new ArrayList();
             int i6 = c2 + i2;
             while (lVar.c() < i6) {
-                Id3Frame i7 = i(i3, lVar, z, i4, interfaceC1638a);
+                Id3Frame i7 = i(i3, lVar, z, i4, interfaceC1654a);
                 if (i7 != null) {
                     arrayList.add(i7);
                 }
@@ -253,7 +253,7 @@ public final class a implements c.i.b.a.c0.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Id3Frame i(int i2, l lVar, boolean z, int i3, InterfaceC1638a interfaceC1638a) {
+    public static Id3Frame i(int i2, l lVar, boolean z, int i3, InterfaceC1654a interfaceC1654a) {
         InterceptResult invokeCommon;
         int A;
         int i4;
@@ -265,7 +265,7 @@ public final class a implements c.i.b.a.c0.a {
         boolean z6;
         Id3Frame e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i2), lVar, Boolean.valueOf(z), Integer.valueOf(i3), interfaceC1638a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i2), lVar, Boolean.valueOf(z), Integer.valueOf(i3), interfaceC1654a})) == null) {
             int x = lVar.x();
             int x2 = lVar.x();
             int x3 = lVar.x();
@@ -291,10 +291,10 @@ public final class a implements c.i.b.a.c0.a {
                 lVar.J(lVar.d());
                 return null;
             }
-            if (interfaceC1638a != null) {
+            if (interfaceC1654a != null) {
                 i4 = c2;
                 i5 = D;
-                if (!interfaceC1638a.a(i2, x, x2, x3, x4)) {
+                if (!interfaceC1654a.a(i2, x, x2, x3, x4)) {
                     lVar.J(i4);
                     return null;
                 }
@@ -356,9 +356,9 @@ public final class a implements c.i.b.a.c0.a {
                         if (x != 67 && x2 == 79 && x3 == 77 && (x4 == 77 || i2 == 2)) {
                             e2 = h(lVar, i6);
                         } else if (x != 67 && x2 == 72 && x3 == 65 && x4 == 80) {
-                            e2 = f(lVar, i6, i2, z, i3, interfaceC1638a);
+                            e2 = f(lVar, i6, i2, z, i3, interfaceC1654a);
                         } else if (x != 67 && x2 == 84 && x3 == 79 && x4 == 67) {
-                            e2 = g(lVar, i6, i2, z, i3, interfaceC1638a);
+                            e2 = g(lVar, i6, i2, z, i3, interfaceC1654a);
                         } else {
                             e2 = e(lVar, i6, s(i2, x, x2, x3, x4));
                         }
@@ -425,7 +425,7 @@ public final class a implements c.i.b.a.c0.a {
                 return null;
             }
             int A = lVar.A();
-            if (A != f29924b) {
+            if (A != f29002b) {
                 String str = "Unexpected first three bytes of ID3 tag header: " + A;
                 return null;
             }
@@ -694,7 +694,7 @@ public final class a implements c.i.b.a.c0.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            ByteBuffer byteBuffer = cVar.f30926g;
+            ByteBuffer byteBuffer = cVar.f29956g;
             return c(byteBuffer.array(), byteBuffer.limit());
         }
         return (Metadata) invokeL.objValue;
@@ -706,27 +706,27 @@ public final class a implements c.i.b.a.c0.a {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2)) == null) {
             ArrayList arrayList = new ArrayList();
             l lVar = new l(bArr, i2);
-            b k2 = k(lVar);
-            if (k2 == null) {
+            b k = k(lVar);
+            if (k == null) {
                 return null;
             }
             int c2 = lVar.c();
-            int i3 = k2.a == 2 ? 6 : 10;
-            int i4 = k2.f29926c;
-            if (k2.f29925b) {
-                i4 = v(lVar, k2.f29926c);
+            int i3 = k.a == 2 ? 6 : 10;
+            int i4 = k.f29004c;
+            if (k.f29003b) {
+                i4 = v(lVar, k.f29004c);
             }
             lVar.I(c2 + i4);
             boolean z = false;
-            if (!w(lVar, k2.a, i3, false)) {
-                if (k2.a != 4 || !w(lVar, 4, i3, true)) {
-                    String str = "Failed to validate ID3 tag with majorVersion=" + k2.a;
+            if (!w(lVar, k.a, i3, false)) {
+                if (k.a != 4 || !w(lVar, 4, i3, true)) {
+                    String str = "Failed to validate ID3 tag with majorVersion=" + k.a;
                     return null;
                 }
                 z = true;
             }
             while (lVar.a() >= i3) {
-                Id3Frame i5 = i(k2.a, lVar, z, i3, this.a);
+                Id3Frame i5 = i(k.a, lVar, z, i3, this.a);
                 if (i5 != null) {
                     arrayList.add(i5);
                 }
@@ -736,12 +736,12 @@ public final class a implements c.i.b.a.c0.a {
         return (Metadata) invokeLI.objValue;
     }
 
-    public a(InterfaceC1638a interfaceC1638a) {
+    public a(InterfaceC1654a interfaceC1654a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1638a};
+            Object[] objArr = {interfaceC1654a};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -751,6 +751,6 @@ public final class a implements c.i.b.a.c0.a {
                 return;
             }
         }
-        this.a = interfaceC1638a;
+        this.a = interfaceC1654a;
     }
 }

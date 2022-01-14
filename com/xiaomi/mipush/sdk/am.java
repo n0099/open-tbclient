@@ -28,7 +28,7 @@ public /* synthetic */ class am {
         int[] iArr = new int[hf.values().length];
         a = iArr;
         try {
-            iArr[hf.f63547e.ordinal()] = 1;
+            iArr[hf.f61162e.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
@@ -36,23 +36,23 @@ public /* synthetic */ class am {
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[hf.f63544b.ordinal()] = 3;
+            a[hf.f61159b.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[hf.f63545c.ordinal()] = 4;
+            a[hf.f61160c.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[hf.f63546d.ordinal()] = 5;
+            a[hf.f61161d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[hf.f63552j.ordinal()] = 6;
+            a[hf.f61167j.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            a[hf.f63551i.ordinal()] = 7;
+            a[hf.f61166i.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
     }

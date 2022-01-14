@@ -36,21 +36,21 @@ public class a {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26367b;
+    public String f25582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<SplashAdView> f26368c;
+    public WeakReference<SplashAdView> f25583c;
 
     /* renamed from: c.a.t0.y.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1527a implements CustomMessageTask.CustomRunnable<n> {
+    public class C1543a implements CustomMessageTask.CustomRunnable<n> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f26369e;
+        public final /* synthetic */ a f25584e;
 
-        public C1527a(a aVar) {
+        public C1543a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public class a {
                     return;
                 }
             }
-            this.f26369e = aVar;
+            this.f25584e = aVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -75,7 +75,7 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getCmd() == 2016310) {
                     try {
-                        return new CustomResponsedMessage<>(2016310, this.f26369e.f(customMessage.getData()));
+                        return new CustomResponsedMessage<>(2016310, this.f25584e.f(customMessage.getData()));
                     } catch (Exception unused) {
                     }
                 }
@@ -92,7 +92,7 @@ public class a {
         public final /* synthetic */ SplashAdView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f26370b;
+        public final /* synthetic */ a f25585b;
 
         public b(a aVar, SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class a {
                     return;
                 }
             }
-            this.f26370b = aVar;
+            this.f25585b = aVar;
             this.a = splashAdView;
         }
 
@@ -143,18 +143,18 @@ public class a {
             c.a.t0.y.a.d.b entryInfoData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SplashAdView splashAdView = (SplashAdView) this.f26370b.f26368c.get();
+                SplashAdView splashAdView = (SplashAdView) this.f25585b.f25583c.get();
                 if (splashAdView != null) {
-                    this.f26370b.f26367b = this.a.skipText();
-                    a aVar = this.f26370b;
-                    aVar.h(aVar.f26367b);
+                    this.f25585b.f25582b = this.a.skipText();
+                    a aVar = this.f25585b;
+                    aVar.h(aVar.f25582b);
                 }
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
                 if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
                     if (entryInfoData.d()) {
-                        statisticItem.param("obj_source", entryInfoData.f26397e);
+                        statisticItem.param("obj_source", entryInfoData.f25613e);
                     } else {
-                        statisticItem.param("obj_source", entryInfoData.f26394b);
+                        statisticItem.param("obj_source", entryInfoData.f25610b);
                     }
                 }
                 TiebaStatic.log(statisticItem);
@@ -235,7 +235,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<CountDownTextView> a;
 
-        public /* synthetic */ e(CountDownTextView countDownTextView, C1527a c1527a) {
+        public /* synthetic */ e(CountDownTextView countDownTextView, C1543a c1543a) {
             this(countDownTextView);
         }
 
@@ -281,7 +281,7 @@ public class a {
             }
         }
         this.a = null;
-        this.f26367b = null;
+        this.f25582b = null;
     }
 
     public final View f(n nVar) {
@@ -297,7 +297,7 @@ public class a {
             int b2 = nVar.b();
             SplashAdView splashAdView = new SplashAdView(nVar.getContext(), "1481698145541", AdType.SPLASH, a, b2, RedirectType.APPMANAGE);
             splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a));
-            this.f26368c = new WeakReference<>(splashAdView);
+            this.f25583c = new WeakReference<>(splashAdView);
             splashAdView.setBCAdCallBack(new b(this, splashAdView));
             try {
                 z = splashAdView.isSplashAvailable();
@@ -317,7 +317,7 @@ public class a {
                     int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
                     CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
                     this.a = new e(countDownTextView, null);
-                    String str = this.f26367b;
+                    String str = this.f25582b;
                     if (TextUtils.isEmpty(str)) {
                         str = pageActivity.getResources().getString(R.string.skip);
                     }
@@ -374,7 +374,7 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1527a(this));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1543a(this));
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }

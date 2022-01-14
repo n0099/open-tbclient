@@ -18,7 +18,7 @@ public class s extends c.a.r0.a.y0.a<c.a.r0.a.y0.k.g.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f9885b;
+    public AudioManager f9671b;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -78,14 +78,14 @@ public class s extends c.a.r0.a.y0.a<c.a.r0.a.y0.k.g.a> {
         AudioManager audioManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2), context}) == null) {
-            if (this.f9885b == null) {
-                this.f9885b = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (this.f9671b == null) {
+                this.f9671b = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
-            if (this.f9885b == null) {
+            if (this.f9671b == null) {
                 return;
             }
             int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d2);
-            if (round == this.f9885b.getStreamVolume(3)) {
+            if (round == this.f9671b.getStreamVolume(3)) {
                 if (c.a.r0.a.y0.a.a) {
                     String str = "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX;
                     return;
@@ -98,7 +98,7 @@ public class s extends c.a.r0.a.y0.a<c.a.r0.a.y0.k.g.a> {
             if (c.a.r0.a.y0.a.a) {
                 String str2 = "setVolumeInt" + round;
             }
-            this.f9885b.setStreamVolume(3, round, 0);
+            this.f9671b.setStreamVolume(3, round, 0);
         }
     }
 }

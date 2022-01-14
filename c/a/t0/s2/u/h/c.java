@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.n.e.n;
 import c.a.d.n.e.w;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
@@ -26,28 +26,28 @@ public class c {
     public c.a.t0.s2.u.h.f.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SubPbReplyAdapter f23822b;
+    public SubPbReplyAdapter f23162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NewSubPbActivity f23823c;
+    public NewSubPbActivity f23163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdTypeListView f23824d;
+    public BdTypeListView f23164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f23825e;
+    public List<c.a.d.n.e.a> f23165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f23826f;
+    public View.OnClickListener f23166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public w f23827g;
+    public w f23167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f23828h;
+    public boolean f23168h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f23829i;
+    public boolean f23169i;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -64,79 +64,79 @@ public class c {
                 return;
             }
         }
-        this.f23825e = new ArrayList();
-        this.f23826f = null;
-        this.f23828h = false;
-        this.f23829i = true;
-        this.f23823c = newSubPbActivity;
-        this.f23824d = bdTypeListView;
+        this.f23165e = new ArrayList();
+        this.f23166f = null;
+        this.f23168h = false;
+        this.f23169i = true;
+        this.f23163c = newSubPbActivity;
+        this.f23164d = bdTypeListView;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23828h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23168h : invokeV.booleanValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.t0.s2.u.h.f.b bVar = new c.a.t0.s2.u.h.f.b(this.f23823c, PostData.A0);
+            c.a.t0.s2.u.h.f.b bVar = new c.a.t0.s2.u.h.f.b(this.f23163c, PostData.A0);
             this.a = bVar;
-            bVar.e(this.f23826f);
-            this.a.V(this.f23827g);
-            this.a.setFromCDN(this.f23829i);
-            this.f23825e.add(this.a);
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.f23823c, c.a.t0.s2.u.h.g.b.f23846f);
-            this.f23822b = subPbReplyAdapter;
-            this.f23825e.add(subPbReplyAdapter);
-            this.f23825e.add(new c.a.t0.s2.u.h.f.c(this.f23823c, c.a.t0.s2.u.h.g.a.f23845e));
-            this.f23824d.addAdapters(this.f23825e);
+            bVar.e(this.f23166f);
+            this.a.V(this.f23167g);
+            this.a.setFromCDN(this.f23169i);
+            this.f23165e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.f23163c, c.a.t0.s2.u.h.g.b.f23186f);
+            this.f23162b = subPbReplyAdapter;
+            this.f23165e.add(subPbReplyAdapter);
+            this.f23165e.add(new c.a.t0.s2.u.h.f.c(this.f23163c, c.a.t0.s2.u.h.g.a.f23185e));
+            this.f23164d.addAdapters(this.f23165e);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23824d.getAdapter2() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23164d.getAdapter2() == null) {
             return;
         }
-        this.f23824d.getAdapter2().notifyDataSetChanged();
+        this.f23164d.getAdapter2().notifyDataSetChanged();
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f23826f = onClickListener;
+            this.f23166f = onClickListener;
         }
     }
 
-    public void e(d2 d2Var, List<n> list) {
+    public void e(e2 e2Var, List<n> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, d2Var, list) == null) {
-            this.a.m0(d2Var);
-            if (!m.isEmpty(this.f23823c.getSubPbModel().p0())) {
-                this.a.l0(this.f23823c.getSubPbModel().p0());
+        if (interceptable == null || interceptable.invokeLL(1048580, this, e2Var, list) == null) {
+            this.a.m0(e2Var);
+            if (!m.isEmpty(this.f23163c.getSubPbModel().p0())) {
+                this.a.l0(this.f23163c.getSubPbModel().p0());
             }
-            NewSubPbActivity newSubPbActivity = this.f23823c;
+            NewSubPbActivity newSubPbActivity = this.f23163c;
             if (newSubPbActivity != null && newSubPbActivity.getSubPbModel() != null) {
-                this.a.k0(this.f23823c.getSubPbModel().K0());
+                this.a.k0(this.f23163c.getSubPbModel().K0());
             }
-            this.f23824d.setData(list);
-            this.f23824d.getAdapter2().notifyDataSetChanged();
+            this.f23164d.setData(list);
+            this.f23164d.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f23829i = z;
+            this.f23169i = z;
         }
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f23828h = z;
+            this.f23168h = z;
         }
     }
 

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @VisibleForTesting
 @NotThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Bucket<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BUCKET";

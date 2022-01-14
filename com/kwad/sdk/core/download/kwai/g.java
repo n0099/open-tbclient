@@ -18,53 +18,53 @@ public class g extends com.kwad.sdk.widget.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58011b;
+    public String f55815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58012c;
+    public String f55816c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58013d;
+    public int f55817d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58014e;
+    public String f55818e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58015f;
+    public int f55819f;
 
     /* loaded from: classes3.dex */
     public static class a {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f58016b;
+        public b f55820b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58017c;
+        public String f55821c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58018d;
+        public String f55822d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f58019e;
+        public int f55823e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f58020f;
+        public String f55824f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f58021g;
+        public int f55825g;
 
         public a(@NonNull Context context) {
             this.a = context;
         }
 
         public a a(b bVar) {
-            this.f58016b = bVar;
+            this.f55820b = bVar;
             return this;
         }
 
         public a a(@NonNull String str) {
-            this.f58017c = str;
+            this.f55821c = str;
             return this;
         }
 
@@ -98,10 +98,10 @@ public class g extends com.kwad.sdk.widget.a {
             }
         });
         TextView textView = (TextView) inflate.findViewById(R.id.ksad_no_title_common_positive_btn);
-        if (!TextUtils.isEmpty(this.f58012c)) {
-            textView.setText(this.f58012c);
+        if (!TextUtils.isEmpty(this.f55816c)) {
+            textView.setText(this.f55816c);
         }
-        textView.setTextColor(this.f58013d);
+        textView.setTextColor(this.f55817d);
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -111,10 +111,10 @@ public class g extends com.kwad.sdk.widget.a {
             }
         });
         TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_no_title_common_negative_btn);
-        if (!TextUtils.isEmpty(this.f58014e)) {
-            textView2.setText(this.f58014e);
+        if (!TextUtils.isEmpty(this.f55818e)) {
+            textView2.setText(this.f55818e);
         }
-        textView2.setTextColor(this.f58015f);
+        textView2.setTextColor(this.f55819f);
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -123,7 +123,7 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        ((TextView) inflate.findViewById(R.id.ksad_no_title_common_content_text)).setText(this.f58011b);
+        ((TextView) inflate.findViewById(R.id.ksad_no_title_common_content_text)).setText(this.f55815b);
         return inflate;
     }
 
@@ -131,12 +131,12 @@ public class g extends com.kwad.sdk.widget.a {
         if (aVar.a instanceof Activity) {
             setOwnerActivity((Activity) aVar.a);
         }
-        this.a = aVar.f58016b;
-        this.f58011b = aVar.f58017c;
-        this.f58012c = !TextUtils.isEmpty(aVar.f58018d) ? aVar.f58018d : aVar.a.getString(R.string.ksad_no_title_common_dialog_positivebtn_title);
-        this.f58013d = aVar.f58019e != 0 ? aVar.f58019e : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_positivebtn_color);
-        this.f58014e = !TextUtils.isEmpty(aVar.f58020f) ? aVar.f58020f : aVar.a.getString(R.string.ksad_no_title_common_dialog_negativebtn_title);
-        this.f58015f = aVar.f58021g != 0 ? aVar.f58021g : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_negativebtn_color);
+        this.a = aVar.f55820b;
+        this.f55815b = aVar.f55821c;
+        this.f55816c = !TextUtils.isEmpty(aVar.f55822d) ? aVar.f55822d : aVar.a.getString(R.string.ksad_no_title_common_dialog_positivebtn_title);
+        this.f55817d = aVar.f55823e != 0 ? aVar.f55823e : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_positivebtn_color);
+        this.f55818e = !TextUtils.isEmpty(aVar.f55824f) ? aVar.f55824f : aVar.a.getString(R.string.ksad_no_title_common_dialog_negativebtn_title);
+        this.f55819f = aVar.f55825g != 0 ? aVar.f55825g : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_negativebtn_color);
     }
 
     @Override // android.app.Dialog

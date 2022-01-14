@@ -66,7 +66,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f44154e;
+        public final /* synthetic */ ForumTestActivity f42540e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
                     return;
                 }
             }
-            this.f44154e = forumTestActivity;
+            this.f42540e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f44154e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f42540e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
@@ -100,10 +100,10 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f44155e;
+        public final /* synthetic */ ShareItem f42541e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f44156f;
+        public final /* synthetic */ ForumTestActivity f42542f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -120,16 +120,16 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
                     return;
                 }
             }
-            this.f44156f = forumTestActivity;
-            this.f44155e = shareItem;
+            this.f42542f = forumTestActivity;
+            this.f42541e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.d.f.p.c.a(this.f44155e.t);
-                n.M(this.f44156f, view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.d.f.p.c.a(this.f42541e.t);
+                n.N(this.f42542f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -230,7 +230,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                n.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
+                n.M(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
             }
         }
 
@@ -238,7 +238,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                n.L(TbadkCoreApplication.getInst(), R.string.save_success);
+                n.M(TbadkCoreApplication.getInst(), R.string.save_success);
             }
         }
     }
@@ -350,7 +350,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
             this.mSaveToDickItem = gVar;
             gVar.l(this.mDialogSaveToDiskListener);
             this.mMoreDialogDataList.add(this.mSaveToDickItem);
-            this.mMoreDialogView.l(new c(this));
+            this.mMoreDialogView.m(new c(this));
             this.mMoreDialogView.j(this.mMoreDialogDataList);
         }
     }

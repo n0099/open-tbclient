@@ -27,34 +27,34 @@ public class e extends c.a.r0.a.u.e.f.a {
 
         /* renamed from: c.a.r0.a.u.e.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0561a implements Runnable {
+        public class RunnableC0570a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f9202e;
+            public final /* synthetic */ int f9002e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f9203f;
+            public final /* synthetic */ int f9003f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f9204g;
+            public final /* synthetic */ a f9004g;
 
             /* renamed from: c.a.r0.a.u.e.f.e$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class C0562a implements ValueAnimator.AnimatorUpdateListener {
+            public class C0571a implements ValueAnimator.AnimatorUpdateListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ c.a.r0.a.p.e.c f9205e;
+                public final /* synthetic */ c.a.r0.a.p.e.c f9005e;
 
-                public C0562a(RunnableC0561a runnableC0561a, c.a.r0.a.p.e.c cVar) {
+                public C0571a(RunnableC0570a runnableC0570a, c.a.r0.a.p.e.c cVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0561a, cVar};
+                        Object[] objArr = {runnableC0570a, cVar};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -64,19 +64,19 @@ public class e extends c.a.r0.a.u.e.f.a {
                             return;
                         }
                     }
-                    this.f9205e = cVar;
+                    this.f9005e = cVar;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                        this.f9205e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                        this.f9005e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                     }
                 }
             }
 
-            public RunnableC0561a(a aVar, int i2, int i3) {
+            public RunnableC0570a(a aVar, int i2, int i3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,9 +91,9 @@ public class e extends c.a.r0.a.u.e.f.a {
                         return;
                     }
                 }
-                this.f9204g = aVar;
-                this.f9202e = i2;
-                this.f9203f = i3;
+                this.f9004g = aVar;
+                this.f9002e = i2;
+                this.f9003f = i3;
             }
 
             @Override // java.lang.Runnable
@@ -105,13 +105,13 @@ public class e extends c.a.r0.a.u.e.f.a {
                     return;
                 }
                 if (!(i2 instanceof NgWebView)) {
-                    f2 = n0.f(this.f9204g.a.getContext(), this.f9202e);
+                    f2 = n0.f(this.f9004g.a.getContext(), this.f9002e);
                 } else {
-                    f2 = e.z(i2, n0.f(this.f9204g.a.getContext(), this.f9202e));
+                    f2 = e.z(i2, n0.f(this.f9004g.a.getContext(), this.f9002e));
                 }
                 ValueAnimator ofInt = ValueAnimator.ofInt(i2.getWebViewScrollY(), f2);
-                ofInt.setDuration(this.f9203f);
-                ofInt.addUpdateListener(new C0562a(this, i2));
+                ofInt.setDuration(this.f9003f);
+                ofInt.addUpdateListener(new C0571a(this, i2));
                 ofInt.start();
             }
         }
@@ -142,7 +142,7 @@ public class e extends c.a.r0.a.u.e.f.a {
                 int optInt = jSONObject.optInt("scrollTop", -1);
                 int optInt2 = jSONObject.optInt("duration", -1);
                 if (optInt > -1 && optInt2 > -1) {
-                    q0.e0(new RunnableC0561a(this, optInt, optInt2));
+                    q0.e0(new RunnableC0570a(this, optInt, optInt2));
                     return new c.a.r0.a.u.h.b(0);
                 }
                 c.a.r0.a.e0.d.c("PageScrollToApi", "illegal scrollTop or duration");

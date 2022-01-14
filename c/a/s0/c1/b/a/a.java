@@ -13,12 +13,12 @@ public class a {
     public StatsType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f12570b;
+    public BdUniqueId f12276b;
 
     public BdUniqueId a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12570b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12276b : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean b() {

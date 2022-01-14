@@ -6,13 +6,13 @@ import java.util.concurrent.ExecutionException;
 public interface f<K, V> extends c<K, V>, c.i.d.a.g<K, V> {
     @Override // c.i.d.a.g
     @Deprecated
-    V apply(K k2);
+    V apply(K k);
 
-    V get(K k2) throws ExecutionException;
+    V get(K k) throws ExecutionException;
 
     ImmutableMap<K, V> getAll(Iterable<? extends K> iterable) throws ExecutionException;
 
-    V getUnchecked(K k2);
+    V getUnchecked(K k);
 
-    void refresh(K k2);
+    void refresh(K k);
 }

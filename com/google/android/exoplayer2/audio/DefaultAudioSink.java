@@ -70,41 +70,39 @@ public final class DefaultAudioSink implements AudioSink {
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.x.e f56369b;
+    public final c.i.b.a.x.e f54235b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f56370c;
+    public final k f54236c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f56371d;
+    public final j f54237d;
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AudioProcessor[] f56372e;
+    public final AudioProcessor[] f54238e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ConditionVariable f56373f;
+    public final ConditionVariable f54239f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long[] f56374g;
+    public final long[] f54240g;
     public long g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c f56375h;
+    public final c f54241h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final LinkedList<e> f56376i;
+    public final LinkedList<e> f54242i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public AudioSink.a f56377j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public AudioTrack f56378k;
+    public AudioSink.a f54243j;
+    public AudioTrack k;
     public AudioTrack l;
     public int m;
     public int n;
@@ -153,10 +151,10 @@ public final class DefaultAudioSink implements AudioSink {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AudioTrack f56379e;
+        public final /* synthetic */ AudioTrack f54244e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DefaultAudioSink f56380f;
+        public final /* synthetic */ DefaultAudioSink f54245f;
 
         public a(DefaultAudioSink defaultAudioSink, AudioTrack audioTrack) {
             Interceptable interceptable = $ic;
@@ -173,8 +171,8 @@ public final class DefaultAudioSink implements AudioSink {
                     return;
                 }
             }
-            this.f56380f = defaultAudioSink;
-            this.f56379e = audioTrack;
+            this.f54245f = defaultAudioSink;
+            this.f54244e = audioTrack;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -182,10 +180,10 @@ public final class DefaultAudioSink implements AudioSink {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f56379e.flush();
-                    this.f56379e.release();
+                    this.f54244e.flush();
+                    this.f54244e.release();
                 } finally {
-                    this.f56380f.f56373f.open();
+                    this.f54245f.f54239f.open();
                 }
             }
         }
@@ -197,7 +195,7 @@ public final class DefaultAudioSink implements AudioSink {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AudioTrack f56381e;
+        public final /* synthetic */ AudioTrack f54246e;
 
         public b(DefaultAudioSink defaultAudioSink, AudioTrack audioTrack) {
             Interceptable interceptable = $ic;
@@ -214,14 +212,14 @@ public final class DefaultAudioSink implements AudioSink {
                     return;
                 }
             }
-            this.f56381e = audioTrack;
+            this.f54246e = audioTrack;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56381e.release();
+                this.f54246e.release();
             }
         }
     }
@@ -233,31 +231,31 @@ public final class DefaultAudioSink implements AudioSink {
         public AudioTrack a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f56382b;
+        public boolean f54247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f56383c;
+        public int f54248c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f56384d;
+        public long f54249d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f56385e;
+        public long f54250e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f56386f;
+        public long f54251f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f56387g;
+        public long f54252g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f56388h;
+        public long f54253h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f56389i;
+        public long f54254i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f56390j;
+        public long f54255j;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -277,34 +275,34 @@ public final class DefaultAudioSink implements AudioSink {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f56387g != -9223372036854775807L) {
-                    return Math.min(this.f56390j, this.f56389i + ((((SystemClock.elapsedRealtime() * 1000) - this.f56387g) * this.f56383c) / 1000000));
+                if (this.f54252g != -9223372036854775807L) {
+                    return Math.min(this.f54255j, this.f54254i + ((((SystemClock.elapsedRealtime() * 1000) - this.f54252g) * this.f54248c) / 1000000));
                 }
                 int playState = this.a.getPlayState();
                 if (playState == 1) {
                     return 0L;
                 }
                 long playbackHeadPosition = 4294967295L & this.a.getPlaybackHeadPosition();
-                if (this.f56382b) {
+                if (this.f54247b) {
                     if (playState == 2 && playbackHeadPosition == 0) {
-                        this.f56386f = this.f56384d;
+                        this.f54251f = this.f54249d;
                     }
-                    playbackHeadPosition += this.f56386f;
+                    playbackHeadPosition += this.f54251f;
                 }
                 if (v.a <= 26) {
-                    if (playbackHeadPosition == 0 && this.f56384d > 0 && playState == 3) {
-                        if (this.f56388h == -9223372036854775807L) {
-                            this.f56388h = SystemClock.elapsedRealtime();
+                    if (playbackHeadPosition == 0 && this.f54249d > 0 && playState == 3) {
+                        if (this.f54253h == -9223372036854775807L) {
+                            this.f54253h = SystemClock.elapsedRealtime();
                         }
-                        return this.f56384d;
+                        return this.f54249d;
                     }
-                    this.f56388h = -9223372036854775807L;
+                    this.f54253h = -9223372036854775807L;
                 }
-                if (this.f56384d > playbackHeadPosition) {
-                    this.f56385e++;
+                if (this.f54249d > playbackHeadPosition) {
+                    this.f54250e++;
                 }
-                this.f56384d = playbackHeadPosition;
-                return playbackHeadPosition + (this.f56385e << 32);
+                this.f54249d = playbackHeadPosition;
+                return playbackHeadPosition + (this.f54250e << 32);
             }
             return invokeV.longValue;
         }
@@ -312,7 +310,7 @@ public final class DefaultAudioSink implements AudioSink {
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (a() * 1000000) / this.f56383c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (a() * 1000000) / this.f54248c : invokeV.longValue;
         }
 
         public long c() {
@@ -336,9 +334,9 @@ public final class DefaultAudioSink implements AudioSink {
         public void e(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f56389i = a();
-                this.f56387g = SystemClock.elapsedRealtime() * 1000;
-                this.f56390j = j2;
+                this.f54254i = a();
+                this.f54252g = SystemClock.elapsedRealtime() * 1000;
+                this.f54255j = j2;
                 this.a.stop();
             }
         }
@@ -346,12 +344,12 @@ public final class DefaultAudioSink implements AudioSink {
         public boolean f(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) ? this.f56388h != -9223372036854775807L && j2 > 0 && SystemClock.elapsedRealtime() - this.f56388h >= 200 : invokeJ.booleanValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) ? this.f54253h != -9223372036854775807L && j2 > 0 && SystemClock.elapsedRealtime() - this.f54253h >= 200 : invokeJ.booleanValue;
         }
 
         public void g() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f56387g == -9223372036854775807L) {
+            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f54252g == -9223372036854775807L) {
                 this.a.pause();
             }
         }
@@ -360,14 +358,14 @@ public final class DefaultAudioSink implements AudioSink {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048583, this, audioTrack, z) == null) {
                 this.a = audioTrack;
-                this.f56382b = z;
-                this.f56387g = -9223372036854775807L;
-                this.f56388h = -9223372036854775807L;
-                this.f56384d = 0L;
-                this.f56385e = 0L;
-                this.f56386f = 0L;
+                this.f54247b = z;
+                this.f54252g = -9223372036854775807L;
+                this.f54253h = -9223372036854775807L;
+                this.f54249d = 0L;
+                this.f54250e = 0L;
+                this.f54251f = 0L;
                 if (audioTrack != null) {
-                    this.f56383c = audioTrack.getSampleRate();
+                    this.f54248c = audioTrack.getSampleRate();
                 }
             }
         }
@@ -391,9 +389,7 @@ public final class DefaultAudioSink implements AudioSink {
     public static class d extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: k  reason: collision with root package name */
-        public final AudioTimestamp f56391k;
+        public final AudioTimestamp k;
         public long l;
         public long m;
         public long n;
@@ -414,7 +410,7 @@ public final class DefaultAudioSink implements AudioSink {
                     return;
                 }
             }
-            this.f56391k = new AudioTimestamp();
+            this.k = new AudioTimestamp();
         }
 
         @Override // com.google.android.exoplayer2.audio.DefaultAudioSink.c
@@ -428,7 +424,7 @@ public final class DefaultAudioSink implements AudioSink {
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56391k.nanoTime : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k.nanoTime : invokeV.longValue;
         }
 
         @Override // com.google.android.exoplayer2.audio.DefaultAudioSink.c
@@ -447,9 +443,9 @@ public final class DefaultAudioSink implements AudioSink {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                boolean timestamp = this.a.getTimestamp(this.f56391k);
+                boolean timestamp = this.a.getTimestamp(this.k);
                 if (timestamp) {
-                    long j2 = this.f56391k.framePosition;
+                    long j2 = this.k.framePosition;
                     if (this.m > j2) {
                         this.l++;
                     }
@@ -469,10 +465,10 @@ public final class DefaultAudioSink implements AudioSink {
         public final p a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f56392b;
+        public final long f54256b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f56393c;
+        public final long f54257c;
 
         public /* synthetic */ e(p pVar, long j2, long j3, a aVar) {
             this(pVar, j2, j3);
@@ -494,8 +490,8 @@ public final class DefaultAudioSink implements AudioSink {
                 }
             }
             this.a = pVar;
-            this.f56392b = j2;
-            this.f56393c = j3;
+            this.f54256b = j2;
+            this.f54257c = j3;
         }
     }
 
@@ -530,7 +526,7 @@ public final class DefaultAudioSink implements AudioSink {
             }
         }
         this.a = cVar;
-        this.f56373f = new ConditionVariable(true);
+        this.f54239f = new ConditionVariable(true);
         if (v.a >= 18) {
             try {
                 this.H = AudioTrack.class.getMethod("getLatency", null);
@@ -538,31 +534,31 @@ public final class DefaultAudioSink implements AudioSink {
             }
         }
         if (v.a >= 19) {
-            this.f56375h = new d();
+            this.f54241h = new d();
         } else {
-            this.f56375h = new c(null);
+            this.f54241h = new c(null);
         }
-        this.f56369b = new c.i.b.a.x.e();
-        this.f56370c = new k();
-        this.f56371d = new j();
+        this.f54235b = new c.i.b.a.x.e();
+        this.f54236c = new k();
+        this.f54237d = new j();
         AudioProcessor[] audioProcessorArr2 = new AudioProcessor[audioProcessorArr.length + 4];
-        this.f56372e = audioProcessorArr2;
+        this.f54238e = audioProcessorArr2;
         audioProcessorArr2[0] = new h();
-        AudioProcessor[] audioProcessorArr3 = this.f56372e;
-        audioProcessorArr3[1] = this.f56369b;
-        audioProcessorArr3[2] = this.f56370c;
+        AudioProcessor[] audioProcessorArr3 = this.f54238e;
+        audioProcessorArr3[1] = this.f54235b;
+        audioProcessorArr3[2] = this.f54236c;
         System.arraycopy(audioProcessorArr, 0, audioProcessorArr3, 3, audioProcessorArr.length);
-        this.f56372e[audioProcessorArr.length + 3] = this.f56371d;
-        this.f56374g = new long[10];
+        this.f54238e[audioProcessorArr.length + 3] = this.f54237d;
+        this.f54240g = new long[10];
         this.T = 1.0f;
         this.P = 0;
-        this.r = c.i.b.a.x.b.f30835e;
+        this.r = c.i.b.a.x.b.f29868e;
         this.d0 = 0;
-        this.w = p.f30792d;
+        this.w = p.f29827d;
         this.a0 = -1;
         this.U = new AudioProcessor[0];
         this.V = new ByteBuffer[0];
-        this.f56376i = new LinkedList<>();
+        this.f54242i = new LinkedList<>();
     }
 
     @TargetApi(21)
@@ -666,7 +662,7 @@ public final class DefaultAudioSink implements AudioSink {
             if (v.a >= 21) {
                 audioTrack = q();
             } else {
-                int t = v.t(this.r.f30837c);
+                int t = v.t(this.r.f29870c);
                 if (this.d0 == 0) {
                     audioTrack = new AudioTrack(t, this.n, this.o, this.q, this.t, 1);
                 } else {
@@ -708,13 +704,13 @@ public final class DefaultAudioSink implements AudioSink {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long b2 = this.f56375h.b();
+            long b2 = this.f54241h.b();
             if (b2 == 0) {
                 return;
             }
             long nanoTime = System.nanoTime() / 1000;
             if (nanoTime - this.E >= 30000) {
-                long[] jArr = this.f56374g;
+                long[] jArr = this.f54240g;
                 int i2 = this.B;
                 jArr[i2] = b2 - nanoTime;
                 this.B = (i2 + 1) % 10;
@@ -730,16 +726,16 @@ public final class DefaultAudioSink implements AudioSink {
                     if (i4 >= i5) {
                         break;
                     }
-                    this.D += this.f56374g[i4] / i5;
+                    this.D += this.f54240g[i4] / i5;
                     i4++;
                 }
             }
             if (!F() && nanoTime - this.G >= 500000) {
-                boolean i6 = this.f56375h.i();
+                boolean i6 = this.f54241h.i();
                 this.F = i6;
                 if (i6) {
-                    long d2 = this.f56375h.d() / 1000;
-                    long c2 = this.f56375h.c();
+                    long d2 = this.f54241h.d() / 1000;
+                    long c2 = this.f54241h.c();
                     if (d2 < this.R) {
                         this.F = false;
                     } else if (Math.abs(d2 - nanoTime) > 5000000) {
@@ -827,10 +823,10 @@ public final class DefaultAudioSink implements AudioSink {
     public final void I() {
         AudioTrack audioTrack;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (audioTrack = this.f56378k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (audioTrack = this.k) == null) {
             return;
         }
-        this.f56378k = null;
+        this.k = null;
         new b(this, audioTrack).start();
     }
 
@@ -839,7 +835,7 @@ public final class DefaultAudioSink implements AudioSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList arrayList = new ArrayList();
-            for (AudioProcessor audioProcessor : this.f56372e) {
+            for (AudioProcessor audioProcessor : this.f54238e) {
                 if (audioProcessor.isActive()) {
                     arrayList.add(audioProcessor);
                 } else {
@@ -905,7 +901,7 @@ public final class DefaultAudioSink implements AudioSink {
                 }
                 int remaining2 = byteBuffer.remaining();
                 if (v.a < 21) {
-                    int a2 = this.t - ((int) (this.M - (this.f56375h.a() * this.L)));
+                    int a2 = this.t - ((int) (this.M - (this.f54241h.a() * this.L)));
                     if (a2 > 0) {
                         P = this.l.write(this.Y, this.Z, Math.min(remaining2, a2));
                         if (P > 0) {
@@ -1003,18 +999,18 @@ public final class DefaultAudioSink implements AudioSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pVar)) == null) {
             if (this.s) {
-                p pVar2 = p.f30792d;
+                p pVar2 = p.f29827d;
                 this.w = pVar2;
                 return pVar2;
             }
-            float k2 = this.f56371d.k(pVar.a);
-            j jVar = this.f56371d;
-            float f2 = pVar.f30793b;
+            float k = this.f54237d.k(pVar.a);
+            j jVar = this.f54237d;
+            float f2 = pVar.f29828b;
             jVar.j(f2);
-            p pVar3 = new p(k2, f2);
+            p pVar3 = new p(k, f2);
             p pVar4 = this.v;
             if (pVar4 == null) {
-                pVar4 = !this.f56376i.isEmpty() ? this.f56376i.getLast().a : this.w;
+                pVar4 = !this.f54242i.isEmpty() ? this.f54242i.getLast().a : this.w;
             }
             if (!pVar3.equals(pVar4)) {
                 if (D()) {
@@ -1067,15 +1063,15 @@ public final class DefaultAudioSink implements AudioSink {
                 if (this.l.getPlayState() == 2) {
                     this.f0 = false;
                     return false;
-                } else if (this.l.getPlayState() == 1 && this.f56375h.a() != 0) {
+                } else if (this.l.getPlayState() == 1 && this.f54241h.a() != 0) {
                     return false;
                 }
             }
             boolean z = this.f0;
             boolean i3 = i();
             this.f0 = i3;
-            if (z && !i3 && this.l.getPlayState() != 1 && this.f56377j != null) {
-                this.f56377j.b(this.t, c.i.b.a.b.b(this.u), SystemClock.elapsedRealtime() - this.g0);
+            if (z && !i3 && this.l.getPlayState() != 1 && this.f54243j != null) {
+                this.f54243j.b(this.t, c.i.b.a.b.b(this.u), SystemClock.elapsedRealtime() - this.g0);
             }
             if (this.W == null) {
                 if (!byteBuffer.hasRemaining()) {
@@ -1088,7 +1084,7 @@ public final class DefaultAudioSink implements AudioSink {
                     if (!r()) {
                         return false;
                     }
-                    this.f56376i.add(new e(this.v, Math.max(0L, j2), t(x()), null));
+                    this.f54242i.add(new e(this.v, Math.max(0L, j2), t(x()), null));
                     this.v = null;
                     J();
                 }
@@ -1107,7 +1103,7 @@ public final class DefaultAudioSink implements AudioSink {
                     if (this.P == i2) {
                         this.Q += j2 - C;
                         this.P = 1;
-                        AudioSink.a aVar = this.f56377j;
+                        AudioSink.a aVar = this.f54243j;
                         if (aVar != null) {
                             aVar.c();
                         }
@@ -1128,7 +1124,7 @@ public final class DefaultAudioSink implements AudioSink {
             if (!this.W.hasRemaining()) {
                 this.W = null;
                 return true;
-            } else if (this.f56375h.f(x())) {
+            } else if (this.f54241h.f(x())) {
                 reset();
                 return true;
             } else {
@@ -1171,10 +1167,10 @@ public final class DefaultAudioSink implements AudioSink {
             boolean z2 = !"audio/raw".equals(str);
             if (!z2) {
                 this.I = v.s(i4, i2);
-                this.f56370c.i(i6, i7);
-                this.f56369b.i(iArr);
+                this.f54236c.i(i6, i7);
+                this.f54235b.i(iArr);
                 z = false;
-                for (AudioProcessor audioProcessor : this.f56372e) {
+                for (AudioProcessor audioProcessor : this.f54238e) {
                     try {
                         z |= audioProcessor.h(i3, i2, i4);
                         if (audioProcessor.isActive()) {
@@ -1223,13 +1219,13 @@ public final class DefaultAudioSink implements AudioSink {
                 default:
                     throw new AudioSink.ConfigurationException("Unsupported channel count: " + i2);
             }
-            if (v.a <= 23 && "foster".equals(v.f30701b) && "NVIDIA".equals(v.f30702c)) {
+            if (v.a <= 23 && "foster".equals(v.f29739b) && "NVIDIA".equals(v.f29740c)) {
                 if (i2 != 3 && i2 != 5) {
                     if (i2 == 7) {
                         i9 = c.i.b.a.b.a;
                     }
                 }
-                if (v.a <= 25 || !"fugu".equals(v.f30701b) || !z2 || i2 != 1) {
+                if (v.a <= 25 || !"fugu".equals(v.f29739b) || !z2 || i2 != 1) {
                     i10 = i9;
                 }
                 if (z && D() && this.p == i4 && this.n == i3 && this.o == i10) {
@@ -1296,14 +1292,14 @@ public final class DefaultAudioSink implements AudioSink {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? D() && (x() > this.f56375h.a() || G()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? D() && (x() > this.f54241h.a() || G()) : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void j(AudioSink.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
-            this.f56377j = aVar;
+            this.f54243j = aVar;
         }
     }
 
@@ -1311,7 +1307,7 @@ public final class DefaultAudioSink implements AudioSink {
     public void k() throws AudioSink.WriteException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && !this.b0 && D() && r()) {
-            this.f56375h.e(x());
+            this.f54241h.e(x());
             this.A = 0;
             this.b0 = true;
         }
@@ -1329,10 +1325,10 @@ public final class DefaultAudioSink implements AudioSink {
                 }
                 long nanoTime = System.nanoTime() / 1000;
                 if (this.F) {
-                    j2 = t(this.f56375h.c() + s(nanoTime - (this.f56375h.d() / 1000)));
+                    j2 = t(this.f54241h.c() + s(nanoTime - (this.f54241h.d() / 1000)));
                 } else {
                     if (this.C == 0) {
-                        j2 = this.f56375h.b();
+                        j2 = this.f54241h.b();
                     } else {
                         j2 = nanoTime + this.D;
                     }
@@ -1372,18 +1368,18 @@ public final class DefaultAudioSink implements AudioSink {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048604, this, j2)) == null) {
-            while (!this.f56376i.isEmpty() && j2 >= this.f56376i.getFirst().f56393c) {
-                e remove = this.f56376i.remove();
+            while (!this.f54242i.isEmpty() && j2 >= this.f54242i.getFirst().f54257c) {
+                e remove = this.f54242i.remove();
                 this.w = remove.a;
-                this.y = remove.f56393c;
-                this.x = remove.f56392b - this.Q;
+                this.y = remove.f54257c;
+                this.x = remove.f54256b - this.Q;
             }
             if (this.w.a == 1.0f) {
                 return (j2 + this.x) - this.y;
             }
-            if (this.f56376i.isEmpty()) {
+            if (this.f54242i.isEmpty()) {
                 j3 = this.x;
-                j4 = this.f56371d.i(j2 - this.y);
+                j4 = this.f54237d.i(j2 - this.y);
             } else {
                 j3 = this.x;
                 j4 = (long) (this.w.a * (j2 - this.y));
@@ -1400,7 +1396,7 @@ public final class DefaultAudioSink implements AudioSink {
             this.c0 = false;
             if (D()) {
                 K();
-                this.f56375h.g();
+                this.f54241h.g();
             }
         }
     }
@@ -1496,7 +1492,7 @@ public final class DefaultAudioSink implements AudioSink {
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             reset();
             I();
-            for (AudioProcessor audioProcessor : this.f56372e) {
+            for (AudioProcessor audioProcessor : this.f54238e) {
                 audioProcessor.reset();
             }
             this.d0 = 0;
@@ -1517,10 +1513,10 @@ public final class DefaultAudioSink implements AudioSink {
             if (pVar != null) {
                 this.w = pVar;
                 this.v = null;
-            } else if (!this.f56376i.isEmpty()) {
-                this.w = this.f56376i.getLast().a;
+            } else if (!this.f54242i.isEmpty()) {
+                this.w = this.f54242i.getLast().a;
             }
-            this.f56376i.clear();
+            this.f54242i.clear();
             this.x = 0L;
             this.y = 0L;
             this.W = null;
@@ -1548,8 +1544,8 @@ public final class DefaultAudioSink implements AudioSink {
             }
             AudioTrack audioTrack = this.l;
             this.l = null;
-            this.f56375h.h(null, false);
-            this.f56373f.close();
+            this.f54241h.h(null, false);
+            this.f54239f.close();
             new a(this, audioTrack).start();
         }
     }
@@ -1597,27 +1593,27 @@ public final class DefaultAudioSink implements AudioSink {
     public final void z() throws AudioSink.InitializationException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            this.f56373f.block();
+            this.f54239f.block();
             AudioTrack A = A();
             this.l = A;
             int audioSessionId = A.getAudioSessionId();
             if (h0 && v.a < 21) {
-                AudioTrack audioTrack = this.f56378k;
+                AudioTrack audioTrack = this.k;
                 if (audioTrack != null && audioSessionId != audioTrack.getAudioSessionId()) {
                     I();
                 }
-                if (this.f56378k == null) {
-                    this.f56378k = B(audioSessionId);
+                if (this.k == null) {
+                    this.k = B(audioSessionId);
                 }
             }
             if (this.d0 != audioSessionId) {
                 this.d0 = audioSessionId;
-                AudioSink.a aVar = this.f56377j;
+                AudioSink.a aVar = this.f54243j;
                 if (aVar != null) {
                     aVar.a(audioSessionId);
                 }
             }
-            this.f56375h.h(this.l, F());
+            this.f54241h.h(this.l, F());
             L();
             this.f0 = false;
         }

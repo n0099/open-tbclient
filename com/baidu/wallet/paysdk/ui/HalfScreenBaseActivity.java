@@ -26,10 +26,10 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AnimationDrawable f54335b;
+    public AnimationDrawable f52265b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f54336c;
+    public View f52266c;
     public View mActionBar;
     public ViewGroup mContentView;
     public HalfScreenContainerLayout mHalfScreenContainer;
@@ -152,7 +152,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_half_scrren_activity"));
             this.mHalfScreenPageView = (ViewGroup) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_page"));
             View findViewById = findViewById(ResUtils.id(getActivity(), "welcome_page"));
-            this.f54336c = findViewById;
+            this.f52266c = findViewById;
             findViewById.setVisibility(8);
             this.mRootView = findViewById(ResUtils.id(getActivity(), "root_view"));
             this.mHalfScreenContainer = (HalfScreenContainerLayout) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_container"));
@@ -162,7 +162,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             this.mTitle = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_title"));
             this.mRightTxt = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_left_txt"));
             b();
-            this.f54335b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
+            this.f52265b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
             addContentView();
         }
     }
@@ -190,8 +190,8 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public void showLikeDismissLadingPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f54336c.setVisibility(8);
-            this.f54335b.stop();
+            this.f52266c.setVisibility(8);
+            this.f52265b.stop();
         }
     }
 
@@ -201,13 +201,13 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             setPageTransparent(false);
             if (z) {
                 this.mHalfScreenPageView.setVisibility(8);
-                this.f54336c.setVisibility(0);
-                this.f54335b.start();
+                this.f52266c.setVisibility(0);
+                this.f52265b.start();
                 return;
             }
             this.mHalfScreenPageView.setVisibility(0);
-            this.f54336c.setVisibility(8);
-            this.f54335b.stop();
+            this.f52266c.setVisibility(8);
+            this.f52265b.stop();
         }
     }
 }

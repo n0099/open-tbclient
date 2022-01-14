@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseJsonData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

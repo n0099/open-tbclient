@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f21220i;
+    public static final BdUniqueId f20659i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21221e;
+    public String f20660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21222f;
+    public String f20661f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21223g;
+    public String f20662g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21224h;
+    public String f20663h;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class b implements n {
                 return;
             }
         }
-        f21220i = BdUniqueId.gen();
+        f20659i = BdUniqueId.gen();
     }
 
     public b() {
@@ -68,10 +68,10 @@ public class b implements n {
                 return null;
             }
             b bVar = new b();
-            bVar.f21221e = jSONObject.optString("title");
-            bVar.f21222f = jSONObject.optString("desc");
-            bVar.f21223g = jSONObject.optString("tag");
-            bVar.f21224h = jSONObject.optString("img");
+            bVar.f20660e = jSONObject.optString("title");
+            bVar.f20661f = jSONObject.optString("desc");
+            bVar.f20662g = jSONObject.optString("tag");
+            bVar.f20663h = jSONObject.optString("img");
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -81,6 +81,6 @@ public class b implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f21220i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f20659i : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -63,7 +63,7 @@ public class d extends c.a.r0.q.k.a {
             c.a.r0.w.b i2 = b2 != null ? b2.i() : null;
             String optString = optJSONObject.optString("version");
             if (!TextUtils.isEmpty(optString)) {
-                n.f11883b = optString;
+                n.f11613b = optString;
                 if (i2 != null) {
                     i2.putString("key_h2_heart_beat_version", optString);
                 }

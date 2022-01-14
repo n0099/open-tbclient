@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
 import c.a.t0.d1.c1;
-import c.a.t0.d1.c3.e;
 import c.a.t0.d1.d1;
+import c.a.t0.d1.d3.e;
 import c.a.t0.d1.e1;
 import c.a.t0.d1.f1;
 import c.a.t0.d1.g1;
@@ -30,25 +30,23 @@ public class FrsFoldingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45364e;
+    public int f43716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45365f;
+    public boolean f43717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout.LayoutParams f45366g;
+    public LinearLayout.LayoutParams f43718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f45367h;
+    public LinearLayout f43719h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f45368i;
+    public FrameLayout f43720i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrameLayout f45369j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ImageView f45370k;
+    public FrameLayout f43721j;
+    public ImageView k;
     public View l;
 
     /* loaded from: classes12.dex */
@@ -57,7 +55,7 @@ public class FrsFoldingView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsFoldingView f45371e;
+        public final /* synthetic */ FrsFoldingView f43722e;
 
         public a(FrsFoldingView frsFoldingView) {
             Interceptable interceptable = $ic;
@@ -74,20 +72,20 @@ public class FrsFoldingView extends LinearLayout {
                     return;
                 }
             }
-            this.f45371e = frsFoldingView;
+            this.f43722e = frsFoldingView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f45371e.f45365f) {
-                    this.f45371e.m();
-                    this.f45371e.f45365f = false;
+                if (this.f43722e.f43717f) {
+                    this.f43722e.m();
+                    this.f43722e.f43717f = false;
                     return;
                 }
-                this.f45371e.l();
-                this.f45371e.f45365f = true;
+                this.f43722e.l();
+                this.f43722e.f43717f = true;
             }
         }
     }
@@ -98,10 +96,10 @@ public class FrsFoldingView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f45372e;
+        public final /* synthetic */ ValueAnimator f43723e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsFoldingView f45373f;
+        public final /* synthetic */ FrsFoldingView f43724f;
 
         public b(FrsFoldingView frsFoldingView, ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
@@ -118,19 +116,19 @@ public class FrsFoldingView extends LinearLayout {
                     return;
                 }
             }
-            this.f45373f = frsFoldingView;
-            this.f45372e = valueAnimator;
+            this.f43724f = frsFoldingView;
+            this.f43723e = valueAnimator;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) this.f45372e.getAnimatedValue()).floatValue();
-                this.f45373f.f45366g.height = (int) (this.f45373f.f45364e * floatValue);
-                this.f45373f.f45369j.setLayoutParams(this.f45373f.f45366g);
-                this.f45373f.f45369j.setAlpha(floatValue);
-                this.f45373f.f45370k.setRotation((-floatValue) * 180.0f);
+                float floatValue = ((Float) this.f43723e.getAnimatedValue()).floatValue();
+                this.f43724f.f43718g.height = (int) (this.f43724f.f43716e * floatValue);
+                this.f43724f.f43721j.setLayoutParams(this.f43724f.f43718g);
+                this.f43724f.f43721j.setAlpha(floatValue);
+                this.f43724f.k.setRotation((-floatValue) * 180.0f);
             }
         }
     }
@@ -141,10 +139,10 @@ public class FrsFoldingView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f45374e;
+        public final /* synthetic */ ValueAnimator f43725e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsFoldingView f45375f;
+        public final /* synthetic */ FrsFoldingView f43726f;
 
         public c(FrsFoldingView frsFoldingView, ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
@@ -161,19 +159,19 @@ public class FrsFoldingView extends LinearLayout {
                     return;
                 }
             }
-            this.f45375f = frsFoldingView;
-            this.f45374e = valueAnimator;
+            this.f43726f = frsFoldingView;
+            this.f43725e = valueAnimator;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) this.f45374e.getAnimatedValue()).floatValue();
-                this.f45375f.f45366g.height = (int) (this.f45375f.f45364e * floatValue);
-                this.f45375f.f45369j.setLayoutParams(this.f45375f.f45366g);
-                this.f45375f.f45369j.setAlpha(floatValue);
-                this.f45375f.f45370k.setRotation((-floatValue) * 180.0f);
+                float floatValue = ((Float) this.f43725e.getAnimatedValue()).floatValue();
+                this.f43726f.f43718g.height = (int) (this.f43726f.f43716e * floatValue);
+                this.f43726f.f43721j.setLayoutParams(this.f43726f.f43718g);
+                this.f43726f.f43721j.setAlpha(floatValue);
+                this.f43726f.k.setRotation((-floatValue) * 180.0f);
             }
         }
     }
@@ -212,11 +210,11 @@ public class FrsFoldingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(g1.folding_view_layout, (ViewGroup) this, true);
             this.l = inflate;
-            this.f45367h = (LinearLayout) inflate.findViewById(f1.folding_root_layout);
-            this.f45368i = (FrameLayout) this.l.findViewById(f1.permanent_layout);
-            this.f45369j = (FrameLayout) this.l.findViewById(f1.collapsible_layout);
-            this.f45370k = (ImageView) this.l.findViewById(f1.folding_arrow);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45370k, e1.icon_pure_unfold12_svg, c1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f43719h = (LinearLayout) inflate.findViewById(f1.folding_root_layout);
+            this.f43720i = (FrameLayout) this.l.findViewById(f1.permanent_layout);
+            this.f43721j = (FrameLayout) this.l.findViewById(f1.collapsible_layout);
+            this.k = (ImageView) this.l.findViewById(f1.folding_arrow);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, e1.icon_pure_unfold12_svg, c1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -230,7 +228,7 @@ public class FrsFoldingView extends LinearLayout {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f45366g = (LinearLayout.LayoutParams) this.f45369j.getLayoutParams();
+            this.f43718g = (LinearLayout.LayoutParams) this.f43721j.getLayoutParams();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.addUpdateListener(new c(this, ofFloat));
             ofFloat.setDuration(300L);
@@ -241,7 +239,7 @@ public class FrsFoldingView extends LinearLayout {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f45366g = (LinearLayout.LayoutParams) this.f45369j.getLayoutParams();
+            this.f43718g = (LinearLayout.LayoutParams) this.f43721j.getLayoutParams();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.addUpdateListener(new b(this, ofFloat));
             ofFloat.setDuration(300L);
@@ -252,23 +250,23 @@ public class FrsFoldingView extends LinearLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45370k, e1.icon_pure_unfold12_svg, c1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, e1.icon_pure_unfold12_svg, c1.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void setViews(List<View> list, List<e> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
-            this.f45368i.removeAllViews();
-            this.f45368i.addView(list.get(0));
+            this.f43720i.removeAllViews();
+            this.f43720i.addView(list.get(0));
             if (list.size() > 1) {
-                this.f45370k.setVisibility(0);
-                this.f45369j.removeAllViews();
-                this.f45369j.addView(list.get(1));
-                this.f45364e = list2.get(1).getCount() * n.f(getContext().getApplicationContext(), d1.tbds93);
+                this.k.setVisibility(0);
+                this.f43721j.removeAllViews();
+                this.f43721j.addView(list.get(1));
+                this.f43716e = list2.get(1).getCount() * n.f(getContext().getApplicationContext(), d1.tbds93);
                 return;
             }
-            this.f45370k.setVisibility(8);
+            this.k.setVisibility(8);
         }
     }
 
@@ -312,8 +310,8 @@ public class FrsFoldingView extends LinearLayout {
                 return;
             }
         }
-        this.f45364e = 0;
-        this.f45365f = true;
+        this.f43716e = 0;
+        this.f43717f = true;
         i();
     }
 }

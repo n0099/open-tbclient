@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InterfaceC1293b a;
+    public final InterfaceC1307b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f21452b;
+    public BaseActivity f20883b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,19 +72,19 @@ public class b {
     }
 
     /* renamed from: c.a.t0.o3.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1293b {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1307b {
         void a(boolean z, PostPrefixData postPrefixData);
 
         void onFailure();
     }
 
-    public b(BaseActivity baseActivity, InterfaceC1293b interfaceC1293b) {
+    public b(BaseActivity baseActivity, InterfaceC1307b interfaceC1307b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, interfaceC1293b};
+            Object[] objArr = {baseActivity, interfaceC1307b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -94,30 +94,30 @@ public class b {
                 return;
             }
         }
-        this.f21452b = baseActivity;
-        this.a = interfaceC1293b;
+        this.f20883b = baseActivity;
+        this.a = interfaceC1307b;
         c();
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f21452b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f20883b == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
         httpMessage.addParam("fname", str);
-        this.f21452b.sendMessage(httpMessage);
+        this.f20883b.sendMessage(httpMessage);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f21452b == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f20883b == null) {
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/f/forum/getprefix");
         tbHttpMessageTask.setResponsedClass(ForumPrefixResponsedMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        this.f21452b.registerListener(new a(this, CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
+        this.f20883b.registerListener(new a(this, CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD));
     }
 }

@@ -47,15 +47,15 @@ public class MapsKt__MapsKt extends MapsKt__MapsJVMKt {
     }
 
     @InlineOnly
-    public static final <K, V> boolean contains(Map<? extends K, ? extends V> contains, K k2) {
+    public static final <K, V> boolean contains(Map<? extends K, ? extends V> contains, K k) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.containsKey(k2);
+        return contains.containsKey(k);
     }
 
     @InlineOnly
-    public static final <K> boolean containsKey(Map<? extends K, ?> map, K k2) {
+    public static final <K> boolean containsKey(Map<? extends K, ?> map, K k) {
         if (map != null) {
-            return map.containsKey(k2);
+            return map.containsKey(k);
         }
         throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.Map<K, *>");
     }
@@ -148,40 +148,40 @@ public class MapsKt__MapsKt extends MapsKt__MapsJVMKt {
     }
 
     @InlineOnly
-    public static final <K, V> V get(Map<? extends K, ? extends V> get, K k2) {
+    public static final <K, V> V get(Map<? extends K, ? extends V> get, K k) {
         Intrinsics.checkNotNullParameter(get, "$this$get");
-        return get.get(k2);
+        return get.get(k);
     }
 
     @InlineOnly
-    public static final <K, V> V getOrElse(Map<K, ? extends V> map, K k2, Function0<? extends V> function0) {
-        V v = map.get(k2);
+    public static final <K, V> V getOrElse(Map<K, ? extends V> map, K k, Function0<? extends V> function0) {
+        V v = map.get(k);
         return v != null ? v : function0.invoke();
     }
 
-    public static final <K, V> V getOrElseNullable(Map<K, ? extends V> getOrElseNullable, K k2, Function0<? extends V> defaultValue) {
+    public static final <K, V> V getOrElseNullable(Map<K, ? extends V> getOrElseNullable, K k, Function0<? extends V> defaultValue) {
         Intrinsics.checkNotNullParameter(getOrElseNullable, "$this$getOrElseNullable");
         Intrinsics.checkNotNullParameter(defaultValue, "defaultValue");
-        V v = getOrElseNullable.get(k2);
-        return (v != null || getOrElseNullable.containsKey(k2)) ? v : defaultValue.invoke();
+        V v = getOrElseNullable.get(k);
+        return (v != null || getOrElseNullable.containsKey(k)) ? v : defaultValue.invoke();
     }
 
-    public static final <K, V> V getOrPut(Map<K, V> getOrPut, K k2, Function0<? extends V> defaultValue) {
+    public static final <K, V> V getOrPut(Map<K, V> getOrPut, K k, Function0<? extends V> defaultValue) {
         Intrinsics.checkNotNullParameter(getOrPut, "$this$getOrPut");
         Intrinsics.checkNotNullParameter(defaultValue, "defaultValue");
-        V v = getOrPut.get(k2);
+        V v = getOrPut.get(k);
         if (v == null) {
             V invoke = defaultValue.invoke();
-            getOrPut.put(k2, invoke);
+            getOrPut.put(k, invoke);
             return invoke;
         }
         return v;
     }
 
     @SinceKotlin(version = "1.1")
-    public static final <K, V> V getValue(Map<K, ? extends V> getValue, K k2) {
+    public static final <K, V> V getValue(Map<K, ? extends V> getValue, K k) {
         Intrinsics.checkNotNullParameter(getValue, "$this$getValue");
-        return (V) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(getValue, k2);
+        return (V) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(getValue, k);
     }
 
     @SinceKotlin(version = "1.1")
@@ -275,18 +275,18 @@ public class MapsKt__MapsKt extends MapsKt__MapsJVMKt {
     }
 
     @SinceKotlin(version = "1.1")
-    public static final <K, V> Map<K, V> minus(Map<? extends K, ? extends V> minus, K k2) {
+    public static final <K, V> Map<K, V> minus(Map<? extends K, ? extends V> minus, K k) {
         Intrinsics.checkNotNullParameter(minus, "$this$minus");
         Map mutableMap = toMutableMap(minus);
-        mutableMap.remove(k2);
+        mutableMap.remove(k);
         return optimizeReadOnlyMap(mutableMap);
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final <K, V> void minusAssign(Map<K, V> minusAssign, K k2) {
+    public static final <K, V> void minusAssign(Map<K, V> minusAssign, K k) {
         Intrinsics.checkNotNullParameter(minusAssign, "$this$minusAssign");
-        minusAssign.remove(k2);
+        minusAssign.remove(k);
     }
 
     @InlineOnly
@@ -350,17 +350,17 @@ public class MapsKt__MapsKt extends MapsKt__MapsJVMKt {
     }
 
     @InlineOnly
-    public static final <K, V> V remove(Map<? extends K, V> map, K k2) {
+    public static final <K, V> V remove(Map<? extends K, V> map, K k) {
         if (map != null) {
-            return (V) TypeIntrinsics.asMutableMap(map).remove(k2);
+            return (V) TypeIntrinsics.asMutableMap(map).remove(k);
         }
         throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>");
     }
 
     @InlineOnly
-    public static final <K, V> void set(Map<K, V> set, K k2, V v) {
+    public static final <K, V> void set(Map<K, V> set, K k, V v) {
         Intrinsics.checkNotNullParameter(set, "$this$set");
-        set.put(k2, v);
+        set.put(k, v);
     }
 
     public static final <K, V> Map<K, V> toMap(Iterable<? extends Pair<? extends K, ? extends V>> toMap) {

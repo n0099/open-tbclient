@@ -24,7 +24,7 @@ public class TbListTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42755e;
+    public boolean f41246e;
 
     /* loaded from: classes11.dex */
     public static class a {
@@ -33,10 +33,10 @@ public class TbListTextView extends TextView {
         public final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Object> f42756b;
+        public final List<Object> f41247b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Object> f42757c;
+        public final List<Object> f41248c;
 
         public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class TbListTextView extends TextView {
                 }
             }
             this.a = z;
-            this.f42756b = list;
-            this.f42757c = list2;
+            this.f41247b = list;
+            this.f41248c = list2;
         }
 
         public static a a(List<Object> list, List<Object> list2) {
@@ -89,7 +89,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f42755e = true;
+        this.f41246e = true;
     }
 
     public final a a(SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
@@ -163,7 +163,7 @@ public class TbListTextView extends TextView {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), spannableStringBuilder, aVar}) == null) {
-            for (Object obj : aVar.f42757c) {
+            for (Object obj : aVar.f41248c) {
                 int spanEnd = spannableStringBuilder.getSpanEnd(obj);
                 spannableStringBuilder.delete(spanEnd, spanEnd + 1);
                 try {
@@ -174,7 +174,7 @@ public class TbListTextView extends TextView {
             }
             loop1: while (true) {
                 z = true;
-                for (Object obj2 : aVar.f42756b) {
+                for (Object obj2 : aVar.f41247b) {
                     int spanStart = spannableStringBuilder.getSpanStart(obj2);
                     int i4 = spanStart - 1;
                     spannableStringBuilder.delete(i4, spanStart);
@@ -219,7 +219,7 @@ public class TbListTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (!this.f42755e) {
+            if (!this.f41246e) {
                 return super.onTouchEvent(motionEvent);
             }
             setLongClickable(false);
@@ -232,7 +232,7 @@ public class TbListTextView extends TextView {
     public void setCheckSelection(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f42755e = z;
+            this.f41246e = z;
         }
     }
 
@@ -255,7 +255,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f42755e = true;
+        this.f41246e = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -277,6 +277,6 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f42755e = true;
+        this.f41246e = true;
     }
 }

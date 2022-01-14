@@ -24,8 +24,8 @@ import c.a.d.f.p.l;
 import c.a.d.f.p.m;
 import c.a.s0.b.d;
 import c.a.s0.b.g.b;
-import c.a.s0.e1.u0;
-import c.a.s0.s.q.d2;
+import c.a.s0.e1.t0;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.s.a;
 import c.a.t0.j3.i0.b.g;
 import c.a.t0.j3.l0.c;
@@ -101,30 +101,28 @@ public class DistributeVideoView extends RelativeLayout implements n {
     public Runnable d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f49539e;
+    public TbPageContext<?> f47678e;
     public Runnable e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f49540f;
+    public Context f47679f;
     public Runnable f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49541g;
+    public View f47680g;
     public CustomMessageListener g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49542h;
+    public View f47681h;
     public CustomMessageListener h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public VideoInfo f49543i;
+    public VideoInfo f47682i;
     public CustomMessageListener i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f49544j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public f f49545k;
+    public g f47683j;
+    public f k;
     public Runnable k0;
     public c.a.t0.j3.m0.g l;
     public ViewGroup m;
@@ -177,7 +175,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49546e;
+            public final /* synthetic */ DistributeVideoView f47684e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -194,30 +192,30 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49546e = this;
+                this.f47684e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    if (view == this.f49546e.x) {
-                        this.f49546e.x.setVisibility(8);
-                        this.f49546e.performPlay();
-                    } else if (view != this.f49546e.w && view != this.f49546e.v) {
-                        if (view == this.f49546e.r || view == this.f49546e.A) {
-                            this.f49546e.d0();
-                        } else if (this.f49546e.K == null) {
-                            this.f49546e.d0();
+                    if (view == this.f47684e.x) {
+                        this.f47684e.x.setVisibility(8);
+                        this.f47684e.performPlay();
+                    } else if (view != this.f47684e.w && view != this.f47684e.v) {
+                        if (view == this.f47684e.r || view == this.f47684e.A) {
+                            this.f47684e.d0();
+                        } else if (this.f47684e.K == null) {
+                            this.f47684e.d0();
                         } else {
-                            int jump2DownloadDetailPage = this.f49546e.jump2DownloadDetailPage();
-                            this.f49546e.T();
+                            int jump2DownloadDetailPage = this.f47684e.jump2DownloadDetailPage();
+                            this.f47684e.T();
                             if (z.q(jump2DownloadDetailPage)) {
-                                this.f49546e.V(jump2DownloadDetailPage);
+                                this.f47684e.V(jump2DownloadDetailPage);
                             }
                         }
                     } else {
-                        DistributeVideoView distributeVideoView = this.f49546e;
+                        DistributeVideoView distributeVideoView = this.f47684e;
                         distributeVideoView.m0(!distributeVideoView.H);
                     }
                 }
@@ -283,7 +281,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49550e;
+            public final /* synthetic */ DistributeVideoView f47688e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -300,7 +298,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49550e = this;
+                this.f47688e = this;
             }
 
             @Override // c.a.t0.z2.v.a
@@ -381,19 +379,19 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public void onCompletion() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                    this.f49550e.I = System.currentTimeMillis();
-                    DistributeVideoView distributeVideoView = this.f49550e;
+                    this.f47688e.I = System.currentTimeMillis();
+                    DistributeVideoView distributeVideoView = this.f47688e;
                     distributeVideoView.S = true;
-                    if (distributeVideoView.q != null && this.f49550e.q.getControl() != null) {
-                        DistributeVideoView distributeVideoView2 = this.f49550e;
-                        distributeVideoView2.j0(34, distributeVideoView2.Y(distributeVideoView2.T), this.f49550e.q.getControl().getDuration());
+                    if (distributeVideoView.q != null && this.f47688e.q.getControl() != null) {
+                        DistributeVideoView distributeVideoView2 = this.f47688e;
+                        distributeVideoView2.j0(34, distributeVideoView2.Y(distributeVideoView2.T), this.f47688e.q.getControl().getDuration());
                     }
-                    this.f49550e.l0();
-                    if (this.f49550e.l != null) {
-                        this.f49550e.l.e();
-                        this.f49550e.t.setVisibility(8);
-                        this.f49550e.u.setVisibility(8);
-                        this.f49550e.setLoadingAnimShow(false);
+                    this.f47688e.l0();
+                    if (this.f47688e.l != null) {
+                        this.f47688e.l.e();
+                        this.f47688e.t.setVisibility(8);
+                        this.f47688e.u.setVisibility(8);
+                        this.f47688e.setLoadingAnimShow(false);
                     }
                 }
             }
@@ -403,14 +401,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 InterceptResult invokeIIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048585, this, i4, i5, obj)) == null) {
-                    this.f49550e.l0();
-                    if (this.f49550e.q != null && this.f49550e.q.getControl() != null) {
-                        DistributeVideoView distributeVideoView = this.f49550e;
-                        distributeVideoView.j0(36, distributeVideoView.Y(distributeVideoView.T), this.f49550e.q.getControl().getCurrentPosition());
+                    this.f47688e.l0();
+                    if (this.f47688e.q != null && this.f47688e.q.getControl() != null) {
+                        DistributeVideoView distributeVideoView = this.f47688e;
+                        distributeVideoView.j0(36, distributeVideoView.Y(distributeVideoView.T), this.f47688e.q.getControl().getCurrentPosition());
                     }
-                    this.f49550e.s.setForegroundDrawable(0);
-                    this.f49550e.setLoadingAnimShow(false);
-                    this.f49550e.x.setVisibility(0);
+                    this.f47688e.s.setForegroundDrawable(0);
+                    this.f47688e.setLoadingAnimShow(false);
+                    this.f47688e.x.setVisibility(0);
                     return true;
                 }
                 return invokeIIL.booleanValue;
@@ -421,10 +419,10 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 InterceptResult invokeIIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048586, this, i4, i5, obj)) == null) {
-                    if (i4 == 3 && this.f49550e.n != null) {
-                        DistributeVideoView distributeVideoView = this.f49550e;
+                    if (i4 == 3 && this.f47688e.n != null) {
+                        DistributeVideoView distributeVideoView = this.f47688e;
                         int i6 = (distributeVideoView.S && "DETAIL".equals(distributeVideoView.n.p4)) ? 35 : 31;
-                        DistributeVideoView distributeVideoView2 = this.f49550e;
+                        DistributeVideoView distributeVideoView2 = this.f47688e;
                         distributeVideoView2.j0(i6, distributeVideoView2.Y(distributeVideoView2.T), 0);
                     }
                     return false;
@@ -435,18 +433,18 @@ public class DistributeVideoView extends RelativeLayout implements n {
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048587, this) == null) || this.f49550e.q == null || this.f49550e.q.getControl() == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048587, this) == null) || this.f47688e.q == null || this.f47688e.q.getControl() == null) {
                     return;
                 }
-                DistributeVideoView distributeVideoView = this.f49550e;
+                DistributeVideoView distributeVideoView = this.f47688e;
                 distributeVideoView.Q = distributeVideoView.q.getControl().getCurrentPosition();
-                DistributeVideoView distributeVideoView2 = this.f49550e;
+                DistributeVideoView distributeVideoView2 = this.f47688e;
                 distributeVideoView2.R = distributeVideoView2.q.getControl().getDuration();
-                this.f49550e.q.getControl().setVolume(0.0f, 0.0f);
-                this.f49550e.a0.removeMessages(1001);
-                this.f49550e.a0.sendEmptyMessage(1001);
-                if (this.f49550e.H && this.f49550e.J == 1) {
-                    this.f49550e.m0(false);
+                this.f47688e.q.getControl().setVolume(0.0f, 0.0f);
+                this.f47688e.a0.removeMessages(1001);
+                this.f47688e.a0.sendEmptyMessage(1001);
+                if (this.f47688e.H && this.f47688e.J == 1) {
+                    this.f47688e.m0(false);
                 }
             }
 
@@ -498,9 +496,9 @@ public class DistributeVideoView extends RelativeLayout implements n {
             }
 
             @Override // c.a.t0.z2.v.a
-            public void setData(d2 d2Var) {
+            public void setData(e2 e2Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048594, this, d2Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048594, this, e2Var) == null) {
                 }
             }
 
@@ -558,7 +556,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49551e;
+            public final /* synthetic */ DistributeVideoView f47689e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -575,14 +573,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49551e = this;
+                this.f47689e = this;
             }
 
             @Override // com.baidu.tieba.play.TbVideoViewContainer.a
             public void onSurfaceDestroyed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49551e.stopPlay();
+                    this.f47689e.stopPlay();
                 }
             }
         };
@@ -591,7 +589,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49552e;
+            public final /* synthetic */ DistributeVideoView f47690e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -608,16 +606,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49552e = this;
+                this.f47690e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f49552e.f49543i == null || this.f49552e.q == null || this.f49552e.q.getControl() == null || !this.f49552e.canPlay()) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f47690e.f47682i == null || this.f47690e.q == null || this.f47690e.q.getControl() == null || !this.f47690e.canPlay()) {
                     return;
                 }
-                this.f49552e.i0(1);
+                this.f47690e.i0(1);
             }
         };
         this.e0 = new Runnable(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
@@ -625,7 +623,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49553e;
+            public final /* synthetic */ DistributeVideoView f47691e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -642,14 +640,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49553e = this;
+                this.f47691e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49553e.Z();
+                    this.f47691e.Z();
                 }
             }
         };
@@ -658,7 +656,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49547e;
+            public final /* synthetic */ DistributeVideoView f47685e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -675,14 +673,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49547e = this;
+                this.f47685e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49547e.g0(false);
+                    this.f47685e.g0(false);
                 }
             }
         };
@@ -810,7 +808,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49548e;
+            public final /* synthetic */ DistributeVideoView f47686e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -827,15 +825,15 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49548e = this;
+                this.f47686e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.f49548e.F == -1 || this.f49548e.F == 0) {
-                        this.f49548e.h0();
+                    if (this.f47686e.F == -1 || this.f47686e.F == 0) {
+                        this.f47686e.h0();
                     }
                 }
             }
@@ -861,7 +859,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (d.L()) {
+            if (d.M()) {
                 return l.z();
             }
             if (this.J == 1) {
@@ -883,7 +881,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo, i2, str) == null) {
             advertAppInfo.p4 = str;
-            c l = c.a.t0.j3.l0.g.l(this.n, 303, i2, Y(this.T), this.f49543i.video_duration.intValue(), this.R, -1);
+            c l = c.a.t0.j3.l0.g.l(this.n, 303, i2, Y(this.T), this.f47682i.video_duration.intValue(), this.R, -1);
             c.a.t0.j3.m0.g gVar = this.l;
             if (gVar != null) {
                 gVar.l(l);
@@ -895,7 +893,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         AdvertAppInfo advertAppInfo;
         VideoInfo videoInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (advertAppInfo = this.n) == null || (videoInfo = this.f49543i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (advertAppInfo = this.n) == null || (videoInfo = this.f47682i) == null) {
             return;
         }
         advertAppInfo.p4 = this.p;
@@ -929,7 +927,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49549e;
+            public final /* synthetic */ DistributeVideoView f47687e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -946,15 +944,15 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49549e = this;
+                this.f47687e = this;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                    this.f49549e.r.setMinFrame(0);
-                    this.f49549e.r.setFrame(0);
+                    this.f47687e.r.setMinFrame(0);
+                    this.f47687e.r.setFrame(0);
                 }
             }
 
@@ -962,26 +960,26 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f49549e.r.setVisibility(8);
-                    this.f49549e.s.setVisibility(8);
-                    DistributeVideoView distributeVideoView = this.f49549e;
+                    this.f47687e.r.setVisibility(8);
+                    this.f47687e.s.setVisibility(8);
+                    DistributeVideoView distributeVideoView = this.f47687e;
                     distributeVideoView.m0(distributeVideoView.H);
-                    if (this.f49549e.J == 1) {
-                        this.f49549e.t.setVisibility(8);
-                        this.f49549e.u.setVisibility(8);
+                    if (this.f47687e.J == 1) {
+                        this.f47687e.t.setVisibility(8);
+                        this.f47687e.u.setVisibility(8);
                     } else {
-                        this.f49549e.B.setPlayer(this.f49549e.q.getControl());
-                        this.f49549e.B.initCurTimeAndDuration(0, (int) TimeUnit.SECONDS.toMillis(this.f49549e.f49543i.video_duration.intValue()));
-                        this.f49549e.B.showProgress();
-                        this.f49549e.f0(true);
-                        e.a().removeCallbacks(this.f49549e.e0);
-                        e.a().postDelayed(this.f49549e.e0, TimeUnit.SECONDS.toMillis(3L));
+                        this.f47687e.B.setPlayer(this.f47687e.q.getControl());
+                        this.f47687e.B.initCurTimeAndDuration(0, (int) TimeUnit.SECONDS.toMillis(this.f47687e.f47682i.video_duration.intValue()));
+                        this.f47687e.B.showProgress();
+                        this.f47687e.f0(true);
+                        e.a().removeCallbacks(this.f47687e.e0);
+                        e.a().postDelayed(this.f47687e.e0, TimeUnit.SECONDS.toMillis(3L));
                     }
-                    DistributeVideoView distributeVideoView2 = this.f49549e;
+                    DistributeVideoView distributeVideoView2 = this.f47687e;
                     distributeVideoView2.G = distributeVideoView2.q.getControl().getCurrentPosition();
-                    this.f49549e.g0(true);
-                    this.f49549e.a0.removeMessages(1003);
-                    this.f49549e.a0.sendEmptyMessageDelayed(1003, TimeUnit.SECONDS.toMillis(3L));
+                    this.f47687e.g0(true);
+                    this.f47687e.a0.removeMessages(1003);
+                    this.f47687e.a0.sendEmptyMessageDelayed(1003, TimeUnit.SECONDS.toMillis(3L));
                 }
             }
 
@@ -1022,32 +1020,32 @@ public class DistributeVideoView extends RelativeLayout implements n {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) || context == null) {
             return;
         }
-        this.f49540f = context;
+        this.f47679f = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.distribute_video_view, (ViewGroup) this, true);
-        this.f49542h = inflate;
+        this.f47681h = inflate;
         TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.distribute_texture);
         this.q = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
         this.q.getControl().setNoBussinessStats();
-        this.r = (TBLottieAnimationView) this.f49542h.findViewById(R.id.video_play);
-        this.s = (ForeDrawableImageView) this.f49542h.findViewById(R.id.distribute_thumbnail);
-        this.t = (TextView) this.f49542h.findViewById(R.id.distribute_count_process);
-        this.u = this.f49542h.findViewById(R.id.black_mask_top);
-        this.x = this.f49542h.findViewById(R.id.distribute_error_tip);
-        this.y = (TextView) this.f49542h.findViewById(R.id.distribute_error_tip_text);
-        this.v = (ImageView) this.f49542h.findViewById(R.id.distribute_voice_feed);
-        View findViewById = this.f49542h.findViewById(R.id.distribute_control);
+        this.r = (TBLottieAnimationView) this.f47681h.findViewById(R.id.video_play);
+        this.s = (ForeDrawableImageView) this.f47681h.findViewById(R.id.distribute_thumbnail);
+        this.t = (TextView) this.f47681h.findViewById(R.id.distribute_count_process);
+        this.u = this.f47681h.findViewById(R.id.black_mask_top);
+        this.x = this.f47681h.findViewById(R.id.distribute_error_tip);
+        this.y = (TextView) this.f47681h.findViewById(R.id.distribute_error_tip_text);
+        this.v = (ImageView) this.f47681h.findViewById(R.id.distribute_voice_feed);
+        View findViewById = this.f47681h.findViewById(R.id.distribute_control);
         this.z = findViewById;
         this.A = (ImageView) findViewById.findViewById(R.id.distribute_play_icon);
         this.w = (ImageView) this.z.findViewById(R.id.distribute_voice);
         this.B = (VideoControllerView) this.z.findViewById(R.id.distribute_process);
-        FrameLayout frameLayout = (FrameLayout) this.f49542h.findViewById(R.id.tail_frame_container);
+        FrameLayout frameLayout = (FrameLayout) this.f47681h.findViewById(R.id.tail_frame_container);
         this.m = frameLayout;
-        this.f49545k = new f(context, frameLayout);
-        TbImageView tbImageView = (TbImageView) this.f49542h.findViewById(R.id.bottom_picture);
+        this.k = new f(context, frameLayout);
+        TbImageView tbImageView = (TbImageView) this.f47681h.findViewById(R.id.bottom_picture);
         this.C = tbImageView;
         tbImageView.setVisibility(8);
-        this.D = (RelativeLayout) this.f49542h.findViewById(R.id.video_container);
+        this.D = (RelativeLayout) this.f47681h.findViewById(R.id.video_container);
         this.r.setAnimation(R.raw.lotti_video_loading);
         this.r.setMinFrame(0);
         this.r.setFrame(0);
@@ -1078,7 +1076,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
     public final void b0() {
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (tbPageContext = this.f49539e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (tbPageContext = this.f47678e) == null) {
             return;
         }
         Animation loadAnimation = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_1000);
@@ -1139,16 +1137,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
             if (!TextUtils.isEmpty(this.L)) {
                 str = this.L;
             }
-            if (TextUtils.isEmpty(str) || this.f49540f == null) {
+            if (TextUtils.isEmpty(str) || this.f47679f == null) {
                 return 0;
             }
             if (z.C(this.n, str)) {
                 return 3;
             }
             if (isPlaying() && c.a.t0.a.h().z()) {
-                return z.d(this.f49540f, str, this.n.getDownloadId(), this.n.m4, this.K.cmdScheme);
+                return z.d(this.f47679f, str, this.n.getDownloadId(), this.n.m4, this.K.cmdScheme);
             }
-            return z.g(this.f49540f, str, this.n, this.K.playCmdScheme);
+            return z.g(this.f47679f, str, this.n, this.K.playCmdScheme);
         }
         return invokeV.intValue;
     }
@@ -1160,7 +1158,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             int[] iArr = new int[2];
             getLocationInWindow(iArr);
-            return !(iArr[0] == 0 && iArr[1] == 0) && (iArr[1] + getHeight()) + (-120) > 0 && iArr[1] <= c.a.d.f.p.n.i(this.f49540f);
+            return !(iArr[0] == 0 && iArr[1] == 0) && (iArr[1] + getHeight()) + (-120) > 0 && iArr[1] <= c.a.d.f.p.n.i(this.f47679f);
         }
         return invokeV.booleanValue;
     }
@@ -1173,7 +1171,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             this.q.getControl().getCurrentPosition();
             this.q.getControl().start();
             if (this.H) {
-                u0.f(this.E, true);
+                t0.f(this.E, true);
             }
             setLoadingAnimShow(false);
             SkinManager.setImageResource(this.A, R.drawable.icon_video_midplay);
@@ -1188,9 +1186,9 @@ public class DistributeVideoView extends RelativeLayout implements n {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int i2 = this.F;
             if (i2 == -1) {
-                if (!l.z() && (tbPageContext2 = this.f49539e) != null) {
+                if (!l.z() && (tbPageContext2 = this.f47678e) != null) {
                     tbPageContext2.showToast(R.string.neterror);
-                } else if (!l.H() && (tbPageContext = this.f49539e) != null) {
+                } else if (!l.H() && (tbPageContext = this.f47678e) != null) {
                     c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(tbPageContext.getPageActivity());
                     aVar.setMessageId(R.string.play_video_mobile_tip);
                     aVar.setPositiveButton(R.string.alert_yes_button, new a.e(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
@@ -1198,7 +1196,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ DistributeVideoView f49554e;
+                        public final /* synthetic */ DistributeVideoView f47692e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1215,7 +1213,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                                     return;
                                 }
                             }
-                            this.f49554e = this;
+                            this.f47692e = this;
                         }
 
                         @Override // c.a.s0.s.s.a.e
@@ -1223,7 +1221,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                                 aVar2.dismiss();
-                                this.f49554e.performPlay();
+                                this.f47692e.performPlay();
                             }
                         }
                     });
@@ -1232,7 +1230,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ DistributeVideoView f49555e;
+                        public final /* synthetic */ DistributeVideoView f47693e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1249,7 +1247,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                                     return;
                                 }
                             }
-                            this.f49555e = this;
+                            this.f47693e = this;
                         }
 
                         @Override // c.a.s0.s.s.a.e
@@ -1260,7 +1258,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                             }
                         }
                     });
-                    aVar.create(this.f49539e).show();
+                    aVar.create(this.f47678e).show();
                 } else {
                     performPlay();
                 }
@@ -1340,7 +1338,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
     public VideoInfo getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f49543i : (VideoInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f47682i : (VideoInfo) invokeV.objValue;
     }
 
     @Override // c.a.t0.j3.n
@@ -1355,7 +1353,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            VideoInfo videoInfo = this.f49543i;
+            VideoInfo videoInfo = this.f47682i;
             return videoInfo != null ? videoInfo.video_url : "";
         }
         return (String) invokeV.objValue;
@@ -1385,7 +1383,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
             this.T = i2;
-            if (this.f49543i != null && this.F == -1) {
+            if (this.f47682i != null && this.F == -1) {
                 if (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - this.I) < TimeUnit.SECONDS.toSeconds(3L)) {
                     return;
                 }
@@ -1394,11 +1392,11 @@ public class DistributeVideoView extends RelativeLayout implements n {
                     gVar.f();
                 }
                 r rVar = new r();
-                rVar.f26866e = "ad_feed";
-                rVar.f26865d = rVar.a("ad_feed");
-                rVar.f26867f = rVar.c("1");
+                rVar.f26069e = "ad_feed";
+                rVar.f26068d = rVar.a("ad_feed");
+                rVar.f26070f = rVar.c("1");
                 this.q.getControl().setVideoModel(rVar);
-                this.q.getControl().setVideoPath(this.f49543i.video_url);
+                this.q.getControl().setVideoPath(this.f47682i.video_url);
                 this.q.getControl().setVideoScalingMode(this.V);
                 this.q.getControl().start();
                 this.q.getControl().getCurrentPosition();
@@ -1413,11 +1411,11 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 } else {
                     this.t.setVisibility(8);
                 }
-                TbPageContext<?> tbPageContext = this.f49539e;
+                TbPageContext<?> tbPageContext = this.f47678e;
                 if (tbPageContext != null) {
                     tbPageContext.registerListener(this.i0);
-                    this.f49539e.registerListener(this.g0);
-                    this.f49539e.registerListener(this.h0);
+                    this.f47678e.registerListener(this.g0);
+                    this.f47678e.registerListener(this.h0);
                 }
                 j0(31, Y(this.T), 0);
             }
@@ -1427,21 +1425,21 @@ public class DistributeVideoView extends RelativeLayout implements n {
     public void initVideoViewLayout(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f49542h.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47681h.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.q.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.s.getLayoutParams();
             if (z) {
-                int k2 = c.a.d.f.p.n.k(getContext());
-                int c2 = c.a.t0.j3.i0.c.a.c(k2);
+                int k = c.a.d.f.p.n.k(getContext());
+                int c2 = c.a.t0.j3.i0.c.a.c(k);
                 layoutParams.width = c.a.d.f.p.n.k(getContext());
-                layoutParams.height = k2;
+                layoutParams.height = k;
                 layoutParams2.width = c2;
-                layoutParams2.height = k2;
+                layoutParams2.height = k;
                 layoutParams3.width = c2;
-                layoutParams3.height = k2;
+                layoutParams3.height = k;
                 layoutParams4.width = c2;
-                layoutParams4.height = k2;
+                layoutParams4.height = k;
                 SkinManager.setBackgroundColor(this, R.color.black_alpha100);
             } else {
                 layoutParams2.width = -1;
@@ -1486,7 +1484,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         AdvertAppInfo advertAppInfo;
         VideoInfo videoInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048607, this, i2, i3, i4, i5) == null) || (advertAppInfo = this.n) == null || (videoInfo = this.f49543i) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048607, this, i2, i3, i4, i5) == null) || (advertAppInfo = this.n) == null || (videoInfo = this.f47682i) == null) {
             return;
         }
         advertAppInfo.p4 = this.p;
@@ -1503,7 +1501,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             this.a0.removeMessages(1003);
             this.q.getControl().stopPlayback();
             this.F = -1;
-            u0.f(this.E, false);
+            t0.f(this.E, false);
             g0(false);
             this.s.setForegroundDrawable(0);
             this.s.setVisibility(0);
@@ -1511,7 +1509,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             SkinManager.setImageResource(this.A, R.drawable.icon_video_midpause);
             this.B.resetProgress();
             this.x.setVisibility(8);
-            VideoInfo videoInfo = this.f49543i;
+            VideoInfo videoInfo = this.f47682i;
             if (videoInfo != null) {
                 this.t.setText(StringUtils.translateSecondsToString(videoInfo.video_duration.intValue()));
                 this.t.setVisibility(0);
@@ -1535,7 +1533,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 SkinManager.setImageResource(this.w, R.drawable.ad_icon_sound_open);
                 SkinManager.setImageResource(this.v, R.drawable.icon_vedio_pronunciation_small_white);
                 if (this.F == 1) {
-                    u0.f(this.E, true);
+                    t0.f(this.E, true);
                 }
             } else {
                 TbVideoViewContainer tbVideoViewContainer2 = this.q;
@@ -1544,7 +1542,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 }
                 SkinManager.setImageResource(this.w, R.drawable.ad_icon_sound_close);
                 SkinManager.setImageResource(this.v, R.drawable.icon_vedio_npronunciation_small_white);
-                u0.f(this.E, false);
+                t0.f(this.E, false);
             }
             this.H = z;
         }
@@ -1581,7 +1579,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
         if ((interceptable == null || interceptable.invokeI(1048612, this, i2) == null) && this.F == 1) {
             k0(32, Y(this.T), this.q.getControl().getCurrentPosition(), i2);
             this.q.getControl().pause();
-            u0.f(this.E, false);
+            t0.f(this.E, false);
             setLoadingAnimShow(true);
             SkinManager.setImageResource(this.A, R.drawable.icon_video_midpause);
             this.F = 2;
@@ -1606,16 +1604,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048615, this, videoInfo, i2, i3, i4)) == null) {
-            if (videoInfo == null || this.f49542h == null) {
+            if (videoInfo == null || this.f47681h == null) {
                 return false;
             }
             int intValue = videoInfo.video_height.intValue();
             int intValue2 = videoInfo.video_width.intValue();
             if (i2 > 0 && intValue > 0 && intValue2 > 0) {
-                setViewSize(this.f49542h, (intValue * i2) / intValue2, i2);
+                setViewSize(this.f47681h, (intValue * i2) / intValue2, i2);
                 return true;
             }
-            setViewSize(this.f49542h, i3, i4);
+            setViewSize(this.f47681h, i3, i4);
             return true;
         }
         return invokeLIII.booleanValue;
@@ -1637,7 +1635,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             }
             this.J = i2;
             if (tbPageContext != null) {
-                this.f49539e = tbPageContext;
+                this.f47678e = tbPageContext;
                 b0();
             }
             setData(videoInfo);
@@ -1658,13 +1656,13 @@ public class DistributeVideoView extends RelativeLayout implements n {
         if (!(interceptable == null || interceptable.invokeL(1048621, this, view) == null) || view == null) {
             return;
         }
-        this.f49541g = view;
+        this.f47680g = view;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, tbPageContext) == null) {
-            this.f49539e = tbPageContext;
+            this.f47678e = tbPageContext;
         }
     }
 
@@ -1703,7 +1701,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
     public void setVideoTailFrameData(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, gVar) == null) {
-            this.f49544j = gVar;
+            this.f47683j = gVar;
         }
     }
 
@@ -1744,17 +1742,17 @@ public class DistributeVideoView extends RelativeLayout implements n {
             if (advertAppInfo == null) {
                 advertAppInfo = this.n;
             }
-            c.a.t0.j3.m0.g b2 = this.f49545k.b(this.f49544j, this.l);
+            c.a.t0.j3.m0.g b2 = this.k.b(this.f47683j, this.l);
             this.l = b2;
             if (b2 != null) {
-                b2.j(this.f49539e);
+                b2.j(this.f47678e);
                 this.l.i(this.K);
                 c.a.t0.j3.m0.g gVar = this.l;
                 if (gVar instanceof c.a.t0.j3.m0.a) {
                     ((c.a.t0.j3.m0.a) gVar).z(this.U);
                 }
                 this.l.g(advertAppInfo);
-                this.l.d(this.f49544j);
+                this.l.d(this.f47683j);
                 this.l.f();
             }
         }
@@ -1777,21 +1775,21 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 setVisibility(8);
                 return;
             }
-            this.f49543i = videoInfo;
+            this.f47682i = videoInfo;
             this.R = videoInfo.video_duration.intValue() * 1000;
-            this.E = new WeakReference<>(this.f49540f.getApplicationContext());
+            this.E = new WeakReference<>(this.f47679f.getApplicationContext());
             l0();
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            int k2 = c.a.d.f.p.n.k(this.f49540f) - c.a.d.f.p.n.f(this.f49540f, R.dimen.ds146);
+            int k = c.a.d.f.p.n.k(this.f47679f) - c.a.d.f.p.n.f(this.f47679f, R.dimen.ds146);
             if (this.J == 2) {
-                k2 = c.a.d.f.p.n.k(this.f49540f);
+                k = c.a.d.f.p.n.k(this.f47679f);
             }
-            int intValue = this.f49543i.video_width.intValue() > 0 ? (this.f49543i.video_height.intValue() * k2) / this.f49543i.video_width.intValue() : k2;
-            ViewGroup.LayoutParams layoutParams = this.f49542h.getLayoutParams();
+            int intValue = this.f47682i.video_width.intValue() > 0 ? (this.f47682i.video_height.intValue() * k) / this.f47682i.video_width.intValue() : k;
+            ViewGroup.LayoutParams layoutParams = this.f47681h.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = k2;
+                layoutParams.width = k;
                 layoutParams.height = intValue;
-                this.f49542h.setLayoutParams(layoutParams);
+                this.f47681h.setLayoutParams(layoutParams);
             }
             setOnClickListener(this.W);
             this.s.setDefaultResource(0);
@@ -1802,16 +1800,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
             this.q.getControl().setOperableVideoContainer(this.b0);
             if (c.a.t0.a.h().A()) {
                 r rVar = new r();
-                rVar.f26866e = "ad_feed";
-                rVar.f26865d = rVar.a("ad_feed");
-                rVar.f26867f = rVar.c("1");
+                rVar.f26069e = "ad_feed";
+                rVar.f26068d = rVar.a("ad_feed");
+                rVar.f26070f = rVar.c("1");
                 this.q.getControl().setVideoModel(rVar);
                 this.q.getControl().setVideoPath(videoInfo.video_url);
                 CyberPlayerManager.prefetch(videoInfo.video_url, null, null, PreLoadVideoSwitchManager.getInstance().getSize(), null);
             }
             this.q.getControl().setOnSurfaceDestroyedListener(this.c0);
             SkinManager.setViewTextColor(this.t, R.color.cp_cont_m);
-            this.t.setText(StringUtils.translateSecondsToString(this.f49543i.video_duration.intValue()));
+            this.t.setText(StringUtils.translateSecondsToString(this.f47682i.video_duration.intValue()));
             if (this.J == 1) {
                 this.H = false;
                 SkinManager.setImageResource(this.v, R.drawable.icon_vedio_npronunciation_small_white);
@@ -1875,7 +1873,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49546e;
+            public final /* synthetic */ DistributeVideoView f47684e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1892,30 +1890,30 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49546e = this;
+                this.f47684e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    if (view == this.f49546e.x) {
-                        this.f49546e.x.setVisibility(8);
-                        this.f49546e.performPlay();
-                    } else if (view != this.f49546e.w && view != this.f49546e.v) {
-                        if (view == this.f49546e.r || view == this.f49546e.A) {
-                            this.f49546e.d0();
-                        } else if (this.f49546e.K == null) {
-                            this.f49546e.d0();
+                    if (view == this.f47684e.x) {
+                        this.f47684e.x.setVisibility(8);
+                        this.f47684e.performPlay();
+                    } else if (view != this.f47684e.w && view != this.f47684e.v) {
+                        if (view == this.f47684e.r || view == this.f47684e.A) {
+                            this.f47684e.d0();
+                        } else if (this.f47684e.K == null) {
+                            this.f47684e.d0();
                         } else {
-                            int jump2DownloadDetailPage = this.f49546e.jump2DownloadDetailPage();
-                            this.f49546e.T();
+                            int jump2DownloadDetailPage = this.f47684e.jump2DownloadDetailPage();
+                            this.f47684e.T();
                             if (z.q(jump2DownloadDetailPage)) {
-                                this.f49546e.V(jump2DownloadDetailPage);
+                                this.f47684e.V(jump2DownloadDetailPage);
                             }
                         }
                     } else {
-                        DistributeVideoView distributeVideoView = this.f49546e;
+                        DistributeVideoView distributeVideoView = this.f47684e;
                         distributeVideoView.m0(!distributeVideoView.H);
                     }
                 }
@@ -1981,7 +1979,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49550e;
+            public final /* synthetic */ DistributeVideoView f47688e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1998,7 +1996,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49550e = this;
+                this.f47688e = this;
             }
 
             @Override // c.a.t0.z2.v.a
@@ -2079,19 +2077,19 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public void onCompletion() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                    this.f49550e.I = System.currentTimeMillis();
-                    DistributeVideoView distributeVideoView = this.f49550e;
+                    this.f47688e.I = System.currentTimeMillis();
+                    DistributeVideoView distributeVideoView = this.f47688e;
                     distributeVideoView.S = true;
-                    if (distributeVideoView.q != null && this.f49550e.q.getControl() != null) {
-                        DistributeVideoView distributeVideoView2 = this.f49550e;
-                        distributeVideoView2.j0(34, distributeVideoView2.Y(distributeVideoView2.T), this.f49550e.q.getControl().getDuration());
+                    if (distributeVideoView.q != null && this.f47688e.q.getControl() != null) {
+                        DistributeVideoView distributeVideoView2 = this.f47688e;
+                        distributeVideoView2.j0(34, distributeVideoView2.Y(distributeVideoView2.T), this.f47688e.q.getControl().getDuration());
                     }
-                    this.f49550e.l0();
-                    if (this.f49550e.l != null) {
-                        this.f49550e.l.e();
-                        this.f49550e.t.setVisibility(8);
-                        this.f49550e.u.setVisibility(8);
-                        this.f49550e.setLoadingAnimShow(false);
+                    this.f47688e.l0();
+                    if (this.f47688e.l != null) {
+                        this.f47688e.l.e();
+                        this.f47688e.t.setVisibility(8);
+                        this.f47688e.u.setVisibility(8);
+                        this.f47688e.setLoadingAnimShow(false);
                     }
                 }
             }
@@ -2101,14 +2099,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 InterceptResult invokeIIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048585, this, i4, i5, obj)) == null) {
-                    this.f49550e.l0();
-                    if (this.f49550e.q != null && this.f49550e.q.getControl() != null) {
-                        DistributeVideoView distributeVideoView = this.f49550e;
-                        distributeVideoView.j0(36, distributeVideoView.Y(distributeVideoView.T), this.f49550e.q.getControl().getCurrentPosition());
+                    this.f47688e.l0();
+                    if (this.f47688e.q != null && this.f47688e.q.getControl() != null) {
+                        DistributeVideoView distributeVideoView = this.f47688e;
+                        distributeVideoView.j0(36, distributeVideoView.Y(distributeVideoView.T), this.f47688e.q.getControl().getCurrentPosition());
                     }
-                    this.f49550e.s.setForegroundDrawable(0);
-                    this.f49550e.setLoadingAnimShow(false);
-                    this.f49550e.x.setVisibility(0);
+                    this.f47688e.s.setForegroundDrawable(0);
+                    this.f47688e.setLoadingAnimShow(false);
+                    this.f47688e.x.setVisibility(0);
                     return true;
                 }
                 return invokeIIL.booleanValue;
@@ -2119,10 +2117,10 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 InterceptResult invokeIIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048586, this, i4, i5, obj)) == null) {
-                    if (i4 == 3 && this.f49550e.n != null) {
-                        DistributeVideoView distributeVideoView = this.f49550e;
+                    if (i4 == 3 && this.f47688e.n != null) {
+                        DistributeVideoView distributeVideoView = this.f47688e;
                         int i6 = (distributeVideoView.S && "DETAIL".equals(distributeVideoView.n.p4)) ? 35 : 31;
-                        DistributeVideoView distributeVideoView2 = this.f49550e;
+                        DistributeVideoView distributeVideoView2 = this.f47688e;
                         distributeVideoView2.j0(i6, distributeVideoView2.Y(distributeVideoView2.T), 0);
                     }
                     return false;
@@ -2133,18 +2131,18 @@ public class DistributeVideoView extends RelativeLayout implements n {
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048587, this) == null) || this.f49550e.q == null || this.f49550e.q.getControl() == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048587, this) == null) || this.f47688e.q == null || this.f47688e.q.getControl() == null) {
                     return;
                 }
-                DistributeVideoView distributeVideoView = this.f49550e;
+                DistributeVideoView distributeVideoView = this.f47688e;
                 distributeVideoView.Q = distributeVideoView.q.getControl().getCurrentPosition();
-                DistributeVideoView distributeVideoView2 = this.f49550e;
+                DistributeVideoView distributeVideoView2 = this.f47688e;
                 distributeVideoView2.R = distributeVideoView2.q.getControl().getDuration();
-                this.f49550e.q.getControl().setVolume(0.0f, 0.0f);
-                this.f49550e.a0.removeMessages(1001);
-                this.f49550e.a0.sendEmptyMessage(1001);
-                if (this.f49550e.H && this.f49550e.J == 1) {
-                    this.f49550e.m0(false);
+                this.f47688e.q.getControl().setVolume(0.0f, 0.0f);
+                this.f47688e.a0.removeMessages(1001);
+                this.f47688e.a0.sendEmptyMessage(1001);
+                if (this.f47688e.H && this.f47688e.J == 1) {
+                    this.f47688e.m0(false);
                 }
             }
 
@@ -2196,9 +2194,9 @@ public class DistributeVideoView extends RelativeLayout implements n {
             }
 
             @Override // c.a.t0.z2.v.a
-            public void setData(d2 d2Var) {
+            public void setData(e2 e2Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048594, this, d2Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048594, this, e2Var) == null) {
                 }
             }
 
@@ -2256,7 +2254,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49551e;
+            public final /* synthetic */ DistributeVideoView f47689e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2273,14 +2271,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49551e = this;
+                this.f47689e = this;
             }
 
             @Override // com.baidu.tieba.play.TbVideoViewContainer.a
             public void onSurfaceDestroyed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49551e.stopPlay();
+                    this.f47689e.stopPlay();
                 }
             }
         };
@@ -2289,7 +2287,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49552e;
+            public final /* synthetic */ DistributeVideoView f47690e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2306,16 +2304,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49552e = this;
+                this.f47690e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f49552e.f49543i == null || this.f49552e.q == null || this.f49552e.q.getControl() == null || !this.f49552e.canPlay()) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f47690e.f47682i == null || this.f47690e.q == null || this.f47690e.q.getControl() == null || !this.f47690e.canPlay()) {
                     return;
                 }
-                this.f49552e.i0(1);
+                this.f47690e.i0(1);
             }
         };
         this.e0 = new Runnable(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
@@ -2323,7 +2321,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49553e;
+            public final /* synthetic */ DistributeVideoView f47691e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2340,14 +2338,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49553e = this;
+                this.f47691e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49553e.Z();
+                    this.f47691e.Z();
                 }
             }
         };
@@ -2356,7 +2354,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49547e;
+            public final /* synthetic */ DistributeVideoView f47685e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2373,14 +2371,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49547e = this;
+                this.f47685e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49547e.g0(false);
+                    this.f47685e.g0(false);
                 }
             }
         };
@@ -2508,7 +2506,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49548e;
+            public final /* synthetic */ DistributeVideoView f47686e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2525,15 +2523,15 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49548e = this;
+                this.f47686e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.f49548e.F == -1 || this.f49548e.F == 0) {
-                        this.f49548e.h0();
+                    if (this.f47686e.F == -1 || this.f47686e.F == 0) {
+                        this.f47686e.h0();
                     }
                 }
             }
@@ -2577,7 +2575,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49546e;
+            public final /* synthetic */ DistributeVideoView f47684e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2594,30 +2592,30 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49546e = this;
+                this.f47684e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    if (view == this.f49546e.x) {
-                        this.f49546e.x.setVisibility(8);
-                        this.f49546e.performPlay();
-                    } else if (view != this.f49546e.w && view != this.f49546e.v) {
-                        if (view == this.f49546e.r || view == this.f49546e.A) {
-                            this.f49546e.d0();
-                        } else if (this.f49546e.K == null) {
-                            this.f49546e.d0();
+                    if (view == this.f47684e.x) {
+                        this.f47684e.x.setVisibility(8);
+                        this.f47684e.performPlay();
+                    } else if (view != this.f47684e.w && view != this.f47684e.v) {
+                        if (view == this.f47684e.r || view == this.f47684e.A) {
+                            this.f47684e.d0();
+                        } else if (this.f47684e.K == null) {
+                            this.f47684e.d0();
                         } else {
-                            int jump2DownloadDetailPage = this.f49546e.jump2DownloadDetailPage();
-                            this.f49546e.T();
+                            int jump2DownloadDetailPage = this.f47684e.jump2DownloadDetailPage();
+                            this.f47684e.T();
                             if (z.q(jump2DownloadDetailPage)) {
-                                this.f49546e.V(jump2DownloadDetailPage);
+                                this.f47684e.V(jump2DownloadDetailPage);
                             }
                         }
                     } else {
-                        DistributeVideoView distributeVideoView = this.f49546e;
+                        DistributeVideoView distributeVideoView = this.f47684e;
                         distributeVideoView.m0(!distributeVideoView.H);
                     }
                 }
@@ -2683,7 +2681,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49550e;
+            public final /* synthetic */ DistributeVideoView f47688e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2700,7 +2698,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49550e = this;
+                this.f47688e = this;
             }
 
             @Override // c.a.t0.z2.v.a
@@ -2781,19 +2779,19 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public void onCompletion() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                    this.f49550e.I = System.currentTimeMillis();
-                    DistributeVideoView distributeVideoView = this.f49550e;
+                    this.f47688e.I = System.currentTimeMillis();
+                    DistributeVideoView distributeVideoView = this.f47688e;
                     distributeVideoView.S = true;
-                    if (distributeVideoView.q != null && this.f49550e.q.getControl() != null) {
-                        DistributeVideoView distributeVideoView2 = this.f49550e;
-                        distributeVideoView2.j0(34, distributeVideoView2.Y(distributeVideoView2.T), this.f49550e.q.getControl().getDuration());
+                    if (distributeVideoView.q != null && this.f47688e.q.getControl() != null) {
+                        DistributeVideoView distributeVideoView2 = this.f47688e;
+                        distributeVideoView2.j0(34, distributeVideoView2.Y(distributeVideoView2.T), this.f47688e.q.getControl().getDuration());
                     }
-                    this.f49550e.l0();
-                    if (this.f49550e.l != null) {
-                        this.f49550e.l.e();
-                        this.f49550e.t.setVisibility(8);
-                        this.f49550e.u.setVisibility(8);
-                        this.f49550e.setLoadingAnimShow(false);
+                    this.f47688e.l0();
+                    if (this.f47688e.l != null) {
+                        this.f47688e.l.e();
+                        this.f47688e.t.setVisibility(8);
+                        this.f47688e.u.setVisibility(8);
+                        this.f47688e.setLoadingAnimShow(false);
                     }
                 }
             }
@@ -2803,14 +2801,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 InterceptResult invokeIIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048585, this, i42, i5, obj)) == null) {
-                    this.f49550e.l0();
-                    if (this.f49550e.q != null && this.f49550e.q.getControl() != null) {
-                        DistributeVideoView distributeVideoView = this.f49550e;
-                        distributeVideoView.j0(36, distributeVideoView.Y(distributeVideoView.T), this.f49550e.q.getControl().getCurrentPosition());
+                    this.f47688e.l0();
+                    if (this.f47688e.q != null && this.f47688e.q.getControl() != null) {
+                        DistributeVideoView distributeVideoView = this.f47688e;
+                        distributeVideoView.j0(36, distributeVideoView.Y(distributeVideoView.T), this.f47688e.q.getControl().getCurrentPosition());
                     }
-                    this.f49550e.s.setForegroundDrawable(0);
-                    this.f49550e.setLoadingAnimShow(false);
-                    this.f49550e.x.setVisibility(0);
+                    this.f47688e.s.setForegroundDrawable(0);
+                    this.f47688e.setLoadingAnimShow(false);
+                    this.f47688e.x.setVisibility(0);
                     return true;
                 }
                 return invokeIIL.booleanValue;
@@ -2821,10 +2819,10 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 InterceptResult invokeIIL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048586, this, i42, i5, obj)) == null) {
-                    if (i42 == 3 && this.f49550e.n != null) {
-                        DistributeVideoView distributeVideoView = this.f49550e;
+                    if (i42 == 3 && this.f47688e.n != null) {
+                        DistributeVideoView distributeVideoView = this.f47688e;
                         int i6 = (distributeVideoView.S && "DETAIL".equals(distributeVideoView.n.p4)) ? 35 : 31;
-                        DistributeVideoView distributeVideoView2 = this.f49550e;
+                        DistributeVideoView distributeVideoView2 = this.f47688e;
                         distributeVideoView2.j0(i6, distributeVideoView2.Y(distributeVideoView2.T), 0);
                     }
                     return false;
@@ -2835,18 +2833,18 @@ public class DistributeVideoView extends RelativeLayout implements n {
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048587, this) == null) || this.f49550e.q == null || this.f49550e.q.getControl() == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048587, this) == null) || this.f47688e.q == null || this.f47688e.q.getControl() == null) {
                     return;
                 }
-                DistributeVideoView distributeVideoView = this.f49550e;
+                DistributeVideoView distributeVideoView = this.f47688e;
                 distributeVideoView.Q = distributeVideoView.q.getControl().getCurrentPosition();
-                DistributeVideoView distributeVideoView2 = this.f49550e;
+                DistributeVideoView distributeVideoView2 = this.f47688e;
                 distributeVideoView2.R = distributeVideoView2.q.getControl().getDuration();
-                this.f49550e.q.getControl().setVolume(0.0f, 0.0f);
-                this.f49550e.a0.removeMessages(1001);
-                this.f49550e.a0.sendEmptyMessage(1001);
-                if (this.f49550e.H && this.f49550e.J == 1) {
-                    this.f49550e.m0(false);
+                this.f47688e.q.getControl().setVolume(0.0f, 0.0f);
+                this.f47688e.a0.removeMessages(1001);
+                this.f47688e.a0.sendEmptyMessage(1001);
+                if (this.f47688e.H && this.f47688e.J == 1) {
+                    this.f47688e.m0(false);
                 }
             }
 
@@ -2898,9 +2896,9 @@ public class DistributeVideoView extends RelativeLayout implements n {
             }
 
             @Override // c.a.t0.z2.v.a
-            public void setData(d2 d2Var) {
+            public void setData(e2 e2Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048594, this, d2Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048594, this, e2Var) == null) {
                 }
             }
 
@@ -2958,7 +2956,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49551e;
+            public final /* synthetic */ DistributeVideoView f47689e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2975,14 +2973,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49551e = this;
+                this.f47689e = this;
             }
 
             @Override // com.baidu.tieba.play.TbVideoViewContainer.a
             public void onSurfaceDestroyed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49551e.stopPlay();
+                    this.f47689e.stopPlay();
                 }
             }
         };
@@ -2991,7 +2989,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49552e;
+            public final /* synthetic */ DistributeVideoView f47690e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -3008,16 +3006,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49552e = this;
+                this.f47690e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f49552e.f49543i == null || this.f49552e.q == null || this.f49552e.q.getControl() == null || !this.f49552e.canPlay()) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f47690e.f47682i == null || this.f47690e.q == null || this.f47690e.q.getControl() == null || !this.f47690e.canPlay()) {
                     return;
                 }
-                this.f49552e.i0(1);
+                this.f47690e.i0(1);
             }
         };
         this.e0 = new Runnable(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
@@ -3025,7 +3023,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49553e;
+            public final /* synthetic */ DistributeVideoView f47691e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -3042,14 +3040,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49553e = this;
+                this.f47691e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49553e.Z();
+                    this.f47691e.Z();
                 }
             }
         };
@@ -3058,7 +3056,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49547e;
+            public final /* synthetic */ DistributeVideoView f47685e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -3075,14 +3073,14 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49547e = this;
+                this.f47685e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f49547e.g0(false);
+                    this.f47685e.g0(false);
                 }
             }
         };
@@ -3210,7 +3208,7 @@ public class DistributeVideoView extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DistributeVideoView f49548e;
+            public final /* synthetic */ DistributeVideoView f47686e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -3227,15 +3225,15 @@ public class DistributeVideoView extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49548e = this;
+                this.f47686e = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.f49548e.F == -1 || this.f49548e.F == 0) {
-                        this.f49548e.h0();
+                    if (this.f47686e.F == -1 || this.f47686e.F == 0) {
+                        this.f47686e.h0();
                     }
                 }
             }
@@ -3251,11 +3249,11 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 setVisibility(8);
                 return;
             }
-            this.f49543i = videoInfo;
-            this.E = new WeakReference<>(this.f49540f.getApplicationContext());
+            this.f47682i = videoInfo;
+            this.E = new WeakReference<>(this.f47679f.getApplicationContext());
             l0();
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f49542h.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f47681h.getLayoutParams();
             layoutParams.width = i4;
             layoutParams.height = i5;
             setOnClickListener(this.W);
@@ -3266,12 +3264,12 @@ public class DistributeVideoView extends RelativeLayout implements n {
                 layoutParams2.height = i5;
                 this.C.startLoad(fVar.a, 30, false);
                 this.C.setVisibility(0);
-                double d2 = fVar.f18876b;
+                double d2 = fVar.f18406b;
                 if (d2 > 0.0d) {
                     i2 = (int) (i4 * d2);
                     i3 = c.a.t0.j3.i0.c.a.b(i2);
                 }
-                double d3 = fVar.f18877c;
+                double d3 = fVar.f18407c;
                 i6 = d3 > 0.0d ? Math.min((int) (i4 * d3), i4 - i2) : 0;
                 i7 = 11;
             } else {
@@ -3297,16 +3295,16 @@ public class DistributeVideoView extends RelativeLayout implements n {
             this.q.getControl().setOperableVideoContainer(this.b0);
             if (c.a.t0.a.h().A()) {
                 r rVar = new r();
-                rVar.f26866e = "ad_feed";
-                rVar.f26865d = rVar.a("ad_feed");
-                rVar.f26867f = rVar.c("1");
+                rVar.f26069e = "ad_feed";
+                rVar.f26068d = rVar.a("ad_feed");
+                rVar.f26070f = rVar.c("1");
                 this.q.getControl().setVideoModel(rVar);
                 this.q.getControl().setVideoPath(videoInfo.video_url);
                 CyberPlayerManager.prefetch(videoInfo.video_url, null, null, PreLoadVideoSwitchManager.getInstance().getSize(), null);
             }
             this.q.getControl().setOnSurfaceDestroyedListener(this.c0);
             SkinManager.setViewTextColor(this.t, R.color.cp_cont_m);
-            this.t.setText(StringUtils.translateSecondsToString(this.f49543i.video_duration.intValue()));
+            this.t.setText(StringUtils.translateSecondsToString(this.f47682i.video_duration.intValue()));
             if (this.J == 1) {
                 this.H = false;
                 SkinManager.setImageResource(this.v, R.drawable.icon_vedio_npronunciation_small_white);

@@ -20,13 +20,11 @@ public class PersonCommonForumCardView extends FlowLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f49120i;
+    public Context f47276i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<f> f49121j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<PersonCommonForumItemView> f49122k;
+    public List<f> f47277j;
+    public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,21 +45,21 @@ public class PersonCommonForumCardView extends FlowLayout {
                 return;
             }
         }
-        this.f49122k = new ArrayList();
-        this.f49120i = context;
+        this.k = new ArrayList();
+        this.f47276i = context;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f49121j)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f47277j)) {
             return;
         }
-        for (f fVar : this.f49121j) {
+        for (f fVar : this.f47277j) {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((n.k(this.f49120i) - n.f(this.f49120i, c.a.t0.y2.b.tbds88)) - n.f(this.f49120i, c.a.t0.y2.b.tbds96)) / 2, -2));
-                this.f49122k.add(b2);
+                addView(b2, new ViewGroup.LayoutParams(((n.k(this.f47276i) - n.f(this.f47276i, c.a.t0.y2.b.tbds88)) - n.f(this.f47276i, c.a.t0.y2.b.tbds96)) / 2, -2));
+                this.k.add(b2);
             }
         }
     }
@@ -69,7 +67,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (PersonCommonForumItemView personCommonForumItemView : this.f49122k) {
+            for (PersonCommonForumItemView personCommonForumItemView : this.k) {
                 if (personCommonForumItemView != null) {
                     personCommonForumItemView.onChangeSkinType();
                 }
@@ -79,10 +77,10 @@ public class PersonCommonForumCardView extends FlowLayout {
 
     public void recycle() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.f49122k)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.k)) {
             return;
         }
-        for (PersonCommonForumItemView personCommonForumItemView : this.f49122k) {
+        for (PersonCommonForumItemView personCommonForumItemView : this.k) {
             this.l.e(personCommonForumItemView);
         }
         removeAllViews();
@@ -91,7 +89,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public void setData(List<f> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f49121j = list;
+            this.f47277j = list;
             f();
         }
     }

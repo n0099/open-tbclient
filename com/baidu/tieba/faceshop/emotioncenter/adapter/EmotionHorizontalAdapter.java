@@ -55,7 +55,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f26592e);
+            emotionHorizontalView.setData(bVar.f25804e);
         }
     }
 

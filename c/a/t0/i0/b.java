@@ -25,14 +25,14 @@ public class b {
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.C1118a a;
+        public final /* synthetic */ a.C1132a a;
 
-        public a(a.C1118a c1118a) {
+        public a(a.C1132a c1132a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c1118a};
+                Object[] objArr = {c1132a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -42,7 +42,7 @@ public class b {
                     return;
                 }
             }
-            this.a = c1118a;
+            this.a = c1132a;
         }
 
         @Override // c.a.t0.i0.c
@@ -56,17 +56,17 @@ public class b {
 
     /* renamed from: c.a.t0.i0.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1119b implements c {
+    public static class C1133b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.C1118a a;
+        public final /* synthetic */ a.C1132a a;
 
-        public C1119b(a.C1118a c1118a) {
+        public C1133b(a.C1132a c1132a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c1118a};
+                Object[] objArr = {c1132a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -76,7 +76,7 @@ public class b {
                     return;
                 }
             }
-            this.a = c1118a;
+            this.a = c1132a;
         }
 
         @Override // c.a.t0.i0.c
@@ -98,15 +98,15 @@ public class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, aVar, bundle, Boolean.valueOf(z)})) == null) {
-            a.C1118a c1118a = new a.C1118a();
+            a.C1132a c1132a = new a.C1132a();
             if (uri == null) {
                 if (aVar != null) {
-                    aVar.b(1, "Uri is empty.", c1118a);
+                    aVar.b(1, "Uri is empty.", c1132a);
                 }
                 return false;
             } else if (!"deeplink".equals(uri.getHost())) {
                 if (aVar != null) {
-                    aVar.b(2, "Uri host is not deeplink.", c1118a);
+                    aVar.b(2, "Uri host is not deeplink.", c1132a);
                 }
                 return false;
             } else {
@@ -116,10 +116,10 @@ public class b {
                 String queryParameter4 = uri.getQueryParameter("pkgName");
                 String queryParameter5 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKET_PKGNAME_KEY);
                 boolean booleanQueryParameter = uri.getBooleanQueryParameter(DeepLinkItem.DEEPLINK_IS_DESIGNATE_PKG, true);
-                if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c1118a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c1118a)) {
+                if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c1132a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c1132a)) {
                     return true;
                 }
-                return g(context, queryParameter3, bundle, aVar, c1118a, z);
+                return g(context, queryParameter3, bundle, aVar, c1132a, z);
             }
         }
         return invokeCommon.booleanValue;
@@ -165,17 +165,17 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean e(Context context, String str, String str2, c.a.t0.i0.a aVar, boolean z, a.C1118a c1118a) {
+    public static boolean e(Context context, String str, String str2, c.a.t0.i0.a aVar, boolean z, a.C1132a c1132a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c1118a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c1132a})) == null) {
             if (TextUtils.isEmpty(str)) {
-                c1118a.a(1, -4);
+                c1132a.a(1, -4);
                 return false;
-            } else if (c(context, str, str2, z, new a(c1118a))) {
-                c1118a.b(1);
+            } else if (c(context, str, str2, z, new a(c1132a))) {
+                c1132a.b(1);
                 if (aVar != null) {
-                    aVar.a(1, c1118a);
+                    aVar.a(1, c1132a);
                 }
                 return true;
             } else {
@@ -185,17 +185,17 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean f(Context context, String str, String str2, c.a.t0.i0.a aVar, boolean z, a.C1118a c1118a) {
+    public static boolean f(Context context, String str, String str2, c.a.t0.i0.a aVar, boolean z, a.C1132a c1132a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c1118a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c1132a})) == null) {
             if (TextUtils.isEmpty(str)) {
-                c1118a.a(2, -5);
+                c1132a.a(2, -5);
                 return false;
-            } else if (c(context, str, str2, z, new C1119b(c1118a))) {
-                c1118a.b(2);
+            } else if (c(context, str, str2, z, new C1133b(c1132a))) {
+                c1132a.b(2);
                 if (aVar != null) {
-                    aVar.a(2, c1118a);
+                    aVar.a(2, c1132a);
                     return true;
                 }
                 return true;
@@ -206,27 +206,27 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean g(Context context, String str, Bundle bundle, c.a.t0.i0.a aVar, a.C1118a c1118a, boolean z) {
+    public static boolean g(Context context, String str, Bundle bundle, c.a.t0.i0.a aVar, a.C1132a c1132a, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, aVar, c1118a, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, aVar, c1132a, Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
-                c1118a.a(3, -6);
+                c1132a.a(3, -6);
                 if (aVar != null) {
-                    aVar.b(-6, "Uri web url is empty", c1118a);
+                    aVar.b(-6, "Uri web url is empty", c1132a);
                 }
                 return false;
             } else if (d(context, str, bundle, z)) {
-                c1118a.b(3);
+                c1132a.b(3);
                 if (aVar != null) {
-                    aVar.a(3, c1118a);
+                    aVar.a(3, c1132a);
                     return true;
                 }
                 return true;
             } else {
-                c1118a.a(3, -7);
+                c1132a.a(3, -7);
                 if (aVar != null) {
-                    aVar.b(-7, "Uri web url open failed", c1118a);
+                    aVar.b(-7, "Uri web url open failed", c1132a);
                 }
                 return false;
             }

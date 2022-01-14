@@ -19,7 +19,7 @@ public class c extends c.a.r0.i.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10938c;
+    public static final boolean f10695c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class c extends c.a.r0.i.e.a {
                 return;
             }
         }
-        f10938c = k.a;
+        f10695c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class c extends c.a.r0.i.e.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-            if (f10938c) {
+            if (f10695c) {
                 String str = "handle: " + jSONObject;
             }
             String optString = jSONObject.optString("packageName");
@@ -71,7 +71,7 @@ public class c extends c.a.r0.i.e.a {
             }
             try {
                 PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (f10938c) {
+                if (f10695c) {
                     String str2 = "packageInfo: " + packageInfo;
                 }
                 if (packageInfo != null) {

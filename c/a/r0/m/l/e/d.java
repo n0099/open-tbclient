@@ -71,14 +71,14 @@ public class d extends c.a.r0.m.l.a<c.a.r0.a.i1.c.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, bVar, bVar2, eVar)) == null) {
             c.a.r0.a.e0.d.i("map", "IncludePointsAction start");
-            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(bVar.f5422g);
+            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(bVar.f5309g);
             if (!(A instanceof c.a.r0.a.p.e.b)) {
                 c.a.r0.a.e0.d.c("map", "WebViewManager is null");
                 return false;
             }
-            c.a.r0.m.o.c d2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A).d(bVar.f5421f);
+            c.a.r0.m.o.c d2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A).d(bVar.f5308f);
             if (d2 == null) {
-                c.a.r0.a.e0.d.c("map", "can not find map by id " + bVar.f5421f);
+                c.a.r0.a.e0.d.c("map", "can not find map by id " + bVar.f5308f);
                 return false;
             }
             c.a.r0.a.e0.d.i("map", "IncludePointsAction end");
@@ -99,7 +99,7 @@ public class d extends c.a.r0.m.l.a<c.a.r0.a.i1.c.b> {
             Iterator<c.a.r0.a.i1.c.h.c> it = bVar.D.iterator();
             while (it.hasNext()) {
                 c.a.r0.a.i1.c.h.c next = it.next();
-                builder.include(new LatLng(next.f7374e, next.f7375f));
+                builder.include(new LatLng(next.f7214e, next.f7215f));
             }
             LatLngBounds build = builder.build();
             int[] iArr = bVar.E;

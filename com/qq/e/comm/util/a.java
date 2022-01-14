@@ -21,11 +21,11 @@ public class a {
     public PublicKey a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f61472b;
+    public final boolean f59141b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C2160a {
+    public static /* synthetic */ class C2177a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -73,10 +73,10 @@ public class a {
         } catch (Throwable unused) {
             z = false;
         }
-        this.f61472b = z;
+        this.f59141b = z;
     }
 
-    public /* synthetic */ a(C2160a c2160a) {
+    public /* synthetic */ a(C2177a c2177a) {
         this();
     }
 
@@ -111,7 +111,7 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f61472b) {
+            if (this.f59141b) {
                 if (this.a != null) {
                     byte[] decode = Base64.decode(str, 0);
                     try {

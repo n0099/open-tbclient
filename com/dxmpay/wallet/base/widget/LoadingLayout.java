@@ -22,13 +22,13 @@ public abstract class LoadingLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f55934e;
+    public View f53810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public State f55935f;
+    public State f53811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public State f55936g;
+    public State f53812g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -168,22 +168,22 @@ public abstract class LoadingLayout extends FrameLayout {
     public State getPreState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55936g : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53812g : (State) invokeV.objValue;
     }
 
     public State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55935f : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53811f : (State) invokeV.objValue;
     }
 
     public void init(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             View createLoadingView = createLoadingView(context, attributeSet);
-            this.f55934e = createLoadingView;
+            this.f53810e = createLoadingView;
             if (createLoadingView != null) {
-                addView(this.f55934e, new FrameLayout.LayoutParams(-1, -2));
+                addView(this.f53810e, new FrameLayout.LayoutParams(-1, -2));
                 return;
             }
             throw new NullPointerException("Loading view can not be null.");
@@ -266,11 +266,11 @@ public abstract class LoadingLayout extends FrameLayout {
     public void setState(State state) {
         State state2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, state) == null) || (state2 = this.f55935f) == state) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, state) == null) || (state2 = this.f53811f) == state) {
             return;
         }
-        this.f55936g = state2;
-        this.f55935f = state;
+        this.f53812g = state2;
+        this.f53811f = state;
         onStateChanged(state, state2);
     }
 
@@ -278,7 +278,7 @@ public abstract class LoadingLayout extends FrameLayout {
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            if (z == (getVisibility() == 0) || (layoutParams = this.f55934e.getLayoutParams()) == null) {
+            if (z == (getVisibility() == 0) || (layoutParams = this.f53810e.getLayoutParams()) == null) {
                 return;
             }
             if (z) {
@@ -332,8 +332,8 @@ public abstract class LoadingLayout extends FrameLayout {
             }
         }
         State state = State.NONE;
-        this.f55935f = state;
-        this.f55936g = state;
+        this.f53811f = state;
+        this.f53812g = state;
         init(context, attributeSet);
     }
 }

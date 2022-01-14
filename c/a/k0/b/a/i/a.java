@@ -32,10 +32,10 @@ public abstract class a {
     public ContentProvider a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f4208b;
+    public final int f4142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f4209c;
+    public final int f4143c;
 
     public a(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f4208b = i2;
-        this.f4209c = i3;
+        this.f4142b = i2;
+        this.f4143c = i3;
     }
 
     public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
@@ -122,7 +122,7 @@ public abstract class a {
     public final int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4209c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4143c : invokeV.intValue;
     }
 
     public final Context getContext() {
@@ -136,7 +136,7 @@ public abstract class a {
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f4208b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f4142b : invokeV.intValue;
     }
 
     public void i(Configuration configuration) {

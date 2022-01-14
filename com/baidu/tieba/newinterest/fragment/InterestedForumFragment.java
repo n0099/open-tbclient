@@ -26,25 +26,23 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48097e;
+    public View f46303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdRecyclerView f48098f;
+    public BdRecyclerView f46304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f48099g;
+    public TBSpecificationBtn f46305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48100h;
+    public TextView f46306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48101i;
+    public TextView f46307i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f48102j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public FrameLayout f48103k;
+    public a f46308j;
+    public FrameLayout k;
     public TBSpecificationBtn l;
 
     public InterestedForumFragment() {
@@ -77,41 +75,41 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public final void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48102j.f(this.mSelectedInterest);
-            showLoadingView(this.f48097e);
+            this.f46308j.f(this.mSelectedInterest);
+            showLoadingView(this.f46303e);
         }
     }
 
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48101i = (TextView) this.f48097e.findViewById(R.id.interested_desc);
-            TextView textView = (TextView) this.f48097e.findViewById(R.id.interested_title);
-            this.f48100h = textView;
+            this.f46307i = (TextView) this.f46303e.findViewById(R.id.interested_desc);
+            TextView textView = (TextView) this.f46303e.findViewById(R.id.interested_title);
+            this.f46306h = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            SkinManager.setViewTextColor(this.f48100h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f48101i, R.color.CAM_X0107);
-            this.f48098f = (BdRecyclerView) this.f48097e.findViewById(R.id.interested_forum_list_view);
-            this.f48103k = (FrameLayout) this.f48097e.findViewById(R.id.bottom_select_layout);
-            c.a.s0.s.i0.n.a aVar = new c.a.s0.s.i0.n.a();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f48097e.findViewById(R.id.interest_forum_selected_btn);
+            SkinManager.setViewTextColor(this.f46306h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f46307i, R.color.CAM_X0107);
+            this.f46304f = (BdRecyclerView) this.f46303e.findViewById(R.id.interested_forum_list_view);
+            this.k = (FrameLayout) this.f46303e.findViewById(R.id.bottom_select_layout);
+            c.a.s0.s.j0.n.a aVar = new c.a.s0.s.j0.n.a();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f46303e.findViewById(R.id.interest_forum_selected_btn);
             this.l = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
             this.l.setConfig(aVar);
             this.l.setText(getResources().getString(R.string.try_to_select));
             this.l.setEnabled(false);
             this.l.setOnClickListener(this);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f48097e.findViewById(R.id.select_all_btn);
-            this.f48099g = tBSpecificationBtn2;
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f46303e.findViewById(R.id.select_all_btn);
+            this.f46305g = tBSpecificationBtn2;
             tBSpecificationBtn2.setText(getString(R.string.select_all));
-            this.f48102j = new a(this, this.f48098f, this.l, this.f48099g, getPageContext(), new b(getUniqueId()), this.mScene);
+            this.f46308j = new a(this, this.f46304f, this.l, this.f46305g, getPageContext(), new b(getUniqueId()), this.mScene);
         }
     }
 
     public final void initUIListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f48099g.setOnClickListener(this);
+            this.f46305g.setOnClickListener(this);
         }
     }
 
@@ -120,18 +118,18 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f48097e, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f48103k, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f48100h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f48101i, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f46303e, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f46306h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f46307i, R.color.CAM_X0107);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f48099g) {
-            this.f48102j.j();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f46305g) {
+            this.f46308j.j();
         }
     }
 
@@ -151,11 +149,11 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
             if (getArguments() != null) {
                 this.mScene = getArguments().getInt("scene");
             }
-            this.f48097e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
+            this.f46303e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
             initUI();
             initUIListener();
             initData();
-            return this.f48097e;
+            return this.f46303e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -164,7 +162,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public void onDataRes() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            hideLoadingView(this.f48097e);
+            hideLoadingView(this.f46303e);
         }
     }
 
@@ -172,8 +170,8 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public void onError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            hideLoadingView(this.f48097e);
-            showNetRefreshView(this.f48097e, str, false);
+            hideLoadingView(this.f46303e);
+            showNetRefreshView(this.f46303e, str, false);
         }
     }
 
@@ -181,9 +179,9 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            hideNetRefreshView(this.f48097e);
-            this.f48102j.f(this.mSelectedInterest);
-            showLoadingView(this.f48097e);
+            hideNetRefreshView(this.f46303e);
+            this.f46308j.f(this.mSelectedInterest);
+            showLoadingView(this.f46303e);
         }
     }
 }

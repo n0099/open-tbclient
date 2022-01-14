@@ -59,9 +59,9 @@ public final class y {
                 String str = lVar.f967a;
                 ibVar.f638a.f563a = str.substring(0, str.indexOf("@"));
                 ibVar.f638a.f567c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f63856c);
+                faVar.a(ip.a(ibVar), lVar.f61457c);
                 faVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m122a("try send mi push message. packagename:" + ibVar.f643b + " action:" + ibVar.f636a);
+                com.xiaomi.channel.commonutils.logger.b.m134a("try send mi push message. packagename:" + ibVar.f643b + " action:" + ibVar.f636a);
                 return faVar;
             } catch (NullPointerException e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -80,7 +80,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f63551i);
+            return a(str, str2, ieVar, hf.f61166i);
         }
         return (ib) invokeLL.objValue;
     }
@@ -155,16 +155,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, ibVar) == null) {
             cy.a(ibVar.b(), xMPushService.getApplicationContext(), ibVar, -1);
-            fl m612a = xMPushService.m612a();
-            if (m612a == null) {
+            fl m624a = xMPushService.m624a();
+            if (m624a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m612a.m375a()) {
+            if (!m624a.m387a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a = a(m.a((Context) xMPushService), xMPushService, ibVar);
             if (a != null) {
-                m612a.b(a);
+                m624a.b(a);
             }
         }
     }
@@ -188,16 +188,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             cy.a(str, xMPushService.getApplicationContext(), bArr);
-            fl m612a = xMPushService.m612a();
-            if (m612a == null) {
+            fl m624a = xMPushService.m624a();
+            if (m624a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m612a.m375a()) {
+            if (!m624a.m387a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a = a(xMPushService, bArr);
             if (a != null) {
-                m612a.b(a);
+                m624a.b(a);
             } else {
                 p.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }

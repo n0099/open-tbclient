@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoSessionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoSessionManager";
@@ -28,13 +28,13 @@ public class VideoSessionManager {
     public SystemEventTrigger mSystemEventTrigger;
 
     /* renamed from: com.baidu.searchbox.player.session.VideoSessionManager$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final VideoSessionManager mInstance;

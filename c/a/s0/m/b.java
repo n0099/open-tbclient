@@ -48,9 +48,9 @@ public class b extends n {
             String cuid = TbadkCoreApplication.getInst().getCuid();
             String str = Build.VERSION.RELEASE;
             String str2 = Build.MODEL;
-            int k2 = c.a.d.f.p.n.k(getContext());
+            int k = c.a.d.f.p.n.k(getContext());
             int i2 = c.a.d.f.p.n.i(getContext());
-            String str3 = String.valueOf(k2) + "," + String.valueOf(i2);
+            String str3 = String.valueOf(k) + "," + String.valueOf(i2);
             String versionName = TbadkCoreApplication.getInst().getVersionName();
             try {
                 jSONObject.put("systemName", "android");

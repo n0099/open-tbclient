@@ -50,15 +50,15 @@ public class a extends c.a.s0.x.b0.a {
 
     /* renamed from: c.a.t0.f2.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1084a implements a.InterfaceC0893a {
+    public class C1098a implements a.InterfaceC0906a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f17754b;
+        public final /* synthetic */ a f17324b;
 
-        public C1084a(a aVar, Context context) {
+        public C1098a(a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,11 +73,11 @@ public class a extends c.a.s0.x.b0.a {
                     return;
                 }
             }
-            this.f17754b = aVar;
+            this.f17324b = aVar;
             this.a = context;
         }
 
-        @Override // c.a.s0.x.b0.a.InterfaceC0893a
+        @Override // c.a.s0.x.b0.a.InterfaceC0906a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             BubbleView bubbleView;
@@ -91,15 +91,15 @@ public class a extends c.a.s0.x.b0.a {
                     bubbleView = view;
                     bubbleView2 = (BubbleView) view;
                 }
-                BubbleListData.BubbleData M = this.f17754b.M(i2);
+                BubbleListData.BubbleData M = this.f17324b.M(i2);
                 if (M != null) {
-                    bubbleView2.setData(M, BubbleListModel.y(this.f17754b.r.getB_info()));
+                    bubbleView2.setData(M, BubbleListModel.y(this.f17324b.r.getB_info()));
                     bubbleView2.setGravity(17);
                     bubbleView2.setTag(Integer.valueOf(i2));
-                    bubbleView2.setOnClickListener(this.f17754b.y);
+                    bubbleView2.setOnClickListener(this.f17324b.y);
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                TbPageContext tbPageContext = (TbPageContext) j.a(this.f17754b.s);
+                TbPageContext tbPageContext = (TbPageContext) j.a(this.f17324b.s);
                 tbPageContext.getLayoutMode().k(skinType == 1);
                 tbPageContext.getLayoutMode().j(bubbleView);
                 return bubbleView;
@@ -335,7 +335,7 @@ public class a extends c.a.s0.x.b0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17755e;
+        public final /* synthetic */ a f17325e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -352,27 +352,27 @@ public class a extends c.a.s0.x.b0.a {
                     return;
                 }
             }
-            this.f17755e = aVar;
+            this.f17325e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f17755e.r != null && (view instanceof BubbleView)) {
-                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) ListUtils.getItem(this.f17755e.r.getB_info(), ((Integer) view.getTag()).intValue());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f17325e.r != null && (view instanceof BubbleView)) {
+                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) ListUtils.getItem(this.f17325e.r.getB_info(), ((Integer) view.getTag()).intValue());
                 TbadkSettings inst = TbadkSettings.getInst();
                 boolean loadBoolean = inst.loadBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
                 if (bubbleData == null || bubbleData.isDef()) {
                     return;
                 }
                 if (bubbleData.getBcode() == 0 || bubbleData.canUse() || loadBoolean) {
-                    this.f17755e.O(bubbleData.getBcode());
+                    this.f17325e.O(bubbleData.getBcode());
                 } else if (bubbleData.isFree()) {
-                    if (this.f17755e.s instanceof TbPageContextSupport) {
-                        c.a.t0.f2.a.c.a(((TbPageContextSupport) this.f17755e.s).getPageContext(), bubbleData, this.f17755e.z);
+                    if (this.f17325e.s instanceof TbPageContextSupport) {
+                        c.a.t0.f2.a.c.a(((TbPageContextSupport) this.f17325e.s).getPageContext(), bubbleData, this.f17325e.z);
                     }
-                } else if (this.f17755e.s instanceof TbPageContextSupport) {
-                    c.a.t0.f2.a.c.b(((TbPageContextSupport) this.f17755e.s).getPageContext(), bubbleData, this.f17755e.A);
+                } else if (this.f17325e.s instanceof TbPageContextSupport) {
+                    c.a.t0.f2.a.c.b(((TbPageContextSupport) this.f17325e.s).getPageContext(), bubbleData, this.f17325e.A);
                 }
             }
         }
@@ -578,13 +578,13 @@ public class a extends c.a.s0.x.b0.a {
             this.s = context;
             a.b bVar = new a.b();
             bVar.a = R.drawable.icon_bubble;
-            bVar.f14527b = 0;
+            bVar.f14187b = 0;
             w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds26));
             q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30));
             r(bVar);
             o(2);
             v(2);
-            x(new C1084a(this, context));
+            x(new C1098a(this, context));
             this.u = TbadkCoreApplication.getInst().getDefaultBubble();
             if (this.q == null) {
                 Context context2 = this.s;

@@ -14,7 +14,7 @@ public class b {
     public static ArrayList<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1718b;
+    public static String f1698b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,16 +43,16 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f1718b)) {
-                f1718b = c.a.b1.e.h.d.a();
+            if (TextUtils.isEmpty(f1698b)) {
+                f1698b = c.a.b1.e.h.d.a();
             }
-            if (TextUtils.isEmpty(f1718b)) {
+            if (TextUtils.isEmpty(f1698b)) {
                 return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
             }
-            if (f1718b.toUpperCase().contains("HUAWEI")) {
+            if (f1698b.toUpperCase().contains("HUAWEI")) {
                 return 10001;
             }
-            if (f1718b.toUpperCase().contains("XIAOMI")) {
+            if (f1698b.toUpperCase().contains("XIAOMI")) {
                 return 10002;
             }
             return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;

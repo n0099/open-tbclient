@@ -9,12 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
-import c.a.c0.b.b;
-import c.a.c0.b.d;
-import c.a.c0.b.e;
-import c.a.c0.p.p;
+import c.a.c0.d.b;
+import c.a.c0.d.d;
+import c.a.c0.d.e;
+import c.a.c0.s.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +49,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
     }
 
-    @Override // com.baidu.nadcore.widget.uitemplate.SimpleAdInfoView
+    @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
     public void init(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
@@ -101,14 +102,14 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
     }
 
-    @Override // com.baidu.nadcore.widget.uitemplate.SimpleAdInfoView
+    @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
     public void setAdInfo(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar) == null) {
             super.setAdInfo(pVar);
             if (this.mAdNameView != null) {
-                if (!TextUtils.isEmpty(pVar.f2257c)) {
-                    this.mAdNameView.setText(pVar.f2257c);
+                if (!TextUtils.isEmpty(pVar.f2267c)) {
+                    this.mAdNameView.setText(pVar.f2267c);
                     this.mAdNameView.setVisibility(0);
                 } else {
                     this.mAdNameView.setVisibility(8);
@@ -116,7 +117,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.mRatingTextView;
             if (textView != null) {
-                double d2 = pVar.f2259e;
+                double d2 = pVar.f2269e;
                 if (d2 != -1.0d) {
                     textView.setText(String.valueOf(d2));
                     this.mRatingTextView.setVisibility(0);
@@ -126,7 +127,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.mRatingBarView;
             if (appCompatRatingBar != null) {
-                double d3 = pVar.f2259e;
+                double d3 = pVar.f2269e;
                 if (d3 != -1.0d) {
                     appCompatRatingBar.setRating((float) d3);
                     this.mRatingBarView.setVisibility(0);
@@ -140,7 +141,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public void update(AdBaseModel adBaseModel) {
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f38222g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f37019g) == null) {
             return;
         }
         setAdInfo(pVar);

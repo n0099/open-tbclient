@@ -11,7 +11,7 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ e f31256e;
+    public final /* synthetic */ e f30280e;
 
     public b(e eVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f31256e = eVar;
+        this.f30280e = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -36,12 +36,12 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                View rootView = this.f31256e.a.getRootView();
+                View rootView = this.f30280e.a.getRootView();
                 if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
-                    y2 a = c3.a(this.f31256e.f31289b.a);
-                    a.d(new g3(this.f31256e.f31289b.f31457c), this.f31256e.a.getWidth(), this.f31256e.a.getHeight());
+                    y2 a = c3.a(this.f30280e.f30311b.a);
+                    a.d(new g3(this.f30280e.f30311b.f30469c), this.f30280e.a.getWidth(), this.f30280e.a.getHeight());
                     a.m();
-                    r0.n(this.f31256e.f31289b.f31457c);
+                    r0.n(this.f30280e.f30311b.f30469c);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

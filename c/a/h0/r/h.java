@@ -13,13 +13,13 @@ public class h {
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3678b = null;
+    public static String f3624b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3679c = 0;
+    public static int f3625c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3680d = true;
+    public static boolean f3626d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,20 +41,20 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + f3678b + ":" + f3679c + PreferencesUtil.RIGHT_MOUNT + str;
+            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + f3624b + ":" + f3625c + PreferencesUtil.RIGHT_MOUNT + str;
         }
         return (String) invokeL.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !f3680d) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !f3626d) {
         }
     }
 
     public static void c(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, th) == null) && f3680d) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, th) == null) && f3626d) {
             e(new Throwable().getStackTrace());
             f(str);
         }
@@ -62,7 +62,7 @@ public class h {
 
     public static void d(Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) == null) && f3680d) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) == null) && f3626d) {
             e(new Throwable().getStackTrace());
             f(objArr);
         }
@@ -72,8 +72,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
             a = stackTraceElementArr[1].getFileName();
-            f3678b = stackTraceElementArr[1].getMethodName();
-            f3679c = stackTraceElementArr[1].getLineNumber();
+            f3624b = stackTraceElementArr[1].getMethodName();
+            f3625c = stackTraceElementArr[1].getLineNumber();
         }
     }
 
@@ -97,7 +97,7 @@ public class h {
 
     public static void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !f3680d) {
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !f3626d) {
         }
     }
 }

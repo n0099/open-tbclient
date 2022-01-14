@@ -19,22 +19,22 @@ public class c {
     public List<n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendForumInfo> f24143b;
+    public List<RecommendForumInfo> f23468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Page f24144c;
+    public Page f23469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24145d;
+    public boolean f23470d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24146e;
+    public int f23471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24147f;
+    public int f23472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24148g;
+    public int f23473g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class c {
             }
         }
         this.a = new ArrayList();
-        this.f24145d = true;
-        this.f24146e = 0;
-        this.f24147f = 0;
-        this.f24148g = 0;
+        this.f23470d = true;
+        this.f23471e = 0;
+        this.f23472f = 0;
+        this.f23473g = 0;
     }
 
     public List<n> a() {
@@ -65,21 +65,21 @@ public class c {
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            String str = dVar.f24151d;
-            this.f24144c = dVar.f24150c;
+            String str = dVar.f23476d;
+            this.f23469c = dVar.f23475c;
             List<RecommendForumInfo> list = dVar.a;
-            this.f24143b = list;
+            this.f23468b = list;
             if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.f24143b) {
+                for (RecommendForumInfo recommendForumInfo : this.f23468b) {
                     b bVar = new b();
                     bVar.t(recommendForumInfo);
                     this.a.add(bVar);
                 }
             }
-            Page page = this.f24144c;
+            Page page = this.f23469c;
             if (page != null) {
-                this.f24145d = page.has_more.intValue() == 1;
-                this.f24146e = this.f24144c.current_page.intValue();
+                this.f23470d = page.has_more.intValue() == 1;
+                this.f23471e = this.f23469c.current_page.intValue();
             }
         }
     }

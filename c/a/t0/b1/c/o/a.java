@@ -29,13 +29,13 @@ public class a {
     public List<c.a.d.n.e.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f15554b;
+    public BdTypeListView f15166b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f15555c;
+    public k f15167c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f15556d;
+    public m f15168d;
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -54,18 +54,18 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         this.a = arrayList;
-        this.f15554b = bdTypeListView;
-        arrayList.add(new g(baseActivity.getPageContext(), h.f15535h));
-        this.a.add(new i(baseActivity.getPageContext(), j.f15540g));
-        this.a.add(new f(baseActivity.getPageContext(), n.f16631g));
-        this.a.add(new c.a.t0.b1.b.a(baseActivity.getPageContext(), c.a.t0.b1.b.b.f15513f));
-        this.a.add(new c(baseActivity.getPageContext(), d.f15516k));
+        this.f15166b = bdTypeListView;
+        arrayList.add(new g(baseActivity.getPageContext(), h.f15147h));
+        this.a.add(new i(baseActivity.getPageContext(), j.f15152g));
+        this.a.add(new f(baseActivity.getPageContext(), n.f16276g));
+        this.a.add(new c.a.t0.b1.b.a(baseActivity.getPageContext(), c.a.t0.b1.b.b.f15127f));
+        this.a.add(new c(baseActivity.getPageContext(), d.k));
         this.a.add(new c.a.t0.b1.c.a(baseActivity.getPageContext()));
-        k kVar = new k(baseActivity.getPageContext(), l.f15544i);
-        this.f15555c = kVar;
+        k kVar = new k(baseActivity.getPageContext(), l.f15156i);
+        this.f15167c = kVar;
         this.a.add(kVar);
-        m mVar = new m(baseActivity.getPageContext(), c.a.t0.b1.c.n.f15550h);
-        this.f15556d = mVar;
+        m mVar = new m(baseActivity.getPageContext(), c.a.t0.b1.c.n.f15162h);
+        this.f15168d = mVar;
         this.a.add(mVar);
     }
 
@@ -78,16 +78,16 @@ public class a {
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f15554b) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f15554b.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f15166b) != null && (bdTypeListView.getAdapter2() instanceof e)) {
+            this.f15166b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f15555c.onDestroy();
-            this.f15556d.onDestroy();
+            this.f15167c.onDestroy();
+            this.f15168d.onDestroy();
         }
     }
 }

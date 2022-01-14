@@ -1,6 +1,6 @@
 package c.a.t0.g0.f0;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,12 +23,12 @@ public class m extends k {
     public String X0;
     public long Y0;
 
-    public m(d2 d2Var) {
+    public m(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d2Var};
+            Object[] objArr = {e2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,13 +38,13 @@ public class m extends k {
                 return;
             }
         }
-        if (d2Var == null) {
+        if (e2Var == null) {
             return;
         }
-        this.f18222e = d2Var;
-        String str = d2Var.E;
-        d2Var.getTitle();
-        VoiceRoom G1 = d2Var.G1();
+        this.f17778e = e2Var;
+        String str = e2Var.E;
+        e2Var.getTitle();
+        VoiceRoom G1 = e2Var.G1();
         if (G1 != null) {
             this.U0 = G1.room_name;
             this.V0 = g0(G1);
@@ -54,10 +54,10 @@ public class m extends k {
         }
     }
 
-    public static boolean Y(d2 d2Var) {
+    public static boolean Y(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d2Var)) == null) ? (d2Var == null || d2Var.G1() == null || d2Var.G1().room_id.longValue() <= 0 || StringUtils.isNull(d2Var.G1().room_name)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e2Var)) == null) ? (e2Var == null || e2Var.G1() == null || e2Var.G1().room_id.longValue() <= 0 || StringUtils.isNull(e2Var.G1().room_name)) ? false : true : invokeL.booleanValue;
     }
 
     public String b0() {
@@ -113,7 +113,7 @@ public class m extends k {
             if (!this.G) {
                 return k.M0;
             }
-            return d2.u3;
+            return e2.u3;
         }
         return (BdUniqueId) invokeV.objValue;
     }

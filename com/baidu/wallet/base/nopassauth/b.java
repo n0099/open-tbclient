@@ -6,7 +6,7 @@ public interface b {
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f52551b = 1;
+    public static final int f50526b = 1;
 
     int a();
 

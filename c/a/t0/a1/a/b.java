@@ -23,13 +23,13 @@ public class b {
     public b1 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c.a.t0.a1.a.a> f15408b;
+    public ArrayList<c.a.t0.a1.a.a> f15025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC0943b f15409c;
+    public InterfaceC0956b f15026c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f15410d;
+    public HttpMessageListener f15027d;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -65,19 +65,19 @@ public class b {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
                 this.a.a = getForbiddenFansResponse.getPageData();
-                if (this.a.f15408b == null) {
-                    this.a.f15408b = new ArrayList();
+                if (this.a.f15025b == null) {
+                    this.a.f15025b = new ArrayList();
                 }
                 if (this.a.a != null) {
                     if (this.a.a.a() == 1) {
-                        this.a.f15408b.clear();
+                        this.a.f15025b.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        this.a.f15408b.addAll(getForbiddenFansResponse.getFansList());
+                        this.a.f15025b.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (this.a.f15409c != null) {
-                    this.a.f15409c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.f15408b);
+                if (this.a.f15026c != null) {
+                    this.a.f15026c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.f15025b);
                 }
             }
         }
@@ -85,7 +85,7 @@ public class b {
 
     /* renamed from: c.a.t0.a1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0943b {
+    public interface InterfaceC0956b {
         void a(int i2, String str, ArrayList<c.a.t0.a1.a.a> arrayList);
     }
 
@@ -102,14 +102,14 @@ public class b {
                 return;
             }
         }
-        this.f15410d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        this.f15027d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f15410d);
+        MessageManager.getInstance().registerListener(this.f15027d);
     }
 
     public boolean f() {
@@ -150,14 +150,14 @@ public class b {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f15410d);
+            MessageManager.getInstance().unRegisterListener(this.f15027d);
         }
     }
 
-    public void j(InterfaceC0943b interfaceC0943b) {
+    public void j(InterfaceC0956b interfaceC0956b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0943b) == null) {
-            this.f15409c = interfaceC0943b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0956b) == null) {
+            this.f15026c = interfaceC0956b;
         }
     }
 }

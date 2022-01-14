@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: c.a.r0.a.r2.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0523a {
+    public static /* synthetic */ class C0532a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -67,7 +67,7 @@ public class a {
         boolean z = k.a;
     }
 
-    public /* synthetic */ a(C0523a c0523a) {
+    public /* synthetic */ a(C0532a c0532a) {
         this();
     }
 

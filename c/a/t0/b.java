@@ -30,27 +30,27 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65537, null, iVar) == null) || iVar == null) {
             return;
         }
-        if (iVar.f14171b != 0) {
-            c.a.s0.s.g0.b.j().x("app_entrance_nologin", iVar.f14171b + "");
+        if (iVar.f13839b != 0) {
+            c.a.s0.s.h0.b.k().y("app_entrance_nologin", iVar.f13839b + "");
         }
         if (iVar.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        c.a.s0.s.g0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), iVar.a + "");
+        c.a.s0.s.h0.b.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), iVar.a + "");
     }
 
     public int a() {
         InterceptResult invokeV;
-        String p;
+        String q;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
-                p = c.a.s0.s.g0.b.j().p("app_entrance_nologin", "");
+                q = c.a.s0.s.h0.b.k().q("app_entrance_nologin", "");
             } else {
-                c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                p = j2.p("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
+                c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            int e2 = c.a.d.f.m.b.e(p, 0);
+            int e2 = c.a.d.f.m.b.e(q, 0);
             return (e2 != 1 && e2 == 2) ? 1 : 2;
         }
         return invokeV.intValue;

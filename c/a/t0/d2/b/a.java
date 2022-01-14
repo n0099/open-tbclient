@@ -34,24 +34,24 @@ public class a {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SearchMajorActivity f17473b;
+    public SearchMajorActivity f17051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.d2.a f17474c;
+    public c.a.t0.d2.a f17052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17475d;
+    public String f17053d;
 
     /* renamed from: c.a.t0.d2.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnFocusChangeListenerC1066a implements View.OnFocusChangeListener {
+    public class View$OnFocusChangeListenerC1080a implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17476e;
+        public final /* synthetic */ a f17054e;
 
-        public View$OnFocusChangeListenerC1066a(a aVar) {
+        public View$OnFocusChangeListenerC1080a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public class a {
                     return;
                 }
             }
-            this.f17476e = aVar;
+            this.f17054e = aVar;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -74,9 +74,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    n.w(this.f17476e.f17473b.getPageContext().getPageActivity(), view);
+                    n.w(this.f17054e.f17051b.getPageContext().getPageActivity(), view);
                 } else {
-                    this.f17476e.k();
+                    this.f17054e.k();
                 }
             }
         }
@@ -127,7 +127,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17477e;
+        public final /* synthetic */ a f17055e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class a {
                     return;
                 }
             }
-            this.f17477e = aVar;
+            this.f17055e = aVar;
         }
 
         @Override // android.text.TextWatcher
@@ -153,9 +153,9 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null) {
                 return;
             }
-            this.f17477e.f17475d = editable.toString();
-            this.f17477e.k();
-            this.f17477e.f17474c.k(!StringUtils.isNull(editable.toString()));
+            this.f17055e.f17053d = editable.toString();
+            this.f17055e.k();
+            this.f17055e.f17052c.k(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -203,7 +203,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-                this.a.f17473b.finish(intent);
+                this.a.f17051b.finish(intent);
             }
         }
     }
@@ -237,7 +237,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 if (i2 == 1 || i2 == 2) {
-                    n.w(this.a.f17473b.getPageContext().getPageActivity(), recyclerView);
+                    n.w(this.a.f17051b.getPageContext().getPageActivity(), recyclerView);
                 }
             }
         }
@@ -265,19 +265,19 @@ public class a {
                 return;
             }
         }
-        this.f17473b = searchMajorActivity;
+        this.f17051b = searchMajorActivity;
         h();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View$OnFocusChangeListenerC1066a view$OnFocusChangeListenerC1066a = new View$OnFocusChangeListenerC1066a(this);
+            View$OnFocusChangeListenerC1080a view$OnFocusChangeListenerC1080a = new View$OnFocusChangeListenerC1080a(this);
             b bVar = new b(this);
             c cVar = new c(this);
-            this.f17474c.q(view$OnFocusChangeListenerC1066a);
-            this.f17474c.p(bVar);
-            this.f17474c.r(cVar);
+            this.f17052c.q(view$OnFocusChangeListenerC1080a);
+            this.f17052c.p(bVar);
+            this.f17052c.r(cVar);
         }
     }
 
@@ -286,27 +286,27 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d dVar = new d(this);
             e eVar = new e(this);
-            this.f17474c.n(dVar);
-            this.f17474c.o(eVar);
+            this.f17052c.n(dVar);
+            this.f17052c.o(eVar);
         }
     }
 
     public c.a.t0.d2.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17474c : (c.a.t0.d2.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17052c : (c.a.t0.d2.a) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.f17473b).inflate(R.layout.search_major_main, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f17051b).inflate(R.layout.search_major_main, (ViewGroup) null);
             this.a = inflate;
-            this.f17473b.setContentView(inflate);
-            this.f17474c = new c.a.t0.d2.a(this.a, this.f17473b);
+            this.f17051b.setContentView(inflate);
+            this.f17052c = new c.a.t0.d2.a(this.a, this.f17051b);
             e();
             f();
-            this.f17475d = "";
+            this.f17053d = "";
             k();
         }
     }
@@ -314,14 +314,14 @@ public class a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f17474c.i(i2);
+            this.f17052c.i(i2);
         }
     }
 
     public void j() {
         c.a.t0.d2.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f17474c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f17052c) == null) {
             return;
         }
         aVar.j();
@@ -329,36 +329,36 @@ public class a {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f17473b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f17051b == null) {
             return;
         }
         if (l.z()) {
-            if (this.f17475d != null) {
+            if (this.f17053d != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
-                httpMessage.addParam("keyword", this.f17475d.trim());
-                this.f17473b.sendMessage(httpMessage);
+                httpMessage.addParam("keyword", this.f17053d.trim());
+                this.f17051b.sendMessage(httpMessage);
             }
-        } else if (this.f17474c != null) {
+        } else if (this.f17052c != null) {
             m(new ErrorData());
-            this.f17473b.getRefreshView().h(R.drawable.new_pic_emotion_05);
-            this.f17473b.showNetRefreshViewNoClick(this.f17474c.d(), null);
-            this.f17473b.getRefreshView().o(this.f17473b.getString(R.string.im_error_default));
+            this.f17051b.getRefreshView().h(R.drawable.new_pic_emotion_05);
+            this.f17051b.showNetRefreshViewNoClick(this.f17052c.d(), null);
+            this.f17051b.getRefreshView().o(this.f17051b.getString(R.string.im_error_default));
         }
     }
 
     public void l(List<String> list) {
         c.a.t0.d2.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (aVar = this.f17474c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (aVar = this.f17052c) == null) {
             return;
         }
-        aVar.l(list, this.f17475d);
+        aVar.l(list, this.f17053d);
     }
 
     public void m(ErrorData errorData) {
         c.a.t0.d2.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) || (aVar = this.f17474c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) || (aVar = this.f17052c) == null) {
             return;
         }
         aVar.m(errorData);

@@ -20,7 +20,7 @@ public class c implements a {
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, a> f19795b;
+    public final Map<Integer, a> f19282b;
 
     public c(a defaultRenderer, Pair<Integer, ? extends a>... renderers) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class c implements a {
         Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
         Intrinsics.checkNotNullParameter(renderers, "renderers");
         this.a = defaultRenderer;
-        this.f19795b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
+        this.f19282b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
     @Override // c.a.t0.m0.i.a
@@ -51,7 +51,7 @@ public class c implements a {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            a aVar = this.f19795b.get(Integer.valueOf(c(item)));
+            a aVar = this.f19282b.get(Integer.valueOf(c(item)));
             if (aVar == null) {
                 aVar = this.a;
             }
@@ -68,7 +68,7 @@ public class c implements a {
             Intrinsics.checkNotNullParameter(canvas, "canvas");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            a aVar = this.f19795b.get(Integer.valueOf(c(item)));
+            a aVar = this.f19282b.get(Integer.valueOf(c(item)));
             if (aVar == null) {
                 aVar = this.a;
             }

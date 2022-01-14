@@ -15,7 +15,7 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10991b;
+    public static final boolean f10748b;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
@@ -32,7 +32,7 @@ public abstract class a {
                 return;
             }
         }
-        f10991b = k.a;
+        f10748b = k.a;
     }
 
     public a(String str) {

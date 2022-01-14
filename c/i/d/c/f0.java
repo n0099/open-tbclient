@@ -73,7 +73,7 @@ public abstract class f0<K, V> extends h0 implements q0<K, V> {
     }
 
     @Override // c.i.d.c.q0
-    public abstract Collection<V> get(K k2);
+    public abstract Collection<V> get(K k);
 
     @Override // c.i.d.c.q0
     public int hashCode() {
@@ -96,13 +96,13 @@ public abstract class f0<K, V> extends h0 implements q0<K, V> {
     public abstract s0<K> keys();
 
     @Override // c.i.d.c.q0
-    public abstract boolean put(K k2, V v);
+    public abstract boolean put(K k, V v);
 
     @Override // c.i.d.c.q0
     public abstract boolean putAll(q0<? extends K, ? extends V> q0Var);
 
     @Override // c.i.d.c.q0
-    public abstract boolean putAll(K k2, Iterable<? extends V> iterable);
+    public abstract boolean putAll(K k, Iterable<? extends V> iterable);
 
     @Override // c.i.d.c.q0
     public abstract boolean remove(Object obj, Object obj2);
@@ -111,7 +111,7 @@ public abstract class f0<K, V> extends h0 implements q0<K, V> {
     public abstract Collection<V> removeAll(Object obj);
 
     @Override // c.i.d.c.q0
-    public abstract Collection<V> replaceValues(K k2, Iterable<? extends V> iterable);
+    public abstract Collection<V> replaceValues(K k, Iterable<? extends V> iterable);
 
     @Override // c.i.d.c.q0
     public int size() {

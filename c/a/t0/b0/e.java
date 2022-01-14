@@ -16,31 +16,31 @@ public final class e {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f15475b;
+    public double f15089b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15476c;
+    public boolean f15090c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f15477d;
+    public double f15091d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f15478e;
+    public double f15092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f15479f;
+    public double f15093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f15480g;
+    public double f15094g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f15481h;
+    public double f15095h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f15482i;
+    public double f15096i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final b.i f15483j;
+    public final b.i f15097j;
 
     public e(float f2) {
         Interceptable interceptable = $ic;
@@ -58,36 +58,36 @@ public final class e {
             }
         }
         this.a = Math.sqrt(1500.0d);
-        this.f15475b = 0.5d;
-        this.f15476c = false;
-        this.f15482i = Double.MAX_VALUE;
-        this.f15483j = new b.i();
-        this.f15482i = f2;
+        this.f15089b = 0.5d;
+        this.f15090c = false;
+        this.f15096i = Double.MAX_VALUE;
+        this.f15097j = new b.i();
+        this.f15096i = f2;
     }
 
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (float) this.f15482i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (float) this.f15096i : invokeV.floatValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f15476c) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f15090c) {
             return;
         }
-        if (this.f15482i != Double.MAX_VALUE) {
-            double d2 = this.f15475b;
+        if (this.f15096i != Double.MAX_VALUE) {
+            double d2 = this.f15089b;
             if (d2 > 1.0d) {
                 double d3 = this.a;
-                this.f15479f = ((-d2) * d3) + (d3 * Math.sqrt((d2 * d2) - 1.0d));
-                double d4 = this.f15475b;
+                this.f15093f = ((-d2) * d3) + (d3 * Math.sqrt((d2 * d2) - 1.0d));
+                double d4 = this.f15089b;
                 double d5 = this.a;
-                this.f15480g = ((-d4) * d5) - (d5 * Math.sqrt((d4 * d4) - 1.0d));
+                this.f15094g = ((-d4) * d5) - (d5 * Math.sqrt((d4 * d4) - 1.0d));
             } else if (d2 >= 0.0d && d2 < 1.0d) {
-                this.f15481h = this.a * Math.sqrt(1.0d - (d2 * d2));
+                this.f15095h = this.a * Math.sqrt(1.0d - (d2 * d2));
             }
-            this.f15476c = true;
+            this.f15090c = true;
             return;
         }
         throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
@@ -97,7 +97,7 @@ public final class e {
     public boolean c(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ((double) Math.abs(f3)) < this.f15478e && ((double) Math.abs(f2 - a())) < this.f15477d : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ((double) Math.abs(f3)) < this.f15092e && ((double) Math.abs(f2 - a())) < this.f15091d : invokeCommon.booleanValue;
     }
 
     public e d(@FloatRange(from = 0.0d) float f2) {
@@ -105,8 +105,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) {
             if (f2 >= 0.0f) {
-                this.f15475b = f2;
-                this.f15476c = false;
+                this.f15089b = f2;
+                this.f15090c = false;
                 return this;
             }
             throw new IllegalArgumentException("Damping ratio must be non-negative");
@@ -118,7 +118,7 @@ public final class e {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-            this.f15482i = f2;
+            this.f15096i = f2;
             return this;
         }
         return (e) invokeF.objValue;
@@ -130,7 +130,7 @@ public final class e {
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
             if (f2 > 0.0f) {
                 this.a = Math.sqrt(f2);
-                this.f15476c = false;
+                this.f15090c = false;
                 return this;
             }
             throw new IllegalArgumentException("Spring stiffness constant must be positive.");
@@ -142,8 +142,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
             double abs = Math.abs(d2);
-            this.f15477d = abs;
-            this.f15478e = abs * 62.5d;
+            this.f15091d = abs;
+            this.f15092e = abs * 62.5d;
         }
     }
 
@@ -155,17 +155,17 @@ public final class e {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Long.valueOf(j2)})) == null) {
             b();
             double d5 = j2 / 1000.0d;
-            double d6 = d2 - this.f15482i;
-            double d7 = this.f15475b;
+            double d6 = d2 - this.f15096i;
+            double d7 = this.f15089b;
             if (d7 > 1.0d) {
-                double d8 = this.f15480g;
-                double d9 = this.f15479f;
+                double d8 = this.f15094g;
+                double d9 = this.f15093f;
                 double d10 = d6 - (((d8 * d6) - d3) / (d8 - d9));
                 double d11 = ((d6 * d8) - d3) / (d8 - d9);
-                d4 = (Math.pow(2.718281828459045d, d8 * d5) * d10) + (Math.pow(2.718281828459045d, this.f15479f * d5) * d11);
-                double d12 = this.f15480g;
+                d4 = (Math.pow(2.718281828459045d, d8 * d5) * d10) + (Math.pow(2.718281828459045d, this.f15093f * d5) * d11);
+                double d12 = this.f15094g;
                 double pow = d10 * d12 * Math.pow(2.718281828459045d, d12 * d5);
-                double d13 = this.f15479f;
+                double d13 = this.f15093f;
                 cos = pow + (d11 * d13 * Math.pow(2.718281828459045d, d13 * d5));
             } else if (d7 == 1.0d) {
                 double d14 = this.a;
@@ -176,23 +176,23 @@ public final class e {
                 double d17 = this.a;
                 cos = (d15 * Math.pow(2.718281828459045d, (-d17) * d5)) + (pow2 * (-d17));
             } else {
-                double d18 = 1.0d / this.f15481h;
+                double d18 = 1.0d / this.f15095h;
                 double d19 = this.a;
                 double d20 = d18 * ((d7 * d19 * d6) + d3);
-                double pow3 = Math.pow(2.718281828459045d, (-d7) * d19 * d5) * ((Math.cos(this.f15481h * d5) * d6) + (Math.sin(this.f15481h * d5) * d20));
+                double pow3 = Math.pow(2.718281828459045d, (-d7) * d19 * d5) * ((Math.cos(this.f15095h * d5) * d6) + (Math.sin(this.f15095h * d5) * d20));
                 double d21 = this.a;
-                double d22 = this.f15475b;
+                double d22 = this.f15089b;
                 double d23 = (-d21) * pow3 * d22;
                 double pow4 = Math.pow(2.718281828459045d, (-d22) * d21 * d5);
-                double d24 = this.f15481h;
+                double d24 = this.f15095h;
                 double sin = (-d24) * d6 * Math.sin(d24 * d5);
-                double d25 = this.f15481h;
+                double d25 = this.f15095h;
                 cos = d23 + (pow4 * (sin + (d20 * d25 * Math.cos(d25 * d5))));
                 d4 = pow3;
             }
-            b.i iVar = this.f15483j;
-            iVar.a = (float) (d4 + this.f15482i);
-            iVar.f15474b = (float) cos;
+            b.i iVar = this.f15097j;
+            iVar.a = (float) (d4 + this.f15096i);
+            iVar.f15088b = (float) cos;
             return iVar;
         }
         return (b.i) invokeCommon.objValue;

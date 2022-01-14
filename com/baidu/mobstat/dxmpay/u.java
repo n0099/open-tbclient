@@ -18,24 +18,24 @@ public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static u f38120b;
+    public static u f36870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f38121c;
+    public static final Pattern f36871c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<PermissionEnum> f38122d;
+    public List<PermissionEnum> f36872d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38123e;
+    public String f36873e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38124f;
+    public String f36874f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<JSONObject> f38125g;
+    public List<JSONObject> f36875g;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class u {
                 return;
             }
         }
-        f38121c = Pattern.compile("\\s*|\t|\r|\n");
+        f36871c = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public u() {
@@ -66,10 +66,10 @@ public class u {
                 return;
             }
         }
-        this.f38122d = new ArrayList();
-        this.f38123e = "android.permission.APP_LIST";
+        this.f36872d = new ArrayList();
+        this.f36873e = "android.permission.APP_LIST";
         this.a = 100;
-        this.f38125g = new ArrayList();
+        this.f36875g = new ArrayList();
     }
 
     public static synchronized u a() {
@@ -78,10 +78,10 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (u.class) {
-                if (f38120b == null) {
-                    f38120b = new u();
+                if (f36870b == null) {
+                    f36870b = new u();
                 }
-                uVar = f38120b;
+                uVar = f36870b;
             }
             return uVar;
         }
@@ -91,13 +91,13 @@ public class u {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f38124f) ? "" : this.f38124f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f36874f) ? "" : this.f36874f : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f38124f = str;
+            this.f36874f = str;
         }
     }
 }

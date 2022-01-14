@@ -22,10 +22,10 @@ public class NHLifeGridItem extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f53302b;
+    public MaskTextView f51254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f53303c;
+    public NetImageView f51255c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHLifeGridItem(Context context) {
@@ -53,8 +53,8 @@ public class NHLifeGridItem extends BaseItemView {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_life_item_view"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-            this.f53302b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-            this.f53303c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.f51254b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+            this.f51255c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
         }
     }
 
@@ -73,12 +73,12 @@ public class NHLifeGridItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f53302b.setMaskText(getData().name);
+        this.f51254b.setMaskText(getData().name);
         NetImageView netImageView = this.a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (hasCornor()) {
-            this.f53303c.setVisibility(0);
-            NetImageView netImageView2 = this.f53303c;
+            this.f51255c.setVisibility(0);
+            NetImageView netImageView2 = this.f51255c;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
         }
     }

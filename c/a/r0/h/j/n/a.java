@@ -23,38 +23,36 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final boolean f10842k;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10843b;
+    public String f10602b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10844c;
+    public String f10603c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10845d;
+    public String f10604d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10846e;
+    public String f10605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10847f;
+    public String f10606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f10848g;
+    public long f10607g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Download f10849h;
+    public Download f10608h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10850i;
+    public String f10609i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f10851j;
+    public String f10610j;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +67,7 @@ public class a {
                 return;
             }
         }
-        f10842k = k.a;
+        k = k.a;
     }
 
     public a() {
@@ -86,13 +84,13 @@ public class a {
             }
         }
         this.a = "";
-        this.f10844c = "";
-        this.f10845d = "";
-        this.f10846e = "";
-        this.f10847f = "";
-        this.f10848g = System.currentTimeMillis();
-        this.f10850i = "";
-        this.f10851j = "";
+        this.f10603c = "";
+        this.f10604d = "";
+        this.f10605e = "";
+        this.f10606f = "";
+        this.f10607g = System.currentTimeMillis();
+        this.f10609i = "";
+        this.f10610j = "";
     }
 
     public static String i() {
@@ -133,7 +131,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f10844c = str;
+            this.f10603c = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -145,16 +143,16 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Download download = new Download();
             download.setUrl(this.a);
-            download.setKeyByUser(this.f10843b);
+            download.setKeyByUser(this.f10602b);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("apk_id", this.f10844c);
-                jSONObject.put("download_time", this.f10848g);
-                jSONObject.put("from_view", this.f10845d);
-                jSONObject.put("from_value", this.f10846e);
-                jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f10847f);
+                jSONObject.put("apk_id", this.f10603c);
+                jSONObject.put("download_time", this.f10607g);
+                jSONObject.put("from_view", this.f10604d);
+                jSONObject.put("from_value", this.f10605e);
+                jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f10606f);
             } catch (JSONException e2) {
-                if (f10842k) {
+                if (k) {
                     e2.printStackTrace();
                 }
             }
@@ -177,15 +175,15 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Download download = new Download();
             download.setUrl(this.a);
-            download.setKeyByUser(this.f10843b);
+            download.setKeyByUser(this.f10602b);
             download.setMimetype("application/zip");
             download.setWifiOnly(false);
             String n = n();
             if (!TextUtils.isEmpty(n)) {
                 download.setSavedPathForUser(n);
             }
-            download.setFileName(this.f10850i + ".zip");
-            download.setFromParam(this.f10851j);
+            download.setFileName(this.f10609i + ".zip");
+            download.setFromParam(this.f10610j);
             return download;
         }
         return (Download) invokeV.objValue;
@@ -195,7 +193,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f10847f = str;
+            this.f10606f = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -205,7 +203,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f10850i = str;
+            this.f10609i = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -215,7 +213,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f10846e = str;
+            this.f10605e = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -225,7 +223,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f10845d = str;
+            this.f10604d = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -234,14 +232,14 @@ public class a {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10844c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10603c : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Download download = this.f10849h;
+            Download download = this.f10608h;
             if (download == null) {
                 return null;
             }
@@ -253,7 +251,7 @@ public class a {
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f10848g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f10607g : invokeV.longValue;
     }
 
     public String l() {
@@ -265,14 +263,14 @@ public class a {
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f10843b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f10602b : (String) invokeV.objValue;
     }
 
     public a o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.f10843b = str;
+            this.f10602b = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -281,7 +279,7 @@ public class a {
     public <T> void p(String str, T t) {
         Download download;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, t) == null) || (download = this.f10849h) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, t) == null) || (download = this.f10608h) == null) {
             return;
         }
         String fromParam = download.getFromParam();
@@ -291,7 +289,7 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject(fromParam);
             jSONObject.put(str, t);
-            this.f10849h.setFromParam(jSONObject.toString());
+            this.f10608h.setFromParam(jSONObject.toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -301,7 +299,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.f10851j = str;
+            this.f10610j = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -333,29 +331,29 @@ public class a {
             }
         }
         this.a = "";
-        this.f10844c = "";
-        this.f10845d = "";
-        this.f10846e = "";
-        this.f10847f = "";
-        this.f10848g = System.currentTimeMillis();
-        this.f10850i = "";
-        this.f10851j = "";
-        this.f10849h = download;
+        this.f10603c = "";
+        this.f10604d = "";
+        this.f10605e = "";
+        this.f10606f = "";
+        this.f10607g = System.currentTimeMillis();
+        this.f10609i = "";
+        this.f10610j = "";
+        this.f10608h = download;
         this.a = download.getUrl();
-        this.f10843b = download.getKeyByUser();
+        this.f10602b = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (TextUtils.isEmpty(fromParam)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(fromParam);
-            this.f10844c = jSONObject.optString("apk_id");
-            this.f10845d = jSONObject.optString("from_view");
-            this.f10846e = jSONObject.optString("from_value");
-            this.f10847f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-            this.f10848g = jSONObject.optLong("download_time", System.currentTimeMillis());
+            this.f10603c = jSONObject.optString("apk_id");
+            this.f10604d = jSONObject.optString("from_view");
+            this.f10605e = jSONObject.optString("from_value");
+            this.f10606f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
+            this.f10607g = jSONObject.optLong("download_time", System.currentTimeMillis());
         } catch (JSONException e2) {
-            if (f10842k) {
+            if (k) {
                 e2.printStackTrace();
             }
         }

@@ -135,7 +135,7 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                     a aVar = new a();
                     this.entryInfo = aVar;
                     aVar.parseJson(optJSONObject2);
-                    this.entryInfo.f58400k = this.adTemplateList;
+                    this.entryInfo.k = this.adTemplateList;
                 }
             } catch (Exception e3) {
                 com.kwad.sdk.core.d.a.a(e3);

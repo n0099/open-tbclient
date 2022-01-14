@@ -16,33 +16,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: c.a.t0.o0.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1245b extends BdAsyncTask<String, Void, Boolean> {
+    /* loaded from: classes8.dex */
+    public static class C1259b extends BdAsyncTask<String, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final BdUniqueId f20605d;
+        public static final BdUniqueId f20056d;
         public transient /* synthetic */ FieldHolder $fh;
         public Process a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20606b;
+        public String f20057b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f20607c;
+        public long f20058c;
 
         static {
             InterceptResult invokeClinit;
@@ -57,10 +57,10 @@ public class b {
                     return;
                 }
             }
-            f20605d = BdUniqueId.gen();
+            f20056d = BdUniqueId.gen();
         }
 
-        public /* synthetic */ C1245b(String str, a aVar) {
+        public /* synthetic */ C1259b(String str, a aVar) {
             this(str);
         }
 
@@ -87,11 +87,11 @@ public class b {
                         th.printStackTrace();
                     }
                 }
-                c.a.t0.o0.i.d.m().n(this.f20606b, (int) this.f20607c, false);
+                c.a.t0.o0.i.d.m().n(this.f20057b, (int) this.f20058c, false);
             }
         }
 
-        public C1245b(String str) {
+        public C1259b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,8 +107,8 @@ public class b {
                 }
             }
             this.a = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f20605d));
-            this.f20606b = str;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f20056d));
+            this.f20057b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,10 +122,10 @@ public class b {
                     try {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Process exec = runtime.exec(b() + this.f20606b);
+                            Process exec = runtime.exec(b() + this.f20057b);
                             this.a = exec;
                             r1 = exec.waitFor() == 0;
-                            this.f20607c = System.currentTimeMillis() - currentTimeMillis;
+                            this.f20058c = System.currentTimeMillis() - currentTimeMillis;
                         } catch (InterruptedException e2) {
                             BdLog.detailException(e2);
                             d.c().a("test_speed", e2.getMessage());
@@ -147,12 +147,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bool) == null) {
                 boolean booleanValue = bool != null ? bool.booleanValue() : true;
-                c.a.t0.o0.i.d.m().n(this.f20606b, (int) this.f20607c, booleanValue);
+                c.a.t0.o0.i.d.m().n(this.f20057b, (int) this.f20058c, booleanValue);
                 c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_testspeed");
                 statsItem.c("issuc", Boolean.valueOf(booleanValue));
-                statsItem.b("ip", this.f20606b);
-                statsItem.c("speed", Integer.valueOf((int) this.f20607c));
+                statsItem.b("ip", this.f20057b);
+                statsItem.c("speed", Integer.valueOf((int) this.f20058c));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
             }
         }
@@ -207,7 +207,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, set) == null) {
             for (String str : set) {
-                new C1245b(str, null).execute(new String[0]);
+                new C1259b(str, null).execute(new String[0]);
             }
         }
     }

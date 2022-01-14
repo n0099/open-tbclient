@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -31,10 +31,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f15226e;
+    public TbPageContext<?> f14850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d2> f15227f;
+    public List<e2> f14851f;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -43,16 +43,16 @@ public class b extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f15228b;
+        public TbImageView f14852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AlaCardBottomUserInfoLayout f15229c;
+        public AlaCardBottomUserInfoLayout f14853c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f15230d;
+        public RelativeLayout f14854d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f15231e;
+        public TextView f14855e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -70,10 +70,10 @@ public class b extends BaseAdapter {
                 }
             }
             this.a = view;
-            this.f15228b = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.f15229c = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.f15230d = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.f15231e = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.f14852b = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.f14853c = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.f14854d = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.f14855e = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 
@@ -92,29 +92,29 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f15226e = tbPageContext;
+        this.f14850e = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public d2 getItem(int i2) {
+    public e2 getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<d2> list = this.f15227f;
+            List<e2> list = this.f14851f;
             if (list != null && i2 >= 0 && i2 <= list.size()) {
-                return this.f15227f.get(i2);
+                return this.f14851f.get(i2);
             }
             return null;
         }
-        return (d2) invokeI.objValue;
+        return (e2) invokeI.objValue;
     }
 
-    public void b(List<d2> list) {
+    public void b(List<e2> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f15227f = list;
+            this.f14851f = list;
             notifyDataSetChanged();
         }
     }
@@ -124,10 +124,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.f15227f)) {
+            if (ListUtils.isEmpty(this.f14851f)) {
                 return 0;
             }
-            return this.f15227f.size();
+            return this.f14851f.size();
         }
         return invokeV.intValue;
     }
@@ -147,18 +147,18 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f15226e.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f14850e.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
                 aVar = new a(view);
-                aVar.f15228b.setIsRound(true);
-                aVar.f15228b.setDrawBorder(false);
-                aVar.f15228b.setAutoChangeStyle(true);
-                aVar.f15228b.setGifIconSupport(false);
-                int k2 = (n.k(this.f15226e.getPageActivity()) - this.f15226e.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
-                int i3 = (k2 * 16) / 9;
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f15230d.getLayoutParams();
-                layoutParams.height = k2;
+                aVar.f14852b.setIsRound(true);
+                aVar.f14852b.setDrawBorder(false);
+                aVar.f14852b.setAutoChangeStyle(true);
+                aVar.f14852b.setGifIconSupport(false);
+                int k = (n.k(this.f14850e.getPageActivity()) - this.f14850e.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
+                int i3 = (k * 16) / 9;
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f14854d.getLayoutParams();
+                layoutParams.height = k;
                 layoutParams.width = i3;
-                aVar.f15230d.setLayoutParams(layoutParams);
+                aVar.f14854d.setLayoutParams(layoutParams);
                 AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
                 ((ViewGroup.LayoutParams) layoutParams2).width = i3;
                 view.setLayoutParams(layoutParams2);
@@ -166,16 +166,16 @@ public class b extends BaseAdapter {
             } else {
                 aVar = (a) view.getTag();
             }
-            d2 item = getItem(i2);
+            e2 item = getItem(i2);
             if (item == null || (o1 = item.o1()) == null) {
                 return null;
             }
-            aVar.f15228b.startLoad(o1.cover, 10, false);
-            aVar.f15229c.setData(item);
-            aVar.f15229c.setUserHeadImgVisible(8);
-            aVar.f15231e.setText(item.getTitle());
-            aVar.f15229c.onChangeSkinType(this.f15226e);
-            SkinManager.setViewTextColor(aVar.f15231e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
+            aVar.f14852b.startLoad(o1.cover, 10, false);
+            aVar.f14853c.setData(item);
+            aVar.f14853c.setUserHeadImgVisible(8);
+            aVar.f14855e.setText(item.getTitle());
+            aVar.f14853c.onChangeSkinType(this.f14850e);
+            SkinManager.setViewTextColor(aVar.f14855e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
             SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }

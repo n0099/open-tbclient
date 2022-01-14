@@ -17,10 +17,10 @@ public class c {
     public static int a = 8;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f62104b;
+    public static volatile c f59760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f62105c;
+    public a<Integer, Bitmap> f59761c;
 
     /* loaded from: classes3.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
@@ -38,9 +38,9 @@ public class c {
     }
 
     public c() {
-        this.f62105c = null;
+        this.f59761c = null;
         int i2 = a;
-        this.f62105c = new a<>(i2, i2 / 2);
+        this.f59761c = new a<>(i2, i2 / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
@@ -58,18 +58,18 @@ public class c {
     }
 
     public static c a() {
-        if (f62104b == null) {
+        if (f59760b == null) {
             synchronized (c.class) {
-                if (f62104b == null) {
-                    f62104b = new c();
+                if (f59760b == null) {
+                    f59760b = new c();
                 }
             }
         }
-        return f62104b;
+        return f59760b;
     }
 
     public Bitmap a(int i2) {
-        return this.f62105c.get(Integer.valueOf(i2));
+        return this.f59761c.get(Integer.valueOf(i2));
     }
 
     public void a(final int i2, final String str) {
@@ -142,7 +142,7 @@ public class c {
                                 int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                 options.inSampleSize = c.a(a3, a3, options);
                                 options.inJustDecodeBounds = false;
-                                c.this.f62105c.put(Integer.valueOf(i2), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                c.this.f59761c.put(Integer.valueOf(i2), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                 f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                             } catch (Exception e5) {
                                 e2 = e5;

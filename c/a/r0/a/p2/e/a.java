@@ -16,21 +16,21 @@ public final class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8540g;
+    public boolean f8356g;
 
     /* renamed from: c.a.r0.a.p2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0506a implements Runnable {
+    public class RunnableC0515a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f8541e;
+        public final /* synthetic */ ArrayList f8357e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8542f;
+        public final /* synthetic */ a f8358f;
 
-        public RunnableC0506a(a aVar, ArrayList arrayList) {
+        public RunnableC0515a(a aVar, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,16 +45,16 @@ public final class a extends b {
                     return;
                 }
             }
-            this.f8542f = aVar;
-            this.f8541e = arrayList;
+            this.f8358f = aVar;
+            this.f8357e = arrayList;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8542f.m(this.f8541e);
-                this.f8542f.j();
+                this.f8358f.m(this.f8357e);
+                this.f8358f.j();
             }
         }
     }
@@ -82,10 +82,10 @@ public final class a extends b {
     @Override // c.a.r0.a.p2.e.b
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f8544b.a()) {
-            long currentTimeMillis = b.f8543f ? System.currentTimeMillis() : 0L;
-            this.a.g(new RunnableC0506a(this, this.f8544b.n()));
-            if (b.f8543f) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f8360b.a()) {
+            long currentTimeMillis = b.f8359f ? System.currentTimeMillis() : 0L;
+            this.a.g(new RunnableC0515a(this, this.f8360b.n()));
+            if (b.f8359f) {
                 String str = "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -93,13 +93,13 @@ public final class a extends b {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f8540g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f8356g) {
             return;
         }
-        long currentTimeMillis = b.f8543f ? System.currentTimeMillis() : 0L;
+        long currentTimeMillis = b.f8359f ? System.currentTimeMillis() : 0L;
         this.a.b();
-        this.f8540g = true;
-        if (b.f8543f) {
+        this.f8356g = true;
+        if (b.f8359f) {
             String str = "clearExpiredCookies costTime:" + (System.currentTimeMillis() - currentTimeMillis);
         }
     }
@@ -108,14 +108,14 @@ public final class a extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            long currentTimeMillis = b.f8543f ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = b.f8359f ? System.currentTimeMillis() : 0L;
             ArrayList<c.a.r0.a.p2.a> arrayList = new ArrayList<>();
             try {
                 arrayList = this.a.e(str);
             } catch (Exception e2) {
                 d.k("SwanCookieSyncPolicy", Log.getStackTraceString(e2));
             }
-            if (b.f8543f) {
+            if (b.f8359f) {
                 String str2 = "getCookiesForDomain costTime:" + (System.currentTimeMillis() - currentTimeMillis);
             }
             return arrayList;
@@ -126,9 +126,9 @@ public final class a extends b {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long currentTimeMillis = b.f8543f ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = b.f8359f ? System.currentTimeMillis() : 0L;
             this.a.h();
-            if (b.f8543f) {
+            if (b.f8359f) {
                 String str = "preInitDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -139,25 +139,25 @@ public final class a extends b {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || arrayList == null || arrayList.isEmpty()) {
             return;
         }
-        boolean z = b.f8543f;
+        boolean z = b.f8359f;
         Iterator<c.a.r0.a.p2.a> it = arrayList.iterator();
         while (it.hasNext()) {
             c.a.r0.a.p2.a next = it.next();
             if (next != null) {
-                if (b.f8543f) {
+                if (b.f8359f) {
                     String str = "syncFromRamToFlash result cookie:" + next.toString();
                 }
-                int i2 = next.f8523i;
+                int i2 = next.f8339i;
                 if (i2 == 0) {
                     this.a.a(next);
-                    this.f8544b.y(next);
+                    this.f8360b.y(next);
                 } else if (i2 == 2) {
-                    this.a.d(next.a, next.f8516b, next.f8517c);
-                    this.f8544b.g(next);
+                    this.a.d(next.a, next.f8332b, next.f8333c);
+                    this.f8360b.g(next);
                 } else if (i2 == 3) {
-                    this.a.d(next.a, next.f8516b, next.f8517c);
+                    this.a.d(next.a, next.f8332b, next.f8333c);
                     this.a.a(next);
-                    this.f8544b.y(next);
+                    this.f8360b.y(next);
                 }
             }
         }

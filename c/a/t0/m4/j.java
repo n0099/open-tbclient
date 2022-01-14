@@ -23,10 +23,10 @@ public class j {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.k.d f20028b;
+    public c.a.t0.k.d f19500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NEGFeedBackView.b f20029c;
+    public NEGFeedBackView.b f19501c;
 
     /* loaded from: classes7.dex */
     public class a implements NEGFeedBackView.b {
@@ -90,7 +90,7 @@ public class j {
             } else if (!z) {
                 i5 = 2;
             }
-            StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", x0Var.f()).param("nid", x0Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", x0Var.c()).param("obj_param1", x0Var.f13849k).param("obj_source", x0Var.l).param("obj_id", x0Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i2).param("obj_locate", i5).eventStat();
+            StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", x0Var.f()).param("nid", x0Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", x0Var.c()).param("obj_param1", x0Var.k).param("obj_source", x0Var.l).param("obj_id", x0Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i2).param("obj_locate", i5).eventStat();
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -115,13 +115,13 @@ public class j {
             }
         }
         this.a = false;
-        this.f20029c = new a(this);
+        this.f19501c = new a(this);
     }
 
     public void b() {
         c.a.t0.k.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f20028b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f19500b) == null) {
             return;
         }
         dVar.h();
@@ -139,8 +139,8 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) == null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
             return;
         }
-        if (this.f20028b == null) {
-            this.f20028b = new c.a.t0.k.d(tbPageContext);
+        if (this.f19500b == null) {
+            this.f19500b = new c.a.t0.k.d(tbPageContext);
         }
         x0 negFeedBackData = videoItemData.getNegFeedBackData();
         if (negFeedBackData == null) {
@@ -151,12 +151,12 @@ public class j {
         negFeedBackData.r = z;
         negFeedBackData.o(str);
         negFeedBackData.l(str2);
-        this.f20028b.r(this.a);
-        this.f20028b.p(this.f20029c);
-        this.f20028b.o(negFeedBackData);
-        this.f20028b.q(true);
-        this.f20028b.h();
-        this.f20028b.s();
+        this.f19500b.r(this.a);
+        this.f19500b.p(this.f19501c);
+        this.f19500b.o(negFeedBackData);
+        this.f19500b.q(true);
+        this.f19500b.h();
+        this.f19500b.s();
         StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", this.a ? z ? 3 : 2 : z ? 5 : 4).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
     }
 }

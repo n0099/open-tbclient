@@ -58,7 +58,7 @@ public class d implements Runnable {
             File file2 = listFiles[i2];
             if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
                 String name = file2.getName();
-                str2 = c.f36997b;
+                str2 = c.f35780b;
                 if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
                     this.a.a(file2);
                 }

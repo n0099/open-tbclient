@@ -21,13 +21,13 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46785b;
+        public String f45055b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f46786c;
+        public int f45056c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f46787d;
+        public String f45057d;
 
         public a() {
             Interceptable interceptable = $ic;

@@ -13,16 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.l.a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public HomePageAlaRecommendLayout f21147j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f21148k;
+    public HomePageAlaRecommendLayout f20590j;
+    public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -42,11 +40,11 @@ public class a extends c.a.l.a<c.a.s0.s.q.a> {
                 return;
             }
         }
-        this.f21148k = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13745c instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13745c.getParent() == null) {
-            this.f21147j = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13745c;
+        this.k = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13435c instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13435c.getParent() == null) {
+            this.f20590j = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13435c;
         } else {
-            this.f21147j = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
+            this.f20590j = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
         }
     }
 
@@ -54,7 +52,7 @@ public class a extends c.a.l.a<c.a.s0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21147j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20590j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +61,7 @@ public class a extends c.a.l.a<c.a.s0.s.q.a> {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f21147j.setData((f) aVar);
+            this.f20590j.setData((f) aVar);
         }
     }
 
@@ -71,11 +69,11 @@ public class a extends c.a.l.a<c.a.s0.s.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            if (this.f21148k != i2) {
-                this.f21147j.onChangeSkinType(i2);
-                l(this.f21147j, 3);
+            if (this.k != i2) {
+                this.f20590j.onChangeSkinType(i2);
+                l(this.f20590j, 3);
             }
-            this.f21148k = i2;
+            this.k = i2;
         }
     }
 }

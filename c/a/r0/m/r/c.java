@@ -19,13 +19,13 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaiduMap f11680e;
+    public BaiduMap f11417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<OverlayOptions> f11681f;
+    public List<OverlayOptions> f11418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Overlay> f11682g;
+    public List<Overlay> f11419g;
 
     public c(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -42,29 +42,29 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
                 return;
             }
         }
-        this.f11680e = null;
-        this.f11681f = null;
-        this.f11682g = null;
-        this.f11680e = baiduMap;
+        this.f11417e = null;
+        this.f11418f = null;
+        this.f11419g = null;
+        this.f11417e = baiduMap;
         if (0 == 0) {
-            this.f11681f = new ArrayList();
+            this.f11418f = new ArrayList();
         }
-        if (this.f11682g == null) {
-            this.f11682g = new ArrayList();
+        if (this.f11419g == null) {
+            this.f11419g = new ArrayList();
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11680e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11417e == null) {
             return;
         }
         c();
         if (b() != null) {
-            this.f11681f.addAll(b());
+            this.f11418f.addAll(b());
         }
-        for (OverlayOptions overlayOptions : this.f11681f) {
-            this.f11682g.add(this.f11680e.addOverlay(overlayOptions));
+        for (OverlayOptions overlayOptions : this.f11418f) {
+            this.f11419g.add(this.f11417e.addOverlay(overlayOptions));
         }
     }
 
@@ -72,27 +72,27 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f11680e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f11417e == null) {
             return;
         }
-        for (Overlay overlay : this.f11682g) {
+        for (Overlay overlay : this.f11419g) {
             overlay.remove();
         }
-        this.f11681f.clear();
-        this.f11682g.clear();
+        this.f11418f.clear();
+        this.f11419g.clear();
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11680e == null || this.f11682g.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11417e == null || this.f11419g.size() <= 0) {
             return;
         }
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Overlay overlay : this.f11682g) {
+        for (Overlay overlay : this.f11419g) {
             if (overlay instanceof Marker) {
                 builder.include(((Marker) overlay).getPosition());
             }
         }
-        this.f11680e.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+        this.f11417e.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
     }
 }

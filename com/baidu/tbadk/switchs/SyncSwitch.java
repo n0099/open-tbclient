@@ -146,6 +146,9 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(AdSaleSpreadSwitch.class);
             SwitchManager.getInstance().registerSwitch(AndroidActivityLogSwitch.class);
             SwitchManager.getInstance().registerSwitch(NovelPaySwitch.class);
+            SwitchManager.getInstance().registerSwitch(ComplianceParmasSwitch.class);
+            SwitchManager.getInstance().registerSwitch(OpenStartSafeModeSwitch.class);
+            SwitchManager.getInstance().registerSwitch(ResetSplashAdConfigSwitch.class);
         }
     }
 }

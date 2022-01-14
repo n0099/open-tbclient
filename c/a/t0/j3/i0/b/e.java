@@ -13,13 +13,13 @@ public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18873b;
+    public int f18403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18874c;
+    public int f18404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f18875d;
+    public long f18405d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class e {
             }
             e eVar = new e();
             eVar.a = jSONObject.optInt("agree_num", -1);
-            eVar.f18873b = jSONObject.optInt("share_num", -1);
-            eVar.f18874c = jSONObject.optInt("reply_num", -1);
-            eVar.f18875d = jSONObject.optLong("time", System.currentTimeMillis());
+            eVar.f18403b = jSONObject.optInt("share_num", -1);
+            eVar.f18404c = jSONObject.optInt("reply_num", -1);
+            eVar.f18405d = jSONObject.optLong("time", System.currentTimeMillis());
             return eVar;
         }
         return (e) invokeL.objValue;

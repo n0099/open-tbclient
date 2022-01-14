@@ -19,7 +19,7 @@ public class b implements InvocationHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f29049e;
+    public Object f28160e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class b implements InvocationHandler {
             Field declaredField = PopupWindow.class.getDeclaredField("mWindowManager");
             declaredField.setAccessible(true);
             Object obj = declaredField.get(popupWindow);
-            this.f29049e = obj;
+            this.f28160e = obj;
             if (obj == null) {
                 return;
             }
@@ -95,7 +95,7 @@ public class b implements InvocationHandler {
                     e2.printStackTrace();
                 }
             }
-            return method.invoke(this.f29049e, objArr);
+            return method.invoke(this.f28160e, objArr);
         }
         return invokeLLL.objValue;
     }

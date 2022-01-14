@@ -69,7 +69,7 @@ public class j extends o {
                     C = new HashMap<>();
                 }
                 C.put("hb_type", "1");
-                C.put("lastsynctime", String.valueOf(c.a.r0.q.k.i.n.f11884c));
+                C.put("lastsynctime", String.valueOf(c.a.r0.q.k.i.n.f11614c));
                 C.put("SWAN-TIMEOUT-SETTING", String.valueOf(c.a.r0.q.k.i.n.b(60) * 1000));
             }
             return C;
@@ -121,10 +121,10 @@ public class j extends o {
                 return aVar;
             }
             c.a.r0.a.p0.g.a aVar2 = new c.a.r0.a.p0.g.a();
-            aVar2.f8429b = cVar.f11763i;
-            aVar2.a = cVar.f11764j;
-            aVar2.f8430c = cVar.a;
-            aVar2.f8431d = cVar.m;
+            aVar2.f8245b = cVar.f11496i;
+            aVar2.a = cVar.f11497j;
+            aVar2.f8246c = cVar.a;
+            aVar2.f8247d = cVar.m;
             if (c.a.r0.a.p0.b.b(0, aVar2) == null) {
                 boolean z = p;
                 boolean m = c.a.r0.a.c1.a.g0().m();

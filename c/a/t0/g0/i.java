@@ -170,7 +170,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f18267e;
+        public final /* synthetic */ i f17820e;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                     return;
                 }
             }
-            this.f18267e = iVar;
+            this.f17820e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -197,12 +197,12 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                 return;
             }
             if (view.getId() == R.id.forum_add_love) {
-                if (ViewHelper.checkUpIsLogin(this.f18267e.j().getContext())) {
+                if (ViewHelper.checkUpIsLogin(this.f17820e.j().getContext())) {
                     String str = (String) view.getTag(R.id.tag_forum_name);
                     String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
                     if (c.a.d.f.p.m.isForumName(str)) {
-                        this.f18267e.C.L(str, valueOf);
-                        TiebaStatic.log(new StatisticItem(this.f18267e.E).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        this.f17820e.C.L(str, valueOf);
+                        TiebaStatic.log(new StatisticItem(this.f17820e.E).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     }
                 }
             } else if (view.getTag(R.id.tag_forum_name) != null) {
@@ -210,14 +210,14 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                 String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
                 if (c.a.d.f.p.m.isForumName(str2)) {
                     if (view.getId() == R.id.m_forum_name_textview) {
-                        TiebaStatic.log(new StatisticItem(this.f18267e.G).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        TiebaStatic.log(new StatisticItem(this.f17820e.G).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     } else {
-                        TiebaStatic.log(new StatisticItem(this.f18267e.F).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        TiebaStatic.log(new StatisticItem(this.f17820e.F).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     }
-                    if (!StringUtils.isNull(this.f18267e.H) && !StringUtils.isNull(this.f18267e.I)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18267e.j().getContext()).createCfgForpersonalized(str2, this.f18267e.H, this.f18267e.I)));
+                    if (!StringUtils.isNull(this.f17820e.H) && !StringUtils.isNull(this.f17820e.I)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17820e.j().getContext()).createCfgForpersonalized(str2, this.f17820e.H, this.f17820e.I)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18267e.j().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17820e.j().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                     }
                 }
             }
@@ -248,8 +248,8 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         this.x = hListView;
         hListView.setHeaderDividersEnabled(false);
         this.x.setFooterDividersEnabled(false);
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().f13744b != null && TbadkCoreApplication.getInst().getPersonalizeViewData().f13744b.getParent() == null) {
-            this.A = TbadkCoreApplication.getInst().getPersonalizeViewData().f13744b;
+        if (TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b != null && TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b.getParent() == null) {
+            this.A = TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b;
         } else {
             this.A = LayoutInflater.from(getContext()).inflate(R.layout.extend_forum_item, (ViewGroup) null);
         }
@@ -283,7 +283,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                 for (c.a.t0.p1.b.c cVar : this.D) {
                     if (cVar != null && (cVar instanceof c.a.t0.g0.f0.g)) {
                         c.a.t0.g0.f0.g gVar = (c.a.t0.g0.f0.g) cVar;
-                        if (String.valueOf(gVar.f18235d).equals(str)) {
+                        if (String.valueOf(gVar.f17790d).equals(str)) {
                             return gVar;
                         }
                     }
@@ -317,13 +317,13 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                 if (cVar != null && (cVar instanceof c.a.t0.g0.f0.g) && cVar2 != null && (cVar2 instanceof c.a.t0.g0.f0.g)) {
                     c.a.t0.g0.f0.g gVar = (c.a.t0.g0.f0.g) cVar;
                     c.a.t0.g0.f0.g gVar2 = (c.a.t0.g0.f0.g) cVar2;
-                    if (gVar.f18235d != gVar2.f18235d) {
+                    if (gVar.f17790d != gVar2.f17790d) {
                         z = false;
                     }
-                    if (!gVar.f18233b.equals(gVar2.f18233b)) {
+                    if (!gVar.f17788b.equals(gVar2.f17788b)) {
                         z = false;
                     }
-                    i2 = gVar.f18234c.equals(gVar2.f18234c) ? i2 + 1 : 0;
+                    i2 = gVar.f17789c.equals(gVar2.f17789c) ? i2 + 1 : 0;
                 }
                 z = false;
             }
@@ -409,7 +409,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             c.a.t0.g0.f0.g C = C(String.valueOf(j2));
             if (C != null) {
-                C.f18236e = z;
+                C.f17791e = z;
             }
             c.a.t0.p1.b.b bVar = this.y;
             if (bVar != null) {

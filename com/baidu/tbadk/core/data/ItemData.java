@@ -72,6 +72,35 @@ public class ItemData extends OrmObject implements Serializable {
     public void parseJson(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            parseJson(str, true);
+        }
+    }
+
+    public void parseProto(Item item) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, item) == null) || item == null) {
+            return;
+        }
+        this.mIconUrl = item.icon_url;
+        this.mTitle = item.item_name;
+        this.mTags = item.tags;
+        this.mScore = item.score.doubleValue();
+        this.mStar = item.star.intValue();
+        this.mIconSize = item.icon_size.doubleValue();
+        this.itemId = item.item_id.longValue();
+        this.buttonName = item.button_name;
+        this.buttonLink = item.button_link;
+        this.buttonLinkType = item.button_link_type;
+        this.pkgName = item.apk_name;
+        this.forumName = item.forum_name;
+        this.apkDetail = item.apk_detail;
+        this.appId = item.item_appid;
+    }
+
+    public void parseJson(String str, boolean z) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.itemId = jSONObject.optLong("item_id");
@@ -86,8 +115,7 @@ public class ItemData extends OrmObject implements Serializable {
                 this.forumName = jSONObject.optString("forum_name");
                 this.pkgName = jSONObject.optString("apk_name");
                 this.appId = jSONObject.optString("item_appid");
-                JSONObject optJSONObject = jSONObject.optJSONObject("apk_detail");
-                if (optJSONObject != null) {
+                if (z && (optJSONObject = jSONObject.optJSONObject("apk_detail")) != null) {
                     ApkDetail.Builder builder = new ApkDetail.Builder();
                     builder.developer = optJSONObject.optString("developer");
                     builder.publisher = optJSONObject.optString("publisher");
@@ -115,31 +143,10 @@ public class ItemData extends OrmObject implements Serializable {
         }
     }
 
-    public void parseProto(Item item) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item) == null) || item == null) {
-            return;
-        }
-        this.mIconUrl = item.icon_url;
-        this.mTitle = item.item_name;
-        this.mTags = item.tags;
-        this.mScore = item.score.doubleValue();
-        this.mStar = item.star.intValue();
-        this.mIconSize = item.icon_size.doubleValue();
-        this.itemId = item.item_id.longValue();
-        this.buttonName = item.button_name;
-        this.buttonLink = item.button_link;
-        this.buttonLinkType = item.button_link_type;
-        this.pkgName = item.apk_name;
-        this.forumName = item.forum_name;
-        this.apkDetail = item.apk_detail;
-        this.appId = item.item_appid;
-    }
-
     public void parseProto(ItemInfo itemInfo) {
         List<ItemPoint> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, itemInfo) == null) || itemInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, itemInfo) == null) || itemInfo == null) {
             return;
         }
         this.mIconUrl = itemInfo.icon_url;
@@ -172,7 +179,7 @@ public class ItemData extends OrmObject implements Serializable {
 
     public void parseProto(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tiebaPlusInfo) == null) || tiebaPlusInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, tiebaPlusInfo) == null) || tiebaPlusInfo == null) {
             return;
         }
         this.mTitle = tiebaPlusInfo.title;

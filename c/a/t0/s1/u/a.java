@@ -26,12 +26,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f22890c;
+    public static a f22260c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashSet<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuilder f22891b;
+    public StringBuilder f22261b;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f22890c = new a();
+        f22260c = new a();
     }
 
     public a() {
@@ -63,13 +63,13 @@ public class a {
             }
         }
         this.a = new HashSet<>();
-        this.f22891b = new StringBuilder();
+        this.f22261b = new StringBuilder();
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22890c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22260c : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -77,7 +77,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        StringBuilder sb = this.f22891b;
+        StringBuilder sb = this.f22261b;
         sb.append(str);
         sb.append(",");
     }
@@ -85,9 +85,9 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StringBuilder sb = this.f22891b;
+            StringBuilder sb = this.f22261b;
             if (sb != null && sb.length() > 0) {
-                StringBuilder sb2 = this.f22891b;
+                StringBuilder sb2 = this.f22261b;
                 sb2.delete(0, sb2.length());
             }
             HashSet<String> hashSet = this.a;
@@ -99,13 +99,13 @@ public class a {
 
     public void d(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d k2;
+        d k;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, chatMessage, context) == null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
             return;
         }
-        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (k2 = c.k(chatMessage.getContent())) != null && !TextUtils.isEmpty(k2.f22664b) && this.a.add(k2.f22664b)) {
-            TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", k2.a, "task_id", k2.f22664b);
+        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (k = c.k(chatMessage.getContent())) != null && !TextUtils.isEmpty(k.f22043b) && this.a.add(k.f22043b)) {
+            TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", k.a, "task_id", k.f22043b);
         }
     }
 
@@ -143,20 +143,20 @@ public class a {
                     sb3.deleteCharAt(sb3.length() - 1);
                     if (sb3.length() > 0) {
                         str = sb3.toString();
-                        sb = this.f22891b;
+                        sb = this.f22261b;
                         if (sb != null && sb.length() > 0) {
-                            this.f22891b.deleteCharAt(sb2.length() - 1);
-                            str2 = this.f22891b.toString();
+                            this.f22261b.deleteCharAt(sb2.length() - 1);
+                            str2 = this.f22261b.toString();
                         }
                         new AddMsgRecordModel().reqViewAndClick(str, str2);
                     }
                 }
             }
             str = null;
-            sb = this.f22891b;
+            sb = this.f22261b;
             if (sb != null) {
-                this.f22891b.deleteCharAt(sb2.length() - 1);
-                str2 = this.f22891b.toString();
+                this.f22261b.deleteCharAt(sb2.length() - 1);
+                str2 = this.f22261b.toString();
             }
             new AddMsgRecordModel().reqViewAndClick(str, str2);
         }

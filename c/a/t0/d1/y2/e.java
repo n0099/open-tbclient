@@ -1,14 +1,6 @@
 package c.a.t0.d1.y2;
 
-import android.app.Activity;
-import android.util.LongSparseArray;
-import android.view.View;
-import c.a.t0.d1.f1;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,68 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LongSparseArray<Integer> f17286b;
+    public boolean f16837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.d1.i2.c f17287c;
+    public boolean f16838c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public d f17288d;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.d1.z2.f f17289e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17290f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f17291g;
-
-        public a(e eVar, c.a.t0.d1.z2.f fVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, fVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f17289e = fVar;
-            this.f17290f = str;
-            this.f17291g = str2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.d1.z2.f fVar = this.f17289e;
-                if (fVar != null) {
-                    fVar.n(this.f17290f, this.f17291g);
-                }
-                TiebaStatic.log(new StatisticItem("c13982").param("fid", this.f17291g).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            }
-        }
-    }
-
-    public e() {
+    public e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -89,117 +33,70 @@ public class e {
                 return;
             }
         }
-        this.a = null;
-        this.a = new f();
-        this.f17286b = new LongSparseArray<>();
-    }
-
-    public int a(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            if (j2 == 0) {
-                return 0;
+        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
+            this.a = str.substring(0, 1).contains("1");
+            this.f16837b = str.substring(2, 3).contains("1");
+            if (str.length() >= 5) {
+                this.f16838c = str.substring(4, 5).contains("1");
+                return;
             }
-            Integer num = this.f17286b.get(j2);
-            if (num == null) {
-                this.f17286b.put(j2, 1);
-                return 1;
-            }
-            this.f17286b.put(j2, Integer.valueOf(num.intValue() + 1));
-            return num.intValue() + 1;
-        }
-        return invokeJ.intValue;
-    }
-
-    public void b(long j2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || j2 == 0) {
             return;
         }
-        this.f17286b.remove(j2);
+        this.a = false;
+        this.f16837b = true;
     }
 
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.a.b(str, str2);
-        }
-    }
-
-    public void d() {
-        c.a.t0.d1.i2.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cVar = this.f17287c) == null) {
-            return;
-        }
-        cVar.m();
-    }
-
-    public f e() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public void f(Activity activity, String str, String str2) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, str2) == null) && activity != null && this.f17288d.c()) {
-            if (this.f17287c == null) {
-                this.f17287c = new c.a.t0.d1.i2.c(activity, f1.frs_guide_delete_forum_tip);
-            }
-            this.f17287c.p(str);
-            this.f17287c.q(str2);
-            this.f17287c.r();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16837b : invokeV.booleanValue;
     }
 
-    public boolean g(String str, String str2) {
-        InterceptResult invokeLL;
-        f fVar;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (fVar = this.a) == null) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - fVar.f(str, str2);
-            if (currentTimeMillis < 3600000) {
-                return false;
-            }
-            if (this.a.e(str, str2) <= 3 || currentTimeMillis >= 2592000000L) {
-                long c2 = this.a.c(str, str2);
-                if (c2 == 0 || System.currentTimeMillis() - c2 > 604800000) {
-                    return this.a.d(str, str2);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16838c : invokeV.booleanValue;
     }
 
-    public void h(Activity activity, String str, String str2, String str3, c.a.t0.d1.z2.f fVar) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, str3, fVar) == null) || activity == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
         }
-        if (this.f17287c == null) {
-            this.f17287c = new c.a.t0.d1.i2.c(activity, f1.frs_guide_tip);
-        }
-        if (!StringUtils.isNull(str3)) {
-            this.f17287c.n(str3);
-        }
-        this.f17287c.o(new a(this, fVar, str, str2));
-        this.f17287c.s();
-        TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
-    public e(String str, String str2) {
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f16837b = z;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f16838c = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.f16837b ? 1 : 0), Integer.valueOf(this.f16838c ? 1 : 0)) : (String) invokeV.objValue;
+    }
+
+    public e(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -209,7 +106,7 @@ public class e {
                 return;
             }
         }
-        this.a = null;
-        this.f17288d = new d(str, str2);
+        this.a = z;
+        this.f16837b = z2;
     }
 }

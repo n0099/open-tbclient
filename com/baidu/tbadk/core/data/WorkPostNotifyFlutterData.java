@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.w3.s0.g;
+import c.a.t0.w3.s0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -29,26 +29,26 @@ public class WorkPostNotifyFlutterData {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41565b;
+    public String f40142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41566c;
+    public String f40143c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41567d;
+    public String f40144d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41568e;
+    public String f40145e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteThreadData4Flutter f41569f;
+    public NewWriteThreadData4Flutter f40146f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41570g;
+    public String f40147g;
 
     @Keep
     /* loaded from: classes11.dex */
@@ -190,8 +190,8 @@ public class WorkPostNotifyFlutterData {
             }
         }
         this.a = str;
-        this.f41565b = str2;
-        this.f41566c = str3;
+        this.f40142b = str2;
+        this.f40143c = str3;
     }
 
     public static WorkPostNotifyFlutterData e(String str) {
@@ -218,7 +218,7 @@ public class WorkPostNotifyFlutterData {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
             NewWriteThreadData4Flutter.VideoInfo videoInfo = new NewWriteThreadData4Flutter.VideoInfo();
             VideoInfo videoInfo2 = writeData.getVideoInfo();
-            String n = g.k().n();
+            String n = b.k().n();
             if (TextUtils.isEmpty(n)) {
                 n = videoInfo2.getThumbPath();
             }
@@ -256,21 +256,21 @@ public class WorkPostNotifyFlutterData {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41570g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40147g : (String) invokeV.objValue;
     }
 
     @Nullable
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41567d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40144d : (String) invokeV.objValue;
     }
 
     @Nullable
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41568e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40145e : (String) invokeV.objValue;
     }
 
     @Nullable
@@ -278,7 +278,7 @@ public class WorkPostNotifyFlutterData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f41569f;
+            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f40146f;
             if (newWriteThreadData4Flutter == null) {
                 return null;
             }
@@ -290,28 +290,28 @@ public class WorkPostNotifyFlutterData {
     public void i(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f41570g = str;
+            this.f40147g = str;
         }
     }
 
     public void j(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f41567d = str;
+            this.f40144d = str;
         }
     }
 
     public void k(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f41568e = str;
+            this.f40145e = str;
         }
     }
 
     public void l(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.f41569f = h(writeData);
+            this.f40146f = h(writeData);
         }
     }
 }

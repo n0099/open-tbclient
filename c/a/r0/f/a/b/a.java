@@ -13,12 +13,12 @@ public interface a {
 
     /* renamed from: c.a.r0.f.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0672a implements a {
+    public static class C0681a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a a;
 
-        public C0672a(a delegation) {
+        public C0681a(a delegation) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

@@ -35,7 +35,7 @@ public abstract class AbstractMutableMap<K, V> extends java.util.AbstractMap<K, 
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public abstract V put(K k2, V v);
+    public abstract V put(K k, V v);
 
     @Override // java.util.AbstractMap, java.util.Map
     public final /* bridge */ int size() {

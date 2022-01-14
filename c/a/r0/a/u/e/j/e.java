@@ -35,37 +35,37 @@ public class e extends c.a.r0.a.u.e.j.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.g1.f f9386e;
+        public final /* synthetic */ c.a.r0.a.g1.f f9181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9387f;
+        public final /* synthetic */ String f9182f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f9388g;
+        public final /* synthetic */ c.a.r0.a.m1.b f9183g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9389h;
+        public final /* synthetic */ String f9184h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f9390i;
+        public final /* synthetic */ g f9185i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f9391j;
+        public final /* synthetic */ e f9186j;
 
         /* renamed from: c.a.r0.a.u.e.j.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0573a implements g.e {
+        public class C0582a implements g.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.d2.e f9392b;
+            public final /* synthetic */ c.a.r0.a.d2.e f9187b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f9393c;
+            public final /* synthetic */ a f9188c;
 
-            public C0573a(a aVar, Activity activity, c.a.r0.a.d2.e eVar) {
+            public C0582a(a aVar, Activity activity, c.a.r0.a.d2.e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,25 +80,25 @@ public class e extends c.a.r0.a.u.e.j.a {
                         return;
                     }
                 }
-                this.f9393c = aVar;
+                this.f9188c = aVar;
                 this.a = activity;
-                this.f9392b = eVar;
+                this.f9187b = eVar;
             }
 
             @Override // c.a.r0.a.f2.f.o0.g.e
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    i.d(this.f9393c.f9389h);
+                    i.d(this.f9188c.f9184h);
                     c.a.r0.a.e0.d.i("RelaunchApi", "check pages success");
-                    this.f9393c.f9386e.o();
-                    a.e f2 = c.a.r0.a.h0.t.a.f(this.a, c.a.r0.a.h0.t.f.a.c(this.f9393c.f9388g.f7843e));
+                    this.f9188c.f9181e.o();
+                    a.e f2 = c.a.r0.a.h0.t.a.f(this.a, c.a.r0.a.h0.t.f.a.c(this.f9188c.f9183g.f7672e));
                     String c2 = f2.a.c();
-                    a aVar = this.f9393c;
-                    c.a.r0.a.f2.f.o0.a.m(aVar.f9391j, this.f9392b, c2, aVar.f9388g.f7843e, null, aVar.f9387f);
+                    a aVar = this.f9188c;
+                    c.a.r0.a.f2.f.o0.a.m(aVar.f9186j, this.f9187b, c2, aVar.f9183g.f7672e, null, aVar.f9182f);
                     c.a.r0.a.n2.e.t(c2);
-                    a aVar2 = this.f9393c;
-                    aVar2.f9391j.z(f2, aVar2.f9388g, aVar2.f9390i, aVar2.f9389h);
+                    a aVar2 = this.f9188c;
+                    aVar2.f9186j.z(f2, aVar2.f9183g, aVar2.f9185i, aVar2.f9184h);
                 }
             }
 
@@ -107,10 +107,10 @@ public class e extends c.a.r0.a.u.e.j.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
                     c.a.r0.a.e0.d.c("RelaunchApi", "check pages failed");
-                    this.f9393c.f9386e.o();
-                    a aVar2 = this.f9393c;
-                    c.a.r0.a.f2.f.o0.a.k(aVar2.f9391j, aVar2.f9387f);
-                    c.a.r0.a.n2.i.j(this.f9393c.f9388g, aVar);
+                    this.f9188c.f9181e.o();
+                    a aVar2 = this.f9188c;
+                    c.a.r0.a.f2.f.o0.a.k(aVar2.f9186j, aVar2.f9182f);
+                    c.a.r0.a.n2.i.j(this.f9188c.f9183g, aVar);
                 }
             }
         }
@@ -130,32 +130,32 @@ public class e extends c.a.r0.a.u.e.j.a {
                     return;
                 }
             }
-            this.f9391j = eVar;
-            this.f9386e = fVar;
-            this.f9387f = str;
-            this.f9388g = bVar;
-            this.f9389h = str2;
-            this.f9390i = gVar;
+            this.f9186j = eVar;
+            this.f9181e = fVar;
+            this.f9182f = str;
+            this.f9183g = bVar;
+            this.f9184h = str2;
+            this.f9185i = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppActivity activity = this.f9386e.getActivity();
+                SwanAppActivity activity = this.f9181e.getActivity();
                 if (activity != null && !activity.isFinishing()) {
                     c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
                     if (L == null) {
-                        this.f9391j.d(this.f9387f, new c.a.r0.a.u.h.b(1001, "swan app is null"));
-                        c.a.r0.a.n2.i.i(this.f9388g);
+                        this.f9186j.d(this.f9182f, new c.a.r0.a.u.h.b(1001, "swan app is null"));
+                        c.a.r0.a.n2.i.i(this.f9183g);
                         return;
                     }
-                    this.f9386e.a();
-                    c.a.r0.a.f2.f.o0.g.g(L, this.f9388g, "", new C0573a(this, activity, L), this.f9389h);
+                    this.f9181e.a();
+                    c.a.r0.a.f2.f.o0.g.g(L, this.f9183g, "", new C0582a(this, activity, L), this.f9184h);
                     return;
                 }
-                this.f9391j.d(this.f9387f, new c.a.r0.a.u.h.b(1001, "swan activity is null"));
-                c.a.r0.a.n2.i.i(this.f9388g);
+                this.f9186j.d(this.f9182f, new c.a.r0.a.u.h.b(1001, "swan activity is null"));
+                c.a.r0.a.n2.i.i(this.f9183g);
             }
         }
     }
@@ -167,13 +167,13 @@ public class e extends c.a.r0.a.u.e.j.a {
         public final /* synthetic */ a.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9394b;
+        public final /* synthetic */ String f9189b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f9395c;
+        public final /* synthetic */ c.a.r0.a.m1.b f9190c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f9396d;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f9191d;
 
         public b(e eVar, a.e eVar2, String str, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -191,18 +191,18 @@ public class e extends c.a.r0.a.u.e.j.a {
                 }
             }
             this.a = eVar2;
-            this.f9394b = str;
-            this.f9395c = bVar;
-            this.f9396d = gVar;
+            this.f9189b = str;
+            this.f9190c = bVar;
+            this.f9191d = gVar;
         }
 
         @Override // c.a.r0.a.h0.t.a.f
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.e(this.a, this.f9394b);
-                c.a.r0.a.f2.f.o0.a.e(this.a.a, this.f9395c, this.f9394b);
-                e.y(this.f9396d, this.f9395c, this.f9394b);
+                i.e(this.a, this.f9189b);
+                c.a.r0.a.f2.f.o0.a.e(this.a.a, this.f9190c, this.f9189b);
+                e.y(this.f9191d, this.f9190c, this.f9189b);
             }
         }
     }
@@ -266,7 +266,7 @@ public class e extends c.a.r0.a.u.e.j.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, gVar, bVar, str) == null) {
             if (bVar != null) {
-                c.a.r0.a.e0.d.i("RelaunchApi", "doReLaunch page=" + bVar.f7843e + " routePage=" + bVar.f7846h);
+                c.a.r0.a.e0.d.i("RelaunchApi", "doReLaunch page=" + bVar.f7672e + " routePage=" + bVar.f7675h);
             }
             SwanAppActivity x = c.a.r0.a.d2.d.J().x();
             if (x == null || x.isFinishing() || x.isDestroyed()) {
@@ -310,18 +310,18 @@ public class e extends c.a.r0.a.u.e.j.a {
                     return new c.a.r0.a.u.h.b(1001, "manager is null");
                 }
                 c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(p, U.z());
-                e2.f7847i = "3";
-                e2.f7848j = uuid;
+                e2.f7676i = "3";
+                e2.f7677j = uuid;
                 c.a.r0.a.n2.i.g(e2);
                 if (!q0.b(U.s(), e2, true)) {
-                    String str2 = "page params error : path=" + e2.f7843e + " ; routePath=" + e2.f7846h;
+                    String str2 = "page params error : path=" + e2.f7672e + " ; routePath=" + e2.f7675h;
                     c.a.r0.a.e0.d.c("RelaunchApi", str2);
                     c.a.r0.a.n2.i.i(e2);
                     return new c.a.r0.a.u.h.b(202, str2);
                 }
                 String optString = jSONObject.optString("initData");
-                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(e2.f7846h) && c.a.r0.a.d2.e.L() != null) {
-                    c.a.r0.a.d2.e.L().K0(optString, e2.f7846h);
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(e2.f7675h) && c.a.r0.a.d2.e.L() != null) {
+                    c.a.r0.a.d2.e.L().K0(optString, e2.f7675h);
                 }
                 String optString2 = jSONObject.optString("startTime");
                 if (!TextUtils.isEmpty(optString2)) {
@@ -359,7 +359,7 @@ public class e extends c.a.r0.a.u.e.j.a {
     public final void z(a.e eVar, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, bVar, gVar, str) == null) {
-            boolean z = eVar != null && eVar.f7034b;
+            boolean z = eVar != null && eVar.f6884b;
             HybridUbcFlow q = h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.F(new UbcFlowEvent("na_pre_load_slave_check"));
             q.D("preload", z ? "1" : "0");

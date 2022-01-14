@@ -36,10 +36,10 @@ public class b implements View.OnClickListener {
         PermissionsDTO permissionsDTO;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            sb = this.a.f38958e;
+            sb = this.a.f37672e;
             SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
             PermissionsHelperActivity permissionsHelperActivity = this.a;
-            permissionsDTO = permissionsHelperActivity.f38956c;
+            permissionsDTO = permissionsHelperActivity.f37670c;
             permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, 8001);
         }
     }

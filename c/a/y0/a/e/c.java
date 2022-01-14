@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes9.dex */
-public final class c implements a.InterfaceC1590a {
+public final class c implements a.InterfaceC1606a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public final class c implements a.InterfaceC1590a {
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void a(Activity activity) {
         d dVar;
         Interceptable interceptable = $ic;
@@ -38,21 +38,21 @@ public final class c implements a.InterfaceC1590a {
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // c.a.y0.a.e.a.InterfaceC1590a
+    @Override // c.a.y0.a.e.a.InterfaceC1606a
     public final void onActivityDestroyed(Activity activity) {
         d dVar;
         Interceptable interceptable = $ic;

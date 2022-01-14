@@ -24,25 +24,25 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<PayChannelEntity> f3754e;
+    public List<PayChannelEntity> f3700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f3755f;
+    public Context f3701f;
 
     /* renamed from: c.a.h0.t.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0145a {
+    public static class C0153a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f3756b;
+        public TextView f3702b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f3757c;
+        public ImageView f3703c;
 
-        public C0145a(View view) {
+        public C0153a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,8 +58,8 @@ public class a extends BaseAdapter {
                 }
             }
             this.a = (ImageView) view.findViewById(g.poly_sdk_bank_icon);
-            this.f3756b = (TextView) view.findViewById(g.poly_sdk_bank_name);
-            this.f3757c = (ImageView) view.findViewById(g.poly_sdk_bank_select_view);
+            this.f3702b = (TextView) view.findViewById(g.poly_sdk_bank_name);
+            this.f3703c = (ImageView) view.findViewById(g.poly_sdk_bank_select_view);
         }
     }
 
@@ -78,7 +78,7 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f3755f = context;
+        this.f3701f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,10 +88,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f3754e.size()) {
+            if (i2 < 0 || i2 >= this.f3700e.size()) {
                 return null;
             }
-            return this.f3754e.get(i2);
+            return this.f3700e.get(i2);
         }
         return (PayChannelEntity) invokeI.objValue;
     }
@@ -99,7 +99,7 @@ public class a extends BaseAdapter {
     public void b(List<PayChannelEntity> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f3754e = list;
+            this.f3700e = list;
             notifyDataSetChanged();
         }
     }
@@ -109,7 +109,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PayChannelEntity> list = this.f3754e;
+            List<PayChannelEntity> list = this.f3700e;
             if (list == null) {
                 return 0;
             }
@@ -138,17 +138,17 @@ public class a extends BaseAdapter {
                 return view;
             }
             if (view == null) {
-                view = LayoutInflater.from(this.f3755f).inflate(h.digital_bank_channel_list_item, (ViewGroup) null, false);
-                view.setTag(new C0145a(view));
+                view = LayoutInflater.from(this.f3701f).inflate(h.digital_bank_channel_list_item, (ViewGroup) null, false);
+                view.setTag(new C0153a(view));
             }
-            if (view.getTag() != null && (view.getTag() instanceof C0145a)) {
-                C0145a c0145a = (C0145a) view.getTag();
-                c.a.h0.m.b.b().a(c0145a.a, item.getIcon());
-                c0145a.f3756b.setText(item.getDisplayName());
+            if (view.getTag() != null && (view.getTag() instanceof C0153a)) {
+                C0153a c0153a = (C0153a) view.getTag();
+                c.a.h0.m.b.b().a(c0153a.a, item.getIcon());
+                c0153a.f3702b.setText(item.getDisplayName());
                 if (item.getIsSelected() == 1) {
-                    c0145a.f3757c.setImageResource(f.channel_checked);
+                    c0153a.f3703c.setImageResource(f.channel_checked);
                 } else {
-                    c0145a.f3757c.setImageResource(f.unchecked);
+                    c0153a.f3703c.setImageResource(f.unchecked);
                 }
             }
             return view;

@@ -13,15 +13,15 @@ public class a implements com.kwad.sdk.pngencrypt.g {
 
     @Override // com.kwad.sdk.pngencrypt.g
     public final PngChunk a(d dVar, com.kwad.sdk.pngencrypt.k kVar) {
-        PngChunk a = a(dVar.f59302c, kVar);
+        PngChunk a = a(dVar.f57066c, kVar);
         if (a == null) {
-            a = c(dVar.f59302c, kVar);
+            a = c(dVar.f57066c, kVar);
         }
         if (a == null) {
-            a = b(dVar.f59302c, kVar);
+            a = b(dVar.f57066c, kVar);
         }
         a.b(dVar);
-        if (this.a && dVar.f59303d != null) {
+        if (this.a && dVar.f57067d != null) {
             a.a(dVar);
         }
         return a;

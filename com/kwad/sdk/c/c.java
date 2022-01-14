@@ -30,57 +30,55 @@ public class c {
     public static volatile c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f57632b;
+    public d f55447b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f57634d;
+    public Context f55449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f57635e;
+    public b f55450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57636f;
+    public List<com.kwad.sdk.c.kwai.d> f55451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57637g;
+    public List<com.kwad.sdk.c.kwai.d> f55452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57638h;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f57641k;
+    public List<com.kwad.sdk.c.kwai.d> f55453h;
+    public List<com.kwad.sdk.c.kwai.d> k;
     public com.kwad.sdk.c.a.c m;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f57633c = new HashMap();
+    public final Map<String, String> f55448c = new HashMap();
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f57640j = false;
+    public volatile boolean f55455j = false;
     public final LinkedHashSet<String> l = new LinkedHashSet<>();
     public final NetworkMonitor.a n = new NetworkMonitor.a() { // from class: com.kwad.sdk.c.c.2
         @Override // com.kwad.sdk.core.NetworkMonitor.a
         public void a(NetworkMonitor.NetworkState networkState) {
-            if ((networkState == NetworkMonitor.NetworkState.NETWORK_WIFI || networkState == NetworkMonitor.NetworkState.NETWORK_MOBILE) && c.this.f57637g != null && c.this.f57637g.size() > 0) {
+            if ((networkState == NetworkMonitor.NetworkState.NETWORK_WIFI || networkState == NetworkMonitor.NetworkState.NETWORK_MOBILE) && c.this.f55452g != null && c.this.f55452g.size() > 0) {
                 c.this.b();
             }
         }
     };
 
     /* renamed from: i  reason: collision with root package name */
-    public final Lock f57639i = new ReentrantLock();
+    public final Lock f55454i = new ReentrantLock();
 
     private WebResourceResponse a(String str, String str2) {
-        synchronized (this.f57633c) {
-            String str3 = this.f57633c.get(str);
-            com.kwad.sdk.core.d.a.a("WebResourceResponse", str3 + " | " + str2 + " | " + str + "| packageStatusMap size:" + this.f57633c.size());
+        synchronized (this.f55448c) {
+            String str3 = this.f55448c.get(str);
+            com.kwad.sdk.core.d.a.a("WebResourceResponse", str3 + " | " + str2 + " | " + str + "| packageStatusMap size:" + this.f55448c.size());
             if (TextUtils.isEmpty(str3)) {
                 b(str);
                 return null;
             }
-            synchronized (this.f57632b) {
+            synchronized (this.f55447b) {
                 com.kwad.sdk.c.kwai.d c2 = c(str);
                 if (c2 != null) {
-                    return this.f57632b.a(str2, c2, str3);
+                    return this.f55447b.a(str2, c2, str3);
                 }
                 return null;
             }
@@ -135,25 +133,25 @@ public class c {
         if (list.size() <= 0) {
             return;
         }
-        this.f57641k = new ArrayList();
+        this.k = new ArrayList();
         for (com.kwad.sdk.c.kwai.d dVar : list) {
-            for (com.kwad.sdk.c.kwai.d dVar2 : this.f57637g) {
-                if (TextUtils.equals(dVar.f57655d, dVar2.f57655d)) {
+            for (com.kwad.sdk.c.kwai.d dVar2 : this.f55452g) {
+                if (TextUtils.equals(dVar.f55469d, dVar2.f55469d)) {
                     if (dVar.c().equals(dVar2.c())) {
-                        if (this.f57638h == null) {
-                            this.f57638h = new ArrayList();
+                        if (this.f55453h == null) {
+                            this.f55453h = new ArrayList();
                         }
-                        list2 = this.f57638h;
+                        list2 = this.f55453h;
                     } else {
-                        list2 = this.f57641k;
+                        list2 = this.k;
                     }
                     list2.add(dVar);
                 }
             }
         }
-        a(this.f57637g, this.f57638h);
-        a(list, this.f57641k);
-        b(this.f57641k);
+        a(this.f55452g, this.f55453h);
+        a(list, this.k);
+        b(this.k);
     }
 
     private void a(List<com.kwad.sdk.c.kwai.d> list, List<com.kwad.sdk.c.kwai.d> list2) {
@@ -170,23 +168,23 @@ public class c {
     }
 
     private boolean a(com.kwad.sdk.c.kwai.d dVar, com.kwad.sdk.c.kwai.d dVar2) {
-        return TextUtils.equals(dVar.f57655d, dVar2.f57655d) && TextUtils.equals(dVar.c(), dVar2.c());
+        return TextUtils.equals(dVar.f55469d, dVar2.f55469d) && TextUtils.equals(dVar.c(), dVar2.c());
     }
 
     private boolean a(com.kwad.sdk.c.kwai.d dVar, String str) {
-        return dVar.f57658g == 3 && TextUtils.equals(dVar.b(), str);
+        return dVar.f55472g == 3 && TextUtils.equals(dVar.b(), str);
     }
 
     private void b(Context context) {
         List<com.kwad.sdk.c.kwai.d> c2 = c(context);
-        this.f57636f = c2;
+        this.f55451f = c2;
         if (c2 == null || c2.size() <= 0) {
             return;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f57636f) {
-            synchronized (this.f57633c) {
-                this.f57633c.put(dVar.b(), dVar.f57653b);
-                if (dVar.f57660i) {
+        for (com.kwad.sdk.c.kwai.d dVar : this.f55451f) {
+            synchronized (this.f55448c) {
+                this.f55448c.put(dVar.b(), dVar.f55467b);
+                if (dVar.f55474i) {
                     this.l.add(dVar.b());
                 }
             }
@@ -195,7 +193,7 @@ public class c {
 
     private void b(List<com.kwad.sdk.c.kwai.d> list) {
         for (com.kwad.sdk.c.kwai.d dVar : list) {
-            String a2 = com.kwad.sdk.c.b.a.a(this.f57634d, dVar.f());
+            String a2 = com.kwad.sdk.c.b.a.a(this.f55449d, dVar.f());
             if (!TextUtils.isEmpty(a2)) {
                 q.c(new File(a2));
             }
@@ -203,9 +201,9 @@ public class c {
     }
 
     private com.kwad.sdk.c.kwai.d c(String str) {
-        for (int i2 = 0; i2 < this.f57636f.size(); i2++) {
-            if (TextUtils.equals(str, this.f57636f.get(i2).a)) {
-                return this.f57636f.get(i2);
+        for (int i2 = 0; i2 < this.f55451f.size(); i2++) {
+            if (TextUtils.equals(str, this.f55451f.get(i2).a)) {
+                return this.f55451f.get(i2);
             }
         }
         return null;
@@ -245,33 +243,33 @@ public class c {
     }
 
     private boolean d(com.kwad.sdk.c.kwai.d dVar) {
-        if (dVar.f57658g != 1) {
-            return com.ksad.download.c.b.b(this.f57634d) && dVar.f57658g == 2;
+        if (dVar.f55472g != 1) {
+            return com.ksad.download.c.b.b(this.f55449d) && dVar.f55472g == 2;
         }
         return true;
     }
 
     private void e(com.kwad.sdk.c.kwai.d dVar) {
-        List<com.kwad.sdk.c.kwai.d> list = this.f57637g;
+        List<com.kwad.sdk.c.kwai.d> list = this.f55452g;
         if (list == null) {
             return;
         }
         int indexOf = list.indexOf(dVar);
         if (indexOf >= 0) {
-            this.f57637g.remove(indexOf);
+            this.f55452g.remove(indexOf);
         }
-        if (this.f57640j) {
+        if (this.f55455j) {
             d();
         }
     }
 
     private boolean e() {
-        List<com.kwad.sdk.c.kwai.d> list = this.f57637g;
+        List<com.kwad.sdk.c.kwai.d> list = this.f55452g;
         if (list == null || list.size() <= 0) {
             return false;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f57637g) {
-            if (dVar.f57658g != 3) {
+        for (com.kwad.sdk.c.kwai.d dVar : this.f55452g) {
+            if (dVar.f55472g != 3) {
                 return true;
             }
         }
@@ -282,8 +280,8 @@ public class c {
     private void f(com.kwad.sdk.c.kwai.d dVar) {
         boolean z;
         com.kwad.sdk.c.b.b.a(dVar, 3);
-        com.kwad.sdk.core.d.a.a("updatePackageIndexFile", dVar.a + "|" + dVar.f57656e);
-        File file = new File(com.kwad.sdk.c.b.a.c(this.f57634d));
+        com.kwad.sdk.core.d.a.a("updatePackageIndexFile", dVar.a + "|" + dVar.f55470e);
+        File file = new File(com.kwad.sdk.c.b.a.c(this.f55449d));
         if (!file.exists()) {
             try {
                 z = file.createNewFile();
@@ -295,16 +293,16 @@ public class c {
                 return;
             }
         }
-        if (this.f57636f == null) {
-            this.f57636f = a(file);
+        if (this.f55451f == null) {
+            this.f55451f = a(file);
         }
-        int indexOf = this.f57636f.indexOf(dVar);
+        int indexOf = this.f55451f.indexOf(dVar);
         if (indexOf >= 0) {
-            this.f57636f.get(indexOf).b(dVar.f57656e);
+            this.f55451f.get(indexOf).b(dVar.f55470e);
         } else {
-            this.f57636f.add(dVar);
+            this.f55451f.add(dVar);
         }
-        String jSONArray = t.b(this.f57636f).toString();
+        String jSONArray = t.b(this.f55451f).toString();
         try {
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -324,7 +322,7 @@ public class c {
     }
 
     public WebResourceResponse a(String str) {
-        String a2 = this.f57632b.a(str);
+        String a2 = this.f55447b.a(str);
         if (!TextUtils.isEmpty(a2)) {
             this.l.add(a2);
             return a(a2, str);
@@ -341,9 +339,9 @@ public class c {
 
     public void a(Context context) {
         if (com.kwad.sdk.core.config.b.J()) {
-            this.f57634d = context;
-            this.f57632b = new d(context);
-            this.f57635e = new b(context);
+            this.f55449d = context;
+            this.f55447b = new d(context);
+            this.f55450e = new b(context);
             r.a(context);
             b(context);
             this.m = new d.a();
@@ -352,21 +350,21 @@ public class c {
 
     public void a(com.kwad.sdk.c.kwai.d dVar) {
         if (dVar != null && this.m.a(dVar)) {
-            this.f57639i.lock();
-            String a2 = this.f57635e.a(dVar, false);
-            this.f57639i.unlock();
+            this.f55454i.lock();
+            String a2 = this.f55450e.a(dVar, false);
+            this.f55454i.unlock();
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
             com.kwad.sdk.core.d.a.a("installPackage", "version" + dVar.c());
             f(dVar);
-            if (this.f57636f == null) {
-                this.f57636f = new ArrayList();
+            if (this.f55451f == null) {
+                this.f55451f = new ArrayList();
             }
-            this.f57636f.add(dVar);
-            synchronized (this.f57633c) {
-                this.f57633c.put(dVar.b(), dVar.f57653b);
-                if (dVar.f57660i) {
+            this.f55451f.add(dVar);
+            synchronized (this.f55448c) {
+                this.f55448c.put(dVar.b(), dVar.f55467b);
+                if (dVar.f55474i) {
                     this.l.add(dVar.b());
                 }
                 com.kwad.sdk.c.b.b.a(dVar, 4);
@@ -376,50 +374,50 @@ public class c {
 
     public void b() {
         if (com.kwad.sdk.core.config.b.J()) {
-            if (this.f57636f == null) {
-                this.f57636f = c(this.f57634d);
+            if (this.f55451f == null) {
+                this.f55451f = c(this.f55449d);
             }
-            boolean z = this.f57636f == null;
+            boolean z = this.f55451f == null;
             List<com.kwad.sdk.c.kwai.d> c2 = c();
             if (c2 == null) {
                 return;
             }
-            this.f57637g = new ArrayList();
+            this.f55452g = new ArrayList();
             if (c2.size() > 0) {
-                this.f57637g.addAll(c2);
+                this.f55452g.addAll(c2);
             }
             if (!z) {
-                a(this.f57636f);
+                a(this.f55451f);
             }
-            ArrayList arrayList = new ArrayList(this.f57637g.size());
-            for (com.kwad.sdk.c.kwai.d dVar : this.f57637g) {
-                if (dVar.f57659h == 1) {
+            ArrayList arrayList = new ArrayList(this.f55452g.size());
+            for (com.kwad.sdk.c.kwai.d dVar : this.f55452g) {
+                if (dVar.f55473h == 1) {
                     arrayList.add(dVar);
                 }
             }
-            this.f57637g.clear();
-            this.f57637g.addAll(arrayList);
-            for (int i2 = 0; i2 < this.f57637g.size(); i2++) {
-                com.kwad.sdk.c.kwai.d dVar2 = this.f57637g.get(i2);
+            this.f55452g.clear();
+            this.f55452g.addAll(arrayList);
+            for (int i2 = 0; i2 < this.f55452g.size(); i2++) {
+                com.kwad.sdk.c.kwai.d dVar2 = this.f55452g.get(i2);
                 if (d(dVar2)) {
-                    new a(this.f57634d).a(dVar2, new com.kwad.sdk.c.a.a(this));
+                    new a(this.f55449d).a(dVar2, new com.kwad.sdk.c.a.a(this));
                 }
-                if (i2 == this.f57637g.size() - 1) {
+                if (i2 == this.f55452g.size() - 1) {
                     if (d(dVar2)) {
-                        this.f57640j = true;
+                        this.f55455j = true;
                     } else {
                         d();
                     }
                 }
             }
-            this.f57633c.clear();
-            List<com.kwad.sdk.c.kwai.d> list = this.f57638h;
+            this.f55448c.clear();
+            List<com.kwad.sdk.c.kwai.d> list = this.f55453h;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            for (com.kwad.sdk.c.kwai.d dVar3 : this.f57638h) {
-                synchronized (this.f57633c) {
-                    this.f57633c.put(dVar3.b(), dVar3.f57653b);
+            for (com.kwad.sdk.c.kwai.d dVar3 : this.f55453h) {
+                synchronized (this.f55448c) {
+                    this.f55448c.put(dVar3.b(), dVar3.f55467b);
                 }
             }
         }
@@ -427,29 +425,29 @@ public class c {
 
     public void b(com.kwad.sdk.c.kwai.d dVar) {
         com.kwad.sdk.core.d.a.a("download", "success");
-        List<com.kwad.sdk.c.kwai.d> list = this.f57637g;
+        List<com.kwad.sdk.c.kwai.d> list = this.f55452g;
         if (list == null) {
             return;
         }
         int indexOf = list.indexOf(dVar);
         if (indexOf >= 0) {
-            dVar = this.f57637g.remove(indexOf);
+            dVar = this.f55452g.remove(indexOf);
         }
         com.kwad.sdk.core.d.a.a("performDownloadSuccess", "installPackage");
         a(dVar);
-        if (this.f57640j) {
+        if (this.f55455j) {
             d();
         }
     }
 
     public void b(String str) {
-        List<com.kwad.sdk.c.kwai.d> list = this.f57637g;
+        List<com.kwad.sdk.c.kwai.d> list = this.f55452g;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f57637g) {
+        for (com.kwad.sdk.c.kwai.d dVar : this.f55452g) {
             if (a(dVar, str)) {
-                new a(this.f57634d).a(dVar, new com.kwad.sdk.c.a.a(this));
+                new a(this.f55449d).a(dVar, new com.kwad.sdk.c.a.a(this));
             }
         }
     }

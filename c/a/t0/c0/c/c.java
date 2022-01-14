@@ -17,10 +17,10 @@ public class c {
     public static Timer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f15700b;
+    public static int f15304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f15701c;
+    public static ExecutorService f15305c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -29,7 +29,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f15702e;
+        public final /* synthetic */ Runnable f15306e;
 
         public a(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class c {
                     return;
                 }
             }
-            this.f15702e = runnable;
+            this.f15306e = runnable;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f15702e.run();
+                this.f15306e.run();
             }
         }
     }
@@ -72,8 +72,8 @@ public class c {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f15700b = availableProcessors;
-        f15701c = Executors.newFixedThreadPool(availableProcessors);
+        f15304b = availableProcessors;
+        f15305c = Executors.newFixedThreadPool(availableProcessors);
     }
 
     public static void a() {
@@ -104,7 +104,7 @@ public class c {
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f15701c.execute(runnable);
+            f15305c.execute(runnable);
         }
     }
 }

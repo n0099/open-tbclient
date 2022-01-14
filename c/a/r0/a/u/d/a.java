@@ -27,15 +27,15 @@ public class a extends d {
 
     /* renamed from: c.a.r0.a.u.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0551a extends ResponseCallback<JSONObject> {
+    public class C0560a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f9105b;
+        public final /* synthetic */ a f8907b;
 
-        public C0551a(a aVar, String str) {
+        public C0560a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9105b = aVar;
+            this.f8907b = aVar;
             this.a = str;
         }
 
@@ -61,21 +61,21 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
-                    this.f9105b.d(this.a, new b(1001, "server response fail"));
+                    this.f8907b.d(this.a, new b(1001, "server response fail"));
                     return;
                 }
                 int optInt = jSONObject.optInt("errno", 10002);
                 String optString = jSONObject.optString("errmsg", SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
                 if (optInt != 0) {
-                    this.f9105b.d(this.a, new b(optInt, optString));
+                    this.f8907b.d(this.a, new b(optInt, optString));
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
-                    this.f9105b.d(this.a, new b(optInt, optString));
+                    this.f8907b.d(this.a, new b(optInt, optString));
                     return;
                 }
-                this.f9105b.d(this.a, new b(0, optString, optJSONObject));
+                this.f8907b.d(this.a, new b(0, optString, optJSONObject));
             }
         }
 
@@ -99,7 +99,7 @@ public class a extends d {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                a aVar = this.f9105b;
+                a aVar = this.f8907b;
                 String str = this.a;
                 aVar.d(str, new b(1001, "operation fail, msg = " + exc.getMessage()));
             }
@@ -131,8 +131,8 @@ public class a extends d {
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, eVar) == null) {
             c.a.r0.a.n2.s.e eVar2 = new c.a.r0.a.n2.s.e();
             eVar2.a = "swan";
-            eVar2.f8157b = str;
-            eVar2.f8161f = eVar.N();
+            eVar2.f7977b = str;
+            eVar2.f7981f = eVar.N();
             eVar2.a("host_app", c.a.r0.a.c1.a.n().a());
             c.a.r0.a.n2.b.i("2267", "83", eVar2.f());
         }
@@ -142,16 +142,16 @@ public class a extends d {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, builder, str2)) == null) {
-            c.a.r0.a.p1.d a = c.a.r0.a.p1.d.a(builder.build(), f.f8449b);
+            c.a.r0.a.p1.d a = c.a.r0.a.p1.d.a(builder.build(), f.f8265b);
             String y = y(str);
             if (TextUtils.isEmpty(y)) {
                 return new b(202);
             }
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(y, a, new C0551a(this, str2));
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(y, a, new C0560a(this, str2));
             if (c.a.r0.p.e.a.g().c()) {
-                aVar.f11718f = true;
+                aVar.f11453f = true;
             }
-            aVar.f11719g = true;
+            aVar.f11454g = true;
             c.a.r0.p.e.a.g().e(aVar);
             return b.f();
         }

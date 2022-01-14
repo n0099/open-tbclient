@@ -15,10 +15,10 @@ public class ReadRecordsData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42565e;
+    public String f41070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42566f;
+    public String f41071f;
 
     public ReadRecordsData() {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class ReadRecordsData extends OrmObject {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.f42565e)) {
+            if (StringUtils.isNull(this.f41070e)) {
                 return 0L;
             }
-            return Double.valueOf(b.c(this.f42565e, 0.0d) * 100.0d).longValue();
+            return Double.valueOf(b.c(this.f41070e, 0.0d) * 100.0d).longValue();
         }
         return invokeV.longValue;
     }
@@ -49,20 +49,20 @@ public class ReadRecordsData extends OrmObject {
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42566f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41071f : (String) invokeV.objValue;
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f42565e = str;
+            this.f41070e = str;
         }
     }
 
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f42566f = str;
+            this.f41071f = str;
         }
     }
 
@@ -81,7 +81,7 @@ public class ReadRecordsData extends OrmObject {
                 return;
             }
         }
-        this.f42565e = str;
-        this.f42566f = str3;
+        this.f41070e = str;
+        this.f41071f = str3;
     }
 }

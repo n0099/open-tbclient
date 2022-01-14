@@ -16,7 +16,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f1085b;
+    public static a f1084b;
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService a;
 
@@ -27,13 +27,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f1086e;
+        public final AtomicInteger f1085e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f1087f;
+        public final String f1086f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f1088g;
+        public int f1087g;
 
         public ThreadFactoryC0008a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public final class a {
                     return;
                 }
             }
-            this.f1086e = new AtomicInteger(1);
-            this.f1088g = 5;
-            this.f1087f = str + "-";
-            this.f1088g = i2;
+            this.f1085e = new AtomicInteger(1);
+            this.f1087g = 5;
+            this.f1086f = str + "-";
+            this.f1087g = i2;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -61,11 +61,11 @@ public final class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f1087f + this.f1086e.getAndIncrement());
+                Thread thread = new Thread(runnable, this.f1086f + this.f1085e.getAndIncrement());
                 if (thread.isDaemon()) {
                     thread.setDaemon(true);
                 }
-                thread.setPriority(this.f1088g);
+                thread.setPriority(this.f1087g);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -95,10 +95,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f1085b == null) {
-                    f1085b = new a();
+                if (f1084b == null) {
+                    f1084b = new a();
                 }
-                aVar = f1085b;
+                aVar = f1084b;
             }
             return aVar;
         }

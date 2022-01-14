@@ -20,33 +20,36 @@ public class f implements b {
     public final BaseFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BaseFragmentActivity f22476b;
+    public final BaseFragmentActivity f21857b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f22477c;
+    public final ViewGroup f21858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f22478d;
+    public int f21859d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22479e;
+    public boolean f21860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22480f;
+    public int f21861f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22481g;
+    public boolean f21862g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22482h;
+    public boolean f21863h;
 
-    public f(@NonNull BaseFragment baseFragment, @NonNull ViewGroup viewGroup, int i2) {
+    /* renamed from: i  reason: collision with root package name */
+    public final long f21864i;
+
+    public f(@NonNull BaseFragment baseFragment, @NonNull ViewGroup viewGroup, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, viewGroup, Integer.valueOf(i2)};
+            Object[] objArr = {baseFragment, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -56,29 +59,30 @@ public class f implements b {
                 return;
             }
         }
-        this.f22478d = -1;
-        this.f22479e = true;
-        this.f22480f = 0;
-        this.f22481g = false;
-        this.f22482h = false;
+        this.f21859d = -1;
+        this.f21860e = true;
+        this.f21861f = 0;
+        this.f21862g = false;
+        this.f21863h = false;
         this.a = baseFragment;
-        this.f22477c = viewGroup;
-        this.f22478d = i2;
-        this.f22476b = baseFragment.getBaseFragmentActivity();
+        this.f21858c = viewGroup;
+        this.f21859d = i2;
+        this.f21864i = j2;
+        this.f21857b = baseFragment.getBaseFragmentActivity();
     }
 
     @Override // c.a.t0.r3.b.b
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22482h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21863h : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.r3.b.b
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f22479e = z;
+            this.f21860e = z;
         }
     }
 
@@ -86,7 +90,7 @@ public class f implements b {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f22480f = i2;
+            this.f21861f = i2;
         }
     }
 
@@ -94,7 +98,7 @@ public class f implements b {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f22482h = true;
+            this.f21863h = true;
         }
     }
 
@@ -102,14 +106,14 @@ public class f implements b {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22479e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21860e : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.r3.b.b
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f22481g = true;
+            this.f21862g = true;
         }
     }
 
@@ -117,7 +121,7 @@ public class f implements b {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22481g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21862g : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.r3.b.b
@@ -125,14 +129,14 @@ public class f implements b {
     public BaseFragmentActivity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22476b : (BaseFragmentActivity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21857b : (BaseFragmentActivity) invokeV.objValue;
     }
 
     @Override // c.a.t0.r3.b.b
     public int getAdSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22480f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21861f : invokeV.intValue;
     }
 
     @Override // c.a.t0.r3.b.b
@@ -140,7 +144,7 @@ public class f implements b {
     public ViewGroup getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22477c : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21858c : (ViewGroup) invokeV.objValue;
     }
 
     @Override // c.a.t0.r3.b.b
@@ -154,13 +158,20 @@ public class f implements b {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f22478d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21859d : invokeV.intValue;
     }
 
     @Override // c.a.t0.r3.b.b
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d.a(this.f22476b.getIntent()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d.a(this.f21857b.getIntent()) : invokeV.booleanValue;
+    }
+
+    @Override // c.a.t0.r3.b.b
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f21864i : invokeV.longValue;
     }
 }

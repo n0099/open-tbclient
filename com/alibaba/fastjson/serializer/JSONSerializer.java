@@ -413,11 +413,11 @@ public class JSONSerializer extends SerializeFilterable {
                         gZIPOutputStream2.write(bArr);
                         gZIPOutputStream2.finish();
                         this.out.writeByteArray(byteArrayOutputStream.toByteArray());
-                    } catch (IOException e2) {
-                        throw new JSONException("write gzipBytes error", e2);
+                    } finally {
+                        IOUtils.close(gZIPOutputStream2);
                     }
-                } finally {
-                    IOUtils.close(gZIPOutputStream2);
+                } catch (IOException e2) {
+                    throw new JSONException("write gzipBytes error", e2);
                 }
             } else if (obj instanceof Collection) {
                 Collection collection = (Collection) obj;

@@ -22,19 +22,19 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
     public final MediaPlayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f58424b;
+    public final a f56219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58425c;
+    public String f56220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaDataSource f58426d;
+    public MediaDataSource f56221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f58427e;
+    public final Object f56222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f58428f;
+    public boolean f56223f;
 
     /* loaded from: classes3.dex */
     public static class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
@@ -108,38 +108,38 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
     public b() {
         MediaPlayer mediaPlayer;
         Object obj = new Object();
-        this.f58427e = obj;
+        this.f56222e = obj;
         synchronized (obj) {
             mediaPlayer = new MediaPlayer();
             this.a = mediaPlayer;
         }
         mediaPlayer.setAudioStreamType(3);
-        this.f58424b = new a(this);
+        this.f56219b = new a(this);
         q();
         a(false);
     }
 
     private void p() {
-        MediaDataSource mediaDataSource = this.f58426d;
+        MediaDataSource mediaDataSource = this.f56221d;
         if (mediaDataSource != null) {
             try {
                 mediaDataSource.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.f58426d = null;
+            this.f56221d = null;
         }
     }
 
     private void q() {
-        this.a.setOnPreparedListener(this.f58424b);
-        this.a.setOnBufferingUpdateListener(this.f58424b);
-        this.a.setOnCompletionListener(this.f58424b);
-        this.a.setOnSeekCompleteListener(this.f58424b);
-        this.a.setOnVideoSizeChangedListener(this.f58424b);
-        this.a.setOnErrorListener(this.f58424b);
-        this.a.setOnInfoListener(this.f58424b);
-        this.a.setOnTimedTextListener(this.f58424b);
+        this.a.setOnPreparedListener(this.f56219b);
+        this.a.setOnBufferingUpdateListener(this.f56219b);
+        this.a.setOnCompletionListener(this.f56219b);
+        this.a.setOnSeekCompleteListener(this.f56219b);
+        this.a.setOnVideoSizeChangedListener(this.f56219b);
+        this.a.setOnErrorListener(this.f56219b);
+        this.a.setOnInfoListener(this.f56219b);
+        this.a.setOnTimedTextListener(this.f56219b);
     }
 
     private void r() {
@@ -180,8 +180,8 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
 
     @Override // com.kwad.sdk.core.video.kwai.c
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar) {
-        if (!cVar.f57772f) {
-            a(cVar.f57768b);
+        if (!cVar.f55584f) {
+            a(cVar.f55580b);
             return;
         }
         HashMap hashMap = new HashMap();
@@ -189,11 +189,11 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
         hashMap.put(Util.ACCEPT_RANGES, "bytes");
         hashMap.put("Status", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206);
         hashMap.put("Cache-control", "no-cache");
-        a(KsAdSDKImpl.get().getContext(), Uri.parse(cVar.f57768b), hashMap);
+        a(KsAdSDKImpl.get().getContext(), Uri.parse(cVar.f55580b), hashMap);
     }
 
     public void a(String str) {
-        this.f58425c = str;
+        this.f56220c = str;
         Uri parse = Uri.parse(str);
         String scheme = parse.getScheme();
         if (TextUtils.isEmpty(scheme) || !scheme.equalsIgnoreCase("file")) {
@@ -260,7 +260,7 @@ public class b extends com.kwad.sdk.core.video.kwai.a {
     @Override // com.kwad.sdk.core.video.kwai.c
     public void l() {
         try {
-            this.f58428f = true;
+            this.f56223f = true;
             this.a.release();
             p();
             a();

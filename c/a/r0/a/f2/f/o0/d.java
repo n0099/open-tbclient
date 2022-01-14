@@ -52,7 +52,7 @@ public class d extends z {
         c.a.r0.a.m1.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -64,7 +64,7 @@ public class d extends z {
                 try {
                     optInt = new JSONObject(str2).optInt("delta", 1);
                 } catch (JSONException e2) {
-                    if (z.f6340b) {
+                    if (z.f6201b) {
                         e2.printStackTrace();
                     }
                     c.a.r0.a.e0.d.c("navigateBack", "params parse fail");
@@ -78,26 +78,26 @@ public class d extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            int k2 = V.k();
-            if (z.f6340b) {
+            int k = V.k();
+            if (z.f6201b) {
                 String str3 = "back delta: " + optInt;
             }
-            if (k2 == 1) {
+            if (k == 1) {
                 c.a.r0.a.e0.d.c("NavigateBackAction", "navigateBack api can only work when slave's count greater than 1");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "navigateBack api can only work when slave's count greater than 1");
                 return false;
             }
-            if (optInt >= k2) {
-                optInt = k2 - 1;
+            if (optInt >= k) {
+                optInt = k - 1;
             }
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str4 = "real back delta: " + optInt;
             }
-            c.a.r0.a.h0.g.d j2 = V.j((k2 - optInt) - 1);
+            c.a.r0.a.h0.g.d j2 = V.j((k - optInt) - 1);
             if (j2 instanceof c.a.r0.a.h0.g.f) {
                 bVar = ((c.a.r0.a.h0.g.f) j2).g3();
-                bVar.f7847i = "1";
-                bVar.f7848j = uuid;
+                bVar.f7676i = "1";
+                bVar.f7677j = uuid;
             } else {
                 bVar = null;
             }
@@ -105,7 +105,7 @@ public class d extends z {
             c.a.r0.a.u1.i.c(1, uuid);
             c.a.r0.a.z2.g.a(V, context);
             g.b i2 = V.i("navigateBack");
-            i2.n(c.a.r0.a.h0.g.g.f6542i, c.a.r0.a.h0.g.g.f6541h);
+            i2.n(c.a.r0.a.h0.g.g.f6401i, c.a.r0.a.h0.g.g.f6400h);
             i2.h(optInt);
             i2.a();
             c.a.r0.a.h0.g.f o = V.o();

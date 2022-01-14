@@ -26,25 +26,25 @@ public class b {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f24732b;
+    public View f24045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RankListViewController.RankListViewHolder f24733c;
+    public RankListViewController.RankListViewHolder f24046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24734d;
+    public TextView f24047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f24735e;
+    public TextView f24048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24736f;
+    public String f24049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24737g;
+    public int f24050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f24738h;
+    public View.OnClickListener f24051h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -52,7 +52,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f24739e;
+        public final /* synthetic */ b f24052e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -69,23 +69,23 @@ public class b {
                     return;
                 }
             }
-            this.f24739e = bVar;
+            this.f24052e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (TextUtils.isEmpty(this.f24739e.f24736f)) {
-                    this.f24739e.a.showToast(R.string.load_error_retry);
+                if (TextUtils.isEmpty(this.f24052e.f24049f)) {
+                    this.f24052e.a.showToast(R.string.load_error_retry);
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f24739e.a, new String[]{this.f24739e.f24736f});
-                if (this.f24739e.f24737g == 0) {
+                UrlManager.getInstance().dealOneLink(this.f24052e.a, new String[]{this.f24052e.f24049f});
+                if (this.f24052e.f24050g == 0) {
                     return;
                 }
-                if (this.f24739e.f24737g != 2) {
-                    if (this.f24739e.f24737g == 1) {
+                if (this.f24052e.f24050g != 2) {
+                    if (this.f24052e.f24050g == 1) {
                         StatisticItem statisticItem = new StatisticItem("c13669");
                         statisticItem.param("obj_locate", 2);
                         TiebaStatic.log(statisticItem);
@@ -116,25 +116,25 @@ public class b {
                 return;
             }
         }
-        this.f24738h = new a(this);
+        this.f24051h = new a(this);
         this.a = tbPageContext;
-        this.f24732b = view;
+        this.f24045b = view;
         RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
-        this.f24733c = rankListViewHolder;
+        this.f24046c = rankListViewHolder;
         rankListViewHolder.setViewHolderType(1);
-        this.f24734d = (TextView) view.findViewById(R.id.get_influence);
+        this.f24047d = (TextView) view.findViewById(R.id.get_influence);
         TextView textView = (TextView) view.findViewById(R.id.rank_num);
-        this.f24735e = textView;
+        this.f24048e = textView;
         textView.setTextSize(0, n.f(this.a.getPageActivity(), R.dimen.tbfontsize46));
-        this.f24734d.setOnClickListener(this.f24738h);
+        this.f24047d.setOnClickListener(this.f24051h);
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f24733c.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f24733c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f24734d, R.color.CAM_X0302);
+            this.f24046c.onChangeSkinType(i2);
+            SkinManager.setBackgroundColor(this.f24046c.itemView, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f24047d, R.color.CAM_X0302);
         }
     }
 
@@ -143,21 +143,21 @@ public class b {
         MetaData metaData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            if (cVar != null && (bVar = cVar.f24753c) != null && (metaData = bVar.f24749f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.f24732b.setVisibility(0);
-                this.f24733c.bindData(cVar.f24753c);
-                this.f24733c.hideIntroAndLikeButton();
-                this.f24736f = cVar.f24755e;
+            if (cVar != null && (bVar = cVar.f24066c) != null && (metaData = bVar.f24062f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
+                this.f24045b.setVisibility(0);
+                this.f24046c.bindData(cVar.f24066c);
+                this.f24046c.hideIntroAndLikeButton();
+                this.f24049f = cVar.f24068e;
                 return;
             }
-            this.f24732b.setVisibility(8);
+            this.f24045b.setVisibility(8);
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f24737g = i2;
+            this.f24050g = i2;
         }
     }
 }

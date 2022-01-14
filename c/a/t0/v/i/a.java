@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.k.a.o.d;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.tbadk.TbConfig;
@@ -36,37 +36,37 @@ public class a {
 
     /* renamed from: c.a.t0.v.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1472a extends BdRunnable {
+    public class C1487a extends BdRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f25215g;
+        public final /* synthetic */ Map f24511g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f25216h;
+        public final /* synthetic */ String f24512h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f25217i;
+        public final /* synthetic */ a f24513i;
 
         /* renamed from: c.a.t0.v.i.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1473a extends BdRunnable {
+        public class C1488a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f25218g;
+            public final /* synthetic */ JSONObject f24514g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ C1472a f25219h;
+            public final /* synthetic */ C1487a f24515h;
 
-            public C1473a(C1472a c1472a, JSONObject jSONObject) {
+            public C1488a(C1487a c1487a, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1472a, jSONObject};
+                    Object[] objArr = {c1487a, jSONObject};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -76,20 +76,20 @@ public class a {
                         return;
                     }
                 }
-                this.f25219h = c1472a;
-                this.f25218g = jSONObject;
+                this.f24515h = c1487a;
+                this.f24514g = jSONObject;
             }
 
             @Override // com.baidu.browser.core.async.BdRunnable
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f25219h.f25217i.a.a(this.f25218g);
+                    this.f24515h.f24513i.a.a(this.f24514g);
                 }
             }
         }
 
-        public C1472a(a aVar, Map map, String str) {
+        public C1487a(a aVar, Map map, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,9 +104,9 @@ public class a {
                     return;
                 }
             }
-            this.f25217i = aVar;
-            this.f25215g = map;
-            this.f25216h = str;
+            this.f24513i = aVar;
+            this.f24511g = map;
+            this.f24512h = str;
         }
 
         @Override // com.baidu.browser.core.async.BdRunnable
@@ -116,8 +116,8 @@ public class a {
                 MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    this.f25217i.d(this.f25215g);
-                    this.f25217i.f(this.f25215g, jSONObject);
+                    this.f24513i.d(this.f24511g);
+                    this.f24513i.f(this.f24511g, jSONObject);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -125,12 +125,12 @@ public class a {
                 RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
                 Response response = null;
                 try {
-                    response = okHttpClient.newCall(new Request.Builder().url(this.f25216h).post(create).build()).execute();
+                    response = okHttpClient.newCall(new Request.Builder().url(this.f24512h).post(create).build()).execute();
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 }
                 try {
-                    d.f().h(new C1473a(this, new JSONObject(response.body().string())));
+                    d.f().h(new C1488a(this, new JSONObject(response.body().string())));
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 } catch (JSONException e5) {
@@ -182,13 +182,13 @@ public class a {
             map.put("_client_version", TbConfig.getVersion());
             map.put("uid", TbadkCoreApplication.getCurrentAccount());
             map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            map.put("ua", w0.b());
+            map.put("ua", v0.b());
             map.put("model", Build.MODEL);
             map.put(HttpRequest.CLIENT_TYPE, "2");
             map.put(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
             map.put("nt", String.valueOf(l.I()));
             map.put("imei", TbadkCoreApplication.getInst().getImei());
-            map.put("android_id", TbadkCoreApplication.getInst().getAndroidId());
+            map.put(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             map.put("ip", e());
             map.put("ssl", "1");
             return map;
@@ -214,7 +214,7 @@ public class a {
     public void g(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            d.f().g(new C1472a(this, map, str));
+            d.f().g(new C1487a(this, map, str));
         }
     }
 }

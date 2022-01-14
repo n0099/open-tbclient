@@ -1,5 +1,5 @@
 package c.a.t0.o2.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a<V> {
     void a(V v);
 

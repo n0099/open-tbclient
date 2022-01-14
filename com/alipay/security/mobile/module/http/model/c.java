@@ -17,31 +17,29 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32020c;
+    public String f31013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32021d;
+    public String f31014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32022e;
+    public String f31015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32023f;
+    public String f31016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32024g;
+    public String f31017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32025h;
+    public String f31018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32026i;
+    public String f31019i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f32027j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f32028k;
+    public String f31020j;
+    public String k;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -56,14 +54,14 @@ public class c extends a {
                 return;
             }
         }
-        this.f32028k = "";
+        this.k = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f32023f;
+            String str = this.f31016f;
             return str == null ? "0" : str;
         }
         return (String) invokeV.objValue;
@@ -72,12 +70,12 @@ public class c extends a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f32022e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f31015e) : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a ? com.alipay.security.mobile.module.a.a.a(this.f32020c) ? 2 : 1 : o.equals(this.f32019b) ? 3 : 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a ? com.alipay.security.mobile.module.a.a.a(this.f31013c) ? 2 : 1 : o.equals(this.f31012b) ? 3 : 2 : invokeV.intValue;
     }
 }

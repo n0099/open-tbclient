@@ -14,13 +14,13 @@ public class dn implements com.kwad.sdk.core.d<w.a> {
         if (jSONObject.opt("url") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f58670b = jSONObject.optString("method");
+        aVar.f56459b = jSONObject.optString("method");
         if (jSONObject.opt("method") == JSONObject.NULL) {
-            aVar.f58670b = "";
+            aVar.f56459b = "";
         }
-        aVar.f58671c = jSONObject.optString("params");
+        aVar.f56460c = jSONObject.optString("params");
         if (jSONObject.opt("params") == JSONObject.NULL) {
-            aVar.f58671c = "";
+            aVar.f56460c = "";
         }
     }
 
@@ -31,8 +31,8 @@ public class dn implements com.kwad.sdk.core.d<w.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "method", aVar.f58670b);
-        com.kwad.sdk.utils.t.a(jSONObject, "params", aVar.f58671c);
+        com.kwad.sdk.utils.t.a(jSONObject, "method", aVar.f56459b);
+        com.kwad.sdk.utils.t.a(jSONObject, "params", aVar.f56460c);
         return jSONObject;
     }
 }

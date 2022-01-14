@@ -12,9 +12,7 @@ import org.json.JSONObject;
 public class a extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f11284k;
+    public int k;
     public String l;
     public int m;
     public int n;
@@ -39,17 +37,17 @@ public class a extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f8163h == null) {
-                this.f8163h = new JSONObject();
+            if (this.f7983h == null) {
+                this.f7983h = new JSONObject();
             }
             try {
-                this.f8163h.put("stage", this.f11284k);
-                this.f8163h.put("errMsg", this.l);
-                this.f8163h.put("netStatus", this.m);
-                this.f8163h.put("touch", this.n);
-                this.f8163h.put("stuck_interval", this.o);
+                this.f7983h.put("stage", this.k);
+                this.f7983h.put("errMsg", this.l);
+                this.f7983h.put("netStatus", this.m);
+                this.f7983h.put("touch", this.n);
+                this.f7983h.put("stuck_interval", this.o);
             } catch (JSONException e2) {
-                if (e.f8156j) {
+                if (e.f7976j) {
                     e2.printStackTrace();
                 }
             }

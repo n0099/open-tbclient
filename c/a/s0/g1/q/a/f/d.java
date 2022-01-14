@@ -25,34 +25,32 @@ public class d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WheelView f13047b;
+    public WheelView f12728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WheelView f13048c;
+    public WheelView f12729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WheelView f13049d;
+    public WheelView f12730d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WheelView f13050e;
+    public WheelView f12731e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WheelView f13051f;
+    public WheelView f12732f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WheelView f13052g;
+    public WheelView f12733g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13053h;
+    public int f12734h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean[] f13054i;
+    public boolean[] f12735i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13055j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f13056k;
+    public int f12736j;
+    public int k;
     public int l;
     public int m;
     public int n;
@@ -96,26 +94,26 @@ public class d {
             int h2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                int i3 = i2 + this.a.f13055j;
-                this.a.f13048c.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.d(i3)));
-                if (c.a.s0.g1.q.a.e.a.g(i3) == 0 || this.a.f13048c.getCurrentItem() <= c.a.s0.g1.q.a.e.a.g(i3) - 1) {
-                    this.a.f13048c.setCurrentItem(this.a.f13048c.getCurrentItem());
+                int i3 = i2 + this.a.f12736j;
+                this.a.f12729c.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.d(i3)));
+                if (c.a.s0.g1.q.a.e.a.g(i3) == 0 || this.a.f12729c.getCurrentItem() <= c.a.s0.g1.q.a.e.a.g(i3) - 1) {
+                    this.a.f12729c.setCurrentItem(this.a.f12729c.getCurrentItem());
                 } else {
-                    this.a.f13048c.setCurrentItem(this.a.f13048c.getCurrentItem() + 1);
+                    this.a.f12729c.setCurrentItem(this.a.f12729c.getCurrentItem() + 1);
                 }
-                if (c.a.s0.g1.q.a.e.a.g(i3) == 0 || this.a.f13048c.getCurrentItem() <= c.a.s0.g1.q.a.e.a.g(i3) - 1) {
-                    this.a.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(i3, this.a.f13048c.getCurrentItem() + 1))));
-                    h2 = c.a.s0.g1.q.a.e.a.h(i3, this.a.f13048c.getCurrentItem() + 1);
-                } else if (this.a.f13048c.getCurrentItem() == c.a.s0.g1.q.a.e.a.g(i3) + 1) {
-                    this.a.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.f(i3))));
+                if (c.a.s0.g1.q.a.e.a.g(i3) == 0 || this.a.f12729c.getCurrentItem() <= c.a.s0.g1.q.a.e.a.g(i3) - 1) {
+                    this.a.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(i3, this.a.f12729c.getCurrentItem() + 1))));
+                    h2 = c.a.s0.g1.q.a.e.a.h(i3, this.a.f12729c.getCurrentItem() + 1);
+                } else if (this.a.f12729c.getCurrentItem() == c.a.s0.g1.q.a.e.a.g(i3) + 1) {
+                    this.a.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.f(i3))));
                     h2 = c.a.s0.g1.q.a.e.a.f(i3);
                 } else {
-                    this.a.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(i3, this.a.f13048c.getCurrentItem()))));
-                    h2 = c.a.s0.g1.q.a.e.a.h(i3, this.a.f13048c.getCurrentItem());
+                    this.a.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(i3, this.a.f12729c.getCurrentItem()))));
+                    h2 = c.a.s0.g1.q.a.e.a.h(i3, this.a.f12729c.getCurrentItem());
                 }
                 int i4 = h2 - 1;
-                if (this.a.f13049d.getCurrentItem() > i4) {
-                    this.a.f13049d.setCurrentItem(i4);
+                if (this.a.f12730d.getCurrentItem() > i4) {
+                    this.a.f12730d.setCurrentItem(i4);
                 }
                 if (this.a.x != null) {
                     this.a.x.a();
@@ -153,21 +151,21 @@ public class d {
             int h2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                int currentItem = this.a.f13047b.getCurrentItem() + this.a.f13055j;
+                int currentItem = this.a.f12728b.getCurrentItem() + this.a.f12736j;
                 if (c.a.s0.g1.q.a.e.a.g(currentItem) == 0 || i2 <= c.a.s0.g1.q.a.e.a.g(currentItem) - 1) {
                     int i3 = i2 + 1;
-                    this.a.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(currentItem, i3))));
+                    this.a.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(currentItem, i3))));
                     h2 = c.a.s0.g1.q.a.e.a.h(currentItem, i3);
-                } else if (this.a.f13048c.getCurrentItem() == c.a.s0.g1.q.a.e.a.g(currentItem) + 1) {
-                    this.a.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.f(currentItem))));
+                } else if (this.a.f12729c.getCurrentItem() == c.a.s0.g1.q.a.e.a.g(currentItem) + 1) {
+                    this.a.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.f(currentItem))));
                     h2 = c.a.s0.g1.q.a.e.a.f(currentItem);
                 } else {
-                    this.a.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(currentItem, i2))));
+                    this.a.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(currentItem, i2))));
                     h2 = c.a.s0.g1.q.a.e.a.h(currentItem, i2);
                 }
                 int i4 = h2 - 1;
-                if (this.a.f13049d.getCurrentItem() > i4) {
-                    this.a.f13049d.setCurrentItem(i4);
+                if (this.a.f12730d.getCurrentItem() > i4) {
+                    this.a.f12730d.setCurrentItem(i4);
                 }
                 if (this.a.x != null) {
                     this.a.x.a();
@@ -183,10 +181,10 @@ public class d {
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f13057b;
+        public final /* synthetic */ List f12737b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f13058c;
+        public final /* synthetic */ d f12738c;
 
         public c(d dVar, List list, List list2) {
             Interceptable interceptable = $ic;
@@ -203,74 +201,74 @@ public class d {
                     return;
                 }
             }
-            this.f13058c = dVar;
+            this.f12738c = dVar;
             this.a = list;
-            this.f13057b = list2;
+            this.f12737b = list2;
         }
 
         @Override // c.a.s0.g1.q.b.c.b
         public void onItemSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                int i3 = i2 + this.f13058c.f13055j;
-                this.f13058c.p = i3;
-                int currentItem = this.f13058c.f13048c.getCurrentItem();
-                if (this.f13058c.f13055j == this.f13058c.f13056k) {
-                    this.f13058c.f13048c.setAdapter(new c.a.s0.g1.q.a.a.b(this.f13058c.l, this.f13058c.m));
-                    if (currentItem > this.f13058c.f13048c.getAdapter().a() - 1) {
-                        currentItem = this.f13058c.f13048c.getAdapter().a() - 1;
-                        this.f13058c.f13048c.setCurrentItem(currentItem);
+                int i3 = i2 + this.f12738c.f12736j;
+                this.f12738c.p = i3;
+                int currentItem = this.f12738c.f12729c.getCurrentItem();
+                if (this.f12738c.f12736j == this.f12738c.k) {
+                    this.f12738c.f12729c.setAdapter(new c.a.s0.g1.q.a.a.b(this.f12738c.l, this.f12738c.m));
+                    if (currentItem > this.f12738c.f12729c.getAdapter().a() - 1) {
+                        currentItem = this.f12738c.f12729c.getAdapter().a() - 1;
+                        this.f12738c.f12729c.setCurrentItem(currentItem);
                     }
-                    int i4 = currentItem + this.f13058c.l;
-                    if (this.f13058c.l != this.f13058c.m) {
-                        if (i4 != this.f13058c.l) {
-                            if (i4 != this.f13058c.m) {
-                                this.f13058c.F(i3, i4, 1, 31, this.a, this.f13057b);
+                    int i4 = currentItem + this.f12738c.l;
+                    if (this.f12738c.l != this.f12738c.m) {
+                        if (i4 != this.f12738c.l) {
+                            if (i4 != this.f12738c.m) {
+                                this.f12738c.F(i3, i4, 1, 31, this.a, this.f12737b);
                             } else {
-                                d dVar = this.f13058c;
-                                dVar.F(i3, i4, 1, dVar.o, this.a, this.f13057b);
+                                d dVar = this.f12738c;
+                                dVar.F(i3, i4, 1, dVar.o, this.a, this.f12737b);
                             }
                         } else {
-                            d dVar2 = this.f13058c;
-                            dVar2.F(i3, i4, dVar2.n, 31, this.a, this.f13057b);
+                            d dVar2 = this.f12738c;
+                            dVar2.F(i3, i4, dVar2.n, 31, this.a, this.f12737b);
                         }
                     } else {
-                        d dVar3 = this.f13058c;
-                        dVar3.F(i3, i4, dVar3.n, this.f13058c.o, this.a, this.f13057b);
+                        d dVar3 = this.f12738c;
+                        dVar3.F(i3, i4, dVar3.n, this.f12738c.o, this.a, this.f12737b);
                     }
-                } else if (i3 == this.f13058c.f13055j) {
-                    this.f13058c.f13048c.setAdapter(new c.a.s0.g1.q.a.a.b(this.f13058c.l, 12));
-                    if (currentItem > this.f13058c.f13048c.getAdapter().a() - 1) {
-                        currentItem = this.f13058c.f13048c.getAdapter().a() - 1;
-                        this.f13058c.f13048c.setCurrentItem(currentItem);
+                } else if (i3 == this.f12738c.f12736j) {
+                    this.f12738c.f12729c.setAdapter(new c.a.s0.g1.q.a.a.b(this.f12738c.l, 12));
+                    if (currentItem > this.f12738c.f12729c.getAdapter().a() - 1) {
+                        currentItem = this.f12738c.f12729c.getAdapter().a() - 1;
+                        this.f12738c.f12729c.setCurrentItem(currentItem);
                     }
-                    int i5 = currentItem + this.f13058c.l;
-                    if (i5 != this.f13058c.l) {
-                        this.f13058c.F(i3, i5, 1, 31, this.a, this.f13057b);
+                    int i5 = currentItem + this.f12738c.l;
+                    if (i5 != this.f12738c.l) {
+                        this.f12738c.F(i3, i5, 1, 31, this.a, this.f12737b);
                     } else {
-                        d dVar4 = this.f13058c;
-                        dVar4.F(i3, i5, dVar4.n, 31, this.a, this.f13057b);
+                        d dVar4 = this.f12738c;
+                        dVar4.F(i3, i5, dVar4.n, 31, this.a, this.f12737b);
                     }
-                } else if (i3 == this.f13058c.f13056k) {
-                    this.f13058c.f13048c.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.f13058c.m));
-                    if (currentItem > this.f13058c.f13048c.getAdapter().a() - 1) {
-                        currentItem = this.f13058c.f13048c.getAdapter().a() - 1;
-                        this.f13058c.f13048c.setCurrentItem(currentItem);
+                } else if (i3 == this.f12738c.k) {
+                    this.f12738c.f12729c.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.f12738c.m));
+                    if (currentItem > this.f12738c.f12729c.getAdapter().a() - 1) {
+                        currentItem = this.f12738c.f12729c.getAdapter().a() - 1;
+                        this.f12738c.f12729c.setCurrentItem(currentItem);
                     }
                     int i6 = 1 + currentItem;
-                    if (i6 != this.f13058c.m) {
-                        this.f13058c.F(i3, i6, 1, 31, this.a, this.f13057b);
+                    if (i6 != this.f12738c.m) {
+                        this.f12738c.F(i3, i6, 1, 31, this.a, this.f12737b);
                     } else {
-                        d dVar5 = this.f13058c;
-                        dVar5.F(i3, i6, 1, dVar5.o, this.a, this.f13057b);
+                        d dVar5 = this.f12738c;
+                        dVar5.F(i3, i6, 1, dVar5.o, this.a, this.f12737b);
                     }
                 } else {
-                    this.f13058c.f13048c.setAdapter(new c.a.s0.g1.q.a.a.b(1, 12));
-                    d dVar6 = this.f13058c;
-                    dVar6.F(i3, 1 + dVar6.f13048c.getCurrentItem(), 1, 31, this.a, this.f13057b);
+                    this.f12738c.f12729c.setAdapter(new c.a.s0.g1.q.a.a.b(1, 12));
+                    d dVar6 = this.f12738c;
+                    dVar6.F(i3, 1 + dVar6.f12729c.getCurrentItem(), 1, 31, this.a, this.f12737b);
                 }
-                if (this.f13058c.x != null) {
-                    this.f13058c.x.a();
+                if (this.f12738c.x != null) {
+                    this.f12738c.x.a();
                 }
             }
         }
@@ -278,18 +276,18 @@ public class d {
 
     /* renamed from: c.a.s0.g1.q.a.f.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0837d implements c.a.s0.g1.q.b.c.b {
+    public class C0847d implements c.a.s0.g1.q.b.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f13059b;
+        public final /* synthetic */ List f12739b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f13060c;
+        public final /* synthetic */ d f12740c;
 
-        public C0837d(d dVar, List list, List list2) {
+        public C0847d(d dVar, List list, List list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -304,9 +302,9 @@ public class d {
                     return;
                 }
             }
-            this.f13060c = dVar;
+            this.f12740c = dVar;
             this.a = list;
-            this.f13059b = list2;
+            this.f12739b = list2;
         }
 
         @Override // c.a.s0.g1.q.b.c.b
@@ -314,48 +312,48 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 int i3 = i2 + 1;
-                if (this.f13060c.f13055j == this.f13060c.f13056k) {
-                    int i4 = (i3 + this.f13060c.l) - 1;
-                    if (this.f13060c.l != this.f13060c.m) {
-                        if (this.f13060c.l != i4) {
-                            if (this.f13060c.m == i4) {
-                                d dVar = this.f13060c;
-                                dVar.F(dVar.p, i4, 1, this.f13060c.o, this.a, this.f13059b);
+                if (this.f12740c.f12736j == this.f12740c.k) {
+                    int i4 = (i3 + this.f12740c.l) - 1;
+                    if (this.f12740c.l != this.f12740c.m) {
+                        if (this.f12740c.l != i4) {
+                            if (this.f12740c.m == i4) {
+                                d dVar = this.f12740c;
+                                dVar.F(dVar.p, i4, 1, this.f12740c.o, this.a, this.f12739b);
                             } else {
-                                d dVar2 = this.f13060c;
-                                dVar2.F(dVar2.p, i4, 1, 31, this.a, this.f13059b);
+                                d dVar2 = this.f12740c;
+                                dVar2.F(dVar2.p, i4, 1, 31, this.a, this.f12739b);
                             }
                         } else {
-                            d dVar3 = this.f13060c;
-                            dVar3.F(dVar3.p, i4, this.f13060c.n, 31, this.a, this.f13059b);
+                            d dVar3 = this.f12740c;
+                            dVar3.F(dVar3.p, i4, this.f12740c.n, 31, this.a, this.f12739b);
                         }
                     } else {
-                        d dVar4 = this.f13060c;
-                        dVar4.F(dVar4.p, i4, this.f13060c.n, this.f13060c.o, this.a, this.f13059b);
+                        d dVar4 = this.f12740c;
+                        dVar4.F(dVar4.p, i4, this.f12740c.n, this.f12740c.o, this.a, this.f12739b);
                     }
-                } else if (this.f13060c.p == this.f13060c.f13055j) {
-                    int i5 = (i3 + this.f13060c.l) - 1;
-                    if (i5 == this.f13060c.l) {
-                        d dVar5 = this.f13060c;
-                        dVar5.F(dVar5.p, i5, this.f13060c.n, 31, this.a, this.f13059b);
+                } else if (this.f12740c.p == this.f12740c.f12736j) {
+                    int i5 = (i3 + this.f12740c.l) - 1;
+                    if (i5 == this.f12740c.l) {
+                        d dVar5 = this.f12740c;
+                        dVar5.F(dVar5.p, i5, this.f12740c.n, 31, this.a, this.f12739b);
                     } else {
-                        d dVar6 = this.f13060c;
-                        dVar6.F(dVar6.p, i5, 1, 31, this.a, this.f13059b);
+                        d dVar6 = this.f12740c;
+                        dVar6.F(dVar6.p, i5, 1, 31, this.a, this.f12739b);
                     }
-                } else if (this.f13060c.p == this.f13060c.f13056k) {
-                    if (i3 == this.f13060c.m) {
-                        d dVar7 = this.f13060c;
-                        dVar7.F(dVar7.p, this.f13060c.f13048c.getCurrentItem() + 1, 1, this.f13060c.o, this.a, this.f13059b);
+                } else if (this.f12740c.p == this.f12740c.k) {
+                    if (i3 == this.f12740c.m) {
+                        d dVar7 = this.f12740c;
+                        dVar7.F(dVar7.p, this.f12740c.f12729c.getCurrentItem() + 1, 1, this.f12740c.o, this.a, this.f12739b);
                     } else {
-                        d dVar8 = this.f13060c;
-                        dVar8.F(dVar8.p, this.f13060c.f13048c.getCurrentItem() + 1, 1, 31, this.a, this.f13059b);
+                        d dVar8 = this.f12740c;
+                        dVar8.F(dVar8.p, this.f12740c.f12729c.getCurrentItem() + 1, 1, 31, this.a, this.f12739b);
                     }
                 } else {
-                    d dVar9 = this.f13060c;
-                    dVar9.F(dVar9.p, i3, 1, 31, this.a, this.f13059b);
+                    d dVar9 = this.f12740c;
+                    dVar9.F(dVar9.p, i3, 1, 31, this.a, this.f12739b);
                 }
-                if (this.f13060c.x != null) {
-                    this.f13060c.x.a();
+                if (this.f12740c.x != null) {
+                    this.f12740c.x.a();
                 }
             }
         }
@@ -425,16 +423,16 @@ public class d {
                 return;
             }
         }
-        this.f13055j = 1900;
-        this.f13056k = 2100;
+        this.f12736j = 1900;
+        this.k = 2100;
         this.l = 1;
         this.m = 12;
         this.n = 1;
         this.o = 31;
         this.w = false;
         this.a = view;
-        this.f13054i = zArr;
-        this.f13053h = i2;
+        this.f12735i = zArr;
+        this.f12734h = i2;
         this.q = i3;
         O(view);
     }
@@ -451,60 +449,60 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
             WheelView wheelView = (WheelView) this.a.findViewById(R.id.year);
-            this.f13047b = wheelView;
-            wheelView.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.e(this.f13055j, this.f13056k)));
-            this.f13047b.setLabel("");
-            this.f13047b.setCurrentItem(i2 - this.f13055j);
-            this.f13047b.setGravity(this.f13053h);
+            this.f12728b = wheelView;
+            wheelView.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.e(this.f12736j, this.k)));
+            this.f12728b.setLabel("");
+            this.f12728b.setCurrentItem(i2 - this.f12736j);
+            this.f12728b.setGravity(this.f12734h);
             WheelView wheelView2 = (WheelView) this.a.findViewById(R.id.month);
-            this.f13048c = wheelView2;
+            this.f12729c = wheelView2;
             wheelView2.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.d(i2)));
-            this.f13048c.setLabel("");
+            this.f12729c.setLabel("");
             int g2 = c.a.s0.g1.q.a.e.a.g(i2);
             if (g2 != 0 && (i3 > g2 - 1 || z)) {
-                this.f13048c.setCurrentItem(i3 + 1);
+                this.f12729c.setCurrentItem(i3 + 1);
             } else {
-                this.f13048c.setCurrentItem(i3);
+                this.f12729c.setCurrentItem(i3);
             }
-            this.f13048c.setGravity(this.f13053h);
-            this.f13049d = (WheelView) this.a.findViewById(R.id.day);
+            this.f12729c.setGravity(this.f12734h);
+            this.f12730d = (WheelView) this.a.findViewById(R.id.day);
             if (c.a.s0.g1.q.a.e.a.g(i2) == 0) {
-                this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(i2, i3))));
+                this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.h(i2, i3))));
             } else {
-                this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.f(i2))));
+                this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.a(c.a.s0.g1.q.a.e.a.b(c.a.s0.g1.q.a.e.a.f(i2))));
             }
-            this.f13049d.setLabel("");
-            this.f13049d.setCurrentItem(i4 - 1);
-            this.f13049d.setGravity(this.f13053h);
+            this.f12730d.setLabel("");
+            this.f12730d.setCurrentItem(i4 - 1);
+            this.f12730d.setGravity(this.f12734h);
             WheelView wheelView3 = (WheelView) this.a.findViewById(R.id.hour);
-            this.f13050e = wheelView3;
+            this.f12731e = wheelView3;
             wheelView3.setAdapter(new c.a.s0.g1.q.a.a.b(0, 23));
-            this.f13050e.setCurrentItem(i5);
-            this.f13050e.setGravity(this.f13053h);
+            this.f12731e.setCurrentItem(i5);
+            this.f12731e.setGravity(this.f12734h);
             WheelView wheelView4 = (WheelView) this.a.findViewById(R.id.min);
-            this.f13051f = wheelView4;
+            this.f12732f = wheelView4;
             wheelView4.setAdapter(new c.a.s0.g1.q.a.a.b(0, 59));
-            this.f13051f.setCurrentItem(i6);
-            this.f13051f.setGravity(this.f13053h);
+            this.f12732f.setCurrentItem(i6);
+            this.f12732f.setGravity(this.f12734h);
             WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.second);
-            this.f13052g = wheelView5;
+            this.f12733g = wheelView5;
             wheelView5.setAdapter(new c.a.s0.g1.q.a.a.b(0, 59));
-            this.f13052g.setCurrentItem(i6);
-            this.f13052g.setGravity(this.f13053h);
-            this.f13047b.setOnItemSelectedListener(new a(this));
-            this.f13048c.setOnItemSelectedListener(new b(this));
-            q(this.f13049d);
-            q(this.f13050e);
-            q(this.f13051f);
-            q(this.f13052g);
-            boolean[] zArr = this.f13054i;
+            this.f12733g.setCurrentItem(i6);
+            this.f12733g.setGravity(this.f12734h);
+            this.f12728b.setOnItemSelectedListener(new a(this));
+            this.f12729c.setOnItemSelectedListener(new b(this));
+            q(this.f12730d);
+            q(this.f12731e);
+            q(this.f12732f);
+            q(this.f12733g);
+            boolean[] zArr = this.f12735i;
             if (zArr.length == 6) {
-                this.f13047b.setVisibility(zArr[0] ? 0 : 8);
-                this.f13048c.setVisibility(this.f13054i[1] ? 0 : 8);
-                this.f13049d.setVisibility(this.f13054i[2] ? 0 : 8);
-                this.f13050e.setVisibility(this.f13054i[3] ? 0 : 8);
-                this.f13051f.setVisibility(this.f13054i[4] ? 0 : 8);
-                this.f13052g.setVisibility(this.f13054i[5] ? 0 : 8);
+                this.f12728b.setVisibility(zArr[0] ? 0 : 8);
+                this.f12729c.setVisibility(this.f12735i[1] ? 0 : 8);
+                this.f12730d.setVisibility(this.f12735i[2] ? 0 : 8);
+                this.f12731e.setVisibility(this.f12735i[3] ? 0 : 8);
+                this.f12732f.setVisibility(this.f12735i[4] ? 0 : 8);
+                this.f12733g.setVisibility(this.f12735i[5] ? 0 : 8);
                 r();
                 return;
             }
@@ -538,20 +536,20 @@ public class d {
                 int i2 = calendar2.get(1);
                 int i3 = calendar2.get(2) + 1;
                 int i4 = calendar2.get(5);
-                int i5 = this.f13055j;
+                int i5 = this.f12736j;
                 if (i2 > i5) {
-                    this.f13056k = i2;
+                    this.k = i2;
                     this.m = i3;
                     this.o = i4;
                 } else if (i2 == i5) {
                     int i6 = this.l;
                     if (i3 > i6) {
-                        this.f13056k = i2;
+                        this.k = i2;
                         this.m = i3;
                         this.o = i4;
                     } else if (i3 != i6 || i4 <= this.n) {
                     } else {
-                        this.f13056k = i2;
+                        this.k = i2;
                         this.m = i3;
                         this.o = i4;
                     }
@@ -560,8 +558,8 @@ public class d {
                 if (calendar == null || calendar2 == null) {
                     return;
                 }
-                this.f13055j = calendar.get(1);
-                this.f13056k = calendar2.get(1);
+                this.f12736j = calendar.get(1);
+                this.k = calendar2.get(1);
                 this.l = calendar.get(2) + 1;
                 this.m = calendar2.get(2) + 1;
                 this.n = calendar.get(5);
@@ -570,22 +568,22 @@ public class d {
                 int i7 = calendar.get(1);
                 int i8 = calendar.get(2) + 1;
                 int i9 = calendar.get(5);
-                int i10 = this.f13056k;
+                int i10 = this.k;
                 if (i7 < i10) {
                     this.l = i8;
                     this.n = i9;
-                    this.f13055j = i7;
+                    this.f12736j = i7;
                 } else if (i7 == i10) {
                     int i11 = this.m;
                     if (i8 < i11) {
                         this.l = i8;
                         this.n = i9;
-                        this.f13055j = i7;
+                        this.f12736j = i7;
                     } else if (i8 != i11 || i9 >= this.o) {
                     } else {
                         this.l = i8;
                         this.n = i9;
-                        this.f13055j = i7;
+                        this.f12736j = i7;
                     }
                 }
             }
@@ -595,30 +593,30 @@ public class d {
     public final void F(int i2, int i3, int i4, int i5, List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), list, list2}) == null) {
-            int currentItem = this.f13049d.getCurrentItem();
+            int currentItem = this.f12730d.getCurrentItem();
             if (list.contains(String.valueOf(i3))) {
                 if (i5 > 31) {
                     i5 = 31;
                 }
-                this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
+                this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
             } else if (list2.contains(String.valueOf(i3))) {
                 if (i5 > 30) {
                     i5 = 30;
                 }
-                this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
+                this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
             } else if ((i2 % 4 == 0 && i2 % 100 != 0) || i2 % 400 == 0) {
                 if (i5 > 29) {
                     i5 = 29;
                 }
-                this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
+                this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
             } else {
                 if (i5 > 28) {
                     i5 = 28;
                 }
-                this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
+                this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(i4, i5));
             }
-            if (currentItem > this.f13049d.getAdapter().a() - 1) {
-                this.f13049d.setCurrentItem(this.f13049d.getAdapter().a() - 1);
+            if (currentItem > this.f12730d.getAdapter().a() - 1) {
+                this.f12730d.setCurrentItem(this.f12730d.getAdapter().a() - 1);
             }
         }
     }
@@ -639,130 +637,130 @@ public class d {
             List asList2 = Arrays.asList("4", "6", "9", "11");
             this.p = i2;
             WheelView wheelView = (WheelView) this.a.findViewById(R.id.year);
-            this.f13047b = wheelView;
-            wheelView.setAdapter(new c.a.s0.g1.q.a.a.b(this.f13055j, this.f13056k));
-            this.f13047b.setCurrentItem(i2 - this.f13055j);
-            this.f13047b.setGravity(this.f13053h);
+            this.f12728b = wheelView;
+            wheelView.setAdapter(new c.a.s0.g1.q.a.a.b(this.f12736j, this.k));
+            this.f12728b.setCurrentItem(i2 - this.f12736j);
+            this.f12728b.setGravity(this.f12734h);
             WheelView wheelView2 = (WheelView) this.a.findViewById(R.id.month);
-            this.f13048c = wheelView2;
-            int i10 = this.f13055j;
-            int i11 = this.f13056k;
+            this.f12729c = wheelView2;
+            int i10 = this.f12736j;
+            int i11 = this.k;
             if (i10 == i11) {
                 wheelView2.setAdapter(new c.a.s0.g1.q.a.a.b(this.l, this.m));
-                this.f13048c.setCurrentItem((i3 + 1) - this.l);
+                this.f12729c.setCurrentItem((i3 + 1) - this.l);
             } else if (i2 == i10) {
                 wheelView2.setAdapter(new c.a.s0.g1.q.a.a.b(this.l, 12));
-                this.f13048c.setCurrentItem((i3 + 1) - this.l);
+                this.f12729c.setCurrentItem((i3 + 1) - this.l);
             } else if (i2 == i11) {
                 wheelView2.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.m));
-                this.f13048c.setCurrentItem(i3);
+                this.f12729c.setCurrentItem(i3);
             } else {
                 wheelView2.setAdapter(new c.a.s0.g1.q.a.a.b(1, 12));
-                this.f13048c.setCurrentItem(i3);
+                this.f12729c.setCurrentItem(i3);
             }
-            this.f13048c.setGravity(this.f13053h);
-            this.f13049d = (WheelView) this.a.findViewById(R.id.day);
-            if (this.f13055j == this.f13056k && this.l == this.m) {
+            this.f12729c.setGravity(this.f12734h);
+            this.f12730d = (WheelView) this.a.findViewById(R.id.day);
+            if (this.f12736j == this.k && this.l == this.m) {
                 int i12 = i3 + 1;
                 if (asList.contains(String.valueOf(i12))) {
                     if (this.o > 31) {
                         this.o = 31;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
                 } else if (asList2.contains(String.valueOf(i12))) {
                     if (this.o > 30) {
                         this.o = 30;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
                 } else if ((i2 % 4 == 0 && i2 % 100 != 0) || i2 % 400 == 0) {
                     if (this.o > 29) {
                         this.o = 29;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
                 } else {
                     if (this.o > 28) {
                         this.o = 28;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, this.o));
                 }
-                this.f13049d.setCurrentItem(i4 - this.n);
-            } else if (i2 == this.f13055j && (i9 = i3 + 1) == this.l) {
+                this.f12730d.setCurrentItem(i4 - this.n);
+            } else if (i2 == this.f12736j && (i9 = i3 + 1) == this.l) {
                 if (asList.contains(String.valueOf(i9))) {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 31));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 31));
                 } else if (asList2.contains(String.valueOf(i9))) {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 30));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 30));
                 } else if ((i2 % 4 == 0 && i2 % 100 != 0) || i2 % 400 == 0) {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 29));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 29));
                 } else {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 28));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(this.n, 28));
                 }
-                this.f13049d.setCurrentItem(i4 - this.n);
-            } else if (i2 == this.f13056k && (i8 = i3 + 1) == this.m) {
+                this.f12730d.setCurrentItem(i4 - this.n);
+            } else if (i2 == this.k && (i8 = i3 + 1) == this.m) {
                 if (asList.contains(String.valueOf(i8))) {
                     if (this.o > 31) {
                         this.o = 31;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
                 } else if (asList2.contains(String.valueOf(i8))) {
                     if (this.o > 30) {
                         this.o = 30;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
                 } else if ((i2 % 4 == 0 && i2 % 100 != 0) || i2 % 400 == 0) {
                     if (this.o > 29) {
                         this.o = 29;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
                 } else {
                     if (this.o > 28) {
                         this.o = 28;
                     }
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, this.o));
                 }
-                this.f13049d.setCurrentItem(i4 - 1);
+                this.f12730d.setCurrentItem(i4 - 1);
             } else {
                 int i13 = i3 + 1;
                 if (asList.contains(String.valueOf(i13))) {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 31));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 31));
                 } else if (asList2.contains(String.valueOf(i13))) {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 30));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 30));
                 } else if ((i2 % 4 == 0 && i2 % 100 != 0) || i2 % 400 == 0) {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 29));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 29));
                 } else {
-                    this.f13049d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 28));
+                    this.f12730d.setAdapter(new c.a.s0.g1.q.a.a.b(1, 28));
                 }
-                this.f13049d.setCurrentItem(i4 - 1);
+                this.f12730d.setCurrentItem(i4 - 1);
             }
-            this.f13049d.setGravity(this.f13053h);
+            this.f12730d.setGravity(this.f12734h);
             WheelView wheelView3 = (WheelView) this.a.findViewById(R.id.hour);
-            this.f13050e = wheelView3;
+            this.f12731e = wheelView3;
             wheelView3.setAdapter(new c.a.s0.g1.q.a.a.b(0, 23));
-            this.f13050e.setCurrentItem(i5);
-            this.f13050e.setGravity(this.f13053h);
+            this.f12731e.setCurrentItem(i5);
+            this.f12731e.setGravity(this.f12734h);
             WheelView wheelView4 = (WheelView) this.a.findViewById(R.id.min);
-            this.f13051f = wheelView4;
+            this.f12732f = wheelView4;
             wheelView4.setAdapter(new c.a.s0.g1.q.a.a.b(0, 59));
-            this.f13051f.setCurrentItem(i6);
-            this.f13051f.setGravity(this.f13053h);
+            this.f12732f.setCurrentItem(i6);
+            this.f12732f.setGravity(this.f12734h);
             WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.second);
-            this.f13052g = wheelView5;
+            this.f12733g = wheelView5;
             wheelView5.setAdapter(new c.a.s0.g1.q.a.a.b(0, 59));
-            this.f13052g.setCurrentItem(i7);
-            this.f13052g.setGravity(this.f13053h);
-            this.f13047b.setOnItemSelectedListener(new c(this, asList, asList2));
-            this.f13048c.setOnItemSelectedListener(new C0837d(this, asList, asList2));
-            q(this.f13049d);
-            q(this.f13050e);
-            q(this.f13051f);
-            q(this.f13052g);
-            boolean[] zArr = this.f13054i;
+            this.f12733g.setCurrentItem(i7);
+            this.f12733g.setGravity(this.f12734h);
+            this.f12728b.setOnItemSelectedListener(new c(this, asList, asList2));
+            this.f12729c.setOnItemSelectedListener(new C0847d(this, asList, asList2));
+            q(this.f12730d);
+            q(this.f12731e);
+            q(this.f12732f);
+            q(this.f12733g);
+            boolean[] zArr = this.f12735i;
             if (zArr.length == 6) {
-                this.f13047b.setVisibility(zArr[0] ? 0 : 8);
-                this.f13048c.setVisibility(this.f13054i[1] ? 0 : 8);
-                this.f13049d.setVisibility(this.f13054i[2] ? 0 : 8);
-                this.f13050e.setVisibility(this.f13054i[3] ? 0 : 8);
-                this.f13051f.setVisibility(this.f13054i[4] ? 0 : 8);
-                this.f13052g.setVisibility(this.f13054i[5] ? 0 : 8);
+                this.f12728b.setVisibility(zArr[0] ? 0 : 8);
+                this.f12729c.setVisibility(this.f12735i[1] ? 0 : 8);
+                this.f12730d.setVisibility(this.f12735i[2] ? 0 : 8);
+                this.f12731e.setVisibility(this.f12735i[3] ? 0 : 8);
+                this.f12732f.setVisibility(this.f12735i[4] ? 0 : 8);
+                this.f12733g.setVisibility(this.f12735i[5] ? 0 : 8);
                 r();
                 return;
             }
@@ -773,19 +771,19 @@ public class d {
     public void I(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f13055j = i2;
+            this.f12736j = i2;
         }
     }
 
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f13049d.setTextColorCenter(this.s);
-            this.f13048c.setTextColorCenter(this.s);
-            this.f13047b.setTextColorCenter(this.s);
-            this.f13050e.setTextColorCenter(this.s);
-            this.f13051f.setTextColorCenter(this.s);
-            this.f13052g.setTextColorCenter(this.s);
+            this.f12730d.setTextColorCenter(this.s);
+            this.f12729c.setTextColorCenter(this.s);
+            this.f12728b.setTextColorCenter(this.s);
+            this.f12731e.setTextColorCenter(this.s);
+            this.f12732f.setTextColorCenter(this.s);
+            this.f12733g.setTextColorCenter(this.s);
         }
     }
 
@@ -800,12 +798,12 @@ public class d {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f13049d.setTextColorOut(this.r);
-            this.f13048c.setTextColorOut(this.r);
-            this.f13047b.setTextColorOut(this.r);
-            this.f13050e.setTextColorOut(this.r);
-            this.f13051f.setTextColorOut(this.r);
-            this.f13052g.setTextColorOut(this.r);
+            this.f12730d.setTextColorOut(this.r);
+            this.f12729c.setTextColorOut(this.r);
+            this.f12728b.setTextColorOut(this.r);
+            this.f12731e.setTextColorOut(this.r);
+            this.f12732f.setTextColorOut(this.r);
+            this.f12733g.setTextColorOut(this.r);
         }
     }
 
@@ -820,12 +818,12 @@ public class d {
     public void N(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f13049d.setTextXOffset(i2);
-            this.f13048c.setTextXOffset(i3);
-            this.f13047b.setTextXOffset(i4);
-            this.f13050e.setTextXOffset(i5);
-            this.f13051f.setTextXOffset(i6);
-            this.f13052g.setTextXOffset(i7);
+            this.f12730d.setTextXOffset(i2);
+            this.f12729c.setTextXOffset(i3);
+            this.f12728b.setTextXOffset(i4);
+            this.f12731e.setTextXOffset(i5);
+            this.f12732f.setTextXOffset(i6);
+            this.f12733g.setTextXOffset(i7);
         }
     }
 
@@ -844,58 +842,58 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            int currentItem3 = this.f13047b.getCurrentItem() + this.f13055j;
+            int currentItem3 = this.f12728b.getCurrentItem() + this.f12736j;
             if (c.a.s0.g1.q.a.e.a.g(currentItem3) == 0) {
-                currentItem2 = this.f13048c.getCurrentItem();
-            } else if ((this.f13048c.getCurrentItem() + 1) - c.a.s0.g1.q.a.e.a.g(currentItem3) <= 0) {
-                currentItem2 = this.f13048c.getCurrentItem();
-            } else if ((this.f13048c.getCurrentItem() + 1) - c.a.s0.g1.q.a.e.a.g(currentItem3) == 1) {
-                currentItem = this.f13048c.getCurrentItem();
+                currentItem2 = this.f12729c.getCurrentItem();
+            } else if ((this.f12729c.getCurrentItem() + 1) - c.a.s0.g1.q.a.e.a.g(currentItem3) <= 0) {
+                currentItem2 = this.f12729c.getCurrentItem();
+            } else if ((this.f12729c.getCurrentItem() + 1) - c.a.s0.g1.q.a.e.a.g(currentItem3) == 1) {
+                currentItem = this.f12729c.getCurrentItem();
                 z = true;
-                int[] b2 = c.a.s0.g1.q.a.e.b.b(currentItem3, currentItem, this.f13049d.getCurrentItem() + 1, z);
+                int[] b2 = c.a.s0.g1.q.a.e.b.b(currentItem3, currentItem, this.f12730d.getCurrentItem() + 1, z);
                 sb.append(b2[0]);
                 sb.append("-");
                 sb.append(b2[1]);
                 sb.append("-");
                 sb.append(b2[2]);
                 sb.append(" ");
-                sb.append(this.f13050e.getCurrentItem());
+                sb.append(this.f12731e.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f13051f.getCurrentItem());
+                sb.append(this.f12732f.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f13052g.getCurrentItem());
+                sb.append(this.f12733g.getCurrentItem());
                 return sb.toString();
             } else {
-                currentItem = this.f13048c.getCurrentItem();
+                currentItem = this.f12729c.getCurrentItem();
                 z = false;
-                int[] b22 = c.a.s0.g1.q.a.e.b.b(currentItem3, currentItem, this.f13049d.getCurrentItem() + 1, z);
+                int[] b22 = c.a.s0.g1.q.a.e.b.b(currentItem3, currentItem, this.f12730d.getCurrentItem() + 1, z);
                 sb.append(b22[0]);
                 sb.append("-");
                 sb.append(b22[1]);
                 sb.append("-");
                 sb.append(b22[2]);
                 sb.append(" ");
-                sb.append(this.f13050e.getCurrentItem());
+                sb.append(this.f12731e.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f13051f.getCurrentItem());
+                sb.append(this.f12732f.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f13052g.getCurrentItem());
+                sb.append(this.f12733g.getCurrentItem());
                 return sb.toString();
             }
             currentItem = currentItem2 + 1;
             z = false;
-            int[] b222 = c.a.s0.g1.q.a.e.b.b(currentItem3, currentItem, this.f13049d.getCurrentItem() + 1, z);
+            int[] b222 = c.a.s0.g1.q.a.e.b.b(currentItem3, currentItem, this.f12730d.getCurrentItem() + 1, z);
             sb.append(b222[0]);
             sb.append("-");
             sb.append(b222[1]);
             sb.append("-");
             sb.append(b222[2]);
             sb.append(" ");
-            sb.append(this.f13050e.getCurrentItem());
+            sb.append(this.f12731e.getCurrentItem());
             sb.append(":");
-            sb.append(this.f13051f.getCurrentItem());
+            sb.append(this.f12732f.getCurrentItem());
             sb.append(":");
-            sb.append(this.f13052g.getCurrentItem());
+            sb.append(this.f12733g.getCurrentItem());
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -909,46 +907,46 @@ public class d {
                 return n();
             }
             StringBuilder sb = new StringBuilder();
-            if (this.p == this.f13055j) {
-                int currentItem = this.f13048c.getCurrentItem();
+            if (this.p == this.f12736j) {
+                int currentItem = this.f12729c.getCurrentItem();
                 int i2 = this.l;
                 if (currentItem + i2 == i2) {
-                    sb.append(this.f13047b.getCurrentItem() + this.f13055j);
+                    sb.append(this.f12728b.getCurrentItem() + this.f12736j);
                     sb.append("-");
-                    sb.append(this.f13048c.getCurrentItem() + this.l);
+                    sb.append(this.f12729c.getCurrentItem() + this.l);
                     sb.append("-");
-                    sb.append(this.f13049d.getCurrentItem() + this.n);
+                    sb.append(this.f12730d.getCurrentItem() + this.n);
                     sb.append(" ");
-                    sb.append(this.f13050e.getCurrentItem());
+                    sb.append(this.f12731e.getCurrentItem());
                     sb.append(":");
-                    sb.append(this.f13051f.getCurrentItem());
+                    sb.append(this.f12732f.getCurrentItem());
                     sb.append(":");
-                    sb.append(this.f13052g.getCurrentItem());
+                    sb.append(this.f12733g.getCurrentItem());
                 } else {
-                    sb.append(this.f13047b.getCurrentItem() + this.f13055j);
+                    sb.append(this.f12728b.getCurrentItem() + this.f12736j);
                     sb.append("-");
-                    sb.append(this.f13048c.getCurrentItem() + this.l);
+                    sb.append(this.f12729c.getCurrentItem() + this.l);
                     sb.append("-");
-                    sb.append(this.f13049d.getCurrentItem() + 1);
+                    sb.append(this.f12730d.getCurrentItem() + 1);
                     sb.append(" ");
-                    sb.append(this.f13050e.getCurrentItem());
+                    sb.append(this.f12731e.getCurrentItem());
                     sb.append(":");
-                    sb.append(this.f13051f.getCurrentItem());
+                    sb.append(this.f12732f.getCurrentItem());
                     sb.append(":");
-                    sb.append(this.f13052g.getCurrentItem());
+                    sb.append(this.f12733g.getCurrentItem());
                 }
             } else {
-                sb.append(this.f13047b.getCurrentItem() + this.f13055j);
+                sb.append(this.f12728b.getCurrentItem() + this.f12736j);
                 sb.append("-");
-                sb.append(this.f13048c.getCurrentItem() + 1);
+                sb.append(this.f12729c.getCurrentItem() + 1);
                 sb.append("-");
-                sb.append(this.f13049d.getCurrentItem() + 1);
+                sb.append(this.f12730d.getCurrentItem() + 1);
                 sb.append(" ");
-                sb.append(this.f13050e.getCurrentItem());
+                sb.append(this.f12731e.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f13051f.getCurrentItem());
+                sb.append(this.f12732f.getCurrentItem());
                 sb.append(":");
-                sb.append(this.f13052g.getCurrentItem());
+                sb.append(this.f12733g.getCurrentItem());
             }
             return sb.toString();
         }
@@ -958,12 +956,12 @@ public class d {
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f13049d.isCenterLabel(z);
-            this.f13048c.isCenterLabel(z);
-            this.f13047b.isCenterLabel(z);
-            this.f13050e.isCenterLabel(z);
-            this.f13051f.isCenterLabel(z);
-            this.f13052g.isCenterLabel(z);
+            this.f12730d.isCenterLabel(z);
+            this.f12729c.isCenterLabel(z);
+            this.f12728b.isCenterLabel(z);
+            this.f12731e.isCenterLabel(z);
+            this.f12732f.isCenterLabel(z);
+            this.f12733g.isCenterLabel(z);
         }
     }
 
@@ -978,36 +976,36 @@ public class d {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.f13049d.setTextSize(this.q);
-            this.f13048c.setTextSize(this.q);
-            this.f13047b.setTextSize(this.q);
-            this.f13050e.setTextSize(this.q);
-            this.f13051f.setTextSize(this.q);
-            this.f13052g.setTextSize(this.q);
+            this.f12730d.setTextSize(this.q);
+            this.f12729c.setTextSize(this.q);
+            this.f12728b.setTextSize(this.q);
+            this.f12731e.setTextSize(this.q);
+            this.f12732f.setTextSize(this.q);
+            this.f12733g.setTextSize(this.q);
         }
     }
 
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f13047b.setCyclic(z);
-            this.f13048c.setCyclic(z);
-            this.f13049d.setCyclic(z);
-            this.f13050e.setCyclic(z);
-            this.f13051f.setCyclic(z);
-            this.f13052g.setCyclic(z);
+            this.f12728b.setCyclic(z);
+            this.f12729c.setCyclic(z);
+            this.f12730d.setCyclic(z);
+            this.f12731e.setCyclic(z);
+            this.f12732f.setCyclic(z);
+            this.f12733g.setCyclic(z);
         }
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f13049d.setDividerColor(this.t);
-            this.f13048c.setDividerColor(this.t);
-            this.f13047b.setDividerColor(this.t);
-            this.f13050e.setDividerColor(this.t);
-            this.f13051f.setDividerColor(this.t);
-            this.f13052g.setDividerColor(this.t);
+            this.f12730d.setDividerColor(this.t);
+            this.f12729c.setDividerColor(this.t);
+            this.f12728b.setDividerColor(this.t);
+            this.f12731e.setDividerColor(this.t);
+            this.f12732f.setDividerColor(this.t);
+            this.f12733g.setDividerColor(this.t);
         }
     }
 
@@ -1022,12 +1020,12 @@ public class d {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f13049d.setDividerType(this.v);
-            this.f13048c.setDividerType(this.v);
-            this.f13047b.setDividerType(this.v);
-            this.f13050e.setDividerType(this.v);
-            this.f13051f.setDividerType(this.v);
-            this.f13052g.setDividerType(this.v);
+            this.f12730d.setDividerType(this.v);
+            this.f12729c.setDividerType(this.v);
+            this.f12728b.setDividerType(this.v);
+            this.f12731e.setDividerType(this.v);
+            this.f12732f.setDividerType(this.v);
+            this.f12733g.setDividerType(this.v);
         }
     }
 
@@ -1042,7 +1040,7 @@ public class d {
     public void x(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.f13056k = i2;
+            this.k = i2;
         }
     }
 
@@ -1052,46 +1050,46 @@ public class d {
             return;
         }
         if (str != null) {
-            this.f13047b.setLabel(str);
+            this.f12728b.setLabel(str);
         } else {
-            this.f13047b.setLabel(this.a.getContext().getString(R.string.pickerview_year));
+            this.f12728b.setLabel(this.a.getContext().getString(R.string.pickerview_year));
         }
         if (str2 != null) {
-            this.f13048c.setLabel(str2);
+            this.f12729c.setLabel(str2);
         } else {
-            this.f13048c.setLabel(this.a.getContext().getString(R.string.pickerview_month));
+            this.f12729c.setLabel(this.a.getContext().getString(R.string.pickerview_month));
         }
         if (str3 != null) {
-            this.f13049d.setLabel(str3);
+            this.f12730d.setLabel(str3);
         } else {
-            this.f13049d.setLabel(this.a.getContext().getString(R.string.pickerview_day));
+            this.f12730d.setLabel(this.a.getContext().getString(R.string.pickerview_day));
         }
         if (str4 != null) {
-            this.f13050e.setLabel(str4);
+            this.f12731e.setLabel(str4);
         } else {
-            this.f13050e.setLabel(this.a.getContext().getString(R.string.pickerview_hours));
+            this.f12731e.setLabel(this.a.getContext().getString(R.string.pickerview_hours));
         }
         if (str5 != null) {
-            this.f13051f.setLabel(str5);
+            this.f12732f.setLabel(str5);
         } else {
-            this.f13051f.setLabel(this.a.getContext().getString(R.string.pickerview_minutes));
+            this.f12732f.setLabel(this.a.getContext().getString(R.string.pickerview_minutes));
         }
         if (str6 != null) {
-            this.f13052g.setLabel(str6);
+            this.f12733g.setLabel(str6);
         } else {
-            this.f13052g.setLabel(this.a.getContext().getString(R.string.pickerview_seconds));
+            this.f12733g.setLabel(this.a.getContext().getString(R.string.pickerview_seconds));
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.f13049d.setLineSpacingMultiplier(this.u);
-            this.f13048c.setLineSpacingMultiplier(this.u);
-            this.f13047b.setLineSpacingMultiplier(this.u);
-            this.f13050e.setLineSpacingMultiplier(this.u);
-            this.f13051f.setLineSpacingMultiplier(this.u);
-            this.f13052g.setLineSpacingMultiplier(this.u);
+            this.f12730d.setLineSpacingMultiplier(this.u);
+            this.f12729c.setLineSpacingMultiplier(this.u);
+            this.f12728b.setLineSpacingMultiplier(this.u);
+            this.f12731e.setLineSpacingMultiplier(this.u);
+            this.f12732f.setLineSpacingMultiplier(this.u);
+            this.f12733g.setLineSpacingMultiplier(this.u);
         }
     }
 }

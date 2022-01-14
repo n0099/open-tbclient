@@ -14,31 +14,31 @@ public class a extends KSFrameLayout {
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f57986b;
+    public AdBaseFrameLayout f55791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f57987c;
+    public d f55792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Presenter f57988d;
+    public Presenter f55793d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f57989e;
+    public AdTemplate f55794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f57990f;
+    public AdInfo f55795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f57991g;
+    public final int f55796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57992h;
+    public String f55797h;
 
     public a(Context context, @NonNull b bVar, @NonNull AdTemplate adTemplate, int i2, String str) {
         super(context);
-        this.f57992h = str;
-        this.f57991g = i2;
+        this.f55797h = str;
+        this.f55796g = i2;
         this.a = bVar;
         a(context);
         a(adTemplate);
@@ -46,23 +46,23 @@ public class a extends KSFrameLayout {
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_download_dialog_layout, this);
-        this.f57986b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+        this.f55791b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
     }
 
     private d d() {
         d dVar = new d();
-        dVar.f57998c = this.f57986b;
-        dVar.f57999d = this.f57989e;
-        dVar.a = this.f57991g;
-        if (com.kwad.sdk.core.response.a.a.B(this.f57990f)) {
-            dVar.f58000e = new com.kwad.sdk.core.download.a.b(this.f57989e);
+        dVar.f55803c = this.f55791b;
+        dVar.f55804d = this.f55794e;
+        dVar.a = this.f55796g;
+        if (com.kwad.sdk.core.response.a.a.B(this.f55795f)) {
+            dVar.f55805e = new com.kwad.sdk.core.download.a.b(this.f55794e);
         }
-        dVar.f57997b = new e() { // from class: com.kwad.sdk.core.download.kwai.a.1
+        dVar.f55802b = new e() { // from class: com.kwad.sdk.core.download.kwai.a.1
             @Override // com.kwad.sdk.core.download.kwai.e
             public void a(boolean z) {
                 com.kwad.sdk.core.d.a.a("DownloadDialogView", "onClose()");
                 if (z) {
-                    com.kwad.sdk.core.report.a.n(a.this.f57989e);
+                    com.kwad.sdk.core.report.a.n(a.this.f55794e);
                 }
                 if (a.this.a == null || !a.this.a.isShowing()) {
                     return;
@@ -75,33 +75,33 @@ public class a extends KSFrameLayout {
 
     private Presenter e() {
         Presenter presenter = new Presenter();
-        presenter.a((Presenter) new f(this.f57992h));
+        presenter.a((Presenter) new f(this.f55797h));
         return presenter;
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
     public void a() {
         super.a();
-        this.f57987c = d();
+        this.f55792c = d();
         Presenter e2 = e();
-        this.f57988d = e2;
-        e2.c(this.f57986b);
-        this.f57988d.a(this.f57987c);
+        this.f55793d = e2;
+        e2.c(this.f55791b);
+        this.f55793d.a(this.f55792c);
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f57989e = adTemplate;
-        this.f57990f = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f55794e = adTemplate;
+        this.f55795f = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
     public void b() {
         super.b();
-        d dVar = this.f57987c;
+        d dVar = this.f55792c;
         if (dVar != null) {
             dVar.a();
         }
-        Presenter presenter = this.f57988d;
+        Presenter presenter = this.f55793d;
         if (presenter != null) {
             presenter.k();
         }

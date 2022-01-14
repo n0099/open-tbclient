@@ -17,17 +17,17 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
     public TaskBuoyViewModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.h.c.a.d f3876b;
+    public final c.a.j.h.c.a.d f3815b;
 
     /* renamed from: c.a.j.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0152a implements c.a.j.h.c.a.d {
+    public static final class C0161a implements c.a.j.h.c.a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public C0152a(a aVar) {
+        public C0161a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,12 +51,12 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
             TaskInfo c2;
             TaskBuoyViewModel taskBuoyViewModel2;
             c.a.j.h.c.c.c.a<TaskBuoyViewData> a;
-            TaskBuoyViewData k2;
+            TaskBuoyViewData k;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (taskBuoyViewModel = this.a.a) == null || (c2 = taskBuoyViewModel.c()) == null || (taskBuoyViewModel2 = this.a.a) == null || (a = taskBuoyViewModel2.a()) == null || (k2 = a.k()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (taskBuoyViewModel = this.a.a) == null || (c2 = taskBuoyViewModel.c()) == null || (taskBuoyViewModel2 = this.a.a) == null || (a = taskBuoyViewModel2.a()) == null || (k = a.k()) == null) {
                 return;
             }
-            g.a.b(k2.getUiConfig().h(), c2, k2.getTaskStatus());
+            g.a.b(k.getUiConfig().h(), c2, k.getTaskStatus());
         }
 
         @Override // c.a.j.h.c.a.d
@@ -65,12 +65,12 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
             TaskInfo c2;
             TaskBuoyViewModel taskBuoyViewModel2;
             c.a.j.h.c.c.c.a<TaskBuoyViewData> a;
-            TaskBuoyViewData k2;
+            TaskBuoyViewData k;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (taskBuoyViewModel = this.a.a) == null || (c2 = taskBuoyViewModel.c()) == null || (taskBuoyViewModel2 = this.a.a) == null || (a = taskBuoyViewModel2.a()) == null || (k2 = a.k()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (taskBuoyViewModel = this.a.a) == null || (c2 = taskBuoyViewModel.c()) == null || (taskBuoyViewModel2 = this.a.a) == null || (a = taskBuoyViewModel2.a()) == null || (k = a.k()) == null) {
                 return;
             }
-            g.a.a(k2.getUiConfig().h(), c2, k2.getTaskStatus());
+            g.a.a(k.getUiConfig().h(), c2, k.getTaskStatus());
         }
     }
 
@@ -87,13 +87,13 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
                 return;
             }
         }
-        this.f3876b = new C0152a(this);
+        this.f3815b = new C0161a(this);
     }
 
     public c.a.j.h.c.a.d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3876b : (c.a.j.h.c.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3815b : (c.a.j.h.c.a.d) invokeV.objValue;
     }
 
     @CallSuper

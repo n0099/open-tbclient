@@ -14,12 +14,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f11869c;
+    public static volatile b f11599c;
     public transient /* synthetic */ FieldHolder $fh;
     public final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.q.k.i.a f11870b;
+    public c.a.r0.q.k.i.a f11600b;
 
     /* loaded from: classes6.dex */
     public static class a extends c.a.r0.w.j {
@@ -65,14 +65,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11869c == null) {
+            if (f11599c == null) {
                 synchronized (b.class) {
-                    if (f11869c == null) {
-                        f11869c = new b();
+                    if (f11599c == null) {
+                        f11599c = new b();
                     }
                 }
             }
-            return f11869c;
+            return f11599c;
         }
         return (b) invokeV.objValue;
     }
@@ -82,14 +82,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f11870b == null) {
+            if (this.f11600b == null) {
                 synchronized (b.class) {
-                    if (this.f11870b == null) {
-                        this.f11870b = c.a.r0.q.k.i.a.b(this.a.getString("data", ""));
+                    if (this.f11600b == null) {
+                        this.f11600b = c.a.r0.q.k.i.a.b(this.a.getString("data", ""));
                     }
                 }
             }
-            return this.f11870b;
+            return this.f11600b;
         }
         return (c.a.r0.q.k.i.a) invokeV.objValue;
     }

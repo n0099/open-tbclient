@@ -26,34 +26,34 @@ public class e {
     public final KsAdWebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60360b;
+    public long f58070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f60361c;
+    public AdBaseFrameLayout f58071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60362d;
+    public Context f58072d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f60363e;
+    public AdTemplate f58073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f60364f;
+    public com.kwad.sdk.core.download.a.b f58074f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.g f60365g;
+    public com.kwad.sdk.core.webview.kwai.g f58075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public s f60366h;
+    public s f58076h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f60367i;
+    public int f58077i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public p.b f60368j;
+    public p.b f58078j;
 
     /* loaded from: classes3.dex */
     public static class a implements z.b {
@@ -79,7 +79,7 @@ public class e {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    e.this.f60360b = SystemClock.elapsedRealtime();
+                    e.this.f58070b = SystemClock.elapsedRealtime();
                     return false;
                 }
                 return false;
@@ -94,11 +94,11 @@ public class e {
             return;
         }
         long X = com.kwad.sdk.core.config.b.X();
-        if (X <= 0 || SystemClock.elapsedRealtime() - this.f60360b <= X) {
+        if (X <= 0 || SystemClock.elapsedRealtime() - this.f58070b <= X) {
             p.a aVar = new p.a();
-            aVar.f58262b = i2;
-            aVar.f58267g = this.f60361c.getTouchCoords();
-            com.kwad.sdk.core.download.a.a.a(new a.C2083a(this.f60362d).a(this.f60363e).a(this.f60364f).a(false).a(aVar).c(true));
+            aVar.f56061b = i2;
+            aVar.f56066g = this.f58071c.getTouchCoords();
+            com.kwad.sdk.core.download.a.a.a(new a.C2100a(this.f58072d).a(this.f58073e).a(this.f58074f).a(false).a(aVar).c(true));
         }
     }
 
@@ -122,34 +122,34 @@ public class e {
         gVar.a(new com.kwad.sdk.core.webview.jshandler.p(new p.b() { // from class: com.kwad.sdk.widget.e.3
             @Override // com.kwad.sdk.core.webview.jshandler.p.b
             public void a(p.a aVar2) {
-                e.this.f60367i = aVar2.a;
-                if (aVar2.a == 1 && e.this.f60363e != null) {
-                    com.kwad.sdk.core.report.a.o(e.this.f60363e);
+                e.this.f58077i = aVar2.a;
+                if (aVar2.a == 1 && e.this.f58073e != null) {
+                    com.kwad.sdk.core.report.a.o(e.this.f58073e);
                 }
-                if (e.this.f60368j != null) {
-                    e.this.f60368j.a(aVar2);
+                if (e.this.f58078j != null) {
+                    e.this.f58078j.a(aVar2);
                 }
             }
         }));
         gVar.a(new com.kwad.sdk.core.webview.jshandler.k(aVar));
         s sVar = new s();
-        this.f60366h = sVar;
+        this.f58076h = sVar;
         gVar.a(sVar);
     }
 
     private void g() {
-        com.kwad.sdk.core.webview.kwai.g gVar = this.f60365g;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.f58075g;
         if (gVar != null) {
             gVar.a();
-            this.f60365g = null;
+            this.f58075g = null;
         }
     }
 
     public void a() {
-        com.kwad.sdk.core.webview.kwai.g gVar = this.f60365g;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.f58075g;
         if (gVar != null) {
             gVar.a();
-            this.f60365g = null;
+            this.f58075g = null;
         }
     }
 
@@ -159,32 +159,32 @@ public class e {
             com.kwad.sdk.core.d.a.d("PlayableViewHelper", "registerJsBridge mPlayableView is null");
             return;
         }
-        this.f60362d = adBaseFrameLayout.getContext();
-        this.f60361c = adBaseFrameLayout;
-        this.f60363e = adTemplate;
-        this.f60364f = bVar;
-        this.f60367i = -1;
+        this.f58072d = adBaseFrameLayout.getContext();
+        this.f58071c = adBaseFrameLayout;
+        this.f58073e = adTemplate;
+        this.f58074f = bVar;
+        this.f58077i = -1;
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         aVar.a(adTemplate);
         aVar.a = 0;
-        AdBaseFrameLayout adBaseFrameLayout2 = this.f60361c;
-        aVar.f58536b = adBaseFrameLayout2;
-        aVar.f58538d = adBaseFrameLayout2;
-        aVar.f58539e = this.a;
-        aVar.f58540f = bVar;
+        AdBaseFrameLayout adBaseFrameLayout2 = this.f58071c;
+        aVar.f56327b = adBaseFrameLayout2;
+        aVar.f56329d = adBaseFrameLayout2;
+        aVar.f56330e = this.a;
+        aVar.f56331f = bVar;
         g();
         com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.a);
-        this.f60365g = gVar;
+        this.f58075g = gVar;
         a(aVar, gVar, bVar);
-        this.a.addJavascriptInterface(this.f60365g, "KwaiAd");
+        this.a.addJavascriptInterface(this.f58075g, "KwaiAd");
     }
 
     public void a(@Nullable p.b bVar) {
-        this.f60368j = bVar;
+        this.f58078j = bVar;
     }
 
     public void b() {
-        AdTemplate adTemplate = this.f60363e;
+        AdTemplate adTemplate = this.f58073e;
         if (adTemplate == null || this.a == null) {
             return;
         }
@@ -192,7 +192,7 @@ public class e {
         if (!TextUtils.isEmpty(ap)) {
             this.a.loadUrl(ap);
         }
-        com.kwad.sdk.core.report.a.p(this.f60363e);
+        com.kwad.sdk.core.report.a.p(this.f58073e);
     }
 
     public void c() {
@@ -200,12 +200,12 @@ public class e {
             return;
         }
         com.kwad.sdk.core.d.a.a("PlayableViewHelper", "showPlayable");
-        s sVar = this.f60366h;
+        s sVar = this.f58076h;
         if (sVar != null) {
             sVar.c();
         }
         this.a.setVisibility(0);
-        s sVar2 = this.f60366h;
+        s sVar2 = this.f58076h;
         if (sVar2 != null) {
             sVar2.d();
         }
@@ -216,23 +216,23 @@ public class e {
         if (this.a == null) {
             return;
         }
-        s sVar = this.f60366h;
+        s sVar = this.f58076h;
         if (sVar != null) {
             sVar.e();
         }
         this.a.setVisibility(8);
-        s sVar2 = this.f60366h;
+        s sVar2 = this.f58076h;
         if (sVar2 != null) {
             sVar2.f();
         }
     }
 
     public boolean e() {
-        return this.a != null && this.f60367i == 1;
+        return this.a != null && this.f58077i == 1;
     }
 
     @Nullable
     public AdTemplate f() {
-        return this.f60363e;
+        return this.f58073e;
     }
 }

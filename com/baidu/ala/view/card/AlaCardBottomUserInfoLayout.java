@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.e1.o0;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -85,15 +85,15 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(d2 d2Var) {
+    public void setData(e2 e2Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null || d2Var.o1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) || e2Var == null || e2Var.o1() == null) {
             return;
         }
-        AlaUserInfoData alaUserInfoData = d2Var.o1().user_info;
-        if (d2Var.J() != null) {
-            str = d2Var.J().getName_show();
+        AlaUserInfoData alaUserInfoData = e2Var.o1().user_info;
+        if (e2Var.J() != null) {
+            str = e2Var.J().getName_show();
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
@@ -104,7 +104,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(d2Var.o1().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(e2Var.o1().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i2) {

@@ -7,7 +7,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
@@ -22,19 +21,19 @@ public class e {
     public final BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.s.s.a f19144b;
+    public c.a.s0.s.s.a f18657b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.s.s.a f19145c;
+    public c.a.s0.s.s.a f18658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.s.s.a f19146d;
+    public c.a.s0.s.s.a f18659d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19147e;
+    public int f18660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f19148f;
+    public View.OnClickListener f18661f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -42,7 +41,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19149e;
+        public final /* synthetic */ e f18662e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +58,7 @@ public class e {
                     return;
                 }
             }
-            this.f19149e = eVar;
+            this.f18662e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -68,53 +67,52 @@ public class e {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
                 if (id == R.id.private_yes || id == R.id.yesBtn) {
-                    if (this.f19149e.f19144b != null && this.f19149e.f19144b.isShowing()) {
-                        this.f19149e.f19144b.dismiss();
+                    if (this.f18662e.f18657b != null && this.f18662e.f18657b.isShowing()) {
+                        this.f18662e.f18657b.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();
                         c.a.t0.r3.f.a.a("1", "1");
-                        c.a.s0.s.y.a.k("logoController", false);
+                        c.a.s0.s.y.a.j("logoController", false);
                     }
-                    if (this.f19149e.f19145c != null && this.f19149e.f19145c.isShowing()) {
-                        this.f19149e.f19145c.dismiss();
+                    if (this.f18662e.f18658c != null && this.f18662e.f18658c.isShowing()) {
+                        this.f18662e.f18658c.dismiss();
                         c.a.t0.r3.f.a.a("2", "1");
-                        c.a.s0.s.y.a.k("logoController", false);
+                        c.a.s0.s.y.a.j("logoController", false);
                     }
-                    if (this.f19149e.f19146d != null && this.f19149e.f19146d.isShowing()) {
-                        this.f19149e.f19146d.dismiss();
+                    if (this.f18662e.f18659d != null && this.f18662e.f18659d.isShowing()) {
+                        this.f18662e.f18659d.dismiss();
                         c.a.t0.r3.f.a.a("3", "1");
-                        c.a.s0.s.y.a.k("logoController", false);
+                        c.a.s0.s.y.a.j("logoController", false);
                     }
-                    c.a.s0.s.g0.b.j().w("key_first_enter_app_timestamp", System.currentTimeMillis());
+                    c.a.s0.s.h0.b.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
                     PermissionUtil.setIsAgreePrivacyPolicy(true);
-                    LaunchTaskSchedule.getInstance().start(4);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921639, 2));
                 } else if (id == R.id.private_no) {
-                    if (this.f19149e.f19144b.isShowing()) {
-                        this.f19149e.f19144b.dismiss();
+                    if (this.f18662e.f18657b.isShowing()) {
+                        this.f18662e.f18657b.dismiss();
                         c.a.t0.r3.f.a.a("1", "2");
                     }
-                    if (this.f19149e.f19145c == null) {
-                        e eVar = this.f19149e;
-                        eVar.f19145c = o.a(eVar.a.getPageContext(), this.f19149e.f19148f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
+                    if (this.f18662e.f18658c == null) {
+                        e eVar = this.f18662e;
+                        eVar.f18658c = o.a(eVar.a.getPageContext(), this.f18662e.f18661f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
                     }
-                    this.f19149e.f19145c.show();
+                    this.f18662e.f18658c.show();
                     c.a.t0.r3.f.a.b("2");
                 } else if (id == R.id.browseBtn) {
-                    e.h(this.f19149e);
-                    if (this.f19149e.f19145c.isShowing()) {
-                        this.f19149e.f19145c.dismiss();
+                    e.h(this.f18662e);
+                    if (this.f18662e.f18658c.isShowing()) {
+                        this.f18662e.f18658c.dismiss();
                         c.a.t0.r3.f.a.a("2", "2");
-                        if (this.f19149e.f19146d == null) {
-                            e eVar2 = this.f19149e;
-                            eVar2.f19146d = o.a(eVar2.a.getPageContext(), this.f19149e.f19148f, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
-                            this.f19149e.f19146d.show();
+                        if (this.f18662e.f18659d == null) {
+                            e eVar2 = this.f18662e;
+                            eVar2.f18659d = o.a(eVar2.a.getPageContext(), this.f18662e.f18661f, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
+                            this.f18662e.f18659d.show();
                             c.a.t0.r3.f.a.b("3");
                         }
                     }
-                    if (this.f19149e.f19146d.isShowing() && this.f19149e.f19147e == 2) {
-                        this.f19149e.f19146d.dismiss();
+                    if (this.f18662e.f18659d.isShowing() && this.f18662e.f18660e == 2) {
+                        this.f18662e.f18659d.dismiss();
                         c.a.t0.r3.f.a.a("3", "2");
-                        this.f19149e.a.finish();
+                        this.f18662e.a.finish();
                     }
                 }
             }
@@ -136,29 +134,29 @@ public class e {
                 return;
             }
         }
-        this.f19147e = 0;
-        this.f19148f = new a(this);
+        this.f18660e = 0;
+        this.f18661f = new a(this);
         this.a = baseFragmentActivity;
     }
 
     public static /* synthetic */ int h(e eVar) {
-        int i2 = eVar.f19147e;
-        eVar.f19147e = i2 + 1;
+        int i2 = eVar.f18660e;
+        eVar.f18660e = i2 + 1;
         return i2;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.s0.s.s.a aVar = this.f19144b;
+            c.a.s0.s.s.a aVar = this.f18657b;
             if (aVar != null) {
                 aVar.dismiss();
             }
-            c.a.s0.s.s.a aVar2 = this.f19145c;
+            c.a.s0.s.s.a aVar2 = this.f18658c;
             if (aVar2 != null) {
                 aVar2.dismiss();
             }
-            c.a.s0.s.s.a aVar3 = this.f19146d;
+            c.a.s0.s.s.a aVar3 = this.f18659d;
             if (aVar3 != null) {
                 aVar3.dismiss();
             }
@@ -168,8 +166,8 @@ public class e {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.s0.s.s.a b2 = o.b(this.a.getPageContext(), this.f19148f);
-            this.f19144b = b2;
+            c.a.s0.s.s.a b2 = o.b(this.a.getPageContext(), this.f18661f);
+            this.f18657b = b2;
             b2.show();
             SmartLaunchStats.onPrivacyDialogShow();
             c.a.t0.r3.f.a.b("1");

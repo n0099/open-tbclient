@@ -12,13 +12,13 @@ public class b0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14133b;
+    public int f13803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14134c;
+    public int f13804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14135d;
+    public int f13805d;
 
     public b0() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class b0 {
             }
         }
         this.a = 0;
-        this.f14133b = 0;
-        this.f14134c = 0;
-        this.f14135d = 0;
+        this.f13803b = 0;
+        this.f13804c = 0;
+        this.f13805d = 0;
     }
 
     public void a(JSONObject jSONObject) {
@@ -45,8 +45,8 @@ public class b0 {
             return;
         }
         this.a = jSONObject.optInt("days_new_user", 0);
-        this.f14133b = jSONObject.optInt("days_low_active", 0);
-        this.f14134c = jSONObject.optInt("limit_day", 0);
-        this.f14135d = jSONObject.optInt("limit_count", 0);
+        this.f13803b = jSONObject.optInt("days_low_active", 0);
+        this.f13804c = jSONObject.optInt("limit_day", 0);
+        this.f13805d = jSONObject.optInt("limit_count", 0);
     }
 }

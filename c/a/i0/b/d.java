@@ -23,37 +23,35 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f3810b;
+    public ViewGroup f3750b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f3811c;
+    public final g f3751c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final BaseVM f3812d;
+    public final BaseVM f3752d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public c f3813e;
+    public c f3753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f3814f;
+    public long f3754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f3815g;
+    public long f3755g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final long f3816h;
+    public final long f3756h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3817i;
+    public long f3757i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f3818j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.i0.b.f.c f3819k;
+    public boolean f3758j;
+    public c.a.i0.b.f.c k;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -61,7 +59,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3820e;
+        public final /* synthetic */ d f3759e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -78,14 +76,14 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
                     return;
                 }
             }
-            this.f3820e = dVar;
+            this.f3759e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3820e.f3813e.d();
+                this.f3759e.f3753e.d();
             }
         }
     }
@@ -105,12 +103,12 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
                 return;
             }
         }
-        this.f3818j = true;
-        this.f3816h = System.currentTimeMillis();
+        this.f3758j = true;
+        this.f3756h = System.currentTimeMillis();
         this.a = bVar;
-        this.f3810b = viewGroup;
-        this.f3811c = gVar;
-        this.f3812d = new BaseVM(gVar);
+        this.f3750b = viewGroup;
+        this.f3751c = gVar;
+        this.f3752d = new BaseVM(gVar);
         c.a.i0.b.f.b.b(gVar);
     }
 
@@ -125,10 +123,10 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.i0.c.d.a(c.a.c0.e.a.b(), this.f3811c.o);
+            c.a.i0.c.d.a(c.a.c0.h.a.b(), this.f3751c.o);
             j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            this.f3812d.a("");
-            c cVar = this.f3813e;
+            this.f3752d.b("");
+            c cVar = this.f3753e;
             if (cVar != null) {
                 cVar.b();
             }
@@ -146,7 +144,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f3815g = System.currentTimeMillis();
+            this.f3755g = System.currentTimeMillis();
         }
     }
 
@@ -154,7 +152,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c cVar = this.f3813e;
+            c cVar = this.f3753e;
             if (cVar != null) {
                 cVar.a();
             }
@@ -173,24 +171,24 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f3814f = System.currentTimeMillis();
+            this.f3754f = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("adShowScene", this.f3811c.C);
-                jSONObject.put("adSplashType", this.f3811c.f3842e);
-                if (this.f3811c.C == 1) {
-                    long j2 = this.f3815g - this.f3816h;
+                jSONObject.put("adShowScene", this.f3751c.C);
+                jSONObject.put("adSplashType", this.f3751c.f3784e);
+                if (this.f3751c.C == 1) {
+                    long j2 = this.f3755g - this.f3756h;
                     if (j2 > 0) {
                         jSONObject.put("adLoadCostTime", j2);
                     }
                 }
-                jSONObject.put("adRenderCostTime", this.f3814f - this.f3816h);
+                jSONObject.put("adRenderCostTime", this.f3754f - this.f3756h);
             } catch (JSONException unused) {
             }
-            this.f3812d.b(jSONObject);
-            c.a.i0.b.f.e.z(this.f3811c);
-            i.c(this.f3811c);
-            c cVar = this.f3813e;
+            this.f3752d.c(jSONObject);
+            c.a.i0.b.f.e.z(this.f3751c);
+            i.c(this.f3751c);
+            c cVar = this.f3753e;
             if (cVar != null) {
                 cVar.onAdShow();
             }
@@ -201,7 +199,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f3817i = System.currentTimeMillis() - this.f3814f;
+            this.f3757i = System.currentTimeMillis() - this.f3754f;
             if ("time_end".equals(str)) {
                 j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
             } else if ("click_skip_button".equals(str)) {
@@ -211,7 +209,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
             } else {
                 j(BaseVM.CloseType.OTHER.value);
             }
-            if (this.f3813e != null) {
+            if (this.f3753e != null) {
                 c.a.m0.a.l.a.a(new a(this));
             }
         }
@@ -221,9 +219,9 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             c.a.b.f().e();
-            if (this.f3818j) {
-                this.f3818j = false;
-                this.f3812d.d(str, this.f3817i);
+            if (this.f3758j) {
+                this.f3758j = false;
+                this.f3752d.e(str, this.f3757i);
             }
         }
     }
@@ -231,7 +229,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void k(c.a.i0.b.f.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f3819k = cVar;
+            this.k = cVar;
             c.a.m0.a.h.b bVar = this.a;
             if (bVar != null) {
                 cVar.j(bVar);
@@ -242,7 +240,7 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void l(@NonNull c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f3813e = cVar;
+            this.f3753e = cVar;
         }
     }
 
@@ -250,10 +248,10 @@ public class d implements c.a.m0.a.h.a, c.a.m0.a.h.c {
     public void onAdError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f3817i = System.currentTimeMillis() - this.f3814f;
-            c cVar = this.f3813e;
+            this.f3757i = System.currentTimeMillis() - this.f3754f;
+            c cVar = this.f3753e;
             if (cVar != null) {
-                cVar.c(str);
+                cVar.f();
             }
         }
     }

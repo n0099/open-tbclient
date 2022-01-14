@@ -167,7 +167,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     AntiHelper.u(this.a.getActivity(), this.a.likeModel.getErrorString());
                 } else if (StringUtils.isNull(this.a.likeModel.getErrorString())) {
                 } else {
-                    n.M(TbadkCoreApplication.getInst(), this.a.likeModel.getErrorString());
+                    n.N(TbadkCoreApplication.getInst(), this.a.likeModel.getErrorString());
                 }
             }
         }

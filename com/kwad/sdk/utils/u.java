@@ -14,7 +14,7 @@ public class u {
     public static Handler a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f60245b = false;
+    public static volatile boolean f57959b = false;
 
     public static void a(Context context, String str) {
         b(context, str, R.layout.ksad_content_alliance_toast_2);
@@ -31,10 +31,10 @@ public class u {
     }
 
     public static void a(Context context, String str, int i2, long j2) {
-        if (f60245b) {
+        if (f57959b) {
             return;
         }
-        f60245b = true;
+        f57959b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -45,7 +45,7 @@ public class u {
         a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.u.1
             @Override // java.lang.Runnable
             public void run() {
-                boolean unused = u.f60245b = false;
+                boolean unused = u.f57959b = false;
             }
         }, j2);
     }

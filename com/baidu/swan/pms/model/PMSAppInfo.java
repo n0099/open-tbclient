@@ -171,11 +171,11 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.appId = gVar.f11761g;
-        this.versionCode = gVar.f11763i;
-        this.versionName = gVar.f11764j;
+        this.appId = gVar.f11494g;
+        this.versionCode = gVar.f11496i;
+        this.versionName = gVar.f11497j;
         this.type = gVar.o;
-        this.pkgSize = gVar.f11765k;
+        this.pkgSize = gVar.k;
     }
 
     public void copySubPkgInfo(h hVar) {
@@ -184,10 +184,10 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = hVar.o;
-        this.versionCode = hVar.f11763i;
-        this.versionName = hVar.f11764j;
+        this.versionCode = hVar.f11496i;
+        this.versionName = hVar.f11497j;
         this.type = hVar.q;
-        this.pkgSize = hVar.f11765k;
+        this.pkgSize = hVar.k;
     }
 
     public void countLaunch(long j2) {

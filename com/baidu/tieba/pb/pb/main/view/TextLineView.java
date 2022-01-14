@@ -24,25 +24,23 @@ public class TextLineView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f48526e;
+    public Paint f46716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48527f;
+    public int f46717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48528g;
+    public int f46718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48529h;
+    public int f46719h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48530i;
+    public int f46720i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f48531j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public RectF f48532k;
+    public int f46721j;
+    public RectF k;
     public int l;
     public int m;
     public int n;
@@ -86,15 +84,15 @@ public class TextLineView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f48526e == null) {
-                this.f48526e = new Paint();
+            if (this.f46716e == null) {
+                this.f46716e = new Paint();
             }
-            this.f48526e.setAntiAlias(true);
-            this.f48526e.setStyle(Paint.Style.FILL);
+            this.f46716e.setAntiAlias(true);
+            this.f46716e.setStyle(Paint.Style.FILL);
             if (isSelected()) {
-                this.f48526e.setColor(SkinManager.getColor(f.transparent));
+                this.f46716e.setColor(SkinManager.getColor(f.transparent));
             } else {
-                this.f48526e.setColor(SkinManager.getColor(f.transparent));
+                this.f46716e.setColor(SkinManager.getColor(f.transparent));
             }
         }
     }
@@ -114,17 +112,17 @@ public class TextLineView extends TextView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
             a();
-            if (this.f48532k == null) {
-                this.f48532k = new RectF();
+            if (this.k == null) {
+                this.k = new RectF();
             }
-            RectF rectF = this.f48532k;
+            RectF rectF = this.k;
             int i2 = this.n;
             int i3 = this.m;
-            int i4 = this.f48529h;
-            rectF.set(i2 + 0, (i3 - i4) - this.f48527f, this.l - i2, i3 - i4);
-            RectF rectF2 = this.f48532k;
+            int i4 = this.f46719h;
+            rectF.set(i2 + 0, (i3 - i4) - this.f46717f, this.l - i2, i3 - i4);
+            RectF rectF2 = this.k;
             int i5 = this.o;
-            canvas.drawRoundRect(rectF2, i5, i5, this.f48526e);
+            canvas.drawRoundRect(rectF2, i5, i5, this.f46716e);
         }
     }
 
@@ -135,7 +133,7 @@ public class TextLineView extends TextView {
             super.onSizeChanged(i2, i3, i4, i5);
             this.l = i2;
             this.m = i3;
-            this.n = (i2 - this.f48531j) / 2;
+            this.n = (i2 - this.f46721j) / 2;
         }
     }
 
@@ -169,15 +167,15 @@ public class TextLineView extends TextView {
             }
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.TextLineView);
-        this.f48527f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
-        this.f48528g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
-        this.f48529h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
-        this.f48530i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
+        this.f46717f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
+        this.f46718g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
+        this.f46719h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
+        this.f46720i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
         obtainStyledAttributes.getColor(n.TextLineView_text_unselected_color, SkinManager.getColor(f.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f48528g + this.f48527f + this.f48529h);
-        setTextColor(this.f48530i);
-        this.f48531j = c.a.d.f.p.n.f(context, g.ds56);
-        this.f48532k = new RectF();
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f46718g + this.f46717f + this.f46719h);
+        setTextColor(this.f46720i);
+        this.f46721j = c.a.d.f.p.n.f(context, g.ds56);
+        this.k = new RectF();
         this.o = c.a.d.f.p.n.f(getContext(), g.ds4);
         obtainStyledAttributes.recycle();
     }

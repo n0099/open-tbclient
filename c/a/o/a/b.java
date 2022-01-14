@@ -44,18 +44,13 @@ import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "loki-native-NativeCrashHandler";
     public transient /* synthetic */ FieldHolder $fh;
-    public Supplier<List<ProcessEventSceneHandler>> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f4597b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f4598c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f4599d;
+    public Context mContext;
+    public Supplier<List<ProcessEventSceneHandler>> mForwardingHandlerSupplier;
+    public long mProcessLaunchTime;
+    public String mProcessName;
 
     public b(@NonNull Context context, @NonNull Supplier<List<ProcessEventSceneHandler>> supplier) {
         Interceptable interceptable = $ic;
@@ -73,19 +68,19 @@ public class b {
             }
         }
         if (context instanceof Application) {
-            this.f4598c = context;
+            this.mContext = context;
         } else {
-            this.f4598c = context.getApplicationContext();
+            this.mContext = context.getApplicationContext();
         }
-        this.f4597b = c.a.k0.b.a.a.b();
-        this.f4599d = System.currentTimeMillis();
-        this.a = supplier;
+        this.mProcessName = c.a.k0.b.a.a.b();
+        this.mProcessLaunchTime = System.currentTimeMillis();
+        this.mForwardingHandlerSupplier = supplier;
     }
 
-    public final LogExtra a() {
+    private LogExtra createLogExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             LogExtra logExtra = new LogExtra();
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
@@ -96,7 +91,7 @@ public class b {
                 }
             }
             logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
-            logExtra.mLaunchTime = String.valueOf(this.f4599d);
+            logExtra.mLaunchTime = String.valueOf(this.mProcessLaunchTime);
             if (DeviceUtil.OSInfo.hasNougat()) {
                 logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
             }
@@ -113,15 +108,15 @@ public class b {
     }
 
     @NonNull
-    public final ForwardingProcessEventSceneHandler b() {
+    private ForwardingProcessEventSceneHandler getForwardingProcessEventSceneHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
             if (Build.VERSION.SDK_INT > 19) {
                 forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
             }
-            Supplier<List<ProcessEventSceneHandler>> supplier = this.a;
+            Supplier<List<ProcessEventSceneHandler>> supplier = this.mForwardingHandlerSupplier;
             if (supplier != null && Build.VERSION.SDK_INT > 19) {
                 forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
             }
@@ -130,9 +125,9 @@ public class b {
         return (ForwardingProcessEventSceneHandler) invokeV.objValue;
     }
 
-    public final void c() {
+    private void initKITKAT() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             DefaultProcessEventSceneHandler.init();
             LogType.init();
             SnapshotUtil.init();
@@ -148,63 +143,32 @@ public class b {
         }
     }
 
-    public void d(@NonNull Context context, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, jSONObject) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-        }
-    }
-
-    public void g(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-        }
-    }
-
-    public void h(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048583, this, context, str, file, logExtra) == null) {
-            LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
-        }
-    }
-
-    public final void i(@NonNull String str, @NonNull LogExtra logExtra) {
+    private void processNativeCrash(@NonNull String str, @NonNull LogExtra logExtra) {
         HashSet hashSet;
         Set<LogFile> obtainProcessSnapShots;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f4597b);
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, logExtra) == null) {
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.mProcessName);
             if (!obtainFileDirWithProcessName.exists()) {
                 obtainFileDirWithProcessName.mkdirs();
             }
             JSONObject jSONObject = new JSONObject();
-            d(this.f4598c, jSONObject);
+            onAttachExtra(this.mContext, jSONObject);
             logExtra.mJSONAttach = jSONObject.toString();
-            ForwardingProcessEventSceneHandler b2 = b();
+            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = getForwardingProcessEventSceneHandler();
             File file = null;
-            if (b2 != null) {
+            if (forwardingProcessEventSceneHandler != null) {
                 hashSet = new HashSet(5);
                 EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
-                Set<ProcessSnapshotType> requireGeneralSnapshots = b2.requireGeneralSnapshots(this.f4598c, eventObject);
-                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f4598c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f4597b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+                Set<ProcessSnapshotType> requireGeneralSnapshots = forwardingProcessEventSceneHandler.requireGeneralSnapshots(this.mContext, eventObject);
+                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
                     hashSet.addAll(obtainProcessSnapShots);
                 }
-                Set<LogFile> customizedSnapshots = b2.getCustomizedSnapshots(this.f4598c, obtainFileDirWithProcessName, eventObject);
+                Set<LogFile> customizedSnapshots = forwardingProcessEventSceneHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
                 if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                     hashSet.addAll(customizedSnapshots);
                 }
-                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f4598c, b2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, forwardingProcessEventSceneHandler, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
                 if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                     hashSet.add(obtainFragmentSnapShot);
                 }
@@ -216,22 +180,53 @@ public class b {
             } else {
                 hashSet = null;
             }
-            f(this.f4598c);
+            onDisasterRecovery(this.mContext);
             if (hashSet != null) {
                 file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
                 if (LLog.sDebug && file != null) {
                     String str3 = "pathNameKeeper = " + file.getAbsolutePath();
                 }
             }
-            h(this.f4598c, str, file, logExtra);
+            onReport(this.mContext, str, file, logExtra);
         }
     }
 
-    public void j(@NonNull String str, int i2, int i3) {
+    public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
+        }
+    }
+
+    public void onCrashStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void onDisasterRecovery(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        }
+    }
+
+    public void onEvent(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+        }
+    }
+
+    public void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, logExtra) == null) {
+            LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
+        }
+    }
+
+    public void uncaughtNativeCrash(@NonNull String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, str, i2, i3) == null) {
             try {
-                i(str, a());
+                processNativeCrash(str, createLogExtra());
             } catch (Throwable th) {
                 if (LLog.sDebug) {
                     th.printStackTrace();
@@ -256,14 +251,14 @@ public class b {
             }
         }
         if (context instanceof Application) {
-            this.f4598c = context;
+            this.mContext = context;
         } else {
-            this.f4598c = context.getApplicationContext();
+            this.mContext = context.getApplicationContext();
         }
-        this.f4597b = c.a.k0.b.a.a.b();
-        this.f4599d = System.currentTimeMillis();
+        this.mProcessName = c.a.k0.b.a.a.b();
+        this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
-            c();
+            initKITKAT();
         }
     }
 }

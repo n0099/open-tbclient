@@ -13,38 +13,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f20912b;
+    public List<c.a.d.n.e.a> f20350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f20913c;
+    public s f20351c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f20914d;
+    public g f20352d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f20915e;
+    public k f20353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f20916f;
+    public b f20354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f20917g;
+    public d f20355g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f20918h;
+    public c f20356h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f20919i;
+    public e f20357i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f20920j;
+    public f f20358j;
 
     public h(TbPageContext tbPageContext, s sVar) {
         Interceptable interceptable = $ic;
@@ -62,60 +62,60 @@ public class h {
             }
         }
         this.a = tbPageContext;
-        this.f20913c = sVar;
+        this.f20351c = sVar;
         b();
     }
 
     public List<n> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20913c.getData() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20351c.getData() : (List) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ArrayList arrayList = new ArrayList();
-            this.f20912b = arrayList;
+            this.f20350b = arrayList;
             arrayList.add(new j(this.a));
-            this.f20912b.add(new i(this.a));
-            this.f20912b.add(new LoadingViewAdapter(this.a));
+            this.f20350b.add(new i(this.a));
+            this.f20350b.add(new LoadingViewAdapter(this.a));
             g gVar = new g(this.a);
-            this.f20914d = gVar;
-            gVar.c0(this.f20913c);
-            this.f20912b.add(this.f20914d);
+            this.f20352d = gVar;
+            gVar.c0(this.f20351c);
+            this.f20350b.add(this.f20352d);
             k kVar = new k(this.a);
-            this.f20915e = kVar;
-            kVar.c0(this.f20913c);
-            this.f20912b.add(this.f20915e);
+            this.f20353e = kVar;
+            kVar.c0(this.f20351c);
+            this.f20350b.add(this.f20353e);
             b bVar = new b(this.a);
-            this.f20916f = bVar;
-            bVar.c0(this.f20913c);
-            this.f20912b.add(this.f20916f);
+            this.f20354f = bVar;
+            bVar.c0(this.f20351c);
+            this.f20350b.add(this.f20354f);
             d dVar = new d(this.a);
-            this.f20917g = dVar;
-            dVar.c0(this.f20913c);
-            this.f20912b.add(this.f20917g);
+            this.f20355g = dVar;
+            dVar.c0(this.f20351c);
+            this.f20350b.add(this.f20355g);
             c cVar = new c(this.a);
-            this.f20918h = cVar;
-            cVar.c0(this.f20913c);
-            this.f20912b.add(this.f20918h);
+            this.f20356h = cVar;
+            cVar.c0(this.f20351c);
+            this.f20350b.add(this.f20356h);
             e eVar = new e(this.a);
-            this.f20919i = eVar;
-            eVar.c0(this.f20913c);
-            this.f20912b.add(this.f20919i);
+            this.f20357i = eVar;
+            eVar.c0(this.f20351c);
+            this.f20350b.add(this.f20357i);
             f fVar = new f(this.a);
-            this.f20920j = fVar;
-            fVar.c0(this.f20913c);
-            this.f20912b.add(this.f20920j);
-            this.f20913c.addAdapters(this.f20912b);
+            this.f20358j = fVar;
+            fVar.c0(this.f20351c);
+            this.f20350b.add(this.f20358j);
+            this.f20351c.addAdapters(this.f20350b);
         }
     }
 
     public void c() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sVar = this.f20913c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sVar = this.f20351c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -124,14 +124,14 @@ public class h {
     public void d(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f20913c.setData(list);
+            this.f20351c.setData(list);
         }
     }
 
     public void e(c.a.s0.n.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            for (c.a.d.n.e.a aVar : this.f20912b) {
+            for (c.a.d.n.e.a aVar : this.f20350b) {
                 if (aVar instanceof a) {
                     ((a) aVar).b0(fVar);
                 }
@@ -142,7 +142,7 @@ public class h {
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            for (c.a.d.n.e.a aVar : this.f20912b) {
+            for (c.a.d.n.e.a aVar : this.f20350b) {
                 aVar.X(bdUniqueId);
             }
         }

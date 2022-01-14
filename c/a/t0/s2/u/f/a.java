@@ -73,10 +73,10 @@ public class a {
                     this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
                     return true;
                 }
-                String p = c.a.s0.s.g0.b.j().p("key_pb_back_sid1", "");
-                String p2 = c.a.s0.s.g0.b.j().p("key_pb_back_sid2", "");
-                if (TextUtils.isEmpty(p) || c.a.s0.b.c.d().b(p) == null) {
-                    str = (TextUtils.isEmpty(p2) || c.a.s0.b.c.d().b(p2) == null) ? null : "2";
+                String q = c.a.s0.s.h0.b.k().q("key_pb_back_sid1", "");
+                String q2 = c.a.s0.s.h0.b.k().q("key_pb_back_sid2", "");
+                if (TextUtils.isEmpty(q) || c.a.s0.b.c.d().b(q) == null) {
+                    str = (TextUtils.isEmpty(q2) || c.a.s0.b.c.d().b(q2) == null) ? null : "2";
                 } else {
                     str = "1";
                 }

@@ -20,10 +20,10 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExcContent f23848e;
+    public ExcContent f23188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableString f23849f;
+    public SpannableString f23189f;
 
     public a(ExcContent excContent) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a implements c {
                 return;
             }
         }
-        this.f23848e = excContent;
+        this.f23188e = excContent;
     }
 
     @Override // c.a.t0.s2.v.b.c
@@ -57,19 +57,19 @@ public class a implements c {
     public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f23848e) : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f23188e) : (CharSequence) invokeV.objValue;
     }
 
     public final SpannableString c(ExcContent excContent) {
         InterceptResult invokeL;
         String str;
         int b2;
-        a.C0816a c2;
+        a.C0826a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.f23849f == null && (b2 = TbFaceManager.e().b((str = excContent.text))) != 0) {
+            if (this.f23189f == null && (b2 = TbFaceManager.e().b((str = excContent.text))) != 0) {
                 String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.e().f(str) + SmallTailInfo.EMOTION_SUFFIX;
-                this.f23849f = new SpannableString(str2 + " ");
+                this.f23189f = new SpannableString(str2 + " ");
                 c.a.s0.g1.n.d dVar = new c.a.s0.g1.n.d(TbadkCoreApplication.getInst().getContext(), b2);
                 if (TbFaceManager.e().c(str) != null) {
                     int a = (int) (c2.a() * 0.6d);
@@ -77,9 +77,9 @@ public class a implements c {
                 } else {
                     dVar.setBounds(new Rect(0, 0, 0, 0));
                 }
-                this.f23849f.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
+                this.f23189f.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
             }
-            return this.f23849f;
+            return this.f23189f;
         }
         return (SpannableString) invokeL.objValue;
     }

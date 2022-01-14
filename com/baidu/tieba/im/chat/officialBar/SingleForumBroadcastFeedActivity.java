@@ -36,7 +36,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f46643g;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f44919g;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f46643g = singleForumBroadcastFeedActivity;
+            this.f44919g = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f46643g.feedView != null) {
-                    this.f46643g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f44919g.feedView != null) {
+                    this.f44919g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;

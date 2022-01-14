@@ -29,19 +29,19 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37323b;
+    public boolean f36095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37324c;
+    public boolean f36096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<g> f37325d;
+    public final List<g> f36097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f37326e;
+    public g f36098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37327f;
+    public String f36099f;
 
     static {
         InterceptResult invokeClinit;
@@ -71,10 +71,10 @@ public final class h {
                 return;
             }
         }
-        this.f37323b = false;
-        this.f37324c = true;
-        this.f37325d = new ArrayList();
-        this.f37326e = null;
+        this.f36095b = false;
+        this.f36096c = true;
+        this.f36097d = new ArrayList();
+        this.f36098e = null;
     }
 
     public static h a() {
@@ -149,10 +149,10 @@ public final class h {
                             if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
                                 boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
                                 if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                                    this.f37325d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
+                                    this.f36097d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
                                 } else if (Build.VERSION.SDK_INT >= 19) {
                                     if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                                        this.f37327f = str + File.separator + "BaiduMapSDKNew";
+                                        this.f36099f = str + File.separator + "BaiduMapSDKNew";
                                     }
                                 }
                             }
@@ -164,10 +164,10 @@ public final class h {
                     if (Build.VERSION.SDK_INT >= 19) {
                         File[] externalFilesDirs = context.getExternalFilesDirs(null);
                         ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.f37325d);
+                        arrayList.addAll(this.f36097d);
                         for (int i4 = 0; i4 < externalFilesDirs.length && externalFilesDirs[i4] != null; i4++) {
                             String absolutePath = externalFilesDirs[i4].getAbsolutePath();
-                            Iterator<g> it = this.f37325d.iterator();
+                            Iterator<g> it = this.f36097d.iterator();
                             while (true) {
                                 if (it.hasNext()) {
                                     if (absolutePath.startsWith(it.next().a())) {
@@ -184,8 +184,8 @@ public final class h {
                                 arrayList.add(new g(absolutePath, true, "外置存储卡", context));
                             }
                         }
-                        this.f37325d.clear();
-                        this.f37325d.addAll(arrayList);
+                        this.f36097d.clear();
+                        this.f36097d.addAll(arrayList);
                     }
                 }
             } catch (Exception e2) {
@@ -252,12 +252,12 @@ public final class h {
                     scanner.close();
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                this.f37325d.add(new g(absolutePath, false, "Auto", context));
+                this.f36097d.add(new g(absolutePath, false, "Auto", context));
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                            this.f37325d.add(new g(str2, false, "Auto", context));
+                            this.f36097d.add(new g(str2, false, "Auto", context));
                         }
                     }
                 }
@@ -275,10 +275,10 @@ public final class h {
     */
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f37323b) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f36095b) {
             return;
         }
-        this.f37323b = true;
+        this.f36095b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);
@@ -292,10 +292,10 @@ public final class h {
         } catch (Exception e3) {
             e3.printStackTrace();
         }
-        if (this.f37325d.size() > 0) {
+        if (this.f36097d.size() > 0) {
             r2 = null;
             int i2 = 0;
-            for (g gVar : this.f37325d) {
+            for (g gVar : this.f36097d) {
                 if (new File(gVar.b()).exists()) {
                     i2++;
                     r2 = gVar;
@@ -303,43 +303,43 @@ public final class h {
             }
             if (i2 == 0) {
                 g b2 = b(context);
-                this.f37326e = b2;
+                this.f36098e = b2;
                 if (b2 == null) {
-                    for (g gVar2 : this.f37325d) {
+                    for (g gVar2 : this.f36097d) {
                         if (a(context, gVar2)) {
-                            this.f37326e = gVar2;
+                            this.f36098e = gVar2;
                             break;
                         }
                     }
                 }
-                if (this.f37326e == null) {
-                    this.f37326e = this.f37325d.get(0);
+                if (this.f36098e == null) {
+                    this.f36098e = this.f36097d.get(0);
                 }
             } else {
                 if (i2 != 1) {
-                    this.f37326e = b(context);
+                    this.f36098e = b(context);
                 } else if (a(context, gVar2)) {
-                    this.f37326e = gVar2;
+                    this.f36098e = gVar2;
                     break;
                 }
-                if (this.f37326e == null) {
+                if (this.f36098e == null) {
                 }
             }
             e3.printStackTrace();
         }
         try {
-            if (this.f37326e == null || !a(this.f37326e.a())) {
-                this.f37324c = false;
-                this.f37326e = new g(context);
-                this.f37325d.clear();
-                this.f37325d.add(this.f37326e);
+            if (this.f36098e == null || !a(this.f36098e.a())) {
+                this.f36096c = false;
+                this.f36098e = new g(context);
+                this.f36097d.clear();
+                this.f36097d.add(this.f36098e);
                 return;
             }
-            File file = new File(this.f37326e.b());
+            File file = new File(this.f36098e.b());
             if (!file.exists()) {
                 file.mkdirs();
             }
-            File file2 = new File(this.f37326e.c());
+            File file2 = new File(this.f36098e.c());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -371,7 +371,7 @@ public final class h {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37326e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36098e : (g) invokeV.objValue;
     }
 
     public g b(Context context) {
@@ -382,7 +382,7 @@ public final class h {
             if (string == null || string.length() <= 0) {
                 return null;
             }
-            for (g gVar : this.f37325d) {
+            for (g gVar : this.f36097d) {
                 if (gVar.a().equals(string)) {
                     return gVar;
                 }

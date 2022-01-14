@@ -114,7 +114,7 @@ public class NoDataViewFactory {
         public View.OnClickListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41845b;
+        public String f40400b;
 
         public b(String str, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class NoDataViewFactory {
                     return;
                 }
             }
-            this.f41845b = str;
+            this.f40400b = str;
             this.a = onClickListener;
         }
     }
@@ -143,10 +143,10 @@ public class NoDataViewFactory {
         public final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f41846b;
+        public final b f40401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f41847c;
+        public final int f40402c;
 
         /* loaded from: classes11.dex */
         public static class a {
@@ -155,10 +155,10 @@ public class NoDataViewFactory {
             public b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public b f41848b;
+            public b f40403b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f41849c;
+            public int f40404c;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -174,15 +174,15 @@ public class NoDataViewFactory {
                     }
                 }
                 this.a = null;
-                this.f41848b = null;
-                this.f41849c = -1;
+                this.f40403b = null;
+                this.f40404c = -1;
             }
 
             public a d(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                    this.f41849c = i2;
+                    this.f40404c = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -248,8 +248,8 @@ public class NoDataViewFactory {
                 }
             }
             this.a = aVar.a;
-            this.f41846b = aVar.f41848b;
-            this.f41847c = aVar.f41849c;
+            this.f40401b = aVar.f40403b;
+            this.f40402c = aVar.f40404c;
         }
     }
 
@@ -260,16 +260,16 @@ public class NoDataViewFactory {
         public final ImgType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f41850b;
+        public final int f40405b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f41851c;
+        public final int f40406c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f41852d;
+        public final int f40407d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f41853e;
+        public final int f40408e;
 
         /* loaded from: classes11.dex */
         public static class a {
@@ -278,16 +278,16 @@ public class NoDataViewFactory {
             public ImgType a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f41854b;
+            public int f40409b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f41855c;
+            public int f40410c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f41856d;
+            public int f40411d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f41857e;
+            public int f40412e;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -303,10 +303,10 @@ public class NoDataViewFactory {
                     }
                 }
                 this.a = ImgType.NONE;
-                this.f41854b = -1;
-                this.f41855c = -1;
-                this.f41856d = -1;
-                this.f41857e = -1;
+                this.f40409b = -1;
+                this.f40410c = -1;
+                this.f40411d = -1;
+                this.f40412e = -1;
             }
 
             public d f() {
@@ -319,7 +319,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.f41856d = i2;
+                    this.f40411d = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -329,7 +329,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                    this.f41855c = i2;
+                    this.f40410c = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -349,7 +349,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                    this.f41854b = i2;
+                    this.f40409b = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -359,7 +359,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                    this.f41857e = i2;
+                    this.f40412e = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -424,10 +424,10 @@ public class NoDataViewFactory {
                 }
             }
             this.a = aVar.a;
-            this.f41850b = aVar.f41854b;
-            this.f41851c = aVar.f41855c;
-            this.f41852d = aVar.f41856d;
-            this.f41853e = aVar.f41857e;
+            this.f40405b = aVar.f40409b;
+            this.f40406c = aVar.f40410c;
+            this.f40407d = aVar.f40411d;
+            this.f40408e = aVar.f40412e;
         }
     }
 
@@ -438,16 +438,16 @@ public class NoDataViewFactory {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f41858b;
+        public final String f40413b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f41859c;
+        public final String f40414c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f41860d;
+        public final int f40415d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f41861e;
+        public final int f40416e;
 
         /* loaded from: classes11.dex */
         public static class a {
@@ -456,16 +456,16 @@ public class NoDataViewFactory {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f41862b;
+            public String f40417b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f41863c;
+            public String f40418c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f41864d;
+            public int f40419d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f41865e;
+            public int f40420e;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -481,10 +481,10 @@ public class NoDataViewFactory {
                     }
                 }
                 this.a = null;
-                this.f41862b = null;
-                this.f41863c = null;
-                this.f41864d = -1;
-                this.f41865e = 0;
+                this.f40417b = null;
+                this.f40418c = null;
+                this.f40419d = -1;
+                this.f40420e = 0;
             }
 
             public e f() {
@@ -497,7 +497,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                    this.f41862b = str;
+                    this.f40417b = str;
                     return this;
                 }
                 return (a) invokeL.objValue;
@@ -517,7 +517,7 @@ public class NoDataViewFactory {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                    this.f41864d = i2;
+                    this.f40419d = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -591,10 +591,10 @@ public class NoDataViewFactory {
                 }
             }
             this.a = aVar.a;
-            this.f41858b = aVar.f41862b;
-            this.f41859c = aVar.f41863c;
-            this.f41860d = aVar.f41864d;
-            this.f41861e = aVar.f41865e;
+            this.f40413b = aVar.f40417b;
+            this.f40414c = aVar.f40418c;
+            this.f40415d = aVar.f40419d;
+            this.f40416e = aVar.f40420e;
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.p0;
 import c.a.t0.j3.j0.a;
 import c.a.t0.j3.l0.b;
@@ -106,18 +106,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 ArrayList arrayList = new ArrayList();
                 for (int i4 = 0; i4 < list2.size(); i4++) {
                     ThreadInfo threadInfo = list2.get(i4);
-                    d2 d2Var = new d2();
-                    SpecHotTopicHelper.setSpecTopicIcon(j2, d2Var);
-                    d2Var.I4(this.userMap);
-                    d2Var.c3(threadInfo);
-                    d2Var.g3();
-                    d2Var.L1 = z;
-                    if (!TextUtils.isEmpty(d2Var.z0())) {
+                    e2 e2Var = new e2();
+                    SpecHotTopicHelper.setSpecTopicIcon(j2, e2Var);
+                    e2Var.I4(this.userMap);
+                    e2Var.c3(threadInfo);
+                    e2Var.g3();
+                    e2Var.K1 = z;
+                    if (!TextUtils.isEmpty(e2Var.z0())) {
                         p0 p0Var = new p0();
-                        p0Var.k(d2Var.z0());
+                        p0Var.k(e2Var.z0());
                         this.threadList.add(p0Var);
                     } else {
-                        this.threadList.add(d2Var);
+                        this.threadList.add(e2Var);
                         JSONObject b2 = b.b(threadInfo);
                         if (b2 != null) {
                             arrayList.add(b2);

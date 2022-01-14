@@ -23,7 +23,7 @@ public interface NetworkClient {
         public static final Priority Mid;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ Priority[] f61451b;
+        public static final /* synthetic */ Priority[] f59121b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -44,7 +44,7 @@ public interface NetworkClient {
             Mid = new Priority("Mid", 1, 2);
             Priority priority = new Priority("Low", 2, 3);
             Low = priority;
-            f61451b = new Priority[]{High, Mid, priority};
+            f59121b = new Priority[]{High, Mid, priority};
         }
 
         public Priority(String str, int i2, int i3) {
@@ -77,7 +77,7 @@ public interface NetworkClient {
         public static Priority[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f61451b.clone() : (Priority[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f59121b.clone() : (Priority[]) invokeV.objValue;
         }
 
         public int value() {

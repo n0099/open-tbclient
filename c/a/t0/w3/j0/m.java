@@ -26,24 +26,24 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f25563f;
+    public static final Pattern f24848f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f25564g;
+    public static final Pattern f24849g;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25565b;
+    public String f24850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25566c;
+    public String f24851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25567d;
+    public String f24852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f25568e;
+    public SpannableStringBuilder f24853e;
 
     /* loaded from: classes8.dex */
     public class a extends w {
@@ -51,7 +51,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f25569e;
+        public final /* synthetic */ m f24854e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -68,14 +68,14 @@ public class m {
                     return;
                 }
             }
-            this.f25569e = mVar;
+            this.f24854e = mVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b(this.f25569e.f25565b);
+                b(this.f24854e.f24850b);
             }
         }
     }
@@ -86,7 +86,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f25570e;
+        public final /* synthetic */ m f24855e;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public class m {
                     return;
                 }
             }
-            this.f25570e = mVar;
+            this.f24855e = mVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Matcher matcher = m.f25563f.matcher(this.f25570e.f25567d);
+                Matcher matcher = m.f24848f.matcher(this.f24855e.f24852d);
                 if (matcher.find()) {
                     try {
                         String group = matcher.group();
@@ -120,7 +120,7 @@ public class m {
                         e2.printStackTrace();
                     }
                 }
-                Matcher matcher2 = m.f25564g.matcher(this.f25570e.f25567d);
+                Matcher matcher2 = m.f24849g.matcher(this.f24855e.f24852d);
                 if (matcher2.find()) {
                     try {
                         String group2 = matcher2.group();
@@ -130,7 +130,7 @@ public class m {
                         e3.printStackTrace();
                     }
                 }
-                b(this.f25570e.f25567d);
+                b(this.f24855e.f24852d);
             }
         }
     }
@@ -141,7 +141,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f25571e;
+        public final /* synthetic */ m f24856e;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -158,17 +158,17 @@ public class m {
                     return;
                 }
             }
-            this.f25571e = mVar;
+            this.f24856e = mVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f25571e.f25565b != null) {
-                    this.f25571e.f25565b.replace("@", "").replace(" ", "");
+                if (this.f24856e.f24850b != null) {
+                    this.f24856e.f24850b.replace("@", "").replace(" ", "");
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(c.a.d.f.m.b.g(this.f25571e.f25567d, 0L), false, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(c.a.d.f.m.b.g(this.f24856e.f24852d, 0L), false, false)));
             }
         }
     }
@@ -186,8 +186,8 @@ public class m {
                 return;
             }
         }
-        f25563f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-        f25564g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+        f24848f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+        f24849g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     }
 
     public m() {
@@ -204,9 +204,9 @@ public class m {
             }
         }
         this.a = 0;
-        this.f25565b = null;
-        this.f25567d = null;
-        this.f25568e = null;
+        this.f24850b = null;
+        this.f24852d = null;
+        this.f24853e = null;
     }
 
     public static boolean k(int i2, int i3) {
@@ -219,11 +219,11 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
-            if (this.f25568e == null) {
-                this.f25568e = new SpannableStringBuilder();
+            if (this.f24853e == null) {
+                this.f24853e = new SpannableStringBuilder();
             }
-            this.f25568e.append((CharSequence) spannableString);
-            return this.f25568e;
+            this.f24853e.append((CharSequence) spannableString);
+            return this.f24853e;
         }
         return (SpannableStringBuilder) invokeL.objValue;
     }
@@ -231,13 +231,13 @@ public class m {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25566c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24851c : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25567d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24852d : (String) invokeV.objValue;
     }
 
     public int getType() {
@@ -253,42 +253,42 @@ public class m {
             int i2 = this.a;
             if (i2 != 0) {
                 if (i2 == 1) {
-                    if (!this.f25565b.endsWith(" ")) {
-                        this.f25565b += " ";
+                    if (!this.f24850b.endsWith(" ")) {
+                        this.f24850b += " ";
                     }
-                    SpannableString spannableString = new SpannableString(this.f25565b);
-                    spannableString.setSpan(new b(this), 0, this.f25565b.length() - 1, 33);
+                    SpannableString spannableString = new SpannableString(this.f24850b);
+                    spannableString.setSpan(new b(this), 0, this.f24850b.length() - 1, 33);
                     return spannableString;
                 } else if (i2 == 2) {
-                    SpannableString spannableString2 = new SpannableString(this.f25565b + " ");
-                    c.a.d.n.d.a face = TbadkCoreApplication.getInst().getFace(this.f25565b);
+                    SpannableString spannableString2 = new SpannableString(this.f24850b + " ");
+                    c.a.d.n.d.a face = TbadkCoreApplication.getInst().getFace(this.f24850b);
                     if (face != null) {
                         BitmapDrawable j2 = face.j();
                         j2.setBounds(0, 0, face.r(), face.m());
-                        spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.f25565b.length(), 33);
+                        spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.f24850b.length(), 33);
                     }
                     return spannableString2;
                 } else if (i2 == 4) {
-                    if (!this.f25565b.endsWith(" ")) {
-                        this.f25565b += " ";
+                    if (!this.f24850b.endsWith(" ")) {
+                        this.f24850b += " ";
                     }
-                    SpannableString spannableString3 = new SpannableString(this.f25565b);
-                    spannableString3.setSpan(new c(this), 0, this.f25565b.length() - 1, 33);
+                    SpannableString spannableString3 = new SpannableString(this.f24850b);
+                    spannableString3.setSpan(new c(this), 0, this.f24850b.length() - 1, 33);
                     return spannableString3;
                 } else if (i2 != 5) {
                     return null;
                 } else {
-                    if (!this.f25565b.endsWith(" ")) {
-                        this.f25565b += " ";
+                    if (!this.f24850b.endsWith(" ")) {
+                        this.f24850b += " ";
                     }
                     String string = TbadkCoreApplication.getInst().getResources().getString(R.string.video);
-                    String str = string + this.f25565b;
+                    String str = string + this.f24850b;
                     SpannableString spannableString4 = new SpannableString(str);
                     spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);
                     return spannableString4;
                 }
             }
-            return new SpannableString(this.f25565b);
+            return new SpannableString(this.f24850b);
         }
         return (SpannableString) invokeV.objValue;
     }
@@ -296,13 +296,13 @@ public class m {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25565b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24850b : (String) invokeV.objValue;
     }
 
     public SpannableStringBuilder j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25568e : (SpannableStringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24853e : (SpannableStringBuilder) invokeV.objValue;
     }
 
     public void l(int i2) {

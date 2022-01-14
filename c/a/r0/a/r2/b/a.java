@@ -50,25 +50,25 @@ public class a extends z {
             if (eVar == null) {
                 c.a.r0.a.e0.d.c("getMediaVolumeSync", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             } else if (context == null) {
                 c.a.r0.a.e0.d.c("getMediaVolumeSync", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 return false;
             } else {
                 AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 if (audioManager == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    boolean z3 = z.f6340b;
+                    boolean z3 = z.f6201b;
                     return false;
                 }
                 int streamMaxVolume = audioManager.getStreamMaxVolume(3);
                 int streamVolume = audioManager.getStreamVolume(3);
                 if (streamMaxVolume <= 0) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    boolean z4 = z.f6340b;
+                    boolean z4 = z.f6201b;
                     return false;
                 }
                 double d2 = streamVolume / streamMaxVolume;
@@ -77,7 +77,7 @@ public class a extends z {
                 } else if (d2 > 1.0d) {
                     d2 = 1.0d;
                 }
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str = "getMediaVolumeSync: " + d2;
                 }
                 JSONObject jSONObject = new JSONObject();
@@ -87,7 +87,7 @@ public class a extends z {
                     return true;
                 } catch (JSONException unused) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    boolean z5 = z.f6340b;
+                    boolean z5 = z.f6201b;
                     return false;
                 }
             }

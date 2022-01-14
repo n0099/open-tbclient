@@ -17,10 +17,10 @@ public class n extends a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5221b;
+    public int f5112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5222c;
+    public int f5113c;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -42,18 +42,18 @@ public class n extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        TextPaint textPaint = bVar.f5182i;
+        TextPaint textPaint = bVar.f5074i;
         int i2 = bVar.o;
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
         float f2 = fontMetrics.top;
-        int i3 = this.f5222c;
+        int i3 = this.f5113c;
         float f3 = i3 + f2;
         float f4 = fontMetrics.ascent + i3;
         float f5 = fontMetrics.bottom;
         float f6 = i2 != 1 ? i2 != 2 ? i2 != 3 ? i3 : i3 - (f4 - f3) : (i3 + ((f5 - f2) / 2.0f)) - f5 : i3 + (((i3 + f5) - f3) / 2.0f) + (f4 - f3);
         int alpha = textPaint.getAlpha();
         bVar.c(textPaint);
-        canvas.drawText(this.a, this.f5221b, f6, textPaint);
+        canvas.drawText(this.a, this.f5112b, f6, textPaint);
         textPaint.setAlpha(alpha);
     }
 
@@ -64,8 +64,8 @@ public class n extends a {
             try {
                 if (jSONArray.length() > 2) {
                     this.a = jSONArray.optString(0);
-                    this.f5221b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
-                    this.f5222c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
+                    this.f5112b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    this.f5113c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
                 }
             } catch (Exception e2) {
                 if (c.a.r0.a.k.a) {

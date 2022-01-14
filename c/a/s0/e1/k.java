@@ -20,7 +20,7 @@ public class k {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12699b;
+        public int f12400b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class k {
                         aVar.a = split[0];
                     } else if (split.length == 2) {
                         aVar.a = split[0];
-                        aVar.f12699b = c.a.d.f.m.b.e(split[1], -1);
+                        aVar.f12400b = c.a.d.f.m.b.e(split[1], -1);
                     }
                 } else {
                     aVar.a = str;
@@ -67,7 +67,7 @@ public class k {
                 if (StringUtils.isNull(this.a)) {
                     return "";
                 }
-                return this.a + "#" + this.f12699b;
+                return this.a + "#" + this.f12400b;
             }
             return (String) invokeV.objValue;
         }
@@ -88,7 +88,7 @@ public class k {
                 }
             }
             this.a = str;
-            this.f12699b = i2;
+            this.f12400b = i2;
         }
     }
 
@@ -96,11 +96,11 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String p = c.a.s0.s.g0.b.j().p("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-            if (StringUtils.isNull(p)) {
+            String q = c.a.s0.s.h0.b.k().q("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (StringUtils.isNull(q)) {
                 return new String[0];
             }
-            String[] split = p.split("\\^");
+            String[] split = q.split("\\^");
             if (split == null || split.length <= 0) {
                 return null;
             }

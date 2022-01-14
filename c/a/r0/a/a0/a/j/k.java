@@ -33,28 +33,28 @@ public class k extends c.a.r0.a.a0.a.j.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5206b;
+    public int f5097b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5207c;
+    public int f5098c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f5208d;
+    public Rect f5099d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f5209e;
+    public Rect f5100e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f5210f;
+    public Bitmap f5101f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f5211g;
+    public int f5102g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Uri f5212h;
+    public Uri f5103h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f5213i;
+    public String f5104i;
 
     /* loaded from: classes.dex */
     public class a extends BaseBitmapDataSubscriber {
@@ -62,13 +62,13 @@ public class k extends c.a.r0.a.a0.a.j.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DataSource f5214e;
+        public final /* synthetic */ DataSource f5105e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f5215f;
+        public final /* synthetic */ b f5106f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f5216g;
+        public final /* synthetic */ k f5107g;
 
         public a(k kVar, DataSource dataSource, b bVar) {
             Interceptable interceptable = $ic;
@@ -85,9 +85,9 @@ public class k extends c.a.r0.a.a0.a.j.a {
                     return;
                 }
             }
-            this.f5216g = kVar;
-            this.f5214e = dataSource;
-            this.f5215f = bVar;
+            this.f5107g = kVar;
+            this.f5105e = dataSource;
+            this.f5106f = bVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
@@ -98,7 +98,7 @@ public class k extends c.a.r0.a.a0.a.j.a {
                 if (dataSource != null) {
                     dataSource.close();
                 }
-                this.f5216g.f5211g = 3;
+                this.f5107g.f5102g = 3;
             }
         }
 
@@ -106,15 +106,15 @@ public class k extends c.a.r0.a.a0.a.j.a {
         public void onNewResultImpl(@Nullable Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                if (this.f5214e.isFinished() && bitmap != null) {
-                    this.f5216g.f5210f = Bitmap.createBitmap(bitmap);
-                    this.f5214e.close();
-                    CanvasView canvasView = this.f5215f.l;
+                if (this.f5105e.isFinished() && bitmap != null) {
+                    this.f5107g.f5101f = Bitmap.createBitmap(bitmap);
+                    this.f5105e.close();
+                    CanvasView canvasView = this.f5106f.l;
                     if (canvasView != null) {
                         canvasView.postInvalidate();
                     }
                 }
-                this.f5216g.f5211g = 2;
+                this.f5107g.f5102g = 2;
             }
         }
     }
@@ -132,7 +132,7 @@ public class k extends c.a.r0.a.a0.a.j.a {
                 return;
             }
         }
-        this.f5211g = 0;
+        this.f5102g = 0;
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -140,15 +140,15 @@ public class k extends c.a.r0.a.a0.a.j.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
             if (h(bVar)) {
-                int alpha = bVar.f5181h.getAlpha();
-                bVar.c(bVar.f5181h);
-                Rect rect = this.f5209e;
+                int alpha = bVar.f5073h.getAlpha();
+                bVar.c(bVar.f5073h);
+                Rect rect = this.f5100e;
                 if (rect != null) {
-                    canvas.drawBitmap(this.f5210f, this.f5208d, rect, bVar.f5181h);
+                    canvas.drawBitmap(this.f5101f, this.f5099d, rect, bVar.f5073h);
                 } else {
-                    canvas.drawBitmap(this.f5210f, this.f5206b, this.f5207c, bVar.f5181h);
+                    canvas.drawBitmap(this.f5101f, this.f5097b, this.f5098c, bVar.f5073h);
                 }
-                bVar.f5181h.setAlpha(alpha);
+                bVar.f5073h.setAlpha(alpha);
                 return;
             }
             try {
@@ -169,22 +169,22 @@ public class k extends c.a.r0.a.a0.a.j.a {
             try {
                 int length = jSONArray.length();
                 if (length > 0) {
-                    this.f5213i = this.a;
+                    this.f5104i = this.a;
                     String optString = jSONArray.optString(0);
                     this.a = optString;
                     this.a = f(a0, optString);
                 }
                 if (length > 2) {
-                    this.f5206b = i(jSONArray, 1);
-                    this.f5207c = i(jSONArray, 2);
+                    this.f5097b = i(jSONArray, 1);
+                    this.f5098c = i(jSONArray, 2);
                 }
                 if (length > 4) {
-                    int i2 = this.f5206b;
-                    int i3 = this.f5207c;
+                    int i2 = this.f5097b;
+                    int i3 = this.f5098c;
                     int i4 = i(jSONArray, 3);
                     int i5 = i(jSONArray, 4);
                     if (i4 > 0 && i5 > 0) {
-                        this.f5209e = new Rect(i2, i3, i4 + i2, i5 + i3);
+                        this.f5100e = new Rect(i2, i3, i4 + i2, i5 + i3);
                     }
                 }
                 if (length > 8) {
@@ -193,17 +193,17 @@ public class k extends c.a.r0.a.a0.a.j.a {
                     int optInt3 = jSONArray.optInt(7);
                     int optInt4 = jSONArray.optInt(8);
                     if (optInt3 > 0 && optInt4 > 0) {
-                        this.f5208d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
+                        this.f5099d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
                     }
                 }
                 if (a0 != null) {
                     String g2 = g(this.a, a0);
                     if (!TextUtils.isEmpty(g2)) {
-                        this.f5210f = BitmapFactory.decodeFile(g2);
+                        this.f5101f = BitmapFactory.decodeFile(g2);
                     } else if (TextUtils.isEmpty(this.a)) {
                     } else {
-                        if (this.f5212h == null || !TextUtils.equals(this.a, this.f5213i)) {
-                            this.f5212h = Uri.parse(this.a);
+                        if (this.f5103h == null || !TextUtils.equals(this.a, this.f5104i)) {
+                            this.f5103h = Uri.parse(this.a);
                         }
                     }
                 }
@@ -217,10 +217,10 @@ public class k extends c.a.r0.a.a0.a.j.a {
 
     public void e(HashMap<String, Bitmap> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) || hashMap == null || TextUtils.isEmpty(this.a) || this.f5210f == null || hashMap.containsKey(this.a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) || hashMap == null || TextUtils.isEmpty(this.a) || this.f5101f == null || hashMap.containsKey(this.a)) {
             return;
         }
-        hashMap.put(this.a, this.f5210f);
+        hashMap.put(this.a, this.f5101f);
     }
 
     public final String f(c.a.r0.a.d2.e eVar, String str) {
@@ -245,7 +245,7 @@ public class k extends c.a.r0.a.a0.a.j.a {
             if (!TextUtils.isEmpty(str) && eVar != null) {
                 try {
                     if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        str = c.a.r0.a.o2.b.M(str, eVar.f5660f);
+                        str = c.a.r0.a.o2.b.M(str, eVar.f5537f);
                     }
                     if (TextUtils.isEmpty(str)) {
                         return null;
@@ -267,19 +267,19 @@ public class k extends c.a.r0.a.a0.a.j.a {
         CanvasView canvasView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            if (this.f5210f != null) {
+            if (this.f5101f != null) {
                 return true;
             }
-            if (this.f5212h == null || bVar == null || (canvasView = bVar.l) == null) {
+            if (this.f5103h == null || bVar == null || (canvasView = bVar.l) == null) {
                 return false;
             }
             Bitmap bitmapByUrlKey = canvasView.getBitmapByUrlKey(this.a);
-            this.f5210f = bitmapByUrlKey;
+            this.f5101f = bitmapByUrlKey;
             if (bitmapByUrlKey != null) {
                 return true;
             }
-            Bitmap c2 = c.a.r0.a.z2.t.c(this.f5212h, bVar.l.getContext());
-            this.f5210f = c2;
+            Bitmap c2 = c.a.r0.a.z2.t.c(this.f5103h, bVar.l.getContext());
+            this.f5101f = c2;
             return c2 != null;
         }
         return invokeL.booleanValue;
@@ -295,10 +295,10 @@ public class k extends c.a.r0.a.a0.a.j.a {
     public final void j(b bVar) {
         CanvasView canvasView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || this.f5211g != 0 || (canvasView = bVar.l) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || this.f5102g != 0 || (canvasView = bVar.l) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.a)) {
             return;
         }
-        this.f5211g = 1;
+        this.f5102g = 1;
         DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.a)).build(), bVar.l.getContext());
         fetchDecodedImage.subscribe(new a(this, fetchDecodedImage, bVar), UiThreadImmediateExecutorService.getInstance());
     }

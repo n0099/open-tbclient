@@ -20,20 +20,20 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f10267i;
+    public static final boolean f10043i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f10268e;
+    public long f10044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f10269f;
+    public final Handler f10045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f10270g;
+    public Runnable f10046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f10271h;
+    public volatile boolean f10047h;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -41,18 +41,18 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v0 f10272e;
+        public final /* synthetic */ v0 f10048e;
 
         /* renamed from: c.a.r0.a.z2.v0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0646a implements Runnable {
+        public class RunnableC0655a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f10273e;
+            public final /* synthetic */ a f10049e;
 
-            public RunnableC0646a(a aVar) {
+            public RunnableC0655a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,20 +67,20 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
                         return;
                     }
                 }
-                this.f10273e = aVar;
+                this.f10049e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (v0.f10267i) {
-                        String str = "do updateCore, isStop=" + this.f10273e.f10272e.f10271h;
+                    if (v0.f10043i) {
+                        String str = "do updateCore, isStop=" + this.f10049e.f10048e.f10047h;
                     }
-                    if (this.f10273e.f10272e.f10271h) {
+                    if (this.f10049e.f10048e.f10047h) {
                         return;
                     }
-                    this.f10273e.f10272e.i();
+                    this.f10049e.f10048e.i();
                 }
             }
         }
@@ -100,7 +100,7 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
                     return;
                 }
             }
-            this.f10272e = v0Var;
+            this.f10048e = v0Var;
         }
 
         @Override // java.lang.Runnable
@@ -108,16 +108,16 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (ProcessUtils.isMainProcess()) {
-                    this.f10272e.f10271h = false;
+                    this.f10048e.f10047h = false;
                     synchronized (v0.class) {
-                        this.f10272e.f10268e = System.currentTimeMillis();
-                        if (this.f10272e.f10270g != null) {
-                            this.f10272e.f10269f.removeCallbacks(this.f10272e.f10270g);
+                        this.f10048e.f10044e = System.currentTimeMillis();
+                        if (this.f10048e.f10046g != null) {
+                            this.f10048e.f10045f.removeCallbacks(this.f10048e.f10046g);
                         }
-                        this.f10272e.f10270g = new RunnableC0646a(this);
+                        this.f10048e.f10046g = new RunnableC0655a(this);
                         long a = c.a.r0.q.k.i.n.a(300) * 1000;
-                        this.f10272e.f10269f.postDelayed(this.f10272e.f10270g, a);
-                        if (v0.f10267i) {
+                        this.f10048e.f10045f.postDelayed(this.f10048e.f10046g, a);
+                        if (v0.f10043i) {
                             String str = "wait next heart beat: " + a;
                         }
                     }
@@ -134,7 +134,7 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v0 f10274e;
+        public final /* synthetic */ v0 f10050e;
 
         public b(v0 v0Var) {
             Interceptable interceptable = $ic;
@@ -151,14 +151,14 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
                     return;
                 }
             }
-            this.f10274e = v0Var;
+            this.f10050e = v0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.q.b.l(new c.a.r0.q.j.m.i(0), new c.a.r0.a.h0.m.j(this.f10274e, true));
+                c.a.r0.q.b.l(new c.a.r0.q.j.m.i(0), new c.a.r0.a.h0.m.j(this.f10050e, true));
             }
         }
     }
@@ -230,7 +230,7 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
                 return;
             }
         }
-        f10267i = c.a.r0.a.k.a;
+        f10043i = c.a.r0.a.k.a;
     }
 
     public /* synthetic */ v0(a aVar) {
@@ -258,14 +258,14 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
         c.a.r0.q.i.b pmsError;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.f10270g = null;
-            boolean z = f10267i;
+            this.f10046g = null;
+            boolean z = f10043i;
             if (exc != null) {
                 Throwable cause = exc.getCause();
-                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f11755f >= 500) {
+                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f11488f >= 500) {
                     m();
                     c.a.r0.q.k.i.n.a = false;
-                    c.a.r0.a.e0.d.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f11755f);
+                    c.a.r0.a.e0.d.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f11488f);
                     return;
                 }
                 l();
@@ -276,7 +276,7 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
     public void l() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && c.a.r0.q.k.i.n.a) {
-            boolean z = f10267i;
+            boolean z = f10043i;
             q.l(new a(this), "SwanH2HeartBeatManager");
         }
     }
@@ -284,13 +284,13 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
     public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c.a.r0.q.k.i.n.a) {
-            boolean z = f10267i;
-            this.f10271h = true;
-            Runnable runnable = this.f10270g;
+            boolean z = f10043i;
+            this.f10047h = true;
+            Runnable runnable = this.f10046g;
             if (runnable != null) {
-                this.f10269f.removeCallbacks(runnable);
+                this.f10045f.removeCallbacks(runnable);
             }
-            this.f10270g = null;
+            this.f10046g = null;
         }
     }
 
@@ -307,7 +307,7 @@ public class v0 implements c.a.r0.a.z2.g1.c<Exception> {
                 return;
             }
         }
-        this.f10271h = false;
-        this.f10269f = new Handler(Looper.getMainLooper());
+        this.f10047h = false;
+        this.f10045f = new Handler(Looper.getMainLooper());
     }
 }

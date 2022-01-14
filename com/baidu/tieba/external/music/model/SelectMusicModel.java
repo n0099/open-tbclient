@@ -33,13 +33,13 @@ public class SelectMusicModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f44332e;
+    public b f42704e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f44333f;
+    public TbPageContext f42705f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f44334g;
+    public final HttpMessageListener f42706g;
 
     /* loaded from: classes12.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
@@ -131,7 +131,7 @@ public class SelectMusicModel extends BdBaseModel {
                 if (videoSugMusicResponseMessage.musicDatas == null) {
                     return;
                 }
-                this.a.f44332e.setMusicData(videoSugMusicResponseMessage.musicDatas);
+                this.a.f42704e.setMusicData(videoSugMusicResponseMessage.musicDatas);
             }
         }
     }
@@ -154,13 +154,13 @@ public class SelectMusicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f44334g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f44333f = tbPageContext;
-        this.f44332e = bVar;
+        this.f42706g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.f42705f = tbPageContext;
+        this.f42704e = bVar;
         y();
-        this.f44334g.setTag(getUniqueId());
-        this.f44334g.setSelfListener(true);
-        registerListener(this.f44334g);
+        this.f42706g.setTag(getUniqueId());
+        this.f42706g.setSelfListener(true);
+        registerListener(this.f42706g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -188,7 +188,7 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!l.z()) {
-                this.f44333f.showToast(R.string.no_network);
+                this.f42705f.showToast(R.string.no_network);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

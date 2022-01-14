@@ -149,12 +149,12 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
         com.kwai.filedownloader.e.c.a(service);
         try {
             com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().a);
-            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().f60569b);
+            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().f58273b);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         }
         g gVar = new g();
-        this.handler = com.kwai.filedownloader.e.e.a().f60571d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
+        this.handler = com.kwai.filedownloader.e.e.a().f58275d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy

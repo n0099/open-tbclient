@@ -19,16 +19,16 @@ public class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f19389b;
+    public b f18891b;
 
     /* renamed from: c.a.t0.k4.i.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1159a {
+    public static /* synthetic */ class C1173a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f19390b;
+        public static final /* synthetic */ int[] f18892b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,41 +45,41 @@ public class a {
                 }
             }
             int[] iArr = new int[PivotPoint.values().length];
-            f19390b = iArr;
+            f18892b = iArr;
             try {
                 iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f19390b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+                f18892b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f19390b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+                f18892b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f19390b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+                f18892b[PivotPoint.CENTER_TOP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f19390b[PivotPoint.CENTER.ordinal()] = 5;
+                f18892b[PivotPoint.CENTER.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f19390b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+                f18892b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f19390b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+                f18892b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f19390b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+                f18892b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f19390b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+                f18892b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             int[] iArr2 = new int[ScalableType.values().length];
@@ -207,14 +207,14 @@ public class a {
             }
         }
         this.a = bVar;
-        this.f19389b = bVar2;
+        this.f18891b = bVar2;
     }
 
     public final Matrix a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f19389b.a() <= this.a.b() && this.f19389b.a() <= this.a.a()) {
+            if (this.f18891b.a() <= this.a.b() && this.f18891b.a() <= this.a.a()) {
                 return l(PivotPoint.CENTER);
             }
             return c();
@@ -226,7 +226,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f19389b.a() <= this.a.b() && this.f19389b.a() <= this.a.a()) {
+            if (this.f18891b.a() <= this.a.b() && this.f18891b.a() <= this.a.a()) {
                 return l(PivotPoint.RIGHT_BOTTOM);
             }
             return d();
@@ -262,8 +262,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
-            float b2 = this.a.b() / this.f19389b.b();
-            float a = this.a.a() / this.f19389b.a();
+            float b2 = this.a.b() / this.f18891b.b();
+            float a = this.a.a() / this.f18891b.a();
             float max = Math.max(b2, a);
             return j(max / b2, max / a, pivotPoint);
         }
@@ -274,8 +274,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
-            float b2 = this.a.b() / this.f19389b.b();
-            float a = this.a.a() / this.f19389b.a();
+            float b2 = this.a.b() / this.f18891b.b();
+            float a = this.a.a() / this.f18891b.a();
             float min = Math.min(b2, a);
             return j(min / b2, min / a, pivotPoint);
         }
@@ -297,7 +297,7 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), pivotPoint})) == null) {
-            switch (C1159a.f19390b[pivotPoint.ordinal()]) {
+            switch (C1173a.f18892b[pivotPoint.ordinal()]) {
                 case 1:
                     return i(f2, f3, 0.0f, 0.0f);
                 case 2:
@@ -326,20 +326,20 @@ public class a {
     public final Matrix k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j(this.f19389b.b() / this.a.b(), this.f19389b.a() / this.a.a(), PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j(this.f18891b.b() / this.a.b(), this.f18891b.a() / this.a.a(), PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
     }
 
     public final Matrix l(PivotPoint pivotPoint) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) ? j(this.f19389b.b() / this.a.b(), this.f19389b.a() / this.a.a(), pivotPoint) : (Matrix) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) ? j(this.f18891b.b() / this.a.b(), this.f18891b.a() / this.a.a(), pivotPoint) : (Matrix) invokeL.objValue;
     }
 
     public Matrix m(ScalableType scalableType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
-            switch (C1159a.a[scalableType.ordinal()]) {
+            switch (C1173a.a[scalableType.ordinal()]) {
                 case 1:
                     return k();
                 case 2:
@@ -403,7 +403,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f19389b.a() <= this.a.b() && this.f19389b.a() <= this.a.a()) {
+            if (this.f18891b.a() <= this.a.b() && this.f18891b.a() <= this.a.a()) {
                 return l(PivotPoint.LEFT_TOP);
             }
             return e();

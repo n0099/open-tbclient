@@ -19,15 +19,15 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f3643c;
+    public static long f3589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f3644d;
+    public static b f3590d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3645b;
+    public boolean f3591b;
 
     /* loaded from: classes.dex */
     public class a extends c.a.h0.l.a<JSONObject> {
@@ -36,10 +36,10 @@ public final class b {
         public final /* synthetic */ c.a.h0.s.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f3646b;
+        public final /* synthetic */ String f3592b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f3647c;
+        public final /* synthetic */ b f3593c;
 
         public a(b bVar, c.a.h0.s.g.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -56,27 +56,27 @@ public final class b {
                     return;
                 }
             }
-            this.f3647c = bVar;
+            this.f3593c = bVar;
             this.a = aVar;
-            this.f3646b = str;
+            this.f3592b = str;
         }
 
         @Override // c.a.h0.l.a
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) || this.f3647c.f3645b) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) || this.f3593c.f3591b) {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (e.b(l.a()) && currentTimeMillis - b.f3643c <= 3000) {
-                if (this.f3647c.a) {
+            if (e.b(l.a()) && currentTimeMillis - b.f3589c <= 3000) {
+                if (this.f3593c.a) {
                     this.a.onResult(1, "");
                 }
-                this.f3647c.i(this.f3646b, this.a);
+                this.f3593c.i(this.f3592b, this.a);
             } else {
                 this.a.onResult(3, "支付失败，请重试");
             }
-            this.f3647c.a = false;
+            this.f3593c.a = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,7 +84,7 @@ public final class b {
         /* renamed from: d */
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || this.f3647c.f3645b) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || this.f3593c.f3591b) {
                 return;
             }
             int optInt = jSONObject.optInt("status", -1);
@@ -93,18 +93,18 @@ public final class b {
                 if (optInt == 2 || (optInt == 1 && optInt2 == 2)) {
                     this.a.onResult(0, "小额免密支付成功");
                 } else if (optInt != 1 || optInt2 != 3) {
-                    if (System.currentTimeMillis() - b.f3643c <= 3000) {
-                        if (this.f3647c.a) {
+                    if (System.currentTimeMillis() - b.f3589c <= 3000) {
+                        if (this.f3593c.a) {
                             this.a.onResult(1, "");
                         }
-                        this.f3647c.i(this.f3646b, this.a);
+                        this.f3593c.i(this.f3592b, this.a);
                     } else {
                         this.a.onResult(6, "支付结果查询失败，请重试");
                     }
                 } else {
                     this.a.onResult(3, "支付失败，请重试");
                 }
-                this.f3647c.a = false;
+                this.f3593c.a = false;
                 return;
             }
             this.a.onResult(3, "支付失败，请重试");
@@ -140,21 +140,21 @@ public final class b {
             }
         }
         this.a = true;
-        this.f3645b = false;
+        this.f3591b = false;
     }
 
     public static b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f3644d == null) {
+            if (f3590d == null) {
                 synchronized (b.class) {
-                    if (f3644d == null) {
-                        f3644d = new b();
+                    if (f3590d == null) {
+                        f3590d = new b();
                     }
                 }
             }
-            return f3644d;
+            return f3590d;
         }
         return (b) invokeV.objValue;
     }
@@ -162,16 +162,16 @@ public final class b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3645b = true;
+            this.f3591b = true;
         }
     }
 
     public void g(String str, c.a.h0.s.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            this.f3645b = false;
+            this.f3591b = false;
             this.a = true;
-            f3643c = System.currentTimeMillis();
+            f3589c = System.currentTimeMillis();
             i(str, aVar);
         }
     }

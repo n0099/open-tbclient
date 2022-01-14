@@ -19,10 +19,10 @@ public class b {
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f25236b;
+    public List<a> f24532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<Integer> f25237c;
+    public List<Integer> f24533c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class b {
     public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25237c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24533c : (List) invokeV.objValue;
     }
 
     public List<a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25236b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24532b : (List) invokeV.objValue;
     }
 
     public List<a> c() {
@@ -69,9 +69,9 @@ public class b {
         if (ListUtils.isEmpty(dataRes.taglist)) {
             return;
         }
-        this.f25236b = new ArrayList();
-        this.f25237c = new ArrayList();
-        e(this.f25236b, dataRes.taglist);
+        this.f24532b = new ArrayList();
+        this.f24533c = new ArrayList();
+        e(this.f24532b, dataRes.taglist);
     }
 
     public final void e(List<a> list, List<ResponseTagInfo> list2) {
@@ -84,8 +84,8 @@ public class b {
                 a aVar = new a();
                 aVar.a(responseTagInfo);
                 list.add(aVar);
-                List<Integer> list3 = this.f25237c;
-                if (list3 != null && aVar.f25235c) {
+                List<Integer> list3 = this.f24533c;
+                if (list3 != null && aVar.f24531c) {
                     list3.add(Integer.valueOf(aVar.a));
                 }
             }

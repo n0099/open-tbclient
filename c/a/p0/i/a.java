@@ -19,16 +19,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f4816c;
+    public static volatile a f4711c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f4817b;
+    public Context f4712b;
 
     /* renamed from: c.a.p0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0220a {
+    public static /* synthetic */ class C0229a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -38,7 +38,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ b(a aVar, Context context, C0220a c0220a) {
+        public /* synthetic */ b(a aVar, Context context, C0229a c0229a) {
             this(aVar, context);
         }
 
@@ -98,22 +98,22 @@ public class a {
                 return;
             }
         }
-        this.f4817b = context;
-        this.a = new b(this, this.f4817b, null);
+        this.f4712b = context;
+        this.a = new b(this, this.f4712b, null);
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f4816c == null) {
+            if (f4711c == null) {
                 synchronized (a.class) {
-                    if (f4816c == null) {
-                        f4816c = new a(context);
+                    if (f4711c == null) {
+                        f4711c = new a(context);
                     }
                 }
             }
-            return f4816c;
+            return f4711c;
         }
         return (a) invokeL.objValue;
     }
@@ -141,7 +141,7 @@ public class a {
                         while (cursor.moveToNext()) {
                             c.a.p0.j.a aVar = new c.a.p0.j.a();
                             aVar.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            aVar.c(e.a(this.f4817b, cursor.getString(cursor.getColumnIndex("a"))));
+                            aVar.c(e.a(this.f4712b, cursor.getString(cursor.getColumnIndex("a"))));
                             aVar.g(cursor.getInt(cursor.getColumnIndex("c")));
                             aVar.e(cursor.getInt(cursor.getColumnIndex("d")));
                             arrayList.add(aVar);
@@ -198,7 +198,7 @@ public class a {
         }
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("a", e.b(this.f4817b, aVar.d().getBytes()));
+            contentValues.put("a", e.b(this.f4712b, aVar.d().getBytes()));
             contentValues.put("c", Integer.valueOf(aVar.h()));
             contentValues.put("d", Integer.valueOf(aVar.f()));
             this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
@@ -251,7 +251,7 @@ public class a {
                         while (cursor.moveToNext()) {
                             c.a.p0.j.a aVar = new c.a.p0.j.a();
                             aVar.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            aVar.c(e.a(this.f4817b, cursor.getString(cursor.getColumnIndex("a"))));
+                            aVar.c(e.a(this.f4712b, cursor.getString(cursor.getColumnIndex("a"))));
                             aVar.g(cursor.getInt(cursor.getColumnIndex("c")));
                             aVar.e(cursor.getInt(cursor.getColumnIndex("d")));
                             arrayList.add(aVar);

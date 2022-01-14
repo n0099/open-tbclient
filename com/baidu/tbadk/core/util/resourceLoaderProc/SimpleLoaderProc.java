@@ -46,12 +46,12 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         this.mIsNeedFormat = z2;
         this.mIsForceLoad = z3;
         this.mProcType = i2;
-        int k2 = n.k(TbadkCoreApplication.getInst());
+        int k = n.k(TbadkCoreApplication.getInst());
         int i5 = n.i(TbadkCoreApplication.getInst());
         if (i2 == 13) {
-            k2 = k2 <= 0 ? 200 : k2;
-            this.mSuggestWidth = k2;
-            if (k2 > 480) {
+            k = k <= 0 ? 200 : k;
+            this.mSuggestWidth = k;
+            if (k > 480) {
                 this.mSuggestWidth = 480;
             }
             if (this.mSuggestWidth > n.d(TbadkCoreApplication.getInst(), 320.0f)) {
@@ -74,7 +74,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             this.mSuggestHeight = 0;
             this.mSuggestWidth = 0;
         } else if (i2 == 30) {
-            if (k2 <= 0 || k2 > 644) {
+            if (k <= 0 || k > 644) {
                 this.mSuggestWidth = 644;
             }
             if (this.mSuggestWidth > n.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
@@ -82,11 +82,11 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
         } else if (i2 == 46) {
-            int i6 = (k2 * 2) / 3;
+            int i6 = (k * 2) / 3;
             this.mSuggestWidth = i6;
             this.mSuggestHeight = (i6 * 4) / 3;
         } else {
-            this.mSuggestWidth = k2;
+            this.mSuggestWidth = k;
             this.mSuggestHeight = i5;
         }
     }

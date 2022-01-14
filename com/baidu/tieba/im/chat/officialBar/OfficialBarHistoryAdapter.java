@@ -26,16 +26,16 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46604e;
+    public Context f44882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseActivity f46605f;
+    public BaseActivity f44883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f46606g;
+    public View.OnClickListener f44884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ResponseHistoryMessage.a> f46607h;
+    public List<ResponseHistoryMessage.a> f44885h;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -43,7 +43,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryAdapter f46608e;
+        public final /* synthetic */ OfficialBarHistoryAdapter f44886e;
 
         public a(OfficialBarHistoryAdapter officialBarHistoryAdapter) {
             Interceptable interceptable = $ic;
@@ -60,22 +60,22 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     return;
                 }
             }
-            this.f46608e = officialBarHistoryAdapter;
+            this.f44886e = officialBarHistoryAdapter;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (intValue = ((Integer) view.getTag()).intValue()) < 0 || intValue >= this.f46608e.f46607h.size()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (intValue = ((Integer) view.getTag()).intValue()) < 0 || intValue >= this.f44886e.f44885h.size()) {
                 return;
             }
-            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) this.f46608e.f46607h.get(intValue);
-            String f2 = c.f(PreferencesUtil.LEFT_MOUNT + aVar.f46641c + PreferencesUtil.RIGHT_MOUNT, true);
+            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) this.f44886e.f44885h.get(intValue);
+            String f2 = c.f(PreferencesUtil.LEFT_MOUNT + aVar.f44917c + PreferencesUtil.RIGHT_MOUNT, true);
             if (f2 == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.f46608e.f46604e, f2, String.valueOf(aVar.f46642d))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.f44886e.f44882e, f2, String.valueOf(aVar.f44918d))));
         }
     }
 
@@ -94,9 +94,9 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                 return;
             }
         }
-        this.f46606g = new a(this);
-        this.f46604e = context;
-        this.f46605f = baseActivity;
+        this.f44884g = new a(this);
+        this.f44882e = context;
+        this.f44883f = baseActivity;
     }
 
     public final View b(int i2, View view, ViewGroup viewGroup) {
@@ -104,11 +104,11 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
             ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i2);
-            if (aVar != null && aVar.f46641c != null) {
+            if (aVar != null && aVar.f44917c != null) {
                 int itemViewType = getItemViewType(i2);
                 if (itemViewType == 0) {
                     if (view == null) {
-                        view = new HistoryItemView(this.f46604e);
+                        view = new HistoryItemView(this.f44882e);
                     }
                     HistoryItemView historyItemView = (HistoryItemView) view;
                     historyItemView.setClickable(false);
@@ -149,12 +149,12 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                             return invokeV.objValue;
                         }
                     };
-                    chatMessage.setContent(aVar.f46641c);
-                    chatMessage.setMsgType(aVar.f46640b);
+                    chatMessage.setContent(aVar.f44917c);
+                    chatMessage.setMsgType(aVar.f44916b);
                     h.e(historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
                 } else if (itemViewType == 1) {
                     if (view == null) {
-                        view = new HistoryItemView(this.f46604e);
+                        view = new HistoryItemView(this.f44882e);
                     }
                     HistoryItemView historyItemView2 = (HistoryItemView) view;
                     historyItemView2.setClickable(false);
@@ -195,19 +195,19 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                             return invokeV.objValue;
                         }
                     };
-                    chatMessage2.setContent(PreferencesUtil.LEFT_MOUNT + aVar.f46641c + PreferencesUtil.RIGHT_MOUNT);
-                    chatMessage2.setMsgType(aVar.f46640b);
-                    h.d(this.f46604e, view, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    chatMessage2.setContent(PreferencesUtil.LEFT_MOUNT + aVar.f44917c + PreferencesUtil.RIGHT_MOUNT);
+                    chatMessage2.setMsgType(aVar.f44916b);
+                    h.d(this.f44882e, view, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView2.getImageView().setTag(Integer.valueOf(i2));
-                    historyItemView2.getImageView().setOnClickListener(this.f46606g);
+                    historyItemView2.getImageView().setOnClickListener(this.f44884g);
                 } else if (itemViewType == 2) {
                     if (view == null) {
-                        view = new HistoryItemView(this.f46604e);
+                        view = new HistoryItemView(this.f44882e);
                     }
-                    MultiContentView multiContentView = new MultiContentView(this.f46604e);
+                    MultiContentView multiContentView = new MultiContentView(this.f44882e);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.a);
-                    multiContentView.setData(this.f46605f.getPageContext(), c.a.t0.s1.l.c.a.a(aVar.f46641c, "", 0L, 0L), viewGroup);
+                    multiContentView.setData(this.f44883f.getPageContext(), c.a.t0.s1.l.c.a.a(aVar.f44917c, "", 0L, 0L), viewGroup);
                     ((HistoryItemView) view).addMultiView(multiContentView);
                 }
             }
@@ -219,7 +219,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
     public void c(List<ResponseHistoryMessage.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f46607h = list;
+            this.f44885h = list;
             notifyDataSetChanged();
         }
     }
@@ -229,7 +229,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ResponseHistoryMessage.a> list = this.f46607h;
+            List<ResponseHistoryMessage.a> list = this.f44885h;
             if (list == null) {
                 return 0;
             }
@@ -243,10 +243,10 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f46607h == null || i2 >= getCount()) {
+            if (this.f44885h == null || i2 >= getCount()) {
                 return null;
             }
-            return this.f46607h.get(i2);
+            return this.f44885h.get(i2);
         }
         return invokeI.objValue;
     }
@@ -256,7 +256,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<ResponseHistoryMessage.a> list = this.f46607h;
+            List<ResponseHistoryMessage.a> list = this.f44885h;
             if (list == null || i2 >= list.size()) {
                 return 0L;
             }
@@ -270,11 +270,11 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            List<ResponseHistoryMessage.a> list = this.f46607h;
+            List<ResponseHistoryMessage.a> list = this.f44885h;
             if (list == null || i2 >= list.size()) {
                 return 0;
             }
-            int i3 = this.f46607h.get(i2).f46640b;
+            int i3 = this.f44885h.get(i2).f44916b;
             if (i3 != 2) {
                 return i3 != 7 ? 0 : 2;
             }

@@ -53,13 +53,13 @@ public final class g extends c.i.b.a.e0.c {
             int i3 = 0;
             while (i2 == -1) {
                 i3 = lVar.c();
-                String k2 = lVar.k();
-                if (k2 == null) {
+                String k = lVar.k();
+                if (k == null) {
                     i2 = 0;
-                } else if ("STYLE".equals(k2)) {
+                } else if ("STYLE".equals(k)) {
                     i2 = 2;
                 } else {
-                    i2 = "NOTE".startsWith(k2) ? 1 : 3;
+                    i2 = "NOTE".startsWith(k) ? 1 : 3;
                 }
             }
             lVar.J(i3);

@@ -15,7 +15,7 @@ public class a implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11489b;
+    public static final boolean f11232b;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
@@ -32,7 +32,7 @@ public class a implements DebugConsole {
                 return;
             }
         }
-        f11489b = k.a;
+        f11232b = k.a;
     }
 
     public a() {
@@ -52,7 +52,7 @@ public class a implements DebugConsole {
     @Override // com.baidu.searchbox.v8engine.console.DebugConsole
     public void onReceiveInfo(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && f11489b && !h.d()) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && f11232b && !h.d()) {
             if (i2 == 0) {
                 String.format("%s: %s %s", "queue event", "", str);
             } else if (i2 == 1) {

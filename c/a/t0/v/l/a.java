@@ -33,16 +33,16 @@ public final class a {
     public static HashMap<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f25220b;
+    public static HashMap<String, Integer> f24516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f25221c;
+    public static HashMap<String, String> f24517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, String> f25222d;
+    public static HashMap<String, String> f24518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f25223e;
+    public static final Pattern f24519e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,9 +59,9 @@ public final class a {
             }
         }
         a = new HashMap<>();
-        f25220b = new HashMap<>();
-        f25221c = new HashMap<>();
-        f25222d = new HashMap<>();
+        f24516b = new HashMap<>();
+        f24517c = new HashMap<>();
+        f24518d = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -380,19 +380,19 @@ public final class a {
         a("audio/aac", "aac", 1);
         a("application/vnd.rn-realmedia", x.C, 0);
         a("message/rfc822", "mht", 11);
-        f25223e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f24519e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
             a.put(str2, Integer.valueOf(i2));
-            f25220b.put(str, Integer.valueOf(i2));
-            f25221c.put(str2, str);
-            if (f25222d.containsKey(str)) {
+            f24516b.put(str, Integer.valueOf(i2));
+            f24517c.put(str2, str);
+            if (f24518d.containsKey(str)) {
                 return;
             }
-            f25222d.put(str, str2);
+            f24518d.put(str, str2);
         }
     }
 
@@ -409,7 +409,7 @@ public final class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) {
-            Integer num = f25220b.get(str2);
+            Integer num = f24516b.get(str2);
             if (num != null ? !(!z || num.intValue() != 8) : !((num = a.get(str)) != null && (!z || num.intValue() != 8))) {
                 num = 5;
             }
@@ -452,7 +452,7 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f25222d.get(str);
+            return f24518d.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -561,7 +561,7 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f25221c.get(str);
+            return f24517c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -571,7 +571,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             try {
-                Matcher matcher = f25223e.matcher(str);
+                Matcher matcher = f24519e.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(2);
                 }

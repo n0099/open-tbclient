@@ -16,34 +16,32 @@ public class k {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12128b;
+    public int f11846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12129c;
+    public String f11847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f12130d;
+    public JSONObject f11848d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12131e;
+    public long f11849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12132f;
+    public long f11850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12133g;
+    public int f11851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12134h;
+    public String f11852h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12135i;
+    public String f11853i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f12136j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public JSONArray f12137k;
+    public String f11854j;
+    public JSONArray k;
     public boolean l;
 
     public k() {
@@ -65,7 +63,7 @@ public class k {
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d.g().a(this.a)) {
-            this.f12135i = e.g().h();
+            this.f11853i = e.g().h();
         }
     }
 
@@ -75,7 +73,7 @@ public class k {
             return;
         }
         try {
-            this.f12137k = new JSONArray(str);
+            this.k = new JSONArray(str);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -98,8 +96,8 @@ public class k {
         }
         this.l = false;
         this.a = str;
-        this.f12128b = i2;
-        this.f12129c = str2;
-        this.f12133g = i3;
+        this.f11846b = i2;
+        this.f11847c = str2;
+        this.f11851g = i3;
     }
 }

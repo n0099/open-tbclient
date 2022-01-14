@@ -29,13 +29,13 @@ public final class d<State extends c<State>, AT extends a> {
     public f<State, Object, AT> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pair<? extends State, ? extends AT> f34051b;
+    public Pair<? extends State, ? extends AT> f32965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Function1<? super a, Unit> f34052c;
+    public Function1<? super a, Unit> f32966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Function2<a, State, State> f34053d;
+    public final Function2<a, State, State> f32967d;
 
     public d(Function2<? super a, ? super State, ? extends State> function2, State state, List<? extends Function2<? super Function1<? super a, Unit>, ? super Function0<? extends State>, ? extends Function1<? super Function1<? super a, Unit>, ? extends Function1<? super a, Unit>>>> list) {
         Interceptable interceptable = $ic;
@@ -52,21 +52,21 @@ public final class d<State extends c<State>, AT extends a> {
                 return;
             }
         }
-        this.f34053d = function2;
-        this.f34051b = new Pair<>(state, null);
+        this.f32967d = function2;
+        this.f32965b = new Pair<>(state, null);
         e(new Pair<>(state, null));
         List<Function2> reversed = CollectionsKt___CollectionsKt.reversed(list);
         Function1<? super a, Unit> store$dispatchFunction$1 = new Store$dispatchFunction$1(this);
         for (Function2 function22 : reversed) {
             store$dispatchFunction$1 = (Function1) ((Function1) function22.invoke(new Store$$special$$inlined$fold$lambda$1(this), new Store$$special$$inlined$fold$lambda$2(this))).invoke(store$dispatchFunction$1);
         }
-        this.f34052c = store$dispatchFunction$1;
+        this.f32966c = store$dispatchFunction$1;
     }
 
     public State a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34051b.getFirst() : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32965b.getFirst() : (State) invokeV.objValue;
     }
 
     public synchronized void b(a aVar) {
@@ -91,7 +91,7 @@ public final class d<State extends c<State>, AT extends a> {
     public final void e(Pair<? extends State, ? extends AT> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pair) == null) {
-            this.f34051b = pair;
+            this.f32965b = pair;
             f<State, Object, AT> fVar = this.a;
             if (fVar != null) {
                 fVar.b(pair.getFirst(), pair.getSecond());
@@ -103,14 +103,14 @@ public final class d<State extends c<State>, AT extends a> {
     public Function1<a, Unit> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34052c : (Function1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32966c : (Function1) invokeV.objValue;
     }
 
     public final synchronized void g(AT at) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, at) == null) {
             synchronized (this) {
-                e(new Pair<>(this.f34053d.invoke(at, a()), at));
+                e(new Pair<>(this.f32967d.invoke(at, a()), at));
             }
         }
     }

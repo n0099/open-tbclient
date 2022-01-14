@@ -44,25 +44,25 @@ public class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int[] iArr = new int[2];
-            view = this.a.f35091f;
+            view = this.a.f33958f;
             view.getLocationOnScreen(iArr);
             SafeKeyBoardUtil safeKeyBoardUtil = this.a;
             int i7 = iArr[1];
-            view2 = safeKeyBoardUtil.f35091f;
+            view2 = safeKeyBoardUtil.f33958f;
             int height = i7 + view2.getHeight();
-            i2 = this.a.f35092g;
-            i3 = this.a.f35095j;
+            i2 = this.a.f33959g;
+            i3 = this.a.f33962j;
             int i8 = height - (i2 - i3);
-            safeKeyBoardEditText = this.a.f35088c;
-            safeKeyBoardUtil.f35094i = i8 + safeKeyBoardEditText.getGap();
-            i4 = this.a.f35094i;
+            safeKeyBoardEditText = this.a.f33955c;
+            safeKeyBoardUtil.f33961i = i8 + safeKeyBoardEditText.getGap();
+            i4 = this.a.f33961i;
             if (i4 > 0) {
-                safeScrollView2 = this.a.f35090e;
-                i6 = this.a.f35094i;
+                safeScrollView2 = this.a.f33957e;
+                i6 = this.a.f33961i;
                 safeScrollView2.smoothScrollBy(0, i6);
             }
-            safeScrollView = this.a.f35090e;
-            i5 = this.a.f35095j;
+            safeScrollView = this.a.f33957e;
+            i5 = this.a.f33962j;
             safeScrollView.notifyShowKeyBoard(i5);
         }
     }

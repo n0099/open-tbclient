@@ -1,153 +1,80 @@
 package c.a.c0.i;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.v8.NodeJS;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c.a.c0.v.b a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f2184b;
-    @NonNull
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Map<String, String>> f2185c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f2186d;
-
-    public a() {
-        String[] a;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            f(3, str, str2);
+        }
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, th) == null) {
+            f(3, str, str2 + '\n' + Log.getStackTraceString(th));
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            f(6, str, str2);
+        }
+    }
+
+    public static void d(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            f(6, str, str2 + '\n' + Log.getStackTraceString(th));
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            f(4, str, str2);
+        }
+    }
+
+    public static void f(int i2, String str, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeILL(65541, null, i2, str, str2) == null) || str == null) {
+            return;
+        }
+        if (str2 != null) {
+            str3 = PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + PreferencesUtil.RIGHT_MOUNT + str2;
+        } else {
+            str3 = "LogEx method param(msg) is null";
+        }
+        g(i2, str, str3);
+    }
+
+    public static void g(int i2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65542, null, i2, str, str2) == null) {
+            if (str2.length() > 1000) {
+                Log.println(i2, str, str2.substring(0, 1000));
+                g(i2, str, str2.substring(1000));
                 return;
             }
-        }
-        this.f2184b = new ConcurrentHashMap(128);
-        this.f2185c = new ConcurrentHashMap(8);
-        this.a = c.a.c0.v.e.a().b("nad.cold.launch.config");
-        for (String str : h.a().a()) {
-            String string = this.a.getString(str, null);
-            if (string != null) {
-                c.a.c0.u.c.e(this.f2184b, str, string);
-            }
+            Log.println(i2, str, str2);
         }
     }
 
-    @NonNull
-    public Map<String, String> a() {
-        InterceptResult invokeV;
+    public static void h(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2184b : (Map) invokeV.objValue;
-    }
-
-    @NonNull
-    public Map<String, Map<String, String>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2185c : (Map) invokeV.objValue;
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        String[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.f2184b.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                c.a.c0.u.c.e(this.f2184b, next, jSONObject.optString(next));
-            }
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            for (String str : h.a().a()) {
-                String str2 = (String) c.a.c0.u.c.b(this.f2184b, str);
-                if (str2 != null) {
-                    edit.putString(str, str2);
-                }
-            }
-            edit.apply();
-            SharedPreferences.Editor edit2 = c.a.c0.v.e.a().b("nad.launch.config.global").edit();
-            edit2.clear();
-            for (String str3 : this.f2184b.keySet()) {
-                String str4 = (String) c.a.c0.u.c.b(this.f2184b, str3);
-                if (str4 != null) {
-                    edit2.putString(str3, str4);
-                }
-            }
-            edit2.apply();
-        }
-    }
-
-    public final void d(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.f2185c.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                HashMap hashMap = null;
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap = new HashMap(8);
-                    JSONObject b2 = c.a.c0.u.b.b(optString);
-                    Iterator<String> keys2 = b2.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        c.a.c0.u.c.e(hashMap, next2, b2.optString(next2));
-                    }
-                }
-                if (hashMap != null) {
-                    c.a.c0.u.c.e(this.f2185c, next, hashMap);
-                    c.a.c0.v.e a = c.a.c0.v.e.a();
-                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
-                    edit.clear();
-                    for (String str : hashMap.keySet()) {
-                        String str2 = (String) hashMap.get(str);
-                        if (str2 != null) {
-                            edit.putString(str, str2);
-                        }
-                    }
-                    edit.apply();
-                }
-            }
-        }
-    }
-
-    public void update(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            String optString = jSONObject.optString(NodeJS.GLOBAL);
-            if (!TextUtils.isEmpty(optString)) {
-                c(c.a.c0.u.b.b(optString));
-            }
-            String optString2 = jSONObject.optString("place_conf");
-            if (TextUtils.isEmpty(optString2)) {
-                return;
-            }
-            d(c.a.c0.u.b.b(optString2));
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
+            f(5, str, str2 + '\n' + Log.getStackTraceString(th));
         }
     }
 }

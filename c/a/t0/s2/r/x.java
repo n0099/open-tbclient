@@ -1,6 +1,6 @@
 package c.a.t0.s2.r;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,11 +14,11 @@ public class x implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f23103f;
+    public static BdUniqueId f22466f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f23104e;
+    public e2 f22467e;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class x implements c.a.d.n.e.n {
                 return;
             }
         }
-        f23103f = BdUniqueId.gen();
+        f22466f = BdUniqueId.gen();
     }
 
     public x() {
@@ -54,6 +54,6 @@ public class x implements c.a.d.n.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f23103f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22466f : (BdUniqueId) invokeV.objValue;
     }
 }

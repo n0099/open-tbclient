@@ -20,16 +20,16 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f14564b;
+    public final View f14223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f14565c;
+    public final int f14224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f14566d;
+    public final boolean f14225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.x.x.a f14567e;
+    public c.a.s0.x.x.a f14226e;
 
     public c(View view) {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class c {
             }
         }
         this.a = -1;
-        this.f14564b = view;
-        this.f14565c = c.a.s0.x.x.d.c.a(view.getContext());
-        this.f14566d = d.c((Activity) view.getContext());
+        this.f14223b = view;
+        this.f14224c = c.a.s0.x.x.d.c.a(view.getContext());
+        this.f14225d = d.c((Activity) view.getContext());
     }
 
     public final c.a.s0.x.x.a a(View view) {
@@ -58,13 +58,13 @@ public class c {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view)) != null) {
             return (c.a.s0.x.x.a) invokeL.objValue;
         }
-        c.a.s0.x.x.a aVar = this.f14567e;
+        c.a.s0.x.x.a aVar = this.f14226e;
         if (aVar != null) {
             return aVar;
         }
         if (view instanceof c.a.s0.x.x.a) {
             c.a.s0.x.x.a aVar2 = (c.a.s0.x.x.a) view;
-            this.f14567e = aVar2;
+            this.f14226e = aVar2;
             return aVar2;
         } else if (!(view instanceof ViewGroup)) {
             return null;
@@ -77,7 +77,7 @@ public class c {
                 }
                 c.a.s0.x.x.a a = a(viewGroup.getChildAt(i2));
                 if (a != null) {
-                    this.f14567e = a;
+                    this.f14226e = a;
                     return a;
                 }
                 i2++;
@@ -89,9 +89,9 @@ public class c {
     public void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            if (this.f14566d && Build.VERSION.SDK_INT >= 16 && this.f14564b.getFitsSystemWindows()) {
+            if (this.f14225d && Build.VERSION.SDK_INT >= 16 && this.f14223b.getFitsSystemWindows()) {
                 Rect rect = new Rect();
-                this.f14564b.getWindowVisibleDisplayFrame(rect);
+                this.f14223b.getWindowVisibleDisplayFrame(rect);
                 i3 = rect.bottom - rect.top;
             }
             String str = "onMeasure, width: " + i2 + " height: " + i3;
@@ -106,12 +106,12 @@ public class c {
             int i5 = i4 - i3;
             if (i5 == 0) {
                 String str2 = "" + i5 + " == 0 break;";
-            } else if (Math.abs(i5) == this.f14565c) {
+            } else if (Math.abs(i5) == this.f14224c) {
                 String.format("offset just equal statusBar height %d", Integer.valueOf(i5));
             } else {
                 this.a = i3;
-                c.a.s0.x.x.a a = a(this.f14564b);
-                if (a != null && Math.abs(i5) >= c.a.s0.x.x.d.b.f(this.f14564b.getContext())) {
+                c.a.s0.x.x.a a = a(this.f14223b);
+                if (a != null && Math.abs(i5) >= c.a.s0.x.x.d.b.f(this.f14223b.getContext())) {
                     if (i5 > 0) {
                         a.handleHide();
                     } else if (a.isKeyboardShowing() && a.isVisible()) {

@@ -80,10 +80,10 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f56402b;
+        public final long f54266b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f56403c;
+        public final long f54267c;
 
         public /* synthetic */ b(int i2, long j2, long j3, a aVar) {
             this(i2, j2, j3);
@@ -99,8 +99,8 @@ public final class SpliceInsertCommand extends SpliceCommand {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
                 parcel.writeInt(this.a);
-                parcel.writeLong(this.f56402b);
-                parcel.writeLong(this.f56403c);
+                parcel.writeLong(this.f54266b);
+                parcel.writeLong(this.f54267c);
             }
         }
 
@@ -120,8 +120,8 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 }
             }
             this.a = i2;
-            this.f56402b = j2;
-            this.f56403c = j3;
+            this.f54266b = j2;
+            this.f54267c = j3;
         }
     }
 

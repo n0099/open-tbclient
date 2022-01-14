@@ -18,34 +18,32 @@ public class e {
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24064b;
+    public int f23393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24065c;
+    public int f23394c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f24066d;
+    public float f23395d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f24067e;
+    public float f23396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f24068f;
+    public float f23397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24069g;
+    public int f23398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24070h;
+    public int f23399h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f24071i;
+    public b f23400i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f24072j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f24073k;
+    public int f23401j;
+    public int k;
     public float l;
     public boolean m;
     public boolean n;
@@ -70,34 +68,32 @@ public class e {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f24074b;
+        public Bitmap f23402b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f24075c;
+        public boolean f23403c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f24076d;
+        public boolean f23404d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f24077e;
+        public boolean f23405e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f24078f;
+        public boolean f23406f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f24079g;
+        public int f23407g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f24080h;
+        public int f23408h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f24081i;
+        public int f23409i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f24082j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public c f24083k;
+        public int f23410j;
+        public c k;
 
         public b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -115,11 +111,11 @@ public class e {
                 }
             }
             this.a = 10;
-            this.f24074b = bitmap;
-            this.f24075c = false;
-            this.f24076d = false;
-            this.f24077e = false;
-            this.f24078f = false;
+            this.f23402b = bitmap;
+            this.f23403c = false;
+            this.f23404d = false;
+            this.f23405e = false;
+            this.f23406f = false;
         }
 
         public e l() {
@@ -132,8 +128,8 @@ public class e {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                this.f24081i = i2;
-                this.f24082j = i3;
+                this.f23409i = i2;
+                this.f23410j = i3;
                 return this;
             }
             return (b) invokeII.objValue;
@@ -143,7 +139,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-                this.f24083k = cVar;
+                this.k = cVar;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -153,10 +149,10 @@ public class e {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-                this.f24079g = i2;
-                this.f24080h = i3;
-                this.f24074b = e.a(this.f24074b, i2, i3);
-                this.f24076d = z;
+                this.f23407g = i2;
+                this.f23408h = i3;
+                this.f23402b = e.a(this.f23402b, i2, i3);
+                this.f23404d = z;
                 return this;
             }
             return (b) invokeCommon.objValue;
@@ -167,7 +163,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
                 this.a = i2;
-                this.f24075c = z;
+                this.f23403c = z;
                 return this;
             }
             return (b) invokeCommon.objValue;
@@ -177,8 +173,8 @@ public class e {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-                this.f24077e = z;
-                this.f24078f = z2;
+                this.f23405e = z;
+                this.f23406f = z2;
                 return this;
             }
             return (b) invokeCommon.objValue;
@@ -212,11 +208,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, canvas, paint)) == null) {
             c();
-            float f2 = this.f24067e;
-            if (f2 > this.f24073k || f2 < 0.0f) {
+            float f2 = this.f23396e;
+            if (f2 > this.k || f2 < 0.0f) {
                 return false;
             }
-            canvas.drawBitmap(this.u, this.f24066d, f2, paint);
+            canvas.drawBitmap(this.u, this.f23395d, f2, paint);
             return true;
         }
         return invokeLL.booleanValue;
@@ -233,15 +229,15 @@ public class e {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f24066d = (float) (this.f24066d + (Math.sin(this.l) * 10.0d));
+            this.f23395d = (float) (this.f23395d + (Math.sin(this.l) * 10.0d));
             if (this.s) {
                 this.l = (float) (this.l + ((this.t.nextBoolean() ? -1 : 1) * Math.random() * 0.0025d));
             }
-            float f2 = this.f24066d;
-            int i2 = this.f24072j;
+            float f2 = this.f23395d;
+            int i2 = this.f23401j;
             int i3 = this.o;
             if (f2 > i2 - i3) {
-                this.f24066d = i2 - i3;
+                this.f23395d = i2 - i3;
             }
         }
     }
@@ -249,7 +245,7 @@ public class e {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24067e += this.f24068f;
+            this.f23396e += this.f23397f;
         }
     }
 
@@ -258,7 +254,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!this.n) {
-                this.u = this.f24071i.f24074b;
+                this.u = this.f23400i.f23402b;
             } else {
                 c cVar = this.a;
                 if (cVar != null) {
@@ -267,7 +263,7 @@ public class e {
                     nextInt = (this.t.nextInt(10) + 1) * 0.1f;
                 }
                 int i2 = this.p;
-                this.u = a(this.f24071i.f24074b, (int) (i2 > 0 ? Math.max(i2, this.f24071i.f24074b.getWidth() * nextInt) : 0.0f), (int) (this.q > 0 ? Math.max(nextInt * this.f24071i.f24074b.getHeight(), this.q) : 0.0f));
+                this.u = a(this.f23400i.f23402b, (int) (i2 > 0 ? Math.max(i2, this.f23400i.f23402b.getWidth() * nextInt) : 0.0f), (int) (this.q > 0 ? Math.max(nextInt * this.f23400i.f23402b.getHeight(), this.q) : 0.0f));
             }
             this.u.getWidth();
             this.u.getHeight();
@@ -278,9 +274,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.m) {
-                this.f24068f = ((float) (((this.t.nextInt(3) + 1) * 0.1d) + 1.0d)) * this.f24064b;
+                this.f23397f = ((float) (((this.t.nextInt(3) + 1) * 0.1d) + 1.0d)) * this.f23393b;
             } else {
-                this.f24068f = this.f24064b;
+                this.f23397f = this.f23393b;
             }
         }
     }
@@ -289,9 +285,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.r) {
-                this.l = (float) ((((this.t.nextBoolean() ? -1 : 1) * Math.random()) * this.f24065c) / 50.0d);
+                this.l = (float) ((((this.t.nextBoolean() ? -1 : 1) * Math.random()) * this.f23394c) / 50.0d);
             } else {
-                this.l = this.f24065c / 50.0f;
+                this.l = this.f23394c / 50.0f;
             }
             float f2 = this.l;
             if (f2 > 1.5707964f) {
@@ -317,26 +313,26 @@ public class e {
                 return;
             }
         }
-        this.f24071i = bVar;
-        this.f24072j = i2;
-        this.f24073k = i3;
+        this.f23400i = bVar;
+        this.f23401j = i2;
+        this.k = i3;
         Random random = new Random();
         this.t = random;
-        this.f24069g = random.nextInt((i2 * 8) / 9);
+        this.f23398g = random.nextInt((i2 * 8) / 9);
         int nextInt = this.t.nextInt(i3) - i3;
-        this.f24070h = nextInt;
-        this.f24066d = this.f24069g;
-        this.f24067e = nextInt;
-        this.m = bVar.f24075c;
-        this.n = bVar.f24076d;
-        this.a = bVar.f24083k;
-        this.p = bVar.f24081i;
-        this.q = bVar.f24082j;
-        this.o = bVar.f24079g;
-        int unused = bVar.f24080h;
-        this.r = bVar.f24077e;
-        this.s = bVar.f24078f;
-        this.f24064b = bVar.a;
+        this.f23399h = nextInt;
+        this.f23395d = this.f23398g;
+        this.f23396e = nextInt;
+        this.m = bVar.f23403c;
+        this.n = bVar.f23404d;
+        this.a = bVar.k;
+        this.p = bVar.f23409i;
+        this.q = bVar.f23410j;
+        this.o = bVar.f23407g;
+        int unused = bVar.f23408h;
+        this.r = bVar.f23405e;
+        this.s = bVar.f23406f;
+        this.f23393b = bVar.a;
         g();
         f();
         h();
@@ -357,17 +353,17 @@ public class e {
                 return;
             }
         }
-        this.f24071i = bVar;
-        this.u = bVar.f24074b;
-        this.o = bVar.f24079g;
-        int unused = bVar.f24080h;
-        this.p = bVar.f24081i;
-        this.a = bVar.f24083k;
-        this.q = bVar.f24082j;
-        this.f24064b = bVar.a;
-        this.n = bVar.f24076d;
-        this.r = bVar.f24077e;
-        this.s = bVar.f24078f;
-        this.m = bVar.f24075c;
+        this.f23400i = bVar;
+        this.u = bVar.f23402b;
+        this.o = bVar.f23407g;
+        int unused = bVar.f23408h;
+        this.p = bVar.f23409i;
+        this.a = bVar.k;
+        this.q = bVar.f23410j;
+        this.f23393b = bVar.a;
+        this.n = bVar.f23404d;
+        this.r = bVar.f23405e;
+        this.s = bVar.f23406f;
+        this.m = bVar.f23403c;
     }
 }

@@ -31,22 +31,22 @@ public class c implements b {
     public NetWork a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25685b;
+    public boolean f24967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f25686c;
+    public final String f24968c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f25687d;
+    public final int f24969d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f25688e;
+    public final int f24970e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f25689f;
+    public e f24971f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f25690g;
+    public g f24972g;
 
     public c(String str, int i2, int i3, g gVar) {
         Interceptable interceptable = $ic;
@@ -63,18 +63,18 @@ public class c implements b {
                 return;
             }
         }
-        this.f25685b = false;
-        this.f25686c = str;
-        this.f25688e = i2;
-        this.f25687d = i3 / i2;
-        this.f25690g = gVar;
+        this.f24967b = false;
+        this.f24968c = str;
+        this.f24970e = i2;
+        this.f24969d = i3 / i2;
+        this.f24972g = gVar;
     }
 
     @Override // c.a.t0.w3.q0.d.b
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f25689f = eVar;
+            this.f24971f = eVar;
         }
     }
 
@@ -102,11 +102,11 @@ public class c implements b {
                 c.a.t0.w3.q0.c c2 = c.a.t0.w3.q0.b.c(str4);
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
                 long length = file.length();
-                int d2 = d(length, this.f25688e);
-                int d3 = d(d2, this.f25687d);
+                int d2 = d(length, this.f24970e);
+                int d3 = d(d2, this.f24969d);
                 String str5 = c2 != null ? c2.a : null;
-                int i4 = c2 != null ? c2.f25680b : 0;
-                if (i4 < d2 && randomAccessFile.skipBytes(this.f25688e * i4) < this.f25688e * i4) {
+                int i4 = c2 != null ? c2.f24962b : 0;
+                if (i4 < d2 && randomAccessFile.skipBytes(this.f24970e * i4) < this.f24970e * i4) {
                     randomAccessFile.close();
                     return null;
                 }
@@ -130,7 +130,7 @@ public class c implements b {
                         f(i7, d2, 55);
                         if (i6 == d2) {
                             i3 = j(c3, i6, d3, d2);
-                        } else if (i6 % this.f25687d == 0) {
+                        } else if (i6 % this.f24969d == 0) {
                             VideoBlockUploadResult h2 = h(c3, i6, d3, d2);
                             str2 = h2.upload_id;
                             videoBlockUploadResult = h2;
@@ -138,7 +138,7 @@ public class c implements b {
                             if (videoBlockUploadResult == null && !videoBlockUploadResult.isSuccess()) {
                                 videoFinishResult.setUserMessage(videoBlockUploadResult.getErrorMessage());
                                 videoFinishResult.setErrorNo(videoBlockUploadResult.getErrorCode());
-                                g gVar = this.f25690g;
+                                g gVar = this.f24972g;
                                 if (gVar != null) {
                                     gVar.f(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
                                 }
@@ -176,7 +176,7 @@ public class c implements b {
                 c.a.t0.w3.q0.b.b(str4);
                 videoFinishResult.setVideoMd5(str4);
                 randomAccessFile.close();
-                g gVar2 = this.f25690g;
+                g gVar2 = this.f24972g;
                 if (gVar2 != null) {
                     gVar2.j();
                 }
@@ -194,9 +194,9 @@ public class c implements b {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{randomAccessFile, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
             if (randomAccessFile != null && i2 >= 0) {
                 if (i2 == i3 - 1) {
-                    i4 = (int) (j2 - (i2 * this.f25688e));
+                    i4 = (int) (j2 - (i2 * this.f24970e));
                 } else {
-                    i4 = this.f25688e;
+                    i4 = this.f24970e;
                 }
                 byte[] bArr = new byte[i4];
                 boolean z = false;
@@ -217,7 +217,7 @@ public class c implements b {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25685b = true;
+            this.f24967b = true;
             NetWork netWork = this.a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
@@ -246,7 +246,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), str2})) == null) {
             NetWork netWork = new NetWork();
-            netWork.addPostData("forum_id", this.f25686c);
+            netWork.addPostData("forum_id", this.f24968c);
             netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
             netWork.addPostData("total_length", String.valueOf(j2));
             netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, str);
@@ -260,7 +260,7 @@ public class c implements b {
     public final void f(int i2, int i3, int i4) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) || (eVar = this.f25689f) == null) {
+        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) || (eVar = this.f24971f) == null) {
             return;
         }
         eVar.onProgressUpdate((i2 + (i4 / 100.0f)) / i3);
@@ -273,7 +273,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, netWork)) == null) {
             VideoBlockUploadResult videoBlockUploadResult = new VideoBlockUploadResult();
-            if (this.f25685b) {
+            if (this.f24967b) {
                 netErrorCode = netWork.getServerErrorCode();
                 errMsg = netWork.getErrorString();
             } else {
@@ -311,7 +311,7 @@ public class c implements b {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3, i4)) == null) {
-            int i5 = this.f25687d;
+            int i5 = this.f24969d;
             int i6 = i2 / i5;
             k(this.a, i5, bArr.length, i6 == i3 ? i4 - ((i6 - 1) * i5) : i5, i6, bArr);
             NetWork netWork = this.a;
@@ -325,7 +325,7 @@ public class c implements b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            int i5 = this.f25687d;
+            int i5 = this.f24969d;
             int i6 = i2 % i5;
             int length = bArr.length;
             int i7 = (i2 / i5) + 1;
@@ -347,7 +347,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048586, this, bArr, i2, i3, i4)) == null) {
             int length = bArr.length;
-            int i7 = this.f25687d;
+            int i7 = this.f24969d;
             if (i2 % i7 == 0) {
                 i5 = i2 / i7;
             } else {
@@ -355,9 +355,9 @@ public class c implements b {
             }
             int i8 = i5;
             if (i8 == i3) {
-                i6 = i4 - ((i8 - 1) * this.f25687d);
+                i6 = i4 - ((i8 - 1) * this.f24969d);
             } else {
-                i6 = this.f25687d;
+                i6 = this.f24969d;
             }
             k(this.a, i6, length, i6, i8, bArr);
             NetWork netWork = this.a;

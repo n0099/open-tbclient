@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import c.a.d.a.f;
 import c.a.d.a.j;
-import c.a.s0.s.i0.c;
+import c.a.s0.s.j0.c;
 import c.a.t0.s2.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -28,30 +28,30 @@ public class a implements c.a.t0.e4.a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f23774b;
+    public BdUniqueId f23116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.s2.u.g.b f23775c;
+    public c.a.t0.s2.u.g.b f23117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.s.i0.a f23776d;
+    public c.a.s0.s.j0.a f23118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f23777e;
+    public c f23119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f23778f;
+    public HttpMessageListener f23120f;
 
     /* renamed from: c.a.t0.s2.u.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class DialogInterface$OnCancelListenerC1398a implements DialogInterface.OnCancelListener {
+    public class DialogInterface$OnCancelListenerC1413a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23779e;
+        public final /* synthetic */ a f23121e;
 
-        public DialogInterface$OnCancelListenerC1398a(a aVar) {
+        public DialogInterface$OnCancelListenerC1413a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,14 +66,14 @@ public class a implements c.a.t0.e4.a {
                     return;
                 }
             }
-            this.f23779e = aVar;
+            this.f23121e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(this.f23779e.f23774b);
+                MessageManager.getInstance().removeMessage(this.f23121e.f23116b);
             }
         }
     }
@@ -110,8 +110,8 @@ public class a implements c.a.t0.e4.a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UEGReportResponsedMessage)) {
-                if (this.a.f23776d != null) {
-                    this.a.f23776d.h(false);
+                if (this.a.f23118d != null) {
+                    this.a.f23118d.h(false);
                 }
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
@@ -123,7 +123,7 @@ public class a implements c.a.t0.e4.a {
                 if (StringUtils.isNull(errorString)) {
                     errorString = this.a.a.getString(l.neterror);
                 }
-                this.a.f23777e.b(errorString);
+                this.a.f23119e.b(errorString);
             }
         }
     }
@@ -143,11 +143,11 @@ public class a implements c.a.t0.e4.a {
                 return;
             }
         }
-        this.f23778f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
+        this.f23120f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
         this.a = context;
-        this.f23775c = new c.a.t0.s2.u.g.b();
+        this.f23117c = new c.a.t0.s2.u.g.b();
         c cVar = new c();
-        this.f23777e = cVar;
+        this.f23119e = cVar;
         cVar.a = 1000L;
     }
 
@@ -156,7 +156,7 @@ public class a implements c.a.t0.e4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             j();
-            this.f23775c.a(str);
+            this.f23117c.a(str);
         }
     }
 
@@ -164,11 +164,11 @@ public class a implements c.a.t0.e4.a {
     public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.f23774b = bdUniqueId;
-            this.f23775c.c(bdUniqueId);
-            this.f23778f.setTag(bdUniqueId);
-            this.f23778f.setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f23778f);
+            this.f23116b = bdUniqueId;
+            this.f23117c.c(bdUniqueId);
+            this.f23120f.setTag(bdUniqueId);
+            this.f23120f.setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f23120f);
         }
     }
 
@@ -177,7 +177,7 @@ public class a implements c.a.t0.e4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             j();
-            this.f23775c.b(str);
+            this.f23117c.b(str);
         }
     }
 
@@ -191,17 +191,17 @@ public class a implements c.a.t0.e4.a {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f23776d == null) {
+            if (this.f23118d == null) {
                 f<?> a = j.a(this.a);
                 TbPageContext tbPageContext = a instanceof TbPageContext ? (TbPageContext) a : null;
                 if (tbPageContext == null) {
                     return;
                 }
-                c.a.s0.s.i0.a aVar = new c.a.s0.s.i0.a(tbPageContext);
-                this.f23776d = aVar;
-                aVar.e(new DialogInterface$OnCancelListenerC1398a(this));
+                c.a.s0.s.j0.a aVar = new c.a.s0.s.j0.a(tbPageContext);
+                this.f23118d = aVar;
+                aVar.e(new DialogInterface$OnCancelListenerC1413a(this));
             }
-            this.f23776d.h(true);
+            this.f23118d.h(true);
         }
     }
 }

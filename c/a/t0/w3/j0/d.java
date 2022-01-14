@@ -15,7 +15,7 @@ public class d {
     public AbsDelegateAdapterList a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25550b;
+    public Context f24835b;
 
     public d(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f25550b = context;
+        this.f24835b = context;
         this.a = absDelegateAdapterList;
     }
 
@@ -45,6 +45,6 @@ public class d {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25550b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24835b : (Context) invokeV.objValue;
     }
 }

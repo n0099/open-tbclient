@@ -3,7 +3,7 @@ package c.a.t0.q1.j;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.g0.d0;
 import c.a.t0.g0.n;
 import com.baidu.adp.BdUniqueId;
@@ -204,7 +204,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.g0.f0.k, d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f22056b;
+        public final /* synthetic */ f f21456b;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -221,7 +221,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.g0.f0.k, d> {
                     return;
                 }
             }
-            this.f22056b = fVar;
+            this.f21456b = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -232,9 +232,9 @@ public class f extends c.a.d.n.e.a<c.a.t0.g0.f0.k, d> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().v1()) || StringUtils.isNull(kVar.C())) {
                 return;
             }
-            String topicName = ((HotTopicActivity) this.f22056b.m.getOrignalPage()).getTopicName();
-            String hotTopicId = ((HotTopicActivity) this.f22056b.m.getOrignalPage()).getHotTopicId();
-            d2 threadData = kVar.getThreadData();
+            String topicName = ((HotTopicActivity) this.f21456b.m.getOrignalPage()).getTopicName();
+            String hotTopicId = ((HotTopicActivity) this.f21456b.m.getOrignalPage()).getHotTopicId();
+            e2 threadData = kVar.getThreadData();
             threadData.s4(5);
             if ("c10814".equals(kVar.C())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
@@ -243,10 +243,10 @@ public class f extends c.a.d.n.e.a<c.a.t0.g0.f0.k, d> {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
                 TiebaStatic.log(new StatisticItem("c10816").param("post_id", threadData.v1()).param("obj_name", topicName).param("topic_id", hotTopicId));
             }
-            if (this.f22056b.m == null || !(this.f22056b.m.getOrignalPage() instanceof c.a.t0.q1.k.a)) {
+            if (this.f21456b.m == null || !(this.f21456b.m.getOrignalPage() instanceof c.a.t0.q1.k.a)) {
                 return;
             }
-            ((HotTopicActivity) this.f22056b.m.getOrignalPage()).businessStatisticForTopicClick(kVar);
+            ((HotTopicActivity) this.f21456b.m.getOrignalPage()).businessStatisticForTopicClick(kVar);
         }
     }
 

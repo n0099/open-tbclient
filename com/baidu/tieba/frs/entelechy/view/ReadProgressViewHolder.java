@@ -28,7 +28,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f44935b;
+    public static final int f43308b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public View mRoot;
@@ -49,7 +49,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         }
         UtilHelper.getDimenPixelSize(d1.M_H_X002);
         a = UtilHelper.getDimenPixelSize(d1.M_H_X003);
-        f44935b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
+        f43308b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,7 +73,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         this.mRoot = view;
         TextView textView = (TextView) view.findViewById(f1.view_frs_read_progress);
         this.mTipView = textView;
-        int i4 = f44935b;
+        int i4 = f43308b;
         textView.setPadding(0, i4, 0, i4 - a);
         this.mContext = context;
     }

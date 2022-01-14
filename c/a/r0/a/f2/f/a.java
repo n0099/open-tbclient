@@ -62,7 +62,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 JSONObject a = z.a(unitedSchemeEntity, "params");
                 if (a != null && context != null) {
                     JSONObject optJSONObject = a.optJSONObject("abtest");
@@ -85,11 +85,11 @@ public class a extends z {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String k2 = k();
-            if (TextUtils.isEmpty(k2)) {
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
                 return;
             }
-            File file = new File(k2);
+            File file = new File(k);
             if (file.exists()) {
                 file.delete();
             }
@@ -103,11 +103,11 @@ public class a extends z {
             if (jSONObject == null) {
                 return false;
             }
-            String k2 = k();
-            if (TextUtils.isEmpty(k2)) {
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
                 return false;
             }
-            return c.a.r0.a.b1.a.b(k2, jSONObject.toString(), false);
+            return c.a.r0.a.b1.a.b(k, jSONObject.toString(), false);
         }
         return invokeL.booleanValue;
     }

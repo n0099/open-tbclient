@@ -9,41 +9,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f20538b;
+    public l f19989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.n4.m.c.d.b f20539c;
+    public c.a.t0.n4.m.c.d.b f19990c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f20540b;
+        public boolean f19991b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f20541c;
+        public int f19992c;
 
         /* renamed from: d  reason: collision with root package name */
-        public l f20542d;
+        public l f19993d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.t0.n4.m.c.d.b f20543e;
+        public c.a.t0.n4.m.c.d.b f19994e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class g {
                 }
             }
             this.a = "";
-            this.f20540b = true;
-            this.f20541c = 0;
-            this.f20542d = null;
-            this.f20543e = null;
+            this.f19991b = true;
+            this.f19992c = 0;
+            this.f19993d = null;
+            this.f19994e = null;
         }
 
         public g d() {
@@ -81,14 +81,14 @@ public class g {
                 if (TextUtils.isEmpty(this.a)) {
                     this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
                 }
-                if (this.f20541c <= 0) {
-                    this.f20541c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                if (this.f19992c <= 0) {
+                    this.f19992c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
                 }
-                if (this.f20542d == null) {
-                    this.f20542d = new l(this.f20541c);
+                if (this.f19993d == null) {
+                    this.f19993d = new l(this.f19992c);
                 }
-                if (this.f20543e == null) {
-                    this.f20543e = new c.a.t0.n4.m.c.d.b(this.a);
+                if (this.f19994e == null) {
+                    this.f19994e = new c.a.t0.n4.m.c.d.b(this.a);
                 }
             }
         }
@@ -114,9 +114,9 @@ public class g {
             }
         }
         String unused = bVar.a;
-        this.a = bVar.f20540b;
-        int unused2 = bVar.f20541c;
-        this.f20538b = bVar.f20542d;
-        this.f20539c = bVar.f20543e;
+        this.a = bVar.f19991b;
+        int unused2 = bVar.f19992c;
+        this.f19989b = bVar.f19993d;
+        this.f19990c = bVar.f19994e;
     }
 }

@@ -26,22 +26,22 @@ public class b extends d<BubbleChooseActivity> {
     public NavigationBar a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f17742b;
+    public ViewGroup f17312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GridView f17743c;
+    public GridView f17313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f17744d;
+    public View f17314d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17745e;
+    public a f17315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BubbleChooseActivity f17746f;
+    public BubbleChooseActivity f17316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f17747g;
+    public ProgressBar f17317g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<BubbleChooseActivity> tbPageContext) {
@@ -62,44 +62,44 @@ public class b extends d<BubbleChooseActivity> {
             }
         }
         BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
-        this.f17746f = orignalPage;
+        this.f17316f = orignalPage;
         orignalPage.setContentView(R.layout.bubble_activity_view);
-        NavigationBar navigationBar = (NavigationBar) this.f17746f.findViewById(R.id.lay_title_bar);
+        NavigationBar navigationBar = (NavigationBar) this.f17316f.findViewById(R.id.lay_title_bar);
         this.a = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.setTitleText(R.string.editor_privilege);
-        this.f17744d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.bubble_explain, this.f17746f);
-        this.f17742b = (ViewGroup) this.f17746f.findViewById(R.id.container);
-        this.f17743c = (GridView) this.f17746f.findViewById(R.id.gv_bubble_list);
+        this.f17314d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.bubble_explain, this.f17316f);
+        this.f17312b = (ViewGroup) this.f17316f.findViewById(R.id.container);
+        this.f17313c = (GridView) this.f17316f.findViewById(R.id.gv_bubble_list);
         a aVar = new a(tbPageContext);
-        this.f17745e = aVar;
-        this.f17743c.setAdapter((ListAdapter) aVar);
-        this.f17747g = (ProgressBar) this.f17746f.findViewById(R.id.bubble_progress);
+        this.f17315e = aVar;
+        this.f17313c.setAdapter((ListAdapter) aVar);
+        this.f17317g = (ProgressBar) this.f17316f.findViewById(R.id.bubble_progress);
     }
 
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17745e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17315e : (a) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17744d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17314d : (View) invokeV.objValue;
     }
 
     public GridView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17743c : (GridView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17313c : (GridView) invokeV.objValue;
     }
 
     public BubbleListData.BubbleData f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            a aVar = this.f17745e;
+            a aVar = this.f17315e;
             if (aVar == null) {
                 return null;
             }
@@ -111,24 +111,24 @@ public class b extends d<BubbleChooseActivity> {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f17747g.setVisibility(8);
+            this.f17317g.setVisibility(8);
         }
     }
 
     public void h(List<BubbleListData.BubbleData> list, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (aVar = this.f17745e) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (aVar = this.f17315e) == null) {
             return;
         }
         aVar.d(z);
-        this.f17745e.c(list);
+        this.f17315e.c(list);
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f17747g.setVisibility(0);
+            this.f17317g.setVisibility(0);
         }
     }
 
@@ -136,8 +136,8 @@ public class b extends d<BubbleChooseActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             this.a.onChangeSkinType((TbPageContext) getPageContext(), i2);
-            this.f17746f.getLayoutMode().k(i2 == 1);
-            this.f17746f.getLayoutMode().j(this.f17742b);
+            this.f17316f.getLayoutMode().k(i2 == 1);
+            this.f17316f.getLayoutMode().j(this.f17312b);
         }
     }
 }

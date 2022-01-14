@@ -21,12 +21,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f13269c;
+    public static e f12950c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f13270b;
+    public List<String> f12951b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class e {
                 return;
             }
         }
-        this.a = i(c.a.s0.s.g0.b.j().p("key_need_add_source_stat_list", ""));
-        this.f13270b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+        this.a = i(c.a.s0.s.h0.b.k().q("key_need_add_source_stat_list", ""));
+        this.f12951b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
     public static void b(Context context, StatisticItem statisticItem, c.a.s0.q0.d dVar) {
@@ -50,12 +50,12 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, dVar) == null) || dVar == null || statisticItem == null || TextUtils.isEmpty(statisticItem.getKey())) {
             return;
         }
-        c k2 = dVar.k();
-        if (k2 == null || k2.f()) {
-            k2 = TbPageExtraHelper.k(context);
+        c k = dVar.k();
+        if (k == null || k.f()) {
+            k = TbPageExtraHelper.k(context);
         }
-        if (k2 != null && !k2.f()) {
-            c(statisticItem, k2);
+        if (k != null && !k.f()) {
+            c(statisticItem, k);
         }
         TbPageExtraHelper.s(statisticItem.toString());
     }
@@ -80,34 +80,34 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f13269c == null) {
+            if (f12950c == null) {
                 synchronized (e.class) {
-                    if (f13269c == null) {
-                        f13269c = new e();
+                    if (f12950c == null) {
+                        f12950c = new e();
                     }
                 }
             }
-            return f13269c;
+            return f12950c;
         }
         return (e) invokeV.objValue;
     }
 
     public final void a(StatisticItem statisticItem) {
         Activity currentActivity;
-        c k2;
+        c k;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (k2 = TbPageExtraHelper.k(currentActivity)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (k = TbPageExtraHelper.k(currentActivity)) == null) {
             return;
         }
-        String a = k2.a();
+        String a = k.a();
         if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
             statisticItem.param("page_key", a);
         }
-        String b2 = k2.b();
+        String b2 = k.b();
         if (!TextUtils.isEmpty(b2) && !statisticItem.hasParam("page_tag")) {
             statisticItem.param("page_tag", b2);
         }
-        ArrayList<String> d2 = k2.d();
+        ArrayList<String> d2 = k.d();
         String a2 = d.a(d2, a, 6);
         if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d2.size() == 0 && (currentActivity instanceof c.a.s0.q0.a)) {
             List<String> currentPageSourceKeyList = ((c.a.s0.q0.a) currentActivity).getCurrentPageSourceKeyList();
@@ -154,8 +154,8 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.f13270b) && !m.isEmpty(str)) {
-                for (String str2 : this.f13270b) {
+            if (!ListUtils.isEmpty(this.f12951b) && !m.isEmpty(str)) {
+                for (String str2 : this.f12951b) {
                     if (str.equals(str2)) {
                         return true;
                     }
@@ -201,7 +201,7 @@ public class e {
             if (str == null) {
                 str = "";
             }
-            c.a.s0.s.g0.b.j().x("key_need_add_source_stat_list", str);
+            c.a.s0.s.h0.b.k().y("key_need_add_source_stat_list", str);
         }
     }
 }

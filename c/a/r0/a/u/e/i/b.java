@@ -29,10 +29,10 @@ public class b extends c.a.r0.a.u.e.i.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9292b;
+        public final /* synthetic */ String f9090b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f9293c;
+        public final /* synthetic */ b f9091c;
 
         public a(b bVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class b extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9293c = bVar;
+            this.f9091c = bVar;
             this.a = str;
-            this.f9292b = str2;
+            this.f9090b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class b extends c.a.r0.a.u.e.i.a {
                     c.a.r0.a.e0.d.b("CallServiceApi", Log.getStackTraceString(e2));
                 }
                 c.a.r0.a.e0.d.b("CallServiceApi", "Cloud capability '" + this.a + "' request success: data:" + jSONObject2.toString());
-                this.f9293c.d(this.f9292b, new c.a.r0.a.u.h.b(0, jSONObject2));
+                this.f9091c.d(this.f9090b, new c.a.r0.a.u.h.b(0, jSONObject2));
             }
         }
 
@@ -93,8 +93,8 @@ public class b extends c.a.r0.a.u.e.i.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
                 c.a.r0.a.e0.d.i("CallServiceApi", "Cloud capability request failed: " + this.a + StringUtils.LF + Log.getStackTraceString(exc));
-                b bVar = this.f9293c;
-                String str2 = this.f9292b;
+                b bVar = this.f9091c;
+                String str2 = this.f9090b;
                 if (TextUtils.isEmpty(exc.getMessage())) {
                     str = "请求失败";
                 } else {

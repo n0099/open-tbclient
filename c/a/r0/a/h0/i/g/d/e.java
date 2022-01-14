@@ -20,10 +20,10 @@ public final class e {
     public final List<c.a.r0.a.h0.i.g.d.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.r0.a.h0.i.g.d.a> f6650b;
+    public final List<c.a.r0.a.h0.i.g.d.a> f6509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<c.a.r0.a.h0.i.g.d.a> f6651c;
+    public final List<c.a.r0.a.h0.i.g.d.a> f6510c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -75,8 +75,8 @@ public final class e {
             }
         }
         this.a = new ArrayList();
-        this.f6650b = new ArrayList();
-        this.f6651c = new ArrayList();
+        this.f6509b = new ArrayList();
+        this.f6510c = new ArrayList();
     }
 
     public synchronized void a(c.a.r0.a.h0.i.g.d.a aVar) {
@@ -86,14 +86,14 @@ public final class e {
                 if (aVar == null) {
                     return;
                 }
-                int i2 = a.a[aVar.f6638e.ordinal()];
+                int i2 = a.a[aVar.f6497e.ordinal()];
                 if (i2 == 1) {
                     this.a.add(aVar);
                 } else if (i2 == 2) {
-                    this.f6650b.add(aVar);
+                    this.f6509b.add(aVar);
                     c(this.a, aVar);
                 } else if (i2 == 3) {
-                    this.f6651c.add(aVar);
+                    this.f6510c.add(aVar);
                     c(this.a, aVar);
                 }
             }
@@ -104,9 +104,9 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f6651c.clear();
+                this.f6510c.clear();
                 this.a.clear();
-                this.f6650b.clear();
+                this.f6509b.clear();
             }
         }
     }
@@ -144,7 +144,7 @@ public final class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (c.a.r0.a.h0.i.g.d.a aVar : this.f6651c) {
+                for (c.a.r0.a.h0.i.g.d.a aVar : this.f6510c) {
                     if (aVar != null && aVar.g(true)) {
                         arrayList.add(aVar);
                     }
@@ -161,7 +161,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                size = this.f6651c.size();
+                size = this.f6510c.size();
             }
             return size;
         }
@@ -175,7 +175,7 @@ public final class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (c.a.r0.a.h0.i.g.d.a aVar : this.f6651c) {
+                for (c.a.r0.a.h0.i.g.d.a aVar : this.f6510c) {
                     if (aVar != null && aVar.f()) {
                         arrayList.add(aVar);
                     }
@@ -193,7 +193,7 @@ public final class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (c.a.r0.a.h0.i.g.d.a aVar : this.f6650b) {
+                for (c.a.r0.a.h0.i.g.d.a aVar : this.f6509b) {
                     if (aVar != null && aVar.h()) {
                         arrayList.add(aVar);
                     }
@@ -210,7 +210,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                size = this.f6650b.size();
+                size = this.f6509b.size();
             }
             return size;
         }

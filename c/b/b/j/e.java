@@ -37,25 +37,23 @@ public class e implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final w<Class, w<String, a>> f27788e;
+    public final w<Class, w<String, a>> f26954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final w<String, Class> f27789f;
+    public final w<String, Class> f26955f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final w<String, c.b.b.q.a<String>> f27790g;
+    public final w<String, c.b.b.q.a<String>> f26956g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final x<String> f27791h;
+    public final x<String> f26957h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final w<Class, w<String, c.b.b.j.f.a>> f27792i;
+    public final w<Class, w<String, c.b.b.j.f.a>> f26958i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.b.b.q.a<c.b.b.j.a> f27793j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final c.b.b.q.o0.a f27794k;
+    public final c.b.b.q.a<c.b.b.j.a> f26959j;
+    public final c.b.b.q.o0.a k;
     public final c.b.b.q.a<d> l;
     public b m;
     public int n;
@@ -70,7 +68,7 @@ public class e implements h {
         public Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27795b;
+        public int f26960b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -85,7 +83,7 @@ public class e implements h {
                     return;
                 }
             }
-            this.f27795b = 1;
+            this.f26960b = 1;
         }
     }
 
@@ -111,9 +109,9 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
             synchronized (this) {
-                Class c2 = this.f27789f.c(str);
+                Class c2 = this.f26955f.c(str);
                 if (c2 != null) {
-                    this.f27788e.c(c2).c(str).f27795b = i2;
+                    this.f26954e.c(c2).c(str).f26960b = i2;
                 } else {
                     throw new GdxRuntimeException("Asset not loaded: " + str);
                 }
@@ -133,22 +131,22 @@ public class e implements h {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             synchronized (this) {
                 String replace = str.replace(FileUtil.WINDOWS_SEPARATOR, '/');
-                if (this.l.f28217f > 0) {
+                if (this.l.f27361f > 0) {
                     d first = this.l.first();
-                    if (first.f27778b.a.equals(replace)) {
+                    if (first.f26945b.a.equals(replace)) {
                         this.q.e("Unload (from tasks): " + replace);
                         first.l = true;
                         first.e();
                         return;
                     }
                 }
-                Class c2 = this.f27789f.c(replace);
+                Class c2 = this.f26955f.c(replace);
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.f27793j.f28217f) {
+                    if (i2 >= this.f26959j.f27361f) {
                         i2 = -1;
                         break;
-                    } else if (this.f27793j.get(i2).a.equals(replace)) {
+                    } else if (this.f26959j.get(i2).a.equals(replace)) {
                         break;
                     } else {
                         i2++;
@@ -156,26 +154,26 @@ public class e implements h {
                 }
                 if (i2 != -1) {
                     this.o--;
-                    c.b.b.j.a h2 = this.f27793j.h(i2);
+                    c.b.b.j.a h2 = this.f26959j.h(i2);
                     this.q.e("Unload (from queue): " + replace);
-                    if (c2 != null && h2.f27776c != null && h2.f27776c.a != null) {
-                        h2.f27776c.a.a(this, h2.a, h2.f27775b);
+                    if (c2 != null && h2.f26943c != null && h2.f26943c.a != null) {
+                        h2.f26943c.a.a(this, h2.a, h2.f26942b);
                     }
                 } else if (c2 != null) {
-                    a c3 = this.f27788e.c(c2).c(replace);
-                    int i3 = c3.f27795b - 1;
-                    c3.f27795b = i3;
+                    a c3 = this.f26954e.c(c2).c(replace);
+                    int i3 = c3.f26960b - 1;
+                    c3.f26960b = i3;
                     if (i3 <= 0) {
                         this.q.e("Unload (dispose): " + replace);
                         if (c3.a instanceof h) {
                             ((h) c3.a).dispose();
                         }
-                        this.f27789f.k(replace);
-                        this.f27788e.c(c2).k(replace);
+                        this.f26955f.k(replace);
+                        this.f26954e.c(c2).k(replace);
                     } else {
                         this.q.e("Unload (decrement): " + replace);
                     }
-                    c.b.b.q.a<String> c4 = this.f27790g.c(replace);
+                    c.b.b.q.a<String> c4 = this.f26956g.c(replace);
                     if (c4 != null) {
                         a.b<String> it = c4.iterator();
                         while (it.hasNext()) {
@@ -185,8 +183,8 @@ public class e implements h {
                             }
                         }
                     }
-                    if (c3.f27795b <= 0) {
-                        this.f27790g.k(replace);
+                    if (c3.f26960b <= 0) {
+                        this.f26956g.k(replace);
                     }
                 } else {
                     throw new GdxRuntimeException("Asset not loaded: " + replace);
@@ -216,7 +214,7 @@ public class e implements h {
                     if (z) {
                         return false;
                     }
-                    if (this.l.f28217f == 1) {
+                    if (this.l.f27361f == 1) {
                         this.n++;
                         this.p = 0;
                     }
@@ -224,15 +222,15 @@ public class e implements h {
                     if (peek.l) {
                         return true;
                     }
-                    c.b.b.j.a aVar2 = peek.f27778b;
-                    a(aVar2.a, aVar2.f27775b, peek.f27787k);
-                    c.b.b.j.a aVar3 = peek.f27778b;
-                    c cVar = aVar3.f27776c;
+                    c.b.b.j.a aVar2 = peek.f26945b;
+                    a(aVar2.a, aVar2.f26942b, peek.k);
+                    c.b.b.j.a aVar3 = peek.f26945b;
+                    c cVar = aVar3.f26943c;
                     if (cVar != null && (aVar = cVar.a) != null) {
-                        aVar.a(this, aVar3.a, aVar3.f27775b);
+                        aVar.a(this, aVar3.a, aVar3.f26942b);
                     }
                     long b2 = m0.b();
-                    this.q.a("Loaded: " + (((float) (b2 - peek.f27781e)) / 1000000.0f) + "ms " + peek.f27778b);
+                    this.q.a("Loaded: " + (((float) (b2 - peek.f26948e)) / 1000000.0f) + "ms " + peek.f26945b);
                     return true;
                 }
             }
@@ -241,7 +239,7 @@ public class e implements h {
             }
         } catch (RuntimeException e2) {
             peek.l = true;
-            B(peek.f27778b, e2);
+            B(peek.f26945b, e2);
             throw null;
         }
     }
@@ -249,11 +247,11 @@ public class e implements h {
     public <T> void a(String str, Class<T> cls, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, cls, t) == null) {
-            this.f27789f.i(str, cls);
-            w<String, a> c2 = this.f27788e.c(cls);
+            this.f26955f.i(str, cls);
+            w<String, a> c2 = this.f26954e.c(cls);
             if (c2 == null) {
                 c2 = new w<>();
-                this.f27788e.i(cls, c2);
+                this.f26954e.i(cls, c2);
             }
             a aVar = new a();
             aVar.a = t;
@@ -268,7 +266,7 @@ public class e implements h {
             synchronized (this) {
                 this.q.a("Disposing.");
                 g();
-                this.f27794k.dispose();
+                this.k.dispose();
             }
         }
     }
@@ -276,13 +274,13 @@ public class e implements h {
     public final void f(c.b.b.j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            c.b.b.j.f.a o = o(aVar.f27775b, aVar.a);
+            c.b.b.j.f.a o = o(aVar.f26942b, aVar.a);
             if (o != null) {
-                this.l.a(new d(this, aVar, o, this.f27794k));
+                this.l.a(new d(this, aVar, o, this.k));
                 this.p++;
                 return;
             }
-            throw new GdxRuntimeException("No loader for type: " + c.b.b.q.p0.b.e(aVar.f27775b));
+            throw new GdxRuntimeException("No loader for type: " + c.b.b.q.p0.b.e(aVar.f26942b));
         }
     }
 
@@ -290,16 +288,16 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                this.f27793j.clear();
+                this.f26959j.clear();
                 while (!update()) {
                 }
                 v vVar = new v();
-                while (this.f27789f.f28380e > 0) {
+                while (this.f26955f.f27517e > 0) {
                     vVar.clear();
-                    c.b.b.q.a<String> e2 = this.f27789f.f().e();
+                    c.b.b.q.a<String> e2 = this.f26955f.f().e();
                     a.b<String> it = e2.iterator();
                     while (it.hasNext()) {
-                        c.b.b.q.a<String> c2 = this.f27790g.c(it.next());
+                        c.b.b.q.a<String> c2 = this.f26956g.c(it.next());
                         if (c2 != null) {
                             a.b<String> it2 = c2.iterator();
                             while (it2.hasNext()) {
@@ -315,13 +313,13 @@ public class e implements h {
                         }
                     }
                 }
-                this.f27788e.clear();
-                this.f27789f.clear();
-                this.f27790g.clear();
+                this.f26954e.clear();
+                this.f26955f.clear();
+                this.f26956g.clear();
                 this.n = 0;
                 this.o = 0;
                 this.p = 0;
-                this.f27793j.clear();
+                this.f26959j.clear();
                 this.l.clear();
             }
         }
@@ -370,7 +368,7 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048587, this, str, cls, z)) == null) {
             synchronized (this) {
-                w<String, a> c3 = this.f27788e.c(cls);
+                w<String, a> c3 = this.f26954e.c(cls);
                 if (c3 == null || (c2 = c3.c(str)) == null) {
                     if (z) {
                         throw new GdxRuntimeException("Asset not loaded: " + str);
@@ -390,8 +388,8 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             synchronized (this) {
-                Class c4 = this.f27789f.c(str);
-                if (c4 == null || (c2 = this.f27788e.c(c4)) == null || (c3 = c2.c(str)) == null) {
+                Class c4 = this.f26955f.c(str);
+                if (c4 == null || (c2 = this.f26954e.c(c4)) == null || (c3 = c2.c(str)) == null) {
                     if (z) {
                         throw new GdxRuntimeException("Asset not loaded: " + str);
                     }
@@ -412,13 +410,13 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, t)) == null) {
             synchronized (this) {
-                w.c<Class> f2 = this.f27788e.f();
+                w.c<Class> f2 = this.f26954e.f();
                 f2.d();
                 while (f2.hasNext()) {
-                    w.a<String, a> it = this.f27788e.c(f2.next()).iterator();
+                    w.a<String, a> it = this.f26954e.c(f2.next()).iterator();
                     while (it.hasNext()) {
                         w.b next = it.next();
-                        Object obj = ((a) next.f28388b).a;
+                        Object obj = ((a) next.f27524b).a;
                         if (obj == t || t.equals(obj)) {
                             return (String) next.a;
                         }
@@ -438,7 +436,7 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             synchronized (this) {
-                c2 = this.f27790g.c(str);
+                c2 = this.f26956g.c(str);
             }
             return c2;
         }
@@ -449,9 +447,9 @@ public class e implements h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, cls, str)) == null) {
-            w<String, c.b.b.j.f.a> c2 = this.f27792i.c(cls);
+            w<String, c.b.b.j.f.a> c2 = this.f26958i.c(cls);
             c.b.b.j.f.a aVar = null;
-            if (c2 != null && c2.f28380e >= 1) {
+            if (c2 != null && c2.f27517e >= 1) {
                 if (str == null) {
                     return c2.c("");
                 }
@@ -461,7 +459,7 @@ public class e implements h {
                 while (b2.hasNext()) {
                     w.b next = b2.next();
                     if (((String) next.a).length() > i2 && str.endsWith((String) next.a)) {
-                        aVar = (c.b.b.j.f.a) next.f28388b;
+                        aVar = (c.b.b.j.f.a) next.f27524b;
                         i2 = ((String) next.a).length();
                     }
                 }
@@ -483,9 +481,9 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             synchronized (this) {
-                Class c2 = this.f27789f.c(str);
+                Class c2 = this.f26955f.c(str);
                 if (c2 != null) {
-                    i2 = this.f27788e.c(c2).c(str).f27795b;
+                    i2 = this.f26954e.c(c2).c(str).f26960b;
                 } else {
                     throw new GdxRuntimeException("Asset not loaded: " + str);
                 }
@@ -501,9 +499,9 @@ public class e implements h {
             this.q.c("Error loading asset.", th);
             if (!this.l.isEmpty()) {
                 d pop = this.l.pop();
-                c.b.b.j.a aVar = pop.f27778b;
-                if (pop.f27783g && pop.f27784h != null) {
-                    a.b<c.b.b.j.a> it = pop.f27784h.iterator();
+                c.b.b.j.a aVar = pop.f26945b;
+                if (pop.f26950g && pop.f26951h != null) {
+                    a.b<c.b.b.j.a> it = pop.f26951h.iterator();
                     while (it.hasNext()) {
                         C(it.next().a);
                     }
@@ -523,13 +521,13 @@ public class e implements h {
     public final void s(String str) {
         c.b.b.q.a<String> c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (c2 = this.f27790g.c(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (c2 = this.f26956g.c(str)) == null) {
             return;
         }
         a.b<String> it = c2.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.f27788e.c(this.f27789f.c(next)).c(next).f27795b++;
+            this.f26954e.c(this.f26955f.c(next)).c(next).f26960b++;
             s(next);
         }
     }
@@ -538,7 +536,7 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, str, aVar) == null) {
             synchronized (this) {
-                x<String> xVar = this.f27791h;
+                x<String> xVar = this.f26957h;
                 a.b<c.b.b.j.a> it = aVar.iterator();
                 while (it.hasNext()) {
                     c.b.b.j.a next = it.next();
@@ -556,17 +554,17 @@ public class e implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, str, aVar) == null) {
             synchronized (this) {
-                c.b.b.q.a<String> c2 = this.f27790g.c(str);
+                c.b.b.q.a<String> c2 = this.f26956g.c(str);
                 if (c2 == null) {
                     c2 = new c.b.b.q.a<>();
-                    this.f27790g.i(str, c2);
+                    this.f26956g.i(str, c2);
                 }
                 c2.a(aVar.a);
                 if (v(aVar.a)) {
                     r rVar = this.q;
                     rVar.a("Dependency already loaded: " + aVar);
-                    a c3 = this.f27788e.c(this.f27789f.c(aVar.a)).c(aVar.a);
-                    c3.f27795b = c3.f27795b + 1;
+                    a c3 = this.f26954e.c(this.f26955f.c(aVar.a)).c(aVar.a);
+                    c3.f26960b = c3.f26960b + 1;
                     s(aVar.a);
                 } else {
                     r rVar2 = this.q;
@@ -584,23 +582,23 @@ public class e implements h {
             synchronized (this) {
                 boolean z = false;
                 try {
-                    if (this.l.f28217f == 0) {
-                        while (this.f27793j.f28217f != 0 && this.l.f28217f == 0) {
+                    if (this.l.f27361f == 0) {
+                        while (this.f26959j.f27361f != 0 && this.l.f27361f == 0) {
                             x();
                         }
-                        if (this.l.f28217f == 0) {
+                        if (this.l.f27361f == 0) {
                             return true;
                         }
                     }
-                    if (D() && this.f27793j.f28217f == 0) {
-                        if (this.l.f28217f == 0) {
+                    if (D() && this.f26959j.f27361f == 0) {
+                        if (this.l.f27361f == 0) {
                             z = true;
                         }
                     }
                     return z;
                 } catch (Throwable th) {
                     r(th);
-                    return this.f27793j.f28217f == 0;
+                    return this.f26959j.f27361f == 0;
                 }
             }
         }
@@ -615,7 +613,7 @@ public class e implements h {
                 if (str == null) {
                     return false;
                 }
-                return this.f27789f.a(str);
+                return this.f26955f.a(str);
             }
         }
         return invokeL.booleanValue;
@@ -626,30 +624,30 @@ public class e implements h {
         if (interceptable == null || interceptable.invokeLLL(1048601, this, str, cls, cVar) == null) {
             synchronized (this) {
                 if (o(cls, str) != null) {
-                    if (this.f27793j.f28217f == 0) {
+                    if (this.f26959j.f27361f == 0) {
                         this.n = 0;
                         this.o = 0;
                         this.p = 0;
                     }
-                    for (int i2 = 0; i2 < this.f27793j.f28217f; i2++) {
-                        c.b.b.j.a aVar = this.f27793j.get(i2);
-                        if (aVar.a.equals(str) && !aVar.f27775b.equals(cls)) {
-                            throw new GdxRuntimeException("Asset with name '" + str + "' already in preload queue, but has different type (expected: " + c.b.b.q.p0.b.e(cls) + ", found: " + c.b.b.q.p0.b.e(aVar.f27775b) + SmallTailInfo.EMOTION_SUFFIX);
+                    for (int i2 = 0; i2 < this.f26959j.f27361f; i2++) {
+                        c.b.b.j.a aVar = this.f26959j.get(i2);
+                        if (aVar.a.equals(str) && !aVar.f26942b.equals(cls)) {
+                            throw new GdxRuntimeException("Asset with name '" + str + "' already in preload queue, but has different type (expected: " + c.b.b.q.p0.b.e(cls) + ", found: " + c.b.b.q.p0.b.e(aVar.f26942b) + SmallTailInfo.EMOTION_SUFFIX);
                         }
                     }
-                    for (int i3 = 0; i3 < this.l.f28217f; i3++) {
-                        c.b.b.j.a aVar2 = this.l.get(i3).f27778b;
-                        if (aVar2.a.equals(str) && !aVar2.f27775b.equals(cls)) {
-                            throw new GdxRuntimeException("Asset with name '" + str + "' already in task list, but has different type (expected: " + c.b.b.q.p0.b.e(cls) + ", found: " + c.b.b.q.p0.b.e(aVar2.f27775b) + SmallTailInfo.EMOTION_SUFFIX);
+                    for (int i3 = 0; i3 < this.l.f27361f; i3++) {
+                        c.b.b.j.a aVar2 = this.l.get(i3).f26945b;
+                        if (aVar2.a.equals(str) && !aVar2.f26942b.equals(cls)) {
+                            throw new GdxRuntimeException("Asset with name '" + str + "' already in task list, but has different type (expected: " + c.b.b.q.p0.b.e(cls) + ", found: " + c.b.b.q.p0.b.e(aVar2.f26942b) + SmallTailInfo.EMOTION_SUFFIX);
                         }
                     }
-                    Class c2 = this.f27789f.c(str);
+                    Class c2 = this.f26955f.c(str);
                     if (c2 != null && !c2.equals(cls)) {
                         throw new GdxRuntimeException("Asset with name '" + str + "' already loaded, but has different type (expected: " + c.b.b.q.p0.b.e(cls) + ", found: " + c.b.b.q.p0.b.e(c2) + SmallTailInfo.EMOTION_SUFFIX);
                     }
                     this.o++;
                     c.b.b.j.a aVar3 = new c.b.b.j.a(str, cls, cVar);
-                    this.f27793j.a(aVar3);
+                    this.f26959j.a(aVar3);
                     this.q.a("Queued: " + aVar3);
                 } else {
                     throw new GdxRuntimeException("No loader for type: " + c.b.b.q.p0.b.e(cls));
@@ -662,15 +660,15 @@ public class e implements h {
         c.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            c.b.b.j.a h2 = this.f27793j.h(0);
+            c.b.b.j.a h2 = this.f26959j.h(0);
             if (v(h2.a)) {
                 this.q.a("Already loaded: " + h2);
-                a c2 = this.f27788e.c(this.f27789f.c(h2.a)).c(h2.a);
-                c2.f27795b = c2.f27795b + 1;
+                a c2 = this.f26954e.c(this.f26955f.c(h2.a)).c(h2.a);
+                c2.f26960b = c2.f26960b + 1;
                 s(h2.a);
-                c cVar = h2.f27776c;
+                c cVar = h2.f26943c;
                 if (cVar != null && (aVar = cVar.a) != null) {
-                    aVar.a(this, h2.a, h2.f27775b);
+                    aVar.a(this, h2.a, h2.f26942b);
                 }
                 this.n++;
                 return;
@@ -699,9 +697,9 @@ public class e implements h {
                 if (aVar != null) {
                     r rVar = this.q;
                     rVar.a("Loader set: " + c.b.b.q.p0.b.e(cls) + LoadErrorCode.TOKEN_NEXT + c.b.b.q.p0.b.e(aVar.getClass()));
-                    w<String, c.b.b.j.f.a> c2 = this.f27792i.c(cls);
+                    w<String, c.b.b.j.f.a> c2 = this.f26958i.c(cls);
                     if (c2 == null) {
-                        w<Class, w<String, c.b.b.j.f.a>> wVar = this.f27792i;
+                        w<Class, w<String, c.b.b.j.f.a>> wVar = this.f26958i;
                         w<String, c.b.b.j.f.a> wVar2 = new w<>();
                         wVar.i(cls, wVar2);
                         c2 = wVar2;
@@ -753,12 +751,12 @@ public class e implements h {
                 return;
             }
         }
-        this.f27788e = new w<>();
-        this.f27789f = new w<>();
-        this.f27790g = new w<>();
-        this.f27791h = new x<>();
-        this.f27792i = new w<>();
-        this.f27793j = new c.b.b.q.a<>();
+        this.f26954e = new w<>();
+        this.f26955f = new w<>();
+        this.f26956g = new w<>();
+        this.f26957h = new x<>();
+        this.f26958i = new w<>();
+        this.f26959j = new c.b.b.q.a<>();
         this.l = new c.b.b.q.a<>();
         this.q = new r("AssetManager", 0);
         if (z) {
@@ -779,7 +777,7 @@ public class e implements h {
             y(c.b.b.n.m.i.class, new c.b.b.j.f.k(eVar));
             y(Cubemap.class, new c.b.b.j.f.d(eVar));
         }
-        this.f27794k = new c.b.b.q.o0.a(1, "AssetManager");
+        this.k = new c.b.b.q.o0.a(1, "AssetManager");
     }
 
     public boolean update(int i2) {

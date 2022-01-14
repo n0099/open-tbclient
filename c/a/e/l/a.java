@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.d;
-import c.a.t0.d1.a3.c;
+import c.a.t0.d1.b3.c;
 import c.a.t0.j3.l0.e;
 import c.a.t0.j3.l0.g;
 import c.a.t0.x1.o.l.f;
@@ -31,7 +31,7 @@ public class a extends c.a.d.n.e.a<d, AdCardViewHolder> implements f {
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public c.a.t0.d1.s1.a p;
+    public c.a.t0.d1.t1.a p;
     public c q;
     public j r;
     public List<j> s;
@@ -39,12 +39,12 @@ public class a extends c.a.d.n.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: c.a.e.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0123a implements c.a.t0.x1.o.a {
+    public class C0131a implements c.a.t0.x1.o.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0123a(a aVar) {
+        public C0131a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class a extends c.a.d.n.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, c.a.t0.d1.s1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, c.a.t0.d1.t1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -154,7 +154,7 @@ public class a extends c.a.d.n.e.a<d, AdCardViewHolder> implements f {
             if (a instanceof j) {
                 this.s.add((j) a);
             }
-            a.setAfterClickSchemeListener(new C0123a(this));
+            a.setAfterClickSchemeListener(new C0131a(this));
             return new AdCardViewHolder(a);
         }
         return (AdCardViewHolder) invokeL.objValue;

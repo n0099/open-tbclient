@@ -12,22 +12,22 @@ import com.kwad.sdk.utils.bb;
 public class c extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59676b;
+    public int f57420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.presenter.platdetail.actionbar.a f59677c;
+    public com.kwad.sdk.reward.presenter.platdetail.actionbar.a f57421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.presenter.platdetail.actionbar.b f59678d;
+    public com.kwad.sdk.reward.presenter.platdetail.actionbar.b f57422d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59679e;
+    public boolean f57423e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59680f;
+    public boolean f57424f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f59681g = new f() { // from class: com.kwad.sdk.reward.presenter.b.c.1
+    public f f57425g = new f() { // from class: com.kwad.sdk.reward.presenter.b.c.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
             c.this.v();
@@ -35,12 +35,12 @@ public class c extends a {
     };
 
     public c(boolean z) {
-        this.f59680f = z;
+        this.f57424f = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void v() {
-        FrameLayout frameLayout = (FrameLayout) ((g) this).a.f59458j.findViewById(i());
+        FrameLayout frameLayout = (FrameLayout) ((g) this).a.f57210j.findViewById(i());
         if (frameLayout != null) {
             frameLayout.setVisibility(8);
         }
@@ -48,28 +48,28 @@ public class c extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
-        this.f59676b = m().findViewById(R.id.ksad_video_play_bar_h5).getVisibility();
+        this.f57420b = m().findViewById(R.id.ksad_video_play_bar_h5).getVisibility();
         m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(8);
         super.a();
-        ((g) this).a.a(this.f59681g);
+        ((g) this).a.a(this.f57425g);
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void a(d.a aVar) {
         float c2 = bb.c(q());
         aVar.a = (int) ((av.n(q()) / c2) + 0.5f);
-        aVar.f58575b = (int) ((av.o(q()) / c2) + 0.5f);
+        aVar.f56366b = (int) ((av.o(q()) / c2) + 0.5f);
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void a(j.a aVar) {
-        FrameLayout frameLayout = (FrameLayout) ((g) this).a.f59458j.findViewById(i());
+        FrameLayout frameLayout = (FrameLayout) ((g) this).a.f57210j.findViewById(i());
         if (frameLayout != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.height = bb.a(q(), aVar.a);
-            layoutParams.leftMargin = bb.a(q(), aVar.f58612b);
-            layoutParams.rightMargin = bb.a(q(), aVar.f58613c);
-            layoutParams.bottomMargin = bb.a(q(), aVar.f58614d);
+            layoutParams.leftMargin = bb.a(q(), aVar.f56401b);
+            layoutParams.rightMargin = bb.a(q(), aVar.f56402c);
+            layoutParams.bottomMargin = bb.a(q(), aVar.f56403d);
             layoutParams.width = -1;
             frameLayout.setLayoutParams(layoutParams);
         }
@@ -78,10 +78,10 @@ public class c extends a {
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((g) this).a.b(this.f59681g);
-        if (this.f59679e) {
-            this.f59677c.j();
-            com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f59678d;
+        ((g) this).a.b(this.f57425g);
+        if (this.f57423e) {
+            this.f57421c.j();
+            com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f57422d;
             if (bVar != null) {
                 bVar.j();
             }
@@ -91,24 +91,24 @@ public class c extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f59677c = new com.kwad.sdk.reward.presenter.platdetail.actionbar.a();
-        if (this.f59680f) {
+        this.f57421c = new com.kwad.sdk.reward.presenter.platdetail.actionbar.a();
+        if (this.f57424f) {
             com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = new com.kwad.sdk.reward.presenter.platdetail.actionbar.b();
-            this.f59678d = bVar;
+            this.f57422d = bVar;
             bVar.c(m());
         }
-        this.f59677c.c(m());
+        this.f57421c.c(m());
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
     public void d_() {
         super.d_();
-        if (this.f59679e) {
-            com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f59678d;
+        if (this.f57423e) {
+            com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f57422d;
             if (bVar != null) {
                 bVar.k();
             }
-            this.f59677c.k();
+            this.f57421c.k();
         }
     }
 
@@ -124,10 +124,10 @@ public class c extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void r() {
-        this.f59679e = true;
-        m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(this.f59676b);
-        this.f59677c.a(((g) this).a);
-        com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f59678d;
+        this.f57423e = true;
+        m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(this.f57420b);
+        this.f57421c.a(((g) this).a);
+        com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f57422d;
         if (bVar != null) {
             bVar.a(((g) this).a);
         }

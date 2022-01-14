@@ -4,38 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32803b;
+    public long f31762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32804c;
+    public String f31763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32805d;
+    public String f31764d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32806e;
+    public String f31765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32807f;
+    public String f31766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32808g;
+    public String f31767g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32809h;
+    public String f31768h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32810i;
+    public String f31769i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f32811j;
+    public String f31770j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class b {
             }
         }
         this.a = 0L;
-        this.f32803b = 0L;
-        this.f32804c = "";
-        this.f32805d = "";
-        this.f32806e = "";
-        this.f32807f = "";
-        this.f32808g = "";
-        this.f32809h = "";
-        this.f32810i = "";
-        this.f32811j = "";
+        this.f31762b = 0L;
+        this.f31763c = "";
+        this.f31764d = "";
+        this.f31765e = "";
+        this.f31766f = "";
+        this.f31767g = "";
+        this.f31768h = "";
+        this.f31769i = "";
+        this.f31770j = "";
     }
 }

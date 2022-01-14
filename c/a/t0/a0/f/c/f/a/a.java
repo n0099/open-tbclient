@@ -19,31 +19,31 @@ public class a {
     public c.a.t0.a0.f.c.f.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f14795b;
+    public c f14443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f14796c;
+    public g f14444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f14797d;
+    public f f14445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f14798e;
+    public d f14446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f14799f;
+    public e f14447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f14800g;
+    public List<c.a.d.n.e.a> f14448g;
 
     /* renamed from: c.a.t0.a0.f.c.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0907a implements i {
+    public class C0920a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
 
-        public C0907a(a aVar, TbPageContext tbPageContext) {
+        public C0920a(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,26 +136,26 @@ public class a {
                 return;
             }
         }
-        this.f14800g = new LinkedList();
+        this.f14448g = new LinkedList();
         this.a = new c.a.t0.a0.f.c.f.a.b(tbPageContext);
-        this.f14795b = new c(tbPageContext);
-        this.f14796c = new g(tbPageContext);
-        this.f14797d = new f(tbPageContext);
-        this.f14798e = new d(tbPageContext);
-        this.f14799f = new e(tbPageContext);
-        this.f14795b.b0(new C0907a(this, tbPageContext));
-        this.f14797d.b0(new b(this, tbPageContext));
-        this.f14800g.add(this.a);
-        this.f14800g.add(this.f14795b);
-        this.f14800g.add(this.f14796c);
-        this.f14800g.add(this.f14797d);
-        this.f14800g.add(this.f14798e);
-        this.f14800g.add(this.f14799f);
+        this.f14443b = new c(tbPageContext);
+        this.f14444c = new g(tbPageContext);
+        this.f14445d = new f(tbPageContext);
+        this.f14446e = new d(tbPageContext);
+        this.f14447f = new e(tbPageContext);
+        this.f14443b.b0(new C0920a(this, tbPageContext));
+        this.f14445d.b0(new b(this, tbPageContext));
+        this.f14448g.add(this.a);
+        this.f14448g.add(this.f14443b);
+        this.f14448g.add(this.f14444c);
+        this.f14448g.add(this.f14445d);
+        this.f14448g.add(this.f14446e);
+        this.f14448g.add(this.f14447f);
     }
 
     public List<c.a.d.n.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14800g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14448g : (List) invokeV.objValue;
     }
 }

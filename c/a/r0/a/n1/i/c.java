@@ -13,13 +13,13 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8043b;
+    public String f7866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8044c;
+    public long f7867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8045d;
+    public boolean f7868d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(int i2) {
@@ -45,7 +45,7 @@ public class c {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8045d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7868d : invokeV.booleanValue;
     }
 
     public int b() {
@@ -57,13 +57,13 @@ public class c {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8044c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7867c : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8043b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7866b : (String) invokeV.objValue;
     }
 
     public c(int i2, String str) {
@@ -81,9 +81,9 @@ public class c {
                 return;
             }
         }
-        this.f8045d = false;
+        this.f7868d = false;
         this.a = i2;
-        this.f8043b = str;
+        this.f7866b = str;
     }
 
     public c(int i2, String str, long j2) {
@@ -101,10 +101,10 @@ public class c {
                 return;
             }
         }
-        this.f8045d = false;
+        this.f7868d = false;
         this.a = i2;
-        this.f8043b = str;
-        this.f8044c = j2;
+        this.f7866b = str;
+        this.f7867c = j2;
     }
 
     public c(int i2, String str, long j2, boolean z) {
@@ -122,10 +122,10 @@ public class c {
                 return;
             }
         }
-        this.f8045d = false;
+        this.f7868d = false;
         this.a = i2;
-        this.f8043b = str;
-        this.f8044c = j2;
-        this.f8045d = z;
+        this.f7866b = str;
+        this.f7867c = j2;
+        this.f7868d = z;
     }
 }

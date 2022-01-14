@@ -25,38 +25,38 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f11116e;
+    public static final boolean f10870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f11117f;
+    public static volatile a f10871f;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, ArrayList<b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f11118b;
+    public final ExecutorService f10872b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11119c;
+    public String f10873c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f11120d;
+    public Object f10874d;
 
     /* renamed from: c.a.r0.j.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0726a implements Runnable {
+    public class RunnableC0735a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsArrayBuffer f11121e;
+        public final /* synthetic */ JsArrayBuffer f10875e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f11122f;
+        public final /* synthetic */ b f10876f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f11123g;
+        public final /* synthetic */ a f10877g;
 
-        public RunnableC0726a(a aVar, JsArrayBuffer jsArrayBuffer, b bVar) {
+        public RunnableC0735a(a aVar, JsArrayBuffer jsArrayBuffer, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,26 +71,26 @@ public class a {
                     return;
                 }
             }
-            this.f11123g = aVar;
-            this.f11121e = jsArrayBuffer;
-            this.f11122f = bVar;
+            this.f10877g = aVar;
+            this.f10875e = jsArrayBuffer;
+            this.f10876f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String g2 = this.f11123g.g(this.f11121e.buffer());
+                String g2 = this.f10877g.g(this.f10875e.buffer());
                 File file = new File(g2);
                 if (!file.exists()) {
-                    if (this.f11123g.e(g2, this.f11122f)) {
+                    if (this.f10877g.e(g2, this.f10876f)) {
                         return;
                     }
-                    this.f11123g.i(g2, this.f11121e.buffer());
+                    this.f10877g.i(g2, this.f10875e.buffer());
                 } else if (!file.isDirectory()) {
-                    this.f11122f.a(g2);
+                    this.f10876f.a(g2);
                 } else {
-                    this.f11122f.b();
+                    this.f10876f.b();
                 }
             }
         }
@@ -116,7 +116,7 @@ public class a {
                 return;
             }
         }
-        f11116e = k.a;
+        f10870e = k.a;
     }
 
     public a() {
@@ -133,23 +133,23 @@ public class a {
             }
         }
         this.a = new HashMap<>();
-        this.f11118b = Executors.newCachedThreadPool();
-        this.f11120d = new Object();
-        this.f11119c = f.g() + f.f();
+        this.f10872b = Executors.newCachedThreadPool();
+        this.f10874d = new Object();
+        this.f10873c = f.g() + f.f();
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f11117f == null) {
+            if (f10871f == null) {
                 synchronized (a.class) {
-                    if (f11117f == null) {
-                        f11117f = new a();
+                    if (f10871f == null) {
+                        f10871f = new a();
                     }
                 }
             }
-            return f11117f;
+            return f10871f;
         }
         return (a) invokeV.objValue;
     }
@@ -157,7 +157,7 @@ public class a {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.f11120d) {
+            synchronized (this.f10874d) {
                 ArrayList<b> arrayList = this.a.get(str);
                 if (arrayList == null) {
                     return;
@@ -167,7 +167,7 @@ public class a {
                 while (it.hasNext()) {
                     b next = it.next();
                     if (!isEmpty) {
-                        if (f11116e) {
+                        if (f10870e) {
                             String str2 = "save success path: " + str;
                         }
                         next.a(str);
@@ -185,7 +185,7 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.f11120d) {
+            synchronized (this.f10874d) {
                 ArrayList<b> arrayList = this.a.get(str);
                 z = true;
                 if (arrayList == null) {
@@ -206,7 +206,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
             String h2 = f.h(bArr);
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f11119c);
+            sb.append(this.f10873c);
             sb.append(bArr.length);
             if (TextUtils.isEmpty(h2)) {
                 h2 = "";
@@ -220,7 +220,7 @@ public class a {
     public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.f11118b.execute(new RunnableC0726a(this, jsArrayBuffer, bVar));
+            this.f10872b.execute(new RunnableC0735a(this, jsArrayBuffer, bVar));
         }
     }
 
@@ -228,7 +228,7 @@ public class a {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.f11119c);
+            File file = new File(this.f10873c);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -245,12 +245,12 @@ public class a {
                             file3.delete();
                         }
                         if (file2.renameTo(file3)) {
-                            if (f11116e) {
+                            if (f10870e) {
                                 String str2 = "buffer load rename success path = " + str;
                             }
                             d(str);
                         } else {
-                            if (f11116e) {
+                            if (f10870e) {
                                 String str3 = "buffer load rename error path = " + str;
                             }
                             file2.delete();
@@ -258,7 +258,7 @@ public class a {
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        if (f11116e) {
+                        if (f10870e) {
                             e.printStackTrace();
                         }
                         if (file2.exists()) {

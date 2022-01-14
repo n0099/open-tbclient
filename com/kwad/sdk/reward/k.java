@@ -8,8 +8,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class k {
     public static void a(a aVar) {
         com.kwad.sdk.widget.e eVar;
-        AdTemplate adTemplate = aVar.f59455g;
-        Context context = aVar.f59457i;
+        AdTemplate adTemplate = aVar.f57207g;
+        Context context = aVar.f57209i;
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
         if ((com.kwad.sdk.core.response.a.a.an(j2) && (eVar = aVar.m) != null && eVar.e()) || com.kwad.sdk.core.response.a.b.j(adTemplate) || com.kwad.sdk.core.response.a.a.aG(j2) || adTemplate.mXiaomiAppStoreDetailViewOpen || !com.kwad.sdk.core.response.a.a.B(j2) || !com.kwad.sdk.core.response.a.a.r(j2)) {
             return;

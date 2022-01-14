@@ -17,17 +17,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f20112b;
+    public static volatile a f19582b;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
     /* renamed from: c.a.t0.n2.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1208a implements FileFilter {
+    public static class C1222a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1208a() {
+        public C1222a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,14 +74,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f20112b == null) {
+            if (f19582b == null) {
                 synchronized (a.class) {
-                    if (f20112b == null) {
-                        f20112b = new a();
+                    if (f19582b == null) {
+                        f19582b = new a();
                     }
                 }
             }
-            return f20112b;
+            return f19582b;
         }
         return (a) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return new File("/sys/devices/system/cpu/").listFiles(new C1208a()).length;
+                return new File("/sys/devices/system/cpu/").listFiles(new C1222a()).length;
             } catch (Exception unused) {
                 return 1;
             }

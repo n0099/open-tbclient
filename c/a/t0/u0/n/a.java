@@ -25,22 +25,22 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f24945e;
+    public View f24252e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f24946f;
+    public FrameLayout f24253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f24947g;
+    public ImageView f24254g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f24948h;
+    public TextView f24255h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f24949i;
+    public int f24256i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f24950j;
+    public View.OnClickListener f24257j;
 
     public a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -58,39 +58,39 @@ public class a implements View.OnClickListener {
             }
         }
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.enter_forum_list_bar_creator_item, (ViewGroup) null);
-        this.f24945e = inflate;
-        this.f24946f = (FrameLayout) inflate.findViewById(R.id.create_bar_container);
-        this.f24947g = (ImageView) this.f24945e.findViewById(R.id.iv_create_icon);
-        this.f24948h = (TextView) this.f24945e.findViewById(R.id.create_text);
-        this.f24949i = n.f(tbPageContext.getPageActivity(), R.dimen.tbds52);
-        this.f24946f.setOnClickListener(this);
-        this.f24947g.setOnClickListener(this);
-        this.f24948h.setOnClickListener(this);
-        if (this.f24946f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.f24946f.getLayoutParams()).bottomMargin = n.f(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.f24946f.requestLayout();
+        this.f24252e = inflate;
+        this.f24253f = (FrameLayout) inflate.findViewById(R.id.create_bar_container);
+        this.f24254g = (ImageView) this.f24252e.findViewById(R.id.iv_create_icon);
+        this.f24255h = (TextView) this.f24252e.findViewById(R.id.create_text);
+        this.f24256i = n.f(tbPageContext.getPageActivity(), R.dimen.tbds52);
+        this.f24253f.setOnClickListener(this);
+        this.f24254g.setOnClickListener(this);
+        this.f24255h.setOnClickListener(this);
+        if (this.f24253f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.f24253f.getLayoutParams()).bottomMargin = n.f(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.f24253f.requestLayout();
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.f24949i).into(this.f24946f);
-            SkinManager.setViewTextColor(this.f24948h, R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f24947g, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.f24256i).into(this.f24253f);
+            SkinManager.setViewTextColor(this.f24255h, R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f24254g, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24945e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24252e : (View) invokeV.objValue;
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f24950j = onClickListener;
+            this.f24257j = onClickListener;
         }
     }
 
@@ -99,7 +99,7 @@ public class a implements View.OnClickListener {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if ((view == this.f24946f || view == this.f24947g || view == this.f24948h) && (onClickListener = this.f24950j) != null) {
+            if ((view == this.f24253f || view == this.f24254g || view == this.f24255h) && (onClickListener = this.f24257j) != null) {
                 onClickListener.onClick(view);
             }
         }

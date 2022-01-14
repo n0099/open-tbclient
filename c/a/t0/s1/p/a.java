@@ -36,22 +36,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f22832c;
+    public static volatile a f22203c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImMessageCenterPojo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CustomMessageListener f22833b;
+    public final CustomMessageListener f22204b;
 
     /* renamed from: c.a.t0.s1.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1358a extends CustomMessageListener {
+    public class C1373a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1358a(a aVar, int i2) {
+        public C1373a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -113,7 +113,7 @@ public class a {
             }
         }
         this.a = new LinkedList();
-        this.f22833b = new C1358a(this, 0);
+        this.f22204b = new C1373a(this, 0);
         w();
     }
 
@@ -121,14 +121,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f22832c == null) {
+            if (f22203c == null) {
                 synchronized (a.class) {
-                    if (f22832c == null) {
-                        f22832c = new a();
+                    if (f22203c == null) {
+                        f22203c = new a();
                     }
                 }
             }
-            return f22832c;
+            return f22203c;
         }
         return (a) invokeV.objValue;
     }
@@ -170,7 +170,7 @@ public class a {
         }
         f.a aVar = new f.a();
         aVar.a = imMessageCenterPojo.getGid();
-        aVar.f14341e = imMessageCenterPojo.getGroup_name();
+        aVar.f14009e = imMessageCenterPojo.getGroup_name();
         if (userType == 4) {
             String str4 = null;
             try {
@@ -200,12 +200,12 @@ public class a {
                     }
                     if (str4 == null) {
                     }
-                    aVar.f14338b = str4;
-                    aVar.f14339c = str2;
-                    aVar.f14345i = str3;
-                    aVar.f14340d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-                    aVar.f14342f = userType;
-                    aVar.f14343g = imMessageCenterPojo.getUnread_count();
+                    aVar.f14006b = str4;
+                    aVar.f14007c = str2;
+                    aVar.f14013i = str3;
+                    aVar.f14008d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                    aVar.f14010f = userType;
+                    aVar.f14011g = imMessageCenterPojo.getUnread_count();
                     fVar.g().add(aVar);
                     if (userType == 4) {
                     }
@@ -219,10 +219,10 @@ public class a {
                 if (str4 == null) {
                     str4 = imMessageCenterPojo.getGroup_name();
                 }
-                aVar.f14338b = str4;
-                aVar.f14339c = str2;
-                aVar.f14345i = str3;
-                aVar.f14340d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                aVar.f14006b = str4;
+                aVar.f14007c = str2;
+                aVar.f14013i = str3;
+                aVar.f14008d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
             } else {
                 str3 = null;
                 str2 = null;
@@ -230,18 +230,18 @@ public class a {
                 }
                 if (str4 == null) {
                 }
-                aVar.f14338b = str4;
-                aVar.f14339c = str2;
-                aVar.f14345i = str3;
-                aVar.f14340d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                aVar.f14006b = str4;
+                aVar.f14007c = str2;
+                aVar.f14013i = str3;
+                aVar.f14008d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
             }
         } else {
             String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
-            aVar.f14339c = str5;
-            aVar.f14340d = str5;
+            aVar.f14007c = str5;
+            aVar.f14008d = str5;
         }
-        aVar.f14342f = userType;
-        aVar.f14343g = imMessageCenterPojo.getUnread_count();
+        aVar.f14010f = userType;
+        aVar.f14011g = imMessageCenterPojo.getUnread_count();
         fVar.g().add(aVar);
         if (userType == 4) {
             fVar.S(fVar.s() + imMessageCenterPojo.getUnread_count());
@@ -316,7 +316,7 @@ public class a {
             if (aVar != null) {
                 for (f.a aVar2 : list2) {
                     if (aVar2 != null && StringHelper.equals(aVar.a, aVar2.a)) {
-                        aVar.f14344h = aVar2.f14343g;
+                        aVar.f14012h = aVar2.f14011g;
                     }
                 }
             }
@@ -463,11 +463,11 @@ public class a {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            MessageManager.getInstance().registerListener(2016004, this.f22833b);
-            MessageManager.getInstance().registerListener(2016007, this.f22833b);
-            MessageManager.getInstance().registerListener(2016001, this.f22833b);
-            MessageManager.getInstance().registerListener(2016010, this.f22833b);
-            MessageManager.getInstance().registerListener(2016002, this.f22833b);
+            MessageManager.getInstance().registerListener(2016004, this.f22204b);
+            MessageManager.getInstance().registerListener(2016007, this.f22204b);
+            MessageManager.getInstance().registerListener(2016001, this.f22204b);
+            MessageManager.getInstance().registerListener(2016010, this.f22204b);
+            MessageManager.getInstance().registerListener(2016002, this.f22204b);
         }
     }
 

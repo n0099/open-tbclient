@@ -15,13 +15,11 @@ public final class k extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d f30112i;
+    public final d f29177i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile int f30113j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f30114k;
+    public volatile int f29178j;
+    public volatile boolean k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, Format format, int i2, Object obj, d dVar) {
@@ -42,28 +40,28 @@ public final class k extends c {
                 return;
             }
         }
-        this.f30112i = dVar;
+        this.f29177i = dVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30114k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.d0.u.c
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30113j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29178j : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void cancelLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30114k = true;
+            this.k = true;
         }
     }
 
@@ -71,21 +69,21 @@ public final class k extends c {
     public void load() throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.i.b.a.h0.g b2 = this.a.b(this.f30113j);
+            c.i.b.a.h0.g b2 = this.a.b(this.f29178j);
             try {
-                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f30085h, b2.f30588c, this.f30085h.a(b2));
-                if (this.f30113j == 0) {
-                    this.f30112i.d(null);
+                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f29153h, b2.f29628c, this.f29153h.a(b2));
+                if (this.f29178j == 0) {
+                    this.f29177i.d(null);
                 }
-                c.i.b.a.a0.e eVar = this.f30112i.f30086e;
+                c.i.b.a.a0.e eVar = this.f29177i.f29154e;
                 int i2 = 0;
-                while (i2 == 0 && !this.f30114k) {
+                while (i2 == 0 && !this.k) {
                     i2 = eVar.e(bVar, null);
                 }
                 c.i.b.a.i0.a.f(i2 != 1);
-                this.f30113j = (int) (bVar.getPosition() - this.a.f30588c);
+                this.f29178j = (int) (bVar.getPosition() - this.a.f29628c);
             } finally {
-                v.h(this.f30085h);
+                v.h(this.f29153h);
             }
         }
     }

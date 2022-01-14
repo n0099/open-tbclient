@@ -26,38 +26,36 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class e implements c.a.r0.q.k.c<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final boolean f7978k;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f7979b;
+    public final String f7803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f7980c;
+    public j f7804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f7981d;
+    public j f7805d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.u2.a f7982e;
+    public c.a.r0.a.u2.a f7806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7983f;
+    public boolean f7807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7984g;
+    public boolean f7808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Collection<c.a.r0.a.z2.g1.c<e>> f7985h;
+    public final Collection<c.a.r0.a.z2.g1.c<e>> f7809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Collection<c.a.r0.a.z2.g1.c<e>> f7986i;
+    public final Collection<c.a.r0.a.z2.g1.c<e>> f7810i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d.b f7987j;
+    public d.b f7811j;
 
     /* loaded from: classes.dex */
     public class a implements Function1<c.a.r0.a.u2.a, Unit> {
@@ -65,7 +63,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f7988e;
+        public final /* synthetic */ e f7812e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -82,7 +80,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
                     return;
                 }
             }
-            this.f7988e = eVar;
+            this.f7812e = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,11 +90,11 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (e.f7978k) {
-                    String str = "install: " + this.f7988e.k() + " onCallback";
+                if (e.k) {
+                    String str = "install: " + this.f7812e.k() + " onCallback";
                 }
-                this.f7988e.i(aVar);
-                this.f7988e.f7983f = false;
+                this.f7812e.i(aVar);
+                this.f7812e.f7807f = false;
                 return null;
             }
             return (Unit) invokeL.objValue;
@@ -116,7 +114,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
                 return;
             }
         }
-        f7978k = k.a;
+        k = k.a;
     }
 
     public e(@NonNull f fVar, String str) {
@@ -134,24 +132,24 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
                 return;
             }
         }
-        this.f7980c = null;
-        this.f7981d = null;
-        this.f7982e = null;
-        this.f7983f = false;
-        this.f7984g = false;
-        this.f7985h = new HashSet();
-        this.f7986i = new HashSet();
-        this.f7987j = null;
+        this.f7804c = null;
+        this.f7805d = null;
+        this.f7806e = null;
+        this.f7807f = false;
+        this.f7808g = false;
+        this.f7809h = new HashSet();
+        this.f7810i = new HashSet();
+        this.f7811j = null;
         this.a = fVar;
-        this.f7979b = str;
+        this.f7803b = str;
     }
 
     public final synchronized void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f7985h.clear();
-                this.f7986i.clear();
+                this.f7809h.clear();
+                this.f7810i.clear();
             }
         }
     }
@@ -163,35 +161,35 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
             j l = l();
-            if (f7978k) {
-                String str = "decorateParams libName=" + this.f7979b + " localSo=" + l;
+            if (k) {
+                String str = "decorateParams libName=" + this.f7803b + " localSo=" + l;
             }
             try {
                 Iterator<AbiType> it = AbiType.currentAbi().getCompatible().iterator();
                 while (it.hasNext()) {
                     AbiType next = it.next();
-                    if (f7978k) {
+                    if (k) {
                         String str2 = "decorateParams loop abi=" + next;
                     }
                     if (next != null) {
-                        c.a.r0.q.m.a d2 = c.a.r0.q.m.a.d(this.f7979b, next);
-                        if (f7978k) {
+                        c.a.r0.q.m.a d2 = c.a.r0.q.m.a.d(this.f7803b, next);
+                        if (k) {
                             String str3 = "decorateParams loop bundleId=" + d2;
                         }
                         if (d2 != null) {
                             JSONObject jSONObject = new JSONObject();
                             boolean z = l != null && next == l.q;
-                            long j2 = (l == null || !z) ? 0L : l.f11763i;
+                            long j2 = (l == null || !z) ? 0L : l.f11496i;
                             String str4 = "0";
-                            String str5 = (l == null || !z) ? "0" : l.f11764j;
+                            String str5 = (l == null || !z) ? "0" : l.f11497j;
                             if (!TextUtils.isEmpty(str5)) {
                                 str4 = str5;
                             }
                             jSONObject.put("type", "so");
-                            jSONObject.put("bundle_id", d2.f11907b);
+                            jSONObject.put("bundle_id", d2.f11636b);
                             jSONObject.put("version_code", j2);
                             jSONObject.put("version_name", str4);
-                            if (f7978k) {
+                            if (k) {
                                 String str6 = "decorate abi=" + next + " jo=" + jSONObject;
                             }
                             jSONArray.put(jSONObject);
@@ -199,7 +197,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
                     }
                 }
             } catch (JSONException e2) {
-                if (f7978k) {
+                if (k) {
                     e2.printStackTrace();
                 }
             }
@@ -211,7 +209,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
             synchronized (this) {
-                this.f7985h.remove(cVar);
+                this.f7809h.remove(cVar);
             }
             return this;
         }
@@ -223,7 +221,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
             synchronized (this) {
-                this.f7986i.remove(cVar);
+                this.f7810i.remove(cVar);
             }
             return this;
         }
@@ -235,18 +233,18 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
             synchronized (this) {
-                if (f7978k) {
-                    String str = "finish: " + k() + " finished=" + this.f7984g + " error=" + aVar;
+                if (k) {
+                    String str = "finish: " + k() + " finished=" + this.f7808g + " error=" + aVar;
                 }
-                if (this.f7984g) {
+                if (this.f7808g) {
                     return this;
                 }
-                this.f7984g = true;
-                this.f7982e = aVar;
+                this.f7808g = true;
+                this.f7806e = aVar;
                 if (aVar == null) {
-                    c.f7970d.v(k(), System.currentTimeMillis());
+                    c.f7795d.v(k(), System.currentTimeMillis());
                 }
-                c.f7970d.f(k());
+                c.f7795d.f(k());
                 t();
                 e();
                 return this;
@@ -258,23 +256,23 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
     public j j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7981d : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7805d : (j) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7979b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7803b : (String) invokeV.objValue;
     }
 
     public j l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f7980c == null && !TextUtils.isEmpty(this.f7979b)) {
-                this.f7980c = c.a.r0.q.g.a.i().t(this.f7979b);
+            if (this.f7804c == null && !TextUtils.isEmpty(this.f7803b)) {
+                this.f7804c = c.a.r0.q.g.a.i().t(this.f7803b);
             }
-            return this.f7980c;
+            return this.f7804c;
         }
         return (j) invokeV.objValue;
     }
@@ -282,27 +280,27 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
     public d.b m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7987j : (d.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7811j : (d.b) invokeV.objValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f7984g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f7808g : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? n() && (this.f7982e == null || c.f7970d.k(k())) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? n() && (this.f7806e == null || c.f7795d.k(k())) : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            j jVar = this.f7981d;
-            return (jVar == null || jVar == this.f7980c) ? false : true;
+            j jVar = this.f7805d;
+            return (jVar == null || jVar == this.f7804c) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -311,15 +309,15 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             synchronized (this) {
-                if (f7978k) {
-                    String str = "install: " + k() + " finished=" + this.f7984g + " installing=" + this.f7983f;
+                if (k) {
+                    String str = "install: " + k() + " finished=" + this.f7808g + " installing=" + this.f7807f;
                 }
-                if (!this.f7984g && !this.f7983f) {
-                    this.f7983f = true;
-                    if (f7978k) {
+                if (!this.f7808g && !this.f7807f) {
+                    this.f7807f = true;
+                    if (k) {
                         String str2 = "install: " + k();
                     }
-                    c.f7970d.x(k(), new a(this));
+                    c.f7795d.x(k(), new a(this));
                 }
             }
         }
@@ -334,18 +332,18 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? !n() && this.f7983f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? !n() && this.f7807f : invokeV.booleanValue;
     }
 
     public final synchronized void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             synchronized (this) {
-                if (f7978k) {
-                    String str = "notifyFinish: " + k() + " mCallbacks=" + this.f7985h.size();
+                if (k) {
+                    String str = "notifyFinish: " + k() + " mCallbacks=" + this.f7809h.size();
                 }
-                this.f7984g = true;
-                for (c.a.r0.a.z2.g1.c<e> cVar : this.f7985h) {
+                this.f7808g = true;
+                for (c.a.r0.a.z2.g1.c<e> cVar : this.f7809h) {
                     if (cVar != null) {
                         cVar.onCallback(this);
                     }
@@ -359,7 +357,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, cVar)) == null) {
             synchronized (this) {
-                this.f7985h.add(cVar);
+                this.f7809h.add(cVar);
             }
             return this;
         }
@@ -371,7 +369,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, cVar)) == null) {
             synchronized (this) {
-                this.f7986i.add(cVar);
+                this.f7810i.add(cVar);
             }
             return this;
         }
@@ -383,7 +381,7 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, fVar, jVar)) == null) {
             if (r(fVar)) {
-                this.f7981d = jVar;
+                this.f7805d = jVar;
             }
             return this;
         }
@@ -394,9 +392,9 @@ public final class e implements c.a.r0.q.k.c<JSONArray> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bVar) == null) {
             synchronized (this) {
-                if (!this.f7984g && bVar != null && 0 != bVar.f7977b) {
-                    this.f7987j = bVar;
-                    for (c.a.r0.a.z2.g1.c<e> cVar : this.f7986i) {
+                if (!this.f7808g && bVar != null && 0 != bVar.f7802b) {
+                    this.f7811j = bVar;
+                    for (c.a.r0.a.z2.g1.c<e> cVar : this.f7810i) {
                         if (cVar != null) {
                             cVar.onCallback(this);
                         }

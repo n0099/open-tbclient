@@ -12,10 +12,10 @@ public class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8634b;
+    public String f8448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f8635c;
+    public Map<String, Object> f8449c;
 
     public b() {
         Interceptable interceptable = $ic;

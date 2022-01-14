@@ -85,9 +85,9 @@ public class f implements i {
                     for (b.g gVar : fVar.b()) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("aid", gVar.f4875b);
+                            jSONObject.put("aid", gVar.f4770b);
                             jSONObject.put("pkg", gVar.a);
-                            jSONObject.put("priority", gVar.f4876c);
+                            jSONObject.put("priority", gVar.f4771c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -170,11 +170,11 @@ public class f implements i {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("pkg", bVar.a);
-                            jSONObject.put("sigs", Arrays.toString(bVar.f5076b));
-                            jSONObject.put("vc", bVar.f5077c);
-                            jSONObject.put("va", bVar.f5078d);
-                            jSONObject.put("installts", bVar.f5079e);
-                            jSONObject.put("lstupdatets", bVar.f5080f);
+                            jSONObject.put("sigs", Arrays.toString(bVar.f4969b));
+                            jSONObject.put("vc", bVar.f4970c);
+                            jSONObject.put("va", bVar.f4971d);
+                            jSONObject.put("installts", bVar.f4972e);
+                            jSONObject.put("lstupdatets", bVar.f4973f);
                             jSONArray.put(jSONObject);
                         } catch (Exception e2) {
                             e2.printStackTrace();

@@ -15,7 +15,7 @@ public class e implements c.a.r0.a.g1.j.a {
     public static final c.a.r0.a.z2.g1.c<c.a.r0.a.h0.f.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.a.z2.g1.c<c.a.r0.a.h0.f.a> f6393b;
+    public static final c.a.r0.a.z2.g1.c<c.a.r0.a.h0.f.a> f6253b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -92,7 +92,7 @@ public class e implements c.a.r0.a.g1.j.a {
             }
         }
         a = new a();
-        f6393b = new b();
+        f6253b = new b();
     }
 
     public e() {
@@ -131,7 +131,7 @@ public class e implements c.a.r0.a.g1.j.a {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(f6393b);
+            a(f6253b);
         }
     }
 }

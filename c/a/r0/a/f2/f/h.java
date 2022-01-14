@@ -46,7 +46,7 @@ public class h extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             if (eVar == null) {
@@ -56,13 +56,13 @@ public class h extends z {
             }
             try {
                 JSONObject D = c.a.r0.a.u.e.k.c.D(eVar, context);
-                if (z.f6340b && D != null) {
+                if (z.f6201b && D != null) {
                     String str2 = "data: " + D.toString();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(D, 0);
                 return true;
             } catch (JSONException e2) {
-                if (z.f6340b) {
+                if (z.f6201b) {
                     Log.getStackTraceString(e2);
                 }
                 c.a.r0.a.e0.d.c(DI.APP_INFO_NAME, Log.getStackTraceString(e2));

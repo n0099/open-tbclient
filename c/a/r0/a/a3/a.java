@@ -30,27 +30,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5293d;
+    public static final boolean f5183d;
     public transient /* synthetic */ FieldHolder $fh;
     public BearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f5294b;
+    public Activity f5184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppBearInfo f5295c;
+    public SwanAppBearInfo f5185c;
 
     /* renamed from: c.a.r0.a.a3.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0255a extends ResponseCallback<String> {
+    public class C0264a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BearLayout.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f5296b;
+        public boolean f5186b;
 
-        public C0255a(a aVar, BearLayout.d dVar, boolean z) {
+        public C0264a(a aVar, BearLayout.d dVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public class a {
                 }
             }
             this.a = dVar;
-            this.f5296b = z;
+            this.f5186b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("errno");
                 if (optInt == 0) {
-                    if (this.f5296b) {
+                    if (this.f5186b) {
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
                             JSONArray optJSONArray = optJSONObject.optJSONArray("items");
@@ -102,7 +102,7 @@ public class a {
                     dVar2.b("errNo:" + optInt);
                 }
             } catch (JSONException e2) {
-                if (a.f5293d) {
+                if (a.f5183d) {
                     e2.printStackTrace();
                     this.a.b(e2.getMessage());
                 }
@@ -112,7 +112,7 @@ public class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && a.f5293d) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && a.f5183d) {
                 exc.printStackTrace();
                 this.a.b(exc.getMessage());
             }
@@ -140,7 +140,7 @@ public class a {
                 return;
             }
         }
-        f5293d = k.a;
+        f5183d = k.a;
     }
 
     public a(Activity activity, View view, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i2) {
@@ -158,8 +158,8 @@ public class a {
                 return;
             }
         }
-        this.f5294b = activity;
-        this.f5295c = swanAppBearInfo;
+        this.f5184b = activity;
+        this.f5185c = swanAppBearInfo;
         BearLayout bearLayout = (BearLayout) view.findViewById(i2);
         this.a = bearLayout;
         bearLayout.setVisibility(0);
@@ -169,39 +169,39 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (SwanAppNetworkUtils.i(this.f5294b)) {
+            if (SwanAppNetworkUtils.i(this.f5184b)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("type", VodClient.PATH_MEDIA);
                 linkedHashMap.put("sfrom", "searchpaws");
                 linkedHashMap.put("store", "uid_cuid");
                 linkedHashMap.put("source", "dusite_na_subbar");
-                linkedHashMap.put("third_id", this.f5295c.bearId);
+                linkedHashMap.put("third_id", this.f5185c.bearId);
                 linkedHashMap.put("op_type", "add");
                 String b2 = c.a.r0.a.b0.b.b();
                 if (TextUtils.isEmpty(b2)) {
                     return;
                 }
-                c.a.r0.p.e.a.g().getRequest().url(b2).addUrlParams(linkedHashMap).cookieManager(c.a.r0.a.c1.a.q().a()).build().executeAsyncOnUIBack(new C0255a(this, this.a.getCallback(), false));
+                c.a.r0.p.e.a.g().getRequest().url(b2).addUrlParams(linkedHashMap).cookieManager(c.a.r0.a.c1.a.q().a()).build().executeAsyncOnUIBack(new C0264a(this, this.a.getCallback(), false));
                 return;
             }
-            c.a.r0.a.c2.b.f.e.f(this.f5294b, h.aiapps_net_error).G();
+            c.a.r0.a.c2.b.f.e.f(this.f5184b, h.aiapps_net_error).G();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.f5294b)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.f5184b)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("type", VodClient.PATH_MEDIA);
             linkedHashMap.put("sfrom", "searchpaws");
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.f5295c.bearId);
+            linkedHashMap.put("third_id", this.f5185c.bearId);
             String B = c.a.r0.a.c1.a.o().B();
             if (TextUtils.isEmpty(B)) {
                 return;
             }
-            c.a.r0.p.e.a.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(c.a.r0.a.c1.a.q().a()).build().executeAsyncOnUIBack(new C0255a(this, this.a.getCallback(), true));
+            c.a.r0.p.e.a.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(c.a.r0.a.c1.a.q().a()).build().executeAsyncOnUIBack(new C0264a(this, this.a.getCallback(), true));
         }
     }
 }

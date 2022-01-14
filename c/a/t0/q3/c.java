@@ -37,34 +37,32 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22334b;
+    public String f21720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22335c;
+    public String f21721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22336d;
+    public String f21722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22337e;
+    public String f21723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22338f;
+    public String f21724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22339g;
+    public String f21725g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22340h;
+    public String f21726h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22341i;
+    public int f21727i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22342j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f22343k;
+    public String f21728j;
+    public int k;
     public boolean l;
     public int m;
     public int n;
@@ -125,7 +123,7 @@ public class c {
                 return;
             }
         }
-        this.f22334b = "0";
+        this.f21720b = "0";
         this.B = new ArrayList<>();
         this.C = new ArrayList<>();
         this.D = new ArrayList<>();
@@ -218,16 +216,16 @@ public class c {
         }
         this.F.c(jSONObject.optJSONObject("error"));
         this.a = jSONObject.optInt("level", 7);
-        this.f22334b = jSONObject.optString("sign_new");
-        this.f22335c = jSONObject.optString("title");
-        this.f22336d = jSONObject.optString("text_pre");
-        this.f22337e = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-        this.f22338f = jSONObject.optString("text_mid");
-        this.f22339g = jSONObject.optString("text_suf");
-        this.f22340h = jSONObject.optString("num_notice");
-        this.f22341i = jSONObject.optInt("show_dialog");
-        this.f22342j = jSONObject.optString("sign_notice");
-        this.f22343k = jSONObject.optInt("valid", 0);
+        this.f21720b = jSONObject.optString("sign_new");
+        this.f21721c = jSONObject.optString("title");
+        this.f21722d = jSONObject.optString("text_pre");
+        this.f21723e = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+        this.f21724f = jSONObject.optString("text_mid");
+        this.f21725g = jSONObject.optString("text_suf");
+        this.f21726h = jSONObject.optString("num_notice");
+        this.f21727i = jSONObject.optInt("show_dialog");
+        this.f21728j = jSONObject.optString("sign_notice");
+        this.k = jSONObject.optInt("valid", 0);
         this.G = jSONObject.optInt("sign_max_num", 50);
         this.u = jSONObject.optInt("can_use", 0);
         this.w = jSONObject.optString("content");
@@ -248,7 +246,7 @@ public class c {
         } else {
             this.l = false;
         }
-        this.r = this.a + this.f22335c;
+        this.r = this.a + this.f21721c;
         this.q = "1-" + (this.a - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
         j.o = this.G;
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
@@ -260,7 +258,7 @@ public class c {
                     d dVar = new d();
                     dVar.n(jSONObject2);
                     if (dVar.f() == 0) {
-                        if (this.f22343k == 0) {
+                        if (this.k == 0) {
                             if (this.l) {
                                 dVar.s(true);
                             } else if (dVar.i() > this.a) {
@@ -346,12 +344,12 @@ public class c {
             if (this.B.size() <= 0) {
                 this.x = 3;
             } else if (this.l) {
-                if (this.f22343k == 1 && this.D.size() > 0) {
+                if (this.k == 1 && this.D.size() > 0) {
                     this.x = 0;
                 } else {
                     this.x = 2;
                 }
-            } else if (this.f22343k == 1 && this.p > 0) {
+            } else if (this.k == 1 && this.p > 0) {
                 this.x = 0;
             } else {
                 int i6 = this.p;
@@ -416,7 +414,7 @@ public class c {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.H.f22353b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.H.f21737b : (String) invokeV.objValue;
     }
 
     public BlockPopInfoData f() {
@@ -464,25 +462,25 @@ public class c {
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f22340h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f21726h : (String) invokeV.objValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? !StringUtils.isNull(this.f22334b) && this.f22334b.equals("1") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? !StringUtils.isNull(this.f21720b) && this.f21720b.equals("1") : invokeV.booleanValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f22341i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f21727i : invokeV.intValue;
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f22342j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f21728j : (String) invokeV.objValue;
     }
 
     public int q() {
@@ -506,25 +504,25 @@ public class c {
     public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f22337e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f21723e : (String) invokeV.objValue;
     }
 
     public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f22338f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f21724f : (String) invokeV.objValue;
     }
 
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f22336d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f21722d : (String) invokeV.objValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f22339g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f21725g : (String) invokeV.objValue;
     }
 
     public ArrayList<d> x() {
@@ -542,6 +540,6 @@ public class c {
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.I.f22396b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.I.f21778b : (String) invokeV.objValue;
     }
 }

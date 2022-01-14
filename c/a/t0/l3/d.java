@@ -12,34 +12,32 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19655b;
+    public String f19148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f19656c;
+    public String f19149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f19657d;
+    public String f19150d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19658e;
+    public String f19151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19659f;
+    public String f19152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19660g;
+    public int f19153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19661h;
+    public int f19154h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19662i;
+    public int f19155i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19663j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f19664k;
+    public String f19156j;
+    public String k;
     public long l;
     public long m;
     public boolean n;
@@ -63,15 +61,15 @@ public class d {
                 return;
             }
         }
-        this.f19664k = "";
+        this.k = "";
     }
 
     public static void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
-            dVar.f19662i = 0;
-            dVar.f19660g = 4;
-            dVar.f19661h = 4;
+            dVar.f19155i = 0;
+            dVar.f19153g = 4;
+            dVar.f19154h = 4;
             dVar.l = System.currentTimeMillis();
             dVar.n = true;
         }
@@ -92,11 +90,11 @@ public class d {
                 return;
             }
         }
-        this.f19664k = "";
-        this.f19657d = msgContent.title;
+        this.k = "";
+        this.f19150d = msgContent.title;
         this.q = msgContent.url;
-        this.f19659f = msgContent.src;
-        this.f19658e = msgContent.text;
+        this.f19152f = msgContent.src;
+        this.f19151e = msgContent.text;
         a(this);
     }
 }

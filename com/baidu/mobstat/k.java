@@ -19,23 +19,23 @@ public abstract class k {
     public static final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f38144b;
+    public static final k f36893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f38145c;
+    public static final k f36894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f38146d;
+    public static final k f36895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f38147e;
+    public static final k f36896e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ k[] f38148g;
+    public static final /* synthetic */ k[] f36897g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38149f;
+    public int f36898f;
 
     static {
         InterceptResult invokeClinit;
@@ -82,7 +82,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new n() : (j) invokeV.objValue;
             }
         };
-        f38144b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
+        f36893b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new q() : (j) invokeV.objValue;
             }
         };
-        f38145c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
+        f36894c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -146,7 +146,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new r() : (j) invokeV.objValue;
             }
         };
-        f38146d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
+        f36895d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,8 +210,8 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new o() : (j) invokeV.objValue;
             }
         };
-        f38147e = kVar;
-        f38148g = new k[]{a, f38144b, f38145c, f38146d, kVar};
+        f36896e = kVar;
+        f36897g = new k[]{a, f36893b, f36894c, f36895d, kVar};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -260,7 +260,7 @@ public abstract class k {
     public static k[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (k[]) f38148g.clone() : (k[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (k[]) f36897g.clone() : (k[]) invokeV.objValue;
     }
 
     public abstract j a();
@@ -321,7 +321,7 @@ public abstract class k {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f38149f) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f36898f) : (String) invokeV.objValue;
     }
 
     public k(String str, int i2, int i3) {
@@ -342,7 +342,7 @@ public abstract class k {
                 return;
             }
         }
-        this.f38149f = i3;
+        this.f36898f = i3;
     }
 
     public synchronized boolean b(int i2) {

@@ -14,12 +14,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f12658c;
+    public static e f12361c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.s0.t.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestExtraData f12659b;
+    public ABTestExtraData f12362b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12658c == null) {
+            if (f12361c == null) {
                 synchronized (e.class) {
-                    if (f12658c == null) {
-                        f12658c = new e();
+                    if (f12361c == null) {
+                        f12361c = new e();
                     }
                 }
             }
-            return f12658c;
+            return f12361c;
         }
         return (e) invokeV.objValue;
     }
@@ -73,12 +73,12 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f12659b == null) {
+            if (this.f12362b == null) {
                 ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.f12659b = aBTestExtraData;
+                this.f12362b = aBTestExtraData;
                 aBTestExtraData.parserABTestExtraFormSharedPref();
             }
-            return this.f12659b.getABTestResult();
+            return this.f12362b.getABTestResult();
         }
         return (String) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class e {
     public void f(ABTestExtraData aBTestExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.f12659b = aBTestExtraData;
+            this.f12362b = aBTestExtraData;
         }
     }
 }

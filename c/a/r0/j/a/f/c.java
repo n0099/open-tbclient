@@ -15,7 +15,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11014b;
+    public static final boolean f10769b;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.j.d.c.a a;
 
@@ -32,7 +32,7 @@ public final class c {
                 return;
             }
         }
-        f11014b = k.a;
+        f10769b = k.a;
     }
 
     public c() {
@@ -73,7 +73,7 @@ public final class c {
                 jSONObject.put("errMsg", com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 jSONObject.put("errDes", c.a.r0.h.i.s.b.a(str));
             } catch (Exception e2) {
-                if (f11014b) {
+                if (f10769b) {
                     e2.printStackTrace();
                 }
             }

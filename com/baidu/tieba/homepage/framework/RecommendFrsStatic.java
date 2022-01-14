@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage.framework;
 
 import c.a.t0.o1.h.k.g;
+import c.a.t0.o1.h.k.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -10,6 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.switchs.LaunchUpPrefetchSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
@@ -49,6 +51,10 @@ public class RecommendFrsStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (LaunchUpPrefetchSwitch.getIsOn()) {
+                    h.m().p();
+                    return null;
+                }
                 g.h().k();
                 return null;
             }

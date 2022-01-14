@@ -77,7 +77,7 @@ public final class SequenceBuilderIterator<T> extends SequenceScope<T> implement
             this.nextStep = null;
             Unit unit = Unit.INSTANCE;
             Result.Companion companion = Result.Companion;
-            continuation.resumeWith(Result.m702constructorimpl(unit));
+            continuation.resumeWith(Result.m714constructorimpl(unit));
         }
     }
 

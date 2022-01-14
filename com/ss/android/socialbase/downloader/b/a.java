@@ -10,11 +10,11 @@ public class a extends SQLiteOpenHelper {
     public static volatile a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f62182b;
+    public boolean f59836b;
 
     public a() {
         super(com.ss.android.socialbase.downloader.downloader.c.N(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 15);
-        this.f62182b = false;
+        this.f59836b = false;
     }
 
     public static a a() {
@@ -31,14 +31,14 @@ public class a extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
         Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-        if (!this.f62182b && N != null) {
+        if (!this.f59836b && N != null) {
             try {
                 File file = new File("/data/data/" + N.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f62182b = true;
+                this.f59836b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

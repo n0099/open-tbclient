@@ -42,7 +42,7 @@ public abstract class b {
     public static boolean f34a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<Integer, String> f63257b;
+    public static final HashMap<Integer, String> f60876b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -106,7 +106,7 @@ public abstract class b {
         f31a = "XMPush-" + Process.myPid();
         f29a = new a();
         f32a = new HashMap<>();
-        f63257b = new HashMap<>();
+        f60876b = new HashMap<>();
         f30a = -1;
         f33a = new AtomicInteger(1);
     }
@@ -124,7 +124,7 @@ public abstract class b {
             if (a <= 1) {
                 Integer valueOf = Integer.valueOf(f33a.incrementAndGet());
                 f32a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-                f63257b.put(valueOf, str);
+                f60876b.put(valueOf, str);
                 LoggerInterface loggerInterface = f29a;
                 loggerInterface.log(str + " starts");
                 return valueOf;
@@ -135,7 +135,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m121a(String str) {
+    public static String m133a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -191,7 +191,7 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             f28a = context;
-            if (l.m588a(context)) {
+            if (l.m600a(context)) {
                 f34a = true;
             }
         }
@@ -209,20 +209,20 @@ public abstract class b {
         if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && a <= 1 && f32a.containsKey(num)) {
             long currentTimeMillis = System.currentTimeMillis() - f32a.remove(num).longValue();
             LoggerInterface loggerInterface = f29a;
-            loggerInterface.log(f63257b.remove(num) + " ends in " + currentTimeMillis + " ms");
+            loggerInterface.log(f60876b.remove(num) + " ends in " + currentTimeMillis + " ms");
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m122a(String str) {
+    public static void m134a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
-            a(2, m121a(str));
+            a(2, m133a(str));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m123a(String str, String str2) {
+    public static void m135a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
             a(2, b(str, str2));
@@ -232,7 +232,7 @@ public abstract class b {
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, str, th) == null) {
-            a(4, m121a(str), th);
+            a(4, m133a(str), th);
         }
     }
 
@@ -264,21 +264,21 @@ public abstract class b {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            a(0, m121a(str));
+            a(0, m133a(str));
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
-            a(1, m121a(str));
+            a(1, m133a(str));
         }
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            a(4, m121a(str));
+            a(4, m133a(str));
         }
     }
 
@@ -286,9 +286,9 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
             if (f34a) {
-                m122a(str);
+                m134a(str);
             } else {
-                m121a(str);
+                m133a(str);
             }
         }
     }

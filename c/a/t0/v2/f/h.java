@@ -58,7 +58,7 @@ public class h extends c.a.t0.g0.b<i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f25341e;
+        public final /* synthetic */ h f24631e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -75,22 +75,22 @@ public class h extends c.a.t0.g0.b<i> {
                     return;
                 }
             }
-            this.f25341e = hVar;
+            this.f24631e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f25341e.v.getNewGodData() != null && this.f25341e.v.getNewGodData().hasNewGodInvited()) {
-                TiebaStatic.log(new StatisticItem("c13690").param("uid", this.f25341e.v.getUserId()).param("obj_locate", "1"));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f24631e.v.getNewGodData() != null && this.f24631e.v.getNewGodData().hasNewGodInvited()) {
+                TiebaStatic.log(new StatisticItem("c13690").param("uid", this.f24631e.v.getUserId()).param("obj_locate", "1"));
                 HashMap hashMap = new HashMap();
                 hashMap.put("from", "6");
-                hashMap.put("field_id", this.f25341e.v.getNewGodData().getFieldId());
+                hashMap.put("field_id", this.f24631e.v.getNewGodData().getFieldId());
                 hashMap.put("animated", Boolean.FALSE);
                 hashMap.put(OpenFlutter.EXTRA_TRANSPARANT, Boolean.TRUE);
                 hashMap.put("swipeback", Boolean.FALSE);
                 hashMap.put("present", Boolean.TRUE);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f25341e.f18210f.getPageActivity(), "GodInvitePage", hashMap)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f24631e.f17767f.getPageActivity(), "GodInvitePage", hashMap)));
             }
         }
     }
@@ -165,8 +165,8 @@ public class h extends c.a.t0.g0.b<i> {
         }
         if (view == this.q) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 2));
-            if (ViewHelper.checkUpIsLogin(this.f18210f.getPageActivity())) {
-                UrlManager.getInstance().dealOneLink(this.f18210f, new String[]{TbConfig.URL_MEMBER_BUY});
+            if (ViewHelper.checkUpIsLogin(this.f17767f.getPageActivity())) {
+                UrlManager.getInstance().dealOneLink(this.f17767f, new String[]{TbConfig.URL_MEMBER_BUY});
                 return;
             }
             return;
@@ -176,7 +176,7 @@ public class h extends c.a.t0.g0.b<i> {
             personCenterGuideView.hideAnim();
         }
         TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f18210f.getPageActivity()).createNormalConfig(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f17767f.getPageActivity()).createNormalConfig(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
     }
 
     public final void q() {
@@ -194,7 +194,7 @@ public class h extends c.a.t0.g0.b<i> {
     public void k(i iVar) {
         UserData userData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) || iVar == null || (userData = iVar.f25308e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) || iVar == null || (userData = iVar.f24599e) == null) {
             return;
         }
         this.v = userData;
@@ -212,7 +212,7 @@ public class h extends c.a.t0.g0.b<i> {
         this.r.setText(this.v.getName_show());
         this.s.setText(getContext().getString(R.string.person_center_default_introduce));
         q();
-        l(this.f18210f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void t() {

@@ -66,7 +66,7 @@ public abstract class k0<K, V> extends d0<K, V> implements SortedMap<K, V> {
     }
 
     @Override // java.util.SortedMap
-    public abstract SortedMap<K, V> headMap(K k2);
+    public abstract SortedMap<K, V> headMap(K k);
 
     @Override // java.util.SortedMap
     public K lastKey() {
@@ -91,19 +91,19 @@ public abstract class k0<K, V> extends d0<K, V> implements SortedMap<K, V> {
         return invokeL.booleanValue;
     }
 
-    public SortedMap<K, V> standardSubMap(K k2, K k3) {
+    public SortedMap<K, V> standardSubMap(K k, K k2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, k3)) == null) {
-            c.i.d.a.n.e(unsafeCompare(k2, k3) <= 0, "fromKey must be <= toKey");
-            return tailMap(k2).headMap(k3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, k2)) == null) {
+            c.i.d.a.n.e(unsafeCompare(k, k2) <= 0, "fromKey must be <= toKey");
+            return tailMap(k).headMap(k2);
         }
         return (SortedMap) invokeLL.objValue;
     }
 
     @Override // java.util.SortedMap
-    public abstract SortedMap<K, V> subMap(K k2, K k3);
+    public abstract SortedMap<K, V> subMap(K k, K k2);
 
     @Override // java.util.SortedMap
-    public abstract SortedMap<K, V> tailMap(K k2);
+    public abstract SortedMap<K, V> tailMap(K k);
 }

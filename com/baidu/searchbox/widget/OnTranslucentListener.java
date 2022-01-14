@@ -1,5 +1,5 @@
 package com.baidu.searchbox.widget;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface OnTranslucentListener {
     void onTranslucent(boolean z);
 }

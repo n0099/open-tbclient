@@ -11,34 +11,32 @@ public class f0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23501b;
+    public boolean f22850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f23502c;
+    public boolean f22851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f23503d;
+    public boolean f22852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23504e;
+    public boolean f22853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23505f;
+    public boolean f22854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23506g;
+    public boolean f22855g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f23507h;
+    public boolean f22856h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f23508i;
+    public boolean f22857i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f23509j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f23510k;
+    public boolean f22858j;
+    public boolean k;
     public boolean l;
     public boolean m;
     public boolean n;
@@ -66,15 +64,15 @@ public class f0 {
             }
         }
         this.a = false;
-        this.f23501b = false;
-        this.f23503d = false;
-        this.f23504e = false;
-        this.f23505f = false;
-        this.f23506g = false;
-        this.f23507h = false;
-        this.f23508i = false;
-        this.f23509j = false;
-        this.f23510k = false;
+        this.f22850b = false;
+        this.f22852d = false;
+        this.f22853e = false;
+        this.f22854f = false;
+        this.f22855g = false;
+        this.f22856h = false;
+        this.f22857i = false;
+        this.f22858j = false;
+        this.k = false;
         this.l = false;
         this.m = false;
         this.n = false;

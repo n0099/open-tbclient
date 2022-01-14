@@ -20,7 +20,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8060e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7883e;
 
         public a(c.a.r0.a.n2.s.e eVar) {
             Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public final class d {
                     return;
                 }
             }
-            this.f8060e = eVar;
+            this.f7883e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.k("934", this.f8060e.f());
+                b.k("934", this.f7883e.f());
             }
         }
     }
@@ -71,8 +71,8 @@ public final class d {
             return;
         }
         eVar.a = n.n(bVar.G());
-        eVar.f8161f = bVar.H();
-        eVar.f8158c = bVar.T();
+        eVar.f7981f = bVar.H();
+        eVar.f7978c = bVar.T();
         eVar.a("swan", c.a.r0.a.q2.b.h(bVar.G()));
         eVar.a("appversion", bVar.v1());
         eVar.a("thirdversion", bVar.w1());
@@ -88,12 +88,12 @@ public final class d {
                 return;
             }
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f8161f = fVar.f8161f;
+            eVar.f7981f = fVar.f7981f;
             eVar.a = fVar.a;
-            eVar.f8162g = fVar.f8162g;
-            eVar.f8158c = fVar.f8158c;
-            eVar.f8157b = fVar.f8157b;
-            eVar.f8160e = fVar.f8160e;
+            eVar.f7982g = fVar.f7982g;
+            eVar.f7978c = fVar.f7978c;
+            eVar.f7977b = fVar.f7977b;
+            eVar.f7980e = fVar.f7980e;
             eVar.e(fVar.c());
             c(eVar);
         }

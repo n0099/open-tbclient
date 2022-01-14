@@ -38,16 +38,16 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f6880b;
+    public static boolean f6731b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.m.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0383a implements Runnable {
+    public static class RunnableC0392a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0383a() {
+        public RunnableC0392a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,10 +91,10 @@ public final class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f6881b;
+        public boolean f6732b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6882c;
+        public String f6733c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -110,8 +110,8 @@ public final class a {
                 }
             }
             this.a = 0;
-            this.f6881b = false;
-            this.f6882c = "";
+            this.f6732b = false;
+            this.f6733c = "";
         }
     }
 
@@ -129,7 +129,7 @@ public final class a {
             }
         }
         a = k.a;
-        f6880b = false;
+        f6731b = false;
     }
 
     public a() {
@@ -197,15 +197,15 @@ public final class a {
     @AnyThread
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f6880b) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f6731b) {
             return;
         }
         synchronized (a.class) {
-            if (f6880b) {
+            if (f6731b) {
                 return;
             }
-            f6880b = true;
-            q.k(new RunnableC0383a(), "deleteHistoryZipFile");
+            f6731b = true;
+            q.k(new RunnableC0392a(), "deleteHistoryZipFile");
         }
     }
 
@@ -264,8 +264,8 @@ public final class a {
             return;
         }
         pMSAppInfo.copyMainPkgInfo(gVar);
-        if (gVar.f11762h == 1) {
-            pMSAppInfo.setOrientation(c.a.r0.a.c1.b.i().v(gVar.f11761g, gVar.f11763i));
+        if (gVar.f11495h == 1) {
+            pMSAppInfo.setOrientation(c.a.r0.a.c1.b.i().v(gVar.f11494g, gVar.f11496i));
         } else {
             pMSAppInfo.setOrientation(0);
         }
@@ -277,7 +277,7 @@ public final class a {
             return;
         }
         pMSAppInfo.copySubPkgInfo(hVar);
-        if (hVar.f11762h == 0) {
+        if (hVar.f11495h == 0) {
             pMSAppInfo.setOrientation(0);
         }
     }
@@ -296,9 +296,9 @@ public final class a {
                 return aVar;
             }
             File file = new File(fVar.a);
-            int i3 = fVar.f11762h;
+            int i3 = fVar.f11495h;
             if (i3 == 1) {
-                i2 = c.a.r0.a.c1.b.g().a(fVar.f11761g, String.valueOf(fVar.f11763i));
+                i2 = c.a.r0.a.c1.b.g().a(fVar.f11494g, String.valueOf(fVar.f11496i));
                 if (i2 == null) {
                     c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                     aVar2.k(11L);
@@ -310,7 +310,7 @@ public final class a {
                     String str = "bundleZipFile:" + file;
                 }
             } else if (i3 == 0) {
-                i2 = d.e.i(fVar.f11761g, String.valueOf(fVar.f11763i));
+                i2 = d.e.i(fVar.f11494g, String.valueOf(fVar.f11496i));
             } else {
                 c.a.r0.a.u2.a aVar3 = new c.a.r0.a.u2.a();
                 aVar3.k(11L);
@@ -348,15 +348,15 @@ public final class a {
                 if (a) {
                     String str3 = "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + i2.getPath();
                 }
-                if (n(file, i2, fVar2).f6881b) {
+                if (n(file, i2, fVar2).f6732b) {
                     return null;
                 }
                 b n = n(file, i2, fVar2);
-                if (n.f6881b) {
-                    j.a(fVar2, fVar.f11762h, true);
+                if (n.f6732b) {
+                    j.a(fVar2, fVar.f11495h, true);
                     return null;
                 }
-                j.a(fVar2, fVar.f11762h, false);
+                j.a(fVar2, fVar.f11495h, false);
                 c.a.r0.a.e0.d.k("PkgDownloadUtil", "解压失败后删除解压目录: " + i2.getAbsolutePath());
                 c.a.r0.w.d.L(i2);
                 c.a.r0.a.u2.a aVar7 = new c.a.r0.a.u2.a();
@@ -372,7 +372,7 @@ public final class a {
                 } else {
                     aVar7.k(11L);
                     aVar7.i(2330L);
-                    aVar7.f("decryt failed:" + n.f6882c + ", PkgType=" + n.a);
+                    aVar7.f("decryt failed:" + n.f6733c + ", PkgType=" + n.a);
                 }
                 e.a().f(aVar7);
                 return aVar7;
@@ -390,25 +390,25 @@ public final class a {
             long currentTimeMillis = System.currentTimeMillis();
             a.c j2 = c.a.r0.a.a1.g.a.j(file);
             int i2 = 0;
-            if (j2.f5278b != -1) {
+            if (j2.f5168b != -1) {
                 fVar.n("670", "package_start_decrypt");
                 fVar.n("770", "na_package_start_decrypt");
-                a.b d2 = c.a.r0.a.a1.g.a.d(j2.a, file2, j2.f5278b);
+                a.b d2 = c.a.r0.a.a1.g.a.d(j2.a, file2, j2.f5168b);
                 fVar.n("670", "package_end_decrypt");
                 fVar.n("770", "na_package_end_decrypt");
-                bVar.f6881b = d2.a;
-                bVar.f6882c = d2.f5277b;
-                i2 = j2.f5278b;
+                bVar.f6732b = d2.a;
+                bVar.f6733c = d2.f5167b;
+                i2 = j2.f5168b;
                 bVar.a = i2;
             } else {
                 bVar.a = 0;
                 fVar.n("670", "package_start_unzip");
                 fVar.n("770", "na_package_start_unzip");
                 boolean U = c.a.r0.w.d.U(file.getPath(), file2.getPath());
-                bVar.f6881b = U;
+                bVar.f6732b = U;
                 if (U) {
                     boolean B = c.a.r0.w.d.B(file.getAbsolutePath(), file2.getAbsolutePath());
-                    bVar.f6881b = B;
+                    bVar.f6732b = B;
                     if (!B) {
                         c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
                         c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
@@ -417,7 +417,7 @@ public final class a {
                         dVar.p(aVar);
                         dVar.l("path", file2.getAbsolutePath());
                         dVar.l("eMsg", "unzip files not match zip content");
-                        dVar.l("decryptType", String.valueOf(j2.f5278b));
+                        dVar.l("decryptType", String.valueOf(j2.f5168b));
                         dVar.l("stack", q0.z(30));
                         n.R(dVar);
                     }

@@ -1,6 +1,6 @@
 package c.a.t0.s1.i.a;
 
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 /* loaded from: classes8.dex */

@@ -31,7 +31,7 @@ public final class er {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m349a();
+        boolean m361a();
     }
 
     static {
@@ -107,7 +107,7 @@ public final class er {
                             } catch (Exception e2) {
                                 e = e2;
                                 i2 = i3;
-                                com.xiaomi.channel.commonutils.logger.b.m122a("check service err : " + e.getMessage());
+                                com.xiaomi.channel.commonutils.logger.b.m134a("check service err : " + e.getMessage());
                                 if (i2 != 0) {
                                 }
                                 int i4 = Build.VERSION.SDK_INT;
@@ -120,7 +120,7 @@ public final class er {
                 } catch (Exception e3) {
                     e = e3;
                 }
-                if (i2 != 0 && t.m692a(applicationContext)) {
+                if (i2 != 0 && t.m704a(applicationContext)) {
                     throw new RuntimeException("Should export service: " + f339a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
                 }
                 int i42 = Build.VERSION.SDK_INT;
@@ -155,7 +155,7 @@ public final class er {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (er.class) {
                 if (f338a == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m122a("timer is not initialized");
+                    com.xiaomi.channel.commonutils.logger.b.m134a("timer is not initialized");
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
@@ -165,7 +165,7 @@ public final class er {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m348a() {
+    public static synchronized boolean m360a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
@@ -173,7 +173,7 @@ public final class er {
                 if (f338a == null) {
                     return false;
                 }
-                return f338a.m349a();
+                return f338a.m361a();
             }
         }
         return invokeV.booleanValue;

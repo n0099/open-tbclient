@@ -36,14 +36,14 @@ public final class TaskNoClickTimesCleanMiddleWare$taskNoClickTimesCleanMiddleWa
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "action", "Lcom/baidu/bdtask/framework/redux/Action;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.actions.exitstrategy.TaskNoClickTimesCleanMiddleWare$taskNoClickTimesCleanMiddleWare$1$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C17621 extends Lambda implements Function1<a, Unit> {
+        public static final class C17781 extends Lambda implements Function1<a, Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Function1 $next;
             public final /* synthetic */ AnonymousClass1 this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17621(AnonymousClass1 anonymousClass1, Function1 function1) {
+            public C17781(AnonymousClass1 anonymousClass1, Function1 function1) {
                 super(1);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -74,15 +74,15 @@ public final class TaskNoClickTimesCleanMiddleWare$taskNoClickTimesCleanMiddleWa
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2(a aVar) {
-                SubTaskState k2;
+                SubTaskState k;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                     if (((c.a.j.f.c.e.a) (!(aVar instanceof c.a.j.f.c.e.a) ? null : aVar)) != null) {
                         com.baidu.bdtask.ctrl.b bVar = (com.baidu.bdtask.ctrl.b) this.this$0.$getState.invoke();
-                        if (bVar == null || (k2 = bVar.k(((c.a.j.f.c.e.a) aVar).f())) == null) {
+                        if (bVar == null || (k = bVar.k(((c.a.j.f.c.e.a) aVar).f())) == null) {
                             return;
                         }
-                        if (k2.getTaskStatus().isUnRegistered()) {
+                        if (k.getTaskStatus().isUnRegistered()) {
                             DebugTrace.d(DebugTrace.a, "task is in unregistered , do't need to clean no click times", "state", null, 4, null);
                             return;
                         } else {
@@ -127,7 +127,7 @@ public final class TaskNoClickTimesCleanMiddleWare$taskNoClickTimesCleanMiddleWa
         public final Function1<a, Unit> invoke2(Function1<? super a, Unit> function1) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17621(this, function1) : (Function1) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17781(this, function1) : (Function1) invokeL.objValue;
         }
     }
 

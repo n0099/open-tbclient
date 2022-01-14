@@ -15,7 +15,7 @@ public final class b {
     public DatagramPacket a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f11305b;
+    public g f11053b;
 
     public b(DatagramPacket datagramPacket, g udpsocket) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b {
         }
         Intrinsics.checkNotNullParameter(udpsocket, "udpsocket");
         this.a = datagramPacket;
-        this.f11305b = udpsocket;
+        this.f11053b = udpsocket;
     }
 
     public final void a() {
@@ -42,13 +42,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g gVar = this.f11305b;
+                g gVar = this.f11053b;
                 if (gVar == null || (C = gVar.C()) == null) {
                     return;
                 }
                 C.send(this.a);
             } catch (Throwable unused) {
-                g gVar2 = this.f11305b;
+                g gVar2 = this.f11053b;
                 if (gVar2 != null) {
                     gVar2.D(ReturnKeyType.SEND, "send failed");
                 }

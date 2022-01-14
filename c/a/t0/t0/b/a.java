@@ -33,14 +33,14 @@ public class a extends m {
                 return;
             }
         }
-        this.f14531d = R.drawable.icon_pure_post_expression24;
-        this.f14532e = R.drawable.icon_pure_post_expression24_selection;
-        this.f14533f = R.drawable.icon_pure_post_expression64_big;
-        this.f14534g = false;
-        this.f14535h = true;
+        this.f14191d = R.drawable.icon_pure_post_expression24;
+        this.f14192e = R.drawable.icon_pure_post_expression24_selection;
+        this.f14193f = R.drawable.icon_pure_post_expression64_big;
+        this.f14194g = false;
+        this.f14195h = true;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
         emotionTabHost.setShowBigEmotion(z);
-        this.f14538k = emotionTabHost;
+        this.k = emotionTabHost;
         this.m = true;
         this.l = 6;
         this.n = new int[]{1, 34, 35};
@@ -50,7 +50,7 @@ public class a extends m {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ((EmotionTabHost) this.f14538k).setShowUserCollect(z);
+            ((EmotionTabHost) this.k).setShowUserCollect(z);
         }
     }
 
@@ -73,12 +73,12 @@ public class a extends m {
                 return;
             }
         }
-        this.f14531d = R.drawable.icon_pure_post_expression24;
-        this.f14532e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14533f = R.drawable.icon_pure_post_expression64_big;
-        this.f14534g = false;
-        this.f14535h = true;
-        this.f14538k = new EmotionTabHost(context);
+        this.f14191d = R.drawable.icon_pure_post_expression24;
+        this.f14192e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14193f = R.drawable.icon_pure_post_expression64_big;
+        this.f14194g = false;
+        this.f14195h = true;
+        this.k = new EmotionTabHost(context);
         this.m = true;
         this.l = 6;
         this.n = new int[]{1, 34, 35};

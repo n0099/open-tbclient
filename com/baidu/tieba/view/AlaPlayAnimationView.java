@@ -16,13 +16,13 @@ public class AlaPlayAnimationView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f50942e;
+    public ObjectAnimator f49002e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50943f;
+    public boolean f49003f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50944g;
+    public boolean f49004g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
@@ -42,8 +42,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f50943f = false;
-        this.f50944g = false;
+        this.f49003f = false;
+        this.f49004g = false;
         a();
     }
 
@@ -51,12 +51,12 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f, 1.0f);
-            this.f50942e = ofFloat;
+            this.f49002e = ofFloat;
             ofFloat.setRepeatMode(1);
-            this.f50942e.setRepeatCount(-1);
-            this.f50942e.setDuration(700L);
+            this.f49002e.setRepeatCount(-1);
+            this.f49002e.setDuration(700L);
             setVisibility(8);
-            this.f50943f = false;
+            this.f49003f = false;
         }
     }
 
@@ -65,7 +65,7 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            if (this.f50944g) {
+            if (this.f49004g) {
                 startPlayAnimation();
             }
         }
@@ -83,32 +83,32 @@ public class AlaPlayAnimationView extends ImageView {
     public void setAutoStartPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f50944g = z;
+            this.f49004g = z;
         }
     }
 
     public void startPlayAnimation() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f50943f) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f49003f) {
             return;
         }
-        this.f50943f = true;
-        if (this.f50942e != null) {
+        this.f49003f = true;
+        if (this.f49002e != null) {
             setVisibility(0);
-            this.f50942e.start();
+            this.f49002e.start();
         }
     }
 
     public void stopPlayAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ObjectAnimator objectAnimator = this.f50942e;
+            ObjectAnimator objectAnimator = this.f49002e;
             if (objectAnimator != null) {
                 objectAnimator.setRepeatCount(-1);
-                this.f50942e.cancel();
+                this.f49002e.cancel();
                 clearAnimation();
             }
-            this.f50943f = false;
+            this.f49003f = false;
             setVisibility(8);
         }
     }
@@ -132,8 +132,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f50943f = false;
-        this.f50944g = false;
+        this.f49003f = false;
+        this.f49004g = false;
         a();
     }
 }

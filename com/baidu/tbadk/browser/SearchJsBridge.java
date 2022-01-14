@@ -243,7 +243,7 @@ public class SearchJsBridge implements c.a.t0.w3.n0.b {
                 addCookie(jSONObject, "from", TbConfig.getFrom());
                 addCookie(jSONObject, "cfrom", TbConfig.getCurrentFrom());
                 addCookie(jSONObject, "_client_version", TbConfig.getVersion());
-                addCookie(jSONObject, CUID, TbadkCoreApplication.getInst().getCuid());
+                addCookie(jSONObject, "CUID", TbadkCoreApplication.getInst().getCuid());
                 String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
                 addCookie(jSONObject, "shoubai_cuid", cuidGalaxy2);
                 addCookie(jSONObject, "cuid_galaxy2", cuidGalaxy2);

@@ -30,20 +30,20 @@ public class a {
 
     /* renamed from: c.a.r0.a.l1.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0443a implements Runnable {
+    public static class RunnableC0452a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7796e;
+        public final /* synthetic */ Context f7626e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f7797f;
+        public final /* synthetic */ SwanAppActionBar f7627f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7798g;
+        public final /* synthetic */ String f7628g;
 
-        public RunnableC0443a(Context context, SwanAppActionBar swanAppActionBar, String str) {
+        public RunnableC0452a(Context context, SwanAppActionBar swanAppActionBar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,16 +58,16 @@ public class a {
                     return;
                 }
             }
-            this.f7796e = context;
-            this.f7797f = swanAppActionBar;
-            this.f7798g = str;
+            this.f7626e = context;
+            this.f7627f = swanAppActionBar;
+            this.f7628g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.e(this.f7796e, this.f7797f, this.f7798g);
+                a.e(this.f7626e, this.f7627f, this.f7628g);
             }
         }
     }
@@ -78,10 +78,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f7799e;
+        public final /* synthetic */ JSONObject f7629e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f7800f;
+        public final /* synthetic */ SwanAppActionBar f7630f;
 
         public b(JSONObject jSONObject, SwanAppActionBar swanAppActionBar) {
             Interceptable interceptable = $ic;
@@ -98,15 +98,15 @@ public class a {
                     return;
                 }
             }
-            this.f7799e = jSONObject;
-            this.f7800f = swanAppActionBar;
+            this.f7629e = jSONObject;
+            this.f7630f = swanAppActionBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.o(this.f7800f, a.n(this.f7799e));
+                a.o(this.f7630f, a.n(this.f7629e));
             }
         }
     }
@@ -117,16 +117,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7801e;
+        public final /* synthetic */ Context f7631e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f7802f;
+        public final /* synthetic */ n f7632f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f7803g;
+        public final /* synthetic */ SwanAppActionBar f7633g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f7804h;
+        public final /* synthetic */ String f7634h;
 
         public c(Context context, n nVar, SwanAppActionBar swanAppActionBar, String str) {
             Interceptable interceptable = $ic;
@@ -143,17 +143,17 @@ public class a {
                     return;
                 }
             }
-            this.f7801e = context;
-            this.f7802f = nVar;
-            this.f7803g = swanAppActionBar;
-            this.f7804h = str;
+            this.f7631e = context;
+            this.f7632f = nVar;
+            this.f7633g = swanAppActionBar;
+            this.f7634h = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.f(this.f7801e, this.f7802f, this.f7803g, this.f7804h);
+                a.f(this.f7631e, this.f7632f, this.f7633g, this.f7634h);
             }
         }
     }
@@ -164,13 +164,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f7805e;
+        public final /* synthetic */ JSONArray f7635e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f7806f;
+        public final /* synthetic */ n f7636f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f7807g;
+        public final /* synthetic */ SwanAppActionBar f7637g;
 
         public d(JSONArray jSONArray, n nVar, SwanAppActionBar swanAppActionBar) {
             Interceptable interceptable = $ic;
@@ -187,31 +187,31 @@ public class a {
                     return;
                 }
             }
-            this.f7805e = jSONArray;
-            this.f7806f = nVar;
-            this.f7807g = swanAppActionBar;
+            this.f7635e = jSONArray;
+            this.f7636f = nVar;
+            this.f7637g = swanAppActionBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray jSONArray = this.f7805e;
+                JSONArray jSONArray = this.f7635e;
                 int length = jSONArray == null ? 0 : jSONArray.length();
                 if (length == 0) {
                     return;
                 }
                 for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = this.f7805e.optJSONObject(i2);
+                    JSONObject optJSONObject = this.f7635e.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        this.f7806f.C(optJSONObject);
+                        this.f7636f.C(optJSONObject);
                         a.d(optJSONObject);
                     }
                 }
-                this.f7806f.n();
+                this.f7636f.n();
                 e a0 = e.a0();
                 if (a0 != null) {
-                    a.o(this.f7807g, a0.T().d("key_unread_counts_message", 0).intValue());
+                    a.o(this.f7637g, a0.T().d("key_unread_counts_message", 0).intValue());
                 }
             }
         }
@@ -314,7 +314,7 @@ public class a {
     public static void k(Context context, SwanAppActionBar swanAppActionBar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, context, swanAppActionBar, str) == null) {
-            c.a.r0.a.u1.k.i.c.e().d(new RunnableC0443a(context, swanAppActionBar, str), "getRefreshTips", true);
+            c.a.r0.a.u1.k.i.c.e().d(new RunnableC0452a(context, swanAppActionBar, str), "getRefreshTips", true);
         }
     }
 

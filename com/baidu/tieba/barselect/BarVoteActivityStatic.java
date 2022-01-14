@@ -1,7 +1,7 @@
 package com.baidu.tieba.barselect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -199,7 +199,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g2 = c.a.d.f.m.b.g(w0.c(str, "fid="), 0L);
+                        long g2 = c.a.d.f.m.b.g(v0.c(str, "fid="), 0L);
                         if (g2 != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g2, 4)));
                             return 0;
@@ -239,7 +239,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g2 = c.a.d.f.m.b.g(w0.c(str, "fid="), 0L);
+                        long g2 = c.a.d.f.m.b.g(v0.c(str, "fid="), 0L);
                         if (g2 != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g2, 25042)));
                             return 0;

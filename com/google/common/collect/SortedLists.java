@@ -442,16 +442,16 @@ public final class SortedLists {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static <E, K extends Comparable> int a(List<E> list, g<? super E, K> gVar, K k2, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
+    public static <E, K extends Comparable> int a(List<E> list, g<? super E, K> gVar, K k, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, list, gVar, k2, keyPresentBehavior, keyAbsentBehavior)) == null) ? b(list, gVar, k2, Ordering.natural(), keyPresentBehavior, keyAbsentBehavior) : invokeLLLLL.intValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, list, gVar, k, keyPresentBehavior, keyAbsentBehavior)) == null) ? b(list, gVar, k, Ordering.natural(), keyPresentBehavior, keyAbsentBehavior) : invokeLLLLL.intValue;
     }
 
-    public static <E, K> int b(List<E> list, g<? super E, K> gVar, K k2, Comparator<? super K> comparator, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
+    public static <E, K> int b(List<E> list, g<? super E, K> gVar, K k, Comparator<? super K> comparator, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, gVar, k2, comparator, keyPresentBehavior, keyAbsentBehavior})) == null) ? c(Lists.n(list, gVar), k2, comparator, keyPresentBehavior, keyAbsentBehavior) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, gVar, k, comparator, keyPresentBehavior, keyAbsentBehavior})) == null) ? c(Lists.n(list, gVar), k, comparator, keyPresentBehavior, keyAbsentBehavior) : invokeCommon.intValue;
     }
 
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: E, ? super E */

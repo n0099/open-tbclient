@@ -15,16 +15,16 @@ import kotlin.jvm.internal.Lambda;
 public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a.b.RunnableC1767a this$0;
+    public final /* synthetic */ a.b.RunnableC1783a this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskRepo$finishReq$5$onFail$1$1(a.b.RunnableC1767a runnableC1767a) {
+    public TaskRepo$finishReq$5$onFail$1$1(a.b.RunnableC1783a runnableC1783a) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {runnableC1767a};
+            Object[] objArr = {runnableC1783a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,7 +35,7 @@ public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Fun
                 return;
             }
         }
-        this.this$0 = runnableC1767a;
+        this.this$0 = runnableC1783a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Fun
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("request fail:");
-            Exception exc = this.this$0.f34045f;
+            Exception exc = this.this$0.f32959f;
             sb.append(exc != null ? exc.getMessage() : null);
             return sb.toString();
         }

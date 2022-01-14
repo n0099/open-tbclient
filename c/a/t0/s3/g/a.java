@@ -16,7 +16,7 @@ public class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f24152c;
+    public static final String f23477c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class a extends d {
                 return;
             }
         }
-        f24152c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+        f23477c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
     }
 
     public a() {
@@ -55,7 +55,7 @@ public class a extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             NetWork netWork = this.a;
             if (netWork != null) {
-                return netWork.getNetContext().getStat().stat.f2817c;
+                return netWork.getNetContext().getStat().stat.f2794c;
             }
             return 0L;
         }
@@ -68,7 +68,7 @@ public class a extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             NetWork netWork = this.a;
             if (netWork != null) {
-                return netWork.getNetContext().getStat().stat.f2818d;
+                return netWork.getNetContext().getStat().stat.f2795d;
             }
             return 0L;
         }
@@ -79,7 +79,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(f24152c);
+            f(f23477c);
             return d();
         }
         return (String) invokeV.objValue;

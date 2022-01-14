@@ -28,10 +28,10 @@ public class ReportUserInfoModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47764e;
+    public b f45987e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f47765f;
+    public final HttpMessageListener f45988f;
     public long timeInterval;
 
     /* loaded from: classes12.dex */
@@ -65,12 +65,12 @@ public class ReportUserInfoModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && this.a.f47764e != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && this.a.f45987e != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    this.a.f47764e.b(responseReportUserInfoMessage.getTimeInterval());
+                    this.a.f45987e.b(responseReportUserInfoMessage.getTimeInterval());
                 } else {
-                    this.a.f47764e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+                    this.a.f45987e.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
                 }
             }
         }
@@ -102,7 +102,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             }
         }
         this.timeInterval = 300000L;
-        this.f47765f = new a(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.f45988f = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     public void A() {
@@ -122,7 +122,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f47764e = bVar;
+            this.f45987e = bVar;
         }
     }
 
@@ -149,7 +149,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47765f);
+            MessageManager.getInstance().unRegisterListener(this.f45988f);
         }
     }
 
@@ -166,7 +166,7 @@ public class ReportUserInfoModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
             tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            messageManager.registerListener(this.f47765f);
+            messageManager.registerListener(this.f45988f);
         }
     }
 

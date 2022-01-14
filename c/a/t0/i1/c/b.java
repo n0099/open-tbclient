@@ -35,28 +35,28 @@ public class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f18624b;
+    public BaseActivity f18160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f18625c;
+    public boolean f18161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18626d;
+    public int f18162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f18627e;
+    public List<n> f18163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18628f;
+    public int f18164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<MetaData> f18629g;
+    public LongSparseArray<MetaData> f18165g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f18630h;
+    public c.a.d.c.g.a f18166h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f18631i;
+    public CustomMessageListener f18167i;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.d.c.g.a {
@@ -94,23 +94,23 @@ public class b {
             }
             if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                 GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                this.a.a.a(this.a.f(godSquareHttpResponsedMsg.getResult()), this.a.f18625c, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                this.a.a.a(this.a.f(godSquareHttpResponsedMsg.getResult()), this.a.f18161c, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
             } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                 GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                this.a.a.a(this.a.f(godSquareSocketResponsedMsg.getResult()), this.a.f18625c, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                this.a.a.a(this.a.f(godSquareSocketResponsedMsg.getResult()), this.a.f18161c, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
             }
         }
     }
 
     /* renamed from: c.a.t0.i1.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1120b extends CustomMessageListener {
+    public class C1134b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1120b(b bVar, int i2) {
+        public C1134b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -145,7 +145,7 @@ public class b {
             if (godSquareCacheResponsedMsg.getResult() == null || ListUtils.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
                 this.a.i(1);
             } else {
-                this.a.a.a(this.a.f(godSquareCacheResponsedMsg.getResult()), this.a.f18625c, true, godSquareCacheResponsedMsg.getErrorString());
+                this.a.a.a(this.a.f(godSquareCacheResponsedMsg.getResult()), this.a.f18161c, true, godSquareCacheResponsedMsg.getErrorString());
             }
         }
     }
@@ -170,28 +170,28 @@ public class b {
                 return;
             }
         }
-        this.f18626d = 0;
-        this.f18627e = new ArrayList();
-        this.f18628f = 1;
-        this.f18630h = new a(this, CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
-        this.f18631i = new C1120b(this, 2016446);
+        this.f18162d = 0;
+        this.f18163e = new ArrayList();
+        this.f18164f = 1;
+        this.f18166h = new a(this, CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
+        this.f18167i = new C1134b(this, 2016446);
         this.a = cVar;
-        this.f18624b = baseActivity;
+        this.f18160b = baseActivity;
         k();
     }
 
     public final void e(List<User> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.f18629g == null) {
-                this.f18629g = new LongSparseArray<>();
+            if (this.f18165g == null) {
+                this.f18165g = new LongSparseArray<>();
             }
             for (User user : list) {
                 h hVar = new h();
                 MetaData metaData = new MetaData();
-                hVar.f18239e = metaData;
+                hVar.f17794e = metaData;
                 metaData.parserProtobuf(user);
-                this.f18629g.put(user.id.longValue(), hVar.f18239e);
+                this.f18165g.put(user.id.longValue(), hVar.f17794e);
             }
         }
     }
@@ -209,18 +209,18 @@ public class b {
             e(dataRes.user_list);
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
-            if (!ListUtils.isEmpty(dataRes.recommend_uid_list) && this.f18625c) {
+            if (!ListUtils.isEmpty(dataRes.recommend_uid_list) && this.f18161c) {
                 for (Long l : dataRes.recommend_uid_list) {
-                    if (l != null && (metaData2 = this.f18629g.get(l.longValue())) != null) {
+                    if (l != null && (metaData2 = this.f18165g.get(l.longValue())) != null) {
                         h hVar = new h();
-                        hVar.f18239e = metaData2;
-                        hVar.f18240f = 1;
+                        hVar.f17794e = metaData2;
+                        hVar.f17795f = 1;
                         arrayList2.add(hVar);
                     }
                 }
-                if (this.f18624b != null && !ListUtils.isEmpty(arrayList2)) {
+                if (this.f18160b != null && !ListUtils.isEmpty(arrayList2)) {
                     e eVar = new e();
-                    eVar.f18266e = this.f18624b.getResources().getString(R.string.special_recommend);
+                    eVar.f17819e = this.f18160b.getResources().getString(R.string.special_recommend);
                     eVar.needTopMargin = false;
                     arrayList2.add(0, eVar);
                 }
@@ -228,18 +228,18 @@ public class b {
             }
             if (!ListUtils.isEmpty(dataRes.hot_uid_list)) {
                 for (Long l2 : dataRes.hot_uid_list) {
-                    if (l2 != null && (metaData = this.f18629g.get(l2.longValue())) != null) {
+                    if (l2 != null && (metaData = this.f18165g.get(l2.longValue())) != null) {
                         h hVar2 = new h();
-                        hVar2.f18239e = metaData;
-                        hVar2.f18240f = 0;
-                        hVar2.f18241g = this.f18628f;
+                        hVar2.f17794e = metaData;
+                        hVar2.f17795f = 0;
+                        hVar2.f17796g = this.f18164f;
                         arrayList3.add(hVar2);
-                        this.f18628f++;
+                        this.f18164f++;
                     }
                 }
-                if (this.f18624b != null && !ListUtils.isEmpty(arrayList3) && this.f18625c) {
+                if (this.f18160b != null && !ListUtils.isEmpty(arrayList3) && this.f18161c) {
                     e eVar2 = new e();
-                    eVar2.f18266e = this.f18624b.getResources().getString(R.string.hot_god);
+                    eVar2.f17819e = this.f18160b.getResources().getString(R.string.hot_god);
                     if (ListUtils.isEmpty(arrayList2)) {
                         eVar2.needTopMargin = false;
                     } else {
@@ -258,7 +258,7 @@ public class b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            LongSparseArray<MetaData> longSparseArray = this.f18629g;
+            LongSparseArray<MetaData> longSparseArray = this.f18165g;
             return (longSparseArray == null || longSparseArray.get(j2) == null) ? false : true;
         }
         return invokeJ.booleanValue;
@@ -266,48 +266,48 @@ public class b {
 
     public final void h(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f18624b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f18160b == null) {
             return;
         }
         GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
         godSquareCacheRequestMsg.cacheKey = i2 + "";
-        this.f18624b.sendMessage(godSquareCacheRequestMsg);
+        this.f18160b.sendMessage(godSquareCacheRequestMsg);
     }
 
     public final void i(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f18624b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f18160b == null) {
             return;
         }
-        this.f18626d = i2;
+        this.f18162d = i2;
         GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
         godSquareRequestMsg.pn = i2;
-        this.f18624b.sendMessage(godSquareRequestMsg);
+        this.f18160b.sendMessage(godSquareRequestMsg);
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f18625c = false;
-            i(this.f18626d + 1);
+            this.f18161c = false;
+            i(this.f18162d + 1);
         }
     }
 
     public final void k() {
         BaseActivity baseActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (baseActivity = this.f18624b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (baseActivity = this.f18160b) == null) {
             return;
         }
-        baseActivity.registerListener(this.f18631i);
-        this.f18624b.registerListener(this.f18630h);
+        baseActivity.registerListener(this.f18167i);
+        this.f18160b.registerListener(this.f18166h);
     }
 
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f18628f = 1;
-            this.f18625c = true;
+            this.f18164f = 1;
+            this.f18161c = true;
             if (l.A()) {
                 i(1);
             } else {

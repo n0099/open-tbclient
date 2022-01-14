@@ -49,10 +49,10 @@ public class z {
         public final /* synthetic */ TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f19017b;
+        public final /* synthetic */ int f18536b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ float f19018c;
+        public final /* synthetic */ float f18537c;
 
         public a(TbImageView tbImageView, int i2, float f2) {
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class z {
                 }
             }
             this.a = tbImageView;
-            this.f19017b = i2;
-            this.f19018c = f2;
+            this.f18536b = i2;
+            this.f18537c = f2;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
@@ -81,8 +81,8 @@ public class z {
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || (layoutParams = this.a.getLayoutParams()) == null) {
                 return;
             }
-            layoutParams.height = this.f19017b;
-            float f2 = this.f19018c;
+            layoutParams.height = this.f18536b;
+            float f2 = this.f18537c;
             if (f2 <= 0.0f) {
                 f2 = 2.0f;
             }
@@ -387,7 +387,7 @@ public class z {
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             if (TextUtils.isEmpty(str)) {
-                c.a.d.f.p.n.L(inst, R.string.download_error);
+                c.a.d.f.p.n.M(inst, R.string.download_error);
                 return false;
             }
             File d2 = b.d(str);

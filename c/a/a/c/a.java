@@ -24,21 +24,21 @@ public class a implements d.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f1063f;
+    public static a f1062f;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.a.b.d f1064b;
+    public b.a.a.b.d f1063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f1065c;
+    public ExecutorService f1064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.a.c.c.c f1066d;
+    public c.a.a.c.c.c f1065d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f1067e;
+    public Handler f1066e;
 
     /* renamed from: c.a.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -47,10 +47,10 @@ public class a implements d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f1068e;
+        public final /* synthetic */ String f1067e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f1069f;
+        public final /* synthetic */ a f1068f;
 
         public RunnableC0007a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class a implements d.a {
                     return;
                 }
             }
-            this.f1069f = aVar;
-            this.f1068e = str;
+            this.f1068f = aVar;
+            this.f1067e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f1069f.a.containsKey(this.f1068e)) {
-                this.f1069f.a.remove(this.f1068e);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f1068f.a.containsKey(this.f1067e)) {
+                this.f1068f.a.remove(this.f1067e);
             }
         }
     }
@@ -86,9 +86,48 @@ public class a implements d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1070e;
+        public final /* synthetic */ a f1069e;
 
         public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1069e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (d dVar : this.f1069e.a.values()) {
+                    if (dVar != null && dVar.isRunning()) {
+                        dVar.pause();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a f1070e;
+
+        public c(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,45 +151,6 @@ public class a implements d.a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 for (d dVar : this.f1070e.a.values()) {
                     if (dVar != null && dVar.isRunning()) {
-                        dVar.pause();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1071e;
-
-        public c(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1071e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (d dVar : this.f1071e.a.values()) {
-                    if (dVar != null && dVar.isRunning()) {
                         dVar.cancel();
                     }
                 }
@@ -171,7 +171,7 @@ public class a implements d.a {
                 return;
             }
         }
-        this.f1067e = new Handler(Looper.getMainLooper());
+        this.f1066e = new Handler(Looper.getMainLooper());
         this.a = new LinkedHashMap();
         j(new b.a.a.b.d());
     }
@@ -180,14 +180,14 @@ public class a implements d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1063f == null) {
+            if (f1062f == null) {
                 synchronized (a.class) {
-                    if (f1063f == null) {
-                        f1063f = new a();
+                    if (f1062f == null) {
+                        f1062f = new a();
                     }
                 }
             }
-            return f1063f;
+            return f1062f;
         }
         return (a) invokeV.objValue;
     }
@@ -196,7 +196,7 @@ public class a implements d.a {
     public void a(String str, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
-            this.f1067e.post(new RunnableC0007a(this, str));
+            this.f1066e.post(new RunnableC0007a(this, str));
         }
     }
 
@@ -217,7 +217,7 @@ public class a implements d.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1067e.post(new c(this));
+            this.f1066e.post(new c(this));
         }
     }
 
@@ -246,7 +246,7 @@ public class a implements d.a {
             if (k(e2)) {
                 return;
             }
-            g gVar = new g(bVar, new b.a.a.b.c.a(this.f1066d, aVar), this.f1065c, e2, this.f1064b, this);
+            g gVar = new g(bVar, new b.a.a.b.c.a(this.f1065d, aVar), this.f1064c, e2, this.f1063b, this);
             this.a.put(e2, gVar);
             gVar.start();
         }
@@ -259,7 +259,7 @@ public class a implements d.a {
             if (k(e2)) {
                 return;
             }
-            g gVar = new g(bVar, new b.a.a.b.c.a(cVar, aVar), this.f1065c, e2, this.f1064b, this);
+            g gVar = new g(bVar, new b.a.a.b.c.a(cVar, aVar), this.f1064c, e2, this.f1063b, this);
             this.a.put(e2, gVar);
             gVar.start();
         }
@@ -285,9 +285,9 @@ public class a implements d.a {
             int i2 = dVar.f1042b;
             int i3 = dVar.a;
             if (i2 <= i3) {
-                this.f1064b = dVar;
-                this.f1065c = Executors.newFixedThreadPool(i3);
-                this.f1066d = new h(this.f1067e);
+                this.f1063b = dVar;
+                this.f1064c = Executors.newFixedThreadPool(i3);
+                this.f1065d = new h(this.f1066e);
                 return;
             }
             throw new IllegalArgumentException("thread num must < max thread num");
@@ -343,7 +343,7 @@ public class a implements d.a {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f1067e.post(new b(this));
+            this.f1066e.post(new b(this));
         }
     }
 }

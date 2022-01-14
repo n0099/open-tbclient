@@ -27,10 +27,10 @@ public class a extends BaseBean<String> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f52454b;
+    public byte[] f50432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f52455c;
+    public byte[] f50433c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str, byte[] bArr, byte[] bArr2) {
@@ -51,8 +51,8 @@ public class a extends BaseBean<String> {
             }
         }
         this.a = str;
-        this.f52454b = bArr;
-        this.f52455c = bArr2;
+        this.f50432b = bArr;
+        this.f50433c = bArr2;
     }
 
     private String a(byte[] bArr, String str) {
@@ -88,11 +88,11 @@ public class a extends BaseBean<String> {
             if (!TextUtils.isEmpty(this.a)) {
                 arrayList.add(new RestNameValuePair(AdvanceSetting.CLEAR_NOTIFICATION, SecurePay.getInstance().encryptProxy(this.a)));
             }
-            byte[] bArr = this.f52454b;
+            byte[] bArr = this.f50432b;
             if (bArr != null && bArr.length > 0) {
                 arrayList.add(new RestNameValuePair("cni", a(bArr, a)));
             }
-            byte[] bArr2 = this.f52455c;
+            byte[] bArr2 = this.f50433c;
             if (bArr2 != null && bArr2.length > 0) {
                 arrayList.add(new RestNameValuePair("ci", a(bArr2, a)));
             }

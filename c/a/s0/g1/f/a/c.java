@@ -16,7 +16,7 @@ public class c {
     public SparseArray<WeakReference<View>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f12884b;
+    public View f12575b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(View view) {
@@ -42,7 +42,7 @@ public class c {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12884b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12575b : (View) invokeV.objValue;
     }
 
     public <T extends View> T b(int i2) {
@@ -51,7 +51,7 @@ public class c {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             WeakReference<View> weakReference = this.a.get(i2);
             if (weakReference == null) {
-                T t = (T) this.f12884b.findViewById(i2);
+                T t = (T) this.f12575b.findViewById(i2);
                 if (t != null) {
                     this.a.put(i2, new WeakReference<>(t));
                     return t;
@@ -67,7 +67,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            this.f12884b.setOnClickListener(onClickListener);
+            this.f12575b.setOnClickListener(onClickListener);
             return this;
         }
         return (c) invokeL.objValue;
@@ -88,7 +88,7 @@ public class c {
                 return;
             }
         }
-        this.f12884b = view;
+        this.f12575b = view;
         this.a = new SparseArray<>();
     }
 }

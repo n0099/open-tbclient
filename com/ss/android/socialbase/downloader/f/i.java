@@ -12,59 +12,59 @@ public final class i {
     public volatile m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62375b;
+    public int f60023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f62376c;
+    public final long f60024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicLong f62377d;
+    public final AtomicLong f60025d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile long f62378e;
+    public volatile long f60026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f62379f;
+    public long f60027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62380g;
+    public int f60028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f62381h;
+    public JSONObject f60029h;
 
     public i(long j2, long j3) {
         AtomicLong atomicLong = new AtomicLong();
-        this.f62377d = atomicLong;
-        this.f62375b = 0;
-        this.f62376c = j2;
+        this.f60025d = atomicLong;
+        this.f60023b = 0;
+        this.f60024c = j2;
         atomicLong.set(j2);
-        this.f62378e = j2;
+        this.f60026e = j2;
         if (j3 >= j2) {
-            this.f62379f = j3;
+            this.f60027f = j3;
         } else {
-            this.f62379f = -1L;
+            this.f60027f = -1L;
         }
     }
 
     public long a() {
-        return this.f62377d.get() - this.f62376c;
+        return this.f60025d.get() - this.f60024c;
     }
 
     public long b() {
-        long j2 = this.f62379f;
-        if (j2 >= this.f62376c) {
+        long j2 = this.f60027f;
+        if (j2 >= this.f60024c) {
             return (j2 - e()) + 1;
         }
         return -1L;
     }
 
     public long c() {
-        return this.f62376c;
+        return this.f60024c;
     }
 
     public long d() {
-        long j2 = this.f62377d.get();
-        long j3 = this.f62379f;
+        long j2 = this.f60025d.get();
+        long j3 = this.f60027f;
         if (j3 > 0) {
             long j4 = j3 + 1;
             if (j2 > j4) {
@@ -78,91 +78,91 @@ public final class i {
         m mVar = this.a;
         if (mVar != null) {
             long d2 = mVar.d();
-            if (d2 > this.f62378e) {
+            if (d2 > this.f60026e) {
                 return d2;
             }
         }
-        return this.f62378e;
+        return this.f60026e;
     }
 
     public long f() {
-        return this.f62379f;
+        return this.f60027f;
     }
 
     public int g() {
-        return this.f62380g;
+        return this.f60028g;
     }
 
     public void h() {
-        this.f62375b++;
+        this.f60023b++;
     }
 
     public void i() {
-        this.f62375b--;
+        this.f60023b--;
     }
 
     public int j() {
-        return this.f62375b;
+        return this.f60023b;
     }
 
     public JSONObject k() throws JSONException {
-        JSONObject jSONObject = this.f62381h;
+        JSONObject jSONObject = this.f60029h;
         if (jSONObject == null) {
             jSONObject = new JSONObject();
-            this.f62381h = jSONObject;
+            this.f60029h = jSONObject;
         }
         jSONObject.put("st", c());
-        jSONObject.put(com.baidu.fsg.base.statistics.k.f34934b, d());
+        jSONObject.put(com.baidu.fsg.base.statistics.k.f33808b, d());
         jSONObject.put(com.baidu.fsg.base.statistics.h.a, f());
         return jSONObject;
     }
 
     public String toString() {
-        return "Segment{startOffset=" + this.f62376c + ",\t currentOffset=" + this.f62377d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f62379f + ExtendedMessageFormat.END_FE;
+        return "Segment{startOffset=" + this.f60024c + ",\t currentOffset=" + this.f60025d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f60027f + ExtendedMessageFormat.END_FE;
     }
 
     public void a(long j2) {
-        long j3 = this.f62376c;
+        long j3 = this.f60024c;
         if (j2 < j3) {
             j2 = j3;
         }
-        long j4 = this.f62379f;
+        long j4 = this.f60027f;
         if (j4 > 0) {
             long j5 = j4 + 1;
             if (j2 > j5) {
                 j2 = j5;
             }
         }
-        this.f62377d.set(j2);
+        this.f60025d.set(j2);
     }
 
     public void c(long j2) {
-        if (j2 >= this.f62376c) {
-            this.f62379f = j2;
+        if (j2 >= this.f60024c) {
+            this.f60027f = j2;
             return;
         }
         String str = "setEndOffset: endOffset = " + j2 + ", segment = " + this;
         if (j2 == -1) {
-            this.f62379f = j2;
+            this.f60027f = j2;
         }
     }
 
     public void b(long j2) {
-        this.f62377d.addAndGet(j2);
+        this.f60025d.addAndGet(j2);
     }
 
     public void d(long j2) {
-        if (j2 >= this.f62377d.get()) {
-            this.f62378e = j2;
+        if (j2 >= this.f60025d.get()) {
+            this.f60026e = j2;
         }
     }
 
     public void b(int i2) {
-        this.f62375b = i2;
+        this.f60023b = i2;
     }
 
     public void a(int i2) {
-        this.f62380g = i2;
+        this.f60028g = i2;
     }
 
     public static String a(List<i> list) {
@@ -187,21 +187,21 @@ public final class i {
 
     public i(i iVar) {
         AtomicLong atomicLong = new AtomicLong();
-        this.f62377d = atomicLong;
-        this.f62375b = 0;
-        this.f62376c = iVar.f62376c;
-        this.f62379f = iVar.f62379f;
-        atomicLong.set(iVar.f62377d.get());
-        this.f62378e = this.f62377d.get();
-        this.f62380g = iVar.f62380g;
+        this.f60025d = atomicLong;
+        this.f60023b = 0;
+        this.f60024c = iVar.f60024c;
+        this.f60027f = iVar.f60027f;
+        atomicLong.set(iVar.f60025d.get());
+        this.f60026e = this.f60025d.get();
+        this.f60028g = iVar.f60028g;
     }
 
     public i(JSONObject jSONObject) {
-        this.f62377d = new AtomicLong();
-        this.f62375b = 0;
-        this.f62376c = jSONObject.optLong("st");
+        this.f60025d = new AtomicLong();
+        this.f60023b = 0;
+        this.f60024c = jSONObject.optLong("st");
         c(jSONObject.optLong(com.baidu.fsg.base.statistics.h.a));
-        a(jSONObject.optLong(com.baidu.fsg.base.statistics.k.f34934b));
+        a(jSONObject.optLong(com.baidu.fsg.base.statistics.k.f33808b));
         d(d());
     }
 }

@@ -169,7 +169,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (1 == type) {
             a aVar = new a();
             aVar.a = this;
-            aVar.f22273b = baseResp;
+            aVar.f21662b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

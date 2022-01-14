@@ -13,10 +13,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13094b;
+    public String f12773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13095c;
+    public String f12774c;
 
     public a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class a {
             }
         }
         this.a = str;
-        this.f13094b = str2;
-        this.f13095c = str3;
+        this.f12773b = str2;
+        this.f12774c = str3;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13095c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12774c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13094b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12773b : (String) invokeV.objValue;
     }
 
     public String c() {

@@ -11,6 +11,9 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.LogoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,27 +25,27 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f16055h;
+    public static volatile d f15646h;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f16056b;
+    public boolean f15647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.l.c f16057c;
+    public c.a.s0.l.c f15648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f16058d;
+    public CustomMessageListener f15649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f16059e;
+    public CustomMessageListener f15650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f16060f;
+    public CustomMessageListener f15651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f16061g;
+    public CustomMessageListener f15652g;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -155,7 +158,15 @@ public class d {
             if (data.getClass().getSimpleName().equals(LoginActivity.E) || (data instanceof LogoActivity)) {
                 return;
             }
-            if (this.a.f()) {
+            boolean f2 = this.a.f();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (currentTimeMillis - this.a.a > 5) {
+                new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", f2 ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a.a).param(TiebaStatic.Params.OBJ_PARAM3, c.a.s0.s.y.a.f13676b ? 1 : 0).eventStat();
+                if (c.a.s0.s.y.a.f13676b) {
+                    c.a.s0.s.y.a.f13676b = false;
+                }
+            }
+            if (f2) {
                 if (data instanceof BaseActivity) {
                     BaseActivity baseActivity = (BaseActivity) data;
                     Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
@@ -178,13 +189,13 @@ public class d {
 
     /* renamed from: c.a.t0.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0988d extends CustomMessageListener {
+    public class C1001d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0988d(d dVar, int i2) {
+        public C1001d(d dVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -214,7 +225,7 @@ public class d {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
                         d dVar = this.a;
-                        dVar.f16056b = currentTimeMillis - dVar.a <= 1;
+                        dVar.f15647b = currentTimeMillis - dVar.a <= 1;
                     }
                 }
             }
@@ -234,15 +245,15 @@ public class d {
                 return;
             }
         }
-        this.f16058d = new a(this, 2016522);
-        this.f16059e = new b(this, 2016521);
-        this.f16060f = new c(this, 2016520);
-        this.f16061g = new C0988d(this, 2016523);
-        this.f16056b = false;
-        MessageManager.getInstance().registerListener(this.f16059e);
-        MessageManager.getInstance().registerListener(this.f16060f);
-        MessageManager.getInstance().registerListener(this.f16058d);
-        MessageManager.getInstance().registerListener(this.f16061g);
+        this.f15649d = new a(this, 2016522);
+        this.f15650e = new b(this, 2016521);
+        this.f15651f = new c(this, 2016520);
+        this.f15652g = new C1001d(this, 2016523);
+        this.f15647b = false;
+        MessageManager.getInstance().registerListener(this.f15650e);
+        MessageManager.getInstance().registerListener(this.f15651f);
+        MessageManager.getInstance().registerListener(this.f15649d);
+        MessageManager.getInstance().registerListener(this.f15652g);
         if (y.q().n() != null) {
             y.q().n().c();
         }
@@ -252,14 +263,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f16055h == null) {
+            if (f15646h == null) {
                 synchronized (d.class) {
-                    if (f16055h == null) {
-                        f16055h = new d();
+                    if (f15646h == null) {
+                        f15646h = new d();
                     }
                 }
             }
-            return f16055h;
+            return f15646h;
         }
         return (d) invokeV.objValue;
     }
@@ -278,8 +289,8 @@ public class d {
             int h2 = h();
             int i2 = i();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.f16056b) {
-                this.f16056b = false;
+            if (this.f15647b) {
+                this.f15647b = false;
                 return false;
             }
             long j2 = this.a;
@@ -297,10 +308,10 @@ public class d {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f16057c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
-                this.f16057c = (c.a.s0.l.c) runTask.getData();
+            if (this.f15648c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
+                this.f15648c = (c.a.s0.l.c) runTask.getData();
             }
-            c.a.s0.l.c cVar = this.f16057c;
+            c.a.s0.l.c cVar = this.f15648c;
             if (cVar != null) {
                 return (int) (cVar.a() * 60.0f);
             }
@@ -322,10 +333,10 @@ public class d {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f16057c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
-                this.f16057c = (c.a.s0.l.c) runTask.getData();
+            if (this.f15648c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
+                this.f15648c = (c.a.s0.l.c) runTask.getData();
             }
-            c.a.s0.l.c cVar = this.f16057c;
+            c.a.s0.l.c cVar = this.f15648c;
             if (cVar != null) {
                 return cVar.b();
             }

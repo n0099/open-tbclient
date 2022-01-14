@@ -18,11 +18,11 @@ public class l0 extends BaseCardInfo implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f13761f;
+    public static final BdUniqueId f13449f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<m> f13762e;
+    public List<m> f13450e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class l0 extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        f13761f = BdUniqueId.gen();
+        f13449f = BdUniqueId.gen();
     }
 
     public l0() {
@@ -53,14 +53,14 @@ public class l0 extends BaseCardInfo implements c.a.d.n.e.n {
                 return;
             }
         }
-        this.f13762e = new ArrayList();
+        this.f13450e = new ArrayList();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13761f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13449f : (BdUniqueId) invokeV.objValue;
     }
 
     public void parserProtobuf(List<BannerImage> list) {
@@ -68,12 +68,12 @@ public class l0 extends BaseCardInfo implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
             return;
         }
-        this.f13762e.clear();
+        this.f13450e.clear();
         int min = Math.min(list.size(), 10);
         for (int i2 = 0; i2 < min; i2++) {
             m mVar = new m();
             mVar.f(list.get(i2));
-            this.f13762e.add(mVar);
+            this.f13450e.add(mVar);
         }
     }
 }

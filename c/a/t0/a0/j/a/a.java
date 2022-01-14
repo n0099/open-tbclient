@@ -24,22 +24,22 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15220e;
+    public TbPageContext f14844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<AlaSquareTabInfo> f15221f;
+    public ArrayList<AlaSquareTabInfo> f14845f;
 
     /* renamed from: c.a.t0.a0.j.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0927a {
+    public class C0940a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f15222b;
+        public TextView f14846b;
 
-        public C0927a(a aVar) {
+        public C0940a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,19 +71,19 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f15220e = tbPageContext;
+        this.f14844e = tbPageContext;
     }
 
     public ArrayList<AlaSquareTabInfo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15221f : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14845f : (ArrayList) invokeV.objValue;
     }
 
     public void b(ArrayList<AlaSquareTabInfo> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f15221f = arrayList;
+            this.f14845f = arrayList;
         }
     }
 
@@ -92,10 +92,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.f15221f)) {
+            if (ListUtils.isEmpty(this.f14845f)) {
                 return 0;
             }
-            return this.f15221f.size();
+            return this.f14845f.size();
         }
         return invokeV.intValue;
     }
@@ -105,10 +105,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (ListUtils.isEmpty(this.f15221f)) {
+            if (ListUtils.isEmpty(this.f14845f)) {
                 return null;
             }
-            return this.f15221f.get(i2);
+            return this.f14845f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -124,28 +124,28 @@ public class a extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         View view2;
-        C0927a c0927a;
+        C0940a c0940a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                c0927a = new C0927a(this);
-                view2 = LayoutInflater.from(this.f15220e.getPageActivity()).inflate(R.layout.ala_all_game_entry_item, (ViewGroup) null);
+                c0940a = new C0940a(this);
+                view2 = LayoutInflater.from(this.f14844e.getPageActivity()).inflate(R.layout.ala_all_game_entry_item, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.cover);
-                c0927a.a = tbImageView;
+                c0940a.a = tbImageView;
                 tbImageView.setDrawerType(1);
-                c0927a.a.setDefaultResource(R.drawable.ala_all_game_default_icon);
-                c0927a.a.setDefaultBgResource(R.color.transparent);
-                c0927a.a.setRadius(this.f15220e.getResources().getDimensionPixelSize(R.dimen.ds20));
+                c0940a.a.setDefaultResource(R.drawable.ala_all_game_default_icon);
+                c0940a.a.setDefaultBgResource(R.color.transparent);
+                c0940a.a.setRadius(this.f14844e.getResources().getDimensionPixelSize(R.dimen.ds20));
                 TextView textView = (TextView) view2.findViewById(R.id.title);
-                c0927a.f15222b = textView;
+                c0940a.f14846b = textView;
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
-                view2.setTag(c0927a);
+                view2.setTag(c0940a);
             } else {
                 view2 = view;
-                c0927a = (C0927a) view.getTag();
+                c0940a = (C0940a) view.getTag();
             }
-            c0927a.a.startLoad(this.f15221f.get(i2).iconUrl, 10, false);
-            c0927a.f15222b.setText(this.f15221f.get(i2).name);
+            c0940a.a.startLoad(this.f14845f.get(i2).iconUrl, 10, false);
+            c0940a.f14846b.setText(this.f14845f.get(i2).name);
             return view2;
         }
         return (View) invokeILL.objValue;

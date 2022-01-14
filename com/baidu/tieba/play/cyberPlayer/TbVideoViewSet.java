@@ -23,12 +23,12 @@ public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static TbVideoViewSet f49189c;
+    public static TbVideoViewSet f47340c;
     public transient /* synthetic */ FieldHolder $fh;
     public LRULinkedHashMap<String, TbVideoViewContainer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f49190b;
+    public boolean f47341b;
 
     /* loaded from: classes12.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbVideoViewContainer> {
@@ -68,9 +68,9 @@ public class TbVideoViewSet {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
                 boolean z = size() > 3;
                 if (z && (value = entry.getValue()) != null) {
-                    this.this$0.f49190b = true;
+                    this.this$0.f47341b = true;
                     value.getControl().stopPlayback();
-                    this.this$0.f49190b = false;
+                    this.this$0.f47341b = false;
                 }
                 return z;
             }
@@ -158,14 +158,14 @@ public class TbVideoViewSet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f49189c == null) {
+            if (f47340c == null) {
                 synchronized (TbVideoViewSet.class) {
-                    if (f49189c == null) {
-                        f49189c = new TbVideoViewSet();
+                    if (f47340c == null) {
+                        f47340c = new TbVideoViewSet();
                     }
                 }
             }
-            return f49189c;
+            return f47340c;
         }
         return (TbVideoViewSet) invokeV.objValue;
     }
@@ -179,9 +179,9 @@ public class TbVideoViewSet {
                 if (entry != null) {
                     TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) entry.getValue();
                     if (tbVideoViewContainer != null) {
-                        this.f49190b = true;
+                        this.f47341b = true;
                         tbVideoViewContainer.getControl().stopPlayback();
-                        this.f49190b = false;
+                        this.f47341b = false;
                     }
                     it.remove();
                 }
@@ -204,7 +204,7 @@ public class TbVideoViewSet {
     public void f(String str) {
         TbVideoViewContainer remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f49190b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f47341b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
             return;
         }
         remove.getControl().stopPlayback();
@@ -231,7 +231,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.f49190b && !m.isEmpty(str2)) {
+                if (!this.f47341b && !m.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

@@ -16,7 +16,7 @@ public class j0 {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f12698b;
+    public static final Pattern f12399b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,18 +33,18 @@ public class j0 {
             }
         }
         a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-        f12698b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
+        f12399b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c.a.s0.b.d.b0()) {
-                Date date = new Date(c.a.s0.s.g0.b.j().l("show_login_dialog_strategy_key", 0L));
+            if (c.a.s0.b.d.c0()) {
+                Date date = new Date(c.a.s0.s.h0.b.k().m("show_login_dialog_strategy_key", 0L));
                 long currentTimeMillis = System.currentTimeMillis();
                 Date date2 = new Date(currentTimeMillis);
-                c.a.s0.s.g0.b.j().w("show_login_dialog_strategy_key", currentTimeMillis);
+                c.a.s0.s.h0.b.k().x("show_login_dialog_strategy_key", currentTimeMillis);
                 return !TimeHelper.isSameDay(date, date2);
             }
             return false;
@@ -71,7 +71,7 @@ public class j0 {
             if (c.a.d.f.p.m.isEmpty(str)) {
                 return false;
             }
-            return f12698b.matcher(str.toLowerCase()).find();
+            return f12399b.matcher(str.toLowerCase()).find();
         }
         return invokeL.booleanValue;
     }

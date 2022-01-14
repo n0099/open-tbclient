@@ -35,16 +35,16 @@ public class DownloadInfo implements Serializable {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f41032b;
+        public long f39651b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41033c;
+        public String f39652c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f41034d;
+        public String f39653d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f41035e;
+        public String f39654e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class DownloadInfo implements Serializable {
                     return;
                 }
             }
-            this.f41032b = -1L;
+            this.f39651b = -1L;
         }
 
         public DownloadInfo a() {
@@ -67,18 +67,18 @@ public class DownloadInfo implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DownloadInfo downloadInfo = new DownloadInfo();
-                if (!TextUtils.isEmpty(this.f41033c)) {
-                    downloadInfo.setUri(this.f41033c);
-                    if (!TextUtils.isEmpty(this.f41035e)) {
-                        downloadInfo.setPath(this.f41035e);
-                        if (TextUtils.isEmpty(this.f41034d)) {
-                            downloadInfo.setPackageName(this.f41034d);
+                if (!TextUtils.isEmpty(this.f39652c)) {
+                    downloadInfo.setUri(this.f39652c);
+                    if (!TextUtils.isEmpty(this.f39654e)) {
+                        downloadInfo.setPath(this.f39654e);
+                        if (TextUtils.isEmpty(this.f39653d)) {
+                            downloadInfo.setPackageName(this.f39653d);
                         }
-                        if (this.f41032b == -1) {
+                        if (this.f39651b == -1) {
                             b(System.currentTimeMillis());
                         }
                         if (TextUtils.isEmpty(this.a)) {
-                            downloadInfo.setId(this.f41033c);
+                            downloadInfo.setId(this.f39652c);
                         } else {
                             downloadInfo.setId(this.a);
                         }
@@ -95,7 +95,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.f41032b = j2;
+                this.f39651b = j2;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -105,7 +105,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f41034d = str;
+                this.f39653d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -115,7 +115,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f41035e = str;
+                this.f39654e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -125,7 +125,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f41033c = str;
+                this.f39652c = str;
                 return this;
             }
             return (a) invokeL.objValue;

@@ -17,9 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f4748k = "";
+    public static String k = "";
     public static String l = "";
     public static String m = "";
     public static String n = "";
@@ -31,31 +29,31 @@ public class i {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4749b;
+    public String f4646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4750c;
+    public int f4647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4751d;
+    public int f4648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4752e;
+    public String f4649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f4753f;
+    public long f4650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f4754g;
+    public String f4651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4755h;
+    public String f4652h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f4756i;
+    public long f4653i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f4757j;
+    public long f4654j;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -72,7 +70,7 @@ public class i {
                 return;
             }
         }
-        this.f4757j = 8000L;
+        this.f4654j = 8000L;
         this.a = context;
     }
 
@@ -80,12 +78,12 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
             if (TextUtils.equals(str, "cm")) {
-                f4748k = str2;
+                k = str2;
                 l = str3;
             } else if (TextUtils.equals(str, "ct")) {
                 m = str2;
                 n = str3;
-            } else if (TextUtils.equals(str, k.f34934b)) {
+            } else if (TextUtils.equals(str, k.f33808b)) {
                 o = str2;
                 p = str3;
             }
@@ -131,15 +129,15 @@ public class i {
             try {
                 if (c.a.p0.c.a.c().h(i2)) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.f4750c);
-                    jSONObject.put("1", this.f4752e);
-                    jSONObject.put("3", this.f4749b);
+                    jSONObject.put("0", this.f4647c);
+                    jSONObject.put("1", this.f4649e);
+                    jSONObject.put("3", this.f4646b);
                     jSONObject.put("4", c.a.p0.l.d.j(this.a));
-                    if (!TextUtils.isEmpty(this.f4754g)) {
-                        jSONObject.put("5", c.a.p0.l.e.c(this.f4754g.getBytes(), c.a.p0.b.a.h(this.a).k0()));
+                    if (!TextUtils.isEmpty(this.f4651g)) {
+                        jSONObject.put("5", c.a.p0.l.e.c(this.f4651g.getBytes(), c.a.p0.b.a.h(this.a).k0()));
                     }
                     jSONObject.put("6", q);
-                    String c2 = c.a.p0.b.c.b(this.a).c(jSONObject, this.f4757j);
+                    String c2 = c.a.p0.b.c.b(this.a).c(jSONObject, this.f4654j);
                     if (c.a.p0.c.a.c().h(i2)) {
                         if (!TextUtils.isEmpty(c2)) {
                             s();
@@ -149,19 +147,19 @@ public class i {
                             if (optInt == 0) {
                                 c.a.p0.b.a.h(this.a).k(0);
                                 JSONObject optJSONObject = new JSONObject(jSONObject2.optString("1")).optJSONObject("data");
-                                f(i2, 0, 0, this.f4750c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
+                                f(i2, 0, 0, this.f4647c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
                                 return;
                             }
                             c.a.p0.b.a.h(this.a).k(4);
-                            f(i2, 4, a.a(optInt), this.f4750c, jSONObject2.optString("1"), optInt, "");
+                            f(i2, 4, a.a(optInt), this.f4647c, jSONObject2.optString("1"), optInt, "");
                             return;
                         }
-                        f(i2, 4, 2005, this.f4750c, "server req empty.", -1, "");
+                        f(i2, 4, 2005, this.f4647c, "server req empty.", -1, "");
                     }
                 }
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
-                d(i2, 3, 2009, this.f4750c, "post token unknown error.");
+                d(i2, 3, 2009, this.f4647c, "post token unknown error.");
             }
         }
     }
@@ -171,9 +169,9 @@ public class i {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             Message message = new Message();
             message.what = i2;
-            message.arg1 = this.f4750c;
+            message.arg1 = this.f4647c;
             message.arg2 = i3;
-            d.a().c(message, this.f4757j);
+            d.a().c(message, this.f4654j);
         }
     }
 
@@ -201,8 +199,8 @@ public class i {
             synchronized (this) {
                 b bVar = new b();
                 bVar.a = 2;
-                bVar.f4683c = i6;
-                bVar.f4684d = str2;
+                bVar.f4581c = i6;
+                bVar.f4582d = str2;
                 c.j().c(i2, i3, i4, i5, str, bVar, true);
             }
         }
@@ -215,10 +213,10 @@ public class i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", i3);
                 jSONObject.put("1", str);
-                String e2 = c.a.p0.b.c.b(this.a).e(jSONObject, this.f4757j);
+                String e2 = c.a.p0.b.c.b(this.a).e(jSONObject, this.f4654j);
                 if (c.a.p0.c.a.c().h(i2)) {
                     if (TextUtils.isEmpty(e2)) {
-                        m(i2, 4, 2005, this.f4750c, "server req empty.");
+                        m(i2, 4, 2005, this.f4647c, "server req empty.");
                     } else {
                         t();
                         JSONObject jSONObject2 = new JSONObject(e2);
@@ -227,17 +225,17 @@ public class i {
                         c.a.p0.b.a.h(this.a).K(System.currentTimeMillis());
                         if (optInt == 0) {
                             c.a.p0.b.a.h(this.a).q(0);
-                            n(i2, 0, 0, this.f4750c, optString, optInt, "");
+                            n(i2, 0, 0, this.f4647c, optString, optInt, "");
                         } else {
                             int a = a.a(optInt);
                             c.a.p0.b.a.h(this.a).q(4);
-                            n(i2, 4, a, this.f4750c, optString, optInt, "");
+                            n(i2, 4, a, this.f4647c, optString, optInt, "");
                         }
                     }
                 }
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
-                m(i2, 3, 2009, this.f4750c, "post token unknown error.");
+                m(i2, 3, 2009, this.f4647c, "post token unknown error.");
             }
         }
     }
@@ -254,7 +252,7 @@ public class i {
     public void i(Context context, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.f4757j = j2;
+            this.f4654j = j2;
         }
     }
 
@@ -270,7 +268,7 @@ public class i {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f4751d = i2;
+            this.f4648d = i2;
         }
     }
 
@@ -286,8 +284,8 @@ public class i {
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6), str2}) == null) {
             b bVar = new b();
             bVar.a = 4;
-            bVar.f4683c = i6;
-            bVar.f4684d = str2;
+            bVar.f4581c = i6;
+            bVar.f4582d = str2;
             c.j().c(i2, i3, i4, i5, str, bVar, true);
         }
     }
@@ -321,8 +319,8 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int i2 = this.f4750c;
-            return i2 == 1 ? (TextUtils.isEmpty(f4748k) || TextUtils.isEmpty(l)) ? false : true : i2 == 3 ? (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) ? false : true : (i2 != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) ? false : true;
+            int i2 = this.f4647c;
+            return i2 == 1 ? (TextUtils.isEmpty(k) || TextUtils.isEmpty(l)) ? false : true : i2 == 3 ? (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) ? false : true : (i2 != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -330,17 +328,17 @@ public class i {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f4752e = null;
-            this.f4753f = 0L;
-            this.f4754g = null;
+            this.f4649e = null;
+            this.f4650f = 0L;
+            this.f4651g = null;
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f4755h = null;
-            this.f4756i = 0L;
+            this.f4652h = null;
+            this.f4653i = 0L;
         }
     }
 

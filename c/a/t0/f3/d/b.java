@@ -17,13 +17,13 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18202b;
+    public String f17759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18203c;
+    public int f17760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichText f18204d;
+    public TbRichText f17761d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class b {
     public TbRichText a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18204d : (TbRichText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17761d : (TbRichText) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18203c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17760c : invokeV.intValue;
     }
 
     public long c() {
@@ -60,7 +60,7 @@ public class b {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18202b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17759b : (String) invokeV.objValue;
     }
 
     public void e(LockWindowThreadInfo lockWindowThreadInfo) {
@@ -69,11 +69,11 @@ public class b {
             return;
         }
         this.a = lockWindowThreadInfo.tid.longValue();
-        this.f18202b = lockWindowThreadInfo.title;
-        this.f18203c = lockWindowThreadInfo.post_num.intValue();
+        this.f17759b = lockWindowThreadInfo.title;
+        this.f17760c = lockWindowThreadInfo.post_num.intValue();
         if (ListUtils.isEmpty(lockWindowThreadInfo.content)) {
             return;
         }
-        this.f18204d = TbRichTextView.parser(lockWindowThreadInfo.content, true);
+        this.f17761d = TbRichTextView.parser(lockWindowThreadInfo.content, true);
     }
 }

@@ -21,13 +21,13 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f37000b;
+    public static boolean f35783b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37001c;
+    public static String f35784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f37002d;
+    public static int f35785d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class SysUpdateUtil implements SysUpdateObserver {
             }
         }
         a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        f37000b = false;
-        f37001c = "";
-        f37002d = 0;
+        f35783b = false;
+        f35784c = "";
+        f35785d = 0;
     }
 
     public SysUpdateUtil() {
@@ -100,46 +100,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f37000b = false;
+            f35783b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f37000b = false;
+            f35783b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f37001c = "10.0.0.172";
+                    f35784c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f37000b = false;
+                            f35783b = false;
                         }
-                        if (f37000b) {
-                            AppEngine.SetProxyInfo(f37001c, f37002d);
+                        if (f35783b) {
+                            AppEngine.SetProxyInfo(f35784c, f35785d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f37001c = "10.0.0.200";
+                    f35784c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f37001c = "10.0.0.172";
-                        f37002d = defaultPort;
-                        f37000b = true;
+                        f35784c = "10.0.0.172";
+                        f35785d = defaultPort;
+                        f35783b = true;
                     }
                 }
-                if (f37000b) {
+                if (f35783b) {
                 }
             }
-            f37002d = 80;
-            f37000b = true;
-            if (f37000b) {
+            f35785d = 80;
+            f35783b = true;
+            if (f35783b) {
             }
         }
     }

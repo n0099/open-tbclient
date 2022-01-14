@@ -11,8 +11,8 @@ public class b {
         if (a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f57656e;
-            reportAction.bB = dVar.f57658g;
+            reportAction.bA = dVar.f55470e;
+            reportAction.bB = dVar.f55472g;
             reportAction.bC = i2;
             reportAction.bD = System.currentTimeMillis();
             f.a(reportAction);
@@ -23,8 +23,8 @@ public class b {
         if (a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f57656e;
-            reportAction.bB = dVar.f57658g;
+            reportAction.bA = dVar.f55470e;
+            reportAction.bB = dVar.f55472g;
             reportAction.bC = 0;
             reportAction.bE = i2;
             reportAction.bD = System.currentTimeMillis();

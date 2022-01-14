@@ -29,7 +29,7 @@ import com.tencent.mm.opensdk.modelbiz.WXOpenBusinessWebview;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WXSignActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIGN_REQUEST_URL = "sign_request_url";

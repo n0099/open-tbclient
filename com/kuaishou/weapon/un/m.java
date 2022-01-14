@@ -13,34 +13,32 @@ public class m implements Serializable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57324b;
+    public int f55153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57325c;
+    public String f55154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57326d;
+    public String f55155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57327e;
+    public String f55156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57328f;
+    public int f55157f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57329g;
+    public int f55158g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57330h;
+    public int f55159h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57331i;
+    public int f55160i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f57332j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f57333k;
+    public String f55161j;
+    public String k;
     public String l;
     public int m;
     public String n;

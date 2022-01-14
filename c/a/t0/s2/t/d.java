@@ -35,7 +35,7 @@ public class d extends a<e, CustomDialogData> {
                 return;
             }
         }
-        V v = this.f23122h;
+        V v = this.f22485h;
         if (v instanceof e) {
             ((e) v).f(this);
         }
@@ -45,7 +45,7 @@ public class d extends a<e, CustomDialogData> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n.f(this.f23117c, R.dimen.ds90) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n.f(this.f22480c, R.dimen.ds90) : invokeV.intValue;
     }
 
     @Override // c.a.t0.s2.t.f

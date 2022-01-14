@@ -26,7 +26,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f17564b;
+    public static volatile c f17136b;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> a;
 
@@ -64,14 +64,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f17564b == null) {
+            if (f17136b == null) {
                 synchronized (b.class) {
-                    if (f17564b == null) {
-                        f17564b = new c();
+                    if (f17136b == null) {
+                        f17136b = new c();
                     }
                 }
             }
-            return f17564b;
+            return f17136b;
         }
         return (c) invokeV.objValue;
     }
@@ -108,10 +108,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if ("frs_feed".equals(str) && d.r() && d.x()) {
+            if ("frs_feed".equals(str) && d.o() && d.u()) {
                 return "6051002409-2123988582";
             }
-            if (!d.l()) {
+            if (!d.j()) {
                 return f(str);
             }
             FunAdSidConfigData b2 = b.e().b(str);
@@ -209,7 +209,7 @@ public class c {
     public void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            if (jSONObject != null && d.l()) {
+            if (jSONObject != null && d.j()) {
                 for (String str : this.a) {
                     if (!TextUtils.isEmpty(str)) {
                         FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();

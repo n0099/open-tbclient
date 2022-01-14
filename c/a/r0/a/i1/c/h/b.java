@@ -18,16 +18,16 @@ public class b implements c.a.r0.a.m1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7370e;
+    public String f7210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7371f;
+    public String f7211f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7372g;
+    public boolean f7212g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f7373h;
+    public g f7213h;
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +58,8 @@ public class b implements c.a.r0.a.m1.a {
                 return;
             }
         }
-        this.f7371f = "";
-        this.f7372g = false;
+        this.f7211f = "";
+        this.f7212g = false;
     }
 
     @Override // c.a.r0.a.m1.a
@@ -67,15 +67,15 @@ public class b implements c.a.r0.a.m1.a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("position") && jSONObject.has("iconPath")) {
             String optString = jSONObject.optString("controlId");
-            this.f7370e = optString;
+            this.f7210e = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f7370e = jSONObject.optString("id");
+                this.f7210e = jSONObject.optString("id");
             }
             g gVar = new g();
-            this.f7373h = gVar;
+            this.f7213h = gVar;
             gVar.a(jSONObject.optJSONObject("position"));
-            this.f7371f = jSONObject.optString("iconPath");
-            this.f7372g = jSONObject.optBoolean("clickable");
+            this.f7211f = jSONObject.optString("iconPath");
+            this.f7212g = jSONObject.optBoolean("clickable");
         }
     }
 
@@ -84,8 +84,8 @@ public class b implements c.a.r0.a.m1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g gVar = this.f7373h;
-            return (gVar == null || !gVar.isValid() || TextUtils.isEmpty(this.f7371f)) ? false : true;
+            g gVar = this.f7213h;
+            return (gVar == null || !gVar.isValid() || TextUtils.isEmpty(this.f7211f)) ? false : true;
         }
         return invokeV.booleanValue;
     }

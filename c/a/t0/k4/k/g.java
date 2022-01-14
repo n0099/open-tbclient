@@ -32,13 +32,13 @@ public class g {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19465b;
+        public int f18965b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f19466c;
+        public int f18966c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f19467d;
+        public int f18967d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class g {
                 }
             }
             this.a = MediaEncodeParams.AUDIO_SAMPLE_RATE;
-            this.f19465b = 1;
-            this.f19466c = 16;
-            this.f19467d = 0;
+            this.f18965b = 1;
+            this.f18966c = 16;
+            this.f18967d = 0;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f19467d;
+                int i2 = this.f18967d;
                 return i2 == 5 || i2 == 6 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -73,7 +73,7 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f19467d;
+                int i2 = this.f18967d;
                 return i2 == 3 || i2 == 4 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -83,7 +83,7 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f19467d;
+                int i2 = this.f18967d;
                 return i2 == 1 || i2 == 4 || i2 == 6 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -235,8 +235,8 @@ public class g {
                 }
                 a aVar = new a();
                 aVar.a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : MediaEncodeParams.AUDIO_SAMPLE_RATE;
-                aVar.f19465b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-                aVar.f19466c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+                aVar.f18965b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
+                aVar.f18966c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
                 mediaExtractor.release();
                 return aVar;
             } catch (IOException e2) {
@@ -295,15 +295,15 @@ public class g {
             boolean z = true;
             for (int i2 = 1; i2 < aVarArr.length; i2++) {
                 if (aVar.a != aVarArr[i2].a) {
-                    aVarArr[i2].f19467d++;
+                    aVarArr[i2].f18967d++;
                     z = false;
                 }
-                if (aVar.f19465b != aVarArr[i2].f19465b) {
-                    aVarArr[i2].f19467d += 3;
+                if (aVar.f18965b != aVarArr[i2].f18965b) {
+                    aVarArr[i2].f18967d += 3;
                     z = false;
                 }
-                if (aVar.f19466c != aVarArr[i2].f19466c) {
-                    aVarArr[i2].f19467d += 5;
+                if (aVar.f18966c != aVarArr[i2].f18966c) {
+                    aVarArr[i2].f18967d += 5;
                     z = false;
                 }
             }

@@ -50,7 +50,7 @@ public class f extends c.a.t0.d1.k<c.a.t0.d1.n, FrsEmpertyItemViewHolder> {
     public FrsEmpertyItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.f3299e)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.f3258e)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
     }
 
     public View n0(int i2, View view, ViewGroup viewGroup, c.a.t0.d1.n nVar, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {

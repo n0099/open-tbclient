@@ -14,7 +14,6 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
-import kotlin.jvm.internal.ByteCompanionObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
@@ -85,7 +84,7 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             byte readUInt8 = (byte) IsoTypeReader.readUInt8(byteBuffer);
             this.allBits = readUInt8;
-            this.selectiveEncryption = (readUInt8 & ByteCompanionObject.MIN_VALUE) == 128;
+            this.selectiveEncryption = (readUInt8 & 128) == 128;
             this.keyIndicatorLength = IsoTypeReader.readUInt8(byteBuffer);
             this.initVectorLength = IsoTypeReader.readUInt8(byteBuffer);
         }
@@ -147,7 +146,7 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
         if (interceptable == null || interceptable.invokeB(1048582, this, b2) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.byteObject(b2)));
             this.allBits = b2;
-            this.selectiveEncryption = (b2 & ByteCompanionObject.MIN_VALUE) == 128;
+            this.selectiveEncryption = (b2 & 128) == 128;
         }
     }
 

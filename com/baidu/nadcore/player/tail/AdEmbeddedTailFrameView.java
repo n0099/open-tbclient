@@ -2,9 +2,9 @@ package com.baidu.nadcore.player.tail;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.c0.b.b;
-import c.a.c0.b.d;
-import c.a.c0.b.g;
+import c.a.c0.d.b;
+import c.a.c0.d.d;
+import c.a.c0.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

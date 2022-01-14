@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class p extends c.a.s0.x.p.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f26523e;
+    public final String f25735e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends c.a.d.f.l.c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ p f26524b;
+        public final /* synthetic */ p f25736b;
 
         public a(p pVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class p extends c.a.s0.x.p.c {
                     return;
                 }
             }
-            this.f26524b = pVar;
+            this.f25736b = pVar;
             this.a = bVar;
         }
 
@@ -52,17 +52,17 @@ public class p extends c.a.s0.x.p.c {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    this.f26524b.q(aVar);
-                    this.f26524b.r(aVar);
-                    if (this.f26524b.t()) {
-                        this.a.a(this.f26524b);
+                    this.f25736b.q(aVar);
+                    this.f25736b.r(aVar);
+                    if (this.f25736b.t()) {
+                        this.a.a(this.f25736b);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(p pVar);
     }
@@ -82,7 +82,7 @@ public class p extends c.a.s0.x.p.c {
                 return;
             }
         }
-        this.f26523e = bVar.getGroupId();
+        this.f25735e = bVar.getGroupId();
         s(1);
         p(4);
     }
@@ -118,7 +118,7 @@ public class p extends c.a.s0.x.p.c {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26523e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25735e : (String) invokeV.objValue;
     }
 
     @Override // c.a.s0.x.p.c

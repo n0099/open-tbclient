@@ -30,16 +30,16 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38946b = "Set-Cookie";
+    public static final String f37660b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38947c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f37661c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38948d = "Cookie";
+    public static final String f37662d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38949e = "https://";
+    public static final String f37663e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

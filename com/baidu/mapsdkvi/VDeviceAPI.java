@@ -18,6 +18,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +36,7 @@ public class VDeviceAPI {
     public static PowerManager.WakeLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f37345b;
+    public static BroadcastReceiver f36116b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -300,7 +301,7 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(HardwareInfoUtils.MEM_INFO_FILE), 8192);
                 String readLine = bufferedReader.readLine();
                 r1 = readLine != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : 0L;
                 bufferedReader.close();
@@ -387,8 +388,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f37345b = new a();
-            b.a().registerReceiver(f37345b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f36116b = new a();
+            b.a().registerReceiver(f36116b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -422,10 +423,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f37345b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f36116b == null) {
             return;
         }
-        b.a().unregisterReceiver(f37345b);
-        f37345b = null;
+        b.a().unregisterReceiver(f36116b);
+        f36116b = null;
     }
 }

@@ -24,30 +24,30 @@ public final class a implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f29703i;
+    public static final int f28794i;
     public transient /* synthetic */ FieldHolder $fh;
     public final Format a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f29704b;
+    public final l f28795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m f29705c;
+    public m f28796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29706d;
+    public int f28797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29707e;
+    public int f28798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29708f;
+    public long f28799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29709g;
+    public int f28800g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29710h;
+    public int f28801h;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public final class a implements e {
                 return;
             }
         }
-        f29703i = v.q("RCC\u0001");
+        f28794i = v.q("RCC\u0001");
     }
 
     public a(Format format) {
@@ -81,15 +81,15 @@ public final class a implements e {
             }
         }
         this.a = format;
-        this.f29704b = new l(9);
-        this.f29706d = 0;
+        this.f28795b = new l(9);
+        this.f28797d = 0;
     }
 
     @Override // c.i.b.a.a0.e
     public void a(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f29706d = 0;
+            this.f28797d = 0;
         }
     }
 
@@ -97,10 +97,10 @@ public final class a implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
-            this.f29704b.F();
-            if (fVar.a(this.f29704b.a, 0, 8, true)) {
-                if (this.f29704b.i() == f29703i) {
-                    this.f29707e = this.f29704b.x();
+            this.f28795b.F();
+            if (fVar.a(this.f28795b.a, 0, 8, true)) {
+                if (this.f28795b.i() == f28794i) {
+                    this.f28798e = this.f28795b.x();
                     return true;
                 }
                 throw new IOException("Input not RawCC");
@@ -113,16 +113,16 @@ public final class a implements e {
     public final void c(f fVar) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            while (this.f29709g > 0) {
-                this.f29704b.F();
-                fVar.readFully(this.f29704b.a, 0, 3);
-                this.f29705c.a(this.f29704b, 3);
-                this.f29710h += 3;
-                this.f29709g--;
+            while (this.f28800g > 0) {
+                this.f28795b.F();
+                fVar.readFully(this.f28795b.a, 0, 3);
+                this.f28796c.a(this.f28795b, 3);
+                this.f28801h += 3;
+                this.f28800g--;
             }
-            int i2 = this.f29710h;
+            int i2 = this.f28801h;
             if (i2 > 0) {
-                this.f29705c.c(this.f29708f, 1, i2, 0, null);
+                this.f28796c.c(this.f28799f, 1, i2, 0, null);
             }
         }
     }
@@ -132,9 +132,9 @@ public final class a implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
-            this.f29704b.F();
-            fVar.c(this.f29704b.a, 0, 8);
-            return this.f29704b.i() == f29703i;
+            this.f28795b.F();
+            fVar.c(this.f28795b.a, 0, 8);
+            return this.f28795b.i() == f28794i;
         }
         return invokeL.booleanValue;
     }
@@ -147,25 +147,25 @@ public final class a implements e {
             return invokeLL.intValue;
         }
         while (true) {
-            int i2 = this.f29706d;
+            int i2 = this.f28797d;
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 == 2) {
                         c(fVar);
-                        this.f29706d = 1;
+                        this.f28797d = 1;
                         return 0;
                     }
                     throw new IllegalStateException();
                 } else if (g(fVar)) {
-                    this.f29706d = 2;
+                    this.f28797d = 2;
                 } else {
-                    this.f29706d = 0;
+                    this.f28797d = 0;
                     return -1;
                 }
             } else if (!b(fVar)) {
                 return -1;
             } else {
-                this.f29706d = 1;
+                this.f28797d = 1;
             }
         }
     }
@@ -175,9 +175,9 @@ public final class a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
             gVar.p(new l.a(-9223372036854775807L));
-            this.f29705c = gVar.a(0, 3);
+            this.f28796c = gVar.a(0, 3);
             gVar.j();
-            this.f29705c.b(this.a);
+            this.f28796c.b(this.a);
         }
     }
 
@@ -185,23 +185,23 @@ public final class a implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fVar)) == null) {
-            this.f29704b.F();
-            int i2 = this.f29707e;
+            this.f28795b.F();
+            int i2 = this.f28798e;
             if (i2 == 0) {
-                if (!fVar.a(this.f29704b.a, 0, 5, true)) {
+                if (!fVar.a(this.f28795b.a, 0, 5, true)) {
                     return false;
                 }
-                this.f29708f = (this.f29704b.z() * 1000) / 45;
+                this.f28799f = (this.f28795b.z() * 1000) / 45;
             } else if (i2 == 1) {
-                if (!fVar.a(this.f29704b.a, 0, 9, true)) {
+                if (!fVar.a(this.f28795b.a, 0, 9, true)) {
                     return false;
                 }
-                this.f29708f = this.f29704b.q();
+                this.f28799f = this.f28795b.q();
             } else {
-                throw new ParserException("Unsupported version number: " + this.f29707e);
+                throw new ParserException("Unsupported version number: " + this.f28798e);
             }
-            this.f29709g = this.f29704b.x();
-            this.f29710h = 0;
+            this.f28800g = this.f28795b.x();
+            this.f28801h = 0;
             return true;
         }
         return invokeL.booleanValue;

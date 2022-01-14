@@ -18,10 +18,10 @@ public class a {
     public static final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<Integer, Boolean> f1716b;
+    public static HashMap<Integer, Boolean> f1696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<Integer, Long> f1717c;
+    public static HashMap<Integer, Long> f1697c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,16 +38,16 @@ public class a {
             }
         }
         a = new AtomicBoolean(false);
-        f1716b = new HashMap<>();
-        f1717c = new HashMap<>();
+        f1696b = new HashMap<>();
+        f1697c = new HashMap<>();
     }
 
     public static long a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (f1717c.containsKey(Integer.valueOf(i2))) {
-                return f1717c.get(Integer.valueOf(i2)).longValue();
+            if (f1697c.containsKey(Integer.valueOf(i2))) {
+                return f1697c.get(Integer.valueOf(i2)).longValue();
             }
             return Long.MAX_VALUE;
         }
@@ -69,15 +69,15 @@ public class a {
                     Iterator<Integer> it = b.a.iterator();
                     while (it.hasNext()) {
                         int intValue = it.next().intValue();
-                        HashMap<Integer, Long> hashMap = f1717c;
+                        HashMap<Integer, Long> hashMap = f1697c;
                         Integer valueOf = Integer.valueOf(intValue);
                         hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
-                        HashMap<Integer, Boolean> hashMap2 = f1716b;
+                        HashMap<Integer, Boolean> hashMap2 = f1696b;
                         Integer valueOf2 = Integer.valueOf(intValue);
                         hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
                     }
-                    f1717c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
-                    f1716b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
+                    f1697c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
+                    f1696b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
                     a.set(true);
                 }
             }
@@ -88,8 +88,8 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (f1716b.containsKey(Integer.valueOf(i2))) {
-                return f1716b.get(Integer.valueOf(i2)).booleanValue();
+            if (f1696b.containsKey(Integer.valueOf(i2))) {
+                return f1696b.get(Integer.valueOf(i2)).booleanValue();
             }
             return true;
         }

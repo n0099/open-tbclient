@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
     public static e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f39623b;
+    public static long f38309b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -37,9 +37,9 @@ public final class f {
             synchronized (f.class) {
                 if (a != null) {
                     e eVar = a;
-                    a = eVar.f39621f;
-                    eVar.f39621f = null;
-                    f39623b -= 8192;
+                    a = eVar.f38307f;
+                    eVar.f38307f = null;
+                    f38309b -= 8192;
                     return eVar;
                 }
                 return new e();
@@ -51,18 +51,18 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f39621f == null && eVar.f39622g == null) {
-                if (eVar.f39619d) {
+            if (eVar.f38307f == null && eVar.f38308g == null) {
+                if (eVar.f38305d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f39623b + 8192 > 65536) {
+                    if (f38309b + 8192 > 65536) {
                         return;
                     }
-                    f39623b += 8192;
-                    eVar.f39621f = a;
-                    eVar.f39618c = 0;
-                    eVar.f39617b = 0;
+                    f38309b += 8192;
+                    eVar.f38307f = a;
+                    eVar.f38304c = 0;
+                    eVar.f38303b = 0;
                     a = eVar;
                     return;
                 }

@@ -17,7 +17,7 @@ public abstract class o {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63099b;
+    public String f60721b;
 
     public o(int i2) {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public abstract class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
             aVar.a("command", this.a);
-            aVar.a("client_pkgname", this.f63099b);
+            aVar.a("client_pkgname", this.f60721b);
             c(aVar);
         }
     }
@@ -54,7 +54,7 @@ public abstract class o {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63099b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60721b : (String) invokeV.objValue;
     }
 
     public final int b() {
@@ -85,7 +85,7 @@ public abstract class o {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f63099b = str;
+            this.f60721b = str;
         }
     }
 
@@ -139,9 +139,9 @@ public abstract class o {
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             String a = aVar.a();
             if (!TextUtils.isEmpty(a)) {
-                this.f63099b = a;
+                this.f60721b = a;
             } else {
-                this.f63099b = aVar.a("client_pkgname");
+                this.f60721b = aVar.a("client_pkgname");
             }
             d(aVar);
         }

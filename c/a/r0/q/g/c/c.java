@@ -17,7 +17,7 @@ public class c {
     public ConcurrentHashMap<Class<?>, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Class<?>, Uri> f11732b;
+    public ConcurrentHashMap<Class<?>, Uri> f11466b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class c {
     public <T> Uri b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? this.f11732b.get(cls) : (Uri) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? this.f11466b.get(cls) : (Uri) invokeL.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = new ConcurrentHashMap<>();
-            this.f11732b = new ConcurrentHashMap<>();
+            this.f11466b = new ConcurrentHashMap<>();
             this.a.put(c.a.r0.q.i.g.class, new f());
             this.a.put(c.a.r0.q.i.h.class, new g());
             this.a.put(c.a.r0.q.i.e.class, new e());
@@ -59,13 +59,13 @@ public class c {
             this.a.put(PMSAppInfo.class, new a());
             this.a.put(c.a.r0.q.i.i.class, new h());
             this.a.put(j.class, new i());
-            this.f11732b.put(c.a.r0.q.i.g.class, c.a.r0.q.g.e.b.f11741f);
-            this.f11732b.put(c.a.r0.q.i.h.class, c.a.r0.q.g.e.b.f11742g);
-            this.f11732b.put(c.a.r0.q.i.e.class, c.a.r0.q.g.e.b.f11739d);
-            this.f11732b.put(c.a.r0.q.i.c.class, c.a.r0.q.g.e.b.f11743h);
-            this.f11732b.put(PMSAppInfo.class, c.a.r0.q.g.e.b.f11740e);
-            this.f11732b.put(c.a.r0.q.i.i.class, c.a.r0.q.g.e.b.f11744i);
-            this.f11732b.put(j.class, c.a.r0.q.g.e.b.f11745j);
+            this.f11466b.put(c.a.r0.q.i.g.class, c.a.r0.q.g.e.b.f11475f);
+            this.f11466b.put(c.a.r0.q.i.h.class, c.a.r0.q.g.e.b.f11476g);
+            this.f11466b.put(c.a.r0.q.i.e.class, c.a.r0.q.g.e.b.f11473d);
+            this.f11466b.put(c.a.r0.q.i.c.class, c.a.r0.q.g.e.b.f11477h);
+            this.f11466b.put(PMSAppInfo.class, c.a.r0.q.g.e.b.f11474e);
+            this.f11466b.put(c.a.r0.q.i.i.class, c.a.r0.q.g.e.b.f11478i);
+            this.f11466b.put(j.class, c.a.r0.q.g.e.b.f11479j);
         }
     }
 }

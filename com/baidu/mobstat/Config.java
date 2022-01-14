@@ -289,7 +289,7 @@ public class Config {
         public static final EventViewType EDIT;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ EventViewType[] f37514b;
+        public static final /* synthetic */ EventViewType[] f36282b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -309,7 +309,7 @@ public class Config {
             EDIT = new EventViewType("EDIT", 0, 0);
             EventViewType eventViewType = new EventViewType("BUTTON", 1, 1);
             BUTTON = eventViewType;
-            f37514b = new EventViewType[]{EDIT, eventViewType};
+            f36282b = new EventViewType[]{EDIT, eventViewType};
         }
 
         public EventViewType(String str, int i2, int i3) {
@@ -342,7 +342,7 @@ public class Config {
         public static EventViewType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f37514b.clone() : (EventViewType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f36282b.clone() : (EventViewType[]) invokeV.objValue;
         }
 
         public int getValue() {

@@ -109,6 +109,7 @@ public class CmdConfigHttp {
     public static final int CMD_FUN_AD_RECORD = 1003494;
     public static final int CMD_GAME_ITEM_ORDER = 1003496;
     public static final int CMD_GAME_VIDEO = 1003443;
+    public static final int CMD_GET_ACCELERATOR_INFO = 1003524;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BIGDAY_INFO = 1003408;
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;

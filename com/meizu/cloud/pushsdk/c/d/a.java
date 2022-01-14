@@ -22,25 +22,25 @@ import java.util.Map;
 public class a implements d {
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f61028b;
+    public SQLiteDatabase f58718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f61029c;
+    public b f58719c;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61032f;
+    public int f58722f;
     public String a = a.class.getSimpleName();
 
     /* renamed from: d  reason: collision with root package name */
-    public String[] f61030d = {"id", DoPhoneChargeAction.EVENT_DATAS_KEY, "dateCreated"};
+    public String[] f58720d = {"id", DoPhoneChargeAction.EVENT_DATAS_KEY, "dateCreated"};
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61031e = -1;
+    public long f58721e = -1;
 
     public a(Context context, int i2) {
-        this.f61029c = b.a(context, a(context));
+        this.f58719c = b.a(context, a(context));
         b();
-        this.f61032f = i2;
+        this.f58722f = i2;
     }
 
     private String a(Context context) {
@@ -86,7 +86,7 @@ public class a implements d {
     public List<Map<String, Object>> a(String str, String str2) {
         ArrayList arrayList = new ArrayList();
         if (e()) {
-            Cursor query = this.f61028b.query("events", this.f61030d, str, null, null, null, str2);
+            Cursor query = this.f58718b.query("events", this.f58720d, str, null, null, null, str2);
             query.moveToFirst();
             while (!query.isAfterLast()) {
                 HashMap hashMap = new HashMap();
@@ -115,7 +115,7 @@ public class a implements d {
     public boolean a(long j2) {
         int i2;
         if (e()) {
-            SQLiteDatabase sQLiteDatabase = this.f61028b;
+            SQLiteDatabase sQLiteDatabase = this.f58718b;
             i2 = sQLiteDatabase.delete("events", "id=" + j2, null);
         } else {
             i2 = -1;
@@ -130,11 +130,11 @@ public class a implements d {
             byte[] a = a(aVar.a());
             ContentValues contentValues = new ContentValues(2);
             contentValues.put(DoPhoneChargeAction.EVENT_DATAS_KEY, a);
-            this.f61031e = this.f61028b.insert("events", null, contentValues);
+            this.f58721e = this.f58718b.insert("events", null, contentValues);
         }
         String str = this.a;
-        com.meizu.cloud.pushsdk.c.f.c.b(str, "Added event to database: " + this.f61031e, new Object[0]);
-        return this.f61031e;
+        com.meizu.cloud.pushsdk.c.f.c.b(str, "Added event to database: " + this.f58721e, new Object[0]);
+        return this.f58721e;
     }
 
     public void b() {
@@ -142,8 +142,8 @@ public class a implements d {
             return;
         }
         try {
-            SQLiteDatabase writableDatabase = this.f61029c.getWritableDatabase();
-            this.f61028b = writableDatabase;
+            SQLiteDatabase writableDatabase = this.f58719c.getWritableDatabase();
+            this.f58718b = writableDatabase;
             writableDatabase.enableWriteAheadLogging();
         } catch (Exception e2) {
             String str = this.a;
@@ -154,7 +154,7 @@ public class a implements d {
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public long c() {
         if (e()) {
-            return DatabaseUtils.queryNumEntries(this.f61028b, "events");
+            return DatabaseUtils.queryNumEntries(this.f58718b, "events");
         }
         return 0L;
     }
@@ -163,7 +163,7 @@ public class a implements d {
     public com.meizu.cloud.pushsdk.c.b.b d() {
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
-        for (Map<String, Object> map : a(this.f61032f)) {
+        for (Map<String, Object> map : a(this.f58722f)) {
             com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
             cVar.a((Map) map.get(DoPhoneChargeAction.EVENT_DATAS_KEY));
             linkedList.add((Long) map.get("id"));
@@ -173,7 +173,7 @@ public class a implements d {
     }
 
     public boolean e() {
-        SQLiteDatabase sQLiteDatabase = this.f61028b;
+        SQLiteDatabase sQLiteDatabase = this.f58718b;
         return sQLiteDatabase != null && sQLiteDatabase.isOpen();
     }
 }

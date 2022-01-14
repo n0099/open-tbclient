@@ -30,7 +30,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.s2.u.h.g.a, a> {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23844b;
+        public int f23184b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view) {
@@ -50,17 +50,17 @@ public class c extends c.a.d.n.e.a<c.a.t0.s2.u.h.g.a, a> {
                     return;
                 }
             }
-            this.f23844b = 3;
+            this.f23184b = 3;
             this.a = (TextView) view.findViewById(i.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f23844b != TbadkApplication.getInst().getSkinType()) {
+                if (this.f23184b != TbadkApplication.getInst().getSkinType()) {
                     SkinManager.setViewTextColor(this.a, R.color.CAM_X0109);
                 }
-                this.f23844b = TbadkApplication.getInst().getSkinType();
+                this.f23184b = TbadkApplication.getInst().getSkinType();
             }
         }
     }
@@ -92,7 +92,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.s2.u.h.g.a, a> {
     public a M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f3299e).inflate(j.sub_pb_no_reply_layout, viewGroup, false)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f3258e).inflate(j.sub_pb_no_reply_layout, viewGroup, false)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

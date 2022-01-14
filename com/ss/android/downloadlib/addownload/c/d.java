@@ -15,16 +15,16 @@ public class d {
     public static volatile d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61821b = 0;
+    public long f59481b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f61822c = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, e> f59482c = new ConcurrentHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Integer> f61823d = new HashMap<>();
+    public HashMap<String, Integer> f59483d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f61824e = new CopyOnWriteArrayList();
+    public List<String> f59484e = new CopyOnWriteArrayList();
 
     public static d a() {
         if (a == null) {
@@ -38,22 +38,22 @@ public class d {
     }
 
     public long b() {
-        return this.f61821b;
+        return this.f59481b;
     }
 
     public void c() {
-        this.f61821b = System.currentTimeMillis();
+        this.f59481b = System.currentTimeMillis();
     }
 
     public int b(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        if (this.f61823d == null) {
-            this.f61823d = new HashMap<>();
+        if (this.f59483d == null) {
+            this.f59483d = new HashMap<>();
         }
-        if (this.f61823d.containsKey(str)) {
-            return this.f61823d.get(str).intValue();
+        if (this.f59483d.containsKey(str)) {
+            return this.f59483d.get(str).intValue();
         }
         return 0;
     }
@@ -62,14 +62,14 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f61822c.put(str, eVar);
+        this.f59482c.put(str, eVar);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f61822c.remove(str);
+        this.f59482c.remove(str);
     }
 
     @WorkerThread

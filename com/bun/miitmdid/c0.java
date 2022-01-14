@@ -13,10 +13,8 @@ public class c0 extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f54971j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f54972k;
+    public Context f52883j;
+    public String k;
     public z l;
 
     /* loaded from: classes2.dex */
@@ -51,33 +49,33 @@ public class c0 extends l {
             }
             try {
                 c0 c0Var = this.a;
-                c0Var.f55001f = c0Var.l.d();
+                c0Var.f52910f = c0Var.l.d();
                 String b2 = this.a.l.b();
                 String c2 = this.a.l.c();
                 String a = this.a.l.a();
                 if (b2 == null) {
                     b2 = "";
                 }
-                this.a.f54998c = b2;
+                this.a.f52907c = b2;
                 c0 c0Var2 = this.a;
                 if (c2 == null) {
                     c2 = "";
                 }
-                c0Var2.f54999d = c2;
+                c0Var2.f52908d = c2;
                 c0 c0Var3 = this.a;
                 if (a == null) {
                     a = "";
                 }
-                c0Var3.f55000e = a;
+                c0Var3.f52909e = a;
                 synchronized (c0.class) {
-                    this.a.f55004i = true;
+                    this.a.f52913i = true;
                     this.a.e();
                 }
             } catch (Exception e2) {
                 synchronized (c0.class) {
                     e0.d("ZteProvider", "doStart: Exception: " + e2.getMessage());
                     this.a.a();
-                    this.a.f55004i = true;
+                    this.a.f52913i = true;
                     this.a.e();
                 }
             }
@@ -100,8 +98,8 @@ public class c0 extends l {
             }
         }
         e0.c("ZteProvider", "ZteProvider(Context)");
-        this.f54971j = context;
-        this.f54972k = context.getPackageName();
+        this.f52883j = context;
+        this.k = context.getPackageName();
         try {
         } catch (Exception unused) {
             e0.d("ZteProvider", "Constructor: MsaService not found");
@@ -111,7 +109,7 @@ public class c0 extends l {
             throw new NullPointerException("Constructor: getPackageInfo is null");
         }
         try {
-            z.a(this.f54971j, this.f54972k);
+            z.a(this.f52883j, this.k);
             e0.c("ZteProvider", "Constructor: MsaService start success");
         } catch (Exception e2) {
             e0.b("ZteProvider", "Constructor: MsaService start Exception: " + e2.getMessage());
@@ -124,11 +122,11 @@ public class c0 extends l {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             e0.c("ZteProvider", "doStart()");
             try {
-                this.f54971j = a(this.f54971j);
+                this.f52883j = a(this.f52883j);
                 c();
-                z zVar = new z(this.f54971j, new a(this));
+                z zVar = new z(this.f52883j, new a(this));
                 this.l = zVar;
-                zVar.a(this.f54972k);
+                zVar.a(this.k);
                 e0.c("ZteProvider", "doStart: BindService success");
                 b();
             } catch (Exception e2) {

@@ -48,11 +48,11 @@ public class d extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             if (eVar != null && eVar.m0()) {
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
             } else if (!(context instanceof SwanAppActivity)) {
@@ -81,12 +81,12 @@ public class d extends z {
                     return false;
                 }
                 c.a.r0.a.h0.g.d m = swanAppFragmentManager.m();
-                if (!(m instanceof a.InterfaceC0276a)) {
+                if (!(m instanceof a.InterfaceC0285a)) {
                     c.a.r0.a.e0.d.c("showLoading", "fragment not support");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
                     return false;
                 }
-                c.a.r0.a.c2.b.c.a floatLayer = ((a.InterfaceC0276a) m).getFloatLayer();
+                c.a.r0.a.c2.b.c.a floatLayer = ((a.InterfaceC0285a) m).getFloatLayer();
                 if (floatLayer == null) {
                     c.a.r0.a.e0.d.c("showLoading", "can't get floatLayer");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");

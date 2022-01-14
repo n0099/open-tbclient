@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f17562b;
+    public static volatile a f17134b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, ArrayList<FunAdHistoryData>> a;
 
@@ -53,21 +53,21 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f17562b == null) {
+            if (f17134b == null) {
                 synchronized (a.class) {
-                    if (f17562b == null) {
-                        f17562b = new a();
+                    if (f17134b == null) {
+                        f17134b = new a();
                     }
                 }
             }
-            return f17562b;
+            return f17134b;
         }
         return (a) invokeV.objValue;
     }
 
     public void a(String str, FunAdHistoryData funAdHistoryData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) || !d.l() || TextUtils.isEmpty(str) || funAdHistoryData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) || !d.j() || TextUtils.isEmpty(str) || funAdHistoryData == null) {
             return;
         }
         ArrayList<FunAdHistoryData> c2 = c(str);

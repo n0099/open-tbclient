@@ -29,10 +29,10 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.l.d.g, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.l.d.g f15276e;
+        public final /* synthetic */ c.a.t0.a0.l.d.g f14898e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f15277f;
+        public final /* synthetic */ e f14899f;
 
         public a(e eVar, c.a.t0.a0.l.d.g gVar) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.l.d.g, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f15277f = eVar;
-            this.f15276e = gVar;
+            this.f14899f = eVar;
+            this.f14898e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15277f.b0(this.f15276e);
+                this.f14899f.b0(this.f14898e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.g.f15313f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.g.f14934f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.l.d.g, CardViewHolder<c.a.t0.a0.l.h
             return;
         }
         aVar.v(0);
-        aVar.w(this.f3299e.getResources().getString(R.string.ala_person_live_admin));
+        aVar.w(this.f3258e.getResources().getString(R.string.ala_person_live_admin));
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 

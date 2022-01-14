@@ -14,11 +14,11 @@ public class b {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f36133b;
+    public static b f34953b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36134c;
+    public int f34954c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class b {
                 return;
             }
         }
-        this.f36134c = -1;
+        this.f34954c = -1;
     }
 
     public static b a() {
@@ -58,10 +58,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a) {
-                if (f36133b == null) {
-                    f36133b = new b();
+                if (f34953b == null) {
+                    f34953b = new b();
                 }
-                bVar = f36133b;
+                bVar = f34953b;
             }
             return bVar;
         }
@@ -70,10 +70,10 @@ public class b {
 
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f36134c) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f34954c) {
             return;
         }
-        this.f36134c = i3;
+        this.f34954c = i3;
         Bundle bundle = new Bundle();
         bundle.putInt("loctype", i2);
         bundle.putInt("diagtype", i3);

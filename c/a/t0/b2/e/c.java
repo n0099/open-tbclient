@@ -34,25 +34,23 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<SelectLocationActivity> f15616e;
+    public TbPageContext<SelectLocationActivity> f15225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f15617f;
+    public NavigationBar f15226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f15618g;
+    public ImageView f15227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f15619h;
+    public LinearLayout f15228h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView f15620i;
+    public BdListView f15229i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f15621j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public Intent f15622k;
+    public b f15230j;
+    public Intent k;
 
     public c(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
@@ -69,9 +67,9 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
                 return;
             }
         }
-        this.f15616e = tbPageContext;
-        this.f15619h = linearLayout;
-        this.f15617f = navigationBar;
+        this.f15225e = tbPageContext;
+        this.f15228h = linearLayout;
+        this.f15226f = navigationBar;
         c();
         a();
     }
@@ -79,26 +77,26 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f15616e.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.f15619h, true);
-            this.f15620i = (BdListView) this.f15619h.findViewById(R.id.select_position_list);
-            b bVar = new b(this.f15616e);
-            this.f15621j = bVar;
-            this.f15620i.setAdapter((ListAdapter) bVar);
-            this.f15620i.setOnItemClickListener(this);
+            LayoutInflater.from(this.f15225e.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.f15228h, true);
+            this.f15229i = (BdListView) this.f15228h.findViewById(R.id.select_position_list);
+            b bVar = new b(this.f15225e);
+            this.f15230j = bVar;
+            this.f15229i.setAdapter((ListAdapter) bVar);
+            this.f15229i.setOnItemClickListener(this);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f15617f.setCenterTextTitle(this.f15616e.getResources().getString(R.string.select_position_title));
-            ImageView imageView = (ImageView) this.f15617f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-            this.f15618g = imageView;
+            this.f15226f.setCenterTextTitle(this.f15225e.getResources().getString(R.string.select_position_title));
+            ImageView imageView = (ImageView) this.f15226f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+            this.f15227g = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, n.f(this.f15616e.getPageActivity(), R.dimen.ds10), 0);
-            this.f15618g.setLayoutParams(layoutParams);
-            this.f15618g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f15618g.setOnClickListener(this);
+            layoutParams.setMargins(0, 0, n.f(this.f15225e.getPageActivity(), R.dimen.ds10), 0);
+            this.f15227g.setLayoutParams(layoutParams);
+            this.f15227g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f15227g.setOnClickListener(this);
         }
     }
 
@@ -106,7 +104,7 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15622k : (Intent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (Intent) invokeV.objValue;
     }
 
     @Override // c.a.s0.y0.b
@@ -125,8 +123,8 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BdListView bdListView = this.f15620i;
-            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.f15620i.getChildAt(0)) != null && childAt.getTop() == 0;
+            BdListView bdListView = this.f15229i;
+            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.f15229i.getChildAt(0)) != null && childAt.getTop() == 0;
         }
         return invokeV.booleanValue;
     }
@@ -134,15 +132,15 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f15618g) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.f15616e.getPageActivity(), 23009)));
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f15227g) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.f15225e.getPageActivity(), 23009)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f15621j == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f15230j == null) {
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
@@ -152,11 +150,11 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
         if (i2 == 0) {
             messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             locationEvent.isShowLocation = false;
-            this.f15616e.getOrignalPage().publishEvent(locationEvent);
-            this.f15616e.getOrignalPage().finish();
+            this.f15225e.getOrignalPage().publishEvent(locationEvent);
+            this.f15225e.getOrignalPage().finish();
             return;
         }
-        Object item = this.f15621j.getItem(i2);
+        Object item = this.f15230j.getItem(i2);
         if (item instanceof LocationData.NearByAddressData) {
             LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
             messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
@@ -164,8 +162,8 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
             locationEvent.locAddr = nearByAddressData.getAddr();
             locationEvent.locSn = nearByAddressData.getSn();
             locationEvent.isShowLocation = true;
-            this.f15616e.getOrignalPage().publishEvent(locationEvent);
-            this.f15616e.getOrignalPage().finish();
+            this.f15225e.getOrignalPage().publishEvent(locationEvent);
+            this.f15225e.getOrignalPage().finish();
         }
     }
 
@@ -173,8 +171,8 @@ public class c implements c.a.s0.y0.b, View.OnClickListener, AdapterView.OnItemC
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f15618g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f15621j.notifyDataSetChanged();
+            this.f15227g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f15230j.notifyDataSetChanged();
         }
     }
 }

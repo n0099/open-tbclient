@@ -11,7 +11,7 @@ public class n extends i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12437e;
+    public long f12144e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(c cVar, long j2) {
@@ -31,12 +31,12 @@ public class n extends i {
                 return;
             }
         }
-        this.f12437e = j2;
+        this.f12144e = j2;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12437e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12144e : invokeV.longValue;
     }
 }

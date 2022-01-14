@@ -18,12 +18,12 @@ public class a {
 
     /* renamed from: c.a.r0.a.z.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0634a implements Camera.AutoFocusCallback {
+    public static class C0643a implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
-        public C0634a(String str) {
+        public C0643a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,6 +109,6 @@ public class a {
         String focusMode = parameters.getFocusMode();
         parameters.setFocusMode(c(parameters));
         camera.setParameters(parameters);
-        camera.autoFocus(new C0634a(focusMode));
+        camera.autoFocus(new C0643a(focusMode));
     }
 }

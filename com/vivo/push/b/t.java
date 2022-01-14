@@ -16,7 +16,7 @@ public final class t extends s {
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f63029b;
+    public ArrayList<String> f60652b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(int i2) {
@@ -37,7 +37,7 @@ public final class t extends s {
             }
         }
         this.a = null;
-        this.f63029b = null;
+        this.f60652b = null;
     }
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
@@ -46,7 +46,7 @@ public final class t extends s {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("content", this.a);
-            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f63029b);
+            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f60652b);
         }
     }
 
@@ -59,7 +59,7 @@ public final class t extends s {
     public final List<String> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63029b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60652b : (List) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
@@ -75,7 +75,7 @@ public final class t extends s {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.c("content");
-            this.f63029b = aVar.c(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            this.f60652b = aVar.c(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 }

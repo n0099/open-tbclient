@@ -33,6 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -46,29 +47,29 @@ public class a extends UnitedSchemeBaseInterceptor {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f6341b;
+    public static final Set<String> f6202b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.f2.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0330a implements c.a.r0.q.f.c {
+    public class C0339a implements c.a.r0.q.f.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Uri f6342b;
+        public final /* synthetic */ Uri f6203b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f6343c;
+        public final /* synthetic */ String f6204c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6344d;
+        public final /* synthetic */ UnitedSchemeEntity f6205d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6345e;
+        public final /* synthetic */ a f6206e;
 
-        public C0330a(a aVar, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+        public C0339a(a aVar, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,11 +84,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f6345e = aVar;
+            this.f6206e = aVar;
             this.a = str;
-            this.f6342b = uri;
-            this.f6343c = str2;
-            this.f6344d = unitedSchemeEntity;
+            this.f6203b = uri;
+            this.f6204c = str2;
+            this.f6205d = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.q.f.c
@@ -104,7 +105,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || map == null) {
                 return;
             }
-            this.f6345e.e(this.f6342b, map.get(this.a), this.f6343c, this.f6344d);
+            this.f6206e.e(this.f6203b, map.get(this.a), this.f6204c, this.f6205d);
         }
     }
 
@@ -123,11 +124,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         a = k.a;
         HashSet hashSet = new HashSet();
-        f6341b = hashSet;
+        f6202b = hashSet;
         hashSet.add("_baiduboxapp");
-        f6341b.add("callback");
-        f6341b.add("upgrade");
-        f6341b.add("_naExtParams");
+        f6202b.add(WebChromeClient.KEY_ARG_CALLBACK);
+        f6202b.add("upgrade");
+        f6202b.add("_naExtParams");
     }
 
     public a() {
@@ -161,7 +162,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     public final String d(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? o0.i(uri.getEncodedQuery(), f6341b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? o0.i(uri.getEncodedQuery(), f6202b) : (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:62:0x0228  */
@@ -341,7 +342,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(j2);
-                c.a.r0.q.b.e(arrayList, d.J().r().N(), new C0330a(this, j2, uri, param, unitedSchemeEntity));
+                c.a.r0.q.b.e(arrayList, d.J().r().N(), new C0339a(this, j2, uri, param, unitedSchemeEntity));
             } else {
                 e(uri, j2, param, unitedSchemeEntity);
             }

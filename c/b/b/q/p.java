@@ -26,25 +26,23 @@ public class p implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f28327e;
+    public static final byte[] f27468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final short[] f28328f;
+    public static final short[] f27469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final char[] f28329g;
+    public static final char[] f27470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f28330h;
+    public static final byte[] f27471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f28331i;
+    public static final byte[] f27472i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final short[] f28332j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final byte[] f28333k;
+    public static final short[] f27473j;
+    public static final byte[] k;
     public static final byte[] l;
     public static final byte[] m;
     public static final byte[] n;
@@ -52,13 +50,13 @@ public class p implements c {
     public final a<JsonValue> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a<JsonValue> f28334b;
+    public final a<JsonValue> f27474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsonValue f28335c;
+    public JsonValue f27475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JsonValue f28336d;
+    public JsonValue f27476d;
 
     static {
         InterceptResult invokeClinit;
@@ -73,13 +71,13 @@ public class p implements c {
                 return;
             }
         }
-        f28327e = d();
-        f28328f = h();
-        f28329g = l();
-        f28330h = j();
-        f28331i = i();
-        f28332j = f();
-        f28333k = g();
+        f27468e = d();
+        f27469f = h();
+        f27470g = l();
+        f27471h = j();
+        f27472i = i();
+        f27473j = f();
+        k = g();
         l = m();
         m = k();
         n = e();
@@ -99,7 +97,7 @@ public class p implements c {
             }
         }
         this.a = new a<>(8);
-        this.f28334b = new a<>(8);
+        this.f27474b = new a<>(8);
     }
 
     public static byte[] d() {
@@ -184,24 +182,24 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsonValue) == null) {
             jsonValue.Q(str);
-            JsonValue jsonValue2 = this.f28336d;
+            JsonValue jsonValue2 = this.f27476d;
             if (jsonValue2 == null) {
-                this.f28336d = jsonValue;
-                this.f28335c = jsonValue;
-            } else if (!jsonValue2.v() && !this.f28336d.D()) {
-                this.f28335c = this.f28336d;
+                this.f27476d = jsonValue;
+                this.f27475c = jsonValue;
+            } else if (!jsonValue2.v() && !this.f27476d.D()) {
+                this.f27475c = this.f27476d;
             } else {
-                JsonValue jsonValue3 = this.f28336d;
-                jsonValue.f32148k = jsonValue3;
+                JsonValue jsonValue3 = this.f27476d;
+                jsonValue.k = jsonValue3;
                 if (jsonValue3.n == 0) {
-                    jsonValue3.f32147j = jsonValue;
+                    jsonValue3.f31137j = jsonValue;
                 } else {
-                    JsonValue pop = this.f28334b.pop();
+                    JsonValue pop = this.f27474b.pop();
                     pop.l = jsonValue;
                     jsonValue.m = pop;
                 }
-                this.f28334b.a(jsonValue);
-                this.f28336d.n++;
+                this.f27474b.a(jsonValue);
+                this.f27476d.n++;
             }
         }
     }
@@ -259,26 +257,26 @@ public class p implements c {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:401:0x005b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:454:0x009b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:456:0x009b */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x002e, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:401:0x005c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:454:0x009c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:456:0x009c */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x002f, code lost:
         if (r11 != 4) goto L313;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:171:0x023c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:171:0x023d, code lost:
         r11 = 2;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x01a0 A[LOOP:7: B:362:0x0167->B:125:0x01a0, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:328:0x046a  */
-    /* JADX WARN: Removed duplicated region for block: B:336:0x04ba  */
-    /* JADX WARN: Removed duplicated region for block: B:382:0x0357 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:384:0x034f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:387:0x0345 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:425:0x01a5 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00e1 A[Catch: RuntimeException -> 0x045a, TRY_LEAVE, TryCatch #6 {RuntimeException -> 0x045a, blocks: (B:262:0x0393, B:264:0x0399, B:268:0x03ab, B:275:0x03bc, B:281:0x03d1, B:286:0x03dc, B:21:0x0044, B:23:0x0052, B:25:0x005d, B:34:0x008f, B:36:0x0095, B:38:0x009d, B:39:0x00a0, B:41:0x00b6, B:42:0x00bb, B:44:0x00c5, B:45:0x00cc, B:46:0x00d3, B:48:0x00e1, B:139:0x01d0, B:161:0x0207, B:162:0x020f, B:164:0x0213, B:166:0x021b, B:168:0x0221, B:169:0x022d, B:170:0x0235, B:172:0x0240, B:174:0x0244, B:176:0x024c, B:178:0x0252, B:180:0x0260, B:185:0x0274, B:187:0x027a, B:191:0x028b, B:198:0x029c, B:204:0x02af, B:209:0x02bc, B:26:0x0062, B:28:0x0076, B:29:0x007b, B:31:0x0083, B:32:0x0088), top: B:368:0x0044 }] */
-    /* JADX WARN: Type inference failed for: r0v40, types: [java.lang.Object, int[]] */
-    /* JADX WARN: Type inference failed for: r0v50, types: [java.lang.Object, int[]] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x01a1 A[LOOP:7: B:360:0x0168->B:125:0x01a1, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:328:0x046b  */
+    /* JADX WARN: Removed duplicated region for block: B:336:0x04bb  */
+    /* JADX WARN: Removed duplicated region for block: B:382:0x0358 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:384:0x0350 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:387:0x0346 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:425:0x01a6 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00e2 A[Catch: RuntimeException -> 0x045b, TRY_LEAVE, TryCatch #9 {RuntimeException -> 0x045b, blocks: (B:262:0x0394, B:264:0x039a, B:268:0x03ac, B:275:0x03bd, B:281:0x03d2, B:286:0x03dd, B:21:0x0045, B:23:0x0053, B:25:0x005e, B:34:0x0090, B:36:0x0096, B:38:0x009e, B:39:0x00a1, B:41:0x00b7, B:42:0x00bc, B:44:0x00c6, B:45:0x00cd, B:46:0x00d4, B:48:0x00e2, B:139:0x01d1, B:161:0x0208, B:162:0x0210, B:164:0x0214, B:166:0x021c, B:168:0x0222, B:169:0x022e, B:170:0x0236, B:172:0x0241, B:174:0x0245, B:176:0x024d, B:178:0x0253, B:180:0x0261, B:185:0x0275, B:187:0x027b, B:191:0x028c, B:198:0x029d, B:204:0x02b0, B:209:0x02bd, B:26:0x0063, B:28:0x0077, B:29:0x007c, B:31:0x0084, B:32:0x0089), top: B:374:0x0045 }] */
+    /* JADX WARN: Type inference failed for: r0v40, types: [int[], java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v50, types: [int[], java.lang.Object] */
     /* JADX WARN: Type inference failed for: r13v16, types: [int] */
     /* JADX WARN: Type inference failed for: r13v17 */
     /* JADX WARN: Type inference failed for: r13v50, types: [int] */
@@ -352,9 +350,9 @@ public class p implements c {
                     } else if (b4 == 0) {
                         c2 = 5;
                     }
-                    short s3 = f28328f[b4];
-                    short s4 = f28332j[b4];
-                    byte b5 = f28330h[b4];
+                    short s3 = f27469f[b4];
+                    short s4 = f27473j[b4];
+                    byte b5 = f27471h[b4];
                     if (b5 > 0) {
                         int i14 = s3 + b5;
                         int i15 = i14 - 1;
@@ -364,20 +362,20 @@ public class p implements c {
                             int i17 = i16 + ((i15 - i16) >> 1);
                             int i18 = i15;
                             int i19 = i16;
-                            if (cArr[i13] < f28329g[i17]) {
+                            if (cArr[i13] < f27470g[i17]) {
                                 i15 = i17 - 1;
                                 i16 = i19;
-                            } else if (cArr[i13] > f28329g[i17]) {
+                            } else if (cArr[i13] > f27470g[i17]) {
                                 i16 = i17 + 1;
                                 i15 = i18;
                             } else {
                                 s2 = s4 + (i17 - s3);
-                                b2 = f28333k[s2];
+                                b2 = k[s2];
                                 byte b6 = l[b2];
                                 if (m[b2] == 0) {
                                     byte b7 = m[b2];
                                     int i20 = b7 + 1;
-                                    byte b8 = f28327e[b7];
+                                    byte b8 = f27468e[b7];
                                     int i21 = i20;
                                     i12 = i6;
                                     while (true) {
@@ -385,7 +383,7 @@ public class p implements c {
                                         if (b8 > 0) {
                                             try {
                                                 int i22 = i21 + 1;
-                                                switch (f28327e[i21]) {
+                                                switch (f27468e[i21]) {
                                                     case 0:
                                                         i7 = i11;
                                                         bArr2 = bArr3;
@@ -409,7 +407,7 @@ public class p implements c {
                                                             b3 = b6;
                                                             z5 = false;
                                                         } else {
-                                                            String str4 = aVar2.f28217f > 0 ? (String) aVar2.pop() : null;
+                                                            String str4 = aVar2.f27361f > 0 ? (String) aVar2.pop() : null;
                                                             if (z6) {
                                                                 if (str3.equals("true")) {
                                                                     c(str4, true);
@@ -504,7 +502,7 @@ public class p implements c {
                                                         bArr3 = bArr2;
                                                         break;
                                                     case 2:
-                                                        t(aVar2.f28217f > 0 ? (String) aVar2.pop() : null);
+                                                        t(aVar2.f27361f > 0 ? (String) aVar2.pop() : null);
                                                         if (i11 == bArr3.length) {
                                                             ?? r0 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r0, 0, bArr3.length);
@@ -522,7 +520,7 @@ public class p implements c {
                                                         b4 = bArr3[i11];
                                                         break;
                                                     case 4:
-                                                        s(aVar2.f28217f > 0 ? (String) aVar2.pop() : null);
+                                                        s(aVar2.f27361f > 0 ? (String) aVar2.pop() : null);
                                                         if (i11 == bArr3.length) {
                                                             ?? r02 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r02, 0, bArr3.length);
@@ -743,10 +741,10 @@ public class p implements c {
                                             } catch (RuntimeException e6) {
                                                 e = e6;
                                                 runtimeException = e;
-                                                JsonValue jsonValue = this.f28335c;
-                                                this.f28335c = null;
-                                                this.f28336d = null;
-                                                this.f28334b.clear();
+                                                JsonValue jsonValue = this.f27475c;
+                                                this.f27475c = null;
+                                                this.f27476d = null;
+                                                this.f27474b.clear();
                                                 if (i13 < i3) {
                                                 }
                                             }
@@ -772,7 +770,7 @@ public class p implements c {
                         i6 = i12;
                         s = s4;
                     }
-                    byte b9 = f28331i[b4];
+                    byte b9 = f27472i[b4];
                     s2 = s;
                     if (b9 > 0) {
                         int i32 = ((b9 << 1) + s3) - 2;
@@ -784,10 +782,10 @@ public class p implements c {
                                 int i34 = i33 + (((i32 - i33) >> 1) & (-2));
                                 byte b10 = b9;
                                 int i35 = i32;
-                                if (cArr[i13] < f28329g[i34]) {
+                                if (cArr[i13] < f27470g[i34]) {
                                     i32 = i34 - 2;
                                     b9 = b10;
-                                } else if (cArr[i13] > f28329g[i34 + 1]) {
+                                } else if (cArr[i13] > f27470g[i34 + 1]) {
                                     i33 = i34 + 2;
                                     b9 = b10;
                                     i32 = i35;
@@ -797,7 +795,7 @@ public class p implements c {
                             }
                         }
                     }
-                    b2 = f28333k[s2];
+                    b2 = k[s2];
                     byte b62 = l[b2];
                     if (m[b2] == 0) {
                     }
@@ -811,12 +809,12 @@ public class p implements c {
                 try {
                     byte b11 = n[b4];
                     int i36 = b11 + 1;
-                    byte b12 = f28327e[b11];
+                    byte b12 = f27468e[b11];
                     while (true) {
                         ?? r9 = b12 - 1;
                         if (b12 > 0) {
                             int i37 = i36 + 1;
-                            if (f28327e[i36] != 1) {
+                            if (f27468e[i36] != 1) {
                                 i5 = i13;
                                 aVar = aVar2;
                                 boolean z12 = z6;
@@ -834,7 +832,7 @@ public class p implements c {
                                     aVar = aVar2;
                                     z5 = false;
                                 } else {
-                                    String str6 = aVar2.f28217f > 0 ? (String) aVar2.pop() : null;
+                                    String str6 = aVar2.f27361f > 0 ? (String) aVar2.pop() : null;
                                     if (z6) {
                                         if (str5.equals("true")) {
                                             c(str6, true);
@@ -931,20 +929,20 @@ public class p implements c {
                 } catch (RuntimeException e9) {
                     e = e9;
                     runtimeException = e;
-                    JsonValue jsonValue2 = this.f28335c;
-                    this.f28335c = null;
-                    this.f28336d = null;
-                    this.f28334b.clear();
+                    JsonValue jsonValue2 = this.f27475c;
+                    this.f27475c = null;
+                    this.f27476d = null;
+                    this.f27474b.clear();
                     if (i13 < i3) {
                     }
                 }
             }
             i13 = i13;
             runtimeException = null;
-            JsonValue jsonValue22 = this.f28335c;
-            this.f28335c = null;
-            this.f28336d = null;
-            this.f28334b.clear();
+            JsonValue jsonValue22 = this.f27475c;
+            this.f27475c = null;
+            this.f27476d = null;
+            this.f27474b.clear();
             if (i13 < i3) {
                 int i39 = 1;
                 for (int i40 = 0; i40 < i13; i40++) {
@@ -956,7 +954,7 @@ public class p implements c {
                 throw new SerializationException("Error parsing JSON on line " + i39 + " near: " + new String(cArr, max, i13 - max) + "*ERROR*" + new String(cArr, i13, Math.min(64, i3 - i13)), runtimeException);
             }
             a<JsonValue> aVar3 = this.a;
-            if (aVar3.f28217f == 0) {
+            if (aVar3.f27361f == 0) {
                 if (runtimeException == null) {
                     return jsonValue22;
                 } else {
@@ -976,12 +974,12 @@ public class p implements c {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f28335c = this.a.pop();
-            if (this.f28336d.n > 0) {
-                this.f28334b.pop();
+            this.f27475c = this.a.pop();
+            if (this.f27476d.n > 0) {
+                this.f27474b.pop();
             }
             a<JsonValue> aVar = this.a;
-            this.f28336d = aVar.f28217f > 0 ? aVar.peek() : null;
+            this.f27476d = aVar.f27361f > 0 ? aVar.peek() : null;
         }
     }
 
@@ -989,11 +987,11 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.array);
-            if (this.f28336d != null) {
+            if (this.f27476d != null) {
                 b(str, jsonValue);
             }
             this.a.a(jsonValue);
-            this.f28336d = jsonValue;
+            this.f27476d = jsonValue;
         }
     }
 
@@ -1001,11 +999,11 @@ public class p implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.object);
-            if (this.f28336d != null) {
+            if (this.f27476d != null) {
                 b(str, jsonValue);
             }
             this.a.a(jsonValue);
-            this.f28336d = jsonValue;
+            this.f27476d = jsonValue;
         }
     }
 

@@ -24,12 +24,12 @@ public class k0 {
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k0 f14178c;
+    public static final k0 f13846c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14179b;
+    public String f13847b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class k0 {
                 return;
             }
         }
-        f14178c = new k0();
+        f13846c = new k0();
     }
 
     public k0() {
@@ -98,7 +98,7 @@ public class k0 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14179b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13847b : (String) invokeV.objValue;
     }
 
     @Nullable
@@ -106,10 +106,10 @@ public class k0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(this.f14179b)) {
+            if (TextUtils.isEmpty(this.f13847b)) {
                 return null;
             }
-            return UrlUtils.appendParam(this.f14179b, "tid", str);
+            return UrlUtils.appendParam(this.f13847b, "tid", str);
         }
         return (String) invokeL.objValue;
     }
@@ -117,13 +117,13 @@ public class k0 {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a && !TextUtils.isEmpty(this.f14179b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a && !TextUtils.isEmpty(this.f13847b) : invokeV.booleanValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f14179b = str;
+            this.f13847b = str;
         }
     }
 

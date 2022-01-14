@@ -362,7 +362,7 @@ public final class BitArray implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m108clone() {
+    public BitArray m120clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new BitArray((int[]) this.bits.clone(), this.size) : (BitArray) invokeV.objValue;

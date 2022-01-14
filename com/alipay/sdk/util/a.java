@@ -19,10 +19,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31918b = "00:00:00:00:00:00";
+    public static final String f30916b = "00:00:00:00:00:00";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f31919c;
+    public static a f30917c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -69,10 +69,10 @@ public class a {
                     return;
                 }
             }
-            this.a = f31918b;
+            this.a = f30916b;
         } catch (Throwable th) {
             if (TextUtils.isEmpty(this.a)) {
-                this.a = f31918b;
+                this.a = f30916b;
             }
             throw th;
         }
@@ -82,10 +82,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f31919c == null) {
-                f31919c = new a(context);
+            if (f30917c == null) {
+                f30917c = new a(context);
             }
-            return f31919c;
+            return f30917c;
         }
         return (a) invokeL.objValue;
     }
@@ -148,7 +148,7 @@ public class a {
                     return e.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return e.f31921c;
+                    return e.f30919c;
                 }
                 return e.r;
             } catch (Exception unused) {

@@ -19,10 +19,10 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f4160b;
+    public static g f4095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, c.a.k.a.q.f<String, Integer>> f4161c;
+    public static HashMap<String, c.a.k.a.q.f<String, Integer>> f4096c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -39,7 +39,7 @@ public final class g {
                 return;
             }
         }
-        f4161c = new HashMap<>();
+        f4096c = new HashMap<>();
     }
 
     public g() {
@@ -70,10 +70,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (g.class) {
-                if (f4160b == null) {
-                    f4160b = new g();
+                if (f4095b == null) {
+                    f4095b = new g();
                 }
-                gVar = f4160b;
+                gVar = f4095b;
             }
             return gVar;
         }
@@ -86,10 +86,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             a(str2, str);
-            c.a.k.a.q.f<String, Integer> fVar = f4161c.get(str);
+            c.a.k.a.q.f<String, Integer> fVar = f4096c.get(str);
             if (fVar == null) {
                 fVar = new c.a.k.a.q.f<>(100);
-                f4161c.put(str, fVar);
+                f4096c.put(str, fVar);
             }
             Integer c2 = fVar.c(str2);
             if (c2 == null) {

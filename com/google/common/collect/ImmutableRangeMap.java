@@ -227,12 +227,12 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         return invokeL.booleanValue;
     }
 
-    public V get(K k2) {
+    public V get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) {
-            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k2), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
-            if (a2 != -1 && this.ranges.get(a2).contains(k2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) {
+            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
+            if (a2 != -1 && this.ranges.get(a2).contains(k)) {
                 return this.values.get(a2);
             }
             return null;
@@ -240,16 +240,16 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         return (V) invokeL.objValue;
     }
 
-    public Map.Entry<Range<K>, V> getEntry(K k2) {
+    public Map.Entry<Range<K>, V> getEntry(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k2)) == null) {
-            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k2), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k)) == null) {
+            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
             if (a2 == -1) {
                 return null;
             }
             Range<K> range = this.ranges.get(a2);
-            if (range.contains(k2)) {
+            if (range.contains(k)) {
                 return Maps.l(range, this.values.get(a2));
             }
             return null;
@@ -328,7 +328,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: asDescendingMapOfRanges */
-    public ImmutableMap<Range<K>, V> m101asDescendingMapOfRanges() {
+    public ImmutableMap<Range<K>, V> m113asDescendingMapOfRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -462,7 +462,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
 
                 @Override // com.google.common.collect.ImmutableRangeMap
                 public /* bridge */ /* synthetic */ Map asDescendingMapOfRanges() {
-                    return super.m101asDescendingMapOfRanges();
+                    return super.m113asDescendingMapOfRanges();
                 }
 
                 @Override // com.google.common.collect.ImmutableRangeMap, c.i.d.c.a1

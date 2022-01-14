@@ -34,13 +34,13 @@ public final class SwanAppAllianceLoginHelper {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Lazy f39954b;
+    public static final Lazy f38631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f39955c;
+    public static boolean f38632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SwanAppAllianceLoginHelper f39956d;
+    public static final SwanAppAllianceLoginHelper f38633d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,9 +57,9 @@ public final class SwanAppAllianceLoginHelper {
             }
         }
         SwanAppAllianceLoginHelper swanAppAllianceLoginHelper = new SwanAppAllianceLoginHelper();
-        f39956d = swanAppAllianceLoginHelper;
+        f38633d = swanAppAllianceLoginHelper;
         Intrinsics.checkNotNullExpressionValue(swanAppAllianceLoginHelper.getClass().getSimpleName(), "SwanAppAllianceLoginHelper.javaClass.simpleName");
-        f39954b = LazyKt__LazyJVMKt.lazy(SwanAppAllianceLoginHelper$loginStatusChangeCallbacks$2.INSTANCE);
+        f38631b = LazyKt__LazyJVMKt.lazy(SwanAppAllianceLoginHelper$loginStatusChangeCallbacks$2.INSTANCE);
     }
 
     public SwanAppAllianceLoginHelper() {
@@ -82,8 +82,8 @@ public final class SwanAppAllianceLoginHelper {
             Intrinsics.checkNotNullParameter(value, "value");
             Intrinsics.checkNotNullParameter(ceresId, "ceresId");
             e eVar = new e();
-            eVar.f8157b = f.h();
-            eVar.f8160e = value;
+            eVar.f7977b = f.h();
+            eVar.f7980e = value;
             d J = d.J();
             Intrinsics.checkNotNullExpressionValue(J, "Swan.get()");
             eVar.a("appkey", J.getAppId());
@@ -95,7 +95,7 @@ public final class SwanAppAllianceLoginHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.r0.a.s.a.d.a.b();
-            g.f8935b.d();
+            g.f8740b.d();
             j(false);
         }
     }
@@ -103,7 +103,7 @@ public final class SwanAppAllianceLoginHelper {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f39955c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f38632c : invokeV.booleanValue;
     }
 
     public final a d() {
@@ -115,7 +115,7 @@ public final class SwanAppAllianceLoginHelper {
     public final List<c> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (List) f39954b.getValue() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (List) f38631b.getValue() : (List) invokeV.objValue;
     }
 
     public final boolean f() {
@@ -142,7 +142,7 @@ public final class SwanAppAllianceLoginHelper {
             if (!Intrinsics.areEqual(f.i(), Boolean.FALSE)) {
                 String a2 = c.a.r0.a.s.a.d.a.a();
                 if (!(a2 == null || StringsKt__StringsJVMKt.isBlank(a2))) {
-                    String a3 = g.f8935b.a();
+                    String a3 = g.f8740b.a();
                     if (!(a3 == null || StringsKt__StringsJVMKt.isBlank(a3))) {
                         return true;
                     }
@@ -190,7 +190,7 @@ public final class SwanAppAllianceLoginHelper {
             String a4 = i.a(a3, "appKey", n2.b());
             c.a.r0.a.h0.g.l.X2("allianceLogin", b.e(a4, a4));
             a = listener;
-            f39955c = false;
+            f38632c = false;
             a(f.e(), f.b());
         }
     }
@@ -221,7 +221,7 @@ public final class SwanAppAllianceLoginHelper {
     public final void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            f39955c = z;
+            f38632c = z;
         }
     }
 }

@@ -266,16 +266,16 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f5771e;
+        public final /* synthetic */ JsFunction f5645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f5772f;
+        public final /* synthetic */ JsFunction f5646f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f5773g;
+        public final /* synthetic */ JsFunction f5647g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f5774h;
+        public final /* synthetic */ JsFunction f5648h;
 
         public a(JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, JsFunction jsFunction4) {
             Interceptable interceptable = $ic;
@@ -292,10 +292,10 @@ public class g {
                     return;
                 }
             }
-            this.f5771e = jsFunction;
-            this.f5772f = jsFunction2;
-            this.f5773g = jsFunction3;
-            this.f5774h = jsFunction4;
+            this.f5645e = jsFunction;
+            this.f5646f = jsFunction2;
+            this.f5647g = jsFunction3;
+            this.f5648h = jsFunction4;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -306,7 +306,7 @@ public class g {
                 if (g.a) {
                     String str = "onClose - " + jSONObject2;
                 }
-                JsFunction jsFunction = this.f5773g;
+                JsFunction jsFunction = this.f5647g;
                 if (jsFunction != null) {
                     jsFunction.call(jSONObject2);
                 }
@@ -322,7 +322,7 @@ public class g {
                     String str = "onError throwable - " + th;
                     String str2 = "onError jsonObject - " + jSONObject2;
                 }
-                JsFunction jsFunction = this.f5774h;
+                JsFunction jsFunction = this.f5648h;
                 if (jsFunction != null) {
                     jsFunction.call(g.g(th));
                 }
@@ -333,7 +333,7 @@ public class g {
         public void onMessage(String str) {
             JsFunction jsFunction;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jsFunction = this.f5772f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jsFunction = this.f5646f) == null) {
                 return;
             }
             jsFunction.call(g.h(str));
@@ -343,7 +343,7 @@ public class g {
         public void onOpen(Map<String, String> map) {
             JsFunction jsFunction;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, map) == null) || (jsFunction = this.f5771e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, map) == null) || (jsFunction = this.f5645e) == null) {
                 return;
             }
             jsFunction.call();
@@ -353,7 +353,7 @@ public class g {
         public void onMessage(ByteBuffer byteBuffer) {
             JsFunction jsFunction;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) || (jsFunction = this.f5772f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) || (jsFunction = this.f5646f) == null) {
                 return;
             }
             jsFunction.call(g.h(byteBuffer));

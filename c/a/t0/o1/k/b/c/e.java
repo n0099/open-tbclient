@@ -6,26 +6,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.NewHottopic.TimeLineInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21257b;
+    public long f20695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21258c;
+    public String f20696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21259d;
+    public String f20697d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21260e;
+    public String f20698e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21261f;
+    public int f20699f;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, timeLineInfo) == null) || timeLineInfo == null) {
             return;
         }
-        this.f21257b = timeLineInfo.tid.longValue();
-        this.f21258c = timeLineInfo.title;
-        this.f21259d = m.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-        this.f21260e = timeLineInfo.bg_color;
+        this.f20695b = timeLineInfo.tid.longValue();
+        this.f20696c = timeLineInfo.title;
+        this.f20697d = m.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+        this.f20698e = timeLineInfo.bg_color;
     }
 }

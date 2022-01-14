@@ -23,18 +23,18 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f18375e;
+    public static final Pattern f17924e;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f18376b;
+    public Point f17925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f18377c;
+    public Point f17926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Point f18378d;
+    public Point f17927d;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public final class b {
                 return;
             }
         }
-        f18375e = Pattern.compile(",");
+        f17924e = Pattern.compile(",");
     }
 
     public b(Context context) {
@@ -81,7 +81,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i2)) == null) {
             int i3 = 0;
-            for (String str : f18375e.split(charSequence)) {
+            for (String str : f17924e.split(charSequence)) {
                 try {
                     double parseDouble = Double.parseDouble(str.trim());
                     int i4 = (int) (10.0d * parseDouble);
@@ -184,7 +184,7 @@ public final class b {
     public Point g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18377c : (Point) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17926c : (Point) invokeV.objValue;
     }
 
     public int h() {
@@ -219,25 +219,25 @@ public final class b {
             if (a(camera)) {
                 parameters.setFocusMode("auto");
             }
-            this.f18376b = a.d(this.a);
+            this.f17925b = a.d(this.a);
             Point point = new Point();
-            Point point2 = this.f18376b;
+            Point point2 = this.f17925b;
             point.x = point2.x;
             point.y = point2.y;
             int c2 = a.c(this.a);
             if (c2 == 0) {
-                Point point3 = this.f18376b;
+                Point point3 = this.f17925b;
                 point.x = point3.y;
                 point.y = point3.x;
             }
             Point i2 = i(parameters, point);
-            this.f18378d = i2;
+            this.f17927d = i2;
             if (c2 == 0) {
-                Point point4 = this.f18378d;
-                this.f18377c = new Point(point4.y, point4.x);
+                Point point4 = this.f17927d;
+                this.f17926c = new Point(point4.y, point4.x);
                 return;
             }
-            this.f18377c = i2;
+            this.f17926c = i2;
         }
     }
 
@@ -252,7 +252,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, camera) == null) {
             Camera.Parameters parameters = camera.getParameters();
-            Point point = this.f18378d;
+            Point point = this.f17927d;
             parameters.setPreviewSize(point.x, point.y);
             m(parameters);
             camera.setDisplayOrientation(h());

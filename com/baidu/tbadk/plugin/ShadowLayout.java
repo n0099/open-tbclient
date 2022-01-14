@@ -25,25 +25,23 @@ public class ShadowLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f42579e;
+    public Paint f41084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f42580f;
+    public RectF f41085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42581g;
+    public int f41086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42582h;
+    public int f41087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42583i;
+    public int f41088i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42584j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f42585k;
+    public int f41089j;
+    public int k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,25 +71,25 @@ public class ShadowLayout extends FrameLayout {
             setWillNotDraw(false);
             setLayerType(1, null);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-            this.f42581g = dimensionPixelSize;
+            this.f41086g = dimensionPixelSize;
             setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
-            this.f42582h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f42583i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-            this.f42584j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
-            this.f42585k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
+            this.f41087h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.f41088i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+            this.f41089j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+            this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
             Paint paint = new Paint();
-            this.f42579e = paint;
+            this.f41084e = paint;
             paint.setColor(0);
-            this.f42579e.setShadowLayer(this.f42582h, this.f42583i, this.f42584j, this.f42585k);
-            this.f42580f = new RectF();
+            this.f41084e.setShadowLayer(this.f41087h, this.f41088i, this.f41089j, this.k);
+            this.f41085f = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f42579e.setShadowLayer(this.f42582h, this.f42583i, this.f42584j, this.f42585k);
+            this.f41084e.setShadowLayer(this.f41087h, this.f41088i, this.f41089j, this.k);
             postInvalidate();
         }
     }
@@ -99,7 +97,7 @@ public class ShadowLayout extends FrameLayout {
     public void buildShadow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.f42581g;
+            int i2 = this.f41086g;
             setPadding(i2, i2, i2, i2);
             b();
         }
@@ -110,13 +108,13 @@ public class ShadowLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f42580f.left = getPaddingLeft();
-            this.f42580f.right = getWidth() - getPaddingRight();
-            this.f42580f.bottom = getHeight() - getPaddingBottom();
-            this.f42580f.top = getPaddingTop();
-            RectF rectF = this.f42580f;
+            this.f41085f.left = getPaddingLeft();
+            this.f41085f.right = getWidth() - getPaddingRight();
+            this.f41085f.bottom = getHeight() - getPaddingBottom();
+            this.f41085f.top = getPaddingTop();
+            RectF rectF = this.f41085f;
             int i2 = this.l;
-            canvas.drawRoundRect(rectF, i2, i2, this.f42579e);
+            canvas.drawRoundRect(rectF, i2, i2, this.f41084e);
         }
     }
 
@@ -125,7 +123,7 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f42585k = i2;
+            this.k = i2;
             return this;
         }
         return (ShadowLayout) invokeI.objValue;
@@ -136,8 +134,8 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            this.f42583i = getResources().getDimensionPixelSize(i2);
-            this.f42584j = getResources().getDimensionPixelSize(i3);
+            this.f41088i = getResources().getDimensionPixelSize(i2);
+            this.f41089j = getResources().getDimensionPixelSize(i3);
             return this;
         }
         return (ShadowLayout) invokeII.objValue;
@@ -148,7 +146,7 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f42581g = getResources().getDimensionPixelSize(i2);
+            this.f41086g = getResources().getDimensionPixelSize(i2);
             return this;
         }
         return (ShadowLayout) invokeI.objValue;
@@ -168,7 +166,7 @@ public class ShadowLayout extends FrameLayout {
     public void setShadowColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f42585k = SkinManager.getColor(i2);
+            this.k = SkinManager.getColor(i2);
             b();
         }
     }

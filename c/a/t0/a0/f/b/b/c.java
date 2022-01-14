@@ -1,6 +1,6 @@
 package c.a.t0.a0.f.b.b;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d2 a;
+    public e2 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14723b;
+    public int f14373b;
 
     public c() {
         Interceptable interceptable = $ic;

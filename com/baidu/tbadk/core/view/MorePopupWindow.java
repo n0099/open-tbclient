@@ -155,9 +155,9 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int k2 = n.k(context);
-            this.mContentView.getLayoutParams().width = k2;
-            setWidth(k2);
+            int k = n.k(context);
+            this.mContentView.getLayoutParams().width = k;
+            setWidth(k);
         }
     }
 

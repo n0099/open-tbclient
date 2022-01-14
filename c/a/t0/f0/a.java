@@ -35,18 +35,18 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17698b;
+    public String f17268b;
 
     /* renamed from: c.a.t0.f0.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1080a implements View.OnClickListener {
+    public class View$OnClickListenerC1094a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f17699e;
+        public final /* synthetic */ ImageView f17269e;
 
-        public View$OnClickListenerC1080a(a aVar, ImageView imageView) {
+        public View$OnClickListenerC1094a(a aVar, ImageView imageView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,7 @@ public class a {
                     return;
                 }
             }
-            this.f17699e = imageView;
+            this.f17269e = imageView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -70,7 +70,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.setTag(Boolean.valueOf(!((Boolean) view.getTag()).booleanValue()));
-                ImageView imageView = this.f17699e;
+                ImageView imageView = this.f17269e;
                 if (((Boolean) view.getTag()).booleanValue()) {
                     maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
                 } else {
@@ -87,10 +87,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f17700e;
+        public final /* synthetic */ ImageView f17270e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f17701f;
+        public final /* synthetic */ a f17271f;
 
         public b(a aVar, ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -107,16 +107,16 @@ public class a {
                     return;
                 }
             }
-            this.f17701f = aVar;
-            this.f17700e = imageView;
+            this.f17271f = aVar;
+            this.f17270e = imageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.s0.s.g0.b.j().t("key_call_fans_no_tip_again", !((Boolean) this.f17700e.getTag()).booleanValue());
-                this.f17701f.c();
+                c.a.s0.s.h0.b.k().u("key_call_fans_no_tip_again", !((Boolean) this.f17270e.getTag()).booleanValue());
+                this.f17271f.c();
             }
         }
     }
@@ -145,7 +145,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TbSingleton.getInstance().mCanCallFans) {
                 this.a.showToast(R.string.have_used_call_fans_this_week);
-            } else if (c.a.s0.s.g0.b.j().g("key_call_fans_no_tip_again", false)) {
+            } else if (c.a.s0.s.h0.b.k().h("key_call_fans_no_tip_again", false)) {
                 c();
             } else {
                 TbPageContext tbPageContext = this.a;
@@ -169,7 +169,7 @@ public class a {
                 d2.A(R.string.F_X01);
                 linearLayout.addView(textView);
                 imageView.setTag(Boolean.FALSE);
-                imageView.setOnClickListener(new View$OnClickListenerC1080a(this, imageView));
+                imageView.setOnClickListener(new View$OnClickListenerC1094a(this, imageView));
                 m mVar = new m(pageActivity);
                 mVar.r(R.string.confirm_to_call_fans);
                 mVar.j(R.string.call_fans_intro);
@@ -187,10 +187,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
-            httpMessage.addParam("thread_id", this.f17698b);
+            httpMessage.addParam("thread_id", this.f17268b);
             MessageManager.getInstance().sendMessage(httpMessage);
             this.a.showToast(R.string.your_thread_is_recommended_to_fans);
-            TbSingleton.getInstance().mCallFansTid = this.f17698b;
+            TbSingleton.getInstance().mCallFansTid = this.f17268b;
             TbSingleton.getInstance().mCanCallFans = false;
         }
     }
@@ -216,7 +216,7 @@ public class a {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f17698b = str;
+            this.f17268b = str;
         }
     }
 }

@@ -37,25 +37,23 @@ public class GameCloseGuidePopView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41230e;
+    public Context f39837e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f41231f;
+    public View f39838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f41232g;
+    public View f39839g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f41233h;
+    public View f39840h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f41234i;
+    public RecyclerView f39841i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f41235j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public RecommendItemModel f41236k;
+    public e f39842j;
+    public RecommendItemModel k;
     public c.a.r0.j.p0.g.b.c l;
 
     /* loaded from: classes11.dex */
@@ -64,7 +62,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameCloseGuidePopView f41237e;
+        public final /* synthetic */ GameCloseGuidePopView f39843e;
 
         public a(GameCloseGuidePopView gameCloseGuidePopView) {
             Interceptable interceptable = $ic;
@@ -81,16 +79,16 @@ public class GameCloseGuidePopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41237e = gameCloseGuidePopView;
+            this.f39843e = gameCloseGuidePopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41237e.f41235j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39843e.f39842j == null) {
                 return;
             }
-            this.f41237e.f41235j.a();
+            this.f39843e.f39842j.a();
         }
     }
 
@@ -100,7 +98,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameCloseGuidePopView f41238e;
+        public final /* synthetic */ GameCloseGuidePopView f39844e;
 
         public b(GameCloseGuidePopView gameCloseGuidePopView) {
             Interceptable interceptable = $ic;
@@ -117,21 +115,21 @@ public class GameCloseGuidePopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41238e = gameCloseGuidePopView;
+            this.f39844e = gameCloseGuidePopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41238e.f41235j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39844e.f39842j == null) {
                 return;
             }
-            this.f41238e.f41235j.b();
-            if (this.f41238e.f41236k == null || TextUtils.isEmpty(this.f41238e.f41236k.getScheme()) || TextUtils.isEmpty(this.f41238e.f41236k.getAppKey())) {
+            this.f39844e.f39842j.b();
+            if (this.f39844e.k == null || TextUtils.isEmpty(this.f39844e.k.getScheme()) || TextUtils.isEmpty(this.f39844e.k.getAppKey())) {
                 return;
             }
-            SchemeRouter.invokeSchemeForInner(this.f41238e.f41230e, Uri.parse(this.f41238e.f41236k.getScheme()));
-            this.f41238e.l.b(3, "popview", this.f41238e.f41236k.getAppKey(), "");
+            SchemeRouter.invokeSchemeForInner(this.f39844e.f39837e, Uri.parse(this.f39844e.k.getScheme()));
+            this.f39844e.l.b(3, "popview", this.f39844e.k.getAppKey(), "");
         }
     }
 
@@ -141,7 +139,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameCloseGuidePopView f41239e;
+        public final /* synthetic */ GameCloseGuidePopView f39845e;
 
         public c(GameCloseGuidePopView gameCloseGuidePopView) {
             Interceptable interceptable = $ic;
@@ -158,16 +156,16 @@ public class GameCloseGuidePopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f41239e = gameCloseGuidePopView;
+            this.f39845e = gameCloseGuidePopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41239e.f41235j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39845e.f39842j == null) {
                 return;
             }
-            this.f41239e.f41235j.c();
+            this.f39845e.f39842j.c();
         }
     }
 
@@ -183,13 +181,13 @@ public class GameCloseGuidePopView extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f41240e;
+            public final /* synthetic */ List f39846e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.j.p0.g.e.a f41241f;
+            public final /* synthetic */ c.a.r0.j.p0.g.e.a f39847f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ d f41242g;
+            public final /* synthetic */ d f39848g;
 
             public a(d dVar, List list, c.a.r0.j.p0.g.e.a aVar) {
                 Interceptable interceptable = $ic;
@@ -206,17 +204,17 @@ public class GameCloseGuidePopView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f41242g = dVar;
-                this.f41240e = list;
-                this.f41241f = aVar;
+                this.f39848g = dVar;
+                this.f39846e = list;
+                this.f39847f = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f41242g.a.f41234i.setAdapter(new GameGuideAdapter(this.f41242g.a.f41230e, this.f41240e));
-                    this.f41242g.a.l.c(3, this.f41241f);
+                    this.f39848g.a.f39841i.setAdapter(new GameGuideAdapter(this.f39848g.a.f39837e, this.f39846e));
+                    this.f39848g.a.l.c(3, this.f39847f);
                 }
             }
         }
@@ -263,7 +261,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                     return;
                 }
                 Gson gson = new Gson();
-                this.a.f41236k = (RecommendItemModel) gson.fromJson(optString, (Class<Object>) RecommendItemModel.class);
+                this.a.k = (RecommendItemModel) gson.fromJson(optString, (Class<Object>) RecommendItemModel.class);
                 JSONArray optJSONArray = optJSONObject.optJSONArray("app_list");
                 if (optJSONArray == null) {
                     return;
@@ -275,7 +273,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                         arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i2).toString(), (Class<Object>) RecommendItemModel.class));
                     }
                 }
-                this.a.post(new a(this, arrayList, new c.a.r0.j.p0.g.e.a(this.a.f41236k, arrayList)));
+                this.a.post(new a(this, arrayList, new c.a.r0.j.p0.g.e.a(this.a.k, arrayList)));
             } catch (JSONException e2) {
                 if (GameCloseGuidePopView.m) {
                     e2.printStackTrace();
@@ -327,7 +325,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                 return;
             }
         }
-        this.f41230e = context;
+        this.f39837e = context;
         i();
         h();
     }
@@ -343,24 +341,24 @@ public class GameCloseGuidePopView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.f41230e).inflate(f.swangame_game_close_guide_view, this);
-            this.f41231f = findViewById(c.a.r0.h.e.tv_exit_game);
-            this.f41232g = findViewById(c.a.r0.h.e.tv_more_game);
-            this.f41233h = findViewById(c.a.r0.h.e.rl_guide_game_bg);
-            this.f41234i = (RecyclerView) findViewById(c.a.r0.h.e.rv_guide_game);
-            this.f41231f.setOnClickListener(new a(this));
-            this.f41232g.setOnClickListener(new b(this));
-            this.f41233h.setOnClickListener(new c(this));
-            c.a.r0.j.p0.g.f.d.a(this.f41231f);
-            c.a.r0.j.p0.g.f.d.a(this.f41232g);
-            this.f41234i.setLayoutManager(new GridLayoutManager(this.f41230e, 3));
+            LayoutInflater.from(this.f39837e).inflate(f.swangame_game_close_guide_view, this);
+            this.f39838f = findViewById(c.a.r0.h.e.tv_exit_game);
+            this.f39839g = findViewById(c.a.r0.h.e.tv_more_game);
+            this.f39840h = findViewById(c.a.r0.h.e.rl_guide_game_bg);
+            this.f39841i = (RecyclerView) findViewById(c.a.r0.h.e.rv_guide_game);
+            this.f39838f.setOnClickListener(new a(this));
+            this.f39839g.setOnClickListener(new b(this));
+            this.f39840h.setOnClickListener(new c(this));
+            c.a.r0.j.p0.g.f.d.a(this.f39838f);
+            c.a.r0.j.p0.g.f.d.a(this.f39839g);
+            this.f39841i.setLayoutManager(new GridLayoutManager(this.f39837e, 3));
         }
     }
 
     public void setOnClickListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f41235j = eVar;
+            this.f39842j = eVar;
         }
     }
 }

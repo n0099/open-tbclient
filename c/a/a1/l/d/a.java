@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,13 +26,13 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1296b;
+    public String f1291b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1297c;
+    public int f1292c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1298d;
+    public int f1293d;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -49,7 +50,7 @@ public class a {
             }
         }
         this.a = 88200L;
-        this.f1296b = str;
+        this.f1291b = str;
     }
 
     public final void a(byte[] bArr, int i2) {
@@ -61,7 +62,7 @@ public class a {
                 if (i3 >= 13) {
                     i3 = 4;
                     break;
-                } else if (iArr[i3] == this.f1297c) {
+                } else if (iArr[i3] == this.f1292c) {
                     break;
                 } else {
                     i3++;
@@ -71,7 +72,7 @@ public class a {
             bArr[1] = -7;
             bArr[2] = (byte) (64 + (i3 << 2) + 0);
             bArr[3] = (byte) (128 + (i2 >> 11));
-            bArr[4] = (byte) ((i2 & 2047) >> 3);
+            bArr[4] = (byte) ((i2 & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
             bArr[5] = (byte) (((i2 & 7) << 5) + 31);
             bArr[6] = -4;
         }
@@ -86,8 +87,8 @@ public class a {
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString("mime", "audio/mp4a-latm");
             mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.f1298d);
-            mediaFormat.setInteger("sample-rate", this.f1297c);
+            mediaFormat.setInteger("channel-count", this.f1293d);
+            mediaFormat.setInteger("sample-rate", this.f1292c);
             mediaFormat.setInteger("aac-profile", 2);
             createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return createEncoderByType;
@@ -123,14 +124,14 @@ public class a {
         MediaCodec mediaCodec = null;
         try {
             try {
-                if (this.f1297c == 0) {
-                    this.f1297c = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                if (this.f1292c == 0) {
+                    this.f1292c = MediaEncodeParams.AUDIO_SAMPLE_RATE;
                 }
-                if (this.f1298d == 0) {
-                    this.f1298d = 1;
+                if (this.f1293d == 0) {
+                    this.f1293d = 1;
                 }
-                this.a = (this.f1297c * 16) / 8;
-                fileInputStream = new FileInputStream(this.f1296b);
+                this.a = (this.f1292c * 16) / 8;
+                fileInputStream = new FileInputStream(this.f1291b);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return;
@@ -333,14 +334,14 @@ public class a {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f1298d = i2;
+            this.f1293d = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f1297c = i2;
+            this.f1292c = i2;
         }
     }
 }

@@ -27,25 +27,23 @@ public class ScreenLockHeaderView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f49611e;
+    public TextView f47745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f49612f;
+    public View f47746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49613g;
+    public View f47747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49614h;
+    public TextView f47748h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49615i;
+    public TextView f47749i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49616j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f49617k;
+    public TextView f47750j;
+    public View k;
     public d l;
     public TextView m;
     public EditText n;
@@ -70,13 +68,13 @@ public class ScreenLockHeaderView extends LinearLayout {
             }
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screenlock_show_item_header, (ViewGroup) this, true);
-        this.f49611e = (TextView) findViewById(R.id.friend_name_show1);
-        this.f49612f = findViewById(R.id.friend_name_layout);
-        this.f49613g = findViewById(R.id.msg_content_layout);
-        this.f49614h = (TextView) findViewById(R.id.last_msg_time_show1);
-        this.f49615i = (TextView) findViewById(R.id.one_msg_content_show1);
-        this.f49616j = (TextView) findViewById(R.id.unread_msg_count_show1);
-        this.f49617k = findViewById(R.id.line);
+        this.f47745e = (TextView) findViewById(R.id.friend_name_show1);
+        this.f47746f = findViewById(R.id.friend_name_layout);
+        this.f47747g = findViewById(R.id.msg_content_layout);
+        this.f47748h = (TextView) findViewById(R.id.last_msg_time_show1);
+        this.f47749i = (TextView) findViewById(R.id.one_msg_content_show1);
+        this.f47750j = (TextView) findViewById(R.id.unread_msg_count_show1);
+        this.k = findViewById(R.id.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.screen_notify_item_background);
         setOrientation(1);
@@ -133,8 +131,8 @@ public class ScreenLockHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, onClickListener, onClickListener2) == null) {
             this.m.setOnClickListener(onClickListener);
-            this.f49612f.setOnClickListener(onClickListener2);
-            this.f49613g.setOnClickListener(onClickListener2);
+            this.f47746f.setOnClickListener(onClickListener2);
+            this.f47747g.setOnClickListener(onClickListener2);
         }
     }
 
@@ -143,11 +141,11 @@ public class ScreenLockHeaderView extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
                 this.o.setVisibility(0);
-                this.f49617k.setVisibility(8);
+                this.k.setVisibility(8);
                 return;
             }
             this.o.setVisibility(8);
-            this.f49617k.setVisibility(0);
+            this.k.setVisibility(0);
         }
     }
 
@@ -155,10 +153,10 @@ public class ScreenLockHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
             this.l = dVar;
-            this.f49611e.setText(dVar.a);
-            this.f49614h.setText(refreshLastTime(dVar.l));
-            this.f49615i.setText(dVar.f19658e);
-            this.f49616j.setText(refreshUnreadCount(dVar.f19662i));
+            this.f47745e.setText(dVar.a);
+            this.f47748h.setText(refreshLastTime(dVar.l));
+            this.f47749i.setText(dVar.f19151e);
+            this.f47750j.setText(refreshUnreadCount(dVar.f19155i));
         }
     }
 

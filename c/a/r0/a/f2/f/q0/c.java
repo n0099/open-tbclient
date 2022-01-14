@@ -25,16 +25,16 @@ public class c extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6302e;
+        public final /* synthetic */ CallbackHandler f6163e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6303f;
+        public final /* synthetic */ d f6164f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.p.e.b f6304g;
+        public final /* synthetic */ c.a.r0.a.p.e.b f6165g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f6305h;
+        public final /* synthetic */ c f6166h;
 
         public a(c cVar, CallbackHandler callbackHandler, d dVar, c.a.r0.a.p.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class c extends e {
                     return;
                 }
             }
-            this.f6305h = cVar;
-            this.f6302e = callbackHandler;
-            this.f6303f = dVar;
-            this.f6304g = bVar;
+            this.f6166h = cVar;
+            this.f6163e = callbackHandler;
+            this.f6164f = dVar;
+            this.f6165g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,18 +64,18 @@ public class c extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f6302e, this.f6303f.f5424i);
-                    this.f6303f.o = null;
+                    c.a.r0.a.h2.c.d.q(iVar, this.f6163e, this.f6164f.f5311i);
+                    this.f6164f.o = null;
                 } else {
-                    d dVar = this.f6303f;
+                    d dVar = this.f6164f;
                     dVar.q = false;
-                    this.f6305h.m(this.f6302e, (SwanAppSlaveManager) this.f6304g, dVar);
+                    this.f6166h.m(this.f6163e, (SwanAppSlaveManager) this.f6165g, dVar);
                 }
-                if (this.f6304g.Y(this.f6303f)) {
+                if (this.f6165g.Y(this.f6164f)) {
                     return;
                 }
                 c.a.r0.a.e0.d.c("updateWebView", "update webview widget fail");
-                this.f6302e.handleSchemeDispatchCallback(this.f6303f.f5424i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f6163e.handleSchemeDispatchCallback(this.f6164f.f5311i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
@@ -106,7 +106,7 @@ public class c extends e {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             d i2 = d.i(unitedSchemeEntity);
@@ -119,7 +119,7 @@ public class c extends e {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                c.a.r0.a.p.e.b bVar = (c.a.r0.a.p.e.b) c.a.r0.a.g1.f.U().A(i2.f5422g);
+                c.a.r0.a.p.e.b bVar = (c.a.r0.a.p.e.b) c.a.r0.a.g1.f.U().A(i2.f5309g);
                 if (bVar == null) {
                     c.a.r0.a.e0.d.c("updateWebView", "viewManager is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

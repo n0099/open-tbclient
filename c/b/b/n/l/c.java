@@ -13,11 +13,11 @@ public class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f28033i;
+    public static int f27186i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28034h;
+    public String f27187h;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +55,8 @@ public class c extends b {
         }
         StringBuilder sb = new StringBuilder();
         sb.append("mtl");
-        int i4 = f28033i + 1;
-        f28033i = i4;
+        int i4 = f27186i + 1;
+        f27186i = i4;
         sb.append(i4);
     }
 
@@ -64,14 +64,14 @@ public class c extends b {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof c) && (obj == this || (((c) obj).f28034h.equals(this.f28034h) && super.equals(obj))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof c) && (obj == this || (((c) obj).f27187h.equals(this.f27187h) && super.equals(obj))) : invokeL.booleanValue;
     }
 
     @Override // c.b.b.n.l.b
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.f28034h.hashCode() * 3) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.f27187h.hashCode() * 3) : invokeV.intValue;
     }
 
     public c(String str) {
@@ -89,6 +89,6 @@ public class c extends b {
                 return;
             }
         }
-        this.f28034h = str;
+        this.f27187h = str;
     }
 }

@@ -12,7 +12,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int activity_not_found = 0x7f0f0077;
+        public static final int activity_not_found = 0x7f0f008b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

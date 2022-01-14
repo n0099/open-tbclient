@@ -20,18 +20,18 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static h f19317e;
+    public static h f18821e;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoHolyCardModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19318b;
+    public boolean f18822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19319c;
+    public boolean f18823c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoHolyCardModel.c f19320d;
+    public VideoHolyCardModel.c f18824d;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -98,7 +98,7 @@ public class h {
         public void onResult(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.f19318b = z;
+                this.a.f18822b = z;
             }
         }
     }
@@ -116,7 +116,7 @@ public class h {
                 return;
             }
         }
-        this.f19320d = new b(this);
+        this.f18824d = new b(this);
         e();
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             b();
@@ -127,14 +127,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f19317e == null) {
+            if (f18821e == null) {
                 synchronized (h.class) {
-                    if (f19317e == null) {
-                        f19317e = new h();
+                    if (f18821e == null) {
+                        f18821e = new h();
                     }
                 }
             }
-            return f19317e;
+            return f18821e;
         }
         return (h) invokeV.objValue;
     }
@@ -145,7 +145,7 @@ public class h {
             if (this.a == null) {
                 VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
                 this.a = videoHolyCardModel;
-                videoHolyCardModel.B(this.f19320d);
+                videoHolyCardModel.B(this.f18824d);
             }
             this.a.z();
         }
@@ -154,7 +154,7 @@ public class h {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19318b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18822b : invokeV.booleanValue;
     }
 
     public final void e() {
@@ -166,9 +166,9 @@ public class h {
 
     public void f(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f19318b && !this.f19319c) {
-            n.L(context, R.string.free_data_tips);
-            this.f19319c = true;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f18822b && !this.f18823c) {
+            n.M(context, R.string.free_data_tips);
+            this.f18823c = true;
         }
     }
 }

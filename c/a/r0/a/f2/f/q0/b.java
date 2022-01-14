@@ -41,7 +41,7 @@ public class b extends e {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6340b) {
+            if (z.f6201b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             d i2 = d.i(unitedSchemeEntity);
@@ -50,7 +50,7 @@ public class b extends e {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return true;
             }
-            c.a.r0.a.p.e.b bVar = (c.a.r0.a.p.e.b) c.a.r0.a.g1.f.U().A(i2.f5422g);
+            c.a.r0.a.p.e.b bVar = (c.a.r0.a.p.e.b) c.a.r0.a.g1.f.U().A(i2.f5309g);
             if (bVar == null) {
                 c.a.r0.a.e0.d.c("removeWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

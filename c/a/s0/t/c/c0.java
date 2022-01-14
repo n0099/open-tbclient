@@ -15,7 +15,7 @@ public class c0 {
     public static final List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f14136b;
+    public static List<String> f13806b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class c0 {
 
     public static boolean a(String str) {
         InterceptResult invokeL;
-        String p;
+        String q;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (c.a.d.f.p.m.isEmpty(str)) {
@@ -44,15 +44,15 @@ public class c0 {
             }
             Uri parse = Uri.parse(str);
             if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-                if (f14136b == null && (p = c.a.s0.s.g0.b.j().p("js_host_white_list", null)) != null) {
-                    f14136b = b(p);
+                if (f13806b == null && (q = c.a.s0.s.h0.b.k().q("js_host_white_list", null)) != null) {
+                    f13806b = b(q);
                 }
-                if (f14136b == null) {
-                    f14136b = a;
+                if (f13806b == null) {
+                    f13806b = a;
                 }
                 if (parse != null) {
                     String host = parse.getHost();
-                    for (String str2 : f14136b) {
+                    for (String str2 : f13806b) {
                         if (host.endsWith(str2)) {
                             return true;
                         }
@@ -81,11 +81,11 @@ public class c0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             if (str == null) {
-                c.a.s0.s.g0.b.j().x("js_host_white_list", "");
+                c.a.s0.s.h0.b.k().y("js_host_white_list", "");
             } else {
-                c.a.s0.s.g0.b.j().x("js_host_white_list", str);
+                c.a.s0.s.h0.b.k().y("js_host_white_list", str);
             }
-            f14136b = b(str);
+            f13806b = b(str);
         }
     }
 }

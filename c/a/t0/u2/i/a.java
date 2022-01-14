@@ -18,10 +18,10 @@ public class a {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f25141b;
+    public BdTypeListView f24438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f25142c;
+    public List<c.a.d.n.e.a> f24439c;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, d0<h> d0Var) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class a {
                 return;
             }
         }
-        this.f25142c = new ArrayList();
-        this.f25141b = bdTypeListView;
+        this.f24439c = new ArrayList();
+        this.f24438b = bdTypeListView;
         d dVar = new d(tbPageContext, h.p);
         this.a = dVar;
         dVar.b0(d0Var);
-        this.f25142c.add(this.a);
-        this.f25141b.addAdapters(this.f25142c);
+        this.f24439c.add(this.a);
+        this.f24438b.addAdapters(this.f24439c);
     }
 
     public void a() {

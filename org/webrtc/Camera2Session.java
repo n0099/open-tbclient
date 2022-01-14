@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import h.c.g0;
 import java.util.Arrays;
 import java.util.List;
@@ -361,7 +362,7 @@ public class Camera2Session implements CameraSession {
                     return;
                 }
             }
-            RUNNING = new SessionState("RUNNING", 0);
+            RUNNING = new SessionState(TornadoLiteRuntime.STATE_RUNNING, 0);
             SessionState sessionState = new SessionState("STOPPED", 1);
             STOPPED = sessionState;
             $VALUES = new SessionState[]{RUNNING, sessionState};

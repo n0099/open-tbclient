@@ -14,7 +14,7 @@ public class b implements c.a.s0.s.w.b.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17875b;
+    public String f17442b;
 
     public b(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b implements c.a.s0.s.w.b.a {
             return;
         }
         this.a = vipBannerItem.img_url;
-        this.f17875b = vipBannerItem.link;
+        this.f17442b = vipBannerItem.link;
     }
 
     @Override // c.a.s0.s.w.b.a
@@ -49,6 +49,6 @@ public class b implements c.a.s0.s.w.b.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17875b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17442b : (String) invokeV.objValue;
     }
 }

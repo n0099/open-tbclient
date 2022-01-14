@@ -6,11 +6,11 @@ import android.content.res.AssetManager;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f61121b;
+    public static d f58808b;
     public Context a;
 
     /* renamed from: c  reason: collision with root package name */
-    public AssetManager f61122c;
+    public AssetManager f58809c;
 
     public d(Context context) {
         this.a = context;
@@ -18,14 +18,14 @@ public class d {
     }
 
     public static d a(Context context) {
-        if (f61121b == null) {
-            f61121b = new d(context);
+        if (f58808b == null) {
+            f58808b = new d(context);
         }
-        return f61121b;
+        return f58808b;
     }
 
     private void a() {
-        this.f61122c = this.a.getAssets();
+        this.f58809c = this.a.getAssets();
     }
 
     public int a(String str, String str2) {

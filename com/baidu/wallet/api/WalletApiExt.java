@@ -16,7 +16,7 @@ public class WalletApiExt {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WalletApiExtListener.SensorsAdapter f52417b;
+    public WalletApiExtListener.SensorsAdapter f50395b;
 
     /* renamed from: com.baidu.wallet.api.WalletApiExt$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -75,7 +75,7 @@ public class WalletApiExt {
     public WalletApiExtListener.SensorsAdapter getSensorsAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52417b : (WalletApiExtListener.SensorsAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50395b : (WalletApiExtListener.SensorsAdapter) invokeV.objValue;
     }
 
     public void setLoginSyncListener(WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener) {
@@ -89,7 +89,7 @@ public class WalletApiExt {
     public void setSensorsAdapterImpl(WalletApiExtListener.SensorsAdapter sensorsAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, sensorsAdapter) == null) {
-            this.f52417b = sensorsAdapter;
+            this.f50395b = sensorsAdapter;
         }
     }
 

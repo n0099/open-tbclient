@@ -20,15 +20,15 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6893d;
+    public static final boolean f6744d;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.h0.o.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.h0.o.b f6894b;
+    public c.a.r0.a.h0.o.b f6745b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, PrefetchEvent> f6895c;
+    public ConcurrentHashMap<String, PrefetchEvent> f6746c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -36,10 +36,10 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f6896e;
+        public final /* synthetic */ PrefetchEvent f6747e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6897f;
+        public final /* synthetic */ d f6748f;
 
         public a(d dVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
@@ -56,15 +56,15 @@ public final class d {
                     return;
                 }
             }
-            this.f6897f = dVar;
-            this.f6896e = prefetchEvent;
+            this.f6748f = dVar;
+            this.f6747e = prefetchEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6897f.e(this.f6896e);
+                this.f6748f.e(this.f6747e);
             }
         }
     }
@@ -76,7 +76,7 @@ public final class d {
         public final /* synthetic */ PrefetchEvent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f6898b;
+        public final /* synthetic */ d f6749b;
 
         public b(d dVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public final class d {
                     return;
                 }
             }
-            this.f6898b = dVar;
+            this.f6749b = dVar;
             this.a = prefetchEvent;
         }
 
@@ -101,7 +101,7 @@ public final class d {
         public void a(c.a.r0.a.y1.c.f.c cVar, PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, pMSAppInfo) == null) {
-                this.f6898b.f6894b.b(this.a, cVar, pMSAppInfo);
+                this.f6749b.f6745b.b(this.a, cVar, pMSAppInfo);
             }
         }
     }
@@ -142,7 +142,7 @@ public final class d {
                 return;
             }
         }
-        f6893d = k.a;
+        f6744d = k.a;
     }
 
     public /* synthetic */ d(a aVar) {
@@ -160,13 +160,13 @@ public final class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, prefetchEvent) == null) || prefetchEvent == null) {
             return;
         }
-        this.f6895c.put(c.a.r0.a.v.a.a(prefetchEvent.appId), prefetchEvent);
+        this.f6746c.put(c.a.r0.a.v.a.a(prefetchEvent.appId), prefetchEvent);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f6895c.clear();
+            this.f6746c.clear();
         }
     }
 
@@ -180,13 +180,13 @@ public final class d {
     public void f(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
-            if (f6893d) {
+            if (f6744d) {
                 String str = "fire preloadEvent abSwitch: " + c.a.r0.a.h0.o.e.a.h();
             }
             if (h(prefetchEvent)) {
                 return;
             }
-            if (f6893d) {
+            if (f6744d) {
                 String str2 = "firePrefetchEvent event: " + prefetchEvent;
             }
             ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
@@ -212,8 +212,8 @@ public final class d {
                 return;
             }
         }
-        this.f6895c = new ConcurrentHashMap<>();
+        this.f6746c = new ConcurrentHashMap<>();
         this.a = new c.a.r0.a.h0.o.a();
-        this.f6894b = new c.a.r0.a.h0.o.b();
+        this.f6745b = new c.a.r0.a.h0.o.b();
     }
 }

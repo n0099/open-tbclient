@@ -1,10 +1,10 @@
 package c.a.t0.n4.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
 
     /* renamed from: c.a.t0.n4.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1240a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1254a {
         float a();
 
         void b(float f2);
@@ -32,7 +32,7 @@ public interface a {
 
     void setMinDuration(int i2);
 
-    void setOnProgressListener(InterfaceC1240a interfaceC1240a);
+    void setOnProgressListener(InterfaceC1254a interfaceC1254a);
 
     void setProgress(long j2);
 

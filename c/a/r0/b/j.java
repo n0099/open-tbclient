@@ -543,8 +543,9 @@ public final class j {
     public static final int LottieAnimationView_lottie_speed = 15;
     public static final int LottieAnimationView_lottie_url = 11;
     public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeightRatio = 0;
-    public static final int MaxHeightScrollView_minHeightRatio = 1;
+    public static final int MaxHeightScrollView_maxHeight = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 1;
+    public static final int MaxHeightScrollView_minHeightRatio = 2;
     public static final int[] MenuGroup;
     public static final int MenuGroup_android_checkableBehavior = 5;
     public static final int MenuGroup_android_enabled = 0;
@@ -969,7 +970,7 @@ public final class j {
         LinearLayoutCompat_Layout = new int[]{16842931, 16842996, 16842997, 16843137};
         ListPopupWindow = new int[]{16843436, 16843437};
         LottieAnimationView = new int[]{R.attr.lottie_autoPlay, R.attr.lottie_colorFilter, R.attr.lottie_enableMergePathsForKitKatAndAbove, R.attr.lottie_fileName, R.attr.lottie_imageAssetsFolder, R.attr.lottie_loop, R.attr.lottie_progress, R.attr.lottie_rawRes, R.attr.lottie_repeatCount, R.attr.lottie_repeatMode, R.attr.lottie_scale, R.attr.lottie_url, R.attr.lottie_cacheComposition, R.attr.lottie_fallbackRes, R.attr.lottie_renderMode, R.attr.lottie_speed};
-        MaxHeightScrollView = new int[]{R.attr.maxHeightRatio, R.attr.minHeightRatio};
+        MaxHeightScrollView = new int[]{R.attr.maxHeight, R.attr.maxHeightRatio, R.attr.minHeightRatio};
         MenuGroup = new int[]{16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
         MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, R.attr.actionLayout, R.attr.actionProviderClass, R.attr.actionViewClass, R.attr.alphabeticModifiers, R.attr.contentDescription, R.attr.iconTint, R.attr.iconTintMode, R.attr.numericModifiers, R.attr.showAsAction, R.attr.tooltipText};
         MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, R.attr.preserveIconSpacing, R.attr.subMenuArrow};

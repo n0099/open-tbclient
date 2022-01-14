@@ -13,7 +13,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f27653b;
+    public static final e f26821b;
     public transient /* synthetic */ FieldHolder $fh;
     public l a;
 
@@ -30,7 +30,7 @@ public final class e {
                 return;
             }
         }
-        f27653b = new e();
+        f26821b = new e();
     }
 
     public e() {
@@ -52,7 +52,7 @@ public final class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27653b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26821b : (e) invokeV.objValue;
     }
 
     public final void b(String str) {

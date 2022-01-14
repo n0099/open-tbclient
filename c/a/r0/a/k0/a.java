@@ -15,13 +15,13 @@ public class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7723b;
+    public int f7554b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.q.k.i.t.b f7724c;
+    public final c.a.r0.q.k.i.t.b f7555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f7725d;
+    public long f7556d;
 
     public a(@NonNull String str, @NonNull c.a.r0.q.k.i.t.b bVar) {
         Interceptable interceptable = $ic;
@@ -38,22 +38,22 @@ public class a {
                 return;
             }
         }
-        this.f7723b = 0;
-        this.f7725d = 0L;
+        this.f7554b = 0;
+        this.f7556d = 0L;
         this.a = str;
-        this.f7724c = bVar;
+        this.f7555c = bVar;
     }
 
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 > this.f7724c.f11887b) {
+            if (i2 > this.f7555c.f11617b) {
                 return false;
             }
             boolean e2 = e();
             if (!e2) {
-                this.f7723b++;
+                this.f7554b++;
             }
             return !e2;
         }
@@ -65,8 +65,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f7725d >= this.f7724c.f11888c) {
-                this.f7725d = currentTimeMillis;
+            if (currentTimeMillis - this.f7556d >= this.f7555c.f11618c) {
+                this.f7556d = currentTimeMillis;
                 return true;
             }
             return false;
@@ -89,6 +89,6 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7723b >= this.f7724c.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7554b >= this.f7555c.a : invokeV.booleanValue;
     }
 }

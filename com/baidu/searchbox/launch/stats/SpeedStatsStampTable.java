@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class SpeedStatsStampTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AD_SDK_DO_SHOW_STAMP_KEY = 3304;
@@ -14,6 +14,8 @@ public final class SpeedStatsStampTable {
     public static final int AD_START_STAMP_KEY = 3301;
     public static final int AD_TB_LOAD_END_STAMP_KEY = 3302;
     public static final int AD_VIEW_END_STAMP_KEY = 3307;
+    public static final int AD_XIAOXIONG_LOAD_END_STAMP_KEY = 3309;
+    public static final int AD_XUZHANG_LOAD_END_STAMP_KEY = 3308;
     public static final int ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY = 5037;
     public static final int ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY = 5036;
     public static final int ALA_LIVE_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5039;
@@ -21,9 +23,8 @@ public final class SpeedStatsStampTable {
     public static final int ALA_LIVE_TAB_ON_RESUME_END_STAMP_KEY = 5041;
     public static final int ALA_LIVE_TAB_ON_RESUME_START_STAMP_KEY = 5040;
     public static final int APP_CONFIG_INIT_END_STAMP_KEY = 1009;
-    public static final int APP_CREATE_END_STAMP_KEY = 2006;
+    public static final int APP_CREATE_END_STAMP_KEY = 2004;
     public static final int APP_CREATE_START_STAMP_KEY = 2000;
-    public static final int APP_CREATE_VIRTUAL_START_STAMP_KEY = 2051;
     public static final int APP_START_TIMESTAMP_KEY = 1000;
     public static final int ATTACH_BASE_CONTEXT_END_STAMP_KEY = 1010;
     public static final int ATTACH_BASE_CONTEXT_START_STAMP_KEY = 1002;
@@ -35,10 +36,8 @@ public final class SpeedStatsStampTable {
     public static final int CHECK_PLUGIN_ENTRANCE_STATE_START_STAMP_KEY = 3016;
     public static final int CHECK_REAL_NAME_END_STAMP_KEY = 3031;
     public static final int CHECK_REAL_NAME_START_STAMP_KEY = 3030;
-    public static final int CLEAN_DIRECTORY_STAMP_KEY = 2010;
     public static final int CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_END_STAMP_KEY = 3033;
     public static final int CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_START_STAMP_KEY = 3032;
-    public static final int CMDROUTER_INIT_STAMP_KEY = 2012;
     public static final int CONCERN_TAB_END_STAMP_KEY = 5021;
     public static final int CONCERN_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5023;
     public static final int CONCERN_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5022;
@@ -94,57 +93,14 @@ public final class SpeedStatsStampTable {
     public static final int HOT_TOPIC_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5029;
     public static final int HOT_TOPIC_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5028;
     public static final int HOT_TOPIC_TAB_START_STAMP_KEY = 5026;
-    public static final int INIT_ACCOUNT_CHANGE_STAMP_KEY = 2007;
-    public static final int INIT_ACCOUNT_LOGIN_STAMP_KEY = 2020;
-    public static final int INIT_ALL_STAMP_KEY = 2016;
-    public static final int INIT_AR_STAMP_KEY = 2032;
-    public static final int INIT_AXE_STAMP_KEY = 2031;
-    public static final int INIT_BEAR_STAMP_KEY = 2025;
-    public static final int INIT_CMD_STAMP_KEY = 2014;
     public static final int INIT_COOKIE_END_STAMP_KEY = 3027;
     public static final int INIT_COOKIE_START_STAMP_KEY = 3026;
-    public static final int INIT_COUNT_STATS_STAMP_KEY = 2028;
-    public static final int INIT_DIMON_ADAPT_STAMP_KEY = 2009;
-    public static final int INIT_FACE_STAMP_KEY = 2017;
-    public static final int INIT_GO_ACTION_STAMP_KEY = 2019;
-    public static final int INIT_GROWTH_STAMP_KEY = 2005;
     public static final int INIT_HOME_FRAGMENT_CONTROLLER_END_STAMP_KEY = 3015;
     public static final int INIT_HOME_FRAGMENT_CONTROLLER_START_STAMP_KEY = 3014;
-    public static final int INIT_IDLE_FH_STAMP_KEY = 2001;
-    public static final int INIT_INTERRUPT_RULE_STAMP_KEY = 2021;
-    public static final int INIT_LOKI_STAMP_KEY = 2027;
-    public static final int INIT_MSG_EIGHT_STAMP_KEY = 2040;
-    public static final int INIT_MSG_EIGHT_START_STAMP_KEY = 2049;
-    public static final int INIT_MSG_FIVE_STAMP_KEY = 2037;
-    public static final int INIT_MSG_FIVE_START_STAMP_KEY = 2046;
-    public static final int INIT_MSG_FOUR_STAMP_KEY = 2036;
-    public static final int INIT_MSG_FOUR_START_STAMP_KEY = 2045;
-    public static final int INIT_MSG_NINE_STAMP_KEY = 2041;
-    public static final int INIT_MSG_NINE_START_STAMP_KEY = 2050;
-    public static final int INIT_MSG_ONE_STAMP_KEY = 2033;
-    public static final int INIT_MSG_ONE_START_STAMP_KEY = 2042;
-    public static final int INIT_MSG_SEVEN_STAMP_KEY = 2039;
-    public static final int INIT_MSG_SEVEN_START_STAMP_KEY = 2048;
-    public static final int INIT_MSG_SIX_STAMP_KEY = 2038;
-    public static final int INIT_MSG_SIX_START_STAMP_KEY = 2047;
-    public static final int INIT_MSG_TASK_SDK_START_STAMP_KEY = 2052;
-    public static final int INIT_MSG_THREE_STAMP_KEY = 2035;
-    public static final int INIT_MSG_THREE_START_STAMP_KEY = 2044;
-    public static final int INIT_MSG_TWO_STAMP_KEY = 2034;
-    public static final int INIT_MSG_TWO_START_STAMP_KEY = 2043;
-    public static final int INIT_PERSON_STAMP_KEY = 2004;
-    public static final int INIT_PLAYER_STAMP_KEY = 2053;
-    public static final int INIT_PLUGIN_STAMP_KEY = 2023;
-    public static final int INIT_RUKA_STAMP_KEY = 2030;
-    public static final int INIT_SAPI_STAMP_KEY = 2022;
-    public static final int INIT_SUPER_STAMP_KEY = 2002;
-    public static final int INIT_SWAN_DATA_STAMP_KEY = 2024;
+    public static final int INIT_IDLE_TASK_STAMP_KEY = 2002;
+    public static final int INIT_LAUNCH_TASK_STAMP_KEY = 2003;
     public static final int INIT_TABS_ON_ACTIVITY_CREATED_END_STAMP_KEY = 3025;
     public static final int INIT_TABS_ON_ACTIVITY_CREATED_START_STAMP_KEY = 3024;
-    public static final int INIT_TASKS_STAMP_KEY = 2018;
-    public static final int INIT_UBC_STAMP_KEY = 2029;
-    public static final int INIT_VERSION_STAMP_KEY = 2015;
-    public static final int LAUNCH_TASK_INIT_END_STAMP_KEY = 2003;
     public static final int LOGGER_INIT_END_STAMP_KEY = 1006;
     public static final int LOGO_ACTIVITY_END_STAMP_KEY = 3006;
     public static final int LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY = 3001;
@@ -177,7 +133,6 @@ public final class SpeedStatsStampTable {
     public static final int NPS_INIT_END_STAMP_KEY = 1011;
     public static final int ON_FIRST_DISPATCH_DRAW_END_STAMP_KEY = 5019;
     public static final int ON_FIRST_DISPATCH_DRAW_START_STAMP_KEY = 5018;
-    public static final int PERMMISSION_UTIL_STAMP_KEY = 2008;
     public static final int PERSONALIZE_TAB_END_STAMP_KEY = 5047;
     public static final int PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY = 5049;
     public static final int PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY = 5048;
@@ -198,10 +153,10 @@ public final class SpeedStatsStampTable {
     public static final int SEARCHBOX_VIEW_ON_MEASURE_END_STAMP_KEY = 5002;
     public static final int SEARCHBOX_VIEW_ON_MEASURE_START_STAMP_KEY = 5001;
     public static final int SECOND_DRAW_DISPATCH_STAMP_KEY = 5054;
-    public static final int SHAREP_GET_STAMP_KEY = 2011;
     public static final int SPLASHACTIVITY_AD_WILL_CALLSHOW_STAMP_KEY = 3052;
     public static final int START_TRACK_CONFIG_REQUEST_END_STAMP_KEY = 3029;
     public static final int START_TRACK_CONFIG_REQUEST_START_STAMP_KEY = 3028;
+    public static final int SUPER_STAMP_KEY = 2001;
     public static final int TAB_VIEW_PAGER_ON_LAYOUT_END_STAMP_KEY = 5014;
     public static final int TAB_VIEW_PAGER_ON_LAYOUT_START_STAMP_KEY = 5013;
     public static final int TAB_VIEW_PAGER_ON_MEASURE_END_STAMP_KEY = 5006;
@@ -215,7 +170,6 @@ public final class SpeedStatsStampTable {
     public static final int VIDEO_TAB_ON_CREATE_START_STAMP_KEY = 5032;
     public static final int VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5035;
     public static final int VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5034;
-    public static final int WEBVIEW_SUFFIX_STAMP_KEY = 2013;
     public transient /* synthetic */ FieldHolder $fh;
 
     public SpeedStatsStampTable() {

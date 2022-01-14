@@ -18,25 +18,23 @@ public class h extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25300e;
+    public int f24592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25301f;
+    public int f24593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25302g;
+    public boolean f24594g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25303h;
+    public boolean f24595h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f25304i;
+    public String f24596i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f25305j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f25306k;
+    public boolean f24597j;
+    public String k;
     public UserData l;
     public j m;
     public Bundle n;
@@ -71,7 +69,7 @@ public class h extends BaseCardInfo {
                 return;
             }
         }
-        this.f25305j = false;
+        this.f24597j = false;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

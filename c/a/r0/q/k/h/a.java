@@ -15,7 +15,7 @@ public class a {
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f11863b;
+    public JSONObject f11593b;
 
     public a(JSONArray jSONArray, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
             }
         }
         this.a = jSONArray;
-        this.f11863b = jSONObject;
+        this.f11593b = jSONObject;
     }
 
     public JSONArray a() {
@@ -45,6 +45,6 @@ public class a {
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11863b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11593b : (JSONObject) invokeV.objValue;
     }
 }

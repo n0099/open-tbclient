@@ -18,13 +18,13 @@ public final class u3 extends AsyncTask {
     public final /* synthetic */ File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f31481b;
+    public final /* synthetic */ Bitmap f30491b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f31482c;
+    public final /* synthetic */ Bitmap.CompressFormat f30492c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ r5 f31483d;
+    public final /* synthetic */ r5 f30493d;
 
     public u3(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, r5 r5Var) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public final class u3 extends AsyncTask {
             }
         }
         this.a = file;
-        this.f31481b = bitmap;
-        this.f31482c = compressFormat;
-        this.f31483d = r5Var;
+        this.f30491b = bitmap;
+        this.f30492c = compressFormat;
+        this.f30493d = r5Var;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x003b */
@@ -91,7 +91,7 @@ public final class u3 extends AsyncTask {
                 e3.printStackTrace();
             }
             try {
-                this.f31481b.compress(this.f31482c, 100, e3);
+                this.f30491b.compress(this.f30492c, 100, e3);
                 e3.flush();
                 e3.close();
                 e3 = e3;
@@ -128,7 +128,7 @@ public final class u3 extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f31483d.a();
+            this.f30493d.a();
         }
     }
 
@@ -137,7 +137,7 @@ public final class u3 extends AsyncTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Void r5 = (Void) obj;
-            this.f31483d.b();
+            this.f30493d.b();
         }
     }
 }

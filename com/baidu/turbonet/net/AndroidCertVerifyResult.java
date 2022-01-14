@@ -21,10 +21,10 @@ public class AndroidCertVerifyResult {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f52096b;
+    public final boolean f50083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f52097c;
+    public final List<X509Certificate> f50084c;
 
     public AndroidCertVerifyResult(int i2, boolean z, List<X509Certificate> list) {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class AndroidCertVerifyResult {
             }
         }
         this.a = i2;
-        this.f52096b = z;
-        this.f52097c = new ArrayList(list);
+        this.f50083b = z;
+        this.f50084c = new ArrayList(list);
     }
 
     @CalledByNative
@@ -51,10 +51,10 @@ public class AndroidCertVerifyResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            byte[][] bArr = new byte[this.f52097c.size()];
-            for (int i2 = 0; i2 < this.f52097c.size(); i2++) {
+            byte[][] bArr = new byte[this.f50084c.size()];
+            for (int i2 = 0; i2 < this.f50084c.size(); i2++) {
                 try {
-                    bArr[i2] = this.f52097c.get(i2).getEncoded();
+                    bArr[i2] = this.f50084c.get(i2).getEncoded();
                 } catch (CertificateEncodingException unused) {
                     return new byte[0];
                 }
@@ -75,7 +75,7 @@ public class AndroidCertVerifyResult {
     public boolean isIssuedByKnownRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52096b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50083b : invokeV.booleanValue;
     }
 
     public AndroidCertVerifyResult(int i2) {
@@ -94,7 +94,7 @@ public class AndroidCertVerifyResult {
             }
         }
         this.a = i2;
-        this.f52096b = false;
-        this.f52097c = Collections.emptyList();
+        this.f50083b = false;
+        this.f50084c = Collections.emptyList();
     }
 }

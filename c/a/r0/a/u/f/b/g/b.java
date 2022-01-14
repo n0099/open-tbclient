@@ -19,7 +19,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9519b;
+    public static final boolean f9313b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, c.a.r0.a.u.f.b.a> a;
 
@@ -36,7 +36,7 @@ public class b {
                 return;
             }
         }
-        f9519b = k.a;
+        f9313b = k.a;
     }
 
     public b() {
@@ -62,7 +62,7 @@ public class b {
                 if (basePendingOperation == null) {
                     return;
                 }
-                if (f9519b) {
+                if (f9313b) {
                     String str = "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c();
                 }
                 c(basePendingOperation.getType()).b(basePendingOperation);

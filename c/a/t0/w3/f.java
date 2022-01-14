@@ -11,16 +11,16 @@ public class f {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25510b;
+    public boolean f24796b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25511c;
+    public int f24797c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25512d;
+    public String f24798d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f25513e;
+    public long f24799e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class f {
             }
         }
         this.a = false;
-        this.f25510b = false;
-        this.f25511c = 0;
-        this.f25512d = "";
-        this.f25513e = 0L;
+        this.f24796b = false;
+        this.f24797c = 0;
+        this.f24798d = "";
+        this.f24799e = 0L;
     }
 }

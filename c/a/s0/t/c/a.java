@@ -61,9 +61,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             if (jSONObject != null) {
-                c.a.s0.s.g0.b.j().x("praise_abtest_switch_json", jSONObject.toString());
+                c.a.s0.s.h0.b.k().y("praise_abtest_switch_json", jSONObject.toString());
             } else {
-                c.a.s0.s.g0.b.j().x("praise_abtest_switch_json", "");
+                c.a.s0.s.h0.b.k().y("praise_abtest_switch_json", "");
             }
         }
     }

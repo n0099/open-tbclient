@@ -20,13 +20,13 @@ public class i {
     public static final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f55230b;
+    public static final Object f53133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f55231c;
+    public static Handler f53134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile ExecutorService f55232d;
+    public static volatile ExecutorService f53135d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,8 +43,8 @@ public class i {
             }
         }
         a = !i.class.desiredAssertionStatus();
-        f55230b = new Object();
-        f55231c = null;
+        f53133b = new Object();
+        f53134c = null;
     }
 
     public i() {
@@ -65,17 +65,17 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f55232d == null) {
+            if (f53135d == null) {
                 synchronized (i.class) {
-                    if (f55232d == null) {
+                    if (f53135d == null) {
                         int availableProcessors = Runtime.getRuntime().availableProcessors() + 1;
                         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(availableProcessors, availableProcessors, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        f55232d = threadPoolExecutor;
+                        f53135d = threadPoolExecutor;
                     }
                 }
             }
-            return f55232d;
+            return f53135d;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -85,11 +85,11 @@ public class i {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (f55230b) {
-                if (f55231c == null) {
-                    f55231c = new Handler(Looper.getMainLooper());
+            synchronized (f53133b) {
+                if (f53134c == null) {
+                    f53134c = new Handler(Looper.getMainLooper());
                 }
-                handler = f55231c;
+                handler = f53134c;
             }
             return handler;
         }

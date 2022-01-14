@@ -299,7 +299,7 @@ public class p {
                 str = "";
             } else {
                 z = hVar.a;
-                str = hVar.f40725b;
+                str = hVar.f39361b;
             }
             sb.append("is server on: ");
             sb.append(i2);
@@ -327,7 +327,7 @@ public class p {
             if (a) {
                 r0 = "获取内存信息耗时: " + ((System.nanoTime() - nanoTime) / 1000000) + " ms";
             }
-            return "设备总内存：" + g2.f5853c + " M，设备剩余内存：" + g2.f5854d + " M，小程序启动占用内存：" + g2.a + " M，宿主APP占用内存：" + g2.f5852b + " M\n";
+            return "设备总内存：" + g2.f5725c + " M，设备剩余内存：" + g2.f5726d + " M，小程序启动占用内存：" + g2.a + " M，宿主APP占用内存：" + g2.f5724b + " M\n";
         }
         return (String) invokeV.objValue;
     }
@@ -373,8 +373,8 @@ public class p {
             }
         }
         c.a.r0.a.e0.d.k("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
-        String k2 = c.a.r0.a.c1.a.g0().k();
-        c.a.r0.a.e0.d.k("SwanAppEnvironmentUtils", "sid = " + k2);
+        String k = c.a.r0.a.c1.a.g0().k();
+        c.a.r0.a.e0.d.k("SwanAppEnvironmentUtils", "sid = " + k);
         c.a.r0.a.h0.o.e.a.k();
     }
 }

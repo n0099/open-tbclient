@@ -17,16 +17,16 @@ public class j {
     public DownloadState a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10891b;
+    public String f10648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10892c;
+    public String f10649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10893d;
+    public int f10650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10894e;
+    public String f10651e;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class j {
             }
         }
         this.a = DownloadState.NOT_START;
-        this.f10893d = Integer.parseInt("0");
+        this.f10650d = Integer.parseInt("0");
     }
 
     public static j a(String str, String str2) {
@@ -66,8 +66,8 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             j jVar = new j();
-            jVar.f10891b = str;
-            jVar.f10892c = str2;
+            jVar.f10648b = str;
+            jVar.f10649c = str2;
             return jVar;
         }
         return (j) invokeLL.objValue;
@@ -76,13 +76,13 @@ public class j {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10894e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10651e : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f10894e = str;
+            this.f10651e = str;
         }
     }
 }

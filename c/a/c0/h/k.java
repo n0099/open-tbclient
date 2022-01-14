@@ -1,6 +1,10 @@
 package c.a.c0.h;
 
-import androidx.annotation.NonNull;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,24 +12,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final Class<?> f2088b;
+    /* loaded from: classes.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Handler a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final int f2089c;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(863501206, "Lc/a/c0/h/k$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(863501206, "Lc/a/c0/h/k$a;");
+                    return;
+                }
+            }
+            a = new Handler(Looper.getMainLooper());
+        }
+    }
 
-    /* renamed from: d  reason: collision with root package name */
-    public final i<?> f2090d;
-
-    @NonNull
-    public String toString() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubscribeInfo:{\n    threadMode:" + this.f2089c + "\n    tag:" + this.a + "\n    eventClass:" + this.f2088b + "\n    subscriber:" + this.f2090d + "\n}";
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
+    }
+
+    public static void b(@Nullable Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, runnable) == null) || runnable == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        a.a.post(runnable);
     }
 }

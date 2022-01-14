@@ -6,14 +6,14 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface MemoryCache<K, V> {
     @Nullable
-    CloseableReference<V> cache(K k2, CloseableReference<V> closeableReference);
+    CloseableReference<V> cache(K k, CloseableReference<V> closeableReference);
 
     boolean contains(Predicate<K> predicate);
 
-    boolean contains(K k2);
+    boolean contains(K k);
 
     @Nullable
-    CloseableReference<V> get(K k2);
+    CloseableReference<V> get(K k);
 
     int removeAll(Predicate<K> predicate);
 }

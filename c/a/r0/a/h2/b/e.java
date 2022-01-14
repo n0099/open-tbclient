@@ -30,16 +30,16 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7188e;
+        public final /* synthetic */ CallbackHandler f7034e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7189f;
+        public final /* synthetic */ UnitedSchemeEntity f7035f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7190g;
+        public final /* synthetic */ String f7036g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f7191h;
+        public final /* synthetic */ c.a.r0.a.d2.e f7037h;
 
         public a(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, c.a.r0.a.d2.e eVar2) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class e extends z {
                     return;
                 }
             }
-            this.f7188e = callbackHandler;
-            this.f7189f = unitedSchemeEntity;
-            this.f7190g = str;
-            this.f7191h = eVar2;
+            this.f7034e = callbackHandler;
+            this.f7035f = unitedSchemeEntity;
+            this.f7036g = str;
+            this.f7037h = eVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,15 +70,15 @@ public class e extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (iVar.c() && (jSONObject = iVar.a) != null) {
-                    UnitedSchemeUtility.safeCallback(this.f7188e, this.f7189f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f7190g);
-                    c.a.r0.a.d2.e eVar = this.f7191h;
+                    UnitedSchemeUtility.safeCallback(this.f7034e, this.f7035f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f7036g);
+                    c.a.r0.a.d2.e eVar = this.f7037h;
                     if (eVar != null) {
-                        this.f7191h.d0().B(c.h.a(eVar), iVar.a.toString());
+                        this.f7037h.d0().B(c.h.a(eVar), iVar.a.toString());
                     }
                     c.a.r0.a.e0.d.i("getSwanId", "getSwanId success");
                     return;
                 }
-                UnitedSchemeUtility.safeCallback(this.f7188e, this.f7189f, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), this.f7190g);
+                UnitedSchemeUtility.safeCallback(this.f7034e, this.f7035f, UnitedSchemeUtility.wrapCallbackParams(10001, "internal_error").toString(), this.f7036g);
                 c.a.r0.a.e0.d.c("getSwanId", "getSwanId failed: internal_error");
             }
         }

@@ -39,10 +39,10 @@ public class m extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9505e;
+        public final /* synthetic */ JSONObject f9299e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9506f;
+        public final /* synthetic */ c.a.r0.a.d2.e f9300f;
 
         public a(JSONObject jSONObject, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class m extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9505e = jSONObject;
-            this.f9506f = eVar;
+            this.f9299e = jSONObject;
+            this.f9300f = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m.y(this.f9505e, this.f9506f);
+                m.y(this.f9299e, this.f9300f);
             }
         }
     }
@@ -78,13 +78,13 @@ public class m extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9507e;
+        public final /* synthetic */ String f9301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f9508f;
+        public final /* synthetic */ HybridUbcFlow f9302f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.p.e.b f9509g;
+        public final /* synthetic */ c.a.r0.a.p.e.b f9303g;
 
         public b(String str, HybridUbcFlow hybridUbcFlow, c.a.r0.a.p.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -101,19 +101,19 @@ public class m extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9507e = str;
-            this.f9508f = hybridUbcFlow;
-            this.f9509g = bVar;
+            this.f9301e = str;
+            this.f9302f = hybridUbcFlow;
+            this.f9303g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(this.f9507e, "1")) {
-                    this.f9508f.S();
+                if (TextUtils.equals(this.f9301e, "1")) {
+                    this.f9302f.S();
                 } else {
-                    this.f9508f.C(this.f9509g);
+                    this.f9302f.C(this.f9303g);
                 }
             }
         }

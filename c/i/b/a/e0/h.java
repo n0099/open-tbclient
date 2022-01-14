@@ -13,7 +13,7 @@ public final class h extends c.i.b.a.y.e implements Comparable<h> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30354j;
+    public long f29404j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h() {
@@ -43,7 +43,7 @@ public final class h extends c.i.b.a.y.e implements Comparable<h> {
             if (j() != hVar.j()) {
                 return j() ? 1 : -1;
             }
-            int i2 = ((this.f30927h - hVar.f30927h) > 0L ? 1 : ((this.f30927h - hVar.f30927h) == 0L ? 0 : -1));
+            int i2 = ((this.f29957h - hVar.f29957h) > 0L ? 1 : ((this.f29957h - hVar.f29957h) == 0L ? 0 : -1));
             if (i2 == 0) {
                 return 0;
             }

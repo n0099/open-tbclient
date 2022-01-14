@@ -13,7 +13,7 @@ public class t extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f55024i;
+    public Context f52932i;
 
     public t(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class t extends m {
                 return;
             }
         }
-        this.f55024i = context;
+        this.f52932i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -39,8 +39,8 @@ public class t extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            Context a = a(this.f55024i);
-            this.f55024i = a;
+            Context a = a(this.f52932i);
+            this.f52932i = a;
             KeyguardManager keyguardManager = (KeyguardManager) a.getSystemService("keyguard");
             if (keyguardManager == null) {
                 e0.b("PrizeProvider", "getIdManagerInfo: ClassNotFound: android.app.KeyguardManager");

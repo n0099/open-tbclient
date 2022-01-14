@@ -16,34 +16,34 @@ public class b extends AlertDialog {
     public com.kwad.sdk.d.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f58826b;
+    public AdTemplate f56610b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsAdVideoPlayConfig f58827c;
+    public KsAdVideoPlayConfig f56611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f58828d;
+    public Activity f56612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f58829e;
+    public KsInterstitialAd.AdInteractionListener f56613e;
 
     public b(@NonNull Activity activity, @NonNull AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
         super(Wrapper.wrapContextIfNeed(activity));
-        this.f58828d = activity;
-        this.f58829e = adInteractionListener;
-        this.f58827c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.sdk.core.config.b.p()).build();
+        this.f56612d = activity;
+        this.f56613e = adInteractionListener;
+        this.f56611c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.sdk.core.config.b.p()).build();
         setOwnerActivity(activity);
-        this.f58826b = adTemplate;
+        this.f56610b = adTemplate;
         if (this.a == null) {
             com.kwad.sdk.d.a.a aVar = new com.kwad.sdk.d.a.a(Wrapper.wrapContextIfNeed(activity));
             this.a = aVar;
-            aVar.a(this.f58826b, this, this.f58827c, adInteractionListener, ksVideoPlayConfig != null && ksVideoPlayConfig.isShowLandscape());
+            aVar.a(this.f56610b, this, this.f56611c, adInteractionListener, ksVideoPlayConfig != null && ksVideoPlayConfig.isShowLandscape());
         }
     }
 
     public void a(KsInterstitialAd.AdInteractionListener adInteractionListener) {
-        this.f58829e = adInteractionListener;
+        this.f56613e = adInteractionListener;
         com.kwad.sdk.d.a.a aVar = this.a;
         if (aVar != null) {
             aVar.setAdInteractionListener(adInteractionListener);
@@ -52,12 +52,12 @@ public class b extends AlertDialog {
 
     public boolean a() {
         try {
-            if (isShowing() || this.f58828d == null || this.f58828d.isFinishing()) {
+            if (isShowing() || this.f56612d == null || this.f56612d.isFinishing()) {
                 return true;
             }
             show();
-            this.f58829e.onAdShow();
-            com.kwad.sdk.core.report.a.a(this.f58826b, (JSONObject) null);
+            this.f56613e.onAdShow();
+            com.kwad.sdk.core.report.a.a(this.f56610b, (JSONObject) null);
             return true;
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
@@ -68,7 +68,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f58829e;
+        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f56613e;
         if (adInteractionListener != null) {
             adInteractionListener.onPageDismiss();
         }

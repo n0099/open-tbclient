@@ -26,16 +26,16 @@ public abstract class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f5794b;
+    public static volatile d f5668b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.r0.a.n2.a f5795c;
+    public static c.a.r0.a.n2.a f5669c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Timer f5796d;
+    public static Timer f5670d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f5797e;
+    public static boolean f5671e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public abstract class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f5798e;
+        public final /* synthetic */ d f5672e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public abstract class d {
                     return;
                 }
             }
-            this.f5798e = dVar;
+            this.f5672e = dVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -69,8 +69,8 @@ public abstract class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = d.a;
-                this.f5798e.e();
-                this.f5798e.n();
+                this.f5672e.e();
+                this.f5672e.n();
             }
         }
     }
@@ -122,15 +122,15 @@ public abstract class d {
             }
             if (c2 == 0) {
                 p(true);
-                c.a.r0.a.n2.b.d(d.f5795c, str, f());
+                c.a.r0.a.n2.b.d(d.f5669c, str, f());
             } else if (c2 == 1) {
-                c.a.r0.a.n2.a aVar = d.f5795c;
+                c.a.r0.a.n2.a aVar = d.f5669c;
                 if (aVar != null) {
                     c.a.r0.a.n2.b.b(aVar);
                 }
                 n();
             } else if (c2 != 2) {
-                c.a.r0.a.n2.a aVar2 = d.f5795c;
+                c.a.r0.a.n2.a aVar2 = d.f5669c;
                 if (aVar2 != null) {
                     c.a.r0.a.n2.b.d(aVar2, str, f());
                 }
@@ -190,14 +190,14 @@ public abstract class d {
             }
             if (c2 != 0) {
                 if (c2 != 1) {
-                    c.a.r0.a.n2.a aVar = d.f5795c;
+                    c.a.r0.a.n2.a aVar = d.f5669c;
                     if (aVar != null) {
                         c.a.r0.a.n2.b.d(aVar, str, f());
                         return;
                     }
                     return;
                 }
-                c.a.r0.a.n2.a aVar2 = d.f5795c;
+                c.a.r0.a.n2.a aVar2 = d.f5669c;
                 if (aVar2 != null) {
                     c.a.r0.a.n2.b.d(aVar2, str, f());
                     e();
@@ -211,16 +211,16 @@ public abstract class d {
             }
             p(z);
             if (!z) {
-                if (d.f5797e) {
-                    c.a.r0.a.n2.b.d(d.f5795c, str + "-preload", f());
-                    boolean unused = d.f5797e = false;
+                if (d.f5671e) {
+                    c.a.r0.a.n2.b.d(d.f5669c, str + "-preload", f());
+                    boolean unused = d.f5671e = false;
                     return;
                 }
-                c.a.r0.a.n2.b.d(d.f5795c, str, f());
+                c.a.r0.a.n2.b.d(d.f5669c, str, f());
                 return;
             }
-            c.a.r0.a.n2.b.d(d.f5795c, str + "-destroy", f());
-            boolean unused2 = d.f5797e = false;
+            c.a.r0.a.n2.b.d(d.f5669c, str + "-destroy", f());
+            boolean unused2 = d.f5671e = false;
         }
 
         public /* synthetic */ c(a aVar) {
@@ -253,9 +253,9 @@ public abstract class d {
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             f fVar = new f();
             fVar.a = "swan";
-            fVar.f8157b = "launch";
-            fVar.f8158c = "remote-debug";
-            fVar.f8160e = "appready";
+            fVar.f7977b = "launch";
+            fVar.f7978c = "remote-debug";
+            fVar.f7980e = "appready";
             n.onEvent(fVar);
         }
     }
@@ -264,18 +264,18 @@ public abstract class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f5794b == null) {
+            if (f5668b == null) {
                 synchronized (c.a.r0.a.g1.f.class) {
-                    if (f5794b == null) {
+                    if (f5668b == null) {
                         if (c.a.k0.b.a.a.g()) {
-                            f5794b = new b(null);
+                            f5668b = new b(null);
                         } else {
-                            f5794b = new c(null);
+                            f5668b = new c(null);
                         }
                     }
                 }
             }
-            return f5794b;
+            return f5668b;
         }
         return (d) invokeV.objValue;
     }
@@ -287,10 +287,10 @@ public abstract class d {
         }
         JSONObject optJSONObject = jSONArray.optJSONObject(0);
         String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
-        if (TextUtils.isEmpty(optString) || f5794b == null) {
+        if (TextUtils.isEmpty(optString) || f5668b == null) {
             return;
         }
-        f5794b.h(optString);
+        f5668b.h(optString);
     }
 
     public static void j(c.a.r0.a.f1.e.c cVar) {
@@ -302,12 +302,12 @@ public abstract class d {
             f fVar = new f();
             fVar.a = n.n(cVar.G());
             fVar.j(cVar);
-            fVar.f8157b = "launch";
+            fVar.f7977b = "launch";
             fVar.o = "1";
-            fVar.f8158c = "remote-debug";
-            JSONObject k2 = n.k(cVar.W());
+            fVar.f7978c = "remote-debug";
+            JSONObject k = n.k(cVar.W());
             fVar.d(cVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-            fVar.b(k2);
+            fVar.b(k);
             n.onEvent(fVar);
         }
     }
@@ -317,9 +317,9 @@ public abstract class d {
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             f fVar = new f();
             fVar.a = "swan";
-            fVar.f8157b = "launch";
-            fVar.f8158c = "remote-debug";
-            fVar.f8160e = "loadmaster";
+            fVar.f7977b = "launch";
+            fVar.f7978c = "remote-debug";
+            fVar.f7980e = "loadmaster";
             n.onEvent(fVar);
         }
     }
@@ -329,9 +329,9 @@ public abstract class d {
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             f fVar = new f();
             fVar.a = "swan";
-            fVar.f8157b = "launch";
-            fVar.f8158c = "remote-debug";
-            fVar.f8160e = "downloadstart";
+            fVar.f7977b = "launch";
+            fVar.f7978c = "remote-debug";
+            fVar.f7980e = "downloadstart";
             n.onEvent(fVar);
         }
     }
@@ -342,16 +342,16 @@ public abstract class d {
             f fVar = new f();
             fVar.j(cVar);
             fVar.a = n.n(cVar.G());
-            fVar.f8157b = "launch";
-            fVar.f8158c = "remote-debug";
-            fVar.f8160e = "downloadsuccess";
+            fVar.f7977b = "launch";
+            fVar.f7978c = "remote-debug";
+            fVar.f7980e = "downloadsuccess";
             n.onEvent(fVar);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f5795c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f5669c == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -366,8 +366,8 @@ public abstract class d {
         } catch (JSONException unused) {
             boolean z = a;
         }
-        c.a.r0.a.n2.b.f(f5795c, jSONObject.toString());
-        c.a.r0.a.n2.b.c(f5795c);
+        c.a.r0.a.n2.b.f(f5669c, jSONObject.toString());
+        c.a.r0.a.n2.b.c(f5669c);
     }
 
     public String f() {
@@ -390,34 +390,34 @@ public abstract class d {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = f5796d;
+            Timer timer = f5670d;
             if (timer != null) {
                 timer.cancel();
-                f5796d = null;
+                f5670d = null;
             }
-            f5794b = null;
-            f5795c = null;
+            f5668b = null;
+            f5669c = null;
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            f5797e = true;
+            f5671e = true;
         }
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && f5795c == null) {
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && f5669c == null) {
             c.a.r0.a.n2.a c2 = n.c("1153");
-            f5795c = c2;
+            f5669c = c2;
             if (!z) {
                 c.a.r0.a.n2.b.d(c2, "downloadstart", f());
-                c.a.r0.a.n2.b.d(f5795c, "downloadsuccess", f());
+                c.a.r0.a.n2.b.d(f5669c, "downloadsuccess", f());
             }
             Timer timer = new Timer();
-            f5796d = timer;
+            f5670d = timer;
             timer.schedule(new a(this), 40000L);
         }
     }

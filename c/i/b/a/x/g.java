@@ -130,7 +130,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
     public static boolean q0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30702c) && (v.f30701b.startsWith("zeroflte") || v.f30701b.startsWith("herolte") || v.f30701b.startsWith("heroqlte")) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f29740c) && (v.f29739b.startsWith("zeroflte") || v.f29739b.startsWith("herolte") || v.f29739b.startsWith("heroqlte")) : invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, c.i.b.a.a
@@ -262,14 +262,14 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
                 return true;
             } else if (z) {
                 mediaCodec.releaseOutputBuffer(i2, false);
-                this.X.f30921f++;
+                this.X.f29951f++;
                 this.a0.m();
                 return true;
             } else {
                 try {
                     if (this.a0.f(byteBuffer, j4)) {
                         mediaCodec.releaseOutputBuffer(i2, false);
-                        this.X.f30920e++;
+                        this.X.f29950e++;
                         return true;
                     }
                     return false;

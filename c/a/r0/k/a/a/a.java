@@ -17,10 +17,10 @@ public class a {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f11583b;
+    public static Method f11323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f11584c;
+    public static boolean f11324c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,10 +42,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!f11584c) {
+            if (!f11324c) {
                 e();
             }
-            Method method = f11583b;
+            Method method = f11323b;
             if (method == null) {
                 return false;
             }
@@ -109,11 +109,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (a.class) {
-                if (f11584c) {
+                if (f11324c) {
                     return;
                 }
                 try {
-                    f11584c = true;
+                    f11324c = true;
                     Class<?> cls = Class.forName("dalvik.system.VMRuntime");
                     Method b2 = b.b(cls, "getRuntime", new Class[0]);
                     if (b2 != null) {
@@ -122,7 +122,7 @@ public class a {
                         a = invoke;
                         if (invoke != null) {
                             Method b3 = b.b(cls, "setHiddenApiExemptions", String[].class);
-                            f11583b = b3;
+                            f11323b = b3;
                             if (b3 != null) {
                                 b3.setAccessible(true);
                             }

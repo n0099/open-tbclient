@@ -39,13 +39,13 @@ public class i0 implements p0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
             if (networkInfo == null) {
-                this.a.f29327d = "unknow";
+                this.a.f28435d = "unknow";
                 return;
             }
             if (networkInfo.isConnectedOrConnecting()) {
                 String subtypeName = networkInfo.getSubtypeName();
                 if (!TextUtils.isEmpty(subtypeName)) {
-                    this.a.f29327d = subtypeName;
+                    this.a.f28435d = subtypeName;
                     return;
                 } else {
                     m0Var = this.a;
@@ -55,7 +55,7 @@ public class i0 implements p0.b {
                 m0Var = this.a;
                 str = "unknow";
             }
-            m0Var.f29327d = str;
+            m0Var.f28435d = str;
         }
     }
 }

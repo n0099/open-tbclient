@@ -12,12 +12,12 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static j f23587c;
+    public static j f22931c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.d.f.d.l<byte[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.f.d.l<byte[]> f23588b;
+    public c.a.d.f.d.l<byte[]> f22932b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class j {
             }
         }
         this.a = null;
-        this.f23588b = null;
+        this.f22932b = null;
         c();
     }
 
@@ -43,10 +43,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f23587c == null) {
-                    f23587c = new j();
+                if (f22931c == null) {
+                    f22931c = new j();
                 }
-                jVar = f23587c;
+                jVar = f22931c;
             }
             return jVar;
         }
@@ -66,13 +66,13 @@ public class j {
                 }
                 h2 = null;
             } else {
-                c.a.d.f.d.l<byte[]> lVar2 = this.f23588b;
+                c.a.d.f.d.l<byte[]> lVar2 = this.f22932b;
                 if (lVar2 != null && str != null) {
                     h2 = lVar2.h(str);
                 }
                 h2 = null;
             }
-            if (h2 == null || (bArr = h2.f2749b) == null) {
+            if (h2 == null || (bArr = h2.f2728b) == null) {
                 return null;
             }
             return bArr;
@@ -87,9 +87,9 @@ public class j {
                 c.a.s0.s.r.a.f();
                 this.a = c.a.s0.s.r.a.d("tb.pb_mark");
             }
-            if (this.f23588b == null) {
+            if (this.f22932b == null) {
                 c.a.s0.s.r.a.f();
-                this.f23588b = c.a.s0.s.r.a.d("tb.pb_normal");
+                this.f22932b = c.a.s0.s.r.a.d("tb.pb_normal");
             }
         }
     }
@@ -105,7 +105,7 @@ public class j {
                 lVar.i(str, new byte[0], 0L);
                 return;
             }
-            c.a.d.f.d.l<byte[]> lVar2 = this.f23588b;
+            c.a.d.f.d.l<byte[]> lVar2 = this.f22932b;
             if (lVar2 == null || str == null) {
                 return;
             }
@@ -122,7 +122,7 @@ public class j {
         if (z) {
             this.a.e(str, bArr, 604800000L);
         } else {
-            this.f23588b.e(str, bArr, 86400000L);
+            this.f22932b.e(str, bArr, 86400000L);
         }
     }
 

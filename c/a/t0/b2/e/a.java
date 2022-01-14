@@ -23,20 +23,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.b2.c.a f15604e;
+    public c.a.t0.b2.c.a f15213e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SearchLocationActivity f15605f;
+    public SearchLocationActivity f15214f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15606g;
+    public boolean f15215g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f15607h;
+    public NoDataView f15216h;
 
     /* renamed from: c.a.t0.b2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0964a {
+    public static /* synthetic */ class C0977a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f15608b;
+        public View f15217b;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0964a c0964a) {
+        public /* synthetic */ b(a aVar, C0977a c0977a) {
             this(aVar);
         }
     }
@@ -86,8 +86,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f15606g = false;
-        this.f15605f = searchLocationActivity;
+        this.f15215g = false;
+        this.f15214f = searchLocationActivity;
     }
 
     public View a(ViewGroup viewGroup) {
@@ -95,11 +95,11 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            NoDataView a = NoDataViewFactory.a(this.f15605f.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.text_try_to_chage_location), null);
-            this.f15607h = a;
-            a.onChangeSkinType(this.f15605f.getPageContext(), skinType);
-            this.f15607h.setVisibility(0);
-            return this.f15607h;
+            NoDataView a = NoDataViewFactory.a(this.f15214f.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.text_try_to_chage_location), null);
+            this.f15216h = a;
+            a.onChangeSkinType(this.f15214f.getPageContext(), skinType);
+            this.f15216h.setVisibility(0);
+            return this.f15216h;
         }
         return (View) invokeL.objValue;
     }
@@ -110,7 +110,7 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
             b bVar = new b(this, null);
             bVar.a = (TextView) view.findViewById(R.id.location_search_address_name);
-            bVar.f15608b = view.findViewById(R.id.location_search_line);
+            bVar.f15217b = view.findViewById(R.id.location_search_line);
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -119,13 +119,13 @@ public class a extends BaseAdapter {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15606g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15215g : invokeV.booleanValue;
     }
 
     public void d(c.a.t0.b2.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f15604e = aVar;
+            this.f15213e = aVar;
         }
     }
 
@@ -134,12 +134,12 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.t0.b2.c.a aVar = this.f15604e;
-            if (aVar != null && aVar.a() != null && !this.f15604e.a().isEmpty()) {
-                this.f15606g = true;
-                return this.f15604e.a().size();
+            c.a.t0.b2.c.a aVar = this.f15213e;
+            if (aVar != null && aVar.a() != null && !this.f15213e.a().isEmpty()) {
+                this.f15215g = true;
+                return this.f15213e.a().size();
             }
-            this.f15606g = false;
+            this.f15215g = false;
             return 1;
         }
         return invokeV.intValue;
@@ -150,11 +150,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            c.a.t0.b2.c.a aVar = this.f15604e;
-            if (aVar == null || aVar.a() == null || this.f15604e.a().isEmpty()) {
+            c.a.t0.b2.c.a aVar = this.f15213e;
+            if (aVar == null || aVar.a() == null || this.f15213e.a().isEmpty()) {
                 return null;
             }
-            return this.f15604e.a().get(i2);
+            return this.f15213e.a().get(i2);
         }
         return invokeI.objValue;
     }
@@ -174,7 +174,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
-            if (!this.f15606g) {
+            if (!this.f15215g) {
                 return a(viewGroup);
             }
             b bVar = null;
@@ -182,12 +182,12 @@ public class a extends BaseAdapter {
                 bVar = (b) view.getTag();
             }
             if (bVar == null) {
-                view = LayoutInflater.from(this.f15605f.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
+                view = LayoutInflater.from(this.f15214f.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
                 bVar = b(view);
                 view.setTag(bVar);
             }
-            bVar.a.setText(this.f15604e.a().get(i2).a());
-            SkinManager.setBackgroundColor(bVar.f15608b, R.color.CAM_X0204);
+            bVar.a.setText(this.f15213e.a().get(i2).a());
+            SkinManager.setBackgroundColor(bVar.f15217b, R.color.CAM_X0204);
             SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
             return view;

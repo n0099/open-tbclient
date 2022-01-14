@@ -18,22 +18,22 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8342b;
+    public long f8159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f8343c;
+    public volatile long f8160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f8344d;
+    public long f8161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8345e;
+    public long f8162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f8346f;
+    public long f8163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8347g;
+    public String f8164g;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public class d {
                 return;
             }
         }
-        this.f8347g = "1";
+        this.f8164g = "1";
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -74,7 +74,7 @@ public class d {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f8347g;
+            String str = this.f8164g;
             switch (str.hashCode()) {
                 case 48:
                     if (str.equals("0")) {
@@ -117,11 +117,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f8346f;
+            long j2 = this.f8163f;
             if (j2 > 0) {
                 return j2;
             }
-            long[] jArr = {this.f8344d, this.f8345e, this.f8342b};
+            long[] jArr = {this.f8161d, this.f8162e, this.f8159b};
             long j3 = Long.MAX_VALUE;
             for (int i2 = 0; i2 < 3; i2++) {
                 long j4 = jArr[i2];
@@ -130,9 +130,9 @@ public class d {
                 }
             }
             if (j3 != Long.MAX_VALUE) {
-                this.f8346f = j3;
+                this.f8163f = j3;
             }
-            return this.f8346f;
+            return this.f8163f;
         }
         return invokeV.longValue;
     }
@@ -140,14 +140,14 @@ public class d {
     public String c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? j2 == this.f8344d ? "2" : j2 == this.f8345e ? "3" : (j2 != this.f8342b && j2 == this.f8343c) ? "0" : "1" : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? j2 == this.f8161d ? "2" : j2 == this.f8162e ? "3" : (j2 != this.f8159b && j2 == this.f8160c) ? "0" : "1" : (String) invokeJ.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.f8342b + ", fmp=" + this.f8343c + ", ftp=" + this.f8344d + ", fip=" + this.f8345e + ", mMinCache=" + this.f8346f + ", fmpType='" + this.f8347g + ExtendedMessageFormat.QUOTE + ", fmpTypeName='" + a() + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.f8159b + ", fmp=" + this.f8160c + ", ftp=" + this.f8161d + ", fip=" + this.f8162e + ", mMinCache=" + this.f8163f + ", fmpType='" + this.f8164g + ExtendedMessageFormat.QUOTE + ", fmpTypeName='" + a() + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

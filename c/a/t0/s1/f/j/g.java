@@ -31,19 +31,19 @@ public class g {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f22638b;
+    public d f22017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22639c;
+    public String f22018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f22640d;
+    public CustomMessageListener f22019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f22641e;
+    public Runnable f22020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f22642f;
+    public c.a.d.c.g.a f22021f;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -82,8 +82,8 @@ public class g {
             if (customResponsedMessage.getCmd() == 2001147) {
                 this.a.g(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2012123) {
-                c.a.d.f.m.e.a().removeCallbacks(this.a.f22641e);
-                c.a.d.f.m.e.a().postDelayed(this.a.f22641e, 1000L);
+                c.a.d.f.m.e.a().removeCallbacks(this.a.f22020e);
+                c.a.d.f.m.e.a().postDelayed(this.a.f22020e, 1000L);
             }
         }
     }
@@ -94,7 +94,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f22643e;
+        public final /* synthetic */ g f22022e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -111,15 +111,15 @@ public class g {
                     return;
                 }
             }
-            this.f22643e = gVar;
+            this.f22022e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g gVar = this.f22643e;
-                gVar.f(gVar.f22639c);
+                g gVar = this.f22022e;
+                gVar.f(gVar.f22018c);
             }
         }
     }
@@ -176,10 +176,10 @@ public class g {
                     longSparseArray.put(bVar.b(), bVar);
                 }
             }
-            if (this.a.f22638b == null || longSparseArray == null) {
+            if (this.a.f22017b == null || longSparseArray == null) {
                 return;
             }
-            this.a.f22638b.onReadCountLoad(longSparseArray);
+            this.a.f22017b.onReadCountLoad(longSparseArray);
         }
     }
 
@@ -205,29 +205,29 @@ public class g {
                 return;
             }
         }
-        this.f22640d = new a(this, 0);
-        this.f22641e = new b(this);
-        this.f22642f = new c(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
+        this.f22019d = new a(this, 0);
+        this.f22020e = new b(this);
+        this.f22021f = new c(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
         this.a = tbPageContext;
-        tbPageContext.registerListener(2001147, this.f22640d);
-        tbPageContext.registerListener(2012123, this.f22640d);
-        tbPageContext.registerListener(this.f22642f);
+        tbPageContext.registerListener(2001147, this.f22019d);
+        tbPageContext.registerListener(2012123, this.f22019d);
+        tbPageContext.registerListener(this.f22021f);
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.d.f.m.e.a().removeCallbacks(this.f22641e);
+            c.a.d.f.m.e.a().removeCallbacks(this.f22020e);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f22639c = str;
+            this.f22018c = str;
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f46786c = 150;
-            aVar.f46787d = str;
+            aVar.f45056c = 150;
+            aVar.f45057d = str;
             this.a.sendMessage(new LoadOfficialHistoryMessage(aVar));
         }
     }
@@ -239,17 +239,17 @@ public class g {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f46788b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f45058b;
             ArrayList arrayList = new ArrayList();
             for (ChatMessage chatMessage : list) {
-                List<a.C1354a> b2 = c.a.t0.s1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<a.C1369a> b2 = c.a.t0.s1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b2 != null && b2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i2 = 0;
                     while (i2 < b2.size()) {
-                        a.C1354a c1354a = b2.get(i2);
-                        c.a.t0.s1.l.c.b a2 = c.a.t0.s1.l.c.b.a(chatMessage, c1354a);
+                        a.C1369a c1369a = b2.get(i2);
+                        c.a.t0.s1.l.c.b a2 = c.a.t0.s1.l.c.b.a(chatMessage, c1369a);
                         if (a2 != null && a2.d() != null && !StringUtils.isNull(a2.d().a)) {
-                            a2.j(i2 == 0 && !StringUtils.isNull(c1354a.f22780c));
+                            a2.j(i2 == 0 && !StringUtils.isNull(c1369a.f22154c));
                             arrayList.add(a2);
                         }
                         i2++;
@@ -257,7 +257,7 @@ public class g {
                 }
             }
             h(arrayList);
-            d dVar = this.f22638b;
+            d dVar = this.f22017b;
             if (dVar != null) {
                 dVar.a(arrayList);
             }
@@ -272,7 +272,7 @@ public class g {
         ArrayList arrayList = new ArrayList(list.size());
         for (c.a.t0.s1.l.c.b bVar : list) {
             if (bVar.g()) {
-                arrayList.add(Long.valueOf(bVar.d().f22785h));
+                arrayList.add(Long.valueOf(bVar.d().f22159h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
@@ -284,7 +284,7 @@ public class g {
     public void i(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f22638b = dVar;
+            this.f22017b = dVar;
         }
     }
 }

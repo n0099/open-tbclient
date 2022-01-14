@@ -32,28 +32,28 @@ public class j {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25476b;
+    public Context f24761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PopupDialog f25477c;
+    public PopupDialog f24762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.s.s.j f25478d;
+    public c.a.s0.s.s.j f24763d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.s0.s.s.g> f25479e;
+    public List<c.a.s0.s.s.g> f24764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.s.s.g f25480f;
+    public c.a.s0.s.s.g f24765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f25481g;
+    public b f24766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SmartApp f25482h;
+    public SmartApp f24767h;
 
     /* renamed from: i  reason: collision with root package name */
-    public j.d f25483i;
+    public j.d f24768i;
 
     /* loaded from: classes8.dex */
     public class a implements j.d {
@@ -82,22 +82,22 @@ public class j {
         @Override // c.a.s0.s.s.j.d
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f25482h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f24767h == null) {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-            httpMessage.addParam("swan_app_key", this.a.f25482h.id);
+            httpMessage.addParam("swan_app_key", this.a.f24767h.id);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.a.f25481g != null) {
-                this.a.f25481g.a(this.a.f25482h.id);
+            if (this.a.f24766g != null) {
+                this.a.f24766g.a(this.a.f24767h.id);
             }
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", this.a.f25482h.swan_app_id.longValue());
-            statisticItem.param("obj_name", this.a.f25482h.name);
+            statisticItem.param("obj_id", this.a.f24767h.swan_app_id.longValue());
+            statisticItem.param("obj_name", this.a.f24767h.name);
             TiebaStatic.log(statisticItem);
-            if (this.a.f25477c != null) {
-                this.a.f25477c.dismiss();
+            if (this.a.f24762c != null) {
+                this.a.f24762c.dismiss();
             }
         }
     }
@@ -138,44 +138,44 @@ public class j {
                 return;
             }
         }
-        this.f25483i = new a(this);
+        this.f24768i = new a(this);
         this.a = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        this.f25476b = pageActivity;
-        this.f25478d = new c.a.s0.s.s.j(pageActivity);
-        this.f25479e = new ArrayList();
+        this.f24761b = pageActivity;
+        this.f24763d = new c.a.s0.s.s.j(pageActivity);
+        this.f24764e = new ArrayList();
     }
 
     public void d(SmartApp smartApp) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
-            this.f25482h = smartApp;
+            this.f24767h = smartApp;
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25477c == null) {
-            c.a.s0.s.s.g gVar = new c.a.s0.s.s.g(this.f25476b.getString(c.a.t0.y2.g.delete), this.f25478d);
-            this.f25480f = gVar;
-            gVar.l(this.f25483i);
-            this.f25479e.add(this.f25480f);
-            this.f25478d.j(this.f25479e);
-            this.f25477c = new PopupDialog(this.a, this.f25478d);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f24762c == null) {
+            c.a.s0.s.s.g gVar = new c.a.s0.s.s.g(this.f24761b.getString(c.a.t0.y2.g.delete), this.f24763d);
+            this.f24765f = gVar;
+            gVar.l(this.f24768i);
+            this.f24764e.add(this.f24765f);
+            this.f24763d.j(this.f24764e);
+            this.f24762c = new PopupDialog(this.a, this.f24763d);
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f25481g = bVar;
+            this.f24766g = bVar;
         }
     }
 
     public void g() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (popupDialog = this.f25477c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (popupDialog = this.f24762c) == null) {
             return;
         }
         popupDialog.showDialog();

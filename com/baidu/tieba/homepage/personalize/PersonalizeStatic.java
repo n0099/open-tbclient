@@ -57,16 +57,16 @@ public class PersonalizeStatic {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Looper.prepare();
                 TbadkCoreApplication.getInst().getPersonalizeViewData().a = new PersonalizePageView(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13744b = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.extend_forum_item, (ViewGroup) null);
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13745c = new HomePageAlaRecommendLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13746d = new CardUserInfoLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13747e = new ForumEnterLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13748f = new CardForumHeadLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13749g = new MultiImgLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13750h = new MutiImgTextLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13751i = new MutiImgSingleVerticalLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13752j = new MutiImgMutiPicLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f13753k = new NewGridImageLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.extend_forum_item, (ViewGroup) null);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13435c = new HomePageAlaRecommendLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13436d = new CardUserInfoLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13437e = new ForumEnterLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13438f = new CardForumHeadLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13439g = new MultiImgLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13440h = new MutiImgTextLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13441i = new MutiImgSingleVerticalLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f13442j = new MutiImgMutiPicLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().k = new NewGridImageLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().l = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
                 TbadkCoreApplication.getInst().getPersonalizeViewData().m = new ItemCardView(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().n = new SingleLinkCardView(TbadkCoreApplication.getInst());

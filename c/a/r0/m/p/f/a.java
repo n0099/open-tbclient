@@ -24,22 +24,22 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.i1.c.a f11670b;
+    public c.a.r0.a.i1.c.a f11408b;
 
     /* renamed from: c.a.r0.m.p.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0780a implements d.c {
+    public class C0789a implements d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11671b;
+        public final /* synthetic */ String f11409b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f11672c;
+        public final /* synthetic */ a f11410c;
 
-        public C0780a(a aVar, b bVar, String str) {
+        public C0789a(a aVar, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,9 +54,9 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
                     return;
                 }
             }
-            this.f11672c = aVar;
+            this.f11410c = aVar;
             this.a = bVar;
-            this.f11671b = str;
+            this.f11409b = str;
         }
 
         @Override // c.a.r0.m.l.f.d.c
@@ -64,7 +64,7 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.e0.d.o("map", "location permission fail");
-                this.a.b(this.f11671b, 1003, "location permission fail");
+                this.a.b(this.f11409b, 1003, "location permission fail");
             }
         }
 
@@ -73,7 +73,7 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.r0.a.e0.d.o("map", "location permission success");
-                this.f11672c.g();
+                this.f11410c.g();
             }
         }
     }
@@ -119,7 +119,7 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
         b bVar;
         c.a.r0.a.i1.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) || (bVar = this.a) == null || (aVar = this.f11670b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) || (bVar = this.a) == null || (aVar = this.f11408b) == null) {
             return;
         }
         bVar.c(aVar.D, selectedLocationInfo.toJson());
@@ -140,8 +140,8 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
                 return false;
             }
             this.a = bVar;
-            this.f11670b = aVar;
-            d.b(context, new C0780a(this, bVar, str));
+            this.f11408b = aVar;
+            d.b(context, new C0789a(this, bVar, str));
             c.a.r0.a.e0.d.i("map", "ChooseLocationAction end");
             return true;
         }
@@ -173,7 +173,7 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.a.r0.a.e0.d.i("map", "choose location cancel");
             b bVar = this.a;
-            if (bVar == null || (aVar = this.f11670b) == null) {
+            if (bVar == null || (aVar = this.f11408b) == null) {
                 return;
             }
             bVar.b(aVar.D, 1002, "choose location canceled");
@@ -187,7 +187,7 @@ public class a extends c.a.r0.m.l.a<c.a.r0.a.i1.c.a> implements a.b {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c.a.r0.a.e0.d.i("map", "choose location fail");
             b bVar = this.a;
-            if (bVar == null || (aVar = this.f11670b) == null) {
+            if (bVar == null || (aVar = this.f11408b) == null) {
                 return;
             }
             bVar.b(aVar.D, 1007, "choose location failed");

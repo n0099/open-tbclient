@@ -23,14 +23,14 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f9915h;
+    public static final boolean f9700h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, String> f9916f;
+    public final HashMap<String, String> f9701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, c.a.r0.a.y1.b.c> f9917g;
+    public final HashMap<String, c.a.r0.a.y1.b.c> f9702g;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<i.a> {
@@ -38,7 +38,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9918e;
+        public final /* synthetic */ d f9703e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
                     return;
                 }
             }
-            this.f9918e = dVar;
+            this.f9703e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,11 +64,11 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (d.f9915h) {
-                    d dVar = this.f9918e;
+                if (d.f9700h) {
+                    d dVar = this.f9703e;
                     dVar.S("onEventCallback msg" + aVar);
                 }
-                this.f9918e.U(aVar);
+                this.f9703e.U(aVar);
             }
         }
     }
@@ -79,7 +79,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9919e;
+        public final /* synthetic */ d f9704e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
                     return;
                 }
             }
-            this.f9919e = dVar;
+            this.f9704e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -105,11 +105,11 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (d.f9915h) {
-                    d dVar = this.f9919e;
+                if (d.f9700h) {
+                    d dVar = this.f9704e;
                     dVar.S("onEventCallback msg" + aVar);
                 }
-                this.f9919e.V(aVar);
+                this.f9704e.V(aVar);
             }
         }
     }
@@ -150,7 +150,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
                 return;
             }
         }
-        f9915h = k.a;
+        f9700h = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -171,9 +171,9 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
                 return;
             }
         }
-        this.f9916f = new HashMap<>();
-        this.f9917g = new HashMap<>();
-        if (f9915h) {
+        this.f9701f = new HashMap<>();
+        this.f9702g = new HashMap<>();
+        if (f9700h) {
             S("SwanIpc");
         }
         c.a.r0.a.d2.b bVar = new c.a.r0.a.d2.b();
@@ -283,11 +283,11 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
                 boolean z = false;
                 if (cVar.Z()) {
                     String Q = cVar.Q();
-                    String str2 = this.f9916f.get(Q);
+                    String str2 = this.f9701f.get(Q);
                     boolean z2 = !TextUtils.isEmpty(str2);
                     z = (!z2 || TextUtils.equals(str2, str)) ? true : true;
                     if (z && !z2 && !TextUtils.isEmpty(str)) {
-                        this.f9916f.put(Q, str);
+                        this.f9701f.put(Q, str);
                     }
                     return z;
                 }
@@ -299,7 +299,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
 
     public final void S(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && f9915h) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && f9700h) {
             String str2 = SwanAppProcessInfo.current() + " >> " + str;
         }
     }
@@ -314,7 +314,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
     public final void U(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            if (f9915h) {
+            if (f9700h) {
                 T("onCallIn", "msg=" + aVar);
             }
             if (aVar != null) {
@@ -332,7 +332,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
     public final void V(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (f9915h) {
+            if (f9700h) {
                 T("onCallOut", "msg=" + aVar);
             }
             if (aVar != null) {
@@ -350,7 +350,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
     public String X(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.f9916f.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.f9701f.get(str) : (String) invokeL.objValue;
     }
 
     public d a0(c.a.r0.a.y1.b.c cVar, Exception exc) {
@@ -358,9 +358,9 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, exc)) == null) {
             if (cVar != null) {
-                synchronized (this.f9917g) {
+                synchronized (this.f9702g) {
                     cVar.M(exc);
-                    this.f9917g.remove(cVar.Q());
+                    this.f9702g.remove(cVar.Q());
                 }
             }
             return this;
@@ -387,11 +387,11 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, bundle)) == null) {
             synchronized (this) {
-                cVar = TextUtils.isEmpty(str) ? null : this.f9917g.get(str);
+                cVar = TextUtils.isEmpty(str) ? null : this.f9702g.get(str);
                 if (cVar == null || !cVar.Z()) {
                     a0(cVar, new IllegalStateException("invalid session"));
                     cVar = new c.a.r0.a.y1.b.c(this, str);
-                    this.f9917g.put(cVar.Q(), cVar);
+                    this.f9702g.put(cVar.Q(), cVar);
                 }
                 boolean z = bundle != null && H(cVar, bundle);
                 if (z) {
@@ -403,7 +403,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
                     }
                 }
                 cVar.S(z ? bundle.getLong("ipc_session_timeout") : c.a.r0.a.y1.b.b.n0);
-                if (f9915h) {
+                if (f9700h) {
                     T("session", "id=" + str + " session=" + bundle + " session=" + cVar);
                 }
             }
@@ -420,7 +420,7 @@ public final class d extends m implements c.a.r0.a.y1.b.b {
             synchronized (this) {
                 b0 = b0(null);
                 K(b0, str);
-                if (f9915h) {
+                if (f9700h) {
                     T("topic", str + " session=" + b0);
                 }
             }

@@ -16,38 +16,36 @@ import com.kwad.sdk.reward.k;
 public class c extends g implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f59846b;
+    public ViewGroup f57583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f59847c;
+    public ImageView f57584c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59848d;
+    public TextView f57585d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f59849e;
+    public AdTemplate f57586e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f59850f;
+    public AdInfo f57587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f59851g;
+    public long f57588g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f59852h;
+    public boolean f57589h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f59853i = false;
+    public boolean f57590i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f59854j = null;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f59855k = -1;
+    public View f57591j = null;
+    public long k = -1;
     public final f l = new f() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.c.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
-            if (c.this.f59852h) {
+            if (c.this.f57589h) {
                 k.a(((g) c.this).a);
             }
         }
@@ -55,10 +53,10 @@ public class c extends g implements View.OnClickListener {
     public final com.kwad.sdk.contentalliance.detail.video.d m = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.c.2
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(long j2, long j3) {
-            c.this.f59851g = j3;
-            c.this.f59852h = j2 - j3 < 800;
-            if (c.this.f59855k >= 0) {
-                if (j3 > Math.min(Math.min(c.this.f59855k, com.kwad.sdk.core.response.a.a.p(c.this.f59850f)), j2)) {
+            c.this.f57588g = j3;
+            c.this.f57589h = j2 - j3 < 800;
+            if (c.this.k >= 0) {
+                if (j3 > Math.min(Math.min(c.this.k, com.kwad.sdk.core.response.a.a.p(c.this.f57587f)), j2)) {
                     c.this.e();
                 }
             }
@@ -67,46 +65,46 @@ public class c extends g implements View.OnClickListener {
     public final com.kwad.sdk.reward.a.e n = new com.kwad.sdk.reward.a.e() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.c.3
         @Override // com.kwad.sdk.reward.a.e
         public void a(long j2, long j3, int i2) {
-            c.this.f59853i = true;
+            c.this.f57590i = true;
             c.this.e();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f59854j.getVisibility() == 0) {
+        if (this.f57591j.getVisibility() == 0) {
             return;
         }
-        this.f59854j.setAlpha(0.0f);
-        this.f59854j.setVisibility(0);
+        this.f57591j.setAlpha(0.0f);
+        this.f57591j.setVisibility(0);
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.c.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                c.this.f59854j.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                c.this.f57591j.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
         ofFloat.start();
-        this.f59854j.setOnClickListener(this);
+        this.f57591j.setOnClickListener(this);
     }
 
     private void i() {
-        com.kwad.sdk.core.report.a.a(this.f59849e, 69, (int) (this.f59855k / 1000), (int) (this.f59851g / 1000));
+        com.kwad.sdk.core.report.a.a(this.f57586e, 69, (int) (this.k / 1000), (int) (this.f57588g / 1000));
         boolean z = !((g) this).a.v && com.kwad.sdk.core.config.b.R();
-        if (f() || g() || this.f59851g < com.kwad.sdk.core.response.a.a.p(this.f59850f)) {
+        if (f() || g() || this.f57588g < com.kwad.sdk.core.response.a.a.p(this.f57587f)) {
             if (z) {
                 com.kwad.sdk.reward.widget.a.a(((g) this).a);
                 return;
             }
-            com.kwad.sdk.core.report.a.a(((g) this).a.f59455g, (int) (this.f59855k / 1000), (int) (this.f59851g / 1000));
-        } else if (!this.f59852h && this.f59851g < com.kwad.sdk.core.response.a.a.p(this.f59850f)) {
-            if (this.f59853i) {
+            com.kwad.sdk.core.report.a.a(((g) this).a.f57207g, (int) (this.k / 1000), (int) (this.f57588g / 1000));
+        } else if (!this.f57589h && this.f57588g < com.kwad.sdk.core.response.a.a.p(this.f57587f)) {
+            if (this.f57590i) {
                 h();
                 return;
             }
             return;
         } else {
-            com.kwad.sdk.core.report.a.a(((g) this).a.f59455g, (int) (this.f59855k / 1000), (int) (this.f59851g / 1000));
+            com.kwad.sdk.core.report.a.a(((g) this).a.f57207g, (int) (this.k / 1000), (int) (this.f57588g / 1000));
             s();
         }
         r();
@@ -115,32 +113,32 @@ public class c extends g implements View.OnClickListener {
 
     private void r() {
         ((g) this).a.u = true;
-        ((g) this).a.f59459k.a(!com.kwad.sdk.core.response.a.a.aG(this.f59850f));
+        ((g) this).a.k.a(!com.kwad.sdk.core.response.a.a.aG(this.f57587f));
     }
 
     private void s() {
-        ((g) this).a.f59450b.e();
+        ((g) this).a.f57202b.e();
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((g) this).a.f59455g;
-        this.f59849e = adTemplate;
-        this.f59850f = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        ((g) this).a.f59459k.a(this.m);
+        AdTemplate adTemplate = ((g) this).a.f57207g;
+        this.f57586e = adTemplate;
+        this.f57587f = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        ((g) this).a.k.a(this.m);
         ((g) this).a.q.add(this.n);
         ((g) this).a.a(this.l);
-        this.f59855k = com.kwad.sdk.core.response.a.a.o(this.f59850f);
+        this.k = com.kwad.sdk.core.response.a.a.o(this.f57587f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((g) this).a.f59459k.b(this.m);
+        ((g) this).a.k.b(this.m);
         ((g) this).a.q.remove(this.n);
         ((g) this).a.b(this.l);
-        this.f59854j.setVisibility(8);
+        this.f57591j.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -149,31 +147,31 @@ public class c extends g implements View.OnClickListener {
         int i2;
         View view;
         super.c_();
-        this.f59846b = (ViewGroup) a(R.id.ksad_reward_container_new);
-        this.f59847c = (ImageView) a(R.id.ksad_detail_close_btn);
-        this.f59848d = (TextView) a(R.id.ksad_top_toolbar_close_tip);
+        this.f57583b = (ViewGroup) a(R.id.ksad_reward_container_new);
+        this.f57584c = (ImageView) a(R.id.ksad_detail_close_btn);
+        this.f57585d = (TextView) a(R.id.ksad_top_toolbar_close_tip);
         if (TextUtils.isEmpty(com.kwad.sdk.core.config.b.V())) {
             if (com.kwad.sdk.core.config.b.S() == 0) {
-                imageView = this.f59847c;
+                imageView = this.f57584c;
                 i2 = R.drawable.ksad_page_close;
             } else {
-                imageView = this.f59847c;
+                imageView = this.f57584c;
                 i2 = R.drawable.ksad_video_skip_icon;
             }
             imageView.setImageResource(i2);
-            this.f59848d.setVisibility(8);
-            view = this.f59847c;
+            this.f57585d.setVisibility(8);
+            view = this.f57584c;
         } else {
-            this.f59848d.setText(com.kwad.sdk.core.config.b.V());
-            this.f59847c.setVisibility(8);
-            view = this.f59848d;
+            this.f57585d.setText(com.kwad.sdk.core.config.b.V());
+            this.f57584c.setVisibility(8);
+            view = this.f57585d;
         }
-        this.f59854j = view;
+        this.f57591j = view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f59854j) {
+        if (view == this.f57591j) {
             i();
         }
     }

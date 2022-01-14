@@ -13,7 +13,7 @@ public abstract class c implements f0 {
     public volatile byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f3071b;
+    public volatile boolean f3038b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public abstract class c implements f0 {
             }
         }
         this.a = null;
-        this.f3071b = false;
+        this.f3038b = false;
     }
 
     public abstract byte[] d();
@@ -39,8 +39,8 @@ public abstract class c implements f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (!this.f3071b) {
-                    this.f3071b = true;
+                if (!this.f3038b) {
+                    this.f3038b = true;
                     this.a = d();
                 }
             }

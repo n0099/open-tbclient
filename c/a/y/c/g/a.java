@@ -16,9 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f27606k;
+    public long k;
 
     static {
         InterceptResult invokeClinit;
@@ -48,40 +46,40 @@ public class a extends b {
                 return;
             }
         }
-        this.f27606k = 0L;
+        this.k = 0L;
     }
 
     @Override // c.a.y.c.g.b
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f27615h == 0) {
-                this.f27615h = this.f27612e.presentationTimeUs;
+            if (this.f26785h == 0) {
+                this.f26785h = this.f26782e.presentationTimeUs;
             }
-            MediaCodec.BufferInfo bufferInfo = this.f27612e;
-            long j2 = bufferInfo.presentationTimeUs - this.f27615h;
+            MediaCodec.BufferInfo bufferInfo = this.f26782e;
+            long j2 = bufferInfo.presentationTimeUs - this.f26785h;
             bufferInfo.presentationTimeUs = j2;
-            long j3 = this.f27606k;
+            long j3 = this.k;
             if (j2 < j3) {
                 long j4 = j3 + 10000;
-                this.f27606k = j4;
+                this.k = j4;
                 bufferInfo.presentationTimeUs = j4;
             }
-            MediaCodec.BufferInfo bufferInfo2 = this.f27612e;
+            MediaCodec.BufferInfo bufferInfo2 = this.f26782e;
             long j5 = bufferInfo2.presentationTimeUs;
-            long j6 = b.f27607i;
+            long j6 = b.f26777i;
             if (j5 > j6 + 500000) {
-                long j7 = this.f27606k;
+                long j7 = this.k;
                 if (j6 > j7) {
                     bufferInfo2.presentationTimeUs = j6 + 5000;
                 } else {
                     bufferInfo2.presentationTimeUs = j7 + 5000;
                 }
             }
-            if (b.f27607i > this.f27612e.presentationTimeUs + 500000) {
-                b.f27608j = 1200;
+            if (b.f26777i > this.f26782e.presentationTimeUs + 500000) {
+                b.f26778j = 1200;
             }
-            this.f27606k = this.f27612e.presentationTimeUs;
+            this.k = this.f26782e.presentationTimeUs;
         }
     }
 
@@ -90,7 +88,7 @@ public class a extends b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, eVar) == null) {
             boolean z = false;
             if (dVar != null && eVar != null) {
-                this.f27610c = eVar;
+                this.f26780c = eVar;
                 MediaFormat mediaFormat = new MediaFormat();
                 mediaFormat.setString("mime", dVar.c());
                 mediaFormat.setInteger("aac-profile", 2);
@@ -100,19 +98,19 @@ public class a extends b {
                 mediaFormat.setInteger("max-input-size", dVar.d());
                 try {
                     MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.c());
-                    this.f27611d = createEncoderByType;
+                    this.f26781d = createEncoderByType;
                     createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                     if (!dVar.p()) {
-                        this.f27614g = true;
+                        this.f26784g = true;
                     } else {
-                        this.f27614g = false;
+                        this.f26784g = false;
                     }
                     z = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            c cVar = this.f27613f;
+            c cVar = this.f26783f;
             if (cVar != null) {
                 cVar.b(z);
             }

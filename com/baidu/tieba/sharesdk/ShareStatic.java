@@ -33,6 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.Tun2tornado;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.ArrayList;
@@ -80,17 +81,17 @@ public class ShareStatic {
                 return;
             }
             c.a.s0.s.m.b bVar = (c.a.s0.s.m.b) extra;
-            String replace = bVar.a.u0.replace("TOKEN", commandShareHttpResMsg.token);
+            String replace = bVar.a.u0.replace(Tun2tornado.ENV_TOKEN, commandShareHttpResMsg.token);
             ShareItem shareItem = bVar.a;
             shareItem.u0 = replace;
-            int i2 = bVar.f13552c;
+            int i2 = bVar.f13237c;
             if (i2 == 0) {
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(bVar.f13551b, bVar.a, false);
-                shareDialogConfig.onCancelListener = bVar.f13553d;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(bVar.f13236b, bVar.a, false);
+                shareDialogConfig.onCancelListener = bVar.f13238d;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
                 return;
             }
-            c.a.s0.t.g.a.e(shareItem, bVar.f13551b, i2, bVar.f13553d);
+            c.a.s0.t.g.a.e(shareItem, bVar.f13236b, i2, bVar.f13238d);
         }
     }
 

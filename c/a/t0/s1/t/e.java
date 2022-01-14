@@ -23,7 +23,7 @@ public class e extends c.a.t0.s1.t.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f22886b;
+    public static e f22256b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -33,10 +33,10 @@ public class e extends c.a.t0.s1.t.a {
         public final /* synthetic */ PersonalSettingItemData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f22887b;
+        public final /* synthetic */ String f22257b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f22888c;
+        public final /* synthetic */ e f22258c;
 
         public a(e eVar, PersonalSettingItemData personalSettingItemData, String str) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public class e extends c.a.t0.s1.t.a {
                     return;
                 }
             }
-            this.f22888c = eVar;
+            this.f22258c = eVar;
             this.a = personalSettingItemData;
-            this.f22887b = str;
+            this.f22257b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class e extends c.a.t0.s1.t.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f22888c.b().g(this.f22887b, OrmObject.jsonStrWithObject(this.a));
+                this.f22258c.b().g(this.f22257b, OrmObject.jsonStrWithObject(this.a));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -85,7 +85,7 @@ public class e extends c.a.t0.s1.t.a {
                 return;
             }
         }
-        f22886b = new e();
+        f22256b = new e();
     }
 
     public e() {
@@ -105,7 +105,7 @@ public class e extends c.a.t0.s1.t.a {
     public static e j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22886b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f22256b : (e) invokeV.objValue;
     }
 
     @Override // c.a.t0.s1.t.a

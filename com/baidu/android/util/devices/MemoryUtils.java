@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MemoryUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 8192;

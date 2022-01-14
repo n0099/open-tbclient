@@ -61,7 +61,7 @@ public class b {
                         cVar = new c();
                         try {
                             cVar.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.f25680b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.f24962b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                             cVar2 = cVar;
                         } catch (Exception e3) {
                             e2 = e3;

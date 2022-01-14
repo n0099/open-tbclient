@@ -15,10 +15,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UbcFlowEvent f7052b;
+    public UbcFlowEvent f6902b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7053c;
+    public boolean f6903c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a {
     public UbcFlowEvent a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7052b : (UbcFlowEvent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6902b : (UbcFlowEvent) invokeV.objValue;
     }
 
     public String b() {
@@ -49,14 +49,14 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7053c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6903c : invokeV.booleanValue;
     }
 
     public void d(@NonNull UbcFlowEvent ubcFlowEvent, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, ubcFlowEvent, z) == null) {
-            if (this.f7052b == null || z) {
-                this.f7052b = ubcFlowEvent;
+            if (this.f6902b == null || z) {
+                this.f6902b = ubcFlowEvent;
             }
         }
     }
@@ -64,7 +64,7 @@ public class a {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f7053c = z;
+            this.f6903c = z;
         }
     }
 

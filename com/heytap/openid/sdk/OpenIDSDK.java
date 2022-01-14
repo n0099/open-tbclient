@@ -34,12 +34,12 @@ public class OpenIDSDK {
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             String str = "pkg:" + context.getPackageName() + " clear";
             if (a.a()) {
-                b bVar = b.C2064b.a;
+                b bVar = b.C2081b.a;
                 Context a = a.a(context);
                 synchronized (bVar) {
                     try {
                         if (bVar.a != null) {
-                            a.unbindService(bVar.f57118e);
+                            a.unbindService(bVar.f54957e);
                             bVar.a = null;
                         }
                     } catch (Exception unused) {
@@ -52,13 +52,13 @@ public class OpenIDSDK {
     public static String getAAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? !a.a() ? "" : b.C2064b.a.a(a.a(context), "AUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? !a.a() ? "" : b.C2081b.a.a(a.a(context), "AUID") : (String) invokeL.objValue;
     }
 
     public static String getOAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? !a.a() ? "" : b.C2064b.a.a(a.a(context), "OUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? !a.a() ? "" : b.C2081b.a.a(a.a(context), "OUID") : (String) invokeL.objValue;
     }
 
     public static boolean getOAIDStatus(Context context) {
@@ -66,7 +66,7 @@ public class OpenIDSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (a.a()) {
-                return "TRUE".equalsIgnoreCase(b.C2064b.a.a(a.a(context), "OUID_STATUS"));
+                return "TRUE".equalsIgnoreCase(b.C2081b.a.a(a.a(context), "OUID_STATUS"));
             }
             return false;
         }
@@ -76,19 +76,19 @@ public class OpenIDSDK {
     public static String getUDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? !a.a() ? "" : b.C2064b.a.a(a.a(context), "GUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? !a.a() ? "" : b.C2081b.a.a(a.a(context), "GUID") : (String) invokeL.objValue;
     }
 
     public static String getVAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? !a.a() ? "" : b.C2064b.a.a(a.a(context), "DUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? !a.a() ? "" : b.C2081b.a.a(a.a(context), "DUID") : (String) invokeL.objValue;
     }
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            b bVar = b.C2064b.a;
+            b bVar = b.C2081b.a;
             Context a = a.a(context);
             bVar.getClass();
             boolean z = false;
@@ -101,7 +101,7 @@ public class OpenIDSDK {
                 }
             } catch (PackageManager.NameNotFoundException unused) {
             }
-            a.f57114b = z;
+            a.f54953b = z;
             a.a = true;
         }
     }
@@ -111,7 +111,7 @@ public class OpenIDSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             boolean z = a.a;
-            return a.f57114b;
+            return a.f54953b;
         }
         return invokeV.booleanValue;
     }

@@ -25,34 +25,32 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f22744b;
+    public View f22120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f22745c;
+    public HeadImageView f22121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f22746d;
+    public TextView f22122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f22747e;
+    public TextView f22123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22748f;
+    public TextView f22124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22749g;
+    public TextView f22125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22750h;
+    public ImageView f22126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f22751i;
+    public RelativeLayout f22127i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f22752j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public UpdatesActivity f22753k;
+    public RelativeLayout f22128j;
+    public UpdatesActivity k;
     public UpdatesItemData l;
 
     /* loaded from: classes8.dex */
@@ -86,14 +84,14 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
 
     /* renamed from: c.a.t0.s1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1351b implements View.OnClickListener {
+    public class View$OnClickListenerC1366b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22754e;
+        public final /* synthetic */ b f22129e;
 
-        public View$OnClickListenerC1351b(b bVar) {
+        public View$OnClickListenerC1366b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,17 +106,17 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
                     return;
                 }
             }
-            this.f22754e = bVar;
+            this.f22129e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f22754e.f22753k.isEditMode()) {
-                    this.f22754e.f22750h.performClick();
+                if (this.f22129e.k.isEditMode()) {
+                    this.f22129e.f22126h.performClick();
                 } else {
-                    this.f22754e.f22753k.onItemViewClick(this.f22754e.f22744b, 101, 0, 0L, this.f22754e.l);
+                    this.f22129e.k.onItemViewClick(this.f22129e.f22120b, 101, 0, 0L, this.f22129e.l);
                 }
             }
         }
@@ -130,7 +128,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22755e;
+        public final /* synthetic */ b f22130e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -147,7 +145,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
                     return;
                 }
             }
-            this.f22755e = bVar;
+            this.f22130e = bVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -155,7 +153,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f22755e.f22753k.onItemViewLongClick(this.f22755e.f22744b, 200, 0, 0L, this.f22755e.l);
+                this.f22130e.k.onItemViewLongClick(this.f22130e.f22120b, 200, 0, 0L, this.f22130e.l);
                 return true;
             }
             return invokeL.booleanValue;
@@ -168,7 +166,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22756e;
+        public final /* synthetic */ b f22131e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -185,14 +183,14 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
                     return;
                 }
             }
-            this.f22756e = bVar;
+            this.f22131e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22756e.f22753k.onItemViewClick(this.f22756e.f22744b, 101, 0, 0L, this.f22756e.l);
+                this.f22131e.k.onItemViewClick(this.f22131e.f22120b, 101, 0, 0L, this.f22131e.l);
             }
         }
     }
@@ -203,7 +201,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22757e;
+        public final /* synthetic */ b f22132e;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -220,7 +218,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
                     return;
                 }
             }
-            this.f22757e = bVar;
+            this.f22132e = bVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -228,7 +226,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f22757e.f22753k.onItemViewLongClick(this.f22757e.f22744b, 200, 0, 0L, this.f22757e.l);
+                this.f22132e.k.onItemViewLongClick(this.f22132e.f22120b, 200, 0, 0L, this.f22132e.l);
                 return true;
             }
             return invokeL.booleanValue;
@@ -241,7 +239,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22758e;
+        public final /* synthetic */ b f22133e;
 
         public f(b bVar) {
             Interceptable interceptable = $ic;
@@ -258,7 +256,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
                     return;
                 }
             }
-            this.f22758e = bVar;
+            this.f22133e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -266,7 +264,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.setSelected(!view.isSelected());
-                this.f22758e.f22753k.onCheckedChanged(view, view.isSelected(), this.f22758e.l);
+                this.f22133e.k.onCheckedChanged(view, view.isSelected(), this.f22133e.l);
             }
         }
     }
@@ -290,7 +288,7 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
                 return;
             }
         }
-        this.f22753k = updatesActivity;
+        this.k = updatesActivity;
         i();
     }
 
@@ -298,25 +296,25 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View findViewById = this.a.findViewById(R.id.root_view);
-            this.f22744b = findViewById;
-            this.f22745c = (HeadImageView) findViewById.findViewById(R.id.iv_head);
-            this.f22746d = (TextView) this.f22744b.findViewById(R.id.tv_group_name);
-            this.f22747e = (TextView) this.f22744b.findViewById(R.id.tv_content);
-            this.f22748f = (TextView) this.f22744b.findViewById(R.id.tv_title);
-            this.f22749g = (TextView) this.f22744b.findViewById(R.id.tv_time);
-            this.f22750h = (ImageView) this.f22744b.findViewById(R.id.cb_select);
-            this.f22751i = (RelativeLayout) this.f22744b.findViewById(R.id.layout_body);
-            this.f22752j = (RelativeLayout) this.f22744b.findViewById(R.id.layout_title);
-            this.f22745c.setOnClickListener(new a(this));
-            this.f22751i.setClickable(true);
-            this.f22751i.setLongClickable(true);
-            this.f22752j.setClickable(true);
-            this.f22752j.setLongClickable(true);
-            this.f22751i.setOnClickListener(new View$OnClickListenerC1351b(this));
-            this.f22751i.setOnLongClickListener(new c(this));
-            this.f22752j.setOnClickListener(new d(this));
-            this.f22752j.setOnLongClickListener(new e(this));
-            this.f22750h.setOnClickListener(new f(this));
+            this.f22120b = findViewById;
+            this.f22121c = (HeadImageView) findViewById.findViewById(R.id.iv_head);
+            this.f22122d = (TextView) this.f22120b.findViewById(R.id.tv_group_name);
+            this.f22123e = (TextView) this.f22120b.findViewById(R.id.tv_content);
+            this.f22124f = (TextView) this.f22120b.findViewById(R.id.tv_title);
+            this.f22125g = (TextView) this.f22120b.findViewById(R.id.tv_time);
+            this.f22126h = (ImageView) this.f22120b.findViewById(R.id.cb_select);
+            this.f22127i = (RelativeLayout) this.f22120b.findViewById(R.id.layout_body);
+            this.f22128j = (RelativeLayout) this.f22120b.findViewById(R.id.layout_title);
+            this.f22121c.setOnClickListener(new a(this));
+            this.f22127i.setClickable(true);
+            this.f22127i.setLongClickable(true);
+            this.f22128j.setClickable(true);
+            this.f22128j.setLongClickable(true);
+            this.f22127i.setOnClickListener(new View$OnClickListenerC1366b(this));
+            this.f22127i.setOnLongClickListener(new c(this));
+            this.f22128j.setOnClickListener(new d(this));
+            this.f22128j.setOnLongClickListener(new e(this));
+            this.f22126h.setOnClickListener(new f(this));
         }
     }
 
@@ -340,50 +338,50 @@ public class b extends c.a.d.a.c<UpdatesActivity> {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.l == null) {
             return;
         }
-        if (this.f22753k.isEditMode()) {
-            this.f22750h.setVisibility(0);
+        if (this.k.isEditMode()) {
+            this.f22126h.setVisibility(0);
         } else {
-            this.f22750h.setVisibility(8);
-            this.f22751i.setSelected(false);
+            this.f22126h.setVisibility(8);
+            this.f22127i.setSelected(false);
         }
         String groupHeadUrl = this.l.getGroupHeadUrl();
         if (!TextUtils.isEmpty(groupHeadUrl)) {
-            this.f22745c.setTag(groupHeadUrl);
-            this.f22745c.startLoad(groupHeadUrl, 10, false);
+            this.f22121c.setTag(groupHeadUrl);
+            this.f22121c.startLoad(groupHeadUrl, 10, false);
         } else {
-            this.f22745c.setTag(null);
+            this.f22121c.setTag(null);
         }
-        this.f22745c.setClickable(false);
+        this.f22121c.setClickable(false);
         if (!TextUtils.isEmpty(this.l.getTitle())) {
-            this.f22748f.setText(this.l.getTitle());
+            this.f22124f.setText(this.l.getTitle());
         } else {
-            this.f22748f.setText(this.f22753k.getPageContext().getString(R.string.inform));
+            this.f22124f.setText(this.k.getPageContext().getString(R.string.inform));
         }
         Date date = new Date();
         date.setTime(this.l.getTime());
-        this.f22749g.setText(StringHelper.getPostTimeString(date));
+        this.f22125g.setText(StringHelper.getPostTimeString(date));
         if (!TextUtils.isEmpty(this.l.getContent())) {
-            this.f22747e.setText(this.l.getContent());
+            this.f22123e.setText(this.l.getContent());
         } else {
-            this.f22747e.setText("");
+            this.f22123e.setText("");
         }
         if (!TextUtils.isEmpty(this.l.getGroupName())) {
-            this.f22746d.setText(this.l.getGroupName());
+            this.f22122d.setText(this.l.getGroupName());
         } else {
-            this.f22746d.setText("");
+            this.f22122d.setText("");
         }
-        int paddingLeft = this.f22751i.getPaddingLeft();
-        int paddingTop = this.f22751i.getPaddingTop();
-        int paddingRight = this.f22751i.getPaddingRight();
-        int paddingBottom = this.f22751i.getPaddingBottom();
-        this.f22753k.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.f22753k.getLayoutMode().j(this.a);
-        this.f22750h.setSelected(this.l.isSelected());
-        if (this.l.isSelected() && this.f22753k.isEditMode()) {
-            SkinManager.setBackgroundResource(this.f22751i, R.drawable.bg_information_down_s);
+        int paddingLeft = this.f22127i.getPaddingLeft();
+        int paddingTop = this.f22127i.getPaddingTop();
+        int paddingRight = this.f22127i.getPaddingRight();
+        int paddingBottom = this.f22127i.getPaddingBottom();
+        this.k.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+        this.k.getLayoutMode().j(this.a);
+        this.f22126h.setSelected(this.l.isSelected());
+        if (this.l.isSelected() && this.k.isEditMode()) {
+            SkinManager.setBackgroundResource(this.f22127i, R.drawable.bg_information_down_s);
         } else {
-            SkinManager.setBackgroundResource(this.f22751i, R.drawable.selector_group_updates_bottom_bg);
+            SkinManager.setBackgroundResource(this.f22127i, R.drawable.selector_group_updates_bottom_bg);
         }
-        this.f22751i.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        this.f22127i.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 }

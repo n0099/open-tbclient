@@ -26,7 +26,7 @@ public class h0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f25519b;
+    public a f24805b;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -42,22 +42,22 @@ public class h0 {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f25520b;
+        public String f24806b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f25521c;
+        public long f24807c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f25522d;
+        public String f24808d;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<a> f25523e;
+        public WeakReference<a> f24809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f25524f;
+        public int f24810f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f25525g;
+        public String f24811g;
 
         public b(String str, long j2, String str2, a aVar, h0 h0Var, String str3) {
             Interceptable interceptable = $ic;
@@ -75,15 +75,15 @@ public class h0 {
                 }
             }
             this.a = null;
-            this.f25520b = null;
-            this.f25521c = 0L;
-            this.f25523e = null;
+            this.f24806b = null;
+            this.f24807c = 0L;
+            this.f24809e = null;
             new WeakReference(h0Var);
-            this.f25520b = str;
-            this.f25521c = j2;
-            this.f25523e = new WeakReference<>(aVar);
-            this.f25522d = str2;
-            this.f25525g = str3;
+            this.f24806b = str;
+            this.f24807c = j2;
+            this.f24809e = new WeakReference<>(aVar);
+            this.f24808d = str2;
+            this.f24811g = str3;
             setPriority(3);
         }
 
@@ -95,19 +95,19 @@ public class h0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 try {
-                    if (this.f25521c != 0 && this.f25520b != null) {
+                    if (this.f24807c != 0 && this.f24806b != null) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
                         this.a = netWork;
-                        netWork.addPostData("fid", String.valueOf(this.f25521c));
-                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f25520b);
+                        netWork.addPostData("fid", String.valueOf(this.f24807c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f24806b);
                         this.a.addPostData("favo_type", "1");
-                        this.a.addPostData("st_type", this.f25522d);
-                        this.a.addPostData("authsid", this.f25525g);
+                        this.a.addPostData("st_type", this.f24808d);
+                        this.a.addPostData("authsid", this.f24811g);
                         this.a.getNetContext().getRequest().mIsNeedTbs = true;
                         String postNetData = this.a.postNetData();
                         if (!c.a.d.f.p.m.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
-                            this.f25524f = jSONObject.optInt("error_code");
+                            this.f24810f = jSONObject.optInt("error_code");
                             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                             AuthTokenData.parse(jSONObject);
                         }
@@ -131,29 +131,29 @@ public class h0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
                 super.onPostExecute((b) num);
-                if (this.f25523e != null) {
-                    c.a.t0.w3.s0.k kVar = new c.a.t0.w3.s0.k();
-                    kVar.a = this.f25521c;
-                    a aVar = this.f25523e.get();
+                if (this.f24809e != null) {
+                    c.a.t0.w3.s0.f fVar = new c.a.t0.w3.s0.f();
+                    fVar.a = this.f24807c;
+                    a aVar = this.f24809e.get();
                     if (aVar == null) {
                         return;
                     }
                     if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
-                        TbadkCoreApplication.getInst().delLikeForum(this.f25520b);
-                        aVar.b(this.f25520b, this.f25521c);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.f25521c)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.f25520b));
-                        kVar.f25786b = true;
+                        TbadkCoreApplication.getInst().delLikeForum(this.f24806b);
+                        aVar.b(this.f24806b, this.f24807c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.f24807c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.f24806b));
+                        fVar.f25029b = true;
                     } else {
-                        kVar.f25786b = false;
+                        fVar.f25029b = false;
                         NetWork netWork2 = this.a;
                         if (netWork2 != null) {
                             String errorString = netWork2.isNetSuccess() ? this.a.getErrorString() : this.a.getNetException();
-                            kVar.f25787c = errorString;
-                            aVar.a(errorString, this.f25524f);
+                            fVar.f25030c = errorString;
+                            aVar.a(errorString, this.f24810f);
                         }
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, kVar));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, fVar));
                 }
             }
         }
@@ -185,14 +185,14 @@ public class h0 {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f25519b = aVar;
+            this.f24805b = aVar;
         }
     }
 
     public void c(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2) == null) {
-            new b(str, j2, this.a, this.f25519b, this, null).execute(new Integer[0]);
+            new b(str, j2, this.a, this.f24805b, this, null).execute(new Integer[0]);
         }
     }
 }

@@ -23,7 +23,7 @@ public class a extends BLCPRequest {
                 return;
             }
         }
-        this.f35783c = null;
-        this.f35785e = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
+        this.f34622c = null;
+        this.f34624e = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
     }
 }

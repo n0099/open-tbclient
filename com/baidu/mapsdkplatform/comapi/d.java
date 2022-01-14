@@ -28,11 +28,11 @@ public /* synthetic */ class d {
         int[] iArr = new int[NativeLoader.a.values().length];
         a = iArr;
         try {
-            iArr[NativeLoader.a.f36947c.ordinal()] = 1;
+            iArr[NativeLoader.a.f35730c.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[NativeLoader.a.f36946b.ordinal()] = 2;
+            a[NativeLoader.a.f35729b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
@@ -40,11 +40,11 @@ public /* synthetic */ class d {
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[NativeLoader.a.f36949e.ordinal()] = 4;
+            a[NativeLoader.a.f35732e.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[NativeLoader.a.f36948d.ordinal()] = 5;
+            a[NativeLoader.a.f35731d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

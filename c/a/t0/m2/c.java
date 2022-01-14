@@ -1,7 +1,7 @@
 package c.a.t0.m2;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.q1;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
@@ -23,9 +23,9 @@ public class c {
                 statisticItem.param("fid", ((q1) obj).o());
             } else if (obj instanceof c.a.t0.m2.e.b) {
                 c.a.t0.m2.e.b bVar = (c.a.t0.m2.e.b) obj;
-                d2 d2Var = bVar.l;
-                if (d2Var != null) {
-                    statisticItem.param("tid", d2Var.v1());
+                e2 e2Var = bVar.l;
+                if (e2Var != null) {
+                    statisticItem.param("tid", e2Var.v1());
                 }
                 statisticItem.param("obj_locate", bVar.a());
             }
@@ -54,7 +54,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLLZ(65539, null, aVar, aVar2, z) == null) || aVar2 == null || aVar2.getThreadData() == null) {
             return;
         }
-        d2 threadData = aVar2.getThreadData();
+        e2 threadData = aVar2.getThreadData();
         boolean Z = aVar.Z();
         StatisticItem statisticItem = new StatisticItem(z ? Z ? "c13823" : "c13822" : Z ? "c13824" : "c13821");
         statisticItem.param("tid", threadData.v1());

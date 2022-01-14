@@ -17,10 +17,10 @@ public final class i {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f3981b;
+    public f f3919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f3982c;
+    public byte[] f3920c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i() {
@@ -57,14 +57,14 @@ public final class i {
             }
         }
         this.a = cVar;
-        this.f3981b = fVar;
-        this.f3982c = bArr;
+        this.f3919b = fVar;
+        this.f3920c = bArr;
     }
 
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f3981b = fVar;
+            this.f3919b = fVar;
         }
     }
 
@@ -75,7 +75,7 @@ public final class i {
             if (this != obj) {
                 if (obj instanceof i) {
                     i iVar = (i) obj;
-                    return Intrinsics.areEqual(this.a, iVar.a) && Intrinsics.areEqual(this.f3981b, iVar.f3981b) && Intrinsics.areEqual(this.f3982c, iVar.f3982c);
+                    return Intrinsics.areEqual(this.a, iVar.a) && Intrinsics.areEqual(this.f3919b, iVar.f3919b) && Intrinsics.areEqual(this.f3920c, iVar.f3920c);
                 }
                 return false;
             }
@@ -90,9 +90,9 @@ public final class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = this.a;
             int hashCode = (cVar != null ? cVar.hashCode() : 0) * 31;
-            f fVar = this.f3981b;
+            f fVar = this.f3919b;
             int hashCode2 = (hashCode + (fVar != null ? fVar.hashCode() : 0)) * 31;
-            byte[] bArr = this.f3982c;
+            byte[] bArr = this.f3920c;
             return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
@@ -102,7 +102,7 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.f3981b + ", encodeDHPublicKey=" + Arrays.toString(this.f3982c) + SmallTailInfo.EMOTION_SUFFIX;
+            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.f3919b + ", encodeDHPublicKey=" + Arrays.toString(this.f3920c) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c implements com.baidu.sofire.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39806b;
+    public String f38488b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class c implements com.baidu.sofire.k.b {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            bVar.f39801b.bindService(intent, bVar.f39803d, 1);
+            bVar.f38483b.bindService(intent, bVar.f38485d, 1);
         }
     }
 
@@ -53,13 +53,13 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f39806b)) {
+            if (TextUtils.isEmpty(this.f38488b)) {
                 b bVar = this.a;
                 String a = bVar.a == null ? "" : bVar.a("OUID");
-                this.f39806b = a;
+                this.f38488b = a;
                 return a;
             }
-            return this.f39806b;
+            return this.f38488b;
         }
         return (String) invokeV.objValue;
     }

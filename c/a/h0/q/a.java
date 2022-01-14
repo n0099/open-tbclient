@@ -19,25 +19,25 @@ public class a {
     public static volatile Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3674b;
+    public static final int f3620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3675c;
+    public static final int f3621c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f3676d;
+    public static final ThreadFactory f3622d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.h0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ThreadFactoryC0137a implements ThreadFactory {
+    public static class ThreadFactoryC0145a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f3677e;
+        public final AtomicInteger f3623e;
 
-        public ThreadFactoryC0137a() {
+        public ThreadFactoryC0145a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class a {
                     return;
                 }
             }
-            this.f3677e = new AtomicInteger(1);
+            this.f3623e = new AtomicInteger(1);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -58,7 +58,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.f3677e.getAndIncrement());
+                return new Thread(runnable, "cashier #" + this.f3623e.getAndIncrement());
             }
             return (Thread) invokeL.objValue;
         }
@@ -78,9 +78,9 @@ public class a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f3674b = availableProcessors;
-        f3675c = (availableProcessors * 2) + 1;
-        f3676d = new ThreadFactoryC0137a();
+        f3620b = availableProcessors;
+        f3621c = (availableProcessors * 2) + 1;
+        f3622d = new ThreadFactoryC0145a();
     }
 
     public a() {
@@ -113,7 +113,7 @@ public class a {
                 if (a == null) {
                     synchronized (a.class) {
                         if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, f3675c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3676d);
+                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, f3621c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3622d);
                             threadPoolExecutor.allowCoreThreadTimeOut(true);
                             a = threadPoolExecutor;
                         }

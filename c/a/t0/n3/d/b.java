@@ -27,26 +27,24 @@ import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c.a.t0.n3.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public Tencent f20295h;
+    public Tencent f19759h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20296i;
+    public int f19760i;
 
     /* renamed from: j  reason: collision with root package name */
-    public IUiListener f20297j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public ShareEntity f20298k;
+    public IUiListener f19761j;
+    public ShareEntity k;
     public final c.a.d.f.l.c<EmotionShareLoaderProc.EmotionShare> l;
     public c.a.d.f.l.c<c.a.d.n.d.a> m;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends c.a.d.f.l.c<EmotionShareLoaderProc.EmotionShare> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,11 +77,11 @@ public class b extends c.a.t0.n3.d.a {
                 super.onLoaded(emotionShare, str, i2);
                 if (emotionShare != null && emotionShare.image != null && !TextUtils.isEmpty(emotionShare.path)) {
                     b bVar = this.a;
-                    bVar.D(emotionShare.path, bVar.f20297j);
+                    bVar.D(emotionShare.path, bVar.f19761j);
                     return;
                 }
                 b bVar2 = this.a;
-                bVar2.w(2, bVar2.f20296i);
+                bVar2.w(2, bVar2.f19760i);
             }
         }
 
@@ -93,31 +91,31 @@ public class b extends c.a.t0.n3.d.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 super.onCancelled(str);
                 b bVar = this.a;
-                bVar.w(3, bVar.f20296i);
+                bVar.w(3, bVar.f19760i);
             }
         }
     }
 
     /* renamed from: c.a.t0.n3.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1223b extends c.a.d.f.l.c<c.a.d.n.d.a> {
+    /* loaded from: classes8.dex */
+    public class C1237b extends c.a.d.f.l.c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* renamed from: c.a.t0.n3.d.b$b$a */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a extends BdAsyncTask<c.a.d.n.d.a, Void, Bitmap> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ C1223b a;
+            public final /* synthetic */ C1237b a;
 
-            public a(C1223b c1223b) {
+            public a(C1237b c1237b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1223b};
+                    Object[] objArr = {c1237b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -127,7 +125,7 @@ public class b extends c.a.t0.n3.d.a {
                         return;
                     }
                 }
-                this.a = c1223b;
+                this.a = c1237b;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -142,7 +140,7 @@ public class b extends c.a.t0.n3.d.a {
                     }
                     Bitmap p = aVarArr[0].p();
                     b bVar = this.a.a;
-                    return bVar.r(p, bVar.f20298k, true);
+                    return bVar.r(p, bVar.k, true);
                 }
                 return (Bitmap) invokeL.objValue;
             }
@@ -154,12 +152,12 @@ public class b extends c.a.t0.n3.d.a {
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
                     super.onPostExecute((a) bitmap);
                     b bVar = this.a.a;
-                    bVar.C(bVar.f20298k, bVar.f20297j);
+                    bVar.C(bVar.k, bVar.f19761j);
                 }
             }
         }
 
-        public C1223b(b bVar) {
+        public C1237b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +180,7 @@ public class b extends c.a.t0.n3.d.a {
         public void onLoaded(c.a.d.n.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((C1223b) aVar, str, i2);
+                super.onLoaded((C1237b) aVar, str, i2);
                 if (aVar != null) {
                     a aVar2 = new a(this);
                     aVar2.setPriority(3);
@@ -192,14 +190,14 @@ public class b extends c.a.t0.n3.d.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements IUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c.a.t0.n3.e.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f20299b;
+        public final /* synthetic */ b f19762b;
 
         public c(b bVar, c.a.t0.n3.e.b bVar2) {
             Interceptable interceptable = $ic;
@@ -216,14 +214,14 @@ public class b extends c.a.t0.n3.d.a {
                     return;
                 }
             }
-            this.f20299b = bVar;
+            this.f19762b = bVar;
             this.a = bVar2;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FileHelper.deleteFile(new File(c.a.t0.n3.d.a.f20289e + c.a.t0.n3.d.a.f20290f));
+                FileHelper.deleteFile(new File(c.a.t0.n3.d.a.f19753e + c.a.t0.n3.d.a.f19754f));
             }
         }
 
@@ -233,9 +231,9 @@ public class b extends c.a.t0.n3.d.a {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.t0.n3.e.b bVar = this.a;
                 if (bVar != null) {
-                    bVar.onShare(this.f20299b.f20296i, 3);
+                    bVar.onShare(this.f19762b.f19760i, 3);
                 }
-                int i2 = this.f20299b.f20296i;
+                int i2 = this.f19762b.f19760i;
                 a();
             }
         }
@@ -246,10 +244,10 @@ public class b extends c.a.t0.n3.d.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 c.a.t0.n3.e.b bVar = this.a;
                 if (bVar != null) {
-                    bVar.onShare(this.f20299b.f20296i, 1);
+                    bVar.onShare(this.f19762b.f19760i, 1);
                 }
-                b bVar2 = this.f20299b;
-                bVar2.w(1, bVar2.f20296i);
+                b bVar2 = this.f19762b;
+                bVar2.w(1, bVar2.f19760i);
                 a();
             }
         }
@@ -260,11 +258,11 @@ public class b extends c.a.t0.n3.d.a {
             if (interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) {
                 c.a.t0.n3.e.b bVar = this.a;
                 if (bVar != null) {
-                    bVar.onShare(this.f20299b.f20296i, 2);
+                    bVar.onShare(this.f19762b.f19760i, 2);
                 }
                 String str = uiError != null ? uiError.errorMessage : null;
-                b bVar2 = this.f20299b;
-                bVar2.x(2, str, bVar2.f20296i);
+                b bVar2 = this.f19762b;
+                bVar2.x(2, str, bVar2.f19760i);
                 a();
             }
         }
@@ -295,10 +293,10 @@ public class b extends c.a.t0.n3.d.a {
                 return;
             }
         }
-        this.f20296i = 8;
+        this.f19760i = 8;
         this.l = new a(this);
-        this.m = new C1223b(this);
-        this.f20295h = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.m = new C1237b(this);
+        this.f19759h = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     public final void B(ShareEntity shareEntity, c.a.t0.n3.e.b bVar) {
@@ -309,7 +307,7 @@ public class b extends c.a.t0.n3.d.a {
         }
         Intent intent = new Intent("android.intent.action.SEND");
         intent.setType("text/plain");
-        Iterator<ResolveInfo> it = this.f20292b.getPackageManager().queryIntentActivities(intent, 0).iterator();
+        Iterator<ResolveInfo> it = this.f19756b.getPackageManager().queryIntentActivities(intent, 0).iterator();
         while (true) {
             if (!it.hasNext()) {
                 str = "";
@@ -327,17 +325,17 @@ public class b extends c.a.t0.n3.d.a {
         intent2.putExtra("android.intent.extra.TEXT", shareEntity.getContent());
         intent2.setClassName("com.tencent.mobileqq", str);
         intent2.setFlags(268435456);
-        if (c.a.t0.n3.f.a.startActivity(this.f20292b, intent2)) {
+        if (c.a.t0.n3.f.a.startActivity(this.f19756b, intent2)) {
             if (bVar != null) {
-                bVar.onShare(this.f20296i, 1);
+                bVar.onShare(this.f19760i, 1);
                 return;
             }
             return;
         }
         if (bVar != null) {
-            bVar.onShare(this.f20296i, 2);
+            bVar.onShare(this.f19760i, 2);
         }
-        w(2, this.f20296i);
+        w(2, this.f19760i);
     }
 
     public final void C(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -349,9 +347,9 @@ public class b extends c.a.t0.n3.d.a {
         bundle.putString("title", shareEntity.getTitle());
         if (shareEntity.getReadCount() >= 0) {
             if (shareEntity.getReadCount() < 10000) {
-                bundle.putString("summary", this.f20292b.getString(R.string.share_qq_default_content));
+                bundle.putString("summary", this.f19756b.getString(R.string.share_qq_default_content));
             } else {
-                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.f20292b.getString(R.string.share_qq_content));
+                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.f19756b.getString(R.string.share_qq_content));
             }
         } else {
             bundle.putString("summary", shareEntity.getContent());
@@ -363,7 +361,7 @@ public class b extends c.a.t0.n3.d.a {
         } else {
             bundle.putString("imageUrl", shareEntity.getImgUrl());
         }
-        this.f20295h.shareToQQ((Activity) this.f20292b, bundle, iUiListener);
+        this.f19759h.shareToQQ((Activity) this.f19756b, bundle, iUiListener);
     }
 
     public final void D(String str, IUiListener iUiListener) {
@@ -375,7 +373,7 @@ public class b extends c.a.t0.n3.d.a {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 2);
-        this.f20295h.shareToQQ((Activity) this.f20292b, bundle, iUiListener);
+        this.f19759h.shareToQQ((Activity) this.f19756b, bundle, iUiListener);
     }
 
     public final void E(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -384,13 +382,13 @@ public class b extends c.a.t0.n3.d.a {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("title", c.a.t0.n3.f.a.a(this.f20292b));
+        bundle.putString("title", c.a.t0.n3.f.a.a(this.f19756b));
         if (!StringUtils.isNull(shareEntity.getTitle())) {
             bundle.putString("summary", shareEntity.getTitle());
         } else if (!StringUtils.isNull(shareEntity.getContent())) {
             bundle.putString("summary", shareEntity.getContent());
         } else {
-            bundle.putString("summary", this.f20292b.getString(R.string.share_qq_default_content));
+            bundle.putString("summary", this.f19756b.getString(R.string.share_qq_default_content));
         }
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         if (!StringUtils.isNull(shareEntity.getImgUrl())) {
@@ -402,53 +400,53 @@ public class b extends c.a.t0.n3.d.a {
         bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
         bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
         bundle.putInt("req_type", 7);
-        this.f20295h.shareToQQ((Activity) this.f20292b, bundle, iUiListener);
+        this.f19759h.shareToQQ((Activity) this.f19756b, bundle, iUiListener);
     }
 
     @Override // c.a.t0.n3.e.a
     public void a(ShareEntity shareEntity, c.a.t0.n3.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, bVar) == null) {
-            if (shareEntity != null && this.f20295h != null) {
-                Context context = this.f20292b;
+            if (shareEntity != null && this.f19759h != null) {
+                Context context = this.f19756b;
                 if (context != null && (context instanceof Activity)) {
-                    this.f20297j = new c(this, bVar);
+                    this.f19761j = new c(this, bVar);
                     if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        E(shareEntity, this.f20297j);
+                        E(shareEntity, this.f19761j);
                         return;
                     }
                     String imgUrl = shareEntity.getImgUrl();
                     if (n(shareEntity.getLocalFile())) {
-                        D(shareEntity.getLocalFile(), this.f20297j);
+                        D(shareEntity.getLocalFile(), this.f19761j);
                         return;
                     } else if (shareEntity.getShareType() != 0 && !TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
                         c.a.d.f.l.d.h().k(imgUrl, 34, this.l, 0, 0, h(), new Object[0]);
                         return;
                     } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
-                        this.f20298k = shareEntity;
+                        this.k = shareEntity;
                         if (shareEntity.getIsVideoThread()) {
                             c.a.d.f.l.d.h().k(shareEntity.getImgUrl(), 10, this.m, 0, 0, h(), new Object[0]);
                             return;
                         } else {
-                            C(shareEntity, this.f20297j);
+                            C(shareEntity, this.f19761j);
                             return;
                         }
                     } else if (m(shareEntity.getImageUri())) {
-                        D(shareEntity.getImageUri().getPath(), this.f20297j);
+                        D(shareEntity.getImageUri().getPath(), this.f19761j);
                         return;
                     } else {
                         B(shareEntity, bVar);
                         return;
                     }
                 }
-                w(2, this.f20296i);
+                w(2, this.f19760i);
                 if (bVar != null) {
                     bVar.onShare(0, 2);
                     return;
                 }
                 return;
             }
-            w(2, this.f20296i);
+            w(2, this.f19760i);
             if (bVar != null) {
                 bVar.onShare(0, 2);
             }

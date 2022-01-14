@@ -20,7 +20,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.g.c.e, ConcernTabEmptyView.ViewHo
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.g.c.e.f14971f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.g.c.e.f14611f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

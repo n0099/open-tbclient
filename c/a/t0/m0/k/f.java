@@ -19,13 +19,13 @@ public final class f {
     public static final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pools.SimplePool<RectF> f19806b;
+    public static final Pools.SimplePool<RectF> f19293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pools.SimplePool<PointF> f19807c;
+    public static final Pools.SimplePool<PointF> f19294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pools.SimplePool<c.a.t0.m0.e.a> f19808d;
+    public static final Pools.SimplePool<c.a.t0.m0.e.a> f19295d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,9 +42,9 @@ public final class f {
             }
         }
         a = new f();
-        f19806b = new Pools.SimplePool<>(200);
-        f19807c = new Pools.SimplePool<>(200);
-        f19808d = new Pools.SimplePool<>(1000);
+        f19293b = new Pools.SimplePool<>(200);
+        f19294c = new Pools.SimplePool<>(200);
+        f19295d = new Pools.SimplePool<>(1000);
     }
 
     public f() {
@@ -67,7 +67,7 @@ public final class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(player, "player");
-            c.a.t0.m0.e.a acquire = f19808d.acquire();
+            c.a.t0.m0.e.a acquire = f19295d.acquire();
             if (acquire == null) {
                 acquire = null;
             } else {
@@ -83,7 +83,7 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PointF acquire = f19807c.acquire();
+            PointF acquire = f19294c.acquire();
             return acquire == null ? new PointF() : acquire;
         }
         return (PointF) invokeV.objValue;
@@ -93,7 +93,7 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RectF acquire = f19806b.acquire();
+            RectF acquire = f19293b.acquire();
             return acquire == null ? new RectF() : acquire;
         }
         return (RectF) invokeV.objValue;

@@ -10,39 +10,39 @@ public class i {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f60872b;
+    public final String f58565b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f60873c;
+    public final c f58566c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f60874d;
+    public final j f58567d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f60875e;
+    public final Object f58568e;
 
     /* loaded from: classes3.dex */
     public static class a {
         public f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60876b = "GET";
+        public String f58569b = "GET";
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a f60877c = new c.a();
+        public c.a f58570c = new c.a();
 
         /* renamed from: d  reason: collision with root package name */
-        public j f60878d;
+        public j f58571d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f60879e;
+        public Object f58572e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.f60877c = cVar.c();
+            this.f58570c = cVar.c();
             return this;
         }
 
@@ -99,8 +99,8 @@ public class i {
             if (jVar != null && !d.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must not have a request body.");
             } else if (jVar != null || !d.a(str)) {
-                this.f60876b = str;
-                this.f60878d = jVar;
+                this.f58569b = str;
+                this.f58571d = jVar;
                 return this;
             } else {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
@@ -108,7 +108,7 @@ public class i {
         }
 
         public a a(String str, String str2) {
-            this.f60877c.a(str, str2);
+            this.f58570c.a(str, str2);
             return this;
         }
 
@@ -138,10 +138,10 @@ public class i {
 
     public i(a aVar) {
         this.a = aVar.a;
-        this.f60872b = aVar.f60876b;
-        this.f60873c = aVar.f60877c.a();
-        this.f60874d = aVar.f60878d;
-        this.f60875e = aVar.f60879e != null ? aVar.f60879e : this;
+        this.f58565b = aVar.f58569b;
+        this.f58566c = aVar.f58570c.a();
+        this.f58567d = aVar.f58571d;
+        this.f58568e = aVar.f58572e != null ? aVar.f58572e : this;
     }
 
     public f a() {
@@ -149,11 +149,11 @@ public class i {
     }
 
     public String a(String str) {
-        return this.f60873c.a(str);
+        return this.f58566c.a(str);
     }
 
     public String b() {
-        return this.f60872b;
+        return this.f58565b;
     }
 
     public int c() {
@@ -176,11 +176,11 @@ public class i {
     }
 
     public c d() {
-        return this.f60873c;
+        return this.f58566c;
     }
 
     public j e() {
-        return this.f60874d;
+        return this.f58567d;
     }
 
     public boolean f() {
@@ -190,11 +190,11 @@ public class i {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f60872b);
+        sb.append(this.f58565b);
         sb.append(", url=");
         sb.append(this.a);
         sb.append(", tag=");
-        Object obj = this.f60875e;
+        Object obj = this.f58568e;
         if (obj == this) {
             obj = null;
         }

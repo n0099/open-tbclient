@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.s0.j0.d.a;
 import c.a.s0.s.q.b1;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.newdetail.HotTopicDetailModel;
@@ -32,11 +32,11 @@ public class e implements c.a.k0.b.b.b<c.a.s0.j0.d.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public HotTopicDetailModel f17535b;
+        public HotTopicDetailModel f17109b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public a.InterfaceC0844a f17536c;
+        public a.InterfaceC0854a f17110c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class e implements c.a.k0.b.b.b<c.a.s0.j0.d.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j2), str})) == null) {
                 HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
-                this.f17535b = hotTopicDetailModel;
+                this.f17109b = hotTopicDetailModel;
                 hotTopicDetailModel.L(j2, str);
-                this.f17535b.K(this);
+                this.f17109b.K(this);
                 return this;
             }
             return (c.a.s0.j0.d.a) invokeCommon.objValue;
@@ -70,37 +70,37 @@ public class e implements c.a.k0.b.b.b<c.a.s0.j0.d.a> {
         public void b(int i2, b1 b1Var, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), b1Var, Long.valueOf(j2)}) == null) {
-                this.f17535b.y(i2, b1Var, j2);
+                this.f17109b.y(i2, b1Var, j2);
             }
         }
 
         @Override // c.a.s0.j0.d.a
-        public void c(@Nullable a.InterfaceC0844a interfaceC0844a) {
+        public void c(@Nullable a.InterfaceC0854a interfaceC0854a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0844a) == null) {
-                this.f17536c = interfaceC0844a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0854a) == null) {
+                this.f17110c = interfaceC0854a;
             }
         }
 
         @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
         public void netLoadMoreCallback(int i2, @Nullable c.a.t0.q1.l.d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, dVar) == null) || this.f17536c == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, dVar) == null) || this.f17110c == null) {
                 return;
             }
             if (dVar != null) {
                 ArrayList arrayList = new ArrayList();
                 for (c.a.t0.g0.f0.b bVar : dVar.f4) {
                     if (bVar instanceof c.a.t0.g0.f0.b) {
-                        d2 threadData = bVar.getThreadData();
+                        e2 threadData = bVar.getThreadData();
                         if (!TextUtils.equals(threadData.v1(), "0")) {
                             arrayList.add(threadData);
                         }
                     }
                 }
-                this.f17536c.b(arrayList, dVar.V4());
+                this.f17110c.b(arrayList, dVar.V4());
             }
-            this.f17536c.a();
+            this.f17110c.a();
         }
 
         public /* synthetic */ b(a aVar) {

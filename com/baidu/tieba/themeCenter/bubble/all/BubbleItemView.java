@@ -27,25 +27,23 @@ public class BubbleItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50339e;
+    public Context f48436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50340f;
+    public View f48437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f50341g;
+    public FrameLayout f48438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f50342h;
+    public TbImageView f48439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50343i;
+    public TextView f48440i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f50344j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TbImageView f50345k;
+    public TbImageView f48441j;
+    public TbImageView k;
     public ImageView l;
     public DressItemData m;
     public c.a.t0.c4.f.a.a n;
@@ -58,7 +56,7 @@ public class BubbleItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleItemView f50346e;
+        public final /* synthetic */ BubbleItemView f48442e;
 
         public a(BubbleItemView bubbleItemView) {
             Interceptable interceptable = $ic;
@@ -75,16 +73,16 @@ public class BubbleItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f50346e = bubbleItemView;
+            this.f48442e = bubbleItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f50346e.m == null || this.f50346e.n == null || view != this.f50346e.f50342h) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f48442e.m == null || this.f48442e.n == null || view != this.f48442e.f48439h) {
                 return;
             }
-            this.f50346e.n.b(this.f50346e.m, this.f50346e.o);
+            this.f48442e.n.b(this.f48442e.m, this.f48442e.o);
         }
     }
 
@@ -107,28 +105,28 @@ public class BubbleItemView extends LinearLayout {
             }
         }
         this.p = new a(this);
-        this.f50339e = context;
+        this.f48436e = context;
         d();
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f50339e).inflate(R.layout.bubble_item, this);
-            this.f50340f = inflate;
-            this.f50341g = (FrameLayout) inflate.findViewById(R.id.ly_bubble);
-            this.f50342h = (TbImageView) this.f50340f.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f50340f.findViewById(R.id.permission_icon);
-            this.f50344j = tbImageView;
+            View inflate = LayoutInflater.from(this.f48436e).inflate(R.layout.bubble_item, this);
+            this.f48437f = inflate;
+            this.f48438g = (FrameLayout) inflate.findViewById(R.id.ly_bubble);
+            this.f48439h = (TbImageView) this.f48437f.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f48437f.findViewById(R.id.permission_icon);
+            this.f48441j = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f50344j.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.f50340f.findViewById(R.id.state_icon);
-            this.f50345k = tbImageView2;
+            this.f48441j.setDefaultBgResource(R.drawable.transparent_bg);
+            TbImageView tbImageView2 = (TbImageView) this.f48437f.findViewById(R.id.state_icon);
+            this.k = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
-            this.f50345k.setDefaultBgResource(R.drawable.transparent_bg);
-            this.l = (ImageView) this.f50340f.findViewById(R.id.choosed_icon);
-            this.f50343i = new TextView(this.f50339e);
-            this.f50342h.setOnClickListener(this.p);
+            this.k.setDefaultBgResource(R.drawable.transparent_bg);
+            this.l = (ImageView) this.f48437f.findViewById(R.id.choosed_icon);
+            this.f48440i = new TextView(this.f48436e);
+            this.f48439h.setOnClickListener(this.p);
         }
     }
 
@@ -140,22 +138,22 @@ public class BubbleItemView extends LinearLayout {
         this.m = dressItemData;
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isDefault()) {
-            this.f50342h.setDefaultResource(R.drawable.icon_choose_no);
-            this.f50342h.startLoad("", 10, false);
-            this.f50343i.setText(R.string.default_bubble);
-            this.f50343i.setGravity(17);
-            this.f50343i.setTextSize(0, n.f(this.f50339e, R.dimen.ds28));
-            this.f50343i.setTextColor(getResources().getColor(R.color.CAM_X0108));
+            this.f48439h.setDefaultResource(R.drawable.icon_choose_no);
+            this.f48439h.startLoad("", 10, false);
+            this.f48440i.setText(R.string.default_bubble);
+            this.f48440i.setGravity(17);
+            this.f48440i.setTextSize(0, n.f(this.f48436e, R.dimen.ds28));
+            this.f48440i.setTextColor(getResources().getColor(R.color.CAM_X0108));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.f50343i.setLayoutParams(layoutParams);
-            this.f50343i.setVisibility(0);
-            this.f50341g.removeView(this.f50343i);
-            this.f50341g.addView(this.f50343i);
+            this.f48440i.setLayoutParams(layoutParams);
+            this.f48440i.setVisibility(0);
+            this.f48438g.removeView(this.f48440i);
+            this.f48438g.addView(this.f48440i);
         } else {
-            this.f50341g.removeView(this.f50343i);
-            this.f50342h.setDefaultResource(R.drawable.img_default_100);
-            this.f50342h.startLoad(dressItemData.getExampleImgUrl(), 10, false);
+            this.f48438g.removeView(this.f48440i);
+            this.f48439h.setDefaultResource(R.drawable.img_default_100);
+            this.f48439h.startLoad(dressItemData.getExampleImgUrl(), 10, false);
         }
         if (inUse) {
             this.l.setVisibility(0);
@@ -163,8 +161,8 @@ public class BubbleItemView extends LinearLayout {
         } else {
             this.l.setVisibility(8);
         }
-        this.f50344j.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f50345k.startLoad(dressItemData.getPropsStateImg(), 10, false);
+        this.f48441j.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+        this.k.startLoad(dressItemData.getPropsStateImg(), 10, false);
         setVisibility(0);
     }
 
@@ -178,11 +176,11 @@ public class BubbleItemView extends LinearLayout {
     public void onChangeSkinType() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f50339e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f48436e)) == null) {
             return;
         }
         tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f50340f);
+        tbPageContext.getLayoutMode().j(this.f48437f);
     }
 
     public void setController(c.a.t0.c4.f.a.a aVar) {
@@ -219,7 +217,7 @@ public class BubbleItemView extends LinearLayout {
             }
         }
         this.p = new a(this);
-        this.f50339e = context;
+        this.f48436e = context;
         d();
     }
 
@@ -243,7 +241,7 @@ public class BubbleItemView extends LinearLayout {
             }
         }
         this.p = new a(this);
-        this.f50339e = context;
+        this.f48436e = context;
         d();
     }
 }

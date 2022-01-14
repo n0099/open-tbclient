@@ -81,13 +81,13 @@ public class LocalVideoActivityStatic {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f50512b;
+            public String f48599b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f50513c;
+            public String f48600c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f50514d;
+            public final /* synthetic */ CustomResponsedMessage f48601d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f50514d = customResponsedMessage;
+                this.f48601d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -112,7 +112,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    n.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    n.M(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
             }
 
@@ -121,7 +121,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    n.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    n.M(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
             }
 
@@ -135,13 +135,13 @@ public class LocalVideoActivityStatic {
                     this.a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.f50512b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.f48599b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.f50513c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.f48600c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
-                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f50512b) && !StringUtils.isNull(this.f50513c)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f50514d.getData()));
+                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f48599b) && !StringUtils.isNull(this.f48600c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48601d.getData()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }

@@ -22,22 +22,22 @@ public class s0 {
     public static String a = "appkey";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57427b = "secretkey";
+    public static String f55250b = "secretkey";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f57428c = "pver";
+    public static String f55251c = "pver";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f57429d = "sdkver";
+    public static String f55252d = "sdkver";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f57430e = "ksid";
+    public static String f55253e = "ksid";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f57431f = "timestamp";
+    public static String f55254f = "timestamp";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f57432g = "sign";
+    public static String f55255g = "sign";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,8 +76,8 @@ public class s0 {
             StringBuilder sb = new StringBuilder();
             try {
                 sb.append(map.get(a));
-                sb.append(map.get(f57427b));
-                sb.append(map.get(f57431f));
+                sb.append(map.get(f55250b));
+                sb.append(map.get(f55254f));
                 return s1.a(sb.toString());
             } catch (Exception unused) {
                 return null;
@@ -96,16 +96,16 @@ public class s0 {
                 String[] a2 = l1.a(context);
                 if (a2 == null || a2.length != 2 || TextUtils.isEmpty(a2[0]) || TextUtils.isEmpty(a2[1])) {
                     str = "16";
-                    str2 = l1.f57322d;
+                    str2 = l1.f55151d;
                 } else {
                     str = a2[0];
                     str2 = a2[1];
                 }
                 HashMap hashMap = new HashMap();
                 hashMap.put(a, str);
-                hashMap.put(f57427b, str2);
-                hashMap.put(f57431f, String.valueOf(System.currentTimeMillis() / 1000));
-                hashMap.put(f57432g, a(hashMap));
+                hashMap.put(f55250b, str2);
+                hashMap.put(f55254f, String.valueOf(System.currentTimeMillis() / 1000));
+                hashMap.put(f55255g, a(hashMap));
                 return hashMap;
             } catch (Exception e2) {
                 e2.printStackTrace();

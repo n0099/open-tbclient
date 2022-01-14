@@ -117,25 +117,25 @@ public class ConcurrentUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new ConstantFuture(t) : (Future) invokeL.objValue;
     }
 
-    public static <K, V> V createIfAbsent(ConcurrentMap<K, V> concurrentMap, K k2, ConcurrentInitializer<V> concurrentInitializer) throws ConcurrentException {
+    public static <K, V> V createIfAbsent(ConcurrentMap<K, V> concurrentMap, K k, ConcurrentInitializer<V> concurrentInitializer) throws ConcurrentException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, concurrentMap, k2, concurrentInitializer)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, concurrentMap, k, concurrentInitializer)) == null) {
             if (concurrentMap == null || concurrentInitializer == null) {
                 return null;
             }
-            V v = concurrentMap.get(k2);
-            return v == null ? (V) putIfAbsent(concurrentMap, k2, concurrentInitializer.get()) : v;
+            V v = concurrentMap.get(k);
+            return v == null ? (V) putIfAbsent(concurrentMap, k, concurrentInitializer.get()) : v;
         }
         return (V) invokeLLL.objValue;
     }
 
-    public static <K, V> V createIfAbsentUnchecked(ConcurrentMap<K, V> concurrentMap, K k2, ConcurrentInitializer<V> concurrentInitializer) {
+    public static <K, V> V createIfAbsentUnchecked(ConcurrentMap<K, V> concurrentMap, K k, ConcurrentInitializer<V> concurrentInitializer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, concurrentMap, k2, concurrentInitializer)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, concurrentMap, k, concurrentInitializer)) == null) {
             try {
-                return (V) createIfAbsent(concurrentMap, k2, concurrentInitializer);
+                return (V) createIfAbsent(concurrentMap, k, concurrentInitializer);
             } catch (ConcurrentException e2) {
                 throw new ConcurrentRuntimeException(e2.getCause());
             }
@@ -210,14 +210,14 @@ public class ConcurrentUtils {
         return (T) invokeL.objValue;
     }
 
-    public static <K, V> V putIfAbsent(ConcurrentMap<K, V> concurrentMap, K k2, V v) {
+    public static <K, V> V putIfAbsent(ConcurrentMap<K, V> concurrentMap, K k, V v) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, concurrentMap, k2, v)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, concurrentMap, k, v)) == null) {
             if (concurrentMap == null) {
                 return null;
             }
-            V putIfAbsent = concurrentMap.putIfAbsent(k2, v);
+            V putIfAbsent = concurrentMap.putIfAbsent(k, v);
             return putIfAbsent != null ? putIfAbsent : v;
         }
         return (V) invokeLLL.objValue;

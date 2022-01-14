@@ -8,36 +8,36 @@ public class a implements Closeable {
     public static final /* synthetic */ boolean a = !a.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f59252b;
+    public InputStream f57020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f59253c;
+    public byte[] f57021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59254d;
+    public int f57022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59255e;
+    public int f57023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59256f;
+    public boolean f57024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f59257g;
+    public boolean f57025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f59258h;
+    public long f57026h;
 
     public a(InputStream inputStream) {
         this(inputStream, 16384);
     }
 
     public a(InputStream inputStream, int i2) {
-        this.f59256f = false;
-        this.f59257g = true;
-        this.f59258h = 0L;
-        this.f59252b = inputStream;
-        this.f59253c = new byte[i2 < 1 ? 16384 : i2];
+        this.f57024f = false;
+        this.f57025g = true;
+        this.f57026h = 0L;
+        this.f57020b = inputStream;
+        this.f57021c = new byte[i2 < 1 ? 16384 : i2];
     }
 
     public int a(f fVar) {
@@ -46,20 +46,20 @@ public class a implements Closeable {
 
     public int a(f fVar, int i2) {
         a();
-        if (i2 <= 0 || i2 >= this.f59254d) {
-            i2 = this.f59254d;
+        if (i2 <= 0 || i2 >= this.f57022d) {
+            i2 = this.f57022d;
         }
         if (i2 <= 0) {
-            if (!this.f59256f) {
+            if (!this.f57024f) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen"));
             }
             return fVar.b() ? -1 : 0;
         }
-        int a2 = fVar.a(this.f59253c, this.f59255e, i2);
+        int a2 = fVar.a(this.f57021c, this.f57023e, i2);
         if (a2 > 0) {
-            this.f59255e += a2;
-            int i3 = this.f59254d - a2;
-            this.f59254d = i3;
+            this.f57023e += a2;
+            int i3 = this.f57022d - a2;
+            this.f57022d = i3;
             if (!a && i3 < 0) {
                 throw new AssertionError();
             }
@@ -74,19 +74,19 @@ public class a implements Closeable {
     }
 
     public void a() {
-        if (this.f59254d > 0 || this.f59256f) {
+        if (this.f57022d > 0 || this.f57024f) {
             return;
         }
         try {
-            this.f59255e = 0;
-            int read = this.f59252b.read(this.f59253c);
-            this.f59254d = read;
+            this.f57023e = 0;
+            int read = this.f57020b.read(this.f57021c);
+            this.f57022d = read;
             if (read == 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
             } else if (read < 0) {
                 close();
             } else {
-                this.f59258h += read;
+                this.f57026h += read;
             }
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.a(new PngjException(e2));
@@ -94,7 +94,7 @@ public class a implements Closeable {
     }
 
     public void a(boolean z) {
-        this.f59257g = z;
+        this.f57025g = z;
     }
 
     public int b(f fVar, int i2) {
@@ -114,17 +114,17 @@ public class a implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f59256f = true;
-        this.f59253c = null;
-        this.f59254d = 0;
-        this.f59255e = 0;
-        InputStream inputStream = this.f59252b;
-        if (inputStream != null && this.f59257g) {
+        this.f57024f = true;
+        this.f57021c = null;
+        this.f57022d = 0;
+        this.f57023e = 0;
+        InputStream inputStream = this.f57020b;
+        if (inputStream != null && this.f57025g) {
             try {
                 inputStream.close();
             } catch (Exception unused) {
             }
         }
-        this.f59252b = null;
+        this.f57020b = null;
     }
 }

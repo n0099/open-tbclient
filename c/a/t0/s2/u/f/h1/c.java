@@ -14,6 +14,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
+import c.a.s0.s.k;
 import c.a.t0.s2.h;
 import c.a.t0.s2.i;
 import c.a.t0.s2.j;
@@ -21,7 +22,6 @@ import c.a.t0.s2.l;
 import c.a.t0.s2.m;
 import c.a.t0.s2.u.f.e0;
 import c.a.t0.s2.u.f.f0;
-import c.a.t0.w3.s0.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -59,34 +59,32 @@ public class c {
     public final NavigationBar a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23569b;
+    public boolean f22914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23570c;
+    public TextView f22915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f23571d;
+    public View f22916d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f23572e;
+    public ImageView f22917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final View f23573f;
+    public final View f22918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ImageView f23574g;
+    public final ImageView f22919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinearLayout f23575h;
+    public final LinearLayout f22920h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f23576i;
+    public LinearLayout f22921i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BarImageView f23577j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f23578k;
+    public BarImageView f22922j;
+    public TextView k;
     public String l;
     public AlertDialog m;
     public e0 n;
@@ -109,7 +107,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f23579e;
+        public final /* synthetic */ c f22923e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -126,14 +124,14 @@ public class c {
                     return;
                 }
             }
-            this.f23579e = cVar;
+            this.f22923e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f23579e.p.hideKeyBroad();
+                this.f22923e.p.hideKeyBroad();
             }
         }
     }
@@ -169,7 +167,7 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && ((k) customResponsedMessage.getData()).f25786b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.w3.s0.f) && ((c.a.t0.w3.s0.f) customResponsedMessage.getData()).f25029b) {
                 this.a.A = true;
                 c cVar = this.a;
                 cVar.J(cVar.A);
@@ -179,13 +177,13 @@ public class c {
 
     /* renamed from: c.a.t0.s2.u.f.h1.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1396c extends CustomMessageListener {
+    public class C1411c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1396c(c cVar, int i2) {
+        public C1411c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -264,7 +262,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f23580e;
+        public final /* synthetic */ c f22924e;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -281,16 +279,16 @@ public class c {
                     return;
                 }
             }
-            this.f23580e = cVar;
+            this.f22924e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23580e.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22924e.m == null) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(!c.a.d.f.m.g.a(this.f23580e.m, this.f23580e.p.getPageContext().getPageActivity()))));
+            MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(!c.a.d.f.m.g.a(this.f22924e.m, this.f22924e.p.getPageContext().getPageActivity()))));
         }
     }
 
@@ -300,7 +298,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f23581e;
+        public final /* synthetic */ c f22925e;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -317,14 +315,14 @@ public class c {
                     return;
                 }
             }
-            this.f23581e = cVar;
+            this.f22925e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23581e.j();
+                this.f22925e.j();
             }
         }
     }
@@ -335,7 +333,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f23582e;
+        public final /* synthetic */ c f22926e;
 
         public g(c cVar) {
             Interceptable interceptable = $ic;
@@ -352,14 +350,14 @@ public class c {
                     return;
                 }
             }
-            this.f23582e = cVar;
+            this.f22926e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f23582e.q();
+                this.f22926e.q();
             }
         }
     }
@@ -379,7 +377,7 @@ public class c {
                 return;
             }
         }
-        this.f23569b = false;
+        this.f22914b = false;
         this.m = null;
         this.n = null;
         this.o = 0.33f;
@@ -390,39 +388,39 @@ public class c {
         this.x = 0;
         this.A = false;
         this.D = new b(this, 2001437);
-        this.E = new C1396c(this, 2921599);
+        this.E = new C1411c(this, 2921599);
         this.F = new f(this);
         this.G = new g(this);
         this.p = pbFragment;
         this.u = n.f(pbFragment.getContext(), c.a.t0.s2.g.ds88);
         this.v = n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds14);
         n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.tbds_6);
-        int k2 = n.k(TbadkCoreApplication.getInst());
+        int k = n.k(TbadkCoreApplication.getInst());
         int f2 = n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.tbds40);
-        int f3 = n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds102) + ((int) (k2 * 0.07d));
+        int f3 = n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds102) + ((int) (k * 0.07d));
         this.w = f3;
         if (f3 - f2 > 0) {
             this.w = f3 - f2;
         }
-        this.x = (k2 - (this.w * 2)) - n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.tbds89);
+        this.x = (k - (this.w * 2)) - n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.tbds89);
         NavigationBar navigationBar = (NavigationBar) view.findViewById(i.view_navigation_bar);
         this.a = navigationBar;
         navigationBar.setOnClickListener(new a(this));
         this.a.hideBottomLine();
-        this.f23573f = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbFragment.mCommonOnClickListener);
-        this.f23570c = this.a.setCenterTextTitle("");
-        this.f23574g = (ImageView) this.a.getCenterImgBox();
-        this.f23575h = (LinearLayout) this.a.getCenterImgBoxLayout();
+        this.f22918f = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbFragment.mCommonOnClickListener);
+        this.f22915c = this.a.setCenterTextTitle("");
+        this.f22919g = (ImageView) this.a.getCenterImgBox();
+        this.f22920h = (LinearLayout) this.a.getCenterImgBoxLayout();
         int f4 = n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.ds20);
-        this.f23575h.setPadding(f4, 0, f4, 0);
-        ImageView imageView = this.f23574g;
+        this.f22920h.setPadding(f4, 0, f4, 0);
+        ImageView imageView = this.f22919g;
         int i4 = h.icon_pb_play_small;
         SkinManager.setNavbarIconSrc(imageView, i4, i4);
-        this.f23574g.setVisibility(8);
-        this.f23570c.setOnClickListener(pbFragment.mCommonOnClickListener);
-        this.f23574g.setOnClickListener(pbFragment.mCommonOnClickListener);
-        this.r = (ImageView) this.f23573f.findViewById(i.widget_navi_back_button);
-        if (this.f23576i == null) {
+        this.f22919g.setVisibility(8);
+        this.f22915c.setOnClickListener(pbFragment.mCommonOnClickListener);
+        this.f22919g.setOnClickListener(pbFragment.mCommonOnClickListener);
+        this.r = (ImageView) this.f22918f.findViewById(i.widget_navi_back_button);
+        if (this.f22921i == null) {
             s();
         }
         pbFragment.registerListener(this.D);
@@ -440,9 +438,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                this.f23573f.setVisibility(0);
+                this.f22918f.setVisibility(0);
             } else {
-                this.f23573f.setVisibility(8);
+                this.f22918f.setVisibility(8);
             }
             z(z);
         }
@@ -451,7 +449,7 @@ public class c {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if ((!this.s || TbadkCoreApplication.isLogin()) && !c.a.s0.s.g0.b.j().g("show_share", false)) {
+            if ((!this.s || TbadkCoreApplication.isLogin()) && !c.a.s0.s.h0.b.k().h("show_share", false)) {
                 View inflate = LayoutInflater.from(this.p.getContext()).inflate(j.tips_blue_right_up, (ViewGroup) null);
                 View findViewById = inflate.findViewById(i.arrow_up);
                 TextView textView = (TextView) inflate.findViewById(i.tips);
@@ -475,14 +473,14 @@ public class c {
             this.r.setVisibility(0);
             z(z);
             if (TbadkCoreApplication.isLogin()) {
-                View view = this.f23571d;
+                View view = this.f22916d;
                 if (view != null) {
                     view.setVisibility(0);
                     return;
                 }
                 return;
             }
-            View view2 = this.f23571d;
+            View view2 = this.f22916d;
             if (view2 != null) {
                 view2.setVisibility(8);
             }
@@ -513,25 +511,25 @@ public class c {
         window.setDimAmount(this.o);
         this.n.H(f0Var == null ? false : f0Var.a);
         this.n.v(f0Var == null ? false : f0Var.n);
-        this.n.x(f0Var == null ? false : f0Var.f23504e);
-        this.n.C(f0Var == null ? false : f0Var.f23508i);
-        this.n.y(f0Var == null ? false : f0Var.f23505f);
-        this.n.J(f0Var != null ? f0Var.f23502c : true);
-        this.n.G(f0Var == null ? false : f0Var.f23510k);
+        this.n.x(f0Var == null ? false : f0Var.f22853e);
+        this.n.C(f0Var == null ? false : f0Var.f22857i);
+        this.n.y(f0Var == null ? false : f0Var.f22854f);
+        this.n.J(f0Var != null ? f0Var.f22851c : true);
+        this.n.G(f0Var == null ? false : f0Var.k);
         this.n.z(f0Var == null ? false : f0Var.l, f0Var.t);
         if (f0Var == null) {
             this.n.E(false, false);
             this.n.D(false, false);
         } else {
-            this.n.E(f0Var.f23506g, f0Var.s);
-            this.n.D(f0Var.f23507h, f0Var.r);
+            this.n.E(f0Var.f22855g, f0Var.s);
+            this.n.D(f0Var.f22856h, f0Var.r);
         }
         boolean z = f0Var == null ? false : f0Var.q;
         boolean z2 = f0Var == null ? false : f0Var.o;
-        boolean z3 = f0Var == null ? false : f0Var.f23503d;
-        boolean z4 = f0Var == null ? false : f0Var.f23501b;
+        boolean z3 = f0Var == null ? false : f0Var.f22852d;
+        boolean z4 = f0Var == null ? false : f0Var.f22850b;
         boolean z5 = f0Var == null ? false : f0Var.p;
-        boolean z6 = f0Var == null ? false : f0Var.f23509j;
+        boolean z6 = f0Var == null ? false : f0Var.f22858j;
         boolean z7 = f0Var == null ? false : f0Var.m;
         this.n.A(z3, z2);
         this.n.I(z4, z);
@@ -558,10 +556,10 @@ public class c {
     public void F(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (!TextUtils.isEmpty(str) && !this.f23569b) {
-                this.f23570c.setText(TbadkCoreApplication.getInst().getResources().getString(l.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
+            if (!TextUtils.isEmpty(str) && !this.f22914b) {
+                this.f22915c.setText(TbadkCoreApplication.getInst().getResources().getString(l.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
                 z(true);
-                c.a.s0.s.k.c().h(str);
+                k.c().h(str);
                 return;
             }
             z(false);
@@ -572,17 +570,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
-            this.f23569b = z;
-            if (this.f23571d == null && this.f23572e == null) {
+            this.f22914b = z;
+            if (this.f22916d == null && this.f22917e == null) {
                 View addCustomView = this.a.addCustomView(controlAlign, j.nb_item_floor_more, this.p.mCommonOnClickListener);
-                this.f23571d = addCustomView;
-                this.f23572e = (ImageView) addCustomView.findViewById(i.navigationBarBtnMore);
+                this.f22916d = addCustomView;
+                this.f22917e = (ImageView) addCustomView.findViewById(i.navigationBarBtnMore);
                 int i2 = this.u;
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
                 layoutParams.rightMargin = this.v;
-                this.f23571d.setLayoutParams(layoutParams);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f23572e, h.icon_pure_topbar_more44_svg, c.a.t0.s2.f.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                this.f23571d.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
+                this.f22916d.setLayoutParams(layoutParams);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22917e, h.icon_pure_topbar_more44_svg, c.a.t0.s2.f.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                this.f22916d.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
             }
         }
     }
@@ -590,7 +588,7 @@ public class c {
     public void H(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (view = this.f23571d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (view = this.f22916d) == null) {
             return;
         }
         view.setVisibility(z ? 0 : 8);
@@ -599,7 +597,7 @@ public class c {
     public void I() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (view = this.f23571d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (view = this.f22916d) == null) {
             return;
         }
         view.setVisibility(8);
@@ -613,7 +611,7 @@ public class c {
         }
         if (z) {
             tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(l.followed));
-            ((c.a.s0.s.i0.n.b) this.z.getStyleConfig()).s(c.a.t0.s2.f.CAM_X0109);
+            ((c.a.s0.s.j0.n.b) this.z.getStyleConfig()).s(c.a.t0.s2.f.CAM_X0109);
             return;
         }
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(l.attention));
@@ -621,21 +619,21 @@ public class c {
 
     public void K(c.a.t0.s2.r.f fVar, String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{fVar, str, str2, str3, Boolean.valueOf(z)}) == null) || this.p == null || this.f23576i == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{fVar, str, str2, str3, Boolean.valueOf(z)}) == null) || this.p == null || this.f22921i == null) {
             return;
         }
         this.B = fVar;
         this.C = str2;
         if (StringUtils.isNull(str)) {
-            this.f23577j.setVisibility(8);
-            this.f23578k.setText("贴吧动态");
+            this.f22922j.setVisibility(8);
+            this.k.setText("贴吧动态");
             this.l = null;
         } else {
-            this.f23577j.setVisibility(0);
+            this.f22922j.setVisibility(0);
             this.l = str;
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.f23578k, str, l.forum, c.a.t0.s2.g.tbds0, 1, this.x, false);
-            c.a.s0.s.k.c().h(str);
-            this.f23577j.startLoad(str3, 10, false);
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.k, str, l.forum, c.a.t0.s2.g.tbds0, 1, this.x, false);
+            k.c().h(str);
+            this.f22922j.startLoad(str3, 10, false);
         }
         View view = this.y;
         if (view != null && this.B != null) {
@@ -697,7 +695,7 @@ public class c {
     public View o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f23574g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f22919g : (View) invokeV.objValue;
     }
 
     public NavigationBar p() {
@@ -721,7 +719,7 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.r.setVisibility(0);
             z(false);
-            View view = this.f23571d;
+            View view = this.f22916d;
             if (view != null) {
                 view.setVisibility(8);
             }
@@ -732,30 +730,30 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, j.nav_fourm_title_layout, (View.OnClickListener) null);
-            this.f23576i = linearLayout;
+            this.f22921i = linearLayout;
             BarImageView barImageView = (BarImageView) linearLayout.findViewById(i.pb_nav_title_forum_image);
-            this.f23577j = barImageView;
+            this.f22922j = barImageView;
             barImageView.setShowOval(true);
-            this.f23577j.setShowOuterBorder(false);
-            this.f23577j.setShowInnerBorder(true);
-            this.f23577j.setStrokeWith(n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.tbds1));
-            this.f23577j.setStrokeColorResId(c.a.t0.s2.f.CAM_X0401);
-            this.f23577j.setOnClickListener(this.p.mCommonOnClickListener);
-            TextView textView = (TextView) this.f23576i.findViewById(i.pb_nav_title_forum_name);
-            this.f23578k = textView;
+            this.f22922j.setShowOuterBorder(false);
+            this.f22922j.setShowInnerBorder(true);
+            this.f22922j.setStrokeWith(n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.tbds1));
+            this.f22922j.setStrokeColorResId(c.a.t0.s2.f.CAM_X0401);
+            this.f22922j.setOnClickListener(this.p.mCommonOnClickListener);
+            TextView textView = (TextView) this.f22921i.findViewById(i.pb_nav_title_forum_name);
+            this.k = textView;
             textView.setOnClickListener(this.p.mCommonOnClickListener);
-            if (this.f23576i.getLayoutParams() != null && (this.f23576i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && this.w > 0 && this.x > 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f23576i.getLayoutParams();
+            if (this.f22921i.getLayoutParams() != null && (this.f22921i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) && this.w > 0 && this.x > 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f22921i.getLayoutParams();
                 int i2 = this.w;
                 marginLayoutParams.leftMargin = i2;
                 marginLayoutParams.rightMargin = i2;
-                this.f23576i.setLayoutParams(marginLayoutParams);
+                this.f22921i.setLayoutParams(marginLayoutParams);
             }
-            if (this.f23576i.getVisibility() == 8) {
-                this.f23576i.setVisibility(0);
+            if (this.f22921i.getVisibility() == 8) {
+                this.f22921i.setVisibility(0);
             }
-            if (this.f23576i.getAlpha() != 1.0f) {
-                this.f23576i.setAlpha(1.0f);
+            if (this.f22921i.getAlpha() != 1.0f) {
+                this.f22921i.setAlpha(1.0f);
             }
         }
     }
@@ -778,14 +776,14 @@ public class c {
                 navigationBar.onChangeSkinType(this.p.getPageContext(), i2);
                 SkinManager.setBackgroundColor(this.a.getBarBgView(), c.a.t0.s2.f.CAM_X0208);
             }
-            BarImageView barImageView = this.f23577j;
+            BarImageView barImageView = this.f22922j;
             if (barImageView != null) {
                 barImageView.invalidate();
             }
             WebPManager.setPureDrawable(this.r, h.icon_pure_topbar_return40, c.a.t0.s2.f.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(this.f23572e, h.icon_pure_topbar_more40, c.a.t0.s2.f.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-            SkinManager.setNavbarTitleColor(this.f23570c, c.a.t0.s2.f.CAM_X0105, c.a.t0.s2.f.s_navbar_title_color);
-            SkinManager.setViewTextColor(this.f23578k, c.a.t0.s2.f.CAM_X0105);
+            WebPManager.setPureDrawable(this.f22917e, h.icon_pure_topbar_more40, c.a.t0.s2.f.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+            SkinManager.setNavbarTitleColor(this.f22915c, c.a.t0.s2.f.CAM_X0105, c.a.t0.s2.f.s_navbar_title_color);
+            SkinManager.setViewTextColor(this.k, c.a.t0.s2.f.CAM_X0105);
             y();
             L();
         }
@@ -799,8 +797,8 @@ public class c {
             this.a.getTopCoverBgView().setBackgroundResource(h.bg_pb_header_gradient_top);
             this.a.getTopCoverBgView().setVisibility(0);
             this.a.getBarBgView().setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(c.a.t0.s2.f.black_alpha85));
-            this.f23570c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(c.a.t0.s2.f.CAM_X0111));
-            WebPManager.setPureDrawable(this.f23572e, h.icon_pure_topbar_more40, c.a.t0.s2.f.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.f22915c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(c.a.t0.s2.f.CAM_X0111));
+            WebPManager.setPureDrawable(this.f22917e, h.icon_pure_topbar_more40, c.a.t0.s2.f.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             WebPManager.setPureDrawable(this.r, h.icon_pure_topbar_return40, c.a.t0.s2.f.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
@@ -826,25 +824,25 @@ public class c {
 
     public final void y() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || this.f23576i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || this.f22921i == null) {
             return;
         }
         if (!TextUtils.isEmpty(this.l)) {
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f23576i);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f22921i);
             d2.n(l.J_X07);
             d2.f(c.a.t0.s2.f.CAM_X0209);
             return;
         }
-        this.f23576i.setBackgroundResource(0);
+        this.f22921i.setBackgroundResource(0);
     }
 
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            if (!this.f23569b && z && !"".equals(this.f23570c.getText().toString())) {
-                this.f23570c.setVisibility(0);
+            if (!this.f22914b && z && !"".equals(this.f22915c.getText().toString())) {
+                this.f22915c.setVisibility(0);
             } else {
-                this.f23570c.setVisibility(8);
+                this.f22915c.setVisibility(8);
             }
         }
     }

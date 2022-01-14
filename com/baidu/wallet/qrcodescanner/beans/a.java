@@ -21,7 +21,7 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54771b;
+    public String f52686b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -53,7 +53,7 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f54771b = str;
+            this.f52686b = str;
         }
     }
 
@@ -102,8 +102,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.f54771b)) {
-                return this.f54771b;
+            if (!TextUtils.isEmpty(this.f52686b)) {
+                return this.f52686b;
             }
             return DomainConfig.getInstance().getAppPayHost(this.tag) + "/facilepaycenter/tinyurl/scancode";
         }

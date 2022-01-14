@@ -79,7 +79,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
             int i3 = a.a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
-                    c.a.s0.s.g0.b.j().t("set_recommend_label", true);
+                    c.a.s0.s.h0.b.k().u("set_recommend_label", true);
                     finish();
                     return;
                 }

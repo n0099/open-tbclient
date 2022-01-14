@@ -16,22 +16,22 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13560b;
+    public String f13245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13561c;
+    public int f13246c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13562d;
+    public long f13247d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13563e;
+    public int f13248e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13564f;
+    public long f13249f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f13565g;
+    public long f13250g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNULL(this.a) || this.f13562d <= 0) {
+            if (StringUtils.isNULL(this.a) || this.f13247d <= 0) {
                 return false;
             }
-            int i2 = this.f13563e;
+            int i2 = this.f13248e;
             if (i2 == 1 || i2 == 3) {
-                long j2 = this.f13564f;
+                long j2 = this.f13249f;
                 if (j2 > 0) {
-                    long j3 = this.f13565g;
+                    long j3 = this.f13250g;
                     return j3 > 0 && j3 > j2;
                 }
                 return false;
@@ -75,12 +75,12 @@ public class a {
         }
         if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
             this.a = bigdayInfo.img_url;
-            this.f13560b = bigdayInfo.jump_url;
-            this.f13561c = bigdayInfo.img_colour.intValue();
-            this.f13562d = bigdayInfo.id.longValue();
-            this.f13563e = bigdayInfo.position.intValue();
-            this.f13564f = bigdayInfo.start_time.longValue();
-            this.f13565g = bigdayInfo.end_time.longValue();
+            this.f13245b = bigdayInfo.jump_url;
+            this.f13246c = bigdayInfo.img_colour.intValue();
+            this.f13247d = bigdayInfo.id.longValue();
+            this.f13248e = bigdayInfo.position.intValue();
+            this.f13249f = bigdayInfo.start_time.longValue();
+            this.f13250g = bigdayInfo.end_time.longValue();
         }
     }
 
@@ -90,7 +90,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return aVar.a() && a() && this.f13562d == aVar.f13562d && StringHelper.equals(this.a, aVar.a) && ((this.f13560b == null && aVar.f13560b == null) || StringHelper.equals(this.f13560b, aVar.f13560b)) && this.f13561c == aVar.f13561c && this.f13563e == aVar.f13563e && this.f13564f == aVar.f13564f && this.f13565g == aVar.f13565g;
+                return aVar.a() && a() && this.f13247d == aVar.f13247d && StringHelper.equals(this.a, aVar.a) && ((this.f13245b == null && aVar.f13245b == null) || StringHelper.equals(this.f13245b, aVar.f13245b)) && this.f13246c == aVar.f13246c && this.f13248e == aVar.f13248e && this.f13249f == aVar.f13249f && this.f13250g == aVar.f13250g;
             }
             return false;
         }

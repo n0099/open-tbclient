@@ -181,13 +181,13 @@ public class n0 implements c {
             long j3 = 0;
             while (dataInputStream.available() > 0 && readByte != 93) {
                 JsonValue c2 = c(dataInputStream, readByte);
-                c2.f32148k = jsonValue;
+                c2.k = jsonValue;
                 if (jsonValue2 != null) {
                     c2.m = jsonValue2;
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f32147j = c2;
+                    jsonValue.f31137j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {
@@ -215,12 +215,12 @@ public class n0 implements c {
             long j2 = 0;
             while (j2 < n) {
                 JsonValue c2 = c(dataInputStream, readByte);
-                c2.f32148k = jsonValue;
+                c2.k = jsonValue;
                 if (jsonValue2 != null) {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f32147j = c2;
+                    jsonValue.f31137j = c2;
                     jsonValue.n = 1;
                 }
                 j2++;
@@ -259,16 +259,16 @@ public class n0 implements c {
             JsonValue jsonValue2 = null;
             long j3 = 0;
             while (dataInputStream.available() > 0 && readByte != 125) {
-                String k2 = k(dataInputStream, true, readByte);
+                String k = k(dataInputStream, true, readByte);
                 JsonValue c2 = c(dataInputStream, b2 == 0 ? dataInputStream.readByte() : b2);
-                c2.Q(k2);
-                c2.f32148k = jsonValue;
+                c2.Q(k);
+                c2.k = jsonValue;
                 if (jsonValue2 != null) {
                     c2.m = jsonValue2;
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f32147j = c2;
+                    jsonValue.f31137j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {

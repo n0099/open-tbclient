@@ -27,15 +27,15 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9698c;
+    public static final boolean f9488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile g f9699d;
+    public static volatile g f9489d;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f9700b;
+    public Set<String> f9490b;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -55,7 +55,7 @@ public final class g {
                 return;
             }
         }
-        f9698c = k.a;
+        f9488c = k.a;
     }
 
     public g() {
@@ -72,7 +72,7 @@ public final class g {
             }
         }
         this.a = new SparseArray<>();
-        this.f9700b = new HashSet();
+        this.f9490b = new HashSet();
     }
 
     @NonNull
@@ -96,14 +96,14 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f9699d == null) {
+            if (f9489d == null) {
                 synchronized (g.class) {
-                    if (f9699d == null) {
-                        f9699d = new g();
+                    if (f9489d == null) {
+                        f9489d = new g();
                     }
                 }
             }
-            return f9699d;
+            return f9489d;
         }
         return (g) invokeV.objValue;
     }
@@ -151,7 +151,7 @@ public final class g {
                 return true;
             }
             for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.f9700b.contains(str)) {
+                if (!TextUtils.isEmpty(str) && this.f9490b.contains(str)) {
                     return true;
                 }
             }
@@ -175,7 +175,7 @@ public final class g {
                 }
                 aVar.onRequestPermissionsResult(i2, strArr, iArr);
             }
-            if (f9698c) {
+            if (f9488c) {
                 String str = "onRequestPermissionsResult requestCode: " + i2 + " permissions: " + Arrays.toString(strArr);
                 String str2 = "onRequestPermissionsResult grantResults: " + Arrays.toString(iArr);
             }
@@ -193,7 +193,7 @@ public final class g {
             int i3 = iArr[i2];
             String str = strArr[i2];
             if (!TextUtils.isEmpty(str) && i3 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
-                this.f9700b.add(str);
+                this.f9490b.add(str);
             }
         }
     }
@@ -212,7 +212,7 @@ public final class g {
         } else {
             aVar.onRequestPermissionsResult(i2, strArr, b(activity, strArr));
         }
-        if (f9698c) {
+        if (f9488c) {
             String str = "requestPermissions activity: " + activity + " requestCode: " + i2 + " permissions: " + Arrays.toString(strArr);
         }
     }

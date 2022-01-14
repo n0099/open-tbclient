@@ -14,10 +14,10 @@ public class d {
     public BitmapDrawable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.n.d.a f3149b;
+    public c.a.d.n.d.a f3113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f3150c;
+    public volatile boolean f3114c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f3150c = true;
+        this.f3114c = true;
     }
 
     public int a() {
@@ -43,7 +43,7 @@ public class d {
                 return this.a.getIntrinsicHeight();
             }
             if (d()) {
-                return this.f3149b.m();
+                return this.f3113b.m();
             }
             return 0;
         }
@@ -58,7 +58,7 @@ public class d {
                 return this.a.getIntrinsicWidth();
             }
             if (d()) {
-                return this.f3149b.r();
+                return this.f3113b.r();
             }
             return 0;
         }
@@ -75,7 +75,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.d.n.d.a aVar = this.f3149b;
+            c.a.d.n.d.a aVar = this.f3113b;
             return aVar != null && aVar.w();
         }
         return invokeV.booleanValue;
@@ -94,7 +94,7 @@ public class d {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f3149b = null;
+            this.f3113b = null;
             this.a = null;
         }
     }

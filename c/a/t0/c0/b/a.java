@@ -12,34 +12,32 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f15645b;
+    public long f15252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15646c;
+    public String f15253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15647d;
+    public String f15254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f15648e;
+    public long f15255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15649f;
+    public int f15256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15650g;
+    public int f15257g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15651h;
+    public int f15258h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15652i;
+    public int f15259i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15653j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f15654k;
+    public String f15260j;
+    public boolean k;
     public long l;
 
     public a() {
@@ -62,21 +60,21 @@ public class a {
             return;
         }
         Long l = dataRes.uid;
-        this.f15645b = l == null ? 0L : l.longValue();
-        this.f15646c = dataRes.portrait;
-        this.f15647d = dataRes.name_show;
+        this.f15252b = l == null ? 0L : l.longValue();
+        this.f15253c = dataRes.portrait;
+        this.f15254d = dataRes.name_show;
         Long l2 = dataRes.apply_id;
-        this.f15648e = l2 == null ? 0L : l2.longValue();
+        this.f15255e = l2 == null ? 0L : l2.longValue();
         Integer num = dataRes.vote_num;
-        this.f15649f = num == null ? 0 : num.intValue();
+        this.f15256f = num == null ? 0 : num.intValue();
         Integer num2 = dataRes.agree_num;
-        this.f15650g = num2 == null ? 0 : num2.intValue();
+        this.f15257g = num2 == null ? 0 : num2.intValue();
         Integer num3 = dataRes.thread_num;
-        this.f15651h = num3 == null ? 0 : num3.intValue();
+        this.f15258h = num3 == null ? 0 : num3.intValue();
         Integer num4 = dataRes.post_num;
-        this.f15652i = num4 == null ? 0 : num4.intValue();
+        this.f15259i = num4 == null ? 0 : num4.intValue();
         Boolean bool = dataRes.is_vote;
-        this.f15654k = bool != null ? bool.booleanValue() : false;
+        this.k = bool != null ? bool.booleanValue() : false;
         Long l3 = dataRes.tid;
         this.l = l3 != null ? l3.longValue() : 0L;
     }

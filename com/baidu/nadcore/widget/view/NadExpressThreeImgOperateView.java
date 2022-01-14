@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
-import c.a.c0.b.c;
-import c.a.c0.b.e;
-import c.a.c0.b.g;
-import c.a.c0.d0.f;
-import c.a.c0.p.d;
-import c.a.c0.p.k;
-import c.a.c0.p.o;
-import c.a.c0.u.a;
+import c.a.c0.d.c;
+import c.a.c0.d.e;
+import c.a.c0.d.g;
+import c.a.c0.g0.f;
+import c.a.c0.s.d;
+import c.a.c0.s.j;
+import c.a.c0.s.o;
+import c.a.c0.x.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
@@ -26,22 +26,24 @@ import java.util.List;
 public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public AdImageView f38650h;
-    @Nullable
+    public int f37402h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdImageView f38651i;
-    @Nullable
+    public int f37403i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AdImageView f38652j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f38653k;
-    public int l;
+    public int f37404j;
+    public int k;
+    @Nullable
+    public AdImageView l;
+    @Nullable
+    public AdImageView m;
+    @Nullable
+    public AdImageView n;
+    public int o;
+    public int p;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NadExpressThreeImgOperateView(Context context) {
@@ -69,8 +71,17 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, oVar) == null) {
             int i2 = g.nad_tpl_triple_image;
-            if (oVar != null && oVar.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
-                i2 = oVar.a(AdBaseModel.STYLE.THREE_IMAGE);
+            if (oVar != null) {
+                if (oVar.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
+                    i2 = oVar.a(AdBaseModel.STYLE.THREE_IMAGE);
+                }
+                o.a aVar = oVar.f2259h;
+                if (aVar != null) {
+                    this.f37402h = aVar.a;
+                    this.f37403i = aVar.f2261b;
+                    this.f37404j = aVar.f2262c;
+                    this.k = aVar.f2263d;
+                }
             }
             layoutInflater.inflate(i2, this);
         }
@@ -80,32 +91,32 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void initLayout(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f38650h = (AdImageView) findViewById(e.nad_feed_template_tripe_image_one_id);
-            this.f38651i = (AdImageView) findViewById(e.nad_feed_template_tripe_image_two_id);
-            this.f38652j = (AdImageView) findViewById(e.nad_feed_template_tripe_image_three_id);
+            this.l = (AdImageView) findViewById(e.nad_feed_template_tripe_image_one_id);
+            this.m = (AdImageView) findViewById(e.nad_feed_template_tripe_image_two_id);
+            this.n = (AdImageView) findViewById(e.nad_feed_template_tripe_image_three_id);
             Resources resources = context.getResources();
-            this.f38653k = ((f.c.e(context) - (resources.getDimensionPixelSize(c.NAD_F_M_W_X001) * 2)) - (resources.getDimensionPixelSize(c.NAD_F_M_W_X024) * 2)) / 3;
-            this.l = Math.round((this.f38653k / ((int) resources.getDimension(c.nad_template_p1_w))) * ((int) resources.getDimension(c.nad_template_p1_h)));
-            AdImageView adImageView = this.f38650h;
+            this.o = (((((f.c.e(context) - f.c.a(getContext(), this.f37402h)) - f.c.a(getContext(), this.f37403i)) - f.c.a(getContext(), this.f37404j)) - f.c.a(getContext(), this.k)) - (resources.getDimensionPixelSize(c.NAD_F_M_W_X024) * 2)) / 3;
+            this.p = Math.round((this.o / ((int) resources.getDimension(c.nad_template_p1_w))) * ((int) resources.getDimension(c.nad_template_p1_h)));
+            AdImageView adImageView = this.l;
             if (adImageView != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) adImageView.getLayoutParams();
-                layoutParams.width = this.f38653k;
-                layoutParams.height = this.l;
-                this.f38650h.setLayoutParams(layoutParams);
+                layoutParams.width = this.o;
+                layoutParams.height = this.p;
+                this.l.setLayoutParams(layoutParams);
             }
-            AdImageView adImageView2 = this.f38651i;
+            AdImageView adImageView2 = this.m;
             if (adImageView2 != null) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) adImageView2.getLayoutParams();
-                layoutParams2.width = this.f38653k;
-                layoutParams2.height = this.l;
-                this.f38651i.setLayoutParams(layoutParams2);
+                layoutParams2.width = this.o;
+                layoutParams2.height = this.p;
+                this.m.setLayoutParams(layoutParams2);
             }
-            AdImageView adImageView3 = this.f38652j;
+            AdImageView adImageView3 = this.n;
             if (adImageView3 != null) {
                 RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) adImageView3.getLayoutParams();
-                layoutParams3.width = this.f38653k;
-                layoutParams3.height = this.l;
-                this.f38652j.setLayoutParams(layoutParams3);
+                layoutParams3.width = this.o;
+                layoutParams3.height = this.p;
+                this.n.setLayoutParams(layoutParams3);
             }
         }
     }
@@ -123,21 +134,21 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         AdImageView adImageView2;
         AdImageView adImageView3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof k)) {
-            List<d> list = ((k) adBaseModel).f38219d.f2233h;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof j)) {
+            List<d> list = ((j) adBaseModel).f37016d.f2239h;
             if (a.g(list) || a.k(list) < 3) {
                 return;
             }
             d dVar = (d) a.d(list, 0);
             d dVar2 = (d) a.d(list, 1);
             d dVar3 = (d) a.d(list, 2);
-            if (dVar != null && (adImageView3 = this.f38650h) != null) {
+            if (dVar != null && (adImageView3 = this.l) != null) {
                 adImageView3.displayImage(dVar.a);
             }
-            if (dVar2 != null && (adImageView2 = this.f38651i) != null) {
+            if (dVar2 != null && (adImageView2 = this.m) != null) {
                 adImageView2.displayImage(dVar2.a);
             }
-            if (dVar3 == null || (adImageView = this.f38652j) == null) {
+            if (dVar3 == null || (adImageView = this.n) == null) {
                 return;
             }
             adImageView.displayImage(dVar3.a);
@@ -205,5 +216,9 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
                 return;
             }
         }
+        this.f37402h = 15;
+        this.f37403i = 15;
+        this.f37404j = 0;
+        this.k = 0;
     }
 }

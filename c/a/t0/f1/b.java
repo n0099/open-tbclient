@@ -121,7 +121,7 @@ public class b {
 
     /* renamed from: c.a.t0.f1.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1081b {
+    public static /* synthetic */ class C1095b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -228,7 +228,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, funNativeAd)) == null) {
-            int i2 = C1081b.a[funNativeAd.getInteractionType().ordinal()];
+            int i2 = C1095b.a[funNativeAd.getInteractionType().ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return i2 != 3 ? 1 : 4;
@@ -289,7 +289,7 @@ public class b {
             if (obj instanceof KsNativeAd) {
                 return ((KsNativeAd) obj).getActionDescription();
             }
-            int i3 = C1081b.a[funNativeAd.getInteractionType().ordinal()];
+            int i3 = C1095b.a[funNativeAd.getInteractionType().ordinal()];
             if (i3 == 1) {
                 i2 = R.string.ad_interaction_type_download;
             } else if (i3 != 2) {
@@ -322,7 +322,7 @@ public class b {
             if (obj instanceof KsNativeAd) {
                 return ((KsNativeAd) obj).getActionDescription();
             }
-            int i3 = C1081b.a[funNativeAd.getInteractionType().ordinal()];
+            int i3 = C1095b.a[funNativeAd.getInteractionType().ordinal()];
             if (i3 == 1) {
                 i2 = R.string.ad_interaction_type_download;
             } else if (i3 != 2) {

@@ -2,7 +2,7 @@ package c.a.t0.s2.u.f;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,7 +17,7 @@ public class g extends u0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23515c;
+    public TextView f22863c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(BaseFragmentActivity baseFragmentActivity, View view) {
@@ -38,15 +38,15 @@ public class g extends u0 {
                 return;
             }
         }
-        this.f23515c = null;
+        this.f22863c = null;
     }
 
     @Override // c.a.t0.s2.u.f.u0
     public void c(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            TextView textView = (TextView) this.f23733b.findViewById(c.a.t0.s2.i.icon_push);
-            this.f23515c = textView;
+            TextView textView = (TextView) this.f23077b.findViewById(c.a.t0.s2.i.icon_push);
+            this.f22863c = textView;
             textView.setVisibility(8);
         }
     }
@@ -54,15 +54,15 @@ public class g extends u0 {
     public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23515c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22863c : (TextView) invokeV.objValue;
     }
 
-    public void f(d2 d2Var) {
+    public void f(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) || d2Var == null || d2Var.P0() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) || e2Var == null || e2Var.P0() == null) {
             return;
         }
-        int status = d2Var.P0().getStatus();
+        int status = e2Var.P0().getStatus();
         if (status == 1) {
             g(true);
         } else if (status == 2) {
@@ -73,20 +73,20 @@ public class g extends u0 {
     public void g(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f23515c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f22863c) == null) {
             return;
         }
         if (z) {
             textView.setText(c.a.t0.s2.l.push);
-            SkinManager.setViewTextColor(this.f23515c, c.a.t0.s2.h.push_text_selector);
-            SkinManager.setBackgroundResource(this.f23515c, c.a.t0.s2.h.push_bg_selector);
-            this.f23515c.setClickable(true);
+            SkinManager.setViewTextColor(this.f22863c, c.a.t0.s2.h.push_text_selector);
+            SkinManager.setBackgroundResource(this.f22863c, c.a.t0.s2.h.push_bg_selector);
+            this.f22863c.setClickable(true);
         } else {
             textView.setText(c.a.t0.s2.l.already_push);
-            SkinManager.setBackgroundResource(this.f23515c, c.a.t0.s2.h.label_bg_gray80);
-            SkinManager.setViewTextColor(this.f23515c, c.a.t0.s2.f.CAM_X0109);
-            this.f23515c.setClickable(false);
+            SkinManager.setBackgroundResource(this.f22863c, c.a.t0.s2.h.label_bg_gray80);
+            SkinManager.setViewTextColor(this.f22863c, c.a.t0.s2.f.CAM_X0109);
+            this.f22863c.setClickable(false);
         }
-        this.f23515c.setVisibility(0);
+        this.f22863c.setVisibility(0);
     }
 }

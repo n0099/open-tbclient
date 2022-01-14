@@ -1,7 +1,7 @@
 package com.baidu.searchbox.pms.download;
 
 import com.baidu.searchbox.pms.bean.PackageInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface InnerCallback {
     void onCancel(PackageInfo packageInfo);
 

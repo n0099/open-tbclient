@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class UnitedSchemeUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -550,7 +551,7 @@ public final class UnitedSchemeUtility {
             if (callbackHandler == null || unitedSchemeEntity == null || jSONObject == null || (jSONObject.optInt("status") > 0 && ((path = unitedSchemeEntity.getUri().getPath()) == null || path.toLowerCase(Locale.getDefault()).startsWith("/feed/iswebp")))) {
                 return jSONObject;
             }
-            String param = unitedSchemeEntity.getParam("callback");
+            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
             if (DEBUG) {
                 String str = unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString();
             }

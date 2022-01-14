@@ -1,7 +1,7 @@
 package c.a.t0.u0.i.c;
 
 import android.text.TextUtils;
-import c.a.s0.e1.t0;
+import c.a.s0.e1.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,22 +27,22 @@ public class c {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f24752b;
+    public List<b> f24065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f24753c;
+    public b f24066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24754d;
+    public String f24067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24755e;
+    public String f24068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f24756f;
+    public long f24069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f24757g;
+    public boolean f24070g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class c {
                 return;
             }
         }
-        this.f24752b = new ArrayList();
-        this.f24757g = true;
+        this.f24065b = new ArrayList();
+        this.f24070g = true;
     }
 
     public final b a(User user) {
@@ -71,26 +71,26 @@ public class c {
             }
             b bVar = new b();
             bVar.a = user.level_influence;
-            bVar.f24746c = b(user);
+            bVar.f24059c = b(user);
             boolean z = true;
-            if (!bVar.f24750g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                bVar.f24747d = user.new_god_data.field_name + t0.b(user.new_god_data);
-                bVar.f24751h = true;
+            if (!bVar.f24063g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
+                bVar.f24060d = user.new_god_data.field_name + s0.b(user.new_god_data);
+                bVar.f24064h = true;
             }
             if (user.influence == null) {
-                bVar.f24748e = "";
+                bVar.f24061e = "";
             } else {
-                bVar.f24748e = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+                bVar.f24061e = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), StringHelper.numFormatOverWanNa(user.influence.intValue()));
             }
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(user);
             Integer num = user.has_concerned;
             metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
-            bVar.f24749f = metaData;
+            bVar.f24062f = metaData;
             if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                bVar.f24745b = metaData.getAvater();
+                bVar.f24058b = metaData.getAvater();
             } else {
-                bVar.f24745b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
+                bVar.f24058b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
             }
             return bVar;
         }
@@ -117,41 +117,41 @@ public class c {
         }
         this.a = new a();
         if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.a.f24740b = b(dataRes.user_rank.get(0));
+            this.a.f24053b = b(dataRes.user_rank.get(0));
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.a.f24741c = metaData;
+            this.a.f24054c = metaData;
             String avatarH = metaData.getAvatarH();
             if (TextUtils.isEmpty(avatarH)) {
                 avatarH = metaData.getAvater();
             }
             if (avatarH != null && avatarH.startsWith("http")) {
-                this.a.f24743e = avatarH;
+                this.a.f24056e = avatarH;
             } else {
                 a aVar = this.a;
-                aVar.f24743e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+                aVar.f24056e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
             }
         }
         a aVar2 = this.a;
         Long l = dataRes.timestamp;
-        aVar2.f24742d = l == null ? 0L : l.longValue();
-        this.a.f24744f = dataRes.field_info;
+        aVar2.f24055d = l == null ? 0L : l.longValue();
+        this.a.f24057f = dataRes.field_info;
         if (!ListUtils.isEmpty(dataRes.user_rank)) {
             for (User user : dataRes.user_rank) {
                 if (user != null) {
-                    this.f24752b.add(a(user));
+                    this.f24065b.add(a(user));
                 }
             }
         }
-        this.f24753c = a(dataRes.current_user);
+        this.f24066c = a(dataRes.current_user);
         RankRuler rankRuler = dataRes.rank_description;
         if (rankRuler != null) {
-            this.f24754d = rankRuler.top_link;
-            this.f24755e = rankRuler.bottom_link;
+            this.f24067d = rankRuler.top_link;
+            this.f24068e = rankRuler.bottom_link;
         }
         Long l2 = dataRes.timestamp;
-        this.f24756f = l2 != null ? l2.longValue() : 0L;
+        this.f24069f = l2 != null ? l2.longValue() : 0L;
         Boolean bool = dataRes.has_more;
-        this.f24757g = bool != null ? bool.booleanValue() : false;
+        this.f24070g = bool != null ? bool.booleanValue() : false;
     }
 }

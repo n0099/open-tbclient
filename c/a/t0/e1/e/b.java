@@ -19,7 +19,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f17563b;
+    public static volatile b f17135b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, FunAdSidConfigData> a;
 
@@ -46,14 +46,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f17563b == null) {
+            if (f17135b == null) {
                 synchronized (b.class) {
-                    if (f17563b == null) {
-                        f17563b = new b();
+                    if (f17135b == null) {
+                        f17135b = new b();
                     }
                 }
             }
-            return f17563b;
+            return f17135b;
         }
         return (b) invokeV.objValue;
     }

@@ -14,7 +14,7 @@ public class s {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25721b;
+    public String f25002b;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class s {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25721b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25002b : (String) invokeV.objValue;
     }
 
     public boolean b() {
@@ -48,6 +48,6 @@ public class s {
             return;
         }
         this.a = gconAccount.has_account.intValue() == 1;
-        this.f25721b = gconAccount.menu_name;
+        this.f25002b = gconAccount.menu_name;
     }
 }

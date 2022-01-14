@@ -120,11 +120,11 @@ public class ThemeStatic {
                             indexOf = substring.length();
                         }
                         int e2 = c.a.d.f.m.b.e(substring.substring(0, indexOf), 0);
-                        c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
+                        c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
                         StringBuilder sb = new StringBuilder();
                         sb.append("current_used_personal_background_");
                         sb.append(TbadkCoreApplication.getCurrentAccount());
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(tbPageContext.getPageActivity(), e2, e2 == j2.k(sb.toString(), 0) ? 1 : 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(tbPageContext.getPageActivity(), e2, e2 == k.l(sb.toString(), 0) ? 1 : 0)));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(tbPageContext.getPageActivity())));

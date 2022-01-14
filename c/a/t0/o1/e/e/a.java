@@ -3,7 +3,7 @@ package c.a.t0.o1.e.e;
 import android.content.Context;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.l;
 import c.a.t0.g0.f0.b;
 import c.a.t0.g0.m;
@@ -17,20 +17,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(d2 d2Var) {
+    public static boolean a(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, d2Var)) == null) {
-            if (d2Var == null || d2Var.B1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, e2Var)) == null) {
+            if (e2Var == null || e2Var.A1) {
                 return false;
             }
-            int i2 = d2Var.d0;
-            return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.G2();
+            int i2 = e2Var.d0;
+            return i2 == 0 || i2 == 11 || i2 == 40 || e2Var.G2();
         }
         return invokeL.booleanValue;
     }
@@ -40,7 +40,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, context, Integer.valueOf(i2), Boolean.valueOf(z), rect}) == null) || aVar == null || aVar.getThreadData() == null || context == null) {
             return;
         }
-        d2 threadData = aVar.getThreadData();
+        e2 threadData = aVar.getThreadData();
         PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, ImageViewerConfig.FROM_GAME_VIDEO, 18003, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(threadData.U()));
         createFromThreadCfg.setFrom("from_game_video");
@@ -69,7 +69,7 @@ public class a {
         StatisticItem y = bVar.y("c13488", true);
         if (y != null) {
             if (bVar.getThreadData() != null) {
-                d2 threadData = bVar.getThreadData();
+                e2 threadData = bVar.getThreadData();
                 if (threadData.y1() == null || (threadData.y1().N() == null && threadData.y1().Z() == null)) {
                     i3 = 0;
                 }
@@ -86,7 +86,7 @@ public class a {
     public static void d(b bVar, int i2) {
         StatisticItem y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, bVar, i2) == null) || bVar == null || bVar.getThreadData() == null || !c.a.t0.g0.f0.l.T(bVar.f18222e) || (y = bVar.y("c13494", true)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, bVar, i2) == null) || bVar == null || bVar.getThreadData() == null || !c.a.t0.g0.f0.l.T(bVar.f17778e) || (y = bVar.y("c13494", true)) == null) {
             return;
         }
         y.param("obj_type", i2);
@@ -96,7 +96,7 @@ public class a {
     public static void e(b bVar, int i2) {
         StatisticItem y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, i2) == null) || bVar == null || !c.a.t0.g0.f0.l.T(bVar.f18222e) || (y = bVar.y("c13495", true)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, i2) == null) || bVar == null || !c.a.t0.g0.f0.l.T(bVar.f17778e) || (y = bVar.y("c13495", true)) == null) {
             return;
         }
         y.param("obj_type", i2);

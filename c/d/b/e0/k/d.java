@@ -34,24 +34,24 @@ public final class d implements c.d.b.e0.i.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final List<String> f28679f;
+    public static final List<String> f27799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final List<String> f28680g;
+    public static final List<String> f27800g;
     public transient /* synthetic */ FieldHolder $fh;
     public final t.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.d.b.e0.h.f f28681b;
+    public final c.d.b.e0.h.f f27801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f28682c;
+    public final e f27802c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f28683d;
+    public g f27803d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Protocol f28684e;
+    public final Protocol f27804e;
 
     /* loaded from: classes9.dex */
     public class a extends ForwardingSource {
@@ -59,13 +59,13 @@ public final class d implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f28685e;
+        public boolean f27805e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f28686f;
+        public long f27806f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f28687g;
+        public final /* synthetic */ d f27807g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, Source source) {
@@ -85,9 +85,9 @@ public final class d implements c.d.b.e0.i.c {
                     return;
                 }
             }
-            this.f28687g = dVar;
-            this.f28685e = false;
-            this.f28686f = 0L;
+            this.f27807g = dVar;
+            this.f27805e = false;
+            this.f27806f = 0L;
         }
 
         @Override // okio.ForwardingSource, okio.Source, java.io.Closeable, java.lang.AutoCloseable
@@ -101,12 +101,12 @@ public final class d implements c.d.b.e0.i.c {
 
         public final void endOfInput(IOException iOException) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || this.f28685e) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || this.f27805e) {
                 return;
             }
-            this.f28685e = true;
-            d dVar = this.f28687g;
-            dVar.f28681b.w(false, dVar, this.f28686f, iOException);
+            this.f27805e = true;
+            d dVar = this.f27807g;
+            dVar.f27801b.w(false, dVar, this.f27806f, iOException);
         }
 
         @Override // okio.ForwardingSource, okio.Source
@@ -117,7 +117,7 @@ public final class d implements c.d.b.e0.i.c {
                 try {
                     long read = delegate().read(buffer, j2);
                     if (read > 0) {
-                        this.f28686f += read;
+                        this.f27806f += read;
                     }
                     return read;
                 } catch (IOException e2) {
@@ -142,8 +142,8 @@ public final class d implements c.d.b.e0.i.c {
                 return;
             }
         }
-        f28679f = c.d.b.e0.e.t("connection", "host", "keep-alive", Headers.PROXY_CONNECTION, "te", Headers.TRANSFER_ENCODING, "encoding", "upgrade", ":method", ":path", ":scheme", ":authority");
-        f28680g = c.d.b.e0.e.t("connection", "host", "keep-alive", Headers.PROXY_CONNECTION, "te", Headers.TRANSFER_ENCODING, "encoding", "upgrade");
+        f27799f = c.d.b.e0.e.t("connection", "host", "keep-alive", Headers.PROXY_CONNECTION, "te", Headers.TRANSFER_ENCODING, "encoding", "upgrade", ":method", ":path", ":scheme", ":authority");
+        f27800g = c.d.b.e0.e.t("connection", "host", "keep-alive", Headers.PROXY_CONNECTION, "te", Headers.TRANSFER_ENCODING, "encoding", "upgrade");
     }
 
     public d(w wVar, t.a aVar, c.d.b.e0.h.f fVar, e eVar) {
@@ -163,14 +163,14 @@ public final class d implements c.d.b.e0.i.c {
             }
         }
         this.a = aVar;
-        this.f28681b = fVar;
-        this.f28682c = eVar;
+        this.f27801b = fVar;
+        this.f27802c = eVar;
         if (wVar.x().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
             protocol = Protocol.H2_PRIOR_KNOWLEDGE;
         } else {
             protocol = Protocol.HTTP_2;
         }
-        this.f28684e = protocol;
+        this.f27804e = protocol;
     }
 
     public static List<c.d.b.e0.k.a> d(z zVar) {
@@ -179,17 +179,17 @@ public final class d implements c.d.b.e0.i.c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zVar)) == null) {
             r d2 = zVar.d();
             ArrayList arrayList = new ArrayList(d2.g() + 4);
-            arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f28654f, zVar.f()));
-            arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f28655g, c.d.b.e0.i.i.c(zVar.h())));
+            arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f27774f, zVar.f()));
+            arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f27775g, c.d.b.e0.i.i.c(zVar.h())));
             String c2 = zVar.c("Host");
             if (c2 != null) {
-                arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f28657i, c2));
+                arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f27777i, c2));
             }
-            arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f28656h, zVar.h().A()));
+            arrayList.add(new c.d.b.e0.k.a(c.d.b.e0.k.a.f27776h, zVar.h().A()));
             int g2 = d2.g();
             for (int i2 = 0; i2 < g2; i2++) {
                 ByteString encodeUtf8 = ByteString.encodeUtf8(d2.e(i2).toLowerCase(Locale.US));
-                if (!f28679f.contains(encodeUtf8.utf8())) {
+                if (!f27799f.contains(encodeUtf8.utf8())) {
                     arrayList.add(new c.d.b.e0.k.a(encodeUtf8, d2.h(i2)));
                 }
             }
@@ -210,15 +210,15 @@ public final class d implements c.d.b.e0.i.c {
                 String h2 = rVar.h(i2);
                 if (e2.equals(":status")) {
                     kVar = c.d.b.e0.i.k.b("HTTP/1.1 " + h2);
-                } else if (!f28680g.contains(e2)) {
+                } else if (!f27800g.contains(e2)) {
                     c.d.b.e0.a.a.b(aVar, e2, h2);
                 }
             }
             if (kVar != null) {
                 b0.a aVar2 = new b0.a();
                 aVar2.n(protocol);
-                aVar2.g(kVar.f28629b);
-                aVar2.k(kVar.f28630c);
+                aVar2.g(kVar.f27750b);
+                aVar2.k(kVar.f27751c);
                 aVar2.j(aVar.d());
                 return aVar2;
             }
@@ -232,9 +232,9 @@ public final class d implements c.d.b.e0.i.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b0Var)) == null) {
-            c.d.b.e0.h.f fVar = this.f28681b;
-            fVar.f28598f.responseBodyStart(fVar.f28597e);
-            return new c.d.b.e0.i.h(b0Var.g("Content-Type"), c.d.b.e0.i.e.b(b0Var), Okio.buffer(new a(this, this.f28683d.k())));
+            c.d.b.e0.h.f fVar = this.f27801b;
+            fVar.f27722f.responseBodyStart(fVar.f27721e);
+            return new c.d.b.e0.i.h(b0Var.g("Content-Type"), c.d.b.e0.i.e.b(b0Var), Okio.buffer(new a(this, this.f27803d.k())));
         }
         return (c0) invokeL.objValue;
     }
@@ -242,11 +242,11 @@ public final class d implements c.d.b.e0.i.c {
     @Override // c.d.b.e0.i.c
     public void b(z zVar) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar) == null) && this.f28683d == null) {
-            g t = this.f28682c.t(d(zVar), zVar.a() != null);
-            this.f28683d = t;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar) == null) && this.f27803d == null) {
+            g t = this.f27802c.t(d(zVar), zVar.a() != null);
+            this.f27803d = t;
             t.n().timeout(this.a.readTimeoutMillis(), TimeUnit.MILLISECONDS);
-            this.f28683d.u().timeout(this.a.writeTimeoutMillis(), TimeUnit.MILLISECONDS);
+            this.f27803d.u().timeout(this.a.writeTimeoutMillis(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -254,14 +254,14 @@ public final class d implements c.d.b.e0.i.c {
     public Sink c(z zVar, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, zVar, j2)) == null) ? this.f28683d.j() : (Sink) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, zVar, j2)) == null) ? this.f27803d.j() : (Sink) invokeLJ.objValue;
     }
 
     @Override // c.d.b.e0.i.c
     public void cancel() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gVar = this.f28683d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gVar = this.f27803d) == null) {
             return;
         }
         gVar.h(ErrorCode.CANCEL);
@@ -271,7 +271,7 @@ public final class d implements c.d.b.e0.i.c {
     public void finishRequest() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f28683d.j().close();
+            this.f27803d.j().close();
         }
     }
 
@@ -279,7 +279,7 @@ public final class d implements c.d.b.e0.i.c {
     public void flushRequest() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f28682c.flush();
+            this.f27802c.flush();
         }
     }
 
@@ -288,7 +288,7 @@ public final class d implements c.d.b.e0.i.c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            b0.a e2 = e(this.f28683d.s(), this.f28684e);
+            b0.a e2 = e(this.f27803d.s(), this.f27804e);
             if (z && c.d.b.e0.a.a.d(e2) == 100) {
                 return null;
             }

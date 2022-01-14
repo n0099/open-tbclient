@@ -13,22 +13,22 @@ public final class z {
     public ab a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37148b;
+    public boolean f35925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37149c;
+    public int f35926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37150d;
+    public boolean f35927d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37151e;
+    public boolean f35928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37152f;
+    public boolean f35929f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37153g;
+    public boolean f35930g;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -44,19 +44,19 @@ public final class z {
             }
         }
         this.a = new ab();
-        this.f37148b = true;
-        this.f37149c = 1;
-        this.f37150d = true;
-        this.f37151e = true;
-        this.f37152f = true;
-        this.f37153g = true;
+        this.f35925b = true;
+        this.f35926c = 1;
+        this.f35927d = true;
+        this.f35928e = true;
+        this.f35929f = true;
+        this.f35930g = true;
     }
 
     public z a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f37149c = i2;
+            this.f35926c = i2;
             return this;
         }
         return (z) invokeI.objValue;
@@ -76,7 +76,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f37148b = z;
+            this.f35925b = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -86,7 +86,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.f37150d = z;
+            this.f35927d = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -96,7 +96,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f37151e = z;
+            this.f35928e = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -106,7 +106,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f37152f = z;
+            this.f35929f = z;
             return this;
         }
         return (z) invokeZ.objValue;
@@ -116,7 +116,7 @@ public final class z {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f37153g = z;
+            this.f35930g = z;
             return this;
         }
         return (z) invokeZ.objValue;

@@ -1,60 +1,95 @@
 package c.a.s0.s.q;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.BirthdayInfo;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes6.dex */
-public class j2 {
+public class j2 extends PostData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId K0;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String I0;
+    public String J0;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f13754b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f13755c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f13756d;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-966999315, "Lc/a/s0/s/q/j2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-966999315, "Lc/a/s0/s/q/j2;");
+                return;
+            }
+        }
+        K0 = BdUniqueId.gen();
+    }
 
     public j2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public String J0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optLong("birthday_time", 0L);
-        this.f13756d = jSONObject.optInt("birthday_show_status", 0);
-        this.f13754b = jSONObject.optString("constellation", "");
-        this.f13755c = jSONObject.optInt("age", 0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.I0 : (String) invokeV.objValue;
     }
 
-    public void b(BirthdayInfo birthdayInfo) {
+    public String K0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) == null) || birthdayInfo == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.J0 : (String) invokeV.objValue;
+    }
+
+    public void L0(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = birthdayInfo.birthday_time.longValue();
-        this.f13756d = birthdayInfo.birthday_show_status.intValue();
-        this.f13754b = birthdayInfo.constellation;
-        this.f13755c = birthdayInfo.age.intValue();
+        try {
+            this.I0 = jSONObject.optString("news_link");
+            this.J0 = jSONObject.optString("summary");
+            jSONObject.optInt("position", 0);
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public void M0(TopNews topNews) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, topNews) == null) || topNews == null) {
+            return;
+        }
+        this.I0 = topNews.news_link;
+        this.J0 = topNews.summary;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, c.a.d.n.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? K0 : (BdUniqueId) invokeV.objValue;
     }
 }

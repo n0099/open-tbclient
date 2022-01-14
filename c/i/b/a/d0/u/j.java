@@ -16,13 +16,11 @@ public abstract class j extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f30109i;
+    public byte[] f29175i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30110j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f30111k;
+    public int f29176j;
+    public volatile boolean k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, int i2, Format format, int i3, Object obj, byte[] bArr) {
@@ -43,28 +41,28 @@ public abstract class j extends c {
                 return;
             }
         }
-        this.f30109i = bArr;
+        this.f29175i = bArr;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30111k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.d0.u.c
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30110j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29176j : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30111k = true;
+            this.k = true;
         }
     }
 
@@ -73,17 +71,17 @@ public abstract class j extends c {
     public byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30109i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29175i : (byte[]) invokeV.objValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] bArr = this.f30109i;
+            byte[] bArr = this.f29175i;
             if (bArr == null) {
-                this.f30109i = new byte[16384];
-            } else if (bArr.length < this.f30110j + 16384) {
-                this.f30109i = Arrays.copyOf(bArr, bArr.length + 16384);
+                this.f29175i = new byte[16384];
+            } else if (bArr.length < this.f29176j + 16384) {
+                this.f29175i = Arrays.copyOf(bArr, bArr.length + 16384);
             }
         }
     }
@@ -93,21 +91,21 @@ public abstract class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                this.f30085h.a(this.a);
+                this.f29153h.a(this.a);
                 int i2 = 0;
-                this.f30110j = 0;
-                while (i2 != -1 && !this.f30111k) {
+                this.f29176j = 0;
+                while (i2 != -1 && !this.k) {
                     f();
-                    i2 = this.f30085h.read(this.f30109i, this.f30110j, 16384);
+                    i2 = this.f29153h.read(this.f29175i, this.f29176j, 16384);
                     if (i2 != -1) {
-                        this.f30110j += i2;
+                        this.f29176j += i2;
                     }
                 }
-                if (!this.f30111k) {
-                    d(this.f30109i, this.f30110j);
+                if (!this.k) {
+                    d(this.f29175i, this.f29176j);
                 }
             } finally {
-                v.h(this.f30085h);
+                v.h(this.f29153h);
             }
         }
     }

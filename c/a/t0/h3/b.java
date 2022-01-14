@@ -59,27 +59,27 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f18580f;
+    public static b f18116f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f18581g;
+    public static final String f18117g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f18582h;
+    public static int f18118h;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18583b;
+    public String f18119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f18584c;
+    public Map<String, String> f18120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f18585d;
+    public CustomMessageListener f18121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.c.g.a f18586e;
+    public c.a.d.c.g.a f18122e;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -132,12 +132,12 @@ public class b {
 
     /* renamed from: c.a.t0.h3.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1117b extends c.a.d.c.g.a {
+    public class C1131b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1117b(b bVar, int i2, int i3) {
+        public C1131b(b bVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -216,7 +216,7 @@ public class b {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f18587b;
+        public final /* synthetic */ b f18123b;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -233,7 +233,7 @@ public class b {
                     return;
                 }
             }
-            this.f18587b = bVar;
+            this.f18123b = bVar;
             this.a = null;
         }
 
@@ -246,7 +246,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 String modName = TbSingleton.getInstance().getModName();
-                if (TextUtils.isEmpty(modName) || (B = this.f18587b.B(modName)) == null) {
+                if (TextUtils.isEmpty(modName) || (B = this.f18123b.B(modName)) == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
@@ -254,7 +254,7 @@ public class b {
                 netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
                 this.a.addPostData("mod_name", modName);
                 this.a.addPostData("status", B.a ? "1" : "2");
-                this.a.addPostData("fail_reason", B.a ? "" : B.f18594b);
+                this.a.addPostData("fail_reason", B.a ? "" : B.f18130b);
                 this.a.postNetData();
                 return null;
             }
@@ -266,7 +266,7 @@ public class b {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                f fVar = new f(this.f18587b);
+                f fVar = new f(this.f18123b);
                 fVar.setPriority(4);
                 fVar.execute(new Void[0]);
             }
@@ -284,22 +284,22 @@ public class b {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c.a.t0.h3.e.a f18588b;
+        public final c.a.t0.h3.e.a f18124b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f18589c;
+        public final String f18125c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f18590d;
+        public final String f18126d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f18591e;
+        public final String f18127e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f18592f;
+        public final boolean f18128f;
 
         /* renamed from: g  reason: collision with root package name */
-        public NetWork f18593g;
+        public NetWork f18129g;
 
         public d(String str, c.a.t0.h3.e.a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -317,11 +317,11 @@ public class b {
                 }
             }
             this.a = str;
-            this.f18588b = aVar;
-            this.f18590d = aVar.c();
-            this.f18589c = this.f18588b.a();
-            this.f18591e = this.f18588b.b();
-            this.f18592f = z;
+            this.f18124b = aVar;
+            this.f18126d = aVar.c();
+            this.f18125c = this.f18124b.a();
+            this.f18127e = this.f18124b.b();
+            this.f18128f = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -343,27 +343,27 @@ public class b {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 b.m(this.a);
                 b.q().k(this.a);
-                if (this.f18592f) {
+                if (this.f18128f) {
                     if (!TextUtils.isEmpty(b.q().s(this.a))) {
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", this.f18590d));
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", this.f18126d));
                     }
                     return null;
                 }
                 NetWork netWork = new NetWork();
-                this.f18593g = netWork;
-                netWork.setUrl(this.f18589c);
-                new File(b.f18581g + "bdtbWCacheTemp/" + this.a + "/").mkdirs();
-                String str2 = b.f18581g + "bdtbWCacheTemp/" + this.a + "/bdtbNWCache.zip";
-                if (this.f18593g.downloadFile(str2, null, 0, 3, 0, true)) {
+                this.f18129g = netWork;
+                netWork.setUrl(this.f18125c);
+                new File(b.f18117g + "bdtbWCacheTemp/" + this.a + "/").mkdirs();
+                String str2 = b.f18117g + "bdtbWCacheTemp/" + this.a + "/bdtbNWCache.zip";
+                if (this.f18129g.downloadFile(str2, null, 0, 3, 0, true)) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
                     try {
                         try {
                             fileInputStream = new FileInputStream(str2);
                             try {
                                 String b2 = t.b(fileInputStream);
-                                if (StringUtils.isNull(b2) || !b2.toLowerCase().equals(this.f18591e.toLowerCase())) {
-                                    b.f18582h = 2;
-                                    c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18590d, "hybridResult", "md5 error");
+                                if (StringUtils.isNull(b2) || !b2.toLowerCase().equals(this.f18127e.toLowerCase())) {
+                                    b.f18118h = 2;
+                                    c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18126d, "hybridResult", "md5 error");
                                     b.m(this.a);
                                     o.e(fileInputStream);
                                     return null;
@@ -372,16 +372,16 @@ public class b {
                                 e = e2;
                                 e.printStackTrace();
                                 o.e(fileInputStream);
-                                str = b.f18581g + "bdtbWCacheTemp/" + this.a + "/" + this.f18590d + "/";
+                                str = b.f18117g + "bdtbWCacheTemp/" + this.a + "/" + this.f18126d + "/";
                                 new File(str).mkdirs();
                                 if (!r.b(str2, str)) {
                                 }
                                 b.m(this.a);
-                                r = b.r(this.a, this.f18590d);
+                                r = b.r(this.a, this.f18126d);
                                 if (r == null) {
                                 }
-                                b.f18582h = 5;
-                                c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18590d, "hybridResult", "bundle incomplete");
+                                b.f18118h = 5;
+                                c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18126d, "hybridResult", "bundle incomplete");
                                 b.q().k(this.a);
                                 return null;
                             }
@@ -401,32 +401,32 @@ public class b {
                         throw th;
                     }
                     o.e(fileInputStream);
-                    str = b.f18581g + "bdtbWCacheTemp/" + this.a + "/" + this.f18590d + "/";
+                    str = b.f18117g + "bdtbWCacheTemp/" + this.a + "/" + this.f18126d + "/";
                     new File(str).mkdirs();
                     if (!r.b(str2, str)) {
-                        String str3 = b.f18581g + "bdtbNWCache/" + this.a + "/" + this.f18590d + "/";
+                        String str3 = b.f18117g + "bdtbNWCache/" + this.a + "/" + this.f18126d + "/";
                         new File(str3).mkdirs();
                         if (!FileHelper.CopyDir(str, str3, true)) {
-                            b.f18582h = 4;
-                            c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18590d, "hybridResult", "write error");
+                            b.f18118h = 4;
+                            c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18126d, "hybridResult", "write error");
                         }
                     } else {
-                        b.f18582h = 3;
-                        c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18590d, "hybridResult", "unzip error");
+                        b.f18118h = 3;
+                        c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18126d, "hybridResult", "unzip error");
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
-                    b.f18582h = 1;
-                    c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18590d, "hybridResult", "download error");
+                    b.f18118h = 1;
+                    c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18126d, "hybridResult", "download error");
                 }
                 b.m(this.a);
-                r = b.r(this.a, this.f18590d);
-                if (r == null && !TextUtils.isEmpty(r.a) && (hashMap = r.f18596b) != null && hashMap.size() != 0) {
-                    b.l(r.f18597c, this.a);
+                r = b.r(this.a, this.f18126d);
+                if (r == null && !TextUtils.isEmpty(r.a) && (hashMap = r.f18132b) != null && hashMap.size() != 0) {
+                    b.l(r.f18133c, this.a);
                     return r;
                 }
-                b.f18582h = 5;
-                c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18590d, "hybridResult", "bundle incomplete");
+                b.f18118h = 5;
+                c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.f18126d, "hybridResult", "bundle incomplete");
                 b.q().k(this.a);
                 return null;
             }
@@ -441,11 +441,11 @@ public class b {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
                 super.onPostExecute(hVar);
                 if (hVar != null) {
-                    b.q().A(this.a, hVar.f18597c);
+                    b.q().A(this.a, hVar.f18133c);
                     b.q().y();
-                    c.a.t0.h3.c.a().h(this.a, hVar.f18596b);
+                    c.a.t0.h3.c.a().h(this.a, hVar.f18132b);
                     c.a.t0.h3.c.a().f(true, this.a);
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", hVar.f18597c));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", hVar.f18133c));
                     return;
                 }
                 b.q().j(this.a);
@@ -462,7 +462,7 @@ public class b {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18594b;
+        public String f18130b;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -515,18 +515,18 @@ public class b {
                 for (String str : b.q().t()) {
                     String s = b.q().s(str);
                     h r = b.r(str, s);
-                    if (r != null && !TextUtils.isEmpty(r.a) && (hashMap = r.f18596b) != null && hashMap.size() != 0) {
+                    if (r != null && !TextUtils.isEmpty(r.a) && (hashMap = r.f18132b) != null && hashMap.size() != 0) {
                         if (gVar.a == null) {
                             gVar.a = new HashMap();
                         }
                         gVar.a.put(str, r);
-                        if (gVar.f18595b == null) {
-                            gVar.f18595b = new HashMap<>();
+                        if (gVar.f18131b == null) {
+                            gVar.f18131b = new HashMap<>();
                         }
-                        gVar.f18595b.putAll(r.f18596b);
-                        b.l(r.f18597c, str);
+                        gVar.f18131b.putAll(r.f18132b);
+                        b.l(r.f18133c, str);
                     } else {
-                        b.f18582h = 5;
+                        b.f18118h = 5;
                         c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
                         this.a.k(str);
                     }
@@ -545,7 +545,7 @@ public class b {
                 if (gVar == null) {
                     c.a.s0.s.b0.a.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
                 } else {
-                    c.a.t0.h3.c.a().g(gVar.f18595b);
+                    c.a.t0.h3.c.a().g(gVar.f18131b);
                 }
                 MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
             }
@@ -559,7 +559,7 @@ public class b {
         public Map<String, h> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, c.a.t0.h3.d.a> f18595b;
+        public HashMap<String, c.a.t0.h3.d.a> f18131b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -587,10 +587,10 @@ public class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, c.a.t0.h3.d.a> f18596b;
+        public HashMap<String, c.a.t0.h3.d.a> f18132b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18597c;
+        public String f18133c;
 
         public h() {
             Interceptable interceptable = $ic;
@@ -625,8 +625,8 @@ public class b {
             }
         }
         r0 = b.class.getSimpleName() + " TestActivity";
-        f18581g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-        f18582h = 0;
+        f18117g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
+        f18118h = 0;
     }
 
     public b() {
@@ -643,8 +643,8 @@ public class b {
             }
         }
         this.a = false;
-        this.f18585d = new a(this, 2001371);
-        this.f18586e = new C1117b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+        this.f18121d = new a(this, 2001371);
+        this.f18122e = new C1131b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
     }
 
     public static void l(String str, String str2) {
@@ -653,7 +653,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        String str3 = f18581g + "bdtbNWCache/" + str2;
+        String str3 = f18117g + "bdtbNWCache/" + str2;
         File file = new File(str3);
         if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
             return;
@@ -670,7 +670,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        FileHelper.deleteFileOrDir(new File(f18581g + "bdtbWCacheTemp/" + str));
+        FileHelper.deleteFileOrDir(new File(f18117g + "bdtbWCacheTemp/" + str));
     }
 
     public static void o(String str, c.a.t0.h3.e.a aVar) {
@@ -700,14 +700,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f18580f == null) {
+            if (f18116f == null) {
                 synchronized (b.class) {
-                    if (f18580f == null) {
-                        f18580f = new b();
+                    if (f18116f == null) {
+                        f18116f = new b();
                     }
                 }
             }
-            return f18580f;
+            return f18116f;
         }
         return (b) invokeV.objValue;
     }
@@ -719,7 +719,7 @@ public class b {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65550, null, str, str2)) != null) {
             return (h) invokeLL.objValue;
         }
-        File file = new File(f18581g + "bdtbNWCache");
+        File file = new File(f18117g + "bdtbNWCache");
         FileInputStream fileInputStream2 = null;
         if (!file.exists() || TextUtils.isEmpty(str2)) {
             return null;
@@ -727,7 +727,7 @@ public class b {
         h hVar = new h(null);
         File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
         hVar.a = file.getAbsolutePath();
-        hVar.f18597c = str2;
+        hVar.f18133c = str2;
         File file3 = new File(file2, "router.json");
         try {
             if (file3.exists()) {
@@ -737,7 +737,7 @@ public class b {
                     e = e2;
                 }
                 try {
-                    hVar.f18596b = x(fileInputStream);
+                    hVar.f18132b = x(fileInputStream);
                     o.e(fileInputStream);
                 } catch (FileNotFoundException e3) {
                     e = e3;
@@ -885,9 +885,9 @@ public class b {
                     }
                     c.a.t0.h3.d.a aVar = new c.a.t0.h3.d.a();
                     aVar.a = arrayList;
-                    aVar.f18599b = optString;
-                    aVar.f18600c = optString2;
-                    aVar.f18601d = arrayList2;
+                    aVar.f18135b = optString;
+                    aVar.f18136c = optString2;
+                    aVar.f18137d = arrayList2;
                     hashMap.put(next, aVar);
                     optJSONObject = jSONObject2;
                 }
@@ -918,10 +918,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.f18584c == null) {
-            this.f18584c = new ConcurrentHashMap();
+        if (this.f18120c == null) {
+            this.f18120c = new ConcurrentHashMap();
         }
-        this.f18584c.put(str, str2);
+        this.f18120c.put(str, str2);
     }
 
     public final e B(String str) {
@@ -930,23 +930,23 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             e eVar = new e();
             if (TextUtils.isEmpty(str)) {
-                eVar.f18594b = "module not exit";
+                eVar.f18130b = "module not exit";
                 return eVar;
             }
-            File file = new File(f18581g + "bdtbNWCache", str);
+            File file = new File(f18117g + "bdtbNWCache", str);
             String s = q().s(str);
             if (TbSingleton.getInstance().isUploadOffPack()) {
                 eVar.a = false;
                 if (!file.exists()) {
-                    eVar.f18594b = "bundle not exist";
+                    eVar.f18130b = "bundle not exist";
                     return eVar;
                 } else if (TextUtils.isEmpty(s)) {
-                    eVar.f18594b = "the local has no valid version name";
+                    eVar.f18130b = "the local has no valid version name";
                     return eVar;
                 } else {
                     String str2 = file.getAbsolutePath() + "/" + s + "/";
                     if (!new File(str2).exists()) {
-                        eVar.f18594b = "bundle not exist";
+                        eVar.f18130b = "bundle not exist";
                         return eVar;
                     }
                     String str3 = file.getAbsolutePath() + "/" + s + ".zip";
@@ -965,7 +965,7 @@ public class b {
                             return eVar;
                         }
                     } else {
-                        eVar.f18594b = "zip bundle error";
+                        eVar.f18130b = "zip bundle error";
                         return eVar;
                     }
                 }
@@ -980,7 +980,7 @@ public class b {
                 if (!file.exists() || StringUtils.isNull(s) || !new File(file.getAbsolutePath(), s).exists()) {
                     return eVar;
                 }
-                eVar.f18594b = "delete fail";
+                eVar.f18130b = "delete fail";
                 eVar.a = false;
             }
             return eVar;
@@ -992,11 +992,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, String> map = this.f18584c;
+            Map<String, String> map = this.f18120c;
             if (map == null || map.isEmpty()) {
                 return null;
             }
-            return new JSONObject(this.f18584c);
+            return new JSONObject(this.f18120c);
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -1005,11 +1005,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Map<String, String> map = this.f18584c;
+            Map<String, String> map = this.f18120c;
             if (map == null || map.isEmpty()) {
                 return null;
             }
-            return new JSONObject(this.f18584c).toString();
+            return new JSONObject(this.f18120c).toString();
         }
         return (String) invokeV.objValue;
     }
@@ -1019,8 +1019,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
-            c.a.s0.s.g0.b.j().x("pref_key_quick_webview_versions", "");
-            String str = f18581g + "bdtbNWCache";
+            c.a.s0.s.h0.b.k().y("pref_key_quick_webview_versions", "");
+            String str = f18117g + "bdtbNWCache";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
                 return;
@@ -1036,7 +1036,7 @@ public class b {
     public void j(String str) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str) || (map = this.f18584c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str) || (map = this.f18120c) == null) {
             return;
         }
         map.remove(str);
@@ -1048,8 +1048,8 @@ public class b {
             return;
         }
         j(str);
-        c.a.s0.s.g0.b.j().x("pref_key_quick_webview_versions", D());
-        File file = new File(f18581g + "bdtbNWCache/" + str);
+        c.a.s0.s.h0.b.k().y("pref_key_quick_webview_versions", D());
+        File file = new File(f18117g + "bdtbNWCache/" + str);
         if (file.exists() && file.isDirectory()) {
             FileHelper.deleteFileOrDir(file);
         }
@@ -1058,27 +1058,27 @@ public class b {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f18584c == null) {
-                this.f18584c = new ConcurrentHashMap();
+            if (this.f18120c == null) {
+                this.f18120c = new ConcurrentHashMap();
             }
-            this.f18584c.clear();
+            this.f18120c.clear();
         }
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f18583b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f18119b : (String) invokeV.objValue;
     }
 
     public String s(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.f18584c == null || TextUtils.isEmpty(str)) {
+            if (this.f18120c == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f18584c.get(str);
+            return this.f18120c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -1087,10 +1087,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f18584c == null) {
-                this.f18584c = new ConcurrentHashMap();
+            if (this.f18120c == null) {
+                this.f18120c = new ConcurrentHashMap();
             }
-            return this.f18584c.keySet();
+            return this.f18120c.keySet();
         }
         return (Set) invokeV.objValue;
     }
@@ -1099,10 +1099,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             System.currentTimeMillis();
-            MessageManager.getInstance().registerListener(this.f18586e);
-            MessageManager.getInstance().registerListener(this.f18585d);
-            this.f18583b = new File(f18581g + "bdtbNWCache").getAbsolutePath();
-            w(c.a.s0.s.g0.b.j().p("pref_key_quick_webview_versions", ""));
+            MessageManager.getInstance().registerListener(this.f18122e);
+            MessageManager.getInstance().registerListener(this.f18121d);
+            this.f18119b = new File(f18117g + "bdtbNWCache").getAbsolutePath();
+            w(c.a.s0.s.h0.b.k().q("pref_key_quick_webview_versions", ""));
         }
     }
 
@@ -1111,15 +1111,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, eVar)) == null) {
             if (StringUtils.isNull(str)) {
-                eVar.f18594b = "serve return is null";
+                eVar.f18130b = "serve return is null";
                 return eVar;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 eVar.a = jSONObject.optInt("error_code") == 0;
-                eVar.f18594b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                eVar.f18130b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
             } catch (JSONException e2) {
-                eVar.f18594b = "parse json exception";
+                eVar.f18130b = "parse json exception";
                 BdLog.e(e2);
             }
             return eVar;
@@ -1142,10 +1142,10 @@ public class b {
                 String next = keys.next();
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
-                    if (this.f18584c == null) {
-                        this.f18584c = new ConcurrentHashMap();
+                    if (this.f18120c == null) {
+                        this.f18120c = new ConcurrentHashMap();
                     }
-                    this.f18584c.put(next, optString);
+                    this.f18120c.put(next, optString);
                 }
             }
         } catch (JSONException e2) {
@@ -1160,7 +1160,7 @@ public class b {
             if (TextUtils.isEmpty(D)) {
                 return;
             }
-            c.a.s0.s.g0.b.j().x("pref_key_quick_webview_versions", D);
+            c.a.s0.s.h0.b.k().y("pref_key_quick_webview_versions", D);
         }
     }
 }

@@ -2,7 +2,7 @@ package c.a.t0.f1;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.w3.j0.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -48,7 +48,7 @@ public class a {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.s0.b.d.r() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.s0.b.d.o() : invokeV.booleanValue;
     }
 
     public static boolean e(FrsTabInfo frsTabInfo, int i2) {
@@ -83,8 +83,8 @@ public class a {
             if (z) {
                 i2 = c.a.t0.e1.a.i().f() - 1;
                 for (n nVar : list) {
-                    if (nVar instanceof d2) {
-                        if (((d2) nVar).s0() != 1) {
+                    if (nVar instanceof e2) {
+                        if (((e2) nVar).s0() != 1) {
                             break;
                         }
                         i2++;
@@ -105,12 +105,12 @@ public class a {
                 return 0;
             }
             for (int i4 = 0; i4 < list.size(); i4++) {
-                d2 d2Var = new d2();
+                e2 e2Var = new e2();
                 o oVar = new o();
                 oVar.k(true);
-                d2Var.N2 = oVar;
+                e2Var.M2 = oVar;
                 oVar.j(str);
-                list.add(i2, d2Var);
+                list.add(i2, e2Var);
                 i2 = i2 + i3 + 1;
                 if (i2 > list.size() - 1) {
                     return (i2 - (list.size() - 1)) - 1;

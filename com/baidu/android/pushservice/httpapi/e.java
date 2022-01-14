@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33268e;
+    public int f32211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33269f;
+    public int f32212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f33270g;
+    public String f32213g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(i iVar, Context context, int i2, int i3) {
@@ -50,11 +50,11 @@ public class e extends d {
                 return;
             }
         }
-        this.f33268e = 0;
-        this.f33268e = i2;
-        this.f33269f = i3;
+        this.f32211e = 0;
+        this.f32211e = i2;
+        this.f32212f = i3;
         if (i2 == 0) {
-            ((d) this).f33267d = true;
+            ((d) this).f32210d = true;
         }
     }
 
@@ -77,12 +77,12 @@ public class e extends d {
                 return;
             }
         }
-        this.f33268e = 0;
-        this.f33268e = i2;
-        this.f33269f = i3;
-        this.f33270g = str;
+        this.f32211e = 0;
+        this.f32211e = i2;
+        this.f32212f = i3;
+        this.f32213g = str;
         if (i2 == 0) {
-            ((d) this).f33267d = true;
+            ((d) this).f32210d = true;
         }
     }
 
@@ -90,7 +90,7 @@ public class e extends d {
     public void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-            intent.putExtra("bind_status", this.f33268e);
+            intent.putExtra("bind_status", this.f32211e);
         }
     }
 
@@ -113,10 +113,10 @@ public class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             String b2 = super.b(str);
-            if (!TextUtils.isEmpty(((a) this).f33264b.f33278d)) {
-                com.baidu.android.pushservice.a.b.a(((a) this).a).e(((a) this).f33264b.f33278d);
-                if (!TextUtils.isEmpty(((a) this).f33264b.f33281g)) {
-                    com.baidu.android.pushservice.a.b.a(((a) this).a).a(((a) this).f33264b.f33278d, new f(((a) this).f33264b.f33281g, b2));
+            if (!TextUtils.isEmpty(((a) this).f32207b.f32221d)) {
+                com.baidu.android.pushservice.a.b.a(((a) this).a).e(((a) this).f32207b.f32221d);
+                if (!TextUtils.isEmpty(((a) this).f32207b.f32224g)) {
+                    com.baidu.android.pushservice.a.b.a(((a) this).a).a(((a) this).f32207b.f32221d, new f(((a) this).f32207b.f32224g, b2));
                 }
             }
             return b2;
@@ -131,8 +131,8 @@ public class e extends d {
             super.b(hashMap);
             hashMap.put("method", "bind");
             hashMap.put("bind_name", Build.MODEL);
-            hashMap.put("bind_status", this.f33268e + "");
-            hashMap.put("push_sdk_version", this.f33269f + "");
+            hashMap.put("bind_status", this.f32211e + "");
+            hashMap.put("push_sdk_version", this.f32212f + "");
             if (com.baidu.android.pushservice.b.d.b(((a) this).a)) {
                 String cuid = DeviceId.getCUID(((a) this).a);
                 if (!TextUtils.isEmpty(cuid)) {
@@ -168,11 +168,11 @@ public class e extends d {
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(com.baidu.android.pushservice.c.c.d(((a) this).a, "bduss"))) {
                 hashMap.put("bd_action", a);
             }
-            if (!TextUtils.isEmpty(this.f33270g)) {
-                hashMap.put("bind_notify_status", this.f33270g);
+            if (!TextUtils.isEmpty(this.f32213g)) {
+                hashMap.put("bind_notify_status", this.f32213g);
             }
-            if (!TextUtils.isEmpty(((a) this).f33264b.f33283i) && com.baidu.android.pushservice.b.d.q(((a) this).a)) {
-                hashMap.put("push_proxy", ((a) this).f33264b.f33283i);
+            if (!TextUtils.isEmpty(((a) this).f32207b.f32226i) && com.baidu.android.pushservice.b.d.q(((a) this).a)) {
+                hashMap.put("push_proxy", ((a) this).f32207b.f32226i);
             }
             hashMap.put("manufacture", com.baidu.android.pushservice.i.m.a(false));
             if (com.baidu.android.pushservice.i.m.n()) {
@@ -184,7 +184,7 @@ public class e extends d {
                 hashMap.put("connect_version", "2");
             }
             hashMap.put("sdk_int", Build.VERSION.SDK_INT + "");
-            String str = ((a) this).f33264b.f33278d;
+            String str = ((a) this).f32207b.f32221d;
             if (!TextUtils.isEmpty(str) && str.length() <= 128) {
                 hashMap.put("package_name", str);
             }
@@ -200,7 +200,7 @@ public class e extends d {
             hashMap.put(HttpConstants.DEVICE_TYPE, "3");
             hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).a) ? 1 : 0) + "");
             hashMap.put("dual_channel", (com.baidu.android.pushservice.b.d.c(((a) this).a) ? 1 : 0) + "");
-            hashMap.put("ignore_token", (((a) this).f33264b.f33285k ? 1 : 0) + "");
+            hashMap.put("ignore_token", (((a) this).f32207b.k ? 1 : 0) + "");
             if (PushSettings.e(((a) this).a)) {
                 return;
             }

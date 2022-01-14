@@ -30,19 +30,19 @@ public class g {
     public FrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f23317b;
+    public LinearLayout f22673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f23318c;
+    public EMTextView f22674c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f23319d;
+    public EMTextView f22675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23320e;
+    public String f22676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23321f;
+    public int f22677f;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -50,10 +50,10 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f23322e;
+        public final /* synthetic */ TbPageContext f22678e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f23323f;
+        public final /* synthetic */ g f22679f;
 
         public a(g gVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class g {
                     return;
                 }
             }
-            this.f23323f = gVar;
-            this.f23322e = tbPageContext;
+            this.f22679f = gVar;
+            this.f22678e = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -79,9 +79,9 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 UrlManager urlManager = UrlManager.getInstance();
-                TbPageContext<?> tbPageContext = this.f23322e;
-                urlManager.dealOneLink(tbPageContext, new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1&postId=" + this.f23323f.f23320e});
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("obj_locate", this.f23323f.f23321f));
+                TbPageContext<?> tbPageContext = this.f22678e;
+                urlManager.dealOneLink(tbPageContext, new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1&postId=" + this.f22679f.f22676e});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("obj_locate", this.f22679f.f22677f));
             }
         }
     }
@@ -123,11 +123,11 @@ public class g {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f23317b);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f22673b);
             d2.n(c.a.t0.s2.l.J_X05);
             d2.f(c.a.t0.s2.f.CAM_X0206);
-            SkinManager.setViewTextColor(this.f23318c, c.a.t0.s2.f.CAM_X0109);
-            SkinManager.setViewTextColor(this.f23319d, c.a.t0.s2.f.CAM_X0109);
+            SkinManager.setViewTextColor(this.f22674c, c.a.t0.s2.f.CAM_X0109);
+            SkinManager.setViewTextColor(this.f22675d, c.a.t0.s2.f.CAM_X0109);
         }
     }
 
@@ -142,7 +142,7 @@ public class g {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f23320e = str;
+            this.f22676e = str;
         }
     }
 
@@ -156,13 +156,13 @@ public class g {
     public final void h(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.f23317b = (LinearLayout) this.a.findViewById(c.a.t0.s2.i.container);
-            this.f23318c = (EMTextView) this.a.findViewById(c.a.t0.s2.i.tv_title);
-            this.f23319d = (EMTextView) this.a.findViewById(c.a.t0.s2.i.tv_content);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f23318c);
+            this.f22673b = (LinearLayout) this.a.findViewById(c.a.t0.s2.i.container);
+            this.f22674c = (EMTextView) this.a.findViewById(c.a.t0.s2.i.tv_title);
+            this.f22675d = (EMTextView) this.a.findViewById(c.a.t0.s2.i.tv_content);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f22674c);
             d2.v(c.a.t0.s2.f.CAM_X0109);
             d2.A(c.a.t0.s2.l.F_X01);
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f23319d);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f22675d);
             d3.w(c.a.t0.s2.g.M_H_X003);
             d3.v(c.a.t0.s2.f.CAM_X0109);
             d3.A(c.a.t0.s2.l.F_X01);
@@ -172,13 +172,13 @@ public class g {
             eMRichTextAnyIconSpan.d(n.f(tbPageContext.getContext(), c.a.t0.s2.g.M_W_X002));
             eMRichTextAnyIconSpan.b(0);
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.f23318c.setText(spannableStringBuilder);
+            this.f22674c.setText(spannableStringBuilder);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(tbPageContext.getResources().getString(c.a.t0.s2.l.pb_head_block_content));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(c.a.t0.s2.h.icon_pure_arrow12_right_n, c.a.t0.s2.f.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan2.b(n.f(tbPageContext.getContext(), c.a.t0.s2.g.tbds3));
             spannableStringBuilder2.setSpan(eMRichTextAnyIconSpan2, spannableStringBuilder2.length() - 1, spannableStringBuilder2.length(), 33);
-            this.f23319d.setText(spannableStringBuilder2);
-            this.f23317b.setOnClickListener(new a(this, tbPageContext));
+            this.f22675d.setText(spannableStringBuilder2);
+            this.f22673b.setOnClickListener(new a(this, tbPageContext));
         }
     }
 

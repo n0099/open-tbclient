@@ -25,13 +25,13 @@ public class MarkLevelGroup extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f43709e;
+    public LinearLayout f42125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<View> f43710f;
+    public List<View> f42126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f43711g;
+    public b f42127g;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -39,10 +39,10 @@ public class MarkLevelGroup extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f43712e;
+        public final /* synthetic */ d f42128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MarkLevelGroup f43713f;
+        public final /* synthetic */ MarkLevelGroup f42129f;
 
         public a(MarkLevelGroup markLevelGroup, d dVar) {
             Interceptable interceptable = $ic;
@@ -59,23 +59,23 @@ public class MarkLevelGroup extends LinearLayout {
                     return;
                 }
             }
-            this.f43713f = markLevelGroup;
-            this.f43712e = dVar;
+            this.f42129f = markLevelGroup;
+            this.f42128e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                for (View view2 : this.f43713f.f43710f) {
+                for (View view2 : this.f42129f.f42126f) {
                     if (view == view2) {
-                        this.f43713f.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
+                        this.f42129f.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
                     } else {
-                        this.f43713f.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
+                        this.f42129f.e((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
                     }
                 }
-                if (this.f43713f.f43711g != null) {
-                    this.f43713f.f43711g.a(this.f43712e.b(), this.f43712e.a());
+                if (this.f42129f.f42127g != null) {
+                    this.f42129f.f42127g.a(this.f42128e.b(), this.f42128e.a());
                 }
             }
         }
@@ -113,7 +113,7 @@ public class MarkLevelGroup extends LinearLayout {
             setOrientation(0);
             setGravity(1);
             LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_layout, (ViewGroup) this, true);
-            this.f43709e = (LinearLayout) findViewById(R.id.mark_level_list_container);
+            this.f42125e = (LinearLayout) findViewById(R.id.mark_level_list_container);
         }
     }
 
@@ -131,7 +131,7 @@ public class MarkLevelGroup extends LinearLayout {
     public void setCallback(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f43711g = bVar;
+            this.f42127g = bVar;
         }
     }
 
@@ -151,10 +151,10 @@ public class MarkLevelGroup extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.f43709e.removeAllViews();
-        List<View> list = this.f43710f;
+        this.f42125e.removeAllViews();
+        List<View> list = this.f42126f;
         if (list == null) {
-            this.f43710f = new ArrayList();
+            this.f42126f = new ArrayList();
         } else {
             list.clear();
         }
@@ -167,7 +167,7 @@ public class MarkLevelGroup extends LinearLayout {
                 TextView textView = (TextView) inflate.findViewById(R.id.mark_level_tv);
                 textView.setText(String.valueOf(i2 + 1));
                 ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.d()));
-                this.f43710f.add(inflate);
+                this.f42126f.add(inflate);
                 boolean z = bVar.j() == 0;
                 if (bVar.g() == dVar.c()) {
                     e(frameLayout, true);
@@ -195,7 +195,7 @@ public class MarkLevelGroup extends LinearLayout {
                     layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.ds82);
                     layoutParams2.height = -2;
                 }
-                this.f43709e.addView(inflate, layoutParams2);
+                this.f42125e.addView(inflate, layoutParams2);
             }
         }
     }

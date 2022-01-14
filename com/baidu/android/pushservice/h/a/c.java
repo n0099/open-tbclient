@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -103,10 +103,10 @@ public class c {
                     public final /* synthetic */ boolean a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f33226b;
+                    public final /* synthetic */ Context f32170b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f33227c;
+                    public final /* synthetic */ a f32171c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,8 +124,8 @@ public class c {
                             }
                         }
                         this.a = z;
-                        this.f33226b = context;
-                        this.f33227c = aVar;
+                        this.f32170b = context;
+                        this.f32171c = aVar;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
@@ -134,26 +134,26 @@ public class c {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.a) {
                             return;
                         }
-                        PushSettings.m(this.f33226b);
+                        PushSettings.m(this.f32170b);
                         if (i2 == 0) {
-                            c.b(this.f33226b, this.f33227c);
+                            c.b(this.f32170b, this.f32171c);
                             int unused = c.a = 0;
                             return;
                         }
                         int i3 = 1;
                         if (c.a < 1) {
-                            c.b(this.f33226b, false);
+                            c.b(this.f32170b, false);
                             c.b();
                             return;
                         }
                         int unused2 = c.a = 0;
-                        int o = PushSettings.o(this.f33226b);
+                        int o = PushSettings.o(this.f32170b);
                         if (o >= 3) {
-                            c.b(this.f33226b, this.f33227c);
+                            c.b(this.f32170b, this.f32171c);
                         } else {
                             i3 = 1 + o;
                         }
-                        PushSettings.b(this.f33226b, i3);
+                        PushSettings.b(this.f32170b, i3);
                     }
                 });
             }

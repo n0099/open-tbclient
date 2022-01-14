@@ -40,12 +40,13 @@ public class r {
         return (r) invokeL.objValue;
     }
 
-    public void a() {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             SplashAdFragment splashAdFragment = new SplashAdFragment();
             Bundle bundle = new Bundle();
             bundle.putInt(SplashAdFragment.AT_ACTIVITY_FLAG, 2);
+            bundle.putLong("splash_unique_id", j2);
             splashAdFragment.setArguments(bundle);
             WeakReference<MainTabActivity> weakReference = this.a;
             if (weakReference == null || weakReference.get() == null) {

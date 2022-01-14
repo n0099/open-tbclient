@@ -20,22 +20,22 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f47478e;
+    public f f45716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f47479f;
+    public b f45717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.t0.c2.b> f47480g;
+    public List<c.a.t0.c2.b> f45718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HotSearchInfoData f47481h;
+    public HotSearchInfoData f45719h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c> f47482i;
+    public List<c> f45720i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f47483j;
+    public String f45721j;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -71,30 +71,30 @@ public class HotForumModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.f47479f.onHotForumDataFailed(this.a.f47478e.getString(R.string.neterror));
+                    this.a.f45717f.onHotForumDataFailed(this.a.f45716e.getString(R.string.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    this.a.f47479f.onHotForumDataFailed(this.a.f47478e.getString(R.string.neterror));
+                    this.a.f45717f.onHotForumDataFailed(this.a.f45716e.getString(R.string.neterror));
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
-                        this.a.f47480g = hotForumHttpResponseMessage.getForumInfoList();
-                        this.a.f47482i = hotForumHttpResponseMessage.getTopicInfoList();
-                        this.a.f47481h = hotForumHttpResponseMessage.getHotSearchInfo();
-                        this.a.f47483j = hotForumHttpResponseMessage.getTopicInfoTitle();
-                        this.a.f47479f.onHotForumDataSuccess(this.a.f47480g, this.a.f47482i, this.a.f47481h, this.a.f47483j);
+                        this.a.f45718g = hotForumHttpResponseMessage.getForumInfoList();
+                        this.a.f45720i = hotForumHttpResponseMessage.getTopicInfoList();
+                        this.a.f45719h = hotForumHttpResponseMessage.getHotSearchInfo();
+                        this.a.f45721j = hotForumHttpResponseMessage.getTopicInfoTitle();
+                        this.a.f45717f.onHotForumDataSuccess(this.a.f45718g, this.a.f45720i, this.a.f45719h, this.a.f45721j);
                     }
                     if (z) {
                         HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
-                        this.a.f47480g = hotForumSocketResponseMessage.getForumInfoList();
-                        this.a.f47482i = hotForumSocketResponseMessage.getTopicInfoList();
-                        this.a.f47481h = hotForumSocketResponseMessage.getSearchInfo();
-                        this.a.f47483j = hotForumSocketResponseMessage.getTopicInfoTitle();
-                        this.a.f47479f.onHotForumDataSuccess(this.a.f47480g, this.a.f47482i, this.a.f47481h, this.a.f47483j);
+                        this.a.f45718g = hotForumSocketResponseMessage.getForumInfoList();
+                        this.a.f45720i = hotForumSocketResponseMessage.getTopicInfoList();
+                        this.a.f45719h = hotForumSocketResponseMessage.getSearchInfo();
+                        this.a.f45721j = hotForumSocketResponseMessage.getTopicInfoTitle();
+                        this.a.f45717f.onHotForumDataSuccess(this.a.f45718g, this.a.f45720i, this.a.f45719h, this.a.f45721j);
                     }
                 } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.a.f47479f.onHotForumDataFailed(responsedMessage.getErrorString());
+                    this.a.f45717f.onHotForumDataFailed(responsedMessage.getErrorString());
                 } else {
-                    this.a.f47479f.onHotForumDataFailed(this.a.f47478e.getString(R.string.neterror));
+                    this.a.f45717f.onHotForumDataFailed(this.a.f45716e.getString(R.string.neterror));
                 }
             }
         }
@@ -125,8 +125,8 @@ public class HotForumModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47478e = fVar;
-        this.f47479f = bVar;
+        this.f45716e = fVar;
+        this.f45717f = bVar;
         G();
     }
 

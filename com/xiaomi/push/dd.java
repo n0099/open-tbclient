@@ -51,12 +51,12 @@ public class dd extends al.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo294c() {
+    public void mo306c() {
         al.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.a) == null) {
             return;
         }
-        bVar.mo294c();
+        bVar.mo306c();
     }
 }

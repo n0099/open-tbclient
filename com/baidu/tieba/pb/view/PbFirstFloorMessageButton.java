@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.n.d;
+import c.a.s0.s.j0.n.d;
 import c.a.t0.s2.f;
 import c.a.t0.s2.g;
 import c.a.t0.s2.h;

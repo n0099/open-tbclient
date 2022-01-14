@@ -12,7 +12,7 @@ public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TailData f18100b;
+    public TailData f17660b;
 
     public e(int i2, TailData tailData) {
         Interceptable interceptable = $ic;
@@ -31,6 +31,6 @@ public class e {
         }
         this.a = 0;
         this.a = i2;
-        this.f18100b = tailData;
+        this.f17660b = tailData;
     }
 }

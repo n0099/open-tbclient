@@ -16,7 +16,7 @@ public class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f22579b;
+    public BaseActivity f21961b;
 
     /* loaded from: classes8.dex */
     public class a extends c.a.d.f.l.c<c.a.d.n.d.a> {
@@ -54,7 +54,7 @@ public class g {
                     return;
                 }
                 g gVar2 = this.a;
-                gVar2.e(gVar2.f22579b.getPageContext().getString(R.string.save_fail));
+                gVar2.e(gVar2.f21961b.getPageContext().getString(R.string.save_fail));
             }
         }
     }
@@ -76,7 +76,7 @@ public class g {
         }
         this.a = null;
         this.a = str;
-        this.f22579b = baseActivity;
+        this.f21961b = baseActivity;
     }
 
     public void c() {
@@ -84,11 +84,11 @@ public class g {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 if (this.a == null || this.a.length() <= 0) {
-                    e(this.f22579b.getPageContext().getString(R.string.save_fail));
+                    e(this.f21961b.getPageContext().getString(R.string.save_fail));
                 }
-                c.a.d.f.l.d.h().m(this.a, 10, new a(this), this.f22579b.getUniqueId());
+                c.a.d.f.l.d.h().m(this.a, 10, new a(this), this.f21961b.getUniqueId());
             } catch (Exception unused) {
-                e(this.f22579b.getPageContext().getString(R.string.save_fail));
+                e(this.f21961b.getPageContext().getString(R.string.save_fail));
             }
         }
     }
@@ -97,12 +97,12 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr)) == null) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(str, bArr, this.f22579b.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(str, bArr, this.f21961b.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
-                    return this.f22579b.getPageContext().getString(R.string.save_fail);
+                    return this.f21961b.getPageContext().getString(R.string.save_fail);
                 }
-                return this.f22579b.getPageContext().getString(R.string.save_image_to_album);
+                return this.f21961b.getPageContext().getString(R.string.save_image_to_album);
             }
             return FileHelper.getSdErrorString();
         }
@@ -112,7 +112,7 @@ public class g {
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f22579b.showToast(str);
+            this.f21961b.showToast(str);
         }
     }
 }

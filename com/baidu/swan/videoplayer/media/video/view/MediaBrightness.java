@@ -28,22 +28,22 @@ public final class MediaBrightness extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f41393e;
+    public View f39989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f41394f;
+    public ImageView f39990f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41395g;
+    public TextView f39991g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41396h;
+    public int f39992h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41397i;
+    public int f39993i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f41398j;
+    public float f39994j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MediaBrightness(@NonNull Context context) {
@@ -69,7 +69,7 @@ public final class MediaBrightness extends FrameLayout {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41398j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39994j : invokeV.floatValue;
     }
 
     public float b() {
@@ -85,29 +85,29 @@ public final class MediaBrightness extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(g.swanapp_video_slide_vertical, (ViewGroup) this, true);
-            this.f41393e = inflate;
-            this.f41394f = (ImageView) inflate.findViewById(f.icon_video_slide_vertical);
-            this.f41395g = (TextView) this.f41393e.findViewById(f.label_video_slide_vertical);
+            this.f39989e = inflate;
+            this.f39990f = (ImageView) inflate.findViewById(f.icon_video_slide_vertical);
+            this.f39991g = (TextView) this.f39989e.findViewById(f.label_video_slide_vertical);
             int dimensionPixelSize = getResources().getDimensionPixelSize(d.swanapp_video_brightness_width);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.f41393e.setBackgroundResource(e.swanapp_video_icon_background);
-            this.f41393e.setLayoutParams(layoutParams);
+            this.f39989e.setBackgroundResource(e.swanapp_video_icon_background);
+            this.f39989e.setLayoutParams(layoutParams);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41398j = a.c().a((Activity) getContext());
+            this.f39994j = a.c().a((Activity) getContext());
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f41394f.setImageResource(this.f41397i);
-            this.f41395g.setText(String.format("%d%%", Integer.valueOf(this.f41396h)));
+            this.f39990f.setImageResource(this.f39993i);
+            this.f39991g.setText(String.format("%d%%", Integer.valueOf(this.f39992h)));
             setVisibility(0);
         }
     }
@@ -127,7 +127,7 @@ public final class MediaBrightness extends FrameLayout {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f41397i = i2;
+            this.f39993i = i2;
         }
     }
 
@@ -139,7 +139,7 @@ public final class MediaBrightness extends FrameLayout {
             } else if (i2 > 100) {
                 i2 = 100;
             }
-            this.f41396h = i2;
+            this.f39992h = i2;
         }
     }
 

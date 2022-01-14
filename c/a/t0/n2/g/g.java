@@ -30,25 +30,23 @@ public class g extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ImageFileInfo> f20203e;
+    public List<ImageFileInfo> f19672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedHashMap<String, ImageFileInfo> f20204f;
+    public LinkedHashMap<String, ImageFileInfo> f19673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.d0.b f20205g;
+    public c.a.s0.d0.b f19674g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseFragmentActivity f20206h;
+    public BaseFragmentActivity f19675h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f20207i;
+    public f f19676i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f20208j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f20209k;
+    public int f19677j;
+    public int k;
     public int l;
     public int m;
     public int n;
@@ -61,7 +59,7 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f20210e;
+        public final /* synthetic */ ViewGroup f19678e;
 
         public a(g gVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -78,14 +76,14 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f20210e = viewGroup;
+            this.f19678e = viewGroup;
         }
 
         @Override // c.a.s0.c0.b
         public void imageLoaded(c.a.d.n.d.a aVar, String str, boolean z) {
             HeadImageView headImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (headImageView = (HeadImageView) this.f20210e.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (headImageView = (HeadImageView) this.f19678e.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             headImageView.invalidate();
@@ -99,13 +97,13 @@ public class g extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f20211b;
+        public HeadImageView f19679b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f20212c;
+        public ImageView f19680c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f20213d;
+        public final /* synthetic */ g f19681d;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -113,7 +111,7 @@ public class g extends BaseAdapter {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f20214e;
+            public final /* synthetic */ b f19682e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -130,7 +128,7 @@ public class g extends BaseAdapter {
                         return;
                     }
                 }
-                this.f20214e = bVar;
+                this.f19682e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -138,22 +136,22 @@ public class g extends BaseAdapter {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getTag(view.getId()) != null && (view.getTag(view.getId()) instanceof ImageFileInfo)) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) view.getTag(view.getId());
-                    if (this.f20214e.f20213d.f20204f.containsKey(imageFileInfo.getFilePath())) {
-                        this.f20214e.f20213d.f20204f.remove(imageFileInfo.getFilePath());
-                        SkinManager.setBackgroundResource(this.f20214e.f20212c, R.drawable.ic_post_image_selected_n);
-                        if (this.f20214e.f20213d.f20207i != null) {
-                            this.f20214e.f20213d.f20207i.onUnChoose();
+                    if (this.f19682e.f19681d.f19673f.containsKey(imageFileInfo.getFilePath())) {
+                        this.f19682e.f19681d.f19673f.remove(imageFileInfo.getFilePath());
+                        SkinManager.setBackgroundResource(this.f19682e.f19680c, R.drawable.ic_post_image_selected_n);
+                        if (this.f19682e.f19681d.f19676i != null) {
+                            this.f19682e.f19681d.f19676i.onUnChoose();
                         }
-                    } else if (this.f20214e.f20213d.f20207i != null) {
-                        if (this.f20214e.f20213d.f20207i.canChooseMore()) {
-                            this.f20214e.f20213d.f20204f.put(imageFileInfo.getFilePath(), imageFileInfo);
-                            SkinManager.setBackgroundResource(this.f20214e.f20212c, R.drawable.ic_post_image_selected_s);
-                            this.f20214e.f20213d.f20207i.onChoose();
+                    } else if (this.f19682e.f19681d.f19676i != null) {
+                        if (this.f19682e.f19681d.f19676i.canChooseMore()) {
+                            this.f19682e.f19681d.f19673f.put(imageFileInfo.getFilePath(), imageFileInfo);
+                            SkinManager.setBackgroundResource(this.f19682e.f19680c, R.drawable.ic_post_image_selected_s);
+                            this.f19682e.f19681d.f19676i.onChoose();
                             return;
                         }
-                        Activity pageActivity = this.f20214e.f20213d.f20206h.getPageContext().getPageActivity();
-                        if (!TextUtils.isEmpty(this.f20214e.f20213d.p)) {
-                            BdToast.c(pageActivity, this.f20214e.f20213d.p).q();
+                        Activity pageActivity = this.f19682e.f19681d.f19675h.getPageContext().getPageActivity();
+                        if (!TextUtils.isEmpty(this.f19682e.f19681d.p)) {
+                            BdToast.c(pageActivity, this.f19682e.f19681d.p).q();
                         } else {
                             BdToast.c(pageActivity, pageActivity.getText(R.string.face_group_add_pic_max)).q();
                         }
@@ -177,14 +175,14 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f20213d = gVar;
+            this.f19681d = gVar;
         }
 
         public final void b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20211b = (HeadImageView) view.findViewById(R.id.image);
-                this.f20212c = (ImageView) view.findViewById(R.id.select_icon);
+                this.f19679b = (HeadImageView) view.findViewById(R.id.image);
+                this.f19680c = (ImageView) view.findViewById(R.id.select_icon);
                 view.setOnClickListener(new a(this));
             }
         }
@@ -205,36 +203,36 @@ public class g extends BaseAdapter {
                 return;
             }
         }
-        this.f20206h = baseFragmentActivity;
-        this.f20203e = list;
-        this.f20204f = new LinkedHashMap<>();
-        this.f20208j = (int) baseFragmentActivity.getResources().getDimension(R.dimen.ds220);
-        int k2 = n.k(baseFragmentActivity.getPageContext().getPageActivity());
-        this.f20209k = k2;
-        this.l = (k2 - n.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds16)) / 3;
+        this.f19675h = baseFragmentActivity;
+        this.f19672e = list;
+        this.f19673f = new LinkedHashMap<>();
+        this.f19677j = (int) baseFragmentActivity.getResources().getDimension(R.dimen.ds220);
+        int k = n.k(baseFragmentActivity.getPageContext().getPageActivity());
+        this.k = k;
+        this.l = (k - n.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds16)) / 3;
         int f2 = n.f(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds8) / 3;
         this.m = f2;
         this.n = (f2 * 2) + 1;
-        this.f20205g = new c.a.s0.d0.b();
+        this.f19674g = new c.a.s0.d0.b();
     }
 
     public void e(Map<String, ImageFileInfo> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            this.f20204f.putAll(map);
+            this.f19673f.putAll(map);
         }
     }
 
     public LinkedHashMap<String, ImageFileInfo> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20204f : (LinkedHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19673f : (LinkedHashMap) invokeV.objValue;
     }
 
     public c.a.s0.d0.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20205g : (c.a.s0.d0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19674g : (c.a.s0.d0.b) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -242,7 +240,7 @@ public class g extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ImageFileInfo> list = this.f20203e;
+            List<ImageFileInfo> list = this.f19672e;
             if (list != null) {
                 return list.size();
             }
@@ -289,28 +287,28 @@ public class g extends BaseAdapter {
             } else {
                 bVar.a.setPadding(this.n, paddingTop, 0, 0);
             }
-            bVar.f20211b.getLayoutParams().height = this.l;
-            bVar.f20211b.setTag(null);
-            bVar.f20211b.setRadius(1);
-            bVar.f20211b.setDefaultResource(R.drawable.img_default_100);
-            bVar.f20211b.startLoad(null, 12, false);
-            bVar.f20211b.invalidate();
-            ImageFileInfo imageFileInfo = this.f20203e.get(i2);
+            bVar.f19679b.getLayoutParams().height = this.l;
+            bVar.f19679b.setTag(null);
+            bVar.f19679b.setRadius(1);
+            bVar.f19679b.setDefaultResource(R.drawable.img_default_100);
+            bVar.f19679b.startLoad(null, 12, false);
+            bVar.f19679b.invalidate();
+            ImageFileInfo imageFileInfo = this.f19672e.get(i2);
             if (imageFileInfo != null) {
                 imageFileInfo.clearPageActions();
-                int i5 = this.f20208j;
+                int i5 = this.f19677j;
                 imageFileInfo.addPageAction(c.a.s0.d0.i.d.g(i5, i5));
-                c.a.d.n.d.a c2 = this.f20205g.c(imageFileInfo, false);
-                bVar.f20211b.setTag(imageFileInfo.toCachedKey(false));
+                c.a.d.n.d.a c2 = this.f19674g.c(imageFileInfo, false);
+                bVar.f19679b.setTag(imageFileInfo.toCachedKey(false));
                 if (c2 != null) {
-                    bVar.f20211b.invalidate();
+                    bVar.f19679b.invalidate();
                 } else {
-                    this.f20205g.e(imageFileInfo, new a(this, viewGroup), false, this.o);
+                    this.f19674g.e(imageFileInfo, new a(this, viewGroup), false, this.o);
                 }
-                if (this.f20204f.containsKey(imageFileInfo.getFilePath())) {
-                    SkinManager.setBackgroundResource(bVar.f20212c, R.drawable.ic_post_image_selected_s);
+                if (this.f19673f.containsKey(imageFileInfo.getFilePath())) {
+                    SkinManager.setBackgroundResource(bVar.f19680c, R.drawable.ic_post_image_selected_s);
                 } else {
-                    SkinManager.setBackgroundResource(bVar.f20212c, R.drawable.ic_post_image_selected_n);
+                    SkinManager.setBackgroundResource(bVar.f19680c, R.drawable.ic_post_image_selected_n);
                 }
                 view2.setTag(view2.getId(), imageFileInfo);
             }
@@ -326,11 +324,11 @@ public class g extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<ImageFileInfo> list = this.f20203e;
+            List<ImageFileInfo> list = this.f19672e;
             if (list == null || i2 > list.size() - 1) {
                 return null;
             }
-            return this.f20203e.get(i2);
+            return this.f19672e.get(i2);
         }
         return (ImageFileInfo) invokeI.objValue;
     }
@@ -344,7 +342,7 @@ public class g extends BaseAdapter {
     public void j(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f20207i = fVar;
+            this.f19676i = fVar;
         }
     }
 

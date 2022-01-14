@@ -11,10 +11,10 @@ public class a {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11712b;
+    public long f11447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f11713c;
+    public long f11448c;
 
     public a() {
         Interceptable interceptable = $ic;

@@ -47,7 +47,7 @@ public class d<D, S extends c.a.s0.l0.d.b, H extends a<D, S>> extends c<D, S, H>
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f13191k && e()) {
+            if (this.k && e()) {
                 return -1;
             }
             return super.getItemViewType(i2);
@@ -60,7 +60,7 @@ public class d<D, S extends c.a.s0.l0.d.b, H extends a<D, S>> extends c<D, S, H>
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, view, viewGroup)) == null) {
-            if (this.f13191k && e()) {
+            if (this.k && e()) {
                 return a();
             }
             b();

@@ -33,13 +33,13 @@ public class d extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f14580e;
+        public final /* synthetic */ e f14238e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f14581f;
+        public final /* synthetic */ EditorTools f14239f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f14582g;
+        public final /* synthetic */ d f14240g;
 
         public a(d dVar, e eVar, EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class d extends g {
                     return;
                 }
             }
-            this.f14582g = dVar;
-            this.f14580e = eVar;
-            this.f14581f = editorTools;
+            this.f14240g = dVar;
+            this.f14238e = eVar;
+            this.f14239f = editorTools;
         }
 
         @Override // c.a.s0.x.b
@@ -66,44 +66,44 @@ public class d extends g {
             e eVar;
             int size;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (eVar = this.f14580e) == null || eVar.a() == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (eVar = this.f14238e) == null || eVar.a() == null || aVar == null) {
                 return;
             }
             int i2 = aVar.a;
             if (i2 == 4) {
-                this.f14580e.m0(aVar.f14519c.toString());
+                this.f14238e.m0(aVar.f14180c.toString());
             } else if (i2 == 5) {
-                if (this.f14581f.isToolVisible()) {
+                if (this.f14239f.isToolVisible()) {
                     return;
                 }
-                TiebaStatic.eventStat(this.f14581f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f14239f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i2 == 7) {
-                this.f14580e.getContext().showToast(R.string.over_limit_tip);
+                this.f14238e.getContext().showToast(R.string.over_limit_tip);
             } else if (i2 == 8) {
-                if (this.f14582g.k(this.f14580e.getContext(), 11001)) {
-                    this.f14580e.L(null, null);
+                if (this.f14240g.k(this.f14238e.getContext(), 11001)) {
+                    this.f14238e.L(null, null);
                 }
             } else if (i2 != 14) {
                 if (i2 != 15) {
                     return;
                 }
-                int intValue = ((Integer) aVar.f14519c).intValue();
-                if (this.f14580e.y() != null && this.f14580e.y().getChosedFiles() != null && (size = this.f14580e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f14580e.getContext().getPageActivity(), 12012, this.f14580e.y(), intValue)));
+                int intValue = ((Integer) aVar.f14180c).intValue();
+                if (this.f14238e.y() != null && this.f14238e.y().getChosedFiles() != null && (size = this.f14238e.y().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f14238e.getContext().getPageActivity(), 12012, this.f14238e.y(), intValue)));
                 }
             } else {
-                if (this.f14580e.y() != null) {
-                    this.f14580e.y().setMaxImagesAllowed(1);
+                if (this.f14238e.y() != null) {
+                    this.f14238e.y().setMaxImagesAllowed(1);
                 }
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f14580e.getContext().getPageActivity(), this.f14580e.y().toJsonString(), true, true);
-                if (!StringUtils.isNull(this.f14582g.m(), true)) {
-                    albumActivityConfig.getIntent().putExtra("from", this.f14582g.m());
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f14238e.getContext().getPageActivity(), this.f14238e.y().toJsonString(), true, true);
+                if (!StringUtils.isNull(this.f14240g.m(), true)) {
+                    albumActivityConfig.getIntent().putExtra("from", this.f14240g.m());
                 }
-                if (this.f14582g.l() != null && !StringUtils.isNull(this.f14582g.l().getId(), true)) {
-                    albumActivityConfig.getIntent().putExtra("forum_id", this.f14582g.l().getId());
+                if (this.f14240g.l() != null && !StringUtils.isNull(this.f14240g.l().getId(), true)) {
+                    albumActivityConfig.getIntent().putExtra("forum_id", this.f14240g.l().getId());
                 }
                 albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-                n.w(this.f14580e.getContext().getPageActivity(), this.f14580e.getContext().getPageActivity().getCurrentFocus());
+                n.w(this.f14238e.getContext().getPageActivity(), this.f14238e.getContext().getPageActivity().getCurrentFocus());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         }
@@ -188,7 +188,7 @@ public class d extends g {
             a2.collect(arrayList);
             m findToolById = a2.findToolById(5);
             if (findToolById != null) {
-                findToolById.f14537j = 2;
+                findToolById.f14197j = 2;
                 findToolById.e(false);
             }
             a2.build();

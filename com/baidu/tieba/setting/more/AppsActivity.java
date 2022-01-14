@@ -8,6 +8,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.m.h;
+import c.a.t0.m3.e;
+import c.a.t0.m3.f;
+import c.a.t0.m3.g;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
@@ -17,7 +20,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +47,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f49675e;
+        public final /* synthetic */ AppsActivity f47807e;
 
         public a(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +64,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f49675e = appsActivity;
+            this.f47807e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49675e.refresh();
+                this.f47807e.refresh();
             }
         }
     }
@@ -80,7 +82,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f49676e;
+        public final /* synthetic */ AppsActivity f47808e;
 
         public b(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -97,14 +99,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f49676e = appsActivity;
+            this.f47808e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49676e.refresh();
+                this.f47808e.refresh();
             }
         }
     }
@@ -115,7 +117,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f49677e;
+        public final /* synthetic */ AppsActivity f47809e;
 
         public c(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -132,14 +134,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f49677e = appsActivity;
+            this.f47809e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49677e.finish();
+                this.f47809e.finish();
             }
         }
     }
@@ -151,10 +153,10 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49678b;
+        public String f47810b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f49679c;
+        public final /* synthetic */ AppsActivity f47811c;
 
         /* loaded from: classes12.dex */
         public class a implements Runnable {
@@ -162,7 +164,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f49680e;
+            public final /* synthetic */ String f47812e;
 
             public a(d dVar, String str) {
                 Interceptable interceptable = $ic;
@@ -179,14 +181,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                         return;
                     }
                 }
-                this.f49680e = str;
+                this.f47812e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    TbadkCoreApplication.getInst().cashNoAccountData(this.f49680e, 7);
+                    TbadkCoreApplication.getInst().cashNoAccountData(this.f47812e, 7);
                 }
             }
         }
@@ -206,10 +208,10 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f49679c = appsActivity;
+            this.f47811c = appsActivity;
             this.a = null;
-            this.f49678b = null;
-            this.f49678b = str;
+            this.f47810b = null;
+            this.f47810b = str;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -220,8 +222,8 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f49679c.mProcess.setVisibility(8);
-                this.f49679c.mTask = null;
+                this.f47811c.mProcess.setVisibility(8);
+                this.f47811c.mTask = null;
                 super.cancel(true);
             }
         }
@@ -230,9 +232,9 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f49679c.mProcess.setVisibility(0);
-                this.f49679c.mFailView.setVisibility(8);
-                this.f49679c.mWebView.setVisibility(0);
+                this.f47811c.mProcess.setVisibility(0);
+                this.f47811c.mFailView.setVisibility(8);
+                this.f47811c.mWebView.setVisibility(0);
             }
         }
 
@@ -242,7 +244,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
-                String str = this.f49678b;
+                String str = this.f47810b;
                 if (str == null) {
                     return null;
                 }
@@ -260,22 +262,22 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f49679c.mProcess.setVisibility(8);
+                this.f47811c.mProcess.setVisibility(8);
                 NetWork netWork = this.a;
                 if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
-                    if (!this.f49679c.loadCacheData() && str == null) {
-                        this.f49679c.mWebView.setVisibility(8);
-                        this.f49679c.mFailView.setVisibility(0);
-                        AppsActivity appsActivity = this.f49679c;
-                        appsActivity.showToast(appsActivity.getPageContext().getString(R.string.neterror));
+                    if (!this.f47811c.loadCacheData() && str == null) {
+                        this.f47811c.mWebView.setVisibility(8);
+                        this.f47811c.mFailView.setVisibility(0);
+                        AppsActivity appsActivity = this.f47811c;
+                        appsActivity.showToast(appsActivity.getPageContext().getString(g.neterror));
                         return;
                     }
-                    this.f49679c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.f49679c.getPageContext().getString(R.string.server_404), SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                    this.f47811c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.f47811c.getPageContext().getString(g.server_404), SapiWebView.DATA_MIME_TYPE, "utf-8", "");
                     return;
                 }
                 h.a().b(new a(this, str));
-                c.a.s0.s.g0.b.j().w("app_inverval", System.currentTimeMillis());
-                this.f49679c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                c.a.s0.s.h0.b.k().x("app_inverval", System.currentTimeMillis());
+                this.f47811c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
             }
         }
     }
@@ -313,7 +315,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             } else {
                 this.mUrl = getIntent().getStringExtra("url");
             }
-            if (System.currentTimeMillis() - c.a.s0.s.g0.b.j().l("app_inverval", 0L) > 86400000) {
+            if (System.currentTimeMillis() - c.a.s0.s.h0.b.k().m("app_inverval", 0L) > 86400000) {
                 refresh();
             } else if (loadCacheData()) {
             } else {
@@ -325,20 +327,20 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     private void InitUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mParent = (RelativeLayout) findViewById(R.id.parent);
-            this.mTitle = (RelativeLayout) findViewById(R.id.title);
-            this.mTitleText = (TextView) findViewById(R.id.title_text);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.app_webView);
+            this.mParent = (RelativeLayout) findViewById(e.parent);
+            this.mTitle = (RelativeLayout) findViewById(e.title);
+            this.mTitleText = (TextView) findViewById(e.title_text);
+            BaseWebView baseWebView = (BaseWebView) findViewById(e.app_webView);
             this.mWebView = baseWebView;
             baseWebView.setDownloadEnabled(true);
-            this.mProcess = (ProgressBar) findViewById(R.id.app_progress);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.webview_fail_imageview);
+            this.mProcess = (ProgressBar) findViewById(e.app_progress);
+            LinearLayout linearLayout = (LinearLayout) findViewById(e.webview_fail_imageview);
             this.mFailView = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            ImageView imageView = (ImageView) findViewById(R.id.refresh);
+            ImageView imageView = (ImageView) findViewById(e.refresh);
             this.mRefresh = imageView;
             imageView.setOnClickListener(new b(this));
-            ImageView imageView2 = (ImageView) findViewById(R.id.back);
+            ImageView imageView2 = (ImageView) findViewById(e.back);
             this.mBack = imageView2;
             imageView2.setOnClickListener(new c(this));
         }
@@ -394,7 +396,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.app_activity);
+            setContentView(f.app_activity);
             InitUI();
             InitData(bundle);
         }

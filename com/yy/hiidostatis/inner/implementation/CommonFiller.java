@@ -106,7 +106,7 @@ public class CommonFiller {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, baseStatisContent, str, str2)) == null) {
             fillKey(baseStatisContent, str);
             baseStatisContent.put("imei", getIMEI(context));
-            baseStatisContent.put(BaseStatisContent.MAC, getMacAddr(context));
+            baseStatisContent.put("mac", getMacAddr(context));
             baseStatisContent.put("net", ArdUtil.getNetworkTypeNew(context));
             baseStatisContent.put("act", str);
             baseStatisContent.put(BaseStatisContent.SDKVER, str2);

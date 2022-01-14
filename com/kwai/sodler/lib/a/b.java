@@ -14,25 +14,25 @@ public class b implements Comparable<b> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60664b;
+    public String f58368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60665c;
+    public String f58369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60666d;
+    public long f58370d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f60667e;
+    public boolean f58371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60668f;
+    public String f58372f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60669g;
+    public boolean f58373g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, String> f60670h;
+    public HashMap<String, String> f58374h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class b implements Comparable<b> {
                 return;
             }
         }
-        this.f60669g = false;
-        this.f60670h = new HashMap<>(10);
+        this.f58373g = false;
+        this.f58374h = new HashMap<>(10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,6 +57,6 @@ public class b implements Comparable<b> {
     public int compareTo(@NonNull b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f60664b.compareTo(bVar.f60664b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f58368b.compareTo(bVar.f58368b) : invokeL.intValue;
     }
 }

@@ -37,7 +37,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
@@ -401,44 +400,29 @@ public class SkinManager {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0034 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0035 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static int getDarkResourceId(Resources resources, int i2) {
         InterceptResult invokeLI;
         String str;
-        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65564, null, resources, i2)) != null) {
-            return invokeLI.intValue;
-        }
-        if (mPluginRes == null) {
-            mPluginRes = resources;
-        }
-        if (TbSingleton.mIsAbNightModeColor) {
-            str = resources.getResourceName(i2);
-            try {
-                if (!TextUtils.isEmpty(str) && str.startsWith(TYPE_COLOR)) {
-                    i2 = EMABTest.getIdByABTest(i2, "color");
-                }
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, resources, i2)) == null) {
+            if (mPluginRes == null) {
+                mPluginRes = resources;
             }
-            i3 = sDarkResourceIdMap.get(i2, -1);
-            if (i3 == -1) {
+            int i3 = sDarkResourceIdMap.get(i2, -1);
+            if (i3 != -1) {
                 return i3;
             }
             try {
                 str = resources.getResourceName(i2);
-            } catch (Exception unused2) {
+            } catch (Exception unused) {
+                str = null;
             }
             if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && mPluginRes != null) {
                 if (StringUtils.isNull(sPackagename)) {
                     sPackagename = BdBaseApplication.getInst().getPackageName();
                 }
-                Resources resources2 = mPluginRes;
-                i3 = resources2.getIdentifier((sPackagename + str.substring(str.indexOf(":"))) + darkSuffix, null, null);
+                String str2 = sPackagename + str.substring(str.indexOf(":"));
+                i3 = mPluginRes.getIdentifier(str2 + darkSuffix, null, null);
             }
             if (i3 <= 0) {
                 i3 = getNightResouceId(resources, i2);
@@ -446,10 +430,7 @@ public class SkinManager {
             sDarkResourceIdMap.put(i2, i3);
             return i3;
         }
-        str = null;
-        i3 = sDarkResourceIdMap.get(i2, -1);
-        if (i3 == -1) {
-        }
+        return invokeLI.intValue;
     }
 
     public static Drawable getDrawable(int i2, Resources resources, int i3) {
@@ -509,52 +490,34 @@ public class SkinManager {
         return invokeI.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0034 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0035 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static int getNightResouceId(Resources resources, int i2) {
         InterceptResult invokeLI;
         String str;
-        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65571, null, resources, i2)) != null) {
-            return invokeLI.intValue;
-        }
-        if (mPluginRes == null) {
-            mPluginRes = resources;
-        }
-        if (TbSingleton.mIsAbNightModeColor) {
-            str = resources.getResourceName(i2);
-            try {
-                if (!TextUtils.isEmpty(str) && str.startsWith(TYPE_COLOR)) {
-                    i2 = EMABTest.getIdByABTest(i2, "color");
-                }
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65571, null, resources, i2)) == null) {
+            if (mPluginRes == null) {
+                mPluginRes = resources;
             }
-            i3 = sNightResourceIdMap.get(i2, -1);
-            if (i3 == -1) {
+            int i3 = sNightResourceIdMap.get(i2, -1);
+            if (i3 != -1) {
                 return i3;
             }
             try {
                 str = resources.getResourceName(i2);
-            } catch (Exception unused2) {
+            } catch (Exception unused) {
+                str = null;
             }
             if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && mPluginRes != null) {
                 if (StringUtils.isNull(sPackagename)) {
                     sPackagename = BdBaseApplication.getInst().getPackageName();
                 }
-                String str2 = sPackagename + str.substring(str.indexOf(":"));
-                i3 = mPluginRes.getIdentifier(str2 + nightSufix, null, null);
+                Resources resources2 = mPluginRes;
+                i3 = resources2.getIdentifier((sPackagename + str.substring(str.indexOf(":"))) + nightSufix, null, null);
             }
             sNightResourceIdMap.put(i2, i3);
             return i3;
         }
-        str = null;
-        i3 = sNightResourceIdMap.get(i2, -1);
-        if (i3 == -1) {
-        }
+        return invokeLI.intValue;
     }
 
     public static String getPackageName() {
@@ -860,7 +823,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65598, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean isCurrentSystemDarkMode = isCurrentSystemDarkMode();
-            Activity b2 = b.g().b();
+            Activity b2 = b.f().b();
             if (b2 == null) {
                 return;
             }
@@ -874,12 +837,12 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (c.a.s0.s.g0.b.j().g("key_is_dark_mode_notify_shown", false)) {
-                boolean g2 = c.a.s0.s.g0.b.j().g("key_is_follow_system_mode", false);
+            } else if (c.a.s0.s.h0.b.k().h("key_is_dark_mode_notify_shown", false)) {
+                boolean h2 = c.a.s0.s.h0.b.k().h("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b2);
                 }
-                int i2 = g2 ? 4 : 0;
+                int i2 = h2 ? 4 : 0;
                 if (z2) {
                     TbadkCoreApplication.getInst().setSkinTypeValue(i2);
                     TbadkCoreApplication.getInst().SendSkinTypeBroadcast(i2);
@@ -887,8 +850,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i2);
             } else {
-                c.a.s0.s.g0.b.j().t("key_is_dark_mode_notify_shown", true);
-                c.a.s0.s.g0.b.j().t("key_is_follow_system_mode", true);
+                c.a.s0.s.h0.b.k().u("key_is_dark_mode_notify_shown", true);
+                c.a.s0.s.h0.b.k().u("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -967,7 +930,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            n.L(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
+            n.M(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
         } catch (Throwable th) {
             BdLog.e(th);
         }

@@ -44,12 +44,12 @@ public class a {
 
     /* renamed from: c.a.r0.a.w1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0599a implements a.InterfaceC0583a {
+    public static class C0608a implements a.InterfaceC0592a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.w1.g.c a;
 
-        public C0599a(c.a.r0.a.w1.g.c cVar) {
+        public C0608a(c.a.r0.a.w1.g.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
             this.a = cVar;
         }
 
-        @Override // c.a.r0.a.u.f.b.g.a.InterfaceC0583a
+        @Override // c.a.r0.a.u.f.b.g.a.InterfaceC0592a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -82,7 +82,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.w1.g.c f9719e;
+        public final /* synthetic */ c.a.r0.a.w1.g.c f9508e;
 
         public b(c.a.r0.a.w1.g.c cVar) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class a {
                     return;
                 }
             }
-            this.f9719e = cVar;
+            this.f9508e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.c(this.f9719e);
+                a.c(this.f9508e);
             }
         }
     }
@@ -167,10 +167,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, cVar) == null) {
             if (cVar != null && cVar.a()) {
-                String str = cVar.f9757e;
-                String str2 = cVar.f9758f;
-                long j2 = cVar.f9759g;
-                c.a.r0.q.b.g(new e(str, str2, j2, cVar.f9760h), new c.a.r0.a.w1.b.a(str, str2, j2, new c(str)));
+                String str = cVar.f9545e;
+                String str2 = cVar.f9546f;
+                long j2 = cVar.f9547g;
+                c.a.r0.q.b.g(new e(str, str2, j2, cVar.f9548h), new c.a.r0.a.w1.b.a(str, str2, j2, new c(str)));
                 return;
             }
             c.a.r0.a.w1.e.a.b("plugin is invalid");
@@ -219,17 +219,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j2)) == null) {
             SwanAppConfigData b2 = c.a.r0.a.f1.c.a.b(d.v(str, String.valueOf(j2), false, null, null));
-            if (b2 == null || (dVar = b2.f40712k) == null || (list = dVar.a) == null || list.isEmpty()) {
+            if (b2 == null || (dVar = b2.k) == null || (list = dVar.a) == null || list.isEmpty()) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (c.a.r0.a.w1.g.a aVar : b2.f40712k.a) {
+            for (c.a.r0.a.w1.g.a aVar : b2.k.a) {
                 c.a.r0.q.i.a aVar2 = new c.a.r0.q.i.a();
-                aVar2.a = aVar.f9757e;
-                aVar2.f11747b = aVar.f9756k;
-                aVar2.f11748c = aVar.f9759g;
-                aVar2.f11750e = aVar.m;
-                aVar2.f11749d = aVar.l;
+                aVar2.a = aVar.f9545e;
+                aVar2.f11480b = aVar.k;
+                aVar2.f11481c = aVar.f9547g;
+                aVar2.f11483e = aVar.m;
+                aVar2.f11482d = aVar.l;
                 arrayList.add(aVar2);
             }
             return arrayList;
@@ -307,8 +307,8 @@ public class a {
             if (iVar == null) {
                 return null;
             }
-            File t = d.t(iVar.f11761g, String.valueOf(iVar.f11763i));
-            return (t == null || !t.exists()) ? d.t(iVar.f11761g, String.valueOf(l0.c(iVar.f11764j))) : t;
+            File t = d.t(iVar.f11494g, String.valueOf(iVar.f11496i));
+            return (t == null || !t.exists()) ? d.t(iVar.f11494g, String.valueOf(l0.c(iVar.f11497j))) : t;
         }
         return (File) invokeL.objValue;
     }
@@ -356,7 +356,7 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public static Set<a.C0787a> i(PMSAppInfo pMSAppInfo) {
+    public static Set<a.C0796a> i(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pMSAppInfo)) == null) {
@@ -368,7 +368,7 @@ public class a {
         return (Set) invokeL.objValue;
     }
 
-    public static Set<a.C0787a> j(String str, long j2) {
+    public static Set<a.C0796a> j(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, str, j2)) == null) {
@@ -379,10 +379,10 @@ public class a {
             HashSet hashSet = new HashSet();
             ArrayList arrayList = new ArrayList();
             for (c.a.r0.q.i.a aVar : l) {
-                if (!aVar.f11747b && c.a.r0.q.p.e.b(aVar.a, aVar.f11749d, aVar.f11750e, arrayList) == null) {
-                    a.C0787a c0787a = new a.C0787a(aVar.a);
-                    c0787a.f(aVar.f11749d, aVar.f11750e);
-                    hashSet.add(c0787a);
+                if (!aVar.f11480b && c.a.r0.q.p.e.b(aVar.a, aVar.f11482d, aVar.f11483e, arrayList) == null) {
+                    a.C0796a c0796a = new a.C0796a(aVar.a);
+                    c0796a.f(aVar.f11482d, aVar.f11483e);
+                    hashSet.add(c0796a);
                 }
             }
             if (!arrayList.isEmpty()) {
@@ -440,7 +440,7 @@ public class a {
                     Iterator<c.a.r0.a.w1.g.c> it = i2.iterator();
                     while (it.hasNext()) {
                         c.a.r0.a.w1.g.c next = it.next();
-                        Pair<Boolean, File> i3 = c.a.r0.a.p0.f.c.i(next.f9757e);
+                        Pair<Boolean, File> i3 = c.a.r0.a.p0.f.c.i(next.f9545e);
                         if (((Boolean) i3.first).booleanValue()) {
                             c.a.r0.a.e0.d.k("SwanDynamicUtil", "优先使用 Debug 动态库: " + ((File) i3.second).getAbsolutePath());
                             o(jSONObject, jSONObject2, (File) i3.second, next, -1L);
@@ -493,22 +493,22 @@ public class a {
                 z3 = true;
                 boolean z5 = false;
                 for (i iVar : w) {
-                    if (cVar2.f9757e.equals(iVar.f11761g)) {
-                        c.a.r0.a.w1.e.a.b("pluginName = " + cVar2.f9757e + " latestPlugin versionCode = " + iVar.f11763i + " cur model versionCode = " + cVar2.f9759g);
-                        long j5 = cVar2.f9759g;
+                    if (cVar2.f9545e.equals(iVar.f11494g)) {
+                        c.a.r0.a.w1.e.a.b("pluginName = " + cVar2.f9545e + " latestPlugin versionCode = " + iVar.f11496i + " cur model versionCode = " + cVar2.f9547g);
+                        long j5 = cVar2.f9547g;
                         if (j5 >= j4) {
-                            c2 = iVar.f11763i;
+                            c2 = iVar.f11496i;
                         } else {
-                            c2 = l0.c(iVar.f11764j);
-                            j5 = l0.c(cVar2.f9758f);
+                            c2 = l0.c(iVar.f11497j);
+                            j5 = l0.c(cVar2.f9546f);
                         }
                         if (c2 > j5) {
                             file2 = g(iVar);
                             z5 = true;
                         }
                         if (z5) {
-                            cVar.f9758f = iVar.f11764j;
-                            cVar.f9759g = iVar.f11763i;
+                            cVar.f9546f = iVar.f11497j;
+                            cVar.f9547g = iVar.f11496i;
                         }
                         if (!iVar.c()) {
                             c.a.r0.a.w1.e.a.b("plugin is new, not yet expired");
@@ -530,9 +530,9 @@ public class a {
             if (z2) {
                 j3 = j2;
             } else {
-                long j6 = cVar2.f9759g;
+                long j6 = cVar2.f9547g;
                 if (j6 < 0) {
-                    j6 = l0.c(cVar2.f9758f);
+                    j6 = l0.c(cVar2.f9546f);
                 }
                 j3 = j6;
             }
@@ -552,20 +552,20 @@ public class a {
         if (file != null && file.exists()) {
             str = file.getAbsolutePath();
             if (a) {
-                c.a.r0.a.w1.e.a.b("apply path in workspace, name = " + cVar.f9757e);
+                c.a.r0.a.w1.e.a.b("apply path in workspace, name = " + cVar.f9545e);
             }
         } else {
-            str = cVar.f9761i;
+            str = cVar.f9549i;
             if (a) {
-                c.a.r0.a.w1.e.a.b("apply path inner swan app, name = " + cVar.f9757e);
+                c.a.r0.a.w1.e.a.b("apply path inner swan app, name = " + cVar.f9545e);
             }
         }
         try {
-            jSONObject.put(cVar.f9757e, str);
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(cVar.f9762j)) {
+            jSONObject.put(cVar.f9545e, str);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(cVar.f9550j)) {
                 return;
             }
-            File file2 = new File(str, cVar.f9762j);
+            File file2 = new File(str, cVar.f9550j);
             if (file2.exists()) {
                 String E = c.a.r0.w.d.E(file2);
                 if (a) {
@@ -574,7 +574,7 @@ public class a {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, new JSONObject(E));
                 jSONObject3.put(PushManager.APP_VERSION_CODE, j2);
-                jSONObject2.put(cVar.f9757e, jSONObject3);
+                jSONObject2.put(cVar.f9545e, jSONObject3);
             }
         } catch (JSONException e2) {
             if (a) {
@@ -634,7 +634,7 @@ public class a {
     public static void s(c.a.r0.a.w1.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, cVar) == null) {
-            c.a.r0.a.u.f.a.d().c(new c.a.r0.a.u.f.b.g.a(new C0599a(cVar)));
+            c.a.r0.a.u.f.a.d().c(new c.a.r0.a.u.f.b.g.a(new C0608a(cVar)));
         }
     }
 }

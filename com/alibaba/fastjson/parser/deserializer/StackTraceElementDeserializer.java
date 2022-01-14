@@ -52,7 +52,7 @@ public class StackTraceElementDeserializer implements ObjectDeserializer {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x01d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x01d7, code lost:
         return (T) new java.lang.StackTraceElement(r5, r7, r8, r9);
      */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer

@@ -44,31 +44,29 @@ public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f57356c = -1;
+    public static final int f55183c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f57357d = -2;
+    public static final int f55184d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f57358e = -3;
+    public static final int f55185e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f57359f = 4;
+    public static final int f55186f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f57360g = 5;
+    public static final int f55187g = 5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f57361h = 6;
+    public static final int f55188h = 6;
 
     /* renamed from: i  reason: collision with root package name */
-    public static o f57362i;
+    public static o f55189i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Application f57363j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static Random f57364k;
+    public static Application f55190j;
+    public static Random k;
     public static Map<String, p> l;
     public static Map<String, p> m;
     public static Map<String, WeaponRECE> n;
@@ -77,7 +75,7 @@ public class o {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57365b;
+    public String f55191b;
 
     static {
         InterceptResult invokeClinit;
@@ -92,7 +90,7 @@ public class o {
                 return;
             }
         }
-        f57364k = new Random();
+        k = new Random();
         l = new ConcurrentHashMap();
         m = new ConcurrentHashMap();
         n = new HashMap();
@@ -134,13 +132,13 @@ public class o {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, context, z)) == null) {
-            if (f57362i == null) {
+            if (f55189i == null) {
                 if (context.getApplicationContext() instanceof Application) {
-                    f57363j = (Application) context.getApplicationContext();
+                    f55190j = (Application) context.getApplicationContext();
                 }
-                f57362i = new o();
+                f55189i = new o();
             }
-            return f57362i;
+            return f55189i;
         }
         return (o) invokeLZ.objValue;
     }
@@ -277,7 +275,7 @@ public class o {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{pVar, str, str2, hashSet, bArr, sb, Boolean.valueOf(z)}) == null) {
-            ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(pVar.f57370e));
+            ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(pVar.f55196e));
             FileOutputStream fileOutputStream2 = null;
             while (true) {
                 try {
@@ -326,7 +324,7 @@ public class o {
                     if (name.endsWith(".dex") && !nextEntry.isDirectory() && z) {
                         String str5 = pVar.m;
                         g(str5);
-                        File file2 = new File(str5, pVar.a + "-" + pVar.f57369d + ".dex");
+                        File file2 = new File(str5, pVar.a + "-" + pVar.f55195d + ".dex");
                         try {
                             file2.delete();
                             file2.createNewFile();
@@ -552,23 +550,23 @@ public class o {
         r20 = "";
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x007e, code lost:
-        r7 = r28.f57371f.getFilesDir();
-        r11 = com.kuaishou.weapon.un.r1.f57416j;
-        r0 = new java.io.File(r7, com.kuaishou.weapon.un.r1.f57416j);
+        r7 = r28.f55197f.getFilesDir();
+        r11 = com.kuaishou.weapon.un.r1.f55240j;
+        r0 = new java.io.File(r7, com.kuaishou.weapon.un.r1.f55240j);
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x008d, code lost:
         if (r0.exists() != false) goto L338;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x008f, code lost:
-        r7 = new java.io.File(r0, r28.a + "-" + r28.f57369d);
+        r7 = new java.io.File(r0, r28.a + "-" + r28.f55195d);
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00b0, code lost:
         if (r7.exists() != false) goto L340;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x00b2, code lost:
-        r0 = new java.io.File(r28.f57370e);
+        r0 = new java.io.File(r28.f55196e);
         com.kuaishou.weapon.un.l1.a(r7, r0);
-        com.kuaishou.weapon.un.l1.a(r28.f57370e, java.lang.Boolean.TRUE);
+        com.kuaishou.weapon.un.l1.a(r28.f55196e, java.lang.Boolean.TRUE);
         com.kuaishou.weapon.un.b.a(r0);
         com.kuaishou.weapon.un.b.a(r0, r7);
      */
@@ -576,7 +574,7 @@ public class o {
         if (r0.exists() != false) goto L344;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x00cf, code lost:
-        r0 = new java.util.zip.ZipFile(r28.f57370e);
+        r0 = new java.util.zip.ZipFile(r28.f55196e);
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:168:0x02ec  */
@@ -678,7 +676,7 @@ public class o {
         if (interceptable != null && interceptable.invokeCommon(65542, this, new Object[]{pVar, str, str2, Boolean.valueOf(z)}) != null) {
             return;
         }
-        InputStream inputStream9 = r1.f57412f;
+        InputStream inputStream9 = r1.f55236f;
         String str13 = ".so";
         String str14 = "-";
         hashSet = new HashSet<>();
@@ -689,7 +687,7 @@ public class o {
                         File file2 = new File(pVar.n);
                         if (file2.exists() && file2.isFile()) {
                             z2 = false;
-                            String replace = TextUtils.isEmpty(pVar.f57369d) ? pVar.f57369d.replace(".", "") : "";
+                            String replace = TextUtils.isEmpty(pVar.f55195d) ? pVar.f55195d.replace(".", "") : "";
                             sb = new StringBuilder();
                             if (!z2) {
                                 sb.append(pVar.n);
@@ -700,7 +698,7 @@ public class o {
                             inputStream = null;
                             str8 = null;
                             str8 = null;
-                            ZipFile zipFile4 = new ZipFile(pVar.f57370e);
+                            ZipFile zipFile4 = new ZipFile(pVar.f55196e);
                             String str15 = "";
                             zipFile2 = zipFile4;
                             entries = zipFile2.entries();
@@ -1029,7 +1027,7 @@ public class o {
                                                 String str17 = str10;
                                                 try {
                                                     sb11.append(str17);
-                                                    sb11.append(pVar.f57369d);
+                                                    sb11.append(pVar.f55195d);
                                                     sb11.append(".dex");
                                                     file = new File(str16, sb11.toString());
                                                     try {
@@ -1234,7 +1232,7 @@ public class o {
                     th = th9;
                     fileOutputStream = null;
                 }
-                ZipFile zipFile42 = new ZipFile(pVar.f57370e);
+                ZipFile zipFile42 = new ZipFile(pVar.f55196e);
                 String str152 = "";
                 zipFile2 = zipFile42;
             } catch (Throwable th10) {
@@ -1258,7 +1256,7 @@ public class o {
             zipFile2 = zipFile3;
         }
         z2 = true;
-        if (TextUtils.isEmpty(pVar.f57369d)) {
+        if (TextUtils.isEmpty(pVar.f55195d)) {
         }
         sb = new StringBuilder();
         if (!z2) {
@@ -1273,7 +1271,7 @@ public class o {
         if (TextUtils.isEmpty(str4) && (("armeabi-v7a".equals(Build.CPU_ABI) && hashSet.contains("armeabi")) || (Build.VERSION.SDK_INT >= 8 && "armeabi-v7a".equals(Build.CPU_ABI2) && hashSet.contains("armeabi")))) {
             str4 = str + "/armeabi:" + System.getProperty("java.library.path");
         }
-        pVar.f57373h = str4;
+        pVar.f55199h = str4;
         pVar.n = sb2.toString();
         try {
             str5 = str2;
@@ -1284,17 +1282,17 @@ public class o {
             String absolutePath = new File(str5, "apkDex").getAbsolutePath();
             l1.b(absolutePath);
             g(absolutePath);
-            pVar.f57372g = new q(sb2.toString(), absolutePath, str4, getClass().getClassLoader());
+            pVar.f55198g = new q(sb2.toString(), absolutePath, str4, getClass().getClassLoader());
             StringBuilder sb13 = new StringBuilder();
-            sb13.append(pVar.f57368c);
-            str6 = r1.f57412f;
+            sb13.append(pVar.f55194c);
+            str6 = r1.f55236f;
         } catch (Throwable unused28) {
-            str6 = r1.f57412f;
+            str6 = r1.f55236f;
             String absolutePath2 = new File(str5, "dexDex").getAbsolutePath();
             l1.b(absolutePath2);
             g(absolutePath2);
-            pVar.f57372g = new q(pVar.f57370e, absolutePath2, str4, getClass().getClassLoader());
-            loadClass = pVar.f57372g.loadClass(pVar.f57368c + str6);
+            pVar.f55198g = new q(pVar.f55196e, absolutePath2, str4, getClass().getClassLoader());
+            loadClass = pVar.f55198g.loadClass(pVar.f55194c + str6);
             if (loadClass != null || TextUtils.isEmpty(loadClass.getName())) {
                 throw new Exception("class Weapon ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
             }
@@ -1302,7 +1300,7 @@ public class o {
         }
         try {
             sb13.append(str6);
-            loadClass2 = pVar.f57372g.loadClass(sb13.toString());
+            loadClass2 = pVar.f55198g.loadClass(sb13.toString());
             if (loadClass2 != null || TextUtils.isEmpty(loadClass2.getName())) {
                 throw new Exception("class W_ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
             }
@@ -1311,8 +1309,8 @@ public class o {
             String absolutePath22 = new File(str5, "dexDex").getAbsolutePath();
             l1.b(absolutePath22);
             g(absolutePath22);
-            pVar.f57372g = new q(pVar.f57370e, absolutePath22, str4, getClass().getClassLoader());
-            loadClass = pVar.f57372g.loadClass(pVar.f57368c + str6);
+            pVar.f55198g = new q(pVar.f55196e, absolutePath22, str4, getClass().getClassLoader());
+            loadClass = pVar.f55198g.loadClass(pVar.f55194c + str6);
             if (loadClass != null) {
             }
             throw new Exception("class Weapon ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
@@ -1326,18 +1324,18 @@ public class o {
         if (TextUtils.isEmpty(str4)) {
             str4 = str + "/armeabi:" + System.getProperty("java.library.path");
         }
-        pVar.f57373h = str4;
+        pVar.f55199h = str4;
         pVar.n = sb2.toString();
         str5 = str2;
         String absolutePath3 = new File(str5, "apkDex").getAbsolutePath();
         l1.b(absolutePath3);
         g(absolutePath3);
-        pVar.f57372g = new q(sb2.toString(), absolutePath3, str4, getClass().getClassLoader());
+        pVar.f55198g = new q(sb2.toString(), absolutePath3, str4, getClass().getClassLoader());
         StringBuilder sb132 = new StringBuilder();
-        sb132.append(pVar.f57368c);
-        str6 = r1.f57412f;
+        sb132.append(pVar.f55194c);
+        str6 = r1.f55236f;
         sb132.append(str6);
-        loadClass2 = pVar.f57372g.loadClass(sb132.toString());
+        loadClass2 = pVar.f55198g.loadClass(sb132.toString());
         if (loadClass2 != null) {
         }
         throw new Exception("class W_ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
@@ -1349,62 +1347,62 @@ public class o {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, pVar)) == null) {
             synchronized (this) {
                 if (pVar != null) {
-                    if (!TextUtils.isEmpty(pVar.f57370e)) {
-                        p pVar2 = l.get(pVar.f57370e);
+                    if (!TextUtils.isEmpty(pVar.f55196e)) {
+                        p pVar2 = l.get(pVar.f55196e);
                         if (pVar2 != null) {
-                            if (pVar2.f57369d.equals(pVar.f57369d)) {
+                            if (pVar2.f55195d.equals(pVar.f55195d)) {
                                 return true;
                             }
-                            f(pVar2.f57370e);
+                            f(pVar2.f55196e);
                         }
                         try {
-                            pVar.f57371f = f57363j;
+                            pVar.f55197f = f55190j;
                             if (pVar.p == 1) {
-                                if (TextUtils.isEmpty(pVar.f57368c) || TextUtils.isEmpty(pVar.f57370e)) {
+                                if (TextUtils.isEmpty(pVar.f55194c) || TextUtils.isEmpty(pVar.f55196e)) {
                                     throw new RuntimeException("apkPackageName or apkPkgPath is null");
                                 }
-                                pVar.m = f57363j.getFilesDir().getCanonicalPath() + r1.f57417k + pVar.a;
+                                pVar.m = f55190j.getFilesDir().getCanonicalPath() + r1.k + pVar.a;
                                 String str = pVar.m + "/dex";
-                                String str2 = (pVar.m + "/lib/" + this.f57365b) + "/" + f57364k.nextInt();
+                                String str2 = (pVar.m + "/lib/" + this.f55191b) + "/" + k.nextInt();
                                 g(str);
                                 l1.a(str, Boolean.FALSE);
                                 g(str2);
                                 a(pVar, str2, str, false);
-                                m.put(pVar.f57368c, pVar);
-                                l.put(pVar.f57370e, pVar);
+                                m.put(pVar.f55194c, pVar);
+                                l.put(pVar.f55196e, pVar);
                                 a(pVar, pVar.o);
                             }
                             if (pVar.p != 1 || 0 != 0) {
                                 PackageInfo packageInfo = pVar.s;
                                 if (packageInfo == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) {
-                                    packageInfo = f57363j.getPackageManager().getPackageArchiveInfo(pVar.f57370e, 1);
+                                    packageInfo = f55190j.getPackageManager().getPackageArchiveInfo(pVar.f55196e, 1);
                                 }
                                 if (TextUtils.isEmpty(packageInfo.packageName) || !packageInfo.packageName.startsWith("com.kuaishou.weapon")) {
                                     throw new Exception("weapon package name check failed");
                                 }
-                                if (pVar.p != 1 && pVar.f57367b != 1 && !((Boolean) a(pVar.f57375j, pVar.f57370e).first).booleanValue()) {
+                                if (pVar.p != 1 && pVar.f55193b != 1 && !((Boolean) a(pVar.f55201j, pVar.f55196e).first).booleanValue()) {
                                     return false;
                                 }
-                                pVar.f57368c = packageInfo.packageName;
+                                pVar.f55194c = packageInfo.packageName;
                                 pVar.o = packageInfo.applicationInfo.className;
-                                pVar.f57369d = packageInfo.versionName;
+                                pVar.f55195d = packageInfo.versionName;
                                 pVar.l = packageInfo.activities;
                                 pVar.q = packageInfo.applicationInfo.theme;
-                                pVar.m = f57363j.getFilesDir().getCanonicalPath() + r1.f57417k + pVar.a;
+                                pVar.m = f55190j.getFilesDir().getCanonicalPath() + r1.k + pVar.a;
                                 String str3 = pVar.m + "/dex";
-                                String str4 = (pVar.m + "/lib/" + this.f57365b) + "/" + f57364k.nextInt();
+                                String str4 = (pVar.m + "/lib/" + this.f55191b) + "/" + k.nextInt();
                                 g(str3);
                                 l1.a(str3, Boolean.FALSE);
                                 g(str4);
                                 a(pVar, str4, str3, true);
-                                m.put(pVar.f57368c, pVar);
-                                l.put(pVar.f57370e, pVar);
+                                m.put(pVar.f55194c, pVar);
+                                l.put(pVar.f55196e, pVar);
                                 o.add(Integer.valueOf(pVar.a));
                                 a(pVar, packageInfo.applicationInfo.className);
                             }
                             return true;
                         } catch (Throwable unused) {
-                            f(pVar.f57370e);
+                            f(pVar.f55196e);
                             return false;
                         }
                     }
@@ -1423,11 +1421,11 @@ public class o {
                 if (TextUtils.isEmpty(str)) {
                     return true;
                 }
-                Class<?> loadClass = pVar.f57372g.loadClass(str);
+                Class<?> loadClass = pVar.f55198g.loadClass(str);
                 if (loadClass.newInstance() instanceof Application) {
                     Application application = (Application) loadClass.newInstance();
-                    e.a(Application.class, f57363j, application);
-                    a(application, f57363j);
+                    e.a(Application.class, f55190j, application);
+                    a(application, f55190j);
                     application.onCreate();
                 }
                 return true;
@@ -1442,13 +1440,13 @@ public class o {
     public static o c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f57362i : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f55189i : (o) invokeV.objValue;
     }
 
     public static Application d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f57363j : (Application) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f55190j : (Application) invokeV.objValue;
     }
 
     public static boolean g(String str) {
@@ -1524,7 +1522,7 @@ public class o {
                 try {
                 } finally {
                 }
-                if (rVar.f57404d == null) {
+                if (rVar.f55228d == null) {
                     return;
                 }
                 p pVar = m.get(rVar.a);
@@ -1538,18 +1536,18 @@ public class o {
                         }
                     }
                     pVar.r.add(rVar);
-                    String a = a(rVar.f57404d);
+                    String a = a(rVar.f55228d);
                     if (!TextUtils.isEmpty(a) && !a.equals("____")) {
                         if (!n.keySet().contains(a) && !"android.intent.action.PACKAGE_REMOVED__package".equals(a)) {
                             WeaponRECE weaponRECE = new WeaponRECE();
-                            f57363j.registerReceiver(weaponRECE, rVar.f57404d);
+                            f55190j.registerReceiver(weaponRECE, rVar.f55228d);
                             if (0 != 0) {
                                 try {
                                     Thread.sleep(3000L);
                                 } catch (InterruptedException e2) {
                                     l1.a(e2);
                                 }
-                                f57363j.registerReceiver(weaponRECE, rVar.f57404d);
+                                f55190j.registerReceiver(weaponRECE, rVar.f55228d);
                             }
                             n.put(a, weaponRECE);
                         }
@@ -1565,7 +1563,7 @@ public class o {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, pVar, z)) == null) {
             System.currentTimeMillis();
             this.a = z;
-            this.f57365b = pVar.f57369d;
+            this.f55191b = pVar.f55195d;
             return a(pVar);
         }
         return invokeLZ.booleanValue;
@@ -1599,7 +1597,7 @@ public class o {
                     } catch (Throwable th) {
                         l1.a(th);
                     }
-                    if (rVar.f57404d != null) {
+                    if (rVar.f55228d != null) {
                         p pVar = m.get(rVar.a);
                         if (pVar != null && pVar.r != null) {
                             ArrayList<Integer> arrayList = new ArrayList();
@@ -1618,12 +1616,12 @@ public class o {
                                 pVar.r = null;
                             }
                         }
-                        String a = a(rVar.f57404d);
+                        String a = a(rVar.f55228d);
                         if (!TextUtils.isEmpty(a) && !"android.intent.action.PACKAGE_REMOVED__package".equals(a)) {
                             for (p pVar2 : a()) {
                                 if (pVar2.r != null && pVar2.r.size() > 0) {
                                     for (r rVar2 : pVar2.r) {
-                                        String a2 = a(rVar2.f57404d);
+                                        String a2 = a(rVar2.f55228d);
                                         if (!TextUtils.isEmpty(a2) && a2.equals(a)) {
                                             return;
                                         }
@@ -1631,7 +1629,7 @@ public class o {
                                     continue;
                                 }
                             }
-                            f57363j.unregisterReceiver(n.get(a));
+                            f55190j.unregisterReceiver(n.get(a));
                             n.remove(a);
                         }
                     }
@@ -1648,7 +1646,7 @@ public class o {
             if (pVar == null) {
                 return null;
             }
-            return pVar.f57370e;
+            return pVar.f55196e;
         }
         return (String) invokeL.objValue;
     }
@@ -1665,12 +1663,12 @@ public class o {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             p pVar = m.get(str);
             if (pVar != null) {
-                l.remove(pVar.f57370e);
+                l.remove(pVar.f55196e);
                 m.remove(str);
                 l1.b(pVar.m);
-                Application application = f57363j;
+                Application application = f55190j;
                 if (application != null) {
-                    l1.b(application.getFileStreamPath(pVar.f57368c).getAbsolutePath());
+                    l1.b(application.getFileStreamPath(pVar.f55194c).getAbsolutePath());
                     return true;
                 }
                 return true;
@@ -1687,11 +1685,11 @@ public class o {
             p pVar = l.get(str);
             if (pVar != null) {
                 l.remove(str);
-                m.remove(pVar.f57368c);
+                m.remove(pVar.f55194c);
                 l1.b(pVar.m);
-                Application application = f57363j;
+                Application application = f55190j;
                 if (application != null) {
-                    l1.b(application.getFileStreamPath(pVar.f57368c).getAbsolutePath());
+                    l1.b(application.getFileStreamPath(pVar.f55194c).getAbsolutePath());
                     return true;
                 }
                 return true;

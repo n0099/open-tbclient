@@ -22,10 +22,10 @@ public class c implements ILiveLikeView {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17574b;
+    public int f17146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f17575c;
+    public float f17147c;
 
     /* loaded from: classes7.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -33,7 +33,7 @@ public class c implements ILiveLikeView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f17576e;
+        public final /* synthetic */ LottieAnimationView f17148e;
 
         public a(c cVar, LottieAnimationView lottieAnimationView) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class c implements ILiveLikeView {
                     return;
                 }
             }
-            this.f17576e = lottieAnimationView;
+            this.f17148e = lottieAnimationView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f17576e.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f17148e.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -111,8 +111,8 @@ public class c implements ILiveLikeView {
             }
         }
         this.a = 1.0f;
-        this.f17574b = 500;
-        this.f17575c = 0.4f;
+        this.f17146b = 500;
+        this.f17147c = 0.4f;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
@@ -144,8 +144,8 @@ public class c implements ILiveLikeView {
             LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
             lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             lottieAnimationView.setAnimation("lottie/liveshow_video_like_bg.json");
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f17575c, this.a);
-            ofFloat.setDuration(this.f17574b);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f17147c, this.a);
+            ofFloat.setDuration(this.f17146b);
             ofFloat.addUpdateListener(new a(this, lottieAnimationView));
             lottieAnimationView.setTag(ofFloat);
             return lottieAnimationView;

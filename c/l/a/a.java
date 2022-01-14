@@ -23,24 +23,24 @@ public class a {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31104b;
+    public Context f30132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f31105c;
+    public c f30133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f31106d;
+    public ServiceConnection f30134d;
 
     /* renamed from: c.l.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class ServiceConnectionC1669a implements ServiceConnection {
+    public class ServiceConnectionC1685a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f31107e;
+        public final /* synthetic */ a f30135e;
 
-        public ServiceConnectionC1669a(a aVar) {
+        public ServiceConnectionC1685a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            this.f31107e = aVar;
+            this.f30135e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -76,8 +76,8 @@ public class a {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
-                this.f31107e.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-                this.f31107e.a.removeMessages(2);
+                this.f30135e.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.f30135e.a.removeMessages(2);
             }
         }
 
@@ -122,34 +122,34 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    this.a.f31105c.a(-1, null);
+                    this.a.f30133c.a(-1, null);
                 } else if (i2 != 1) {
                     if (i2 != 2) {
                         return;
                     }
-                    this.a.f31105c.a(-2, null);
+                    this.a.f30133c.a(-2, null);
                 } else {
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            this.a.f31105c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            this.a.f30133c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
-                                this.a.f31104b.unbindService(this.a.f31106d);
+                                this.a.f30132b.unbindService(this.a.f30134d);
                             } catch (Exception e2) {
-                                this.a.f31105c.a(-4, e2);
+                                this.a.f30133c.a(-4, e2);
                             }
                         } catch (RemoteException e3) {
-                            this.a.f31105c.a(-3, e3);
+                            this.a.f30133c.a(-3, e3);
                             try {
-                                this.a.f31104b.unbindService(this.a.f31106d);
+                                this.a.f30132b.unbindService(this.a.f30134d);
                             } catch (Exception unused) {
                             }
                         }
                     } catch (Throwable th) {
                         try {
-                            this.a.f31104b.unbindService(this.a.f31106d);
+                            this.a.f30132b.unbindService(this.a.f30134d);
                         } catch (Exception e4) {
-                            this.a.f31105c.a(-4, e4);
+                            this.a.f30133c.a(-4, e4);
                         }
                         throw th;
                     }
@@ -180,9 +180,9 @@ public class a {
                 return;
             }
         }
-        this.f31106d = new ServiceConnectionC1669a(this);
-        this.f31104b = context;
-        this.f31105c = cVar;
+        this.f30134d = new ServiceConnectionC1685a(this);
+        this.f30132b = context;
+        this.f30133c = cVar;
         this.a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
@@ -205,7 +205,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            if (this.f31104b.bindService(intent, this.f31106d, 1)) {
+            if (this.f30132b.bindService(intent, this.f30134d, 1)) {
                 Handler handler = this.a;
                 handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
                 return;

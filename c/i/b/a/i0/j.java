@@ -16,13 +16,13 @@ public final class j {
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f30663b;
+    public static final float[] f29701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f30664c;
+    public static final Object f29702c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int[] f30665d;
+    public static int[] f29703d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -32,10 +32,10 @@ public final class j {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30666b;
+        public final int f29704b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f30667c;
+        public final boolean f29705c;
 
         public a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public final class j {
                 }
             }
             this.a = i2;
-            this.f30666b = i3;
-            this.f30667c = z;
+            this.f29704b = i3;
+            this.f29705c = z;
         }
     }
 
@@ -65,31 +65,31 @@ public final class j {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30668b;
+        public final int f29706b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f30669c;
+        public final int f29707c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f30670d;
+        public final float f29708d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f30671e;
+        public final boolean f29709e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f30672f;
+        public final boolean f29710f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f30673g;
+        public final int f29711g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f30674h;
+        public final int f29712h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f30675i;
+        public final int f29713i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final boolean f30676j;
+        public final boolean f29714j;
 
         public b(int i2, int i3, int i4, float f2, boolean z, boolean z2, int i5, int i6, int i7, boolean z3) {
             Interceptable interceptable = $ic;
@@ -107,15 +107,15 @@ public final class j {
                 }
             }
             this.a = i2;
-            this.f30668b = i3;
-            this.f30669c = i4;
-            this.f30670d = f2;
-            this.f30671e = z;
-            this.f30672f = z2;
-            this.f30673g = i5;
-            this.f30674h = i6;
-            this.f30675i = i7;
-            this.f30676j = z3;
+            this.f29706b = i3;
+            this.f29707c = i4;
+            this.f29708d = f2;
+            this.f29709e = z;
+            this.f29710f = z2;
+            this.f29711g = i5;
+            this.f29712h = i6;
+            this.f29713i = i7;
+            this.f29714j = z3;
         }
     }
 
@@ -133,9 +133,9 @@ public final class j {
             }
         }
         a = new byte[]{0, 0, 0, 1};
-        f30663b = new float[]{1.0f, 1.0f, 1.0909091f, 0.90909094f, 1.4545455f, 1.2121212f, 2.1818182f, 1.8181819f, 2.909091f, 2.4242425f, 1.6363636f, 1.3636364f, 1.939394f, 1.6161616f, 1.3333334f, 1.5f, 2.0f};
-        f30664c = new Object();
-        f30665d = new int[10];
+        f29701b = new float[]{1.0f, 1.0f, 1.0909091f, 0.90909094f, 1.4545455f, 1.2121212f, 2.1818182f, 1.8181819f, 2.909091f, 2.4242425f, 1.6363636f, 1.3636364f, 1.939394f, 1.6161616f, 1.3333334f, 1.5f, 2.0f};
+        f29702c = new Object();
+        f29703d = new int[10];
     }
 
     public static void a(boolean[] zArr) {
@@ -389,7 +389,7 @@ public final class j {
                         }
                         f2 = f3;
                     } else {
-                        float[] fArr = f30663b;
+                        float[] fArr = f29701b;
                         if (e2 < fArr.length) {
                             f2 = fArr[e2];
                         } else {
@@ -453,17 +453,17 @@ public final class j {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, bArr, i2)) == null) {
-            synchronized (f30664c) {
+            synchronized (f29702c) {
                 int i4 = 0;
                 int i5 = 0;
                 while (i4 < i2) {
                     try {
                         i4 = d(bArr, i4, i2);
                         if (i4 < i2) {
-                            if (f30665d.length <= i5) {
-                                f30665d = Arrays.copyOf(f30665d, f30665d.length * 2);
+                            if (f29703d.length <= i5) {
+                                f29703d = Arrays.copyOf(f29703d, f29703d.length * 2);
                             }
-                            f30665d[i5] = i4;
+                            f29703d[i5] = i4;
                             i4 += 3;
                             i5++;
                         }
@@ -475,7 +475,7 @@ public final class j {
                 int i6 = 0;
                 int i7 = 0;
                 for (int i8 = 0; i8 < i5; i8++) {
-                    int i9 = f30665d[i8] - i7;
+                    int i9 = f29703d[i8] - i7;
                     System.arraycopy(bArr, i7, bArr, i6, i9);
                     int i10 = i6 + i9;
                     int i11 = i10 + 1;

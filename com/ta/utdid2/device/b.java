@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ta.utdid2.a.a.g;
 import java.util.zip.Adler32;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f62703d;
+    public static final Object f60338d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class b {
                 return;
             }
         }
-        f62703d = new Object();
+        f60338d = new Object();
     }
 
     public static long a(a aVar) {
@@ -40,7 +40,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
             if (aVar != null) {
                 String format = String.format("%s%s%s%s%s", aVar.f(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.e());
-                if (g.m112a(format)) {
+                if (g.m124a(format)) {
                     return 0L;
                 }
                 Adler32 adler32 = new Adler32();
@@ -78,9 +78,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f62703d) {
+                synchronized (f60338d) {
                     String value = c.a(context).getValue();
-                    if (g.m112a(value)) {
+                    if (g.m124a(value)) {
                         return null;
                     }
                     if (value.endsWith(StringUtils.LF)) {

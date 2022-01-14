@@ -5,6 +5,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int activity_trace_info = 2131492951;
+    public static final int activity_trace_info = 2131558488;
     public transient /* synthetic */ FieldHolder $fh;
 }

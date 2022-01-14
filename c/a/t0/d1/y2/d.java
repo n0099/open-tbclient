@@ -1,29 +1,119 @@
 package c.a.t0.d1.y2;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.util.LruCache;
+import c.a.d.f.d.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static d f16834c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public LruCache<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17285b;
+    public l<String> f16835b;
 
-    public d(String str, String str2) {
+    /* loaded from: classes7.dex */
+    public class a extends c.a.s0.n.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d f16836e;
+
+        public a(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16836e = dVar;
+        }
+
+        @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry entry : this.f16836e.a.snapshot().entrySet()) {
+                    sb.append((String) entry.getKey());
+                    sb.append("=");
+                    sb.append((String) entry.getValue());
+                    sb.append(",");
+                }
+                if (sb.length() <= 1) {
+                    return;
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                this.f16836e.f16835b.a("transition_cache_key", sb.toString());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements l.a<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public b(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // c.a.d.f.d.l.a
+        /* renamed from: b */
+        public void a(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || str2 == null || str2.isEmpty()) {
+                return;
+            }
+            for (String str3 : str2.split(",")) {
+                String[] split = str3.split("=");
+                if (split != null && split.length == 2) {
+                    this.a.a.put(split[0], split[1]);
+                }
+            }
+        }
+    }
+
+    public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,41 +123,45 @@ public class d {
                 return;
             }
         }
-        this.a = str;
-        this.f17285b = str2;
+        this.a = new LruCache<>(10);
+        c.a.s0.s.r.a.f();
+        this.f16835b = c.a.s0.s.r.a.g("tb.recently_vistited_forum_animation");
+        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
+        this.f16835b.f("transition_cache_key", new b(this));
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true : invokeLL.booleanValue;
-    }
-
-    public final String b() {
+    public static d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a + "_" + this.f17285b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (a(this.a, this.f17285b)) {
-                String b2 = b();
-                Date date = new Date(c.a.s0.s.g0.b.j().l(b2, 0L));
-                long currentTimeMillis = System.currentTimeMillis();
-                if (TimeHelper.getDayDifference(new Date(currentTimeMillis), date) >= 2) {
-                    c.a.s0.s.g0.b.j().w(b2, currentTimeMillis);
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f16834c == null) {
+                synchronized (d.class) {
+                    if (f16834c == null) {
+                        f16834c = new d();
+                    }
                 }
-                return false;
             }
-            return false;
+            return f16834c;
         }
-        return invokeV.booleanValue;
+        return (d) invokeV.objValue;
+    }
+
+    public e c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return new e(null);
+            }
+            return new e(this.a.get(str));
+        }
+        return (e) invokeL.objValue;
+    }
+
+    public void e(String str, e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar) == null) {
+            this.a.put(str, eVar.toString());
+        }
     }
 }

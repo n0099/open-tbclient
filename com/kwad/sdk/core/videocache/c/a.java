@@ -19,8 +19,8 @@ public class a extends SQLiteOpenHelper implements b {
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("url", nVar.a);
-        contentValues.put("length", Long.valueOf(nVar.f58515b));
-        contentValues.put("mime", nVar.f58516c);
+        contentValues.put("length", Long.valueOf(nVar.f56307b));
+        contentValues.put("mime", nVar.f56308c);
         return contentValues;
     }
 

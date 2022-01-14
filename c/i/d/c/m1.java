@@ -13,7 +13,7 @@ public abstract class m1<F, T> implements Iterator<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterator<? extends F> f31024e;
+    public final Iterator<? extends F> f30053e;
 
     public m1(Iterator<? extends F> it) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class m1<F, T> implements Iterator<T> {
             }
         }
         c.i.d.a.n.p(it);
-        this.f31024e = it;
+        this.f30053e = it;
     }
 
     public abstract T a(F f2);
@@ -40,21 +40,21 @@ public abstract class m1<F, T> implements Iterator<T> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31024e.hasNext() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30053e.hasNext() : invokeV.booleanValue;
     }
 
     @Override // java.util.Iterator
     public final T next() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.f31024e.next()) : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.f30053e.next()) : (T) invokeV.objValue;
     }
 
     @Override // java.util.Iterator
     public final void remove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f31024e.remove();
+            this.f30053e.remove();
         }
     }
 }

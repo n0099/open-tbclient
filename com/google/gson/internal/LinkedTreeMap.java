@@ -520,21 +520,21 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     /* JADX DEBUG: Type inference failed for r4v3. Raw type applied. Possible types: K, ? super K */
-    public Node<K, V> find(K k2, boolean z) {
+    public Node<K, V> find(K k, boolean z) {
         InterceptResult invokeLZ;
         int i2;
         Node<K, V> node;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, k2, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, k, z)) == null) {
             Comparator<? super K> comparator = this.comparator;
             Node<K, V> node2 = this.root;
             if (node2 != null) {
-                Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k2 : null;
+                Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k : null;
                 while (true) {
                     if (comparable != null) {
                         i2 = comparable.compareTo(node2.key);
                     } else {
-                        i2 = comparator.compare(k2, (K) node2.key);
+                        i2 = comparator.compare(k, (K) node2.key);
                     }
                     if (i2 == 0) {
                         return node2;
@@ -551,13 +551,13 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             if (z) {
                 Node<K, V> node4 = this.header;
                 if (node2 == null) {
-                    if (comparator == NATURAL_ORDER && !(k2 instanceof Comparable)) {
-                        throw new ClassCastException(k2.getClass().getName() + " is not Comparable");
+                    if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
+                        throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                     }
-                    node = new Node<>(node2, k2, node4, node4.prev);
+                    node = new Node<>(node2, k, node4, node4.prev);
                     this.root = node;
                 } else {
-                    node = new Node<>(node2, k2, node4, node4.prev);
+                    node = new Node<>(node2, k, node4, node4.prev);
                     if (i2 < 0) {
                         node2.left = node;
                     } else {
@@ -636,12 +636,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v)) == null) {
-            if (k2 != null) {
-                Node<K, V> find = find(k2, true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) {
+            if (k != null) {
+                Node<K, V> find = find(k, true);
                 V v2 = find.value;
                 find.value = v;
                 return v2;
@@ -795,12 +795,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    K k2 = this.key;
-                    if (k2 == null) {
+                    K k = this.key;
+                    if (k == null) {
                         if (entry.getKey() != null) {
                             return false;
                         }
-                    } else if (!k2.equals(entry.getKey())) {
+                    } else if (!k.equals(entry.getKey())) {
                         return false;
                     }
                     V v = this.value;
@@ -850,8 +850,8 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                K k2 = this.key;
-                int hashCode = k2 == null ? 0 : k2.hashCode();
+                K k = this.key;
+                int hashCode = k == null ? 0 : k.hashCode();
                 V v = this.value;
                 return hashCode ^ (v != null ? v.hashCode() : 0);
             }
@@ -892,12 +892,12 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
             return (String) invokeV.objValue;
         }
 
-        public Node(Node<K, V> node, K k2, Node<K, V> node2, Node<K, V> node3) {
+        public Node(Node<K, V> node, K k, Node<K, V> node2, Node<K, V> node3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {node, k2, node2, node3};
+                Object[] objArr = {node, k, node2, node3};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -908,7 +908,7 @@ public final class LinkedTreeMap<K, V> extends AbstractMap<K, V> implements Seri
                 }
             }
             this.parent = node;
-            this.key = k2;
+            this.key = k;
             this.height = 1;
             this.next = node2;
             this.prev = node3;

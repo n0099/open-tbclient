@@ -219,7 +219,7 @@ public class RequsetNetworkUtils extends BaseUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission(s.f57419c) == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission(s.f55242c) == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -232,7 +232,7 @@ public class RequsetNetworkUtils extends BaseUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             try {
-                if (context.checkCallingOrSelfPermission(s.f57420d) == 0) {
+                if (context.checkCallingOrSelfPermission(s.f55243d) == 0) {
                     int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
                     return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
                 }

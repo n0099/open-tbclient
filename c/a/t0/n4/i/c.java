@@ -15,22 +15,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f20412d;
+    public static final String f19866d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20413b;
+    public String f19867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f20414c;
+    public b f19868c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,14 +57,14 @@ public class c extends BdAsyncTask<Void, Void, String> {
         @Override // c.a.d.f.j.a.h
         public void onProgress(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.a.f20414c == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.a.f19868c == null) {
                 return;
             }
-            this.a.f20414c.b(i2, i3);
+            this.a.f19868c.b(i2, i3);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(boolean z, String str, String str2);
 
@@ -84,7 +84,7 @@ public class c extends BdAsyncTask<Void, Void, String> {
                 return;
             }
         }
-        f20412d = File.separator;
+        f19866d = File.separator;
     }
 
     public c(String str, String str2, b bVar) {
@@ -103,8 +103,8 @@ public class c extends BdAsyncTask<Void, Void, String> {
             }
         }
         this.a = str;
-        this.f20413b = str2;
-        this.f20414c = bVar;
+        this.f19867b = str2;
+        this.f19868c = bVar;
     }
 
     public final void c(File file) {
@@ -131,15 +131,15 @@ public class c extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!m.isEmpty(this.a) && !m.isEmpty(this.f20413b)) {
+            if (!m.isEmpty(this.a) && !m.isEmpty(this.f19867b)) {
                 new File(this.a).mkdirs();
-                String str = this.a + f20412d + "annivervideo.temp";
+                String str = this.a + f19866d + "annivervideo.temp";
                 File file = new File(str);
                 if (file.exists()) {
                     file.delete();
                 }
                 e eVar = new e();
-                eVar.b().s(this.f20413b);
+                eVar.b().s(this.f19867b);
                 if (new c.a.d.f.j.a.c(eVar).c(str, new a(this), 3, 3000, -1, -1, true, true)) {
                     return e();
                 }
@@ -153,12 +153,12 @@ public class c extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a + f20412d + "annivervideo.temp");
+            File file = new File(this.a + f19866d + "annivervideo.temp");
             StringBuilder sb = new StringBuilder();
-            sb.append(t.c(this.f20413b));
+            sb.append(t.c(this.f19867b));
             sb.append(".mp4");
             String sb2 = sb.toString();
-            File file2 = new File(this.a + f20412d + sb2);
+            File file2 = new File(this.a + f19866d + sb2);
             if (file2.exists()) {
                 file2.delete();
             }
@@ -175,13 +175,13 @@ public class c extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f20414c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f19868c == null) {
             return;
         }
         if (!m.isEmpty(str)) {
-            this.f20414c.a(true, str, this.f20413b);
+            this.f19868c.a(true, str, this.f19867b);
         } else {
-            this.f20414c.a(false, null, null);
+            this.f19868c.a(false, null, null);
         }
     }
 }

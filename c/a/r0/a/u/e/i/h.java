@@ -23,13 +23,13 @@ public class h extends c.a.r0.a.u.e.i.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9306e;
+        public final /* synthetic */ c.a.r0.a.d2.e f9104e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9307f;
+        public final /* synthetic */ String f9105f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h f9308g;
+        public final /* synthetic */ h f9106g;
 
         public a(h hVar, c.a.r0.a.d2.e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class h extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9308g = hVar;
-            this.f9306e = eVar;
-            this.f9307f = str;
+            this.f9106g = hVar;
+            this.f9104e = eVar;
+            this.f9105f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9306e.Z().b(this.f9308g.a().h(), this.f9307f);
+                this.f9104e.Z().b(this.f9106g.a().h(), this.f9105f);
             }
         }
     }

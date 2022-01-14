@@ -19,18 +19,18 @@ public class LoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f52690c = "LoadingDialog";
+    public static final String f50659c = "LoadingDialog";
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52691b;
+    public String f50660b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f52692d;
+    public Context f50661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f52693e;
+    public ImageView f50662e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context) {
@@ -51,8 +51,8 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f52692d = null;
-        this.f52692d = context;
+        this.f50661d = null;
+        this.f50661d = context;
     }
 
     @Override // android.app.Dialog
@@ -61,16 +61,16 @@ public class LoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f52692d, "wallet_base_layout_loading"));
-            this.a = (TextView) findViewById(ResUtils.id(this.f52692d, "dialog_msg"));
-            if (!TextUtils.isEmpty(this.f52691b)) {
-                this.a.setText(this.f52691b);
+            setContentView(ResUtils.layout(this.f50661d, "wallet_base_layout_loading"));
+            this.a = (TextView) findViewById(ResUtils.id(this.f50661d, "dialog_msg"));
+            if (!TextUtils.isEmpty(this.f50660b)) {
+                this.a.setText(this.f50660b);
             }
             if (!TextUtils.isEmpty(WalletGlobalUtils.showStr)) {
                 this.a.setText(WalletGlobalUtils.showStr);
             }
-            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f52692d, "img_anim"));
-            this.f52693e = imageView;
+            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f50661d, "img_anim"));
+            this.f50662e = imageView;
             AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
             animationDrawable.stop();
             animationDrawable.start();
@@ -116,9 +116,9 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f52692d = null;
-        this.f52691b = str;
-        this.f52692d = context;
+        this.f50661d = null;
+        this.f50660b = str;
+        this.f50661d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,6 +140,6 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f52692d = null;
+        this.f50661d = null;
     }
 }

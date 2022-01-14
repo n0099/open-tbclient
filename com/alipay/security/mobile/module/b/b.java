@@ -24,7 +24,9 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.pass.face.platform.common.ConstantHelper;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -104,7 +106,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f57419c)) {
+        if (a(context, s.f55242c)) {
             return "";
         }
         if (context != null) {
@@ -150,7 +152,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f57419c)) {
+        if (a(context, s.f55242c)) {
             return "";
         }
         if (context != null) {
@@ -344,7 +346,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0054 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0055 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -482,7 +484,7 @@ public final class b {
         }
         FileReader fileReader2 = null;
         try {
-            fileReader = new FileReader("/proc/meminfo");
+            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
             try {
                 bufferedReader = new BufferedReader(fileReader, 8192);
             } catch (Throwable unused) {
@@ -614,7 +616,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             String str = "";
-            if (a(context, s.f57420d)) {
+            if (a(context, s.f55243d)) {
                 return "";
             }
             try {
@@ -648,7 +650,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (a(context, s.f57419c)) {
+            if (a(context, s.f55242c)) {
                 return "";
             }
             try {
@@ -693,7 +695,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             try {
-                str = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                str = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Throwable unused) {
                 str = "";
             }
@@ -762,7 +764,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65567, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f57420d)) {
+        if (a(context, s.f55243d)) {
             return "";
         }
         try {
@@ -960,8 +962,8 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x002e  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0031  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x002f  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0032  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1094,7 +1096,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                fileReader = new FileReader(z.f57501b);
+                fileReader = new FileReader(z.f55318b);
                 try {
                     bufferedReader = new BufferedReader(fileReader, 8192);
                     try {

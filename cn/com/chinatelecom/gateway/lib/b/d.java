@@ -23,7 +23,7 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f31585b;
+    public static final byte[] f30593b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class d {
                 return;
             }
         }
-        f31585b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+        f30593b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
     }
 
     public d() {
@@ -151,7 +151,7 @@ public class d {
             String jSONArray3 = jSONArray.toString();
             if (!TextUtils.isEmpty(jSONArray3)) {
                 try {
-                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f31585b)));
+                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f30593b)));
                 } catch (Exception e3) {
                     e = e3;
                 }
@@ -178,10 +178,10 @@ public class d {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ List f31586b;
+                public final /* synthetic */ List f30594b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f31587c;
+                public final /* synthetic */ int f30595c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -199,8 +199,8 @@ public class d {
                         }
                     }
                     this.a = context;
-                    this.f31586b = list;
-                    this.f31587c = i2;
+                    this.f30594b = list;
+                    this.f30595c = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -208,7 +208,7 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Queue c2 = d.c(this.a, this.f31586b, this.f31587c);
+                            Queue c2 = d.c(this.a, this.f30594b, this.f30595c);
                             if (c2.isEmpty()) {
                                 return;
                             }
@@ -227,7 +227,7 @@ public class d {
                                         e.printStackTrace();
                                         if (jSONObject != null) {
                                         }
-                                        d.b(this.a, c2, this.f31587c);
+                                        d.b(this.a, c2, this.f30595c);
                                         return;
                                     }
                                 }
@@ -235,7 +235,7 @@ public class d {
                                 e = e3;
                             }
                             if (jSONObject != null || i3 != 0) {
-                                d.b(this.a, c2, this.f31587c);
+                                d.b(this.a, c2, this.f30595c);
                                 return;
                             }
                             d.c(this.a);
@@ -274,7 +274,7 @@ public class d {
             }
             if (jSONArray.length() > 0) {
                 try {
-                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f31585b));
+                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f30593b));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     str = null;
@@ -299,7 +299,7 @@ public class d {
                 String a2 = c.a(context);
                 if (!TextUtils.isEmpty(a2)) {
                     try {
-                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f31585b)));
+                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f30593b)));
                         int length = jSONArray.length();
                         for (int i3 = 0; i3 < length && i3 <= 10; i3++) {
                             JSONObject jSONObject = jSONArray.getJSONObject(i3);

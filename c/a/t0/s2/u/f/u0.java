@@ -14,7 +14,7 @@ public abstract class u0 {
     public BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23733b;
+    public View f23077b;
 
     public u0(BaseFragmentActivity baseFragmentActivity, View view) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class u0 {
             }
         }
         this.a = baseFragmentActivity;
-        this.f23733b = view;
+        this.f23077b = view;
     }
 
     public void a() {
@@ -44,7 +44,7 @@ public abstract class u0 {
 
     public void b(f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || this.a == null || this.f23733b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || this.a == null || this.f23077b == null) {
             return;
         }
         c(fVar);

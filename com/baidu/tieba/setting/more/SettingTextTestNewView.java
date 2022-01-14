@@ -4,12 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
+import c.a.t0.m3.c;
+import c.a.t0.m3.d;
+import c.a.t0.m3.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +41,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, c.ds30), 0);
     }
 
     public void refresh() {
@@ -53,8 +55,8 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             if (z) {
                 this.tipView.setText("new");
-                this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_text_prompt);
+                this.tipView.setTextAppearance(this.mContext, z2 ? h.setting_version_prompt_text_1 : h.setting_version_prompt_text);
+                SkinManager.setBackgroundResource(this.tipView, d.icon_news_text_prompt);
                 return;
             }
             String version = TbConfig.getVersion();
@@ -63,7 +65,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             this.tipView.setText(version);
             this.tipView.setBackgroundDrawable(null);
-            this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+            this.tipView.setTextAppearance(this.mContext, z2 ? h.setting_version_text_1 : h.setting_version_text);
         }
     }
 }

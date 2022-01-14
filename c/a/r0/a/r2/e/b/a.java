@@ -26,21 +26,21 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.r2.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0525a implements a.c {
+    public class C0534a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UnitedSchemeEntity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8827b;
+        public final /* synthetic */ CallbackHandler f8632b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ m f8828c;
+        public final /* synthetic */ m f8633c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f8829d;
+        public final /* synthetic */ a f8634d;
 
-        public C0525a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m mVar) {
+        public C0534a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,10 +55,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8829d = aVar;
+            this.f8634d = aVar;
             this.a = unitedSchemeEntity;
-            this.f8827b = callbackHandler;
-            this.f8828c = mVar;
+            this.f8632b = callbackHandler;
+            this.f8633c = mVar;
         }
 
         @Override // c.a.r0.a.r2.e.a.c
@@ -66,7 +66,7 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
                 d.i("compass", "handle compass change, angle:" + f2 + ",accuracy: " + i2);
-                this.f8829d.k(this.a, this.f8827b, this.f8828c, f2, i2);
+                this.f8634d.k(this.a, this.f8632b, this.f8633c, f2, i2);
             }
         }
     }
@@ -100,24 +100,24 @@ public class a extends z {
             if (eVar == null) {
                 d.c("compass", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             } else if (context == null) {
                 d.c("compass", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    boolean z3 = z.f6340b;
+                    boolean z3 = z.f6201b;
                     d.c("compass", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    boolean z4 = z.f6340b;
+                    boolean z4 = z.f6201b;
                     d.c("compass", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
@@ -126,7 +126,7 @@ public class a extends z {
                 m mVar = new m("compassChange", optParamsAsJo, optString);
                 c.a.r0.a.r2.e.a i2 = c.a.r0.a.r2.e.a.i();
                 i2.l(context);
-                i2.o(new C0525a(this, unitedSchemeEntity, callbackHandler, mVar));
+                i2.o(new C0534a(this, unitedSchemeEntity, callbackHandler, mVar));
                 d.i("compass", "start listen compass");
                 i2.p();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -144,7 +144,7 @@ public class a extends z {
             try {
                 jSONObject.put("direction", f2);
                 jSONObject.put("accuracy", c.a.r0.a.r2.e.a.h(i2));
-                if (z.f6340b) {
+                if (z.f6201b) {
                     String str = "compassAngle : " + jSONObject.toString();
                 }
                 mVar.c(unitedSchemeEntity, callbackHandler, jSONObject);

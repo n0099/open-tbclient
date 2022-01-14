@@ -35,32 +35,32 @@ public class ComplianceTextView extends TextView {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57725b;
+    public String f55539b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57726c;
+    public String f55540c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57727d;
+    public String f55541d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57728e;
+    public String f55542e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57729f;
+    public int f55543f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57730g;
+    public String f55544g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f57731h;
+    public AdTemplate f55545h;
     @ColorInt
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57732i;
+    public int f55546i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f57733j;
+    public ViewTreeObserver.OnGlobalLayoutListener f55547j;
 
     public ComplianceTextView(Context context) {
         this(context, null);
@@ -72,13 +72,13 @@ public class ComplianceTextView extends TextView {
 
     public ComplianceTextView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f57729f = Opcodes.IFNE;
-        this.f57733j = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.3
+        this.f55543f = Opcodes.IFNE;
+        this.f55547j = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.3
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 if (ComplianceTextView.this.getWidth() > 0) {
                     ComplianceTextView complianceTextView = ComplianceTextView.this;
-                    complianceTextView.a(complianceTextView.a, ComplianceTextView.this.f57725b, ComplianceTextView.this.f57726c);
+                    complianceTextView.a(complianceTextView.a, ComplianceTextView.this.f55539b, ComplianceTextView.this.f55540c);
                     ComplianceTextView.this.a();
                 }
             }
@@ -88,60 +88,60 @@ public class ComplianceTextView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f57733j != null) {
-            getViewTreeObserver().removeOnGlobalLayoutListener(this.f57733j);
-            this.f57733j = null;
+        if (this.f55547j != null) {
+            getViewTreeObserver().removeOnGlobalLayoutListener(this.f55547j);
+            this.f55547j = null;
         }
     }
 
     @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ComplianceTextView);
-        this.f57729f = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ksad_ComplianceTextView_ksad_width_in_landscape, Opcodes.IFNE);
-        this.f57732i = obtainStyledAttributes.getColor(R.styleable.ksad_ComplianceTextView_ksad_privacy_color, getResources().getColor(R.color.ksad_default_privacy_link_color));
+        this.f55543f = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ksad_ComplianceTextView_ksad_width_in_landscape, Opcodes.IFNE);
+        this.f55546i = obtainStyledAttributes.getColor(R.styleable.ksad_ComplianceTextView_ksad_privacy_color, getResources().getColor(R.color.ksad_default_privacy_link_color));
         if (getBackground() == null) {
             setBackground(ContextCompat.getDrawable(context, R.drawable.ksad_compliance_view_bg));
         }
-        getViewTreeObserver().addOnGlobalLayoutListener(this.f57733j);
+        getViewTreeObserver().addOnGlobalLayoutListener(this.f55547j);
         obtainStyledAttributes.recycle();
     }
 
     private void a(final String str, final String str2) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) this.f57730g);
-        if (!TextUtils.isEmpty(this.f57727d)) {
+        spannableStringBuilder.append((CharSequence) this.f55544g);
+        if (!TextUtils.isEmpty(this.f55541d)) {
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) str);
             spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C2090a().a(str).b(ComplianceTextView.this.f57727d).a(ComplianceTextView.this.f57731h).a());
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C2107a().a(str).b(ComplianceTextView.this.f55541d).a(ComplianceTextView.this.f55545h).a());
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
                 public void updateDrawState(@NonNull TextPaint textPaint) {
                     super.updateDrawState(textPaint);
-                    textPaint.setColor(ComplianceTextView.this.f57732i);
+                    textPaint.setColor(ComplianceTextView.this.f55546i);
                     textPaint.setUnderlineText(true);
                 }
             }, length, spannableStringBuilder.length(), 33);
         }
-        if (!TextUtils.isEmpty(this.f57727d) && !TextUtils.isEmpty(this.f57728e)) {
+        if (!TextUtils.isEmpty(this.f55541d) && !TextUtils.isEmpty(this.f55542e)) {
             spannableStringBuilder.append((CharSequence) " | ");
         }
-        if (!TextUtils.isEmpty(this.f57728e)) {
+        if (!TextUtils.isEmpty(this.f55542e)) {
             int length2 = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) str2);
             spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.2
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C2090a().a(str2).b(ComplianceTextView.this.f57728e).a(ComplianceTextView.this.f57731h).a());
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C2107a().a(str2).b(ComplianceTextView.this.f55542e).a(ComplianceTextView.this.f55545h).a());
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
                 public void updateDrawState(@NonNull TextPaint textPaint) {
                     super.updateDrawState(textPaint);
-                    textPaint.setColor(ComplianceTextView.this.f57732i);
+                    textPaint.setColor(ComplianceTextView.this.f55546i);
                     textPaint.setUnderlineText(true);
                 }
             }, length2, spannableStringBuilder.length(), 33);
@@ -159,19 +159,19 @@ public class ComplianceTextView extends TextView {
             return;
         }
         StringBuilder sb2 = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f57727d) || !TextUtils.isEmpty(this.f57728e)) {
+        if (!TextUtils.isEmpty(this.f55541d) || !TextUtils.isEmpty(this.f55542e)) {
             sb2.append("   ");
         }
-        if (!TextUtils.isEmpty(this.f57727d)) {
+        if (!TextUtils.isEmpty(this.f55541d)) {
             sb2.append(str2);
         }
-        if (!TextUtils.isEmpty(this.f57727d) && !TextUtils.isEmpty(this.f57728e)) {
+        if (!TextUtils.isEmpty(this.f55541d) && !TextUtils.isEmpty(this.f55542e)) {
             sb2.append(" | ");
         }
-        if (!TextUtils.isEmpty(this.f57728e)) {
+        if (!TextUtils.isEmpty(this.f55542e)) {
             sb2.append(str3);
         }
-        int width = ((!af.e(getContext()) ? this.f57729f : getWidth()) - getPaddingLeft()) - getPaddingRight();
+        int width = ((!af.e(getContext()) ? this.f55543f : getWidth()) - getPaddingLeft()) - getPaddingRight();
         if (width < 0) {
             return;
         }
@@ -184,7 +184,7 @@ public class ComplianceTextView extends TextView {
             sb.append(str);
             sb.append("   ");
         }
-        this.f57730g = sb.toString();
+        this.f55544g = sb.toString();
         a(str2, str3);
     }
 
@@ -210,7 +210,7 @@ public class ComplianceTextView extends TextView {
     }
 
     public void setAdTemplate(AdTemplate adTemplate) {
-        this.f57731h = adTemplate;
+        this.f55545h = adTemplate;
         AdInfo j2 = d.j(adTemplate);
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(j2.adBaseInfo.appName)) {
@@ -234,16 +234,16 @@ public class ComplianceTextView extends TextView {
             sb.append("；");
         }
         this.a = sb.toString();
-        this.f57725b = "权限信息";
-        this.f57726c = "隐私政策";
+        this.f55539b = "权限信息";
+        this.f55540c = "隐私政策";
         AdInfo.DownloadSafeInfo downloadSafeInfo = j2.downloadSafeInfo;
-        this.f57727d = downloadSafeInfo.appPermissionInfoUrl;
-        this.f57728e = downloadSafeInfo.appPrivacyUrl;
+        this.f55541d = downloadSafeInfo.appPermissionInfoUrl;
+        this.f55542e = downloadSafeInfo.appPrivacyUrl;
         if (!af.e(getContext())) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.width = bb.a(getContext(), this.f57729f);
+            layoutParams.width = bb.a(getContext(), this.f55543f);
             setLayoutParams(layoutParams);
         }
-        a(this.a, this.f57725b, this.f57726c);
+        a(this.a, this.f55539b, this.f55540c);
     }
 }

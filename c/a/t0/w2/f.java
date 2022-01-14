@@ -24,16 +24,16 @@ public class f implements c.a.t0.x2.d.c {
     public c.a.t0.d3.n.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f25470b;
+    public TbPageContext f24755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f25471c;
+    public BdUniqueId f24756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f25472d;
+    public HttpMessageListener f24757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25473e;
+    public int f24758e;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -66,18 +66,18 @@ public class f implements c.a.t0.x2.d.c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f25471c) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f24756c) {
                 if (!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
-                    if (this.a.f25470b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                    if (this.a.f24755b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                         return;
                     }
-                    this.a.f25470b.showToast(httpResponsedMessage.getErrorString());
+                    this.a.f24755b.showToast(httpResponsedMessage.getErrorString());
                     return;
                 }
-                if (this.a.f25470b != null) {
-                    this.a.f25470b.showToast(c.a.t0.y2.g.privacy_setting_toast);
+                if (this.a.f24755b != null) {
+                    this.a.f24755b.showToast(c.a.t0.y2.g.privacy_setting_toast);
                 }
-                this.a.f25473e = 1;
+                this.a.f24758e = 1;
                 this.a.a.e();
             }
         }
@@ -115,10 +115,10 @@ public class f implements c.a.t0.x2.d.c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int intValue;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.a.f25473e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.a.f24758e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
                 return;
             }
-            this.a.f25473e = intValue;
+            this.a.f24758e = intValue;
             if (intValue != 1) {
                 return;
             }
@@ -141,15 +141,15 @@ public class f implements c.a.t0.x2.d.c {
                 return;
             }
         }
-        this.f25473e = 0;
-        this.f25470b = tbPageContext;
+        this.f24758e = 0;
+        this.f24755b = tbPageContext;
         this.a = aVar;
-        this.f25471c = bdUniqueId;
-        this.f25472d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
+        this.f24756c = bdUniqueId;
+        this.f24757d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
         b bVar = new b(this, 2921065);
-        this.f25472d.setTag(this.f25471c);
-        bVar.setTag(this.f25471c);
-        MessageManager.getInstance().registerListener(this.f25472d);
+        this.f24757d.setTag(this.f24756c);
+        bVar.setTag(this.f24756c);
+        MessageManager.getInstance().registerListener(this.f24757d);
         MessageManager.getInstance().registerListener(bVar);
     }
 
@@ -158,7 +158,7 @@ public class f implements c.a.t0.x2.d.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!l.z()) {
-                TbPageContext tbPageContext = this.f25470b;
+                TbPageContext tbPageContext = this.f24755b;
                 if (tbPageContext != null) {
                     tbPageContext.showToast(c.a.t0.y2.g.neterror);
                     return;
@@ -168,7 +168,7 @@ public class f implements c.a.t0.x2.d.c {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
             httpMessage.addParam("opt", "post");
             httpMessage.addParam("val", String.valueOf(1));
-            httpMessage.setTag(this.f25471c);
+            httpMessage.setTag(this.f24756c);
             MessageManager.getInstance().sendMessage(httpMessage);
             TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
         }

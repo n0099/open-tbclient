@@ -25,10 +25,10 @@ public class f extends WebViewClient {
     public WebViewClient a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f14014b;
+    public q f13687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashSet<String> f14015c;
+    public final HashSet<String> f13688c;
 
     public f(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class f extends WebViewClient {
                 return;
             }
         }
-        this.f14014b = null;
-        this.f14015c = new HashSet<>(6);
+        this.f13687b = null;
+        this.f13688c = new HashSet<>(6);
         this.a = webViewClient;
     }
 
     public void a(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
-            this.f14014b = qVar;
+            this.f13687b = qVar;
         }
     }
 
@@ -108,10 +108,10 @@ public class f extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
             e.a("page " + str + " load finished.");
-            if (!this.f14015c.contains(str)) {
-                this.f14014b.p(str);
+            if (!this.f13688c.contains(str)) {
+                this.f13687b.p(str);
             }
-            this.f14015c.clear();
+            this.f13688c.clear();
             WebViewClient webViewClient = this.a;
             if (webViewClient != null) {
                 webViewClient.onPageFinished(webView, str);
@@ -139,7 +139,7 @@ public class f extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i2, str, str2) == null) {
             e.a("Failed url " + str2 + " with description:" + str);
-            this.f14015c.add(str2);
+            this.f13688c.add(str2);
             WebViewClient webViewClient = this.a;
             if (webViewClient != null) {
                 webViewClient.onReceivedError(webView, i2, str, str2);

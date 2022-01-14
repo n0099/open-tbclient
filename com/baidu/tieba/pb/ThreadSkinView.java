@@ -88,9 +88,9 @@ public class ThreadSkinView extends TbImageView {
                     this.R.e();
                 }
                 this.Q = skinInfo;
-                int k2 = n.k(tbPageContext.getPageActivity());
+                int k = n.k(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                layoutParams.width = k2;
+                layoutParams.width = k;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {
                     String[] split = skinInfo.skin_size.split(",");
                     if (split.length > 1) {

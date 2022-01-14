@@ -13,7 +13,7 @@ public class a {
     public n a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11247b;
+    public boolean f10998b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class a {
                 return;
             }
         }
-        this.f11247b = true;
+        this.f10998b = true;
     }
 
     public void a() {
@@ -42,14 +42,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) {
             this.a = nVar;
-            c(this.f11247b);
+            c(this.f10998b);
         }
     }
 
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f11247b = z;
+            this.f10998b = z;
             n nVar = this.a;
             if (nVar == null) {
                 return;

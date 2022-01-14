@@ -119,7 +119,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabPlayActivity f50657e;
+        public final /* synthetic */ FrsVideoTabPlayActivity f48736e;
 
         public b(FrsVideoTabPlayActivity frsVideoTabPlayActivity) {
             Interceptable interceptable = $ic;
@@ -136,14 +136,14 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50657e = frsVideoTabPlayActivity;
+            this.f48736e = frsVideoTabPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50657e.finish();
+                this.f48736e.finish();
             }
         }
     }
@@ -206,7 +206,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(videoTabListByFid);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                n.L(this, i.net_error);
+                n.M(this, i.net_error);
                 finish();
                 return;
             }
@@ -219,9 +219,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             this.mNavigationBar = new NavigationBar(this);
-            int k2 = n.k(this);
+            int k = n.k(this);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(d.M_W_X004);
-            int dimenPixelSize2 = (int) ((k2 - (((dimenPixelSize + UtilHelper.getDimenPixelSize(d.tbds104)) + UtilHelper.getDimenPixelSize(d.M_W_X013)) * 2)) / (UtilHelper.getDimenPixelSize(d.T_X05) * 0.5f));
+            int dimenPixelSize2 = (int) ((k - (((dimenPixelSize + UtilHelper.getDimenPixelSize(d.tbds104)) + UtilHelper.getDimenPixelSize(d.M_W_X013)) * 2)) / (UtilHelper.getDimenPixelSize(d.T_X05) * 0.5f));
             TextView textView = new TextView(this);
             this.mTitleView = textView;
             textView.setGravity(17);
@@ -329,7 +329,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -353,7 +353,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            DanmuProgressManager.f50775b.a().b();
+            DanmuProgressManager.f48848b.a().b();
             c.a.t0.k.a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();

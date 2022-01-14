@@ -45,25 +45,23 @@ public abstract class a implements c.a.r0.a.l0.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public V8Engine f7759e;
+    public V8Engine f7590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.l0.p.b f7760f;
+    public c.a.r0.a.l0.p.b f7591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f7761g;
+    public final String f7592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EventTarget f7762h;
+    public EventTarget f7593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EventTarget f7763i;
+    public EventTarget f7594i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f7764j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.r0.a.l0.m.a f7765k;
+    public Context f7595j;
+    public c.a.r0.a.l0.m.a k;
     public c.a.r0.a.l0.m.b l;
     public c.a.r0.a.l0.l.a m;
     public List<JSEvent> n;
@@ -73,11 +71,11 @@ public abstract class a implements c.a.r0.a.l0.c {
 
     /* renamed from: c.a.r0.a.l0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0442a extends CustomJsCodeCacheHandler {
+    public class C0451a extends CustomJsCodeCacheHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0442a(a aVar) {
+        public C0451a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +145,7 @@ public abstract class a implements c.a.r0.a.l0.c {
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.r0.a.u.e.i.e.f(this.a.f7759e);
+                c.a.r0.a.u.e.i.e.f(this.a.f7590e);
                 this.a.B0();
             }
         }
@@ -200,10 +198,10 @@ public abstract class a implements c.a.r0.a.l0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSEvent f7766e;
+        public final /* synthetic */ JSEvent f7596e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f7767f;
+        public final /* synthetic */ a f7597f;
 
         public d(a aVar, JSEvent jSEvent) {
             Interceptable interceptable = $ic;
@@ -220,20 +218,20 @@ public abstract class a implements c.a.r0.a.l0.c {
                     return;
                 }
             }
-            this.f7767f = aVar;
-            this.f7766e = jSEvent;
+            this.f7597f = aVar;
+            this.f7596e = jSEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f7767f.w0()) {
+                if (!this.f7597f.w0()) {
                     boolean unused = a.r;
-                    this.f7767f.n.add(this.f7766e);
+                    this.f7597f.n.add(this.f7596e);
                     return;
                 }
-                this.f7767f.f7762h.dispatchEvent(this.f7766e);
+                this.f7597f.f7593h.dispatchEvent(this.f7596e);
             }
         }
     }
@@ -244,7 +242,7 @@ public abstract class a implements c.a.r0.a.l0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7768e;
+        public final /* synthetic */ a f7598e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -261,20 +259,20 @@ public abstract class a implements c.a.r0.a.l0.c {
                     return;
                 }
             }
-            this.f7768e = aVar;
+            this.f7598e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (JSEvent jSEvent : this.f7768e.n) {
+                for (JSEvent jSEvent : this.f7598e.n) {
                     if (a.r) {
                         String str = "doPendingDispatch event type: " + jSEvent.type;
                     }
-                    this.f7768e.dispatchEvent(jSEvent);
+                    this.f7598e.dispatchEvent(jSEvent);
                 }
-                this.f7768e.n.clear();
+                this.f7598e.n.clear();
             }
         }
     }
@@ -313,26 +311,26 @@ public abstract class a implements c.a.r0.a.l0.c {
         }
         this.o = 0;
         this.q = false;
-        this.f7761g = str;
-        this.f7760f = bVar;
+        this.f7592g = str;
+        this.f7591f = bVar;
         String initBasePath = getInitBasePath();
         if (TextUtils.isEmpty(initBasePath)) {
             return;
         }
-        this.f7762h = B();
-        this.f7763i = E();
-        V8Engine v8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.f7760f.a(), v8ThreadDelegatePolicy, this.f7762h, this.f7763i);
-        this.f7759e = v8Engine;
+        this.f7593h = B();
+        this.f7594i = E();
+        V8Engine v8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.f7591f.a(), v8ThreadDelegatePolicy, this.f7593h, this.f7594i);
+        this.f7590e = v8Engine;
         if (v8ThreadDelegatePolicy instanceof c.a.r0.a.h0.l.f) {
             ((c.a.r0.a.h0.l.f) v8ThreadDelegatePolicy).d(v8Engine);
         }
-        this.f7759e.setExternalV8BinFilesPath(c.a.r0.a.k2.d.a());
-        this.f7759e.setFileSystemDelegatePolicy(new c.a.r0.a.l0.n.d());
+        this.f7590e.setExternalV8BinFilesPath(c.a.r0.a.k2.d.a());
+        this.f7590e.setFileSystemDelegatePolicy(new c.a.r0.a.l0.n.d());
         if (bVar.b() != null) {
-            this.f7759e.setCodeCacheSetting(bVar.b());
+            this.f7590e.setCodeCacheSetting(bVar.b());
         }
-        this.f7765k = new c.a.r0.a.l0.m.a(this.f7759e);
-        this.m = new c.a.r0.a.l0.l.a(this.f7759e);
+        this.k = new c.a.r0.a.l0.m.a(this.f7590e);
+        this.m = new c.a.r0.a.l0.l.a(this.f7590e);
         this.n = new ArrayList();
         x0();
     }
@@ -355,7 +353,7 @@ public abstract class a implements c.a.r0.a.l0.c {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             r0().g(this);
             this.o = 2;
-            this.f7760f.c(this);
+            this.f7591f.c(this);
         }
     }
 
@@ -363,7 +361,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public JsSerializeValue C(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, bArr, z)) == null) ? this.f7759e.deserialize(bArr, z) : (JsSerializeValue) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, bArr, z)) == null) ? this.f7590e.deserialize(bArr, z) : (JsSerializeValue) invokeLZ.objValue;
     }
 
     public void C0() {
@@ -377,7 +375,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void D0(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, codeCacheSetting) == null) {
-            this.f7759e.setCodeCacheSetting(codeCacheSetting);
+            this.f7590e.setCodeCacheSetting(codeCacheSetting);
         }
     }
 
@@ -391,44 +389,44 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void E0(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.f7764j = context;
+            this.f7595j = context;
         }
     }
 
     public void F0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f7759e == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f7590e == null) {
             return;
         }
         l m = c.a.r0.a.c1.b.m();
-        this.f7759e.setBdFileRealPath(m != null ? m.e() : null);
+        this.f7590e.setBdFileRealPath(m != null ? m.e() : null);
     }
 
     public void G0(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, v8FileSystemDelegatePolicy) == null) {
-            this.f7759e.setFileSystemDelegatePolicy(v8FileSystemDelegatePolicy);
+            this.f7590e.setFileSystemDelegatePolicy(v8FileSystemDelegatePolicy);
         }
     }
 
     public void H0(JsCodeCacheCallback jsCodeCacheCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, jsCodeCacheCallback) == null) {
-            this.f7759e.setJsCodeCacheCallback(jsCodeCacheCallback);
+            this.f7590e.setJsCodeCacheCallback(jsCodeCacheCallback);
         }
     }
 
     public void I0(@NonNull V8Engine.JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, javaScriptExceptionDelegate) == null) {
-            this.f7759e.setJavaScriptExceptionDelegate(javaScriptExceptionDelegate);
+            this.f7590e.setJavaScriptExceptionDelegate(javaScriptExceptionDelegate);
         }
     }
 
     public void J0() {
         V8Engine v8Engine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (v8Engine = this.f7759e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (v8Engine = this.f7590e) == null) {
             return;
         }
         v8Engine.setMainPackageBasePath(c.a.r0.a.g1.f.U().z());
@@ -442,14 +440,14 @@ public abstract class a implements c.a.r0.a.l0.c {
         if (r) {
             String str2 = "setUserAgent: " + str;
         }
-        this.f7759e.setUserAgent(str);
+        this.f7590e.setUserAgent(str);
     }
 
     @Override // c.a.r0.a.l0.c
     public byte[] N(JsSerializeValue jsSerializeValue, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, jsSerializeValue, z)) == null) ? this.f7759e.serialize(jsSerializeValue, z) : (byte[]) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, jsSerializeValue, z)) == null) ? this.f7590e.serialize(jsSerializeValue, z) : (byte[]) invokeLZ.objValue;
     }
 
     public final void U() {
@@ -467,7 +465,7 @@ public abstract class a implements c.a.r0.a.l0.c {
             if (r) {
                 String str2 = "addJavascriptInterface object: " + obj + " ,name: " + str;
             }
-            this.f7765k.a(obj, str);
+            this.k.a(obj, str);
         }
     }
 
@@ -475,7 +473,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void c0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
-            this.f7765k.c(str, str2);
+            this.k.c(str, str2);
         }
     }
 
@@ -503,7 +501,7 @@ public abstract class a implements c.a.r0.a.l0.c {
                 sb.append(jSEvent != null ? jSEvent.type : "");
                 sb.toString();
             }
-            if (this.f7762h != null && JSEvent.isValid(jSEvent)) {
+            if (this.f7593h != null && JSEvent.isValid(jSEvent)) {
                 runOnJSThread(new d(this, jSEvent));
                 return true;
             }
@@ -517,7 +515,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, str, valueCallback) == null) {
-            this.f7765k.b(str, valueCallback);
+            this.k.b(str, valueCallback);
         }
     }
 
@@ -527,7 +525,7 @@ public abstract class a implements c.a.r0.a.l0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             if (this.l == null) {
-                this.l = new c.a.r0.a.l0.m.b(this.f7759e);
+                this.l = new c.a.r0.a.l0.m.b(this.f7590e);
             }
             return this.l;
         }
@@ -538,13 +536,13 @@ public abstract class a implements c.a.r0.a.l0.c {
     public String getContainerId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f7761g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f7592g : (String) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f7764j : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f7595j : (Context) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
@@ -561,7 +559,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public String getInitBasePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f7760f.getInitBasePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f7591f.getInitBasePath() : (String) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.h0.f.a
@@ -614,27 +612,27 @@ public abstract class a implements c.a.r0.a.l0.c {
         boolean z = r;
         this.p = true;
         z0();
-        this.f7759e.destroyEngine(new c(this));
+        this.f7590e.destroyEngine(new c(this));
     }
 
     public V8Engine n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f7759e : (V8Engine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f7590e : (V8Engine) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.l0.c
     public EventTarget o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f7762h : (EventTarget) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f7593h : (EventTarget) invokeV.objValue;
     }
 
     public String o0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + this.f7761g + "] : ";
+            return PreferencesUtil.LEFT_MOUNT + this.f7592g + "] : ";
         }
         return (String) invokeV.objValue;
     }
@@ -650,7 +648,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            V8Engine v8Engine = this.f7759e;
+            V8Engine v8Engine = this.f7590e;
             if (v8Engine != null) {
                 v8Engine.onPause();
             }
@@ -662,7 +660,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            V8Engine v8Engine = this.f7759e;
+            V8Engine v8Engine = this.f7590e;
             if (v8Engine != null) {
                 v8Engine.onResume();
             }
@@ -674,7 +672,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public NetRequest p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f7759e.getNetRequest() : (NetRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f7590e.getNetRequest() : (NetRequest) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.l0.c
@@ -694,14 +692,14 @@ public abstract class a implements c.a.r0.a.l0.c {
         if (!(interceptable == null || interceptable.invokeL(1048615, this, runnable) == null) || runnable == null) {
             return;
         }
-        this.f7759e.postOnJSThread(runnable);
+        this.f7590e.postOnJSThread(runnable);
     }
 
     public JSONArray q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            V8Engine v8Engine = this.f7759e;
+            V8Engine v8Engine = this.f7590e;
             if (v8Engine == null) {
                 return null;
             }
@@ -722,7 +720,7 @@ public abstract class a implements c.a.r0.a.l0.c {
         if (!(interceptable == null || interceptable.invokeL(1048619, this, runnable) == null) || runnable == null) {
             return;
         }
-        this.f7759e.runOnJSThread(runnable);
+        this.f7590e.runOnJSThread(runnable);
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
@@ -731,25 +729,25 @@ public abstract class a implements c.a.r0.a.l0.c {
         if (!(interceptable == null || interceptable.invokeL(1048620, this, runnable) == null) || runnable == null) {
             return;
         }
-        this.f7759e.runOnJSThreadDirectly(runnable);
+        this.f7590e.runOnJSThreadDirectly(runnable);
     }
 
     public void s0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.f7759e.setMemSetMemoryEnable(true);
+            this.f7590e.setMemSetMemoryEnable(true);
             C0();
             boolean z = r;
-            this.f7760f.d(this);
+            this.f7591f.d(this);
             boolean a = a.b.a();
             if (a) {
-                this.f7759e.setCustomJsCodeCacheHandler(new C0442a(this));
+                this.f7590e.setCustomJsCodeCacheHandler(new C0451a(this));
             }
             if (r) {
                 String str = "customCodeCache:" + a + ", limitSize=" + a.b.b() + ", rank=" + a.b.c();
             }
-            this.f7759e.startEngine();
-            this.f7759e.addStatusHandler(new b(this));
+            this.f7590e.startEngine();
+            this.f7590e.addStatusHandler(new b(this));
             boolean z2 = r;
         }
     }
@@ -758,7 +756,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void setPreferredFramesPerSecond(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f7759e.setPreferredFramesPerSecond(s);
+            this.f7590e.setPreferredFramesPerSecond(s);
         }
     }
 
@@ -778,14 +776,14 @@ public abstract class a implements c.a.r0.a.l0.c {
     public InspectorNativeClient t0(InspectorNativeChannel inspectorNativeChannel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, inspectorNativeChannel)) == null) ? this.f7759e.initInspector(inspectorNativeChannel) : (InspectorNativeClient) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, inspectorNativeChannel)) == null) ? this.f7590e.initInspector(inspectorNativeChannel) : (InspectorNativeClient) invokeL.objValue;
     }
 
     @Override // c.a.r0.a.l0.c
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048625, this, jSExceptionType, str) == null) {
-            this.f7765k.d(jSExceptionType, str);
+            this.k.d(jSExceptionType, str);
         }
     }
 
@@ -798,7 +796,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public void v(@NonNull V8Engine.V8EngineConsole v8EngineConsole) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, v8EngineConsole) == null) {
-            this.f7759e.addV8EngineConsole(v8EngineConsole);
+            this.f7590e.addV8EngineConsole(v8EngineConsole);
         }
     }
 
@@ -826,7 +824,7 @@ public abstract class a implements c.a.r0.a.l0.c {
     public EventTarget y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f7763i : (EventTarget) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f7594i : (EventTarget) invokeV.objValue;
     }
 
     public final void y0() {
@@ -858,6 +856,6 @@ public abstract class a implements c.a.r0.a.l0.c {
         if (!(interceptable == null || interceptable.invokeLJ(1048616, this, runnable, j2) == null) || runnable == null) {
             return;
         }
-        this.f7759e.postOnJSThread(runnable, j2);
+        this.f7590e.postOnJSThread(runnable, j2);
     }
 }

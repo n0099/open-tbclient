@@ -20,16 +20,16 @@ public abstract class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14999b;
+    public int f14638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f15000c;
+    public TbPageContext f14639c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.a0.f.g.c.a f15001d;
+    public c.a.t0.a0.f.g.c.a f14640d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15002e;
+    public View f14641e;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public abstract class a {
                 return;
             }
         }
-        this.f15000c = tbPageContext;
-        int k2 = n.k(tbPageContext.getPageActivity());
-        this.a = k2;
-        this.f14999b = (int) ((k2 * 9.0d) / 16.0d);
+        this.f14639c = tbPageContext;
+        int k = n.k(tbPageContext.getPageActivity());
+        this.a = k;
+        this.f14638b = (int) ((k * 9.0d) / 16.0d);
     }
 
     public void a(ViewGroup viewGroup) {
@@ -64,7 +64,7 @@ public abstract class a {
     public void b(c.a.t0.a0.f.g.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f15001d = aVar;
+            this.f14640d = aVar;
         }
     }
 
@@ -76,10 +76,10 @@ public abstract class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f15002e = new View(this.f15000c.getPageActivity());
-            this.f15002e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.f14999b));
-            this.f15002e.setBackgroundDrawable(new ColorDrawable(this.f15000c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
-            return this.f15002e;
+            this.f14641e = new View(this.f14639c.getPageActivity());
+            this.f14641e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.f14638b));
+            this.f14641e.setBackgroundDrawable(new ColorDrawable(this.f14639c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
+            return this.f14641e;
         }
         return (View) invokeV.objValue;
     }
@@ -91,15 +91,15 @@ public abstract class a {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int k2 = n.k(this.f15000c.getPageActivity());
-            this.a = k2;
-            this.f14999b = (int) ((k2 * 9.0d) / 16.0d);
-            View view = this.f15002e;
+            int k = n.k(this.f14639c.getPageActivity());
+            this.a = k;
+            this.f14638b = (int) ((k * 9.0d) / 16.0d);
+            View view = this.f14641e;
             if (view != null) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
                 layoutParams.width = this.a;
-                layoutParams.height = this.f14999b;
-                this.f15002e.setLayoutParams(layoutParams);
+                layoutParams.height = this.f14638b;
+                this.f14641e.setLayoutParams(layoutParams);
             }
         }
     }

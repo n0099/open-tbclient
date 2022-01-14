@@ -12,16 +12,16 @@ public final class m {
     public final ByteBuffer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f55167b;
+    public final long f53070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f55168c;
+    public final long f53071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f55169d;
+    public final long f53072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ByteBuffer f55170e;
+    public final ByteBuffer f53073e;
 
     public m(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class m {
             }
         }
         this.a = byteBuffer;
-        this.f55167b = j2;
-        this.f55168c = j3;
-        this.f55169d = j4;
-        this.f55170e = byteBuffer2;
+        this.f53070b = j2;
+        this.f53071c = j3;
+        this.f53072d = j4;
+        this.f53073e = byteBuffer2;
     }
 }

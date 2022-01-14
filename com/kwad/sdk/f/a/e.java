@@ -5,28 +5,28 @@ import com.kwad.sdk.api.KsNativeAd;
 public class e extends com.kwad.sdk.f.kwai.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f59034b;
+    public KsNativeAd.VideoPlayListener f56811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f59035c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.f.a.e.1
+    public com.kwad.sdk.contentalliance.detail.video.d f56812c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.f.a.e.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(int i2, int i3) {
-            if (e.this.f59034b != null) {
-                e.this.f59034b.onVideoPlayError(i2, i3);
+            if (e.this.f56811b != null) {
+                e.this.f56811b.onVideoPlayError(i2, i3);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
-            if (e.this.f59034b != null) {
-                e.this.f59034b.onVideoPlayStart();
+            if (e.this.f56811b != null) {
+                e.this.f56811b.onVideoPlayStart();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void f() {
-            if (e.this.f59034b != null) {
-                e.this.f59034b.onVideoPlayComplete();
+            if (e.this.f56811b != null) {
+                e.this.f56811b.onVideoPlayComplete();
             }
         }
     };
@@ -35,13 +35,13 @@ public class e extends com.kwad.sdk.f.kwai.a {
     public void a() {
         super.a();
         com.kwad.sdk.f.kwai.b bVar = ((com.kwad.sdk.f.kwai.a) this).a;
-        this.f59034b = bVar.f59082b;
-        bVar.f59086f.a(this.f59035c);
+        this.f56811b = bVar.f56857b;
+        bVar.f56861f.a(this.f56812c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((com.kwad.sdk.f.kwai.a) this).a.f59086f.b(this.f59035c);
+        ((com.kwad.sdk.f.kwai.a) this).a.f56861f.b(this.f56812c);
     }
 }

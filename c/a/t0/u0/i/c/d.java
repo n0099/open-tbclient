@@ -11,7 +11,7 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24758b;
+    public String f24071b;
 
     public d() {
         Interceptable interceptable = $ic;

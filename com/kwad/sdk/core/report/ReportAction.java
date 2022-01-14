@@ -83,7 +83,7 @@ public class ReportAction extends c {
     public JSONArray az;
 
     /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f58217b;
+    public transient SceneImpl f56017b;
     public String bA;
     public int bB;
     public int bC;
@@ -124,28 +124,26 @@ public class ReportAction extends c {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f58218c;
+    public transient AdTemplate f56018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f58219d;
+    public long f56019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58220e;
+    public String f56020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f58221f;
+    public long f56021f;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f58223h;
+    public long f56023h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f58224i;
+    public long f56024i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f58225j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public JSONObject f58226k;
+    public long f56025j;
+    public JSONObject k;
     public JSONObject l;
     public long m;
     public long p;
@@ -161,7 +159,7 @@ public class ReportAction extends c {
     public long z;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58222g = -1;
+    public int f56022g = -1;
     public int n = 0;
     public int o = 0;
     public long B = -1;
@@ -194,12 +192,12 @@ public class ReportAction extends c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58227b;
+        public int f56026b;
 
         public static a a() {
             a aVar = new a();
             aVar.a = b.a;
-            aVar.f58227b = b.f58228b;
+            aVar.f56026b = b.f56027b;
             return aVar;
         }
     }
@@ -209,16 +207,16 @@ public class ReportAction extends c {
         public static int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f58228b;
+        public static int f56027b;
     }
 
     public ReportAction(long j2) {
-        this.f58224i = j2;
+        this.f56024i = j2;
     }
 
     public ReportAction(long j2, @NonNull AdTemplate adTemplate) {
-        this.f58224i = j2;
-        this.f58218c = adTemplate;
+        this.f56024i = j2;
+        this.f56018c = adTemplate;
     }
 
     public ReportAction(String str) {
@@ -260,27 +258,27 @@ public class ReportAction extends c {
             this.aY = bVar.d();
         }
         this.a = UUID.randomUUID().toString();
-        this.f58219d = System.currentTimeMillis();
-        this.f58220e = n.b();
+        this.f56019d = System.currentTimeMillis();
+        this.f56020e = n.b();
         try {
-            this.f58221f = n.c();
+            this.f56021f = n.c();
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        this.f58223h = n.e();
-        SceneImpl sceneImpl2 = this.f58217b;
+        this.f56023h = n.e();
+        SceneImpl sceneImpl2 = this.f56017b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f58217b = sceneImpl2;
+                this.f56017b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
                 this.r = adTemplate.getServerPosition() + 1;
-                this.f58225j = com.kwad.sdk.core.response.a.d.g(adTemplate);
+                this.f56025j = com.kwad.sdk.core.response.a.d.g(adTemplate);
                 String h2 = com.kwad.sdk.core.response.a.d.h(adTemplate);
                 if (!TextUtils.isEmpty(h2)) {
                     try {
-                        this.f58226k = new JSONObject(h2);
+                        this.k = new JSONObject(h2);
                     } catch (Exception e3) {
                         com.kwad.sdk.core.d.a.b(e3);
                     }
@@ -319,11 +317,11 @@ public class ReportAction extends c {
                     LiveInfo r = com.kwad.sdk.core.response.a.d.r(adTemplate);
                     this.aG.liveStreamId = com.kwad.sdk.live.mode.a.a(r);
                     this.N = com.kwad.sdk.live.mode.a.b(r);
-                    if (com.kwad.sdk.b.f57626d.booleanValue()) {
+                    if (com.kwad.sdk.b.f55441d.booleanValue()) {
                         this.bK = 1;
                     }
                 } else if (i3 == 5) {
-                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f58218c));
+                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f56018c));
                 }
                 this.aj = adTemplate.mMediaPlayerType;
                 this.ax = adTemplate.mIsLeftSlipStatus;
@@ -335,13 +333,13 @@ public class ReportAction extends c {
                 this.F = com.kwad.sdk.core.response.a.d.q(adTemplate);
             }
             this.ai = a.a();
-            if (this.f58217b == null && adTemplate != null) {
-                this.f58217b = adTemplate.mAdScene;
+            if (this.f56017b == null && adTemplate != null) {
+                this.f56017b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f58217b;
+            sceneImpl = this.f56017b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f58217b.getUrlPackage();
+                this.L = this.f56017b.getUrlPackage();
             }
             if (this.L == null) {
                 EntryPackage b2 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
@@ -353,15 +351,15 @@ public class ReportAction extends c {
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f58217b.getUrlPackage();
-        this.f58222g = this.f58217b.getAdStyle();
+        this.L = this.f56017b.getUrlPackage();
+        this.f56022g = this.f56017b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f58217b == null) {
-            this.f58217b = adTemplate.mAdScene;
+        if (this.f56017b == null) {
+            this.f56017b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f58217b;
+        sceneImpl = this.f56017b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
@@ -375,7 +373,7 @@ public class ReportAction extends c {
             return;
         }
         this.ak = 3;
-        this.f58222g = jSONObject.optInt("adStyle", -1);
+        this.f56022g = jSONObject.optInt("adStyle", -1);
         this.as = jSONObject.optInt("adHorizontalFeedType");
         this.at = jSONObject.optInt("videoPlayMode");
         this.au = jSONObject.optInt("autoReplayTimes");
@@ -400,7 +398,7 @@ public class ReportAction extends c {
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
         t.a(jSONObject, "actionId", this.a);
-        int i2 = this.f58222g;
+        int i2 = this.f56022g;
         if (i2 > 0) {
             t.a(jSONObject, "adStyle", i2);
         }
@@ -455,7 +453,7 @@ public class ReportAction extends c {
     }
 
     public ReportAction b() {
-        a(this.f58218c);
+        a(this.f56018c);
         return this;
     }
 

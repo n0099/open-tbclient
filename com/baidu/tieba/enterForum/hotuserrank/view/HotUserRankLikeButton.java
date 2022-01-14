@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.n.b;
+import c.a.s0.s.j0.n.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
@@ -38,7 +38,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, c.a.s0.s.i0.t.b
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, c.a.s0.s.j0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {

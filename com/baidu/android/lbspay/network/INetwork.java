@@ -1,5 +1,5 @@
 package com.baidu.android.lbspay.network;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface INetwork {
     public static final int GETPAY = 100;
     public static final int GET_CASHIER = 101;

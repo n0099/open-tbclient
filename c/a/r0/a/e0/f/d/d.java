@@ -23,13 +23,13 @@ public abstract class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f5739b;
+    public static volatile d f5613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.r0.a.n2.a f5740c;
+    public static c.a.r0.a.n2.a f5614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Timer f5741d;
+    public static Timer f5615d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public abstract class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f5742e;
+        public final /* synthetic */ d f5616e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public abstract class d {
                     return;
                 }
             }
-            this.f5742e = dVar;
+            this.f5616e = dVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -63,8 +63,8 @@ public abstract class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = d.a;
-                this.f5742e.c();
-                this.f5742e.h();
+                this.f5616e.c();
+                this.f5616e.h();
             }
         }
     }
@@ -116,20 +116,20 @@ public abstract class d {
             }
             if (c2 == 0) {
                 i();
-                c.a.r0.a.n2.b.d(d.f5740c, str, d());
+                c.a.r0.a.n2.b.d(d.f5614c, str, d());
             } else if (c2 == 1) {
-                if (d.f5740c != null) {
-                    c.a.r0.a.n2.b.d(d.f5740c, "downloadsuccess", d());
+                if (d.f5614c != null) {
+                    c.a.r0.a.n2.b.d(d.f5614c, "downloadsuccess", d());
                 }
                 c();
                 h();
             } else if (c2 != 2) {
-                if (d.f5740c != null) {
-                    c.a.r0.a.n2.b.d(d.f5740c, str, d());
+                if (d.f5614c != null) {
+                    c.a.r0.a.n2.b.d(d.f5614c, str, d());
                 }
             } else {
-                if (d.f5740c != null) {
-                    c.a.r0.a.n2.b.d(d.f5740c, "downloadfail", d());
+                if (d.f5614c != null) {
+                    c.a.r0.a.n2.b.d(d.f5614c, "downloadfail", d());
                 }
                 c();
                 h();
@@ -184,13 +184,13 @@ public abstract class d {
             }
             if (c2 == 0) {
                 i();
-                c.a.r0.a.n2.b.d(d.f5740c, str, d());
+                c.a.r0.a.n2.b.d(d.f5614c, str, d());
             } else if (c2 != 1) {
-                if (d.f5740c != null) {
-                    c.a.r0.a.n2.b.d(d.f5740c, str, d());
+                if (d.f5614c != null) {
+                    c.a.r0.a.n2.b.d(d.f5614c, str, d());
                 }
-            } else if (d.f5740c != null) {
-                c.a.r0.a.n2.b.d(d.f5740c, str, d());
+            } else if (d.f5614c != null) {
+                c.a.r0.a.n2.b.d(d.f5614c, str, d());
                 c();
                 h();
             }
@@ -225,18 +225,18 @@ public abstract class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f5739b == null) {
+            if (f5613b == null) {
                 synchronized (c.a.r0.a.g1.f.class) {
-                    if (f5739b == null) {
+                    if (f5613b == null) {
                         if (c.a.k0.b.a.a.g()) {
-                            f5739b = new b(null);
+                            f5613b = new b(null);
                         } else {
-                            f5739b = new c(null);
+                            f5613b = new c(null);
                         }
                     }
                 }
             }
-            return f5739b;
+            return f5613b;
         }
         return (d) invokeV.objValue;
     }
@@ -248,15 +248,15 @@ public abstract class d {
         }
         JSONObject optJSONObject = jSONArray.optJSONObject(0);
         String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
-        if (TextUtils.isEmpty(optString) || f5739b == null) {
+        if (TextUtils.isEmpty(optString) || f5613b == null) {
             return;
         }
-        f5739b.f(optString);
+        f5613b.f(optString);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f5740c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f5614c == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -271,8 +271,8 @@ public abstract class d {
         } catch (JSONException unused) {
             boolean z = a;
         }
-        c.a.r0.a.n2.b.f(f5740c, jSONObject.toString());
-        c.a.r0.a.n2.b.c(f5740c);
+        c.a.r0.a.n2.b.f(f5614c, jSONObject.toString());
+        c.a.r0.a.n2.b.c(f5614c);
     }
 
     public String d() {
@@ -295,23 +295,23 @@ public abstract class d {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = f5741d;
+            Timer timer = f5615d;
             if (timer != null) {
                 timer.cancel();
-                f5741d = null;
+                f5615d = null;
             }
-            f5739b = null;
-            f5740c = null;
+            f5613b = null;
+            f5614c = null;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && f5740c == null) {
-            f5740c = n.c("1153");
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && f5614c == null) {
+            f5614c = n.c("1153");
             a aVar = new a(this);
             Timer timer = new Timer();
-            f5741d = timer;
+            f5615d = timer;
             try {
                 timer.schedule(aVar, 40000L);
             } catch (Exception e2) {

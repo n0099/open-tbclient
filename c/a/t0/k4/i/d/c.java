@@ -32,10 +32,10 @@ public class c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19351b;
+        public int f18854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f19352c;
+        public int f18855c;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class c {
                 }
             }
             this.a = i2;
-            this.f19351b = i3;
+            this.f18854b = i3;
         }
     }
 
@@ -69,7 +69,7 @@ public class c {
             while (it.hasNext()) {
                 a next = it.next();
                 int i2 = next.a;
-                int i3 = next.f19351b;
+                int i3 = next.f18854b;
                 if (i2 >= bitmap.getWidth() || i3 >= bitmap.getHeight()) {
                     return false;
                 }
@@ -77,7 +77,7 @@ public class c {
                 if (sparseArray.get(pixel) != null) {
                     return false;
                 }
-                next.f19352c = pixel;
+                next.f18855c = pixel;
                 sparseArray.put(pixel, next);
             }
             return true;

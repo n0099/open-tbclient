@@ -24,29 +24,29 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f6885b;
+    public static f f6736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f6886c;
+    public static g f6737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6887d;
+    public static final boolean f6738d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0384a implements d {
+    public class C0393a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f6888b;
+        public final /* synthetic */ PrefetchEvent f6739b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f6889c;
+        public final /* synthetic */ a f6740c;
 
-        public C0384a(a aVar, e eVar, PrefetchEvent prefetchEvent) {
+        public C0393a(a aVar, e eVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,9 +61,9 @@ public final class a {
                     return;
                 }
             }
-            this.f6889c = aVar;
+            this.f6740c = aVar;
             this.a = eVar;
-            this.f6888b = prefetchEvent;
+            this.f6739b = prefetchEvent;
         }
 
         @Override // c.a.r0.a.h0.o.a.d
@@ -72,8 +72,8 @@ public final class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
                 return;
             }
-            if (a.f6887d || !cVar.D()) {
-                this.f6889c.f(cVar, this.f6888b, this.a);
+            if (a.f6738d || !cVar.D()) {
+                this.f6740c.f(cVar, this.f6739b, this.a);
             } else {
                 this.a.a(cVar, null);
             }
@@ -119,10 +119,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y1.c.f.c f6890b;
+        public final /* synthetic */ c.a.r0.a.y1.c.f.c f6741b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f6891c;
+        public final /* synthetic */ e f6742c;
 
         public c(a aVar, c.a.r0.a.y1.c.f.c cVar, e eVar) {
             Interceptable interceptable = $ic;
@@ -139,18 +139,18 @@ public final class a {
                     return;
                 }
             }
-            this.f6890b = cVar;
-            this.f6891c = eVar;
+            this.f6741b = cVar;
+            this.f6742c = eVar;
         }
 
-        @Override // c.a.r0.a.h0.c.a.a, c.a.r0.a.h0.c.a.b.InterfaceC0339b
+        @Override // c.a.r0.a.h0.c.a.a, c.a.r0.a.h0.c.a.b.InterfaceC0348b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.a();
-                boolean z = a.f6887d && this.f6890b.D();
-                if (this.f6890b.R() || z) {
-                    this.f6891c.a(this.f6890b, null);
+                boolean z = a.f6738d && this.f6741b.D();
+                if (this.f6741b.R() || z) {
+                    this.f6742c.a(this.f6741b, null);
                 }
             }
         }
@@ -192,7 +192,7 @@ public final class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) {
-                PrefetchEvent prefetchEvent = cVar.f9951j;
+                PrefetchEvent prefetchEvent = cVar.f9735j;
                 if (prefetchEvent == null) {
                     return false;
                 }
@@ -201,7 +201,7 @@ public final class a {
             return invokeLL.booleanValue;
         }
 
-        public /* synthetic */ f(C0384a c0384a) {
+        public /* synthetic */ f(C0393a c0393a) {
             this();
         }
     }
@@ -231,10 +231,10 @@ public final class a {
         public boolean a(String str, c.a.r0.a.y1.c.f.c cVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) ? cVar.D() && TextUtils.equals(str, cVar.f9948g) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) ? cVar.D() && TextUtils.equals(str, cVar.f9732g) : invokeLL.booleanValue;
         }
 
-        public /* synthetic */ g(C0384a c0384a) {
+        public /* synthetic */ g(C0393a c0393a) {
             this();
         }
     }
@@ -253,9 +253,9 @@ public final class a {
             }
         }
         a = k.a;
-        f6885b = new f(null);
-        f6886c = new g(null);
-        f6887d = c.a.r0.a.h0.o.e.a.p();
+        f6736b = new f(null);
+        f6737c = new g(null);
+        f6738d = c.a.r0.a.h0.o.e.a.p();
     }
 
     public a() {
@@ -275,13 +275,13 @@ public final class a {
     public static c.a.r0.a.y1.c.f.c c(@NonNull PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) ? c.a.r0.a.y1.c.f.e.k().p(prefetchEvent.appId, f6885b) : (c.a.r0.a.y1.c.f.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) ? c.a.r0.a.y1.c.f.e.k().p(prefetchEvent.appId, f6736b) : (c.a.r0.a.y1.c.f.c) invokeL.objValue;
     }
 
     public static c.a.r0.a.y1.c.f.c d(@NonNull PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchEvent)) == null) ? c.a.r0.a.y1.c.f.e.k().p(prefetchEvent.appId, f6886c) : (c.a.r0.a.y1.c.f.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchEvent)) == null) ? c.a.r0.a.y1.c.f.e.k().p(prefetchEvent.appId, f6737c) : (c.a.r0.a.y1.c.f.c) invokeL.objValue;
     }
 
     public final void e(@NonNull c.a.r0.a.y1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
@@ -301,7 +301,7 @@ public final class a {
     public void g(@NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent, eVar) == null) {
-            h(prefetchEvent, new C0384a(this, eVar, prefetchEvent));
+            h(prefetchEvent, new C0393a(this, eVar, prefetchEvent));
         }
     }
 

@@ -19,10 +19,10 @@ public final class a {
     public Bundle a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62997b;
+    public String f60620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62998c;
+    public String f60621c;
 
     public a(String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class a {
                 return;
             }
         }
-        this.f62997b = str;
-        this.f62998c = str2;
+        this.f60620b = str;
+        this.f60621c = str2;
         this.a = bundle;
     }
 
@@ -244,6 +244,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62997b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60620b : (String) invokeV.objValue;
     }
 }

@@ -34,31 +34,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements View.OnClickListener, BaseInterestSelectionFragment.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragmentActivity f21433e;
+    public BaseFragmentActivity f20866e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21434f;
+    public int f20867f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21435g;
+    public View f20868g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f21436h;
+    public View f20869h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21437i;
+    public TextView f20870i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NavigationBar f21438j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public BaseInterestedForumFragment f21439k;
+    public NavigationBar f20871j;
+    public BaseInterestedForumFragment k;
     public BaseInterestSelectionFragment l;
 
     public a(BaseFragmentActivity baseFragmentActivity, int i2) {
@@ -76,8 +74,8 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
                 return;
             }
         }
-        this.f21433e = baseFragmentActivity;
-        this.f21434f = i2;
+        this.f20866e = baseFragmentActivity;
+        this.f20867f = i2;
         f();
         g();
     }
@@ -86,21 +84,21 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
     public void a(List<b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (d.E()) {
-                this.f21439k = InterestedForumStyleAFragment.getInstance(this.f21434f);
+            if (d.B()) {
+                this.k = InterestedForumStyleAFragment.getInstance(this.f20867f);
             } else {
-                this.f21439k = InterestedForumFragment.getInstance(this.f21434f);
+                this.k = InterestedForumFragment.getInstance(this.f20867f);
             }
-            this.f21439k.setSelectedInterest(list);
-            b().beginTransaction().add(R.id.content_container, this.f21439k).addToBackStack(null).commitAllowingStateLoss();
-            c.a.t0.o2.e.a.a(b().getFragments().size() == 1 ? 1 : 2, 1, this.f21434f, c(list), "");
+            this.k.setSelectedInterest(list);
+            b().beginTransaction().add(R.id.content_container, this.k).addToBackStack(null).commitAllowingStateLoss();
+            c.a.t0.o2.e.a.a(b().getFragments().size() == 1 ? 1 : 2, 1, this.f20867f, c(list), "");
         }
     }
 
     public final FragmentManager b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21433e.getSupportFragmentManager() : (FragmentManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20866e.getSupportFragmentManager() : (FragmentManager) invokeV.objValue;
     }
 
     public String c(List<b> list) {
@@ -127,7 +125,7 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21435g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20868g : (View) invokeV.objValue;
     }
 
     public final void e() {
@@ -136,34 +134,34 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
             StatisticItem statisticItem = new StatisticItem("c13682");
             statisticItem.param("obj_type", 1);
             TiebaStatic.log(statisticItem);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.f21433e).createNormalCfg(0)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.f20866e).createNormalCfg(0)));
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.f21433e).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
-            this.f21435g = inflate;
-            this.f21438j = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-            if (d.F()) {
-                c.d(this.f21438j).f(R.color.CAM_X0206);
+            View inflate = LayoutInflater.from(this.f20866e).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
+            this.f20868g = inflate;
+            this.f20871j = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+            if (d.C()) {
+                c.d(this.f20871j).f(R.color.CAM_X0206);
             }
-            TextView addTextButton = this.f21438j.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f21433e.getString(R.string.skip));
-            this.f21437i = addTextButton;
+            TextView addTextButton = this.f20871j.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f20866e.getString(R.string.skip));
+            this.f20870i = addTextButton;
             addTextButton.setId(R.id.btn_skip);
-            if (!d.D() && !d.F()) {
-                SkinManager.setViewTextColor(this.f21437i, R.color.CAM_X0107);
+            if (!d.A() && !d.C()) {
+                SkinManager.setViewTextColor(this.f20870i, R.color.CAM_X0107);
             } else {
-                SkinManager.setViewTextColor(this.f21437i, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f20870i, R.color.CAM_X0108);
             }
-            this.f21436h = this.f21438j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            if (d.D()) {
-                this.l = InterestSelectionStyleAFragment.getInstance(this.f21434f);
-            } else if (d.F()) {
-                this.l = InterestSelectionStyleBFragment.getInstance(this.f21434f);
+            this.f20869h = this.f20871j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            if (d.A()) {
+                this.l = InterestSelectionStyleAFragment.getInstance(this.f20867f);
+            } else if (d.C()) {
+                this.l = InterestSelectionStyleBFragment.getInstance(this.f20867f);
             } else {
-                this.l = InterestSelectionFragment.getInstance(this.f21434f);
+                this.l = InterestSelectionFragment.getInstance(this.f20867f);
             }
             b().beginTransaction().add(R.id.content_container, this.l).commitAllowingStateLoss();
             TiebaStatic.log(new StatisticItem("c13681"));
@@ -173,8 +171,8 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f21437i.setOnClickListener(this);
-            this.f21436h.setOnClickListener(this);
+            this.f20870i.setOnClickListener(this);
+            this.f20869h.setOnClickListener(this);
             this.l.setNextStepClickListener(this);
         }
     }
@@ -182,14 +180,14 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
     public void h() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b().getFragments().size() == 1) {
-            c.a.t0.o2.e.a.c(1, this.f21434f);
+            c.a.t0.o2.e.a.c(1, this.f20867f);
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundColor(this.f21435g, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f20868g, R.color.CAM_X0201);
         }
     }
 
@@ -197,17 +195,17 @@ public class a implements View.OnClickListener, BaseInterestSelectionFragment.a 
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            if (view == this.f21436h && this.f21433e != null) {
-                BaseInterestedForumFragment baseInterestedForumFragment = this.f21439k;
+            if (view == this.f20869h && this.f20866e != null) {
+                BaseInterestedForumFragment baseInterestedForumFragment = this.k;
                 if (baseInterestedForumFragment != null && baseInterestedForumFragment.isVisible()) {
                     b().popBackStack();
-                    c.a.t0.o2.e.a.c(1, this.f21434f);
+                    c.a.t0.o2.e.a.c(1, this.f20867f);
                     return;
                 }
                 e();
-            } else if (view == this.f21437i) {
+            } else if (view == this.f20870i) {
                 e();
-                c.a.t0.o2.e.a.a(b().getFragments().size() != 1 ? 2 : 1, 2, this.f21434f, "", "");
+                c.a.t0.o2.e.a.a(b().getFragments().size() != 1 ? 2 : 1, 2, this.f20867f, "", "");
             }
         }
     }

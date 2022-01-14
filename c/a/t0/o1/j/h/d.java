@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21203b;
+    public int f20643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21204c;
+    public boolean f20644c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21205d;
+    public int f20645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.s.q.n f21206e;
+    public c.a.s0.s.q.n f20646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l0 f21207f;
+    public l0 f20647f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class d {
                 return;
             }
         }
-        this.f21203b = 0;
-        this.f21204c = true;
-        this.f21205d = 1;
+        this.f20643b = 0;
+        this.f20644c = true;
+        this.f20645d = 1;
     }
 }

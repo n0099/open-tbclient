@@ -7,7 +7,7 @@ import c.a.d.f.p.l;
 import c.a.s0.e1.k0;
 import c.a.s0.e1.n0;
 import c.a.s0.e1.s;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -48,34 +48,32 @@ public class c {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.c2.i.b f15825b;
+    public c.a.t0.c2.i.b f15424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.c2.i.d f15826c;
+    public c.a.t0.c2.i.d f15425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BaseActivity f15827d;
+    public BaseActivity f15426d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f15828e;
+    public List<String> f15427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15829f;
+    public boolean f15428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SearchJsBridge f15830g;
+    public SearchJsBridge f15429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f15831h;
+    public CustomMessageListener f15430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f15832i;
+    public CustomMessageListener f15431i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f15833j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public CustomMessageListener f15834k;
+    public CustomMessageListener f15432j;
+    public CustomMessageListener k;
 
     /* loaded from: classes7.dex */
     public class a implements BaseWebView.e {
@@ -133,7 +131,7 @@ public class c {
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) && webView == this.a.f15826c.e()) {
+            if ((interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) && webView == this.a.f15425c.e()) {
                 this.a.q(false);
             }
         }
@@ -141,14 +139,14 @@ public class c {
 
     /* renamed from: c.a.t0.c2.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0978c implements BaseWebView.d {
+    public class C0991c implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f15835e;
+        public final /* synthetic */ c f15433e;
 
-        public C0978c(c cVar) {
+        public C0991c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +161,7 @@ public class c {
                     return;
                 }
             }
-            this.f15835e = cVar;
+            this.f15433e = cVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -171,33 +169,33 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (this.f15835e.p(str)) {
+                if (this.f15433e.p(str)) {
                     return true;
                 }
-                if (this.f15835e.a != null && this.f15835e.a.getPageActivity() != null) {
-                    if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f15835e.a, new String[]{str}) != 3) {
+                if (this.f15433e.a != null && this.f15433e.a.getPageActivity() != null) {
+                    if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f15433e.a, new String[]{str}) != 3) {
                         return true;
                     }
                     if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.f15835e.a.getPageActivity(), str);
+                        Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.f15433e.a.getPageActivity(), str);
                         if (parseIntentFromUrl != null) {
                             try {
-                                ArrayList<String> arrayList = (ArrayList) this.f15835e.f15827d.getCurrentPageSourceKeyList();
-                                String currentPageKey = this.f15835e.f15827d.getCurrentPageKey();
+                                ArrayList<String> arrayList = (ArrayList) this.f15433e.f15426d.getCurrentPageSourceKeyList();
+                                String currentPageKey = this.f15433e.f15426d.getCurrentPageKey();
                                 if (arrayList != null && !StringUtils.isNull(currentPageKey) && !arrayList.contains(currentPageKey)) {
                                     arrayList.add(currentPageKey);
                                 }
                                 if (!ListUtils.isEmpty(arrayList)) {
                                     parseIntentFromUrl.putStringArrayListExtra("obj_source", arrayList);
                                 }
-                                this.f15835e.a.getPageActivity().startActivity(parseIntentFromUrl);
+                                this.f15433e.a.getPageActivity().startActivity(parseIntentFromUrl);
                             } catch (Throwable th) {
                                 BdLog.detailException(th);
                             }
                             return true;
                         }
                     } else {
-                        UrlManager.getInstance().dealOneLink(this.f15835e.a, new String[]{str}, true);
+                        UrlManager.getInstance().dealOneLink(this.f15433e.a, new String[]{str}, true);
                         return true;
                     }
                 }
@@ -270,8 +268,8 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
                 return;
             }
-            this.a.f15828e = list;
-            this.a.f15830g.setHistoryDatas(this.a.f15828e);
+            this.a.f15427e = list;
+            this.a.f15429g.setHistoryDatas(this.a.f15427e);
         }
     }
 
@@ -307,7 +305,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.a.f15829f = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                this.a.f15428f = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     }
@@ -344,7 +342,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.f15828e.remove((String) customResponsedMessage.getData());
+                this.a.f15427e.remove((String) customResponsedMessage.getData());
             }
         }
     }
@@ -380,10 +378,10 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f15828e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f15427e == null) {
                 return;
             }
-            this.a.f15828e.clear();
+            this.a.f15427e.clear();
         }
     }
 
@@ -423,8 +421,8 @@ public class c {
                     JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
                     String optString = jSONObject.optString("query");
                     int optInt = jSONObject.optInt("subType");
-                    if (this.a.f15825b != null) {
-                        this.a.f15825b.a(optString, true, optInt);
+                    if (this.a.f15424b != null) {
+                        this.a.f15424b.a(optString, true, optInt);
                         TiebaStatic.log(new StatisticItem("c12034"));
                     }
                 } catch (JSONException e2) {
@@ -449,11 +447,11 @@ public class c {
                 return;
             }
         }
-        this.f15828e = new ArrayList();
-        this.f15827d = baseActivity;
+        this.f15427e = new ArrayList();
+        this.f15426d = baseActivity;
         this.a = baseActivity.getPageContext();
-        this.f15825b = bVar;
-        this.f15826c = dVar;
+        this.f15424b = bVar;
+        this.f15425c = dVar;
         n();
         o();
         l();
@@ -462,11 +460,11 @@ public class c {
     public void k(String str) {
         List<String> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str) || (list = this.f15828e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str) || (list = this.f15427e) == null) {
             return;
         }
         list.remove(str);
-        this.f15828e.add(0, str);
+        this.f15427e.add(0, str);
     }
 
     public final void l() {
@@ -480,13 +478,13 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int count = ListUtils.getCount(this.f15828e);
+            int count = ListUtils.getCount(this.f15427e);
             if (count == 0) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
             for (int i2 = 0; i2 < count; i2++) {
-                jSONArray.put(this.f15828e.get(i2));
+                jSONArray.put(this.f15427e.get(i2));
             }
             return jSONArray.toString();
         }
@@ -496,14 +494,14 @@ public class c {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f15831h = new f(this, 2921556);
-            this.f15832i = new g(this, 2921557);
-            this.f15833j = new h(this, 2921558);
-            this.f15834k = new i(this, 2921559);
-            MessageManager.getInstance().registerListener(this.f15831h);
-            MessageManager.getInstance().registerListener(this.f15832i);
-            MessageManager.getInstance().registerListener(this.f15833j);
-            MessageManager.getInstance().registerListener(this.f15834k);
+            this.f15430h = new f(this, 2921556);
+            this.f15431i = new g(this, 2921557);
+            this.f15432j = new h(this, 2921558);
+            this.k = new i(this, 2921559);
+            MessageManager.getInstance().registerListener(this.f15430h);
+            MessageManager.getInstance().registerListener(this.f15431i);
+            MessageManager.getInstance().registerListener(this.f15432j);
+            MessageManager.getInstance().registerListener(this.k);
         }
     }
 
@@ -512,15 +510,15 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a aVar = new a(this);
             b bVar = new b(this);
-            C0978c c0978c = new C0978c(this);
-            QuickWebView e2 = this.f15826c.e();
+            C0991c c0991c = new C0991c(this);
+            QuickWebView e2 = this.f15425c.e();
             if (e2 != null) {
-                SearchJsBridge searchJsBridge = new SearchJsBridge(this.f15828e);
-                this.f15830g = searchJsBridge;
+                SearchJsBridge searchJsBridge = new SearchJsBridge(this.f15427e);
+                this.f15429g = searchJsBridge;
                 e2.addJsPromptInterface(searchJsBridge);
                 e2.setOnPageFinishedListener(aVar);
                 e2.setOnReceivedErrorListener(bVar);
-                e2.setOnLoadUrlListener(c0978c);
+                e2.setOnLoadUrlListener(c0991c);
             }
         }
     }
@@ -538,8 +536,8 @@ public class c {
                 }
                 return false;
             }
-            String c2 = w0.c(str, "topic_id=");
-            String c3 = w0.c(str, "topic_name=");
+            String c2 = v0.c(str, "topic_id=");
+            String c3 = v0.c(str, "topic_name=");
             if (!c.a.s0.u0.a.b(this.a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
                 this.a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.a.getPageActivity()).createNormalConfig(c2, c3, "4")));
             }
@@ -554,47 +552,47 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (!z) {
-                this.f15826c.u();
+                this.f15425c.u();
                 if (l.z()) {
                     a2 = NoDataViewFactory.e.a(R.string.text_no_search_record);
                 } else {
                     a2 = NoDataViewFactory.e.a(R.string.neterror);
                 }
-                this.f15826c.t(a2);
+                this.f15425c.t(a2);
                 return;
             }
-            this.f15826c.s();
+            this.f15425c.s();
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15826c.s();
+            this.f15425c.s();
             String m = m();
-            if (this.f15829f) {
+            if (this.f15428f) {
                 if (!StringUtils.isNull(m)) {
-                    QuickWebView e2 = this.f15826c.e();
+                    QuickWebView e2 = this.f15425c.e();
                     e2.loadUrl("javascript:setSearchHistory('" + m + "')");
                 }
             } else {
-                QuickWebView e3 = this.f15826c.e();
+                QuickWebView e3 = this.f15425c.e();
                 e3.loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid/searchHistory");
             }
-            if (this.f15826c.e() == null || StringUtils.isNull(m)) {
+            if (this.f15425c.e() == null || StringUtils.isNull(m)) {
                 return;
             }
-            this.f15826c.e().onSetSearchHistory(m());
+            this.f15425c.e().onSetSearchHistory(m());
         }
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f15831h);
-            MessageManager.getInstance().unRegisterListener(this.f15832i);
-            MessageManager.getInstance().unRegisterListener(this.f15833j);
-            MessageManager.getInstance().unRegisterListener(this.f15834k);
+            MessageManager.getInstance().unRegisterListener(this.f15430h);
+            MessageManager.getInstance().unRegisterListener(this.f15431i);
+            MessageManager.getInstance().unRegisterListener(this.f15432j);
+            MessageManager.getInstance().unRegisterListener(this.k);
         }
     }
 }

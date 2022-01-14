@@ -14,10 +14,10 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11210b;
+    public long f10961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f11211c;
+    public long f10962c;
 
     public b(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class b {
             }
         }
         this.a = j2;
-        this.f11210b = j3;
-        this.f11211c = j4;
+        this.f10961b = j3;
+        this.f10962c = j4;
     }
 
     @NonNull
@@ -52,8 +52,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (c()) {
                 a aVar = new a();
-                aVar.a = Math.max(this.a - this.f11210b, 0L);
-                aVar.f11209b = this.a + this.f11211c;
+                aVar.a = Math.max(this.a - this.f10961b, 0L);
+                aVar.f10960b = this.a + this.f10962c;
                 return aVar;
             }
             return null;
@@ -67,9 +67,9 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long j2 = this.a;
             if (j2 >= 0) {
-                long j3 = this.f11210b;
+                long j3 = this.f10961b;
                 if (j3 >= 0) {
-                    long j4 = this.f11211c;
+                    long j4 = this.f10962c;
                     if (j4 >= 0 && j3 + j4 > 0 && j2 + j4 > 0) {
                         return true;
                     }
@@ -84,7 +84,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "[ mBaseline = " + this.a + "; mLeftOffset = " + this.f11210b + "; mRightOffset = " + this.f11211c + " ]";
+            return "[ mBaseline = " + this.a + "; mLeftOffset = " + this.f10961b + "; mRightOffset = " + this.f10962c + " ]";
         }
         return (String) invokeV.objValue;
     }

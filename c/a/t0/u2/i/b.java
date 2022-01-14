@@ -26,13 +26,13 @@ public class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f25143b;
+    public TbPageContext f24440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f25144c;
+    public List<n> f24441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PersonMoreData f25145d;
+    public PersonMoreData f24442d;
 
     public b(TbPageContext tbPageContext, Bundle bundle, d0<h> d0Var) {
         Interceptable interceptable = $ic;
@@ -49,32 +49,32 @@ public class b {
                 return;
             }
         }
-        this.f25143b = tbPageContext;
+        this.f24440b = tbPageContext;
         c cVar = new c(tbPageContext);
         this.a = cVar;
         cVar.f(d0Var);
         if (bundle == null || !(OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
             return;
         }
-        this.f25145d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+        this.f24442d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25144c = new ArrayList();
-            PersonMoreData personMoreData = this.f25145d;
+            this.f24441c = new ArrayList();
+            PersonMoreData personMoreData = this.f24442d;
             if (personMoreData == null || ListUtils.isEmpty(personMoreData.mUrlMaps)) {
                 return;
             }
-            for (PersonMoreItemData personMoreItemData : this.f25145d.mUrlMaps) {
+            for (PersonMoreItemData personMoreItemData : this.f24442d.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     h hVar = new h();
-                    hVar.f25304i = personMoreItemData.mName;
-                    hVar.f25300e = 36;
-                    hVar.f25306k = personMoreItemData.mUrl;
+                    hVar.f24596i = personMoreItemData.mName;
+                    hVar.f24592e = 36;
+                    hVar.k = personMoreItemData.mUrl;
                     hVar.o = personMoreItemData.mId;
-                    this.f25144c.add(hVar);
+                    this.f24441c.add(hVar);
                 }
             }
         }
@@ -83,10 +83,10 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25143b.getPageActivity().setContentView(e.person_center_more_layout);
-            this.a.c(this.f25143b.getPageActivity().findViewById(d.person_more_layout));
+            this.f24440b.getPageActivity().setContentView(e.person_center_more_layout);
+            this.a.c(this.f24440b.getPageActivity().findViewById(d.person_more_layout));
             a();
-            this.a.e(this.f25144c);
+            this.a.e(this.f24441c);
         }
     }
 

@@ -11,34 +11,32 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2664b;
+    public long f2646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2665c;
+    public long f2647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2666d;
+    public long f2648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2667e;
+    public long f2649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2668f;
+    public long f2650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2669g;
+    public long f2651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f2670h;
+    public long f2652h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2671i;
+    public int f2653i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f2672j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f2673k;
+    public long f2654j;
+    public long k;
     public long l;
 
     public a() {
@@ -55,16 +53,16 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f2664b = 0L;
-        this.f2665c = 0L;
-        this.f2666d = 0L;
-        this.f2667e = 0L;
-        this.f2668f = 0L;
-        this.f2669g = 0L;
-        this.f2670h = 0L;
-        this.f2671i = 0;
-        this.f2672j = 0L;
-        this.f2673k = 0L;
+        this.f2646b = 0L;
+        this.f2647c = 0L;
+        this.f2648d = 0L;
+        this.f2649e = 0L;
+        this.f2650f = 0L;
+        this.f2651g = 0L;
+        this.f2652h = 0L;
+        this.f2653i = 0;
+        this.f2654j = 0L;
+        this.k = 0L;
         this.l = 0L;
     }
 }

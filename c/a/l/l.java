@@ -27,7 +27,7 @@ public class l extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f4254e;
+        public final /* synthetic */ l f4178e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class l extends h {
                     return;
                 }
             }
-            this.f4254e = lVar;
+            this.f4178e = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4254e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4178e.c() == null) {
                 return;
             }
-            this.f4254e.c().a(view, this.f4254e.l);
+            this.f4178e.c().a(view, this.f4178e.l);
         }
     }
 
@@ -103,7 +103,7 @@ public class l extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int f2 = c.a.d.f.p.n.f(this.f4211f, R.dimen.M_H_X003);
+            int f2 = c.a.d.f.p.n.f(this.f4145f, R.dimen.M_H_X003);
             q(f2);
             p(0);
             v(this.m, f2, 0);
@@ -117,7 +117,7 @@ public class l extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f4210e.i());
+            this.m.setSourceForPb(this.f4144e.i());
             this.m.setFrstype(this.n);
             this.m.setData(aVar);
         }

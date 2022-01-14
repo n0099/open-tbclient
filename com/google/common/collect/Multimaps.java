@@ -209,23 +209,23 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.AbstractMapBasedMultimap
-        public Collection<V> wrapCollection(K k2, Collection<V> collection) {
+        public Collection<V> wrapCollection(K k, Collection<V> collection) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k2, collection)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, collection)) == null) {
                 if (collection instanceof List) {
-                    return wrapList(k2, (List) collection, null);
+                    return wrapList(k, (List) collection, null);
                 }
                 if (collection instanceof NavigableSet) {
-                    return new AbstractMapBasedMultimap.m(this, k2, (NavigableSet) collection, null);
+                    return new AbstractMapBasedMultimap.m(this, k, (NavigableSet) collection, null);
                 }
                 if (collection instanceof SortedSet) {
-                    return new AbstractMapBasedMultimap.o(this, k2, (SortedSet) collection, null);
+                    return new AbstractMapBasedMultimap.o(this, k, (SortedSet) collection, null);
                 }
                 if (collection instanceof Set) {
-                    return new AbstractMapBasedMultimap.n(this, k2, (Set) collection);
+                    return new AbstractMapBasedMultimap.n(this, k, (Set) collection);
                 }
-                return new AbstractMapBasedMultimap.k(this, k2, collection, null);
+                return new AbstractMapBasedMultimap.k(this, k, collection, null);
             }
             return (Collection) invokeLL.objValue;
         }
@@ -309,17 +309,17 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap
-        public Collection<V> wrapCollection(K k2, Collection<V> collection) {
+        public Collection<V> wrapCollection(K k, Collection<V> collection) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k2, collection)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, collection)) == null) {
                 if (collection instanceof NavigableSet) {
-                    return new AbstractMapBasedMultimap.m(this, k2, (NavigableSet) collection, null);
+                    return new AbstractMapBasedMultimap.m(this, k, (NavigableSet) collection, null);
                 }
                 if (collection instanceof SortedSet) {
-                    return new AbstractMapBasedMultimap.o(this, k2, (SortedSet) collection, null);
+                    return new AbstractMapBasedMultimap.o(this, k, (SortedSet) collection, null);
                 }
-                return new AbstractMapBasedMultimap.n(this, k2, (Set) collection);
+                return new AbstractMapBasedMultimap.n(this, k, (Set) collection);
             }
             return (Collection) invokeLL.objValue;
         }
@@ -346,24 +346,24 @@ public final class Multimaps {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f56938e;
+            public final /* synthetic */ Object f54779e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ MapMultimap f56939f;
+            public final /* synthetic */ MapMultimap f54780f;
 
             /* renamed from: com.google.common.collect.Multimaps$MapMultimap$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2052a implements Iterator<V> {
+            public class C2069a implements Iterator<V> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public int f56940e;
+                public int f54781e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f56941f;
+                public final /* synthetic */ a f54782f;
 
-                public C2052a(a aVar) {
+                public C2069a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -378,7 +378,7 @@ public final class Multimaps {
                             return;
                         }
                     }
-                    this.f56941f = aVar;
+                    this.f54782f = aVar;
                 }
 
                 @Override // java.util.Iterator
@@ -386,9 +386,9 @@ public final class Multimaps {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                        if (this.f56940e == 0) {
-                            a aVar = this.f56941f;
-                            if (aVar.f56939f.map.containsKey(aVar.f56938e)) {
+                        if (this.f54781e == 0) {
+                            a aVar = this.f54782f;
+                            if (aVar.f54780f.map.containsKey(aVar.f54779e)) {
                                 return true;
                             }
                         }
@@ -403,9 +403,9 @@ public final class Multimaps {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         if (hasNext()) {
-                            this.f56940e++;
-                            a aVar = this.f56941f;
-                            return aVar.f56939f.map.get(aVar.f56938e);
+                            this.f54781e++;
+                            a aVar = this.f54782f;
+                            return aVar.f54780f.map.get(aVar.f54779e);
                         }
                         throw new NoSuchElementException();
                     }
@@ -416,10 +416,10 @@ public final class Multimaps {
                 public void remove() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        m.e(this.f56940e == 1);
-                        this.f56940e = -1;
-                        a aVar = this.f56941f;
-                        aVar.f56939f.map.remove(aVar.f56938e);
+                        m.e(this.f54781e == 1);
+                        this.f54781e = -1;
+                        a aVar = this.f54782f;
+                        aVar.f54780f.map.remove(aVar.f54779e);
                     }
                 }
             }
@@ -439,22 +439,22 @@ public final class Multimaps {
                         return;
                     }
                 }
-                this.f56939f = mapMultimap;
-                this.f56938e = obj;
+                this.f54780f = mapMultimap;
+                this.f54779e = obj;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<V> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2052a(this) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2069a(this) : (Iterator) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
             public int size() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56939f.map.containsKey(this.f56938e) ? 1 : 0 : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54780f.map.containsKey(this.f54779e) ? 1 : 0 : invokeV.intValue;
             }
         }
 
@@ -566,20 +566,20 @@ public final class Multimaps {
         }
 
         @Override // c.i.d.c.c, c.i.d.c.q0
-        public boolean put(K k2, V v) {
+        public boolean put(K k, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k2, v)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k, v)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeLL.booleanValue;
         }
 
         @Override // c.i.d.c.c, c.i.d.c.q0
-        public boolean putAll(K k2, Iterable<? extends V> iterable) {
+        public boolean putAll(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeLL.booleanValue;
@@ -615,10 +615,10 @@ public final class Multimaps {
         }
 
         @Override // c.i.d.c.q0
-        public Set<V> get(K k2) {
+        public Set<V> get(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k2)) == null) ? new a(this, k2) : (Set) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, k)) == null) ? new a(this, k) : (Set) invokeL.objValue;
         }
 
         @Override // c.i.d.c.c, c.i.d.c.q0
@@ -648,10 +648,10 @@ public final class Multimaps {
         }
 
         @Override // c.i.d.c.c, c.i.d.c.q0
-        public Set<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public Set<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (Set) invokeLL.objValue;
@@ -699,10 +699,10 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.Multimaps.UnmodifiableMultimap, c.i.d.c.f0, c.i.d.c.q0
-        public List<V> get(K k2) {
+        public List<V> get(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k2)) == null) ? Collections.unmodifiableList(delegate().get((p0<K, V>) k2)) : (List) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) ? Collections.unmodifiableList(delegate().get((p0<K, V>) k)) : (List) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -717,10 +717,10 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.Multimaps.UnmodifiableMultimap, c.i.d.c.f0, c.i.d.c.q0
-        public List<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public List<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (List) invokeLL.objValue;
@@ -838,10 +838,10 @@ public final class Multimaps {
         }
 
         @Override // c.i.d.c.f0, c.i.d.c.q0
-        public Collection<V> get(K k2) {
+        public Collection<V> get(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k2)) == null) ? Multimaps.h(this.delegate.get(k2)) : (Collection) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) ? Multimaps.h(this.delegate.get(k)) : (Collection) invokeL.objValue;
         }
 
         @Override // c.i.d.c.f0, c.i.d.c.q0
@@ -877,20 +877,20 @@ public final class Multimaps {
         }
 
         @Override // c.i.d.c.f0, c.i.d.c.q0
-        public boolean put(K k2, V v) {
+        public boolean put(K k, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeLL.booleanValue;
         }
 
         @Override // c.i.d.c.f0, c.i.d.c.q0
-        public boolean putAll(K k2, Iterable<? extends V> iterable) {
+        public boolean putAll(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeLL.booleanValue;
@@ -917,10 +917,10 @@ public final class Multimaps {
         }
 
         @Override // c.i.d.c.f0, c.i.d.c.q0
-        public Collection<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public Collection<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (Collection) invokeLL.objValue;
@@ -1010,10 +1010,10 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.Multimaps.UnmodifiableMultimap, c.i.d.c.f0, c.i.d.c.q0
-        public Set<V> get(K k2) {
+        public Set<V> get(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) ? Collections.unmodifiableSet(delegate().get((e1<K, V>) k2)) : (Set) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? Collections.unmodifiableSet(delegate().get((e1<K, V>) k)) : (Set) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1028,10 +1028,10 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.Multimaps.UnmodifiableMultimap, c.i.d.c.f0, c.i.d.c.q0
-        public Set<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public Set<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (Set) invokeLL.objValue;
@@ -1108,10 +1108,10 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.Multimaps.UnmodifiableSetMultimap, com.google.common.collect.Multimaps.UnmodifiableMultimap, c.i.d.c.f0, c.i.d.c.q0
-        public SortedSet<V> get(K k2) {
+        public SortedSet<V> get(K k) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) ? Collections.unmodifiableSortedSet(delegate().get((j1<K, V>) k2)) : (SortedSet) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? Collections.unmodifiableSortedSet(delegate().get((j1<K, V>) k)) : (SortedSet) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1126,10 +1126,10 @@ public final class Multimaps {
         }
 
         @Override // com.google.common.collect.Multimaps.UnmodifiableSetMultimap, com.google.common.collect.Multimaps.UnmodifiableMultimap, c.i.d.c.f0, c.i.d.c.q0
-        public SortedSet<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+        public SortedSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k2, iterable)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, iterable)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (SortedSet) invokeLL.objValue;
@@ -1150,32 +1150,32 @@ public final class Multimaps {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final q0<K, V> f56942h;
+        public final q0<K, V> f54783h;
 
         /* renamed from: com.google.common.collect.Multimaps$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C2053a extends Maps.k<K, Collection<V>> {
+        public class C2070a extends Maps.k<K, Collection<V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f56943e;
+            public final /* synthetic */ a f54784e;
 
             /* renamed from: com.google.common.collect.Multimaps$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2054a implements g<K, Collection<V>> {
+            public class C2071a implements g<K, Collection<V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ C2053a f56944e;
+                public final /* synthetic */ C2070a f54785e;
 
-                public C2054a(C2053a c2053a) {
+                public C2071a(C2070a c2070a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c2053a};
+                        Object[] objArr = {c2070a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -1185,20 +1185,20 @@ public final class Multimaps {
                             return;
                         }
                     }
-                    this.f56944e = c2053a;
+                    this.f54785e = c2070a;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // c.i.d.a.g
                 /* renamed from: a */
-                public Collection<V> apply(K k2) {
+                public Collection<V> apply(K k) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? this.f56944e.f56943e.f56942h.get(k2) : (Collection) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.f54785e.f54784e.f54783h.get(k) : (Collection) invokeL.objValue;
                 }
             }
 
-            public C2053a(a aVar) {
+            public C2070a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1213,21 +1213,21 @@ public final class Multimaps {
                         return;
                     }
                 }
-                this.f56943e = aVar;
+                this.f54784e = aVar;
             }
 
             @Override // com.google.common.collect.Maps.k
             public Map<K, Collection<V>> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56943e : (Map) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54784e : (Map) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public Iterator<Map.Entry<K, Collection<V>>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f56943e.f56942h.keySet(), new C2054a(this)) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f54784e.f54783h.keySet(), new C2071a(this)) : (Iterator) invokeV.objValue;
             }
 
             @Override // com.google.common.collect.Maps.k, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1236,7 +1236,7 @@ public final class Multimaps {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                     if (contains(obj)) {
-                        this.f56943e.g(((Map.Entry) obj).getKey());
+                        this.f54784e.g(((Map.Entry) obj).getKey());
                         return true;
                     }
                     return false;
@@ -1261,21 +1261,21 @@ public final class Multimaps {
                 }
             }
             n.p(q0Var);
-            this.f56942h = q0Var;
+            this.f54783h = q0Var;
         }
 
         @Override // com.google.common.collect.Maps.y
         public Set<Map.Entry<K, Collection<V>>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2053a(this) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2070a(this) : (Set) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f56942h.clear();
+                this.f54783h.clear();
             }
         }
 
@@ -1283,7 +1283,7 @@ public final class Multimaps {
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f56942h.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f54783h.containsKey(obj) : invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1294,7 +1294,7 @@ public final class Multimaps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                 if (containsKey(obj)) {
-                    return this.f56942h.get(obj);
+                    return this.f54783h.get(obj);
                 }
                 return null;
             }
@@ -1309,7 +1309,7 @@ public final class Multimaps {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
                 if (containsKey(obj)) {
-                    return this.f56942h.removeAll(obj);
+                    return this.f54783h.removeAll(obj);
                 }
                 return null;
             }
@@ -1319,7 +1319,7 @@ public final class Multimaps {
         public void g(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.f56942h.keySet().remove(obj);
+                this.f54783h.keySet().remove(obj);
             }
         }
 
@@ -1327,21 +1327,21 @@ public final class Multimaps {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f56942h.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f54783h.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // com.google.common.collect.Maps.y, java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f56942h.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f54783h.keySet() : (Set) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f56942h.keySet().size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f54783h.keySet().size() : invokeV.intValue;
         }
     }
 
@@ -1416,7 +1416,7 @@ public final class Multimaps {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final q0<K, V> f56945e;
+        public final q0<K, V> f54786e;
 
         /* loaded from: classes3.dex */
         public class a extends m1<Map.Entry<K, Collection<V>>, s0.a<K>> {
@@ -1425,14 +1425,14 @@ public final class Multimaps {
 
             /* renamed from: com.google.common.collect.Multimaps$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2055a extends Multisets.b<K> {
+            public class C2072a extends Multisets.b<K> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f56946e;
+                public final /* synthetic */ Map.Entry f54787e;
 
-                public C2055a(a aVar, Map.Entry entry) {
+                public C2072a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1447,21 +1447,21 @@ public final class Multimaps {
                             return;
                         }
                     }
-                    this.f56946e = entry;
+                    this.f54787e = entry;
                 }
 
                 @Override // c.i.d.c.s0.a
                 public int getCount() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((Collection) this.f56946e.getValue()).size() : invokeV.intValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((Collection) this.f54787e.getValue()).size() : invokeV.intValue;
                 }
 
                 @Override // c.i.d.c.s0.a
                 public K getElement() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (K) this.f56946e.getKey() : (K) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (K) this.f54787e.getKey() : (K) invokeV.objValue;
                 }
             }
 
@@ -1491,7 +1491,7 @@ public final class Multimaps {
             public s0.a<K> a(Map.Entry<K, Collection<V>> entry) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2055a(this, entry) : (s0.a) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2072a(this, entry) : (s0.a) invokeL.objValue;
             }
         }
 
@@ -1510,14 +1510,14 @@ public final class Multimaps {
                     return;
                 }
             }
-            this.f56945e = q0Var;
+            this.f54786e = q0Var;
         }
 
         @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56945e.clear();
+                this.f54786e.clear();
             }
         }
 
@@ -1525,7 +1525,7 @@ public final class Multimaps {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f56945e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54786e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // c.i.d.c.s0
@@ -1533,7 +1533,7 @@ public final class Multimaps {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                Collection collection = (Collection) Maps.A(this.f56945e.asMap(), obj);
+                Collection collection = (Collection) Maps.A(this.f54786e.asMap(), obj);
                 if (collection == null) {
                     return 0;
                 }
@@ -1546,7 +1546,7 @@ public final class Multimaps {
         public int distinctElements() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56945e.asMap().size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54786e.asMap().size() : invokeV.intValue;
         }
 
         @Override // c.i.d.c.d
@@ -1563,21 +1563,21 @@ public final class Multimaps {
         public Set<K> elementSet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56945e.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54786e.keySet() : (Set) invokeV.objValue;
         }
 
         @Override // c.i.d.c.d
         public Iterator<s0.a<K>> entryIterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new a(this, this.f56945e.asMap().entrySet().iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new a(this, this.f54786e.asMap().entrySet().iterator()) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Maps.o(this.f56945e.entries().iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Maps.o(this.f54786e.entries().iterator()) : (Iterator) invokeV.objValue;
         }
 
         @Override // c.i.d.c.d, c.i.d.c.s0
@@ -1589,7 +1589,7 @@ public final class Multimaps {
                 if (i2 == 0) {
                     return count(obj);
                 }
-                Collection collection = (Collection) Maps.A(this.f56945e.asMap(), obj);
+                Collection collection = (Collection) Maps.A(this.f54786e.asMap(), obj);
                 if (collection == null) {
                     return 0;
                 }
@@ -1612,7 +1612,7 @@ public final class Multimaps {
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f56945e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f54786e.size() : invokeV.intValue;
         }
     }
 
@@ -1643,7 +1643,7 @@ public final class Multimaps {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, e1Var, oVar)) == null) {
             if (e1Var instanceof t) {
                 t tVar = (t) e1Var;
-                return new t(tVar.b(), Predicates.c(tVar.f31056f, oVar));
+                return new t(tVar.b(), Predicates.c(tVar.f30085f, oVar));
             } else if (e1Var instanceof w) {
                 return d((w) e1Var, Maps.q(oVar));
             } else {

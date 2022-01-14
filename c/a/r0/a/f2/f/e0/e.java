@@ -23,10 +23,10 @@ public class e extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f6015e;
+    public static final String f5884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f6016f;
+    public static final String f5885f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class e extends b {
                 return;
             }
         }
-        f6015e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-        f6016f = SchemeConfig.getSchemeHead() + "://swangame/%s";
+        f5884e = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+        f5885f = SchemeConfig.getSchemeHead() + "://swangame/%s";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,9 +112,9 @@ public class e extends b {
                 jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
                 jSONObject.put("payProtected", swanFavorItemData.getPayProtected());
                 if (swanFavorItemData.getAppFrameType() == 1) {
-                    str = String.format(f6016f, swanFavorItemData.getAppKey());
+                    str = String.format(f5885f, swanFavorItemData.getAppKey());
                 } else {
-                    str = f6015e + swanFavorItemData.getAppKey() + "\"}";
+                    str = f5884e + swanFavorItemData.getAppKey() + "\"}";
                 }
                 jSONObject.put("scheme", str);
             } catch (JSONException e2) {

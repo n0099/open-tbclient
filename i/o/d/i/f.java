@@ -23,25 +23,23 @@ public final class f<T> implements Queue<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicLong f64465e;
+    public final AtomicLong f62046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64466f;
+    public int f62047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f64467g;
+    public long f62048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64468h;
+    public int f62049h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicReferenceArray<Object> f64469i;
+    public AtomicReferenceArray<Object> f62050i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f64470j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public AtomicReferenceArray<Object> f64471k;
+    public int f62051j;
+    public AtomicReferenceArray<Object> k;
     public final AtomicLong l;
 
     static {
@@ -78,15 +76,15 @@ public final class f<T> implements Queue<T> {
         }
         int b2 = i.b(Math.max(8, i2));
         int i5 = b2 - 1;
-        this.f64465e = new AtomicLong();
+        this.f62046e = new AtomicLong();
         this.l = new AtomicLong();
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b2 + 1);
-        this.f64469i = atomicReferenceArray;
-        this.f64468h = i5;
+        this.f62050i = atomicReferenceArray;
+        this.f62049h = i5;
         a(b2);
-        this.f64471k = atomicReferenceArray;
-        this.f64470j = i5;
-        this.f64467g = i5 - 1;
+        this.k = atomicReferenceArray;
+        this.f62051j = i5;
+        this.f62048g = i5 - 1;
         p(0L);
     }
 
@@ -123,7 +121,7 @@ public final class f<T> implements Queue<T> {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f64466f = Math.min(i2 / 4, m);
+            this.f62047f = Math.min(i2 / 4, m);
         }
     }
 
@@ -189,7 +187,7 @@ public final class f<T> implements Queue<T> {
     public final long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64465e.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62046e.get() : invokeV.longValue;
     }
 
     @Override // java.util.Queue
@@ -222,7 +220,7 @@ public final class f<T> implements Queue<T> {
     public final long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f64465e.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f62046e.get() : invokeV.longValue;
     }
 
     @Override // java.util.Collection
@@ -246,7 +244,7 @@ public final class f<T> implements Queue<T> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.f64471k = atomicReferenceArray;
+            this.k = atomicReferenceArray;
             return (T) g(atomicReferenceArray, c(j2, i2));
         }
         return (T) invokeCommon.objValue;
@@ -256,7 +254,7 @@ public final class f<T> implements Queue<T> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.f64471k = atomicReferenceArray;
+            this.k = atomicReferenceArray;
             int c2 = c(j2, i2);
             T t = (T) g(atomicReferenceArray, c2);
             if (t == null) {
@@ -273,8 +271,8 @@ public final class f<T> implements Queue<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
             AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-            this.f64469i = atomicReferenceArray2;
-            this.f64467g = (j3 + j2) - 1;
+            this.f62050i = atomicReferenceArray2;
+            this.f62048g = (j3 + j2) - 1;
             p(j2 + 1);
             n(atomicReferenceArray2, i2, t);
             o(atomicReferenceArray, atomicReferenceArray2);
@@ -304,16 +302,16 @@ public final class f<T> implements Queue<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, t)) == null) {
             if (t != null) {
-                AtomicReferenceArray<Object> atomicReferenceArray = this.f64469i;
+                AtomicReferenceArray<Object> atomicReferenceArray = this.f62050i;
                 long e2 = e();
-                int i2 = this.f64468h;
+                int i2 = this.f62049h;
                 int c2 = c(e2, i2);
-                if (e2 < this.f64467g) {
+                if (e2 < this.f62048g) {
                     return q(atomicReferenceArray, t, e2, c2);
                 }
-                long j2 = this.f64466f + e2;
+                long j2 = this.f62047f + e2;
                 if (g(atomicReferenceArray, c(j2, i2)) == null) {
-                    this.f64467g = j2 - 1;
+                    this.f62048g = j2 - 1;
                     return q(atomicReferenceArray, t, e2, c2);
                 } else if (g(atomicReferenceArray, c(1 + e2, i2)) != null) {
                     return q(atomicReferenceArray, t, e2, c2);
@@ -330,7 +328,7 @@ public final class f<T> implements Queue<T> {
     public final void p(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.f64465e.lazySet(j2);
+            this.f62046e.lazySet(j2);
         }
     }
 
@@ -339,9 +337,9 @@ public final class f<T> implements Queue<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.f64471k;
+            AtomicReferenceArray<Object> atomicReferenceArray = this.k;
             long d2 = d();
-            int i2 = this.f64470j;
+            int i2 = this.f62051j;
             T t = (T) g(atomicReferenceArray, c(d2, i2));
             return t == n ? j(h(atomicReferenceArray), d2, i2) : t;
         }
@@ -353,9 +351,9 @@ public final class f<T> implements Queue<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.f64471k;
+            AtomicReferenceArray<Object> atomicReferenceArray = this.k;
             long d2 = d();
-            int i2 = this.f64470j;
+            int i2 = this.f62051j;
             int c2 = c(d2, i2);
             T t = (T) g(atomicReferenceArray, c2);
             boolean z = t == n;

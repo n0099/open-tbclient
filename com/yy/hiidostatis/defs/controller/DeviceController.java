@@ -272,7 +272,7 @@ public class DeviceController {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             String[] strArr = new String[3];
             try {
-                if (ArdUtil.checkPermissions(context, s.f57420d)) {
+                if (ArdUtil.checkPermissions(context, s.f55243d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled() && wifiManager.getWifiState() == 3 && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                         int ipAddress = connectionInfo.getIpAddress();

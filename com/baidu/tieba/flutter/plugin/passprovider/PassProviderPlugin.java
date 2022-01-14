@@ -71,7 +71,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     public boolean hasSendResult;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
     public PassProviderAuto.Result<PassProviderAuto.LoginResult> mLoginResult;
-    public final a.InterfaceC0864a mReLoginCallback;
+    public final a.InterfaceC0877a mReLoginCallback;
     public WeakReference<Activity> mWeakActivity;
 
     public PassProviderPlugin() {
@@ -87,7 +87,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 return;
             }
         }
-        this.mReLoginCallback = new a.InterfaceC0864a(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.1
+        this.mReLoginCallback = new a.InterfaceC0877a(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PassProviderPlugin this$0;
@@ -110,7 +110,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 this.this$0 = this;
             }
 
-            @Override // c.a.s0.s.l.a.InterfaceC0864a
+            @Override // c.a.s0.s.l.a.InterfaceC0877a
             public void onBeforeLogin(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -118,7 +118,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
 
-            @Override // c.a.s0.s.l.a.InterfaceC0864a
+            @Override // c.a.s0.s.l.a.InterfaceC0877a
             public void onFailure(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i4, str2) == null) {
@@ -127,7 +127,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
 
-            @Override // c.a.s0.s.l.a.InterfaceC0864a
+            @Override // c.a.s0.s.l.a.InterfaceC0877a
             public void onSuccess(AccountData accountData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -480,10 +480,10 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity) && (findCurrentActivity instanceof BaseFragmentActivity)) {
                 BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) findCurrentActivity;
-                c.a.s0.s.i0.a loadingDialog = baseFragmentActivity.getLoadingDialog();
+                c.a.s0.s.j0.a loadingDialog = baseFragmentActivity.getLoadingDialog();
                 if (loadingDialog == null || !loadingDialog.c()) {
                     baseFragmentActivity.showLoadingDialog(findCurrentActivity.getString(R.string.sapi_logining));
-                    c.a.s0.s.i0.a loadingDialog2 = baseFragmentActivity.getLoadingDialog();
+                    c.a.s0.s.j0.a loadingDialog2 = baseFragmentActivity.getLoadingDialog();
                     if (loadingDialog2 != null) {
                         loadingDialog2.f(false);
                         loadingDialog2.g(false);
@@ -499,7 +499,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
         if (interceptable == null || interceptable.invokeL(65567, this, str) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
-                n.M(findCurrentActivity, str);
+                n.N(findCurrentActivity, str);
             }
         }
     }

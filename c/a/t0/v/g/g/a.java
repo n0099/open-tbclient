@@ -21,21 +21,21 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final VIEW f25199e;
+    public final VIEW f24495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MODEL f25200f;
+    public MODEL f24496f;
 
     /* renamed from: c.a.t0.v.g.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1470a implements View.OnClickListener {
+    public class View$OnClickListenerC1485a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25201e;
+        public final /* synthetic */ a f24497e;
 
-        public View$OnClickListenerC1470a(a aVar) {
+        public View$OnClickListenerC1485a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                     return;
                 }
             }
-            this.f25201e = aVar;
+            this.f24497e = aVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: c.a.t0.v.g.g.a */
@@ -58,11 +58,11 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25201e.f25199e.onClickIntercept(view)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24497e.f24495e.onClickIntercept(view)) {
                 return;
             }
-            a aVar = this.f25201e;
-            aVar.k(aVar.f25200f);
+            a aVar = this.f24497e;
+            aVar.k(aVar.f24496f);
         }
     }
 
@@ -96,12 +96,12 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 return;
             }
         }
-        this.f25199e = view;
+        this.f24495e = view;
         l(model);
-        this.f25200f = model;
-        View actionBar = this.f25199e.getActionBar();
+        this.f24496f = model;
+        View actionBar = this.f24495e.getActionBar();
         if (actionBar != null) {
-            actionBar.setOnClickListener(new View$OnClickListenerC1470a(this));
+            actionBar.setOnClickListener(new View$OnClickListenerC1485a(this));
         }
     }
 
@@ -109,10 +109,10 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public void c(@NonNull DownloadStatus downloadStatus) {
         MODEL model;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadStatus) == null) || (model = this.f25200f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadStatus) == null) || (model = this.f24496f) == null) {
             return;
         }
-        this.f25199e.onStatusChanged(downloadStatus);
+        this.f24495e.onStatusChanged(downloadStatus);
         if (downloadStatus != DownloadStatus.STATUS_NONE) {
             j();
         }
@@ -124,41 +124,41 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public MODEL f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25200f : (MODEL) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24496f : (MODEL) invokeV.objValue;
     }
 
     public VIEW g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25199e : (VIEW) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24495e : (VIEW) invokeV.objValue;
     }
 
     @CallSuper
     public void h(@NonNull MODEL model) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, model) == null) {
-            this.f25200f = model;
-            if (this.f25199e == null) {
+            this.f24496f = model;
+            if (this.f24495e == null) {
                 return;
             }
             j();
-            this.f25199e.onStateAndProgressChanged(model.getCurrentState(), model.getPercent());
+            this.f24495e.onStateAndProgressChanged(model.getCurrentState(), model.getPercent());
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f25199e.onProgressChanged(Math.max(this.f25200f.getPercent(), i2));
+            this.f24495e.onProgressChanged(Math.max(this.f24496f.getPercent(), i2));
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f25199e.getRealView().getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f24495e.getRealView().getVisibility() == 0) {
             return;
         }
-        this.f25199e.getRealView().setVisibility(0);
+        this.f24495e.getRealView().setVisibility(0);
     }
 
     public abstract void k(MODEL model);
@@ -169,8 +169,8 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public void onProgressChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f25199e.onProgressChanged(Math.max(this.f25200f.getPercent(), i2));
-            MODEL model = this.f25200f;
+            this.f24495e.onProgressChanged(Math.max(this.f24496f.getPercent(), i2));
+            MODEL model = this.f24496f;
             if (model != null) {
                 model.getCurrentState();
             }

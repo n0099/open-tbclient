@@ -17,19 +17,19 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7114b;
+    public static final boolean f6961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Runnable f7115c;
+    public static Runnable f6962c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.u.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0402a implements Runnable {
+    public static class RunnableC0411a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0402a() {
+        public RunnableC0411a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,21 +95,21 @@ public class a {
         }
         a = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_cpu_booster", 0);
-        f7114b = b(0);
+        f6961b = b(0);
         if (a) {
             String str = "swan_cpu_booster - 0";
-            String str2 = "SWAN_CPU_BOOSTER - " + f7114b;
+            String str2 = "SWAN_CPU_BOOSTER - " + f6961b;
         }
         a();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && f7114b) {
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && f6961b) {
             long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
             c.a.r0.e.a.a.b(a);
-            if (f7115c == null) {
-                f7115c = new b();
+            if (f6962c == null) {
+                f6962c = new b();
             }
             if (a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
@@ -138,15 +138,15 @@ public class a {
 
     public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65539, null, z) == null) && f7114b) {
+        if ((interceptable == null || interceptable.invokeZ(65539, null, z) == null) && f6961b) {
             if (a) {
                 String str = "cpu-booster preInit async ? - " + z;
             }
-            RunnableC0402a runnableC0402a = new RunnableC0402a();
+            RunnableC0411a runnableC0411a = new RunnableC0411a();
             if (z) {
-                ExecutorUtilsExt.postOnElastic(runnableC0402a, "booster-preInit", 3);
+                ExecutorUtilsExt.postOnElastic(runnableC0411a, "booster-preInit", 3);
             } else {
-                runnableC0402a.run();
+                runnableC0411a.run();
             }
         }
     }
@@ -161,10 +161,10 @@ public class a {
 
     public static void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && f7114b) {
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && f6961b) {
             boolean z = a;
             long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            d(f7115c);
+            d(f6962c);
             if (a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "startBooster cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";

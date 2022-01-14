@@ -25,32 +25,32 @@ public class a extends FrameLayout {
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58800b;
+    public boolean f56585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f58801c;
+    public AdInfo f56586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f58802d;
+    public KsInterstitialAd.AdInteractionListener f56587d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58803e;
+    public Context f56588e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.d.kwai.b f58804f;
+    public com.kwad.sdk.d.kwai.b f56589f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.d.kwai.c f58805g;
+    public com.kwad.sdk.d.kwai.c f56590g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f58806h;
+    public ViewGroup f56591h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KsAdVideoPlayConfig f58807i;
+    public KsAdVideoPlayConfig f56592i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Dialog f58808j;
+    public Dialog f56593j;
 
     public a(@NonNull Context context) {
         this(context, null);
@@ -58,12 +58,12 @@ public class a extends FrameLayout {
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f58806h = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
-        this.f58803e = context;
+        this.f56591h = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
+        this.f56588e = context;
     }
 
     private b a(Context context, AdInfo adInfo, com.kwad.sdk.d.kwai.c cVar) {
-        boolean a = cVar.a(this.f58803e, adInfo);
+        boolean a = cVar.a(this.f56588e, adInfo);
         b.a aVar = new b.a();
         aVar.a(a);
         boolean z = true;
@@ -80,30 +80,30 @@ public class a extends FrameLayout {
         com.kwad.sdk.d.kwai.c cVar = new com.kwad.sdk.d.kwai.c();
         AdTemplate adTemplate = this.a;
         cVar.a = adTemplate;
-        cVar.f58830b = this.f58802d;
-        cVar.f58831c = this.f58808j;
-        cVar.f58832d = new com.kwad.sdk.core.download.a.b(adTemplate);
-        cVar.f58835g = this.f58807i;
-        cVar.f58834f = this.f58800b;
-        cVar.f58837i = new com.kwad.sdk.core.video.videoview.b(this.f58803e);
-        cVar.f58833e = a(this.f58803e, com.kwad.sdk.core.response.a.d.j(this.a), cVar);
+        cVar.f56614b = this.f56587d;
+        cVar.f56615c = this.f56593j;
+        cVar.f56616d = new com.kwad.sdk.core.download.a.b(adTemplate);
+        cVar.f56619g = this.f56592i;
+        cVar.f56618f = this.f56585b;
+        cVar.f56621i = new com.kwad.sdk.core.video.videoview.b(this.f56588e);
+        cVar.f56617e = a(this.f56588e, com.kwad.sdk.core.response.a.d.j(this.a), cVar);
         return cVar;
     }
 
     public void a(@NonNull AdTemplate adTemplate, Dialog dialog, @NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener, boolean z) {
         this.a = adTemplate;
-        this.f58801c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f56586c = com.kwad.sdk.core.response.a.d.j(adTemplate);
         adTemplate.realShowType = 2;
-        this.f58807i = ksAdVideoPlayConfig;
-        this.f58808j = dialog;
-        this.f58800b = z;
-        this.f58802d = adInteractionListener;
-        this.f58805g = a();
-        if (this.f58804f == null) {
+        this.f56592i = ksAdVideoPlayConfig;
+        this.f56593j = dialog;
+        this.f56585b = z;
+        this.f56587d = adInteractionListener;
+        this.f56590g = a();
+        if (this.f56589f == null) {
             com.kwad.sdk.d.kwai.b b2 = b();
-            this.f58804f = b2;
-            b2.c(this.f58806h);
-            this.f58804f.a(this.f58805g);
+            this.f56589f = b2;
+            b2.c(this.f56591h);
+            this.f56589f.a(this.f56590g);
         }
     }
 
@@ -111,30 +111,30 @@ public class a extends FrameLayout {
     public com.kwad.sdk.d.kwai.b b() {
         com.kwad.sdk.d.kwai.b bVar = new com.kwad.sdk.d.kwai.b();
         bVar.a((Presenter) new com.kwad.sdk.d.kwai.d());
-        if (com.kwad.sdk.core.response.a.a.P(this.f58801c)) {
+        if (com.kwad.sdk.core.response.a.a.P(this.f56586c)) {
             bVar.a((Presenter) new g());
         }
         bVar.a((Presenter) new h());
         bVar.a((Presenter) new e());
-        if (com.kwad.sdk.core.response.a.a.D(this.f58801c)) {
+        if (com.kwad.sdk.core.response.a.a.D(this.f56586c)) {
             bVar.a((Presenter) new com.kwad.sdk.d.kwai.a());
         }
-        if (this.f58805g.a(getContext())) {
+        if (this.f56590g.a(getContext())) {
             bVar.a((Presenter) new f());
         }
         return bVar;
     }
 
     public void c() {
-        this.f58804f.g();
+        this.f56589f.g();
     }
 
     public void d() {
-        this.f58804f.h();
+        this.f56589f.h();
     }
 
     public void e() {
-        com.kwad.sdk.d.kwai.b bVar = this.f58804f;
+        com.kwad.sdk.d.kwai.b bVar = this.f56589f;
         if (bVar != null) {
             bVar.j();
         }
@@ -148,7 +148,7 @@ public class a extends FrameLayout {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         e();
-        com.kwad.sdk.d.kwai.c cVar = this.f58805g;
+        com.kwad.sdk.d.kwai.c cVar = this.f56590g;
         if (cVar != null) {
             cVar.a();
         }
@@ -157,7 +157,7 @@ public class a extends FrameLayout {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f58805g.c();
+        this.f56590g.c();
     }
 
     @Override // android.view.View
@@ -166,10 +166,10 @@ public class a extends FrameLayout {
     }
 
     public void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener) {
-        this.f58802d = adInteractionListener;
-        com.kwad.sdk.d.kwai.c cVar = this.f58805g;
+        this.f56587d = adInteractionListener;
+        com.kwad.sdk.d.kwai.c cVar = this.f56590g;
         if (cVar != null) {
-            cVar.f58830b = adInteractionListener;
+            cVar.f56614b = adInteractionListener;
         }
     }
 }

@@ -13,11 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.c0.c0.e;
-import c.a.c0.c0.f;
-import c.a.c0.d.c;
-import c.a.c0.g.d.g;
-import c.a.c0.p.p;
+import c.a.c0.f.d;
+import c.a.c0.f0.c;
+import c.a.c0.f0.e;
+import c.a.c0.f0.f;
+import c.a.c0.j.d.g;
+import c.a.c0.s.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,25 +31,23 @@ public class AdDownloadDlgView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f38177e;
+    public ImageView f36978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdImageView f38178f;
+    public AdImageView f36979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38179g;
+    public TextView f36980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f38180h;
+    public TextView f36981h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f38181i;
+    public TextView f36982i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f38182j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TextView f38183k;
+    public TextView f36983j;
+    public TextView k;
     public TextView l;
     public TextView m;
     public FrameLayout n;
@@ -60,7 +59,7 @@ public class AdDownloadDlgView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadDlgView f38184e;
+        public final /* synthetic */ AdDownloadDlgView f36984e;
 
         public a(AdDownloadDlgView adDownloadDlgView) {
             Interceptable interceptable = $ic;
@@ -77,35 +76,35 @@ public class AdDownloadDlgView extends RelativeLayout {
                     return;
                 }
             }
-            this.f38184e = adDownloadDlgView;
+            this.f36984e = adDownloadDlgView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f38184e.getTag() instanceof p)) {
-                p pVar = (p) this.f38184e.getTag();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f36984e.getTag() instanceof p)) {
+                p pVar = (p) this.f36984e.getTag();
                 int id = view.getId();
                 if (id == e.nad_download_lp_dlg_privacy) {
-                    p.b bVar = pVar.f2261g;
+                    p.b bVar = pVar.f2271g;
                     if (bVar != null) {
-                        str = bVar.f2267b;
+                        str = bVar.f2276b;
                     }
                     str = "";
                 } else {
                     if (id == e.nad_download_lp_dlg_permission) {
-                        p.a aVar = pVar.f2262h;
+                        p.a aVar = pVar.f2272h;
                         if (aVar != null) {
-                            str = aVar.f2266b;
+                            str = aVar.f2275b;
                         }
-                    } else if (id == e.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(pVar.f2258d)) {
-                        this.f38184e.c(pVar.f2258d);
+                    } else if (id == e.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(pVar.f2268d)) {
+                        this.f36984e.c(pVar.f2268d);
                         return;
                     }
                     str = "";
                 }
-                c.c("baiduboxapp://vendor/ad/easybrowse?url=_URL_&newbrowser=1".replace("_URL_", str), this.f38184e.getContext());
+                d.c("baiduboxapp://vendor/ad/easybrowse?url=_URL_&newbrowser=1".replace("_URL_", str), this.f36984e.getContext());
             }
         }
     }
@@ -135,13 +134,13 @@ public class AdDownloadDlgView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(f.nad_download_lp_dlg, this);
-            this.f38177e = (ImageView) inflate.findViewById(e.nad_download_lp_dlg_close);
-            this.f38178f = (AdImageView) inflate.findViewById(e.nad_download_lp_dlg_logo);
-            this.f38179g = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_name);
-            this.f38180h = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_size);
-            this.f38181i = (TextView) inflate.findViewById(e.nad_download_lp_dlg_dev_name);
-            this.f38182j = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_version);
-            this.f38183k = (TextView) inflate.findViewById(e.nad_download_lp_dlg_privacy);
+            this.f36978e = (ImageView) inflate.findViewById(e.nad_download_lp_dlg_close);
+            this.f36979f = (AdImageView) inflate.findViewById(e.nad_download_lp_dlg_logo);
+            this.f36980g = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_name);
+            this.f36981h = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_size);
+            this.f36982i = (TextView) inflate.findViewById(e.nad_download_lp_dlg_dev_name);
+            this.f36983j = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_version);
+            this.k = (TextView) inflate.findViewById(e.nad_download_lp_dlg_privacy);
             this.l = (TextView) inflate.findViewById(e.nad_download_lp_dlg_permission);
             this.m = (TextView) inflate.findViewById(e.nad_download_lp_dlg_tip);
             this.n = (FrameLayout) inflate.findViewById(e.nad_download_lp_dlg_container);
@@ -151,24 +150,24 @@ public class AdDownloadDlgView extends RelativeLayout {
     public void bindData(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-            if (gVar != null && gVar.f1972b != null) {
-                this.m.setText(gVar.f1973c);
+            if (gVar != null && gVar.f1981b != null) {
+                this.m.setText(gVar.f1982c);
                 this.m.setVisibility(gVar.a != 2 ? 0 : 8);
-                p pVar = gVar.f1972b;
+                p pVar = gVar.f1981b;
                 setTag(pVar);
-                this.f38178f.displayImage(pVar.f2256b);
-                this.f38179g.setText(pVar.f2257c);
-                this.f38180h.setText(pVar.f2263i);
-                this.f38181i.setText(pVar.f2258d);
-                this.f38181i.setOnClickListener(this.o);
-                this.f38182j.setText(pVar.f2260f);
-                p.b bVar = pVar.f2261g;
-                if (bVar != null && !TextUtils.isEmpty(bVar.f2267b) && !TextUtils.isEmpty(bVar.a)) {
-                    this.f38183k.setText(bVar.a);
-                    this.f38183k.setOnClickListener(this.o);
+                this.f36979f.displayImage(pVar.f2266b);
+                this.f36980g.setText(pVar.f2267c);
+                this.f36981h.setText(pVar.f2273i);
+                this.f36982i.setText(pVar.f2268d);
+                this.f36982i.setOnClickListener(this.o);
+                this.f36983j.setText(pVar.f2270f);
+                p.b bVar = pVar.f2271g;
+                if (bVar != null && !TextUtils.isEmpty(bVar.f2276b) && !TextUtils.isEmpty(bVar.a)) {
+                    this.k.setText(bVar.a);
+                    this.k.setOnClickListener(this.o);
                 }
-                p.a aVar = pVar.f2262h;
-                if (aVar == null || TextUtils.isEmpty(aVar.f2266b) || TextUtils.isEmpty(aVar.a)) {
+                p.a aVar = pVar.f2272h;
+                if (aVar == null || TextUtils.isEmpty(aVar.f2275b) || TextUtils.isEmpty(aVar.a)) {
                     return;
                 }
                 this.l.setText(aVar.a);
@@ -187,7 +186,7 @@ public class AdDownloadDlgView extends RelativeLayout {
         View inflate = LayoutInflater.from(getContext()).inflate(f.nad_download_lp_long_txt, (ViewGroup) null);
         ((TextView) inflate.findViewById(e.nad_download_long_txt_view)).setText(str);
         Toast toast = new Toast(getContext());
-        toast.setGravity(81, 0, (int) getContext().getResources().getDimension(c.a.c0.c0.c.nad_dimens_22dp));
+        toast.setGravity(81, 0, (int) getContext().getResources().getDimension(c.nad_dimens_22dp));
         toast.setView(inflate);
         toast.show();
     }
@@ -205,7 +204,7 @@ public class AdDownloadDlgView extends RelativeLayout {
     public void setOnCloseClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f38177e.setOnClickListener(onClickListener);
+            this.f36978e.setOnClickListener(onClickListener);
         }
     }
 

@@ -24,7 +24,6 @@ import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.searchbox.fluency.utils.FpsHandlerThread;
 import com.baidu.searchbox.fluency.view.FpsDecorator;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -526,7 +525,7 @@ public final class FpsDecorator extends FrameRateListener {
                         if (layoutParams == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("windowLp");
                         }
-                        layoutParams.type = SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY;
+                        layoutParams.type = 2038;
                     } else {
                         if (layoutParams == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("windowLp");

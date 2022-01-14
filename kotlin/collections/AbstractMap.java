@@ -49,7 +49,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
             Intrinsics.checkNotNullParameter(e2, "e");
             StringBuilder sb = new StringBuilder();
             sb.append(e2.getKey());
-            sb.append(a.f31864h);
+            sb.append(a.f30865h);
             sb.append(e2.getValue());
             return sb.toString();
         }
@@ -59,7 +59,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
         }
     }
 
-    private final Map.Entry<K, V> implFindEntry(K k2) {
+    private final Map.Entry<K, V> implFindEntry(K k) {
         Object obj;
         Iterator<T> it = entrySet().iterator();
         while (true) {
@@ -68,7 +68,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
                 break;
             }
             obj = it.next();
-            if (Intrinsics.areEqual(((Map.Entry) obj).getKey(), k2)) {
+            if (Intrinsics.areEqual(((Map.Entry) obj).getKey(), k)) {
                 break;
             }
         }
@@ -228,7 +228,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
     }
 
     @Override // java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 

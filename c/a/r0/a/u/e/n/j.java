@@ -26,13 +26,13 @@ public class j extends c.a.r0.a.u.e.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9456e;
+        public final /* synthetic */ int f9250e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9457f;
+        public final /* synthetic */ String f9251f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f9458g;
+        public final /* synthetic */ j f9252g;
 
         public a(j jVar, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class j extends c.a.r0.a.u.e.n.a {
                     return;
                 }
             }
-            this.f9458g = jVar;
-            this.f9456e = i2;
-            this.f9457f = str;
+            this.f9252g = jVar;
+            this.f9250e = i2;
+            this.f9251f = str;
         }
 
         @Override // java.lang.Runnable
@@ -60,7 +60,7 @@ public class j extends c.a.r0.a.u.e.n.a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View b2 = c.a.r0.a.c2.b.a.b();
                 LinearLayout d2 = c.a.r0.a.c2.b.a.d();
-                int i2 = this.f9456e;
+                int i2 = this.f9250e;
                 if (i2 == -90) {
                     if (b2 != null) {
                         b2.setVisibility(8);
@@ -96,8 +96,8 @@ public class j extends c.a.r0.a.u.e.n.a {
                     c.a.r0.a.c2.b.a.m(true);
                     j.D(0);
                 }
-                l.e().u(this.f9456e);
-                this.f9458g.d(this.f9457f, new c.a.r0.a.u.h.b(0));
+                l.e().u(this.f9250e);
+                this.f9252g.d(this.f9251f, new c.a.r0.a.u.h.b(0));
             }
         }
     }
@@ -176,7 +176,7 @@ public class j extends c.a.r0.a.u.e.n.a {
                 H.j2();
                 c.a.r0.a.a3.d.b C1 = H.C1();
                 if (C1 != null) {
-                    int i2 = C1.d().f5297b;
+                    int i2 = C1.d().f5187b;
                     View b2 = c.a.r0.a.c2.b.a.b();
                     if (b2 != null) {
                         b2.findViewById(c.a.r0.a.f.ai_apps_title_bar).setBackgroundColor(i2);

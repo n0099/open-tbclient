@@ -38,19 +38,19 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends SSLSocketFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HostnameVerifier a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f32927b;
+        public HttpsURLConnection f31882b;
 
         public a(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class c {
                 }
             }
             this.a = HttpsURLConnection.getDefaultHostnameVerifier();
-            this.f32927b = httpsURLConnection;
+            this.f31882b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -126,7 +126,7 @@ public class c {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                String requestProperty = this.f32927b.getRequestProperty("Host");
+                String requestProperty = this.f31882b.getRequestProperty("Host");
                 if (!TextUtils.isEmpty(requestProperty)) {
                     str = requestProperty;
                 }

@@ -18,35 +18,35 @@ import tbclient.NewHottopic.SpecialTopic;
 import tbclient.NewHottopic.TopicDetail;
 import tbclient.NewHottopic.TopicThread;
 import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21231b;
+    public String f20670b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21232c;
+    public String f20671c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21233d;
+    public String f20672d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21234e;
+    public b f20673e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f21235f;
+    public List<n> f20674f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21236g;
+    public boolean f20675g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21237h;
+    public boolean f20676h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21238i;
+    public boolean f20677i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -61,13 +61,13 @@ public class a {
                 return;
             }
         }
-        this.f21238i = false;
+        this.f20677i = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21238i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20677i : invokeV.booleanValue;
     }
 
     public void b(DataRes dataRes) {
@@ -75,41 +75,41 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f21237h = false;
+        this.f20676h = false;
         TopicDetail topicDetail = dataRes.topic_info;
         if (topicDetail != null) {
             this.a = topicDetail.topic_id.longValue();
             TopicDetail topicDetail2 = dataRes.topic_info;
-            this.f21231b = topicDetail2.topic_name;
-            this.f21232c = topicDetail2.share_title;
-            this.f21233d = topicDetail2.share_pic;
+            this.f20670b = topicDetail2.topic_name;
+            this.f20671c = topicDetail2.share_title;
+            this.f20672d = topicDetail2.share_pic;
             b bVar = new b();
-            this.f21234e = bVar;
+            this.f20673e = bVar;
             bVar.a(dataRes.topic_info);
             if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.f21237h = true;
+                this.f20676h = true;
             }
         }
         if (dataRes.pk_module != null) {
-            this.f21238i = true;
-            this.f21237h = true;
-            if (this.f21234e == null) {
-                this.f21234e = new b();
+            this.f20677i = true;
+            this.f20676h = true;
+            if (this.f20673e == null) {
+                this.f20673e = new b();
             }
-            this.f21234e.b(dataRes.pk_module);
+            this.f20673e.b(dataRes.pk_module);
         } else {
-            this.f21238i = false;
+            this.f20677i = false;
         }
         if (dataRes.time_line != null) {
-            this.f21237h = true;
-            if (this.f21234e == null) {
-                this.f21234e = new b();
+            this.f20676h = true;
+            if (this.f20673e == null) {
+                this.f20673e = new b();
             }
-            this.f21234e.c(dataRes.time_line);
+            this.f20673e.c(dataRes.time_line);
         }
-        this.f21235f = new ArrayList();
+        this.f20674f = new ArrayList();
         if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.f21237h = true;
+            this.f20676h = true;
             int i2 = 1;
             for (SpecialTopic specialTopic : dataRes.special_topic) {
                 if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
@@ -118,41 +118,41 @@ public class a {
                         if (threadInfo != null) {
                             d dVar = new d();
                             if (!z) {
-                                dVar.f21252e = true;
-                                dVar.f21255h = specialTopic.title;
+                                dVar.f20690e = true;
+                                dVar.f20693h = specialTopic.title;
                                 z = true;
                             }
-                            dVar.f21253f = i2;
-                            dVar.f21254g = this.a;
+                            dVar.f20691f = i2;
+                            dVar.f20692g = this.a;
                             dVar.g(threadInfo);
-                            this.f21235f.add(dVar);
+                            this.f20674f.add(dVar);
                             i2++;
                         }
                     }
                 }
             }
         }
-        if (this.f21237h) {
+        if (this.f20676h) {
             c.a.t0.o1.k.c.c.c cVar = new c.a.t0.o1.k.c.c.c();
-            cVar.f21295e = R.dimen.tbds78;
-            cVar.f21296f = R.color.CAM_X0201;
-            this.f21235f.add(cVar);
+            cVar.f20732e = R.dimen.tbds78;
+            cVar.f20733f = R.color.CAM_X0201;
+            this.f20674f.add(cVar);
         }
         RelateThread relateThread = dataRes.relate_thread;
         if (relateThread == null || ListUtils.isEmpty(relateThread.thread_list)) {
             return;
         }
         c.a.t0.o1.k.c.c.c cVar2 = new c.a.t0.o1.k.c.c.c();
-        cVar2.f21295e = R.dimen.tbds16;
-        this.f21235f.add(cVar2);
-        this.f21236g = dataRes.relate_thread.has_more.intValue() == 1;
+        cVar2.f20732e = R.dimen.tbds16;
+        this.f20674f.add(cVar2);
+        this.f20675g = dataRes.relate_thread.has_more.intValue() == 1;
         for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
             if (topicThread != null) {
                 c cVar3 = new c();
                 cVar3.g(topicThread);
-                cVar3.f21247g = this.a;
-                cVar3.f21250j = this.f21238i;
-                this.f21235f.add(cVar3);
+                cVar3.f20685g = this.a;
+                cVar3.f20688j = this.f20677i;
+                this.f20674f.add(cVar3);
             }
         }
     }

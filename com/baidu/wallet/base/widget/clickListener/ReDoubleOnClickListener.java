@@ -15,7 +15,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Runnable f52829b;
+    public static final Runnable f50790b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
                 return;
             }
         }
-        f52829b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
+        f50790b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && a) {
             a = false;
-            view.post(f52829b);
+            view.post(f50790b);
             doClick(view);
         }
     }

@@ -25,13 +25,13 @@ public class d implements c.a.t0.k0.c {
     public EnterForumModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a f24708b;
+    public c.a f24022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final EnterForumModel.f f24709c;
+    public final EnterForumModel.f f24023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d.c.g.a f24710d;
+    public c.a.d.c.g.a f24024d;
 
     /* loaded from: classes8.dex */
     public class a implements EnterForumModel.f {
@@ -61,15 +61,15 @@ public class d implements c.a.t0.k0.c {
         public void a(EnterForumModel.e eVar) {
             c.a.t0.u0.d.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || this.a.f24708b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || this.a.f24022b == null) {
                 return;
             }
-            if (eVar == null || !eVar.f44244b || (dVar = eVar.f44246d) == null || dVar.e() == null) {
-                this.a.f24708b.a(null, false, 1, 0);
+            if (eVar == null || !eVar.f42624b || (dVar = eVar.f42626d) == null || dVar.e() == null) {
+                this.a.f24022b.a(null, false, 1, 0);
                 return;
             }
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-            ArrayList<f> b2 = eVar.f44246d.e().b();
+            ArrayList<f> b2 = eVar.f42626d.e().b();
             if (ListUtils.getCount(b2) > 0) {
                 Iterator<f> it = b2.iterator();
                 while (it.hasNext()) {
@@ -81,7 +81,7 @@ public class d implements c.a.t0.k0.c {
                     }
                 }
             }
-            this.a.f24708b.a(arrayList, true, 1, 0);
+            this.a.f24022b.a(arrayList, true, 1, 0);
         }
     }
 
@@ -144,19 +144,19 @@ public class d implements c.a.t0.k0.c {
             }
         }
         this.a = null;
-        this.f24709c = new a(this);
-        this.f24710d = new b(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+        this.f24023c = new a(this);
+        this.f24024d = new b(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
         EnterForumModel enterForumModel = new EnterForumModel(null);
         this.a = enterForumModel;
-        enterForumModel.T(this.f24709c);
-        MessageManager.getInstance().registerListener(this.f24710d);
+        enterForumModel.T(this.f24023c);
+        MessageManager.getInstance().registerListener(this.f24024d);
     }
 
     @Override // c.a.t0.k0.c
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f24708b = aVar;
+            this.f24022b = aVar;
         }
     }
 
@@ -164,7 +164,7 @@ public class d implements c.a.t0.k0.c {
     public void b() {
         EnterForumModel enterForumModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f24708b == null || (enterForumModel = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f24022b == null || (enterForumModel = this.a) == null) {
             return;
         }
         enterForumModel.H(true);

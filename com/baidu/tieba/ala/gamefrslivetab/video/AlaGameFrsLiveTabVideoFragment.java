@@ -26,22 +26,22 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43661e;
+    public boolean f42079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43662f;
+    public String f42080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43663g;
+    public boolean f42081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.a0.i.a.b f43664h;
+    public c.a.t0.a0.i.a.b f42082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f43665i;
+    public CustomMessageListener f42083i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f43666j;
+    public CustomMessageListener f42084j;
 
     /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
@@ -82,11 +82,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
                 return;
             }
             if ("FrsGameLive".equals(split[0]) && 8 == c.a.d.f.m.b.e(split[1], 0)) {
-                if (this.a.f43664h != null) {
-                    this.a.f43664h.i();
+                if (this.a.f42082h != null) {
+                    this.a.f42082h.i();
                 }
-            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == c.a.d.f.m.b.e(split[1], 0) && this.a.f43664h != null) {
-                this.a.f43664h.i();
+            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == c.a.d.f.m.b.e(split[1], 0) && this.a.f42082h != null) {
+                this.a.f42082h.i();
             }
         }
     }
@@ -125,7 +125,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (this.a.getVideoUrl().contains(str) || str.contains(this.a.getVideoUrl())) {
-                    this.a.f43664h.l();
+                    this.a.f42082h.l();
                 }
             }
         }
@@ -144,10 +144,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
                 return;
             }
         }
-        this.f43661e = false;
-        this.f43663g = true;
-        this.f43665i = new a(this, 0);
-        this.f43666j = new b(this, 2921023);
+        this.f42079e = false;
+        this.f42081g = true;
+        this.f42083i = new a(this, 0);
+        this.f42084j = new b(this, 2921023);
     }
 
     public final String d(String str) {
@@ -184,22 +184,22 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     public NavigationBar getNavigationBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43664h.j() : (NavigationBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42082h.j() : (NavigationBar) invokeV.objValue;
     }
 
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String p = c.a.s0.s.g0.b.j().p("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
-            if (p != null) {
-                StringBuilder sb = new StringBuilder(p);
-                if (p.endsWith("?")) {
+            String q = c.a.s0.s.h0.b.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            if (q != null) {
+                StringBuilder sb = new StringBuilder(q);
+                if (q.endsWith("?")) {
                     sb.append("fid=");
-                    sb.append(this.f43662f);
+                    sb.append(this.f42080f);
                 } else {
                     sb.append("?fid=");
-                    sb.append(this.f43662f);
+                    sb.append(this.f42080f);
                 }
                 return sb.toString();
             }
@@ -213,8 +213,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.f43664h.o(this);
-            registerListener(this.f43666j);
+            this.f42082h.o(this);
+            registerListener(this.f42084j);
         }
     }
 
@@ -223,15 +223,15 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            if (this.f43663g) {
+            if (this.f42081g) {
                 return;
             }
             if (i2 == 1) {
-                this.f43664h.y(d(getVideoUrl()));
+                this.f42082h.y(d(getVideoUrl()));
             } else {
-                this.f43664h.y(getVideoUrl());
+                this.f42082h.y(getVideoUrl());
             }
-            this.f43664h.A(i2);
+            this.f42082h.A(i2);
         }
     }
 
@@ -240,7 +240,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            registerListener(2001446, this.f43665i, getBaseFragmentActivity().getUniqueId());
+            registerListener(2001446, this.f42083i, getBaseFragmentActivity().getUniqueId());
         }
     }
 
@@ -249,8 +249,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            c.a.t0.a0.i.a.b bVar = new c.a.t0.a0.i.a.b(this.f43661e);
-            this.f43664h = bVar;
+            c.a.t0.a0.i.a.b bVar = new c.a.t0.a0.i.a.b(this.f42079e);
+            this.f42082h = bVar;
             return bVar.B(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
@@ -261,7 +261,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            c.a.t0.a0.i.a.b bVar = this.f43664h;
+            c.a.t0.a0.i.a.b bVar = this.f42082h;
             if (bVar != null) {
                 bVar.C();
             }
@@ -281,13 +281,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            if (this.f43663g || StringUtils.isNull(this.f43664h.k().getUrl())) {
+            if (this.f42081g || StringUtils.isNull(this.f42082h.k().getUrl())) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.f43664h.y(d(getVideoUrl()));
+                    this.f42082h.y(d(getVideoUrl()));
                 } else {
-                    this.f43664h.y(getVideoUrl());
+                    this.f42082h.y(getVideoUrl());
                 }
-                this.f43663g = false;
+                this.f42081g = false;
             }
         }
     }
@@ -303,7 +303,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f43662f = str;
+            this.f42080f = str;
         }
     }
 
@@ -316,7 +316,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements r0 {
     public void setShowNavi(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f43661e = z;
+            this.f42079e = z;
         }
     }
 }

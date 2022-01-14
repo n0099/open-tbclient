@@ -98,10 +98,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f49219e;
+        public final /* synthetic */ PluginConfigWrapper f47368e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f49220f;
+        public final /* synthetic */ PluginCenterActivity f47369f;
 
         public b(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f49220f = pluginCenterActivity;
-            this.f49219e = pluginConfigWrapper;
+            this.f47369f = pluginCenterActivity;
+            this.f47368e = pluginConfigWrapper;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -127,12 +127,12 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (n.C()) {
-                    PluginPackageManager.u().K(this.f49219e, this.f49220f.mDownLoadAndInstallCallback);
-                    this.f49219e.setDownLoadPercent(0);
-                    this.f49219e.setDownLoadStatus(3);
-                    this.f49220f.mPluginCenterAdapter.n(this.f49219e);
+                    PluginPackageManager.u().K(this.f47368e, this.f47369f.mDownLoadAndInstallCallback);
+                    this.f47368e.setDownLoadPercent(0);
+                    this.f47368e.setDownLoadStatus(3);
+                    this.f47369f.mPluginCenterAdapter.n(this.f47368e);
                 } else {
-                    this.f49220f.showToast(f.neterror);
+                    this.f47369f.showToast(f.neterror);
                 }
                 aVar.dismiss();
             }
@@ -145,7 +145,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f49221e;
+        public final /* synthetic */ PluginCenterActivity f47370e;
 
         public c(PluginCenterActivity pluginCenterActivity) {
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f49221e = pluginCenterActivity;
+            this.f47370e = pluginCenterActivity;
         }
 
         @Override // c.a.s0.s.s.a.e

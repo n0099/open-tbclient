@@ -7,6 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.WebChromeClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -37,7 +38,7 @@ public class g {
             if (m.isEmpty(str) || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            return parse.getQueryParameter("callback");
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
         }
         return (String) invokeL.objValue;
     }

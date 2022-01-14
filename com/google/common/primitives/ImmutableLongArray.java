@@ -167,7 +167,7 @@ public final class ImmutableLongArray implements Serializable {
         public long[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57084b;
+        public int f54923b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public final class ImmutableLongArray implements Serializable {
                     return;
                 }
             }
-            this.f57084b = 0;
+            this.f54923b = 0;
             this.a = new long[i2];
         }
 
@@ -213,9 +213,9 @@ public final class ImmutableLongArray implements Serializable {
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
                 e(1);
                 long[] jArr = this.a;
-                int i2 = this.f57084b;
+                int i2 = this.f54923b;
                 jArr[i2] = j2;
-                this.f57084b = i2 + 1;
+                this.f54923b = i2 + 1;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -244,8 +244,8 @@ public final class ImmutableLongArray implements Serializable {
                 e(collection.size());
                 for (Long l : collection) {
                     long[] jArr = this.a;
-                    int i2 = this.f57084b;
-                    this.f57084b = i2 + 1;
+                    int i2 = this.f54923b;
+                    this.f54923b = i2 + 1;
                     jArr[i2] = l.longValue();
                 }
                 return this;
@@ -256,17 +256,17 @@ public final class ImmutableLongArray implements Serializable {
         public ImmutableLongArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57084b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.a, 0, this.f57084b, null) : (ImmutableLongArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54923b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.a, 0, this.f54923b, null) : (ImmutableLongArray) invokeV.objValue;
         }
 
         public final void e(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                int i3 = this.f57084b + i2;
+                int i3 = this.f54923b + i2;
                 long[] jArr = this.a;
                 if (i3 > jArr.length) {
                     long[] jArr2 = new long[f(jArr.length, i3)];
-                    System.arraycopy(this.a, 0, jArr2, 0, this.f57084b);
+                    System.arraycopy(this.a, 0, jArr2, 0, this.f54923b);
                     this.a = jArr2;
                 }
             }

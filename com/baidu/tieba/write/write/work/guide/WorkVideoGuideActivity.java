@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.s0.s.m.d;
-import c.a.t0.o4.e0.p.w.c;
-import c.a.t0.o4.e0.p.w.e;
-import c.a.t0.o4.h;
-import c.a.t0.o4.j;
+import c.a.t0.p4.e0.p.w.c;
+import c.a.t0.p4.e0.p.w.e;
+import c.a.t0.p4.h;
+import c.a.t0.p4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -60,12 +60,12 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c14364");
             int i3 = this.mFrom;
-            if (i3 == d.f13556d) {
+            if (i3 == d.f13241d) {
                 i2 = 1;
-            } else if (i3 == d.f13558f) {
+            } else if (i3 == d.f13243f) {
                 i2 = 2;
             } else {
-                i2 = i3 == d.f13557e ? 3 : 0;
+                i2 = i3 == d.f13242e ? 3 : 0;
             }
             statisticItem.param("obj_source", i2);
             statisticItem.param("obj_type", this.mStatus);
@@ -73,7 +73,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // c.a.t0.o4.e0.p.w.c
+    @Override // c.a.t0.p4.e0.p.w.c
     public void finishPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -143,12 +143,12 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // c.a.t0.o4.e0.p.w.c
+    @Override // c.a.t0.p4.e0.p.w.c
     public void netCallBack(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
             if (i2 == 0) {
-                b.j().v("key_work_video_guide_pop", 0);
+                b.k().w("key_work_video_guide_pop", 0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921624, Boolean.TRUE));
                 setResult(-1);
                 finish();
@@ -187,7 +187,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // c.a.t0.o4.e0.p.w.c
+    @Override // c.a.t0.p4.e0.p.w.c
     public void openUpgrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {

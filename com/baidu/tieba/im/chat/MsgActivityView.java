@@ -39,7 +39,7 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f46522e;
+        public final /* synthetic */ MsgActivityView f44803e;
 
         public a(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f46522e = msgActivityView;
+            this.f44803e = msgActivityView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46522e.y == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44803e.y == null) {
                 return;
             }
-            this.f46522e.y.onItemViewClick(view, 8, this.f46522e.x, 0L);
+            this.f44803e.y.onItemViewClick(view, 8, this.f44803e.x, 0L);
         }
     }
 
@@ -75,7 +75,7 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f46523e;
+        public final /* synthetic */ MsgActivityView f44804e;
 
         public b(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f46523e = msgActivityView;
+            this.f44804e = msgActivityView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -100,8 +100,8 @@ public class MsgActivityView extends e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f46523e.z != null) {
-                    this.f46523e.z.onItemViewLongClick(view, 8, this.f46523e.x, 0L);
+                if (this.f44804e.z != null) {
+                    this.f44804e.z.onItemViewLongClick(view, 8, this.f44804e.x, 0L);
                     return true;
                 }
                 return true;
@@ -116,13 +116,13 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46524e;
+        public final /* synthetic */ String f44805e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46525f;
+        public final /* synthetic */ String f44806f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f46526g;
+        public final /* synthetic */ MsgActivityView f44807g;
 
         public c(MsgActivityView msgActivityView, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -139,16 +139,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f46526g = msgActivityView;
-            this.f46524e = str;
-            this.f46525f = str2;
+            this.f44807g = msgActivityView;
+            this.f44805e = str;
+            this.f44806f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f46526g.getPageContext().getPageActivity(), this.f46524e, this.f46525f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f44807g.getPageContext().getPageActivity(), this.f44805e, this.f44806f)));
             }
         }
     }
@@ -172,7 +172,7 @@ public class MsgActivityView extends e {
                 return;
             }
         }
-        this.f22552h = (TextView) c(R.id.tex_msgitem_time);
+        this.f21935h = (TextView) c(R.id.tex_msgitem_time);
         this.u = (TextView) c(R.id.msg_msgactivity_title);
         this.v = (TextView) c(R.id.msg_msgactivity_time);
         this.w = (TextView) c(R.id.msg_msgactivity_address);

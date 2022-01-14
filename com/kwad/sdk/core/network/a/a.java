@@ -7,25 +7,25 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f58074b;
+    public long f55878b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f58075c;
+    public long f55879c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f58076d;
+    public long f55880d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f58077e;
+    public long f55881e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58078f;
+    public String f55882f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58079g;
+    public String f55883g;
 
     @NonNull
     public String toString() {
-        return "NetworkMonitorInfo{requestTotalTime=" + this.a + ", mRequestCreateTime" + this.f58074b + ", requestResponseTime=" + this.f58075c + ", requestParseDataTime=" + this.f58076d + ", requestCallbackTime=" + this.f58077e + ", requestFailReason='" + this.f58078f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f58079g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NetworkMonitorInfo{requestTotalTime=" + this.a + ", mRequestCreateTime" + this.f55878b + ", requestResponseTime=" + this.f55879c + ", requestParseDataTime=" + this.f55880d + ", requestCallbackTime=" + this.f55881e + ", requestFailReason='" + this.f55882f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f55883g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

@@ -27,15 +27,15 @@ public class b extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7837d;
+    public static final String f7666d;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.r0.a.z2.f1.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7838b;
+    public String f7667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7839c;
+    public boolean f7668c;
 
     /* loaded from: classes.dex */
     public class a extends c {
@@ -43,10 +43,10 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f7840g;
+        public final /* synthetic */ Activity f7669g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7841h;
+        public final /* synthetic */ Bundle f7670h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, c.a.r0.a.m.a aVar, Activity activity, Bundle bundle) {
@@ -67,27 +67,27 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7840g = activity;
-            this.f7841h = bundle;
+            this.f7669g = activity;
+            this.f7670h = bundle;
         }
 
         @Override // c.a.r0.a.m.b.c
         public void c(c.a.r0.a.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.r0.a.c1.a.h0().b(this.f7840g, this.f7841h, aVar);
+                c.a.r0.a.c1.a.h0().b(this.f7669g, this.f7670h, aVar);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0446b extends ResponseCallback<JSONObject> {
+    public static class C0455b extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n.b a;
 
-        public C0446b(n.b bVar) {
+        public C0455b(n.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,7 +155,7 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c.a.r0.a.m.a f7842f;
+        public final c.a.r0.a.m.a f7671f;
 
         public /* synthetic */ c(b bVar, c.a.r0.a.m.a aVar, a aVar2) {
             this(bVar, aVar);
@@ -167,7 +167,7 @@ public class b extends f {
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                c.a.r0.a.m.a aVar = this.f7842f;
+                c.a.r0.a.m.a aVar = this.f7671f;
                 if (aVar != null) {
                     aVar.onResult(i2);
                 }
@@ -198,7 +198,7 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7842f = aVar;
+            this.f7671f = aVar;
         }
     }
 
@@ -215,7 +215,7 @@ public class b extends f {
                 return;
             }
         }
-        f7837d = c.a.r0.a.d0.a.b() + "/ma/relate2user";
+        f7666d = c.a.r0.a.d0.a.b() + "/ma/relate2user";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -237,13 +237,13 @@ public class b extends f {
             }
         }
         this.a = new c.a.r0.a.z2.f1.c();
-        this.f7839c = false;
+        this.f7668c = false;
     }
 
     public static void b(String str, n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, bVar) == null) {
-            c.a.r0.p.e.a.g().getRequest().url(f7837d).cookieManager(c.a.r0.a.c1.a.q().a()).addUrlParam("app_key", str).addUrlParam("launchid", c.a.r0.a.u1.l.d.b()).build().executeAsyncOnUIBack(new C0446b(bVar));
+            c.a.r0.p.e.a.g().getRequest().url(f7666d).cookieManager(c.a.r0.a.c1.a.q().a()).addUrlParam("app_key", str).addUrlParam("launchid", c.a.r0.a.u1.l.d.b()).build().executeAsyncOnUIBack(new C0455b(bVar));
         }
     }
 
@@ -272,8 +272,8 @@ public class b extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f7839c) {
-                return TextUtils.isEmpty(this.f7838b) ? "" : this.f7838b;
+            if (this.f7668c) {
+                return TextUtils.isEmpty(this.f7667b) ? "" : this.f7667b;
             }
             return c(AppRuntime.getAppContext());
         }
@@ -303,8 +303,8 @@ public class b extends f {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f7838b = str;
-            this.f7839c = true;
+            this.f7667b = str;
+            this.f7668c = true;
         }
     }
 }

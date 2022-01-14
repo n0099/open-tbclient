@@ -26,12 +26,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f10510c;
+    public static volatile c f10283c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f10511b;
+    public volatile boolean f10284b;
 
     /* loaded from: classes6.dex */
     public static class a extends j {
@@ -70,7 +70,7 @@ public class c {
                 return;
             }
         }
-        this.f10511b = false;
+        this.f10284b = false;
         this.a = new a();
     }
 
@@ -78,14 +78,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10510c == null) {
+            if (f10283c == null) {
                 synchronized (c.class) {
-                    if (f10510c == null) {
-                        f10510c = new c();
+                    if (f10283c == null) {
+                        f10283c = new c();
                     }
                 }
             }
-            return f10510c;
+            return f10283c;
         }
         return (c) invokeV.objValue;
     }
@@ -201,7 +201,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                if (this.f10511b) {
+                if (this.f10284b) {
                     return true;
                 }
                 String D = d.D(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -228,7 +228,7 @@ public class c {
                         }
                     }
                     i(optString, optString2, optString3, optString4, optInt, hashSet);
-                    this.f10511b = true;
+                    this.f10284b = true;
                     return true;
                 } catch (JSONException e2) {
                     if (c.a.r0.d.c.a) {

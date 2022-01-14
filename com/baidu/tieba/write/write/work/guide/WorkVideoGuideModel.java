@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.guide;
 
 import c.a.d.a.f;
-import c.a.t0.o4.e0.p.w.c;
+import c.a.t0.p4.e0.p.w.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -23,7 +23,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f51948e;
+    public c f49942e;
 
     /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
@@ -57,7 +57,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpWorkVIdeoGuideMessage)) {
-                this.a.f51948e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                this.a.f49942e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -80,7 +80,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.f51948e = cVar;
+        this.f49942e = cVar;
         x();
     }
 

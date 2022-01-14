@@ -17,10 +17,10 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.s1.t.a f22894e;
+    public c.a.t0.s1.t.a f22264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22895f;
+    public int f22265f;
 
     public b(c.a.t0.s1.t.a aVar, int i2) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
                 return;
             }
         }
-        this.f22894e = aVar;
-        this.f22895f = i2;
+        this.f22264e = aVar;
+        this.f22265f = i2;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -46,17 +46,17 @@ public abstract class b implements CustomMessageTask.CustomRunnable<SaveDraftMes
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.f22895f);
+            CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.f22265f);
             if (customMessage == null || !(customMessage instanceof SaveDraftMessage)) {
                 return null;
             }
             SaveDraftMessage.a data = customMessage.getData();
-            ChatSetting a = this.f22894e.a(TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "", data.f46800b);
+            ChatSetting a = this.f22264e.a(TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "", data.f45070b);
             if (a == null) {
                 return null;
             }
             a.setDraft(data.a);
-            this.f22894e.h(a);
+            this.f22264e.h(a);
             return customResponsedMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;

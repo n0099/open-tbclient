@@ -29,7 +29,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i2) {
-        cVar.a.a(cVar.f58183b);
+        cVar.a.a(cVar.f55984b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

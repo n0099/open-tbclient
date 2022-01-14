@@ -39,7 +39,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && ACTION_NAME.equals(intent.getAction())) {
             b.b().g();
-            if (c.a.s0.s.g0.b.j().g("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            if (c.a.s0.s.h0.b.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);

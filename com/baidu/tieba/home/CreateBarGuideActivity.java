@@ -78,10 +78,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f45736e;
+        public final /* synthetic */ c.a.s0.s.s.a f44063e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f45737f;
+        public final /* synthetic */ CreateBarGuideActivity f44064f;
 
         public b(CreateBarGuideActivity createBarGuideActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -98,16 +98,16 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f45737f = createBarGuideActivity;
-            this.f45736e = aVar;
+            this.f44064f = createBarGuideActivity;
+            this.f44063e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45736e.dismiss();
-                this.f45737f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f45737f.getPageContext().getPageActivity())));
+                this.f44063e.dismiss();
+                this.f44064f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f44064f.getPageContext().getPageActivity())));
             }
         }
     }
@@ -118,10 +118,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f45738e;
+        public final /* synthetic */ c.a.s0.s.s.a f44065e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f45739f;
+        public final /* synthetic */ CreateBarGuideActivity f44066f;
 
         public c(CreateBarGuideActivity createBarGuideActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -138,15 +138,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f45739f = createBarGuideActivity;
-            this.f45738e = aVar;
+            this.f44066f = createBarGuideActivity;
+            this.f44065e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45738e.dismiss();
+                this.f44065e.dismiss();
             }
         }
     }

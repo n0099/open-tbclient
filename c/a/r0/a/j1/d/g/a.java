@@ -27,16 +27,16 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.r0.a.j1.d.f.a> f7611e;
+    public ArrayList<c.a.r0.a.j1.d.f.a> f7446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<MediaModel> f7612f;
+    public ArrayList<MediaModel> f7447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7613g;
+    public String f7448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f7614h;
+    public Handler f7449h;
 
     public a(String str, Handler handler) {
         Interceptable interceptable = $ic;
@@ -53,15 +53,15 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f7611e = new ArrayList<>();
-        this.f7612f = new ArrayList<>();
-        this.f7613g = str;
-        this.f7614h = handler;
+        this.f7446e = new ArrayList<>();
+        this.f7447f = new ArrayList<>();
+        this.f7448g = str;
+        this.f7449h = handler;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.f7613g, "video")) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.f7448g, "video")) {
             return;
         }
         Cursor cursor = null;
@@ -81,7 +81,7 @@ public class a implements Runnable {
                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                 long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                 File file = new File(string);
-                if (file.exists() && (c.f7591d || !d.d(string))) {
+                if (file.exists() && (c.f7426d || !d.d(string))) {
                     ImageModel imageModel = new ImageModel(string);
                     imageModel.setAddDate(j2);
                     imageModel.setSize(j3);
@@ -114,7 +114,7 @@ public class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ?? r1 = "Image";
-            if (TextUtils.equals(this.f7613g, "Image")) {
+            if (TextUtils.equals(this.f7448g, "Image")) {
                 return;
             }
             try {
@@ -227,14 +227,14 @@ public class a implements Runnable {
             c.a.r0.a.j1.d.f.a aVar = new c.a.r0.a.j1.d.f.a();
             aVar.h(name);
             aVar.g(path);
-            int indexOf = this.f7611e.indexOf(aVar);
+            int indexOf = this.f7446e.indexOf(aVar);
             if (indexOf >= 0) {
-                this.f7611e.get(indexOf).a(mediaModel);
+                this.f7446e.get(indexOf).a(mediaModel);
             } else {
                 aVar.a(mediaModel);
-                this.f7611e.add(aVar);
+                this.f7446e.add(aVar);
             }
-            this.f7612f.add(mediaModel);
+            this.f7447f.add(mediaModel);
         }
     }
 
@@ -244,20 +244,20 @@ public class a implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a();
             b();
-            c(this.f7611e);
+            c(this.f7446e);
             c.a.r0.a.j1.d.f.a aVar = new c.a.r0.a.j1.d.f.a();
-            aVar.h(d.b(AppRuntime.getAppContext(), this.f7613g));
-            aVar.f7610h = this.f7612f;
-            this.f7611e.add(0, aVar);
-            Iterator<c.a.r0.a.j1.d.f.a> it = this.f7611e.iterator();
+            aVar.h(d.b(AppRuntime.getAppContext(), this.f7448g));
+            aVar.f7445h = this.f7447f;
+            this.f7446e.add(0, aVar);
+            Iterator<c.a.r0.a.j1.d.f.a> it = this.f7446e.iterator();
             while (it.hasNext()) {
                 Collections.sort(it.next().f());
             }
-            Handler handler = this.f7614h;
+            Handler handler = this.f7449h;
             if (handler != null) {
                 Message obtainMessage = handler.obtainMessage(0);
-                obtainMessage.obj = this.f7611e;
-                this.f7614h.sendMessage(obtainMessage);
+                obtainMessage.obj = this.f7446e;
+                this.f7449h.sendMessage(obtainMessage);
             }
         }
     }

@@ -36,10 +36,10 @@ public final class PayUtils {
     public static String a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53913b = "";
+    public static final String f51852b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f53914c;
+    public static ArrayList<String> f51853c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes13.dex */
@@ -85,12 +85,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f53914c = arrayList;
+        f51853c = arrayList;
         arrayList.add("card_no");
-        f53914c.add("valid_date");
-        f53914c.add("cvv2");
-        f53914c.add("identity_code");
-        f53914c.add("phone_number");
+        f51853c.add("valid_date");
+        f51853c.add("cvv2");
+        f51853c.add("identity_code");
+        f51853c.add("phone_number");
     }
 
     public PayUtils() {
@@ -129,7 +129,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f53914c.contains(str)) {
+            if (f51853c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -247,7 +247,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f31864h);
+                    sb.append(com.alipay.sdk.encrypt.a.f30865h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

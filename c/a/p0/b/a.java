@@ -18,18 +18,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f4654e;
+    public static volatile a f4552e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f4655b;
+    public SharedPreferences f4553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f4656c;
+    public SharedPreferences.Editor f4554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f4657d;
+    public Context f4555d;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -46,24 +46,24 @@ public class a {
                 return;
             }
         }
-        this.f4655b = context.getSharedPreferences("once_login_config", 0);
+        this.f4553b = context.getSharedPreferences("once_login_config", 0);
         context.getSharedPreferences("leroadcfg", 0);
-        this.f4656c = this.f4655b.edit();
-        this.f4657d = context;
+        this.f4554c = this.f4553b.edit();
+        this.f4555d = context;
     }
 
     public static a h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f4654e == null) {
+            if (f4552e == null) {
                 synchronized (a.class) {
-                    if (f4654e == null) {
-                        f4654e = new a(context);
+                    if (f4552e == null) {
+                        f4552e = new a(context);
                     }
                 }
             }
-            return f4654e;
+            return f4552e;
         }
         return (a) invokeL.objValue;
     }
@@ -99,13 +99,13 @@ public class a {
     public long E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? g("ky_cfo_t", c.a.p0.l.c.f4836f) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? g("ky_cfo_t", c.a.p0.l.c.f4731f) : invokeV.longValue;
     }
 
     public final String F(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? this.f4655b.getString(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? this.f4553b.getString(str, str2) : (String) invokeLL.objValue;
     }
 
     public void G(long j2) {
@@ -165,8 +165,8 @@ public class a {
     public final void M(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.f4656c.putString(str, str2);
-            this.f4656c.commit();
+            this.f4554c.putString(str, str2);
+            this.f4554c.commit();
         }
     }
 
@@ -320,7 +320,7 @@ public class a {
     public final int f(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048612, this, str, i2)) == null) ? this.f4655b.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048612, this, str, i2)) == null) ? this.f4553b.getInt(str, i2) : invokeLI.intValue;
     }
 
     public String f0() {
@@ -332,7 +332,7 @@ public class a {
     public final long g(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048614, this, str, j2)) == null) ? this.f4655b.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048614, this, str, j2)) == null) ? this.f4553b.getLong(str, j2) : invokeLJ.longValue;
     }
 
     public int g0() {
@@ -361,8 +361,8 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, str, str2)) == null) {
-            String string = this.f4655b.getString(str, str2);
-            return !TextUtils.isEmpty(string) ? e.a(this.f4657d, string) : "";
+            String string = this.f4553b.getString(str, str2);
+            return !TextUtils.isEmpty(string) ? e.a(this.f4555d, string) : "";
         }
         return (String) invokeLL.objValue;
     }
@@ -441,7 +441,7 @@ public class a {
     public final boolean o(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048629, this, str, z)) == null) ? this.f4655b.getBoolean(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048629, this, str, z)) == null) ? this.f4553b.getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
     public String o0() {
@@ -486,16 +486,16 @@ public class a {
     public final void t(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048636, this, str, i2) == null) {
-            this.f4656c.putInt(str, i2);
-            this.f4656c.commit();
+            this.f4554c.putInt(str, i2);
+            this.f4554c.commit();
         }
     }
 
     public final void u(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048637, this, str, j2) == null) {
-            this.f4656c.putLong(str, j2);
-            this.f4656c.commit();
+            this.f4554c.putLong(str, j2);
+            this.f4554c.commit();
         }
     }
 
@@ -504,15 +504,15 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048638, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f4656c.putString(str, e.b(this.f4657d, str2.getBytes()));
-        this.f4656c.commit();
+        this.f4554c.putString(str, e.b(this.f4555d, str2.getBytes()));
+        this.f4554c.commit();
     }
 
     public final void w(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048639, this, str, z) == null) {
-            this.f4656c.putBoolean(str, z);
-            this.f4656c.commit();
+            this.f4554c.putBoolean(str, z);
+            this.f4554c.commit();
         }
     }
 
@@ -526,7 +526,7 @@ public class a {
     public long y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? g("k_a_itl", c.a.p0.l.b.f4831b * 24) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? g("k_a_itl", c.a.p0.l.b.f4726b * 24) : invokeV.longValue;
     }
 
     public void z(int i2) {

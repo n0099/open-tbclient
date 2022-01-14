@@ -20,10 +20,10 @@ public class c extends RequestBody {
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.a.p1.p.a f8446b;
+    public final c.a.r0.a.p1.p.a f8262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f8447c;
+    public final String f8263c;
 
     public c(File file, String str, c.a.r0.a.p1.p.a aVar) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class c extends RequestBody {
             }
         }
         this.a = file;
-        this.f8447c = str;
-        this.f8446b = aVar;
+        this.f8263c = str;
+        this.f8262b = aVar;
     }
 
     @Override // okhttp3.RequestBody
@@ -56,7 +56,7 @@ public class c extends RequestBody {
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.f8447c) : (MediaType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.f8263c) : (MediaType) invokeV.objValue;
     }
 
     @Override // okhttp3.RequestBody
@@ -76,7 +76,7 @@ public class c extends RequestBody {
                 }
                 j2 += read;
                 bufferedSink.flush();
-                this.f8446b.a(j2);
+                this.f8262b.a(j2);
             }
         } finally {
             c.a.r0.w.d.d(source);

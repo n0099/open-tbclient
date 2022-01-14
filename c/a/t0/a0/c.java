@@ -24,19 +24,19 @@ public class c {
     public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f14668b;
+    public HttpMessageListener f14321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f14669c;
+    public BdUniqueId f14322c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f14670d;
+    public BdUniqueId f14323d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f14671e;
+    public CustomMessageListener f14324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f14672f;
+    public CustomMessageListener f14325f;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -108,20 +108,20 @@ public class c {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.A() && this.a.a != null) {
                 c cVar = this.a;
-                cVar.h(cVar.a, this.a.f14670d);
+                cVar.h(cVar.a, this.a.f14323d);
             }
         }
     }
 
     /* renamed from: c.a.t0.a0.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0901c extends CustomMessageListener {
+    public class C0914c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0901c(c cVar, int i2) {
+        public C0914c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -166,18 +166,18 @@ public class c {
                 return;
             }
         }
-        this.f14669c = BdUniqueId.gen();
-        this.f14670d = BdUniqueId.gen();
-        this.f14671e = new b(this, 2000994);
-        this.f14672f = new C0901c(this, 2921324);
-        if (this.f14668b == null) {
-            this.f14668b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        this.f14322c = BdUniqueId.gen();
+        this.f14323d = BdUniqueId.gen();
+        this.f14324e = new b(this, 2000994);
+        this.f14325f = new C0914c(this, 2921324);
+        if (this.f14321b == null) {
+            this.f14321b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
         }
-        MessageManager.getInstance().registerListener(this.f14668b);
-        MessageManager.getInstance().registerListener(this.f14671e);
-        this.f14672f.setTag(tbPageContext.getUniqueId());
-        this.f14672f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f14672f);
+        MessageManager.getInstance().registerListener(this.f14321b);
+        MessageManager.getInstance().registerListener(this.f14324e);
+        this.f14325f.setTag(tbPageContext.getUniqueId());
+        this.f14325f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f14325f);
     }
 
     public final void f(JSONObject jSONObject) {
@@ -186,7 +186,7 @@ public class c {
             return;
         }
         if (l.A()) {
-            h(jSONObject, this.f14669c);
+            h(jSONObject, this.f14322c);
         } else {
             this.a = jSONObject;
         }
@@ -195,9 +195,9 @@ public class c {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f14668b);
-            MessageManager.getInstance().unRegisterListener(this.f14671e);
-            MessageManager.getInstance().unRegisterListener(this.f14672f);
+            MessageManager.getInstance().unRegisterListener(this.f14321b);
+            MessageManager.getInstance().unRegisterListener(this.f14324e);
+            MessageManager.getInstance().unRegisterListener(this.f14325f);
             this.a = null;
         }
     }

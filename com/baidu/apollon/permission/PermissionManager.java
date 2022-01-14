@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PermissionManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CODE_CALL_PHONE = 2;
@@ -25,7 +25,7 @@ public class PermissionManager implements NoProguard {
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f33566b;
+    public static int f32501b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -111,14 +111,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f33566b == 0) {
+            if (f32501b == 0) {
                 try {
-                    f33566b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f32501b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f33566b;
+            return f32501b;
         }
         return invokeL.intValue;
     }

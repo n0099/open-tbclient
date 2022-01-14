@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,32 +19,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<FacePurchaseRecordsActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f26474b;
+    public final View f25688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f26475c;
+    public final NavigationBar f25689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NoNetworkView f26476d;
+    public final NoNetworkView f25690d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BdListView f26477e;
+    public final BdListView f25691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.s0.s.i0.g f26478f;
+    public final c.a.s0.s.j0.g f25692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f26479g;
+    public View f25693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f26480h;
+    public j f25694h;
 
     public k(TbPageContext<FacePurchaseRecordsActivity> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -64,44 +64,44 @@ public class k {
         this.a = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
         View findViewById = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.f26474b = findViewById;
+        this.f25688b = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f26475c = navigationBar;
+        this.f25689c = navigationBar;
         navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.f26475c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f26476d = (NoNetworkView) this.f26474b.findViewById(R.id.view_no_network);
-        this.f26477e = (BdListView) this.f26474b.findViewById(R.id.purchase_record_list);
-        c.a.s0.s.i0.g gVar = new c.a.s0.s.i0.g(tbPageContext);
-        this.f26478f = gVar;
-        this.f26477e.setPullRefresh(gVar);
-        this.f26479g = BdListViewHelper.d(this.a.getPageActivity(), this.f26477e, BdListViewHelper.HeadType.DEFAULT);
+        this.f25689c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f25690d = (NoNetworkView) this.f25688b.findViewById(R.id.view_no_network);
+        this.f25691e = (BdListView) this.f25688b.findViewById(R.id.purchase_record_list);
+        c.a.s0.s.j0.g gVar = new c.a.s0.s.j0.g(tbPageContext);
+        this.f25692f = gVar;
+        this.f25691e.setPullRefresh(gVar);
+        this.f25693g = BdListViewHelper.d(this.a.getPageActivity(), this.f25691e, BdListViewHelper.HeadType.DEFAULT);
     }
 
     public void a(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f26476d.addNetworkChangeListener(bVar);
+            this.f25690d.addNetworkChangeListener(bVar);
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            BdListViewHelper.c(this.f26479g, BdListViewHelper.HeadType.DEFAULT, z);
+            BdListViewHelper.c(this.f25693g, BdListViewHelper.HeadType.DEFAULT, z);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f26477e.completePullRefreshPostDelayed(0L);
+            this.f25691e.completePullRefreshPostDelayed(0L);
         }
     }
 
     public j d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26480h : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25694h : (j) invokeV.objValue;
     }
 
     public void e(int i2) {
@@ -109,22 +109,22 @@ public class k {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             c.a.s0.s.c layoutMode = this.a.getLayoutMode();
             layoutMode.k(i2 == 1);
-            layoutMode.j(this.f26474b);
-            this.f26475c.onChangeSkinType(this.a, i2);
-            this.f26476d.onChangeSkinType(this.a, i2);
-            this.f26478f.C(i2);
+            layoutMode.j(this.f25688b);
+            this.f25689c.onChangeSkinType(this.a, i2);
+            this.f25690d.onChangeSkinType(this.a, i2);
+            this.f25692f.C(i2);
         }
     }
 
     public void f(FacePurchaseRecordsData facePurchaseRecordsData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, facePurchaseRecordsData) == null) {
-            if (this.f26480h == null) {
+            if (this.f25694h == null) {
                 j jVar = new j(this.a.getOrignalPage());
-                this.f26480h = jVar;
-                this.f26477e.setAdapter((ListAdapter) jVar);
+                this.f25694h = jVar;
+                this.f25691e.setAdapter((ListAdapter) jVar);
             }
-            this.f26480h.e(facePurchaseRecordsData);
+            this.f25694h.e(facePurchaseRecordsData);
             c();
         }
     }
@@ -132,21 +132,21 @@ public class k {
     public void g(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f26476d.removeNetworkChangeListener(bVar);
+            this.f25690d.removeNetworkChangeListener(bVar);
         }
     }
 
     public void h(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onItemClickListener) == null) {
-            this.f26477e.setOnItemClickListener(onItemClickListener);
+            this.f25691e.setOnItemClickListener(onItemClickListener);
         }
     }
 
     public void i(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
-            this.f26478f.a(gVar);
+            this.f25692f.a(gVar);
         }
     }
 }

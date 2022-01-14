@@ -44,8 +44,7 @@ public class InputMethodManagerLeaksFixer {
                 if (!fieldArr[i2].isAccessible()) {
                     fieldArr[i2].setAccessible(true);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception unused) {
             }
         }
         application.registerActivityLifecycleCallbacks(new g(fieldArr, inputMethodManager) { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
@@ -89,17 +88,18 @@ public class InputMethodManagerLeaksFixer {
             return;
         }
         for (Field field : fieldArr) {
-            try {
-                Object obj = field.get(inputMethodManager);
-                if (!(obj instanceof View)) {
-                    continue;
-                } else if (((View) obj).getContext() != context) {
-                    return;
-                } else {
-                    field.set(inputMethodManager, null);
+            if (field != null) {
+                try {
+                    Object obj = field.get(inputMethodManager);
+                    if (!(obj instanceof View)) {
+                        continue;
+                    } else if (((View) obj).getContext() != context) {
+                        return;
+                    } else {
+                        field.set(inputMethodManager, null);
+                    }
+                } catch (Exception unused) {
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
             }
         }
     }

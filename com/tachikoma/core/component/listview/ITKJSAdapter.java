@@ -2,7 +2,7 @@ package com.tachikoma.core.component.listview;
 
 import com.kwad.v8.V8Object;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ITKJSAdapter {
     int itemCount(int i2);
 

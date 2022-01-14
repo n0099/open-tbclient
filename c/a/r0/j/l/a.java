@@ -21,14 +21,14 @@ public class a {
 
     /* renamed from: c.a.r0.j.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0743a implements c<f> {
+    public static class C0752a implements c<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y.b.a f11302e;
+        public final /* synthetic */ c.a.r0.a.y.b.a f11050e;
 
-        public C0743a(c.a.r0.a.y.b.a aVar) {
+        public C0752a(c.a.r0.a.y.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public class a {
                     return;
                 }
             }
-            this.f11302e = aVar;
+            this.f11050e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,10 +52,10 @@ public class a {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f7281d || fVar.f7287j != 1) {
-                    a.c(this.f11302e, false, "system deny");
+                if (fVar == null || fVar.f7125d || fVar.f7131j != 1) {
+                    a.c(this.f11050e, false, "system deny");
                 } else {
-                    a.c(this.f11302e, true, "authorize:ok");
+                    a.c(this.f11050e, true, "authorize:ok");
                 }
             }
         }
@@ -87,7 +87,7 @@ public class a {
         if (a0 == null) {
             c(F, false, "authorize:fail internal error");
         } else {
-            a0.d0().e("mapp_enable_eval", new C0743a(F));
+            a0.d0().e("mapp_enable_eval", new C0752a(F));
         }
     }
 

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
@@ -28,7 +28,7 @@ public class VideoReceiver extends BroadcastReceiver {
     public int mLastVolume;
     public final VideoReceiverListener mListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i2);
 

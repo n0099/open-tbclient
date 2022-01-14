@@ -16,7 +16,7 @@ public class a implements c.a.t0.u3.a {
 
     /* renamed from: c.a.t0.v.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1474a {
+    public static /* synthetic */ class C1489a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -44,7 +44,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    public /* synthetic */ a(C1474a c1474a) {
+    public /* synthetic */ a(C1489a c1489a) {
         this();
     }
 

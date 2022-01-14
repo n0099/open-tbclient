@@ -34,18 +34,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f54071b = "wallet_fp_ks_alias";
+    public static String f52008b = "wallet_fp_ks_alias";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f54072c = null;
+    public static a f52009c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f54073d = "a";
+    public static final String f52010d = "a";
     public transient /* synthetic */ FieldHolder $fh;
     public KeyStore a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54074e;
+    public Context f52011e;
 
     static {
         InterceptResult invokeClinit;
@@ -78,7 +78,7 @@ public class a {
             }
         }
         try {
-            this.f54074e = context.getApplicationContext();
+            this.f52011e = context.getApplicationContext();
             this.a = KeyStore.getInstance("AndroidKeyStore");
         } catch (KeyStoreException e2) {
             StatisticManager.onEvent("fprd_keystroed_exception_happends");
@@ -91,14 +91,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f54072c == null) {
+            if (f52009c == null) {
                 synchronized (a.class) {
-                    if (f54072c == null) {
-                        f54072c = new a(context);
+                    if (f52009c == null) {
+                        f52009c = new a(context);
                     }
                 }
             }
-            return f54072c;
+            return f52009c;
         }
         return (a) invokeL.objValue;
     }
@@ -132,11 +132,11 @@ public class a {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bArr)) == null) {
             try {
                 this.a.load(null);
-                SecretKey secretKey = (SecretKey) this.a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f54074e), null);
+                SecretKey secretKey = (SecretKey) this.a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f52011e), null);
                 if (secretKey == null) {
                     return null;
                 }
-                Cipher cipher = Cipher.getInstance(i1.f57242c);
+                Cipher cipher = Cipher.getInstance(i1.f55076c);
                 if (i2 == 1) {
                     cipher.init(i2, secretKey, cipher.getParameters());
                 } else {

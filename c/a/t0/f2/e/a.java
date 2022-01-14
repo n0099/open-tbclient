@@ -19,26 +19,26 @@ public class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17969b;
+    public int f17534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17970c;
+    public int f17535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f17971d;
+    public long f17536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.c.g.a f17972e;
+    public c.a.d.c.g.a f17537e;
 
     /* renamed from: c.a.t0.f2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1088a extends c.a.d.c.g.a {
+    public class C1102a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1088a(a aVar, int i2, int i3) {
+        public C1102a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,12 +68,12 @@ public class a {
             boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
             if (z || (responsedMessage instanceof FinishMemberTaskSocketMessage)) {
                 if (z) {
-                    this.a.f17969b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+                    this.a.f17534b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
                 } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
-                    this.a.f17969b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+                    this.a.f17534b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
                 }
                 if (this.a.a != null) {
-                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f17969b, this.a.f17970c, this.a.f17971d);
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f17534b, this.a.f17535c, this.a.f17536d);
                 }
             }
         }
@@ -98,17 +98,17 @@ public class a {
             }
         }
         this.a = null;
-        this.f17972e = new C1088a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+        this.f17537e = new C1102a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
         c.a.t0.w3.f0.a.h(309429, FinishMemberTaskSocketMessage.class, false, false);
         c.a.t0.w3.f0.a.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.f17972e);
+        MessageManager.getInstance().registerListener(this.f17537e);
     }
 
     public void f(long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f17971d = j2;
-            this.f17970c = i2;
+            this.f17536d = j2;
+            this.f17535c = i2;
             FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
             finishMemberTaskReqMessage.setTaskId(j2);
             MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
@@ -118,7 +118,7 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f17972e);
+            MessageManager.getInstance().unRegisterListener(this.f17537e);
         }
     }
 

@@ -17,7 +17,7 @@ public class f1 {
     public x4 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g1 f31295b;
+    public g1 f30317b;
 
     public f1(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             x4 x4Var = this.a;
-            x4Var.f31505i = false;
-            x4Var.f31503g = false;
-            x4Var.f31504h = false;
+            x4Var.f30515i = false;
+            x4Var.f30513g = false;
+            x4Var.f30514h = false;
             a5 a5Var = x4Var.m;
             if (a5Var != null) {
                 a5Var.b();
@@ -59,7 +59,7 @@ public class f1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             x4 x4Var = this.a;
             if (!x4Var.c()) {
-                if (!(x4Var.f31504h && !x4Var.f31505i && x4Var.e() && !x4Var.f31506j.isShown() && x4Var.f31506j.isEffective())) {
+                if (!(x4Var.f30514h && !x4Var.f30515i && x4Var.e() && !x4Var.f30516j.isShown() && x4Var.f30516j.isEffective())) {
                     return false;
                 }
             }
@@ -72,14 +72,14 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             x4 x4Var = this.a;
-            if (x4Var.e() && x4Var.f31506j.isEffective() && !x4Var.f31506j.isShown()) {
-                x4Var.a(x4Var.f31506j);
+            if (x4Var.e() && x4Var.f30516j.isEffective() && !x4Var.f30516j.isShown()) {
+                x4Var.a(x4Var.f30516j);
                 return;
             }
             if (x4Var.m == null) {
-                x4Var.m = new a5(x4Var.f31502f, x4Var.f31501e, L.f63176d);
+                x4Var.m = new a5(x4Var.f30512f, x4Var.f30511e, L.f60797d);
             }
-            x4Var.m.f31251g = new p4(x4Var);
+            x4Var.m.f30275g = new p4(x4Var);
             x4Var.m.g();
         }
     }
@@ -87,7 +87,7 @@ public class f1 {
     public void d(g1 g1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, g1Var) == null) {
-            this.f31295b = g1Var;
+            this.f30317b = g1Var;
         }
     }
 
@@ -95,19 +95,19 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             x4 x4Var = this.a;
-            if (!r0.H(x4Var.f31502f)) {
+            if (!r0.H(x4Var.f30512f)) {
                 g1 g1Var = x4Var.l;
                 if (g1Var != null) {
                     g1Var.d(PBError.NO_NETWORK.getMsg());
                 }
             } else if (x4Var.g() && x4Var.c() && x4Var.e()) {
-                x4Var.f31503g = false;
-                v.b().d(v.c(x4Var.f31506j.getTraceid(), x4Var.f31506j.getId(), x4Var.f31506j.getPid()), x4Var.f31507k);
-                x4Var.f31506j.setShown(true);
-                r0.l(x4Var.f31502f, x4Var.f31506j);
-                m0.a().c(v.c(x4Var.f31506j.getTraceid(), x4Var.f31506j.getId(), x4Var.f31501e), x4Var.f31506j);
-                H5Activity.a(x4Var.f31502f, x4Var.f31506j, x4Var.f31501e);
-                q0.b(x4Var.f31506j.getId() + x4Var.f31501e, x4Var);
+                x4Var.f30513g = false;
+                v.b().d(v.c(x4Var.f30516j.getTraceid(), x4Var.f30516j.getId(), x4Var.f30516j.getPid()), x4Var.k);
+                x4Var.f30516j.setShown(true);
+                r0.l(x4Var.f30512f, x4Var.f30516j);
+                m0.a().c(v.c(x4Var.f30516j.getTraceid(), x4Var.f30516j.getId(), x4Var.f30511e), x4Var.f30516j);
+                H5Activity.a(x4Var.f30512f, x4Var.f30516j, x4Var.f30511e);
+                q0.b(x4Var.f30516j.getId() + x4Var.f30511e, x4Var);
             }
         }
     }

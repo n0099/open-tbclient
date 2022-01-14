@@ -17,13 +17,13 @@ public class a {
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52457b;
+    public String f50435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f52458c;
+    public ArrayList<String> f50436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f52459d;
+    public ArrayList<String> f50437d;
 
     /* renamed from: com.baidu.wallet.bankdetection.ocr.a.a$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -34,7 +34,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.bankdetection.ocr.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1961a {
+    public static class C1978a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1961a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1978a.a : (a) invokeV.objValue;
     }
 
     public Bitmap b() {
@@ -75,7 +75,7 @@ public class a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52457b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50435b : (String) invokeV.objValue;
     }
 
     public void d() {
@@ -86,12 +86,12 @@ public class a {
                 this.a.recycle();
                 this.a = null;
             }
-            this.f52457b = null;
-            ArrayList<String> arrayList = this.f52458c;
+            this.f50435b = null;
+            ArrayList<String> arrayList = this.f50436c;
             if (arrayList != null) {
                 arrayList.clear();
             }
-            ArrayList<String> arrayList2 = this.f52459d;
+            ArrayList<String> arrayList2 = this.f50437d;
             if (arrayList2 != null) {
                 arrayList2.clear();
             }
@@ -122,7 +122,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f52457b = str;
+            this.f50435b = str;
         }
     }
 }

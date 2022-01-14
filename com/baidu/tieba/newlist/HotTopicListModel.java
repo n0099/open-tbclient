@@ -26,10 +26,10 @@ public class HotTopicListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48115e;
+    public b f46319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f48116f;
+    public boolean f46320f;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -70,7 +70,7 @@ public class HotTopicListModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 int i2 = 0;
-                this.a.f48116f = false;
+                this.a.f46320f = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -87,21 +87,21 @@ public class HotTopicListModel extends BdBaseModel {
                                 }
                             }
                             if (jVar != null) {
-                                if (!ListUtils.isEmpty(jVar.f22168h)) {
+                                if (!ListUtils.isEmpty(jVar.f21563h)) {
                                     LinkedList linkedList = new LinkedList();
-                                    int size = jVar.f22168h.size();
+                                    int size = jVar.f21563h.size();
                                     while (i2 < size) {
-                                        linkedList.add(new c.a.t0.p2.d.b(jVar.f22168h.get(i2), i2));
+                                        linkedList.add(new c.a.t0.p2.d.b(jVar.f21563h.get(i2), i2));
                                         i2++;
                                     }
-                                    this.a.f48115e.netCallback(responsedMessage.getError(), linkedList);
+                                    this.a.f46319e.netCallback(responsedMessage.getError(), linkedList);
                                     i2 = 1;
                                 }
                                 if (i2 != 0) {
                                     return;
                                 }
                             }
-                            this.a.f48115e.netCallback(-1, null);
+                            this.a.f46319e.netCallback(-1, null);
                         }
                     }
                     jVar = null;
@@ -109,7 +109,7 @@ public class HotTopicListModel extends BdBaseModel {
                     }
                     if (jVar != null) {
                     }
-                    this.a.f48115e.netCallback(-1, null);
+                    this.a.f46319e.netCallback(-1, null);
                 }
             }
         }
@@ -134,7 +134,7 @@ public class HotTopicListModel extends BdBaseModel {
             }
         }
         y();
-        this.f48115e = bVar;
+        this.f46319e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -153,7 +153,7 @@ public class HotTopicListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!l.A() || this.f48116f) {
+            if (!l.A() || this.f46320f) {
                 return false;
             }
             cancelLoadData();
@@ -164,7 +164,7 @@ public class HotTopicListModel extends BdBaseModel {
             requestHotRanklistMessage.setNeedTabList("0");
             requestHotRanklistMessage.setFid(0L);
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);
-            this.f48116f = sendMessage;
+            this.f46320f = sendMessage;
             return sendMessage;
         }
         return invokeV.booleanValue;

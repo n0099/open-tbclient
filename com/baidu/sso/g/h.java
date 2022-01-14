@@ -19,10 +19,10 @@ public class h extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39883e;
+        public final /* synthetic */ String f38562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f39884f;
+        public final /* synthetic */ Context f38563f;
 
         public a(h hVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class h extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f39883e = str;
-            this.f39884f = context;
+            this.f38562e = str;
+            this.f38563f = context;
         }
 
         @Override // java.lang.Runnable
@@ -48,10 +48,10 @@ public class h extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if ("sso_action_t_m".equals(this.f39883e)) {
-                        c.m(this.f39884f);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f39883e) && c.k(this.f39884f) != 0 && c.a.p0.b.c.b(this.f39884f).f()) {
-                        c.a.p0.e.c.j().g(this.f39884f.getApplicationContext(), false);
+                    if ("sso_action_t_m".equals(this.f38562e)) {
+                        c.m(this.f38563f);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f38562e) && c.k(this.f38563f) != 0 && c.a.p0.b.c.b(this.f38563f).f()) {
+                        c.a.p0.e.c.j().g(this.f38563f.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
                     c.d(th);

@@ -18,25 +18,23 @@ public class d implements PreLoadImageProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22344e;
+    public int f21729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22345f;
+    public String f21730f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22346g;
+    public String f21731g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22347h;
+    public int f21732h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22348i;
+    public int f21733i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f22349j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f22350k;
+    public int f21734j;
+    public int k;
     public int l;
     public boolean m;
     public boolean n;
@@ -61,25 +59,25 @@ public class d implements PreLoadImageProvider {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22346g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21731g : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22348i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21733i : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22344e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21729e : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22345f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21730f : (String) invokeV.objValue;
     }
 
     public int e() {
@@ -91,7 +89,7 @@ public class d implements PreLoadImageProvider {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22347h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21732h : invokeV.intValue;
     }
 
     public int g() {
@@ -107,7 +105,7 @@ public class d implements PreLoadImageProvider {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
             PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-            preLoadImageInfo.imgUrl = this.f22346g;
+            preLoadImageInfo.imgUrl = this.f21731g;
             preLoadImageInfo.procType = 10;
             arrayList.add(preLoadImageInfo);
             return arrayList;
@@ -118,13 +116,13 @@ public class d implements PreLoadImageProvider {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22350k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22349j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21734j : invokeV.intValue;
     }
 
     public boolean j() {
@@ -156,15 +154,15 @@ public class d implements PreLoadImageProvider {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f22344e = jSONObject.optInt("forum_id");
-        this.f22345f = jSONObject.optString("forum_name");
-        this.f22346g = jSONObject.optString("avatar");
-        this.f22347h = jSONObject.optInt("is_sign_in");
-        this.f22348i = jSONObject.optInt("cont_sign_num");
-        this.f22349j = jSONObject.optInt(IntentConfig.USER_LEVEL);
-        this.f22350k = jSONObject.optInt("user_exp");
+        this.f21729e = jSONObject.optInt("forum_id");
+        this.f21730f = jSONObject.optString("forum_name");
+        this.f21731g = jSONObject.optString("avatar");
+        this.f21732h = jSONObject.optInt("is_sign_in");
+        this.f21733i = jSONObject.optInt("cont_sign_num");
+        this.f21734j = jSONObject.optInt(IntentConfig.USER_LEVEL);
+        this.k = jSONObject.optInt("user_exp");
         this.l = jSONObject.optInt("need_exp");
-        if (this.f22347h != 0) {
+        if (this.f21732h != 0) {
             this.m = true;
             this.o = false;
         }
@@ -173,7 +171,7 @@ public class d implements PreLoadImageProvider {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f22348i = i2;
+            this.f21733i = i2;
         }
     }
 
@@ -193,7 +191,7 @@ public class d implements PreLoadImageProvider {
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f22347h = i2;
+            this.f21732h = i2;
         }
     }
 
@@ -201,7 +199,7 @@ public class d implements PreLoadImageProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             this.o = z;
-            this.f22347h = 0;
+            this.f21732h = 0;
         }
     }
 
@@ -216,7 +214,7 @@ public class d implements PreLoadImageProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.m = z;
-            this.f22347h = 1;
+            this.f21732h = 1;
         }
     }
 
@@ -230,7 +228,7 @@ public class d implements PreLoadImageProvider {
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f22349j = i2;
+            this.f21734j = i2;
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import c.a.c0.z.b;
+import c.a.c0.c0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +79,7 @@ public class BooleanColumn extends Column implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.field.f2574b + ":" + this.value + ":" + this.field.f2574b + ":" + this.field.f2576d;
+            return this.field.f1728b + ":" + this.value + ":" + this.field.f1728b + ":" + this.field.f1730d;
         }
         return (String) invokeV.objValue;
     }

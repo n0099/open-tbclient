@@ -20,10 +20,10 @@ public class a extends BaseDexClassLoader {
     public ClassLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ClassLoader f3471b;
+    public ClassLoader f3423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f3472c;
+    public Context f3424c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, String str2, String str3, Context context) {
@@ -44,9 +44,9 @@ public class a extends BaseDexClassLoader {
                 return;
             }
         }
-        this.f3472c = context;
+        this.f3424c = context;
         this.a = context.getClass().getClassLoader();
-        this.f3471b = ClassLoader.getSystemClassLoader();
+        this.f3423b = ClassLoader.getSystemClassLoader();
     }
 
     public final Class<?> a(String str) throws ClassNotFoundException {
@@ -55,7 +55,7 @@ public class a extends BaseDexClassLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                cls = this.f3471b.loadClass(str);
+                cls = this.f3423b.loadClass(str);
             } catch (ClassNotFoundException unused) {
                 cls = null;
             }

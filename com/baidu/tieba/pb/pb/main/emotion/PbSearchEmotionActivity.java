@@ -76,10 +76,10 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48449e;
+        public final /* synthetic */ String f46643e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f48450f;
+        public final /* synthetic */ PbSearchEmotionActivity f46644f;
 
         public a(PbSearchEmotionActivity pbSearchEmotionActivity, String str) {
             Interceptable interceptable = $ic;
@@ -96,17 +96,17 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f48450f = pbSearchEmotionActivity;
-            this.f48449e = str;
+            this.f46644f = pbSearchEmotionActivity;
+            this.f46643e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48450f.mEditSearchView.setText(this.f48449e);
-                this.f48450f.mEditSearchView.setSelection(this.f48449e.length());
-                this.f48450f.searchEmotion(this.f48449e);
+                this.f46644f.mEditSearchView.setText(this.f46643e);
+                this.f46644f.mEditSearchView.setSelection(this.f46643e.length());
+                this.f46644f.searchEmotion(this.f46643e);
                 TiebaStatic.log("c12178");
             }
         }
@@ -118,7 +118,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f48451e;
+        public final /* synthetic */ PbSearchEmotionActivity f46645e;
 
         public b(PbSearchEmotionActivity pbSearchEmotionActivity) {
             Interceptable interceptable = $ic;
@@ -135,14 +135,14 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f48451e = pbSearchEmotionActivity;
+            this.f46645e = pbSearchEmotionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48451e.finish();
+                this.f46645e.finish();
             }
         }
     }
@@ -220,7 +220,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f48452e;
+        public final /* synthetic */ PbSearchEmotionActivity f46646e;
 
         public d(PbSearchEmotionActivity pbSearchEmotionActivity) {
             Interceptable interceptable = $ic;
@@ -237,14 +237,14 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f48452e = pbSearchEmotionActivity;
+            this.f46646e = pbSearchEmotionActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48452e.loadMoreEmotion();
+                this.f46646e.loadMoreEmotion();
             }
         }
     }
@@ -262,7 +262,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             public final /* synthetic */ EmotionImageData a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f48453b;
+            public final /* synthetic */ e f46647b;
 
             public a(e eVar, EmotionImageData emotionImageData) {
                 Interceptable interceptable = $ic;
@@ -279,7 +279,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                         return;
                     }
                 }
-                this.f48453b = eVar;
+                this.f46647b = eVar;
                 this.a = emotionImageData;
             }
 
@@ -290,7 +290,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                 if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                     return;
                 }
-                this.f48453b.a.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(this.f48453b.a.getPageContext().getPageActivity(), 25023, this.a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
+                this.f46647b.a.sendMessage(new CustomMessage(2002001, new EmotionEditActivityConfig(this.f46647b.a.getPageContext().getPageActivity(), 25023, this.a, aVar.t(), EmotionEditActivityConfig.FROM_PB_BOTTOM)));
             }
         }
 
@@ -334,10 +334,10 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f48454e;
+        public final /* synthetic */ EmotionImageData f46648e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f48455f;
+        public final /* synthetic */ PbSearchEmotionActivity f46649f;
 
         public f(PbSearchEmotionActivity pbSearchEmotionActivity, EmotionImageData emotionImageData) {
             Interceptable interceptable = $ic;
@@ -354,8 +354,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f48455f = pbSearchEmotionActivity;
-            this.f48454e = emotionImageData;
+            this.f46649f = pbSearchEmotionActivity;
+            this.f46648e = emotionImageData;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -363,7 +363,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f48455f.sendEmotion(this.f48454e);
+                this.f46649f.sendEmotion(this.f46648e);
             }
         }
     }
@@ -374,7 +374,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbSearchEmotionActivity f48456e;
+        public final /* synthetic */ PbSearchEmotionActivity f46650e;
 
         public g(PbSearchEmotionActivity pbSearchEmotionActivity) {
             Interceptable interceptable = $ic;
@@ -391,7 +391,7 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                     return;
                 }
             }
-            this.f48456e = pbSearchEmotionActivity;
+            this.f46650e = pbSearchEmotionActivity;
         }
 
         @Override // c.a.s0.s.s.a.e

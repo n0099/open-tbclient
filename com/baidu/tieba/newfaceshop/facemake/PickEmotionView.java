@@ -21,10 +21,10 @@ public class PickEmotionView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionView f47985e;
+    public EmotionView f46195e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f47986f;
+    public ImageView f46196f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PickEmotionView(Context context) {
@@ -50,28 +50,28 @@ public class PickEmotionView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47985e = new EmotionView(getContext());
-            addView(this.f47985e, new FrameLayout.LayoutParams(-1, -1));
-            this.f47986f = new ImageView(getContext());
+            this.f46195e = new EmotionView(getContext());
+            addView(this.f46195e, new FrameLayout.LayoutParams(-1, -1));
+            this.f46196f = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
             layoutParams.topMargin = n.f(getContext(), R.dimen.ds8);
             layoutParams.rightMargin = n.f(getContext(), R.dimen.ds8);
-            addView(this.f47986f, layoutParams);
+            addView(this.f46196f, layoutParams);
         }
     }
 
     public EmotionView getEmotionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47985e : (EmotionView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46195e : (EmotionView) invokeV.objValue;
     }
 
     public int getLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            EmotionView emotionView = this.f47985e;
+            EmotionView emotionView = this.f46195e;
             if (emotionView != null) {
                 return emotionView.getLoadProcType();
             }
@@ -84,9 +84,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.f47986f, R.drawable.ic_post_image_selected_s);
+                SkinManager.setBackgroundResource(this.f46196f, R.drawable.ic_post_image_selected_s);
             } else {
-                SkinManager.setBackgroundResource(this.f47986f, R.drawable.ic_post_image_selected_n);
+                SkinManager.setBackgroundResource(this.f46196f, R.drawable.ic_post_image_selected_n);
             }
         }
     }
@@ -94,9 +94,9 @@ public class PickEmotionView extends FrameLayout {
     public void setData(EmotionImageData emotionImageData, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i2) == null) {
-            this.f47985e.setLoadProcType(i2);
-            this.f47985e.enablePreview();
-            this.f47985e.loadData(emotionImageData);
+            this.f46195e.setLoadProcType(i2);
+            this.f46195e.enablePreview();
+            this.f46195e.loadData(emotionImageData);
         }
     }
 

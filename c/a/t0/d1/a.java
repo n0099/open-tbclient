@@ -2,7 +2,7 @@ package c.a.t0.d1;
 
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,29 +25,29 @@ import tbclient.FrsTabInfo;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<d2> a;
+    public final List<e2> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f16062b;
+    public boolean f15653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f16063c;
+    public String f15654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16064d;
+    public int f15655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<FrsTabInfo> f16065e;
+    public List<FrsTabInfo> f15656e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<FrsTabInfo> f16066f;
+    public SparseArray<FrsTabInfo> f15657f;
 
     /* renamed from: g  reason: collision with root package name */
-    public x0 f16067g;
+    public x0 f15658g;
 
     /* renamed from: c.a.t0.d1.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class C0989a {
+    public static /* synthetic */ class C1002a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -75,7 +75,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0989a c0989a) {
+    public /* synthetic */ a(C1002a c1002a) {
         this();
     }
 
@@ -85,22 +85,22 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (a) invokeV.objValue;
     }
 
-    public boolean a(d2 d2Var) {
+    public boolean a(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
             if (this.a.size() > 29) {
-                x0 x0Var = this.f16067g;
+                x0 x0Var = this.f15658g;
                 if (x0Var != null) {
                     x0Var.b(2);
                 }
                 return false;
             }
-            this.a.add(d2Var);
-            x0 x0Var2 = this.f16067g;
+            this.a.add(e2Var);
+            x0 x0Var2 = this.f15658g;
             if (x0Var2 != null) {
                 x0Var2.c(this.a.size(), 2);
                 return true;
@@ -113,13 +113,13 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (d2 d2Var : this.a) {
-                if (d2Var != null) {
-                    d2Var.l4(false);
+            for (e2 e2Var : this.a) {
+                if (e2Var != null) {
+                    e2Var.l4(false);
                 }
             }
             this.a.clear();
-            x0 x0Var = this.f16067g;
+            x0 x0Var = this.f15658g;
             if (x0Var != null) {
                 x0Var.c(0, 2);
             }
@@ -129,13 +129,13 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f16063c = null;
-            this.f16064d = -1;
-            List<FrsTabInfo> list = this.f16065e;
+            this.f15654c = null;
+            this.f15655d = -1;
+            List<FrsTabInfo> list = this.f15656e;
             if (list != null) {
                 list.clear();
             }
-            SparseArray<FrsTabInfo> sparseArray = this.f16066f;
+            SparseArray<FrsTabInfo> sparseArray = this.f15657f;
             if (sparseArray != null) {
                 sparseArray.clear();
             }
@@ -148,7 +148,7 @@ public class a {
             return;
         }
         this.a.clear();
-        x0 x0Var = this.f16067g;
+        x0 x0Var = this.f15658g;
         if (x0Var != null) {
             x0Var.c(this.a.size(), 2);
         }
@@ -157,22 +157,22 @@ public class a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16064d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15655d : invokeV.intValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16063c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15654c : (String) invokeV.objValue;
     }
 
     public List<FrsTabInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16065e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15656e : (List) invokeV.objValue;
     }
 
-    public List<d2> i() {
+    public List<e2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -181,20 +181,20 @@ public class a {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f16062b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15653b : invokeV.booleanValue;
     }
 
     public boolean k(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f16066f.get(i2) != null && this.f16066f.get(i2).is_general_tab.intValue() == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f15657f.get(i2) != null && this.f15657f.get(i2).is_general_tab.intValue() == 1 : invokeI.booleanValue;
     }
 
-    public void l(d2 d2Var) {
+    public void l(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, d2Var) == null) {
-            this.a.remove(d2Var);
-            x0 x0Var = this.f16067g;
+        if (interceptable == null || interceptable.invokeL(1048586, this, e2Var) == null) {
+            this.a.remove(e2Var);
+            x0 x0Var = this.f15658g;
             if (x0Var != null) {
                 x0Var.c(this.a.size(), 2);
             }
@@ -207,11 +207,11 @@ public class a {
             try {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
                 JSONArray jSONArray = new JSONArray();
-                for (d2 d2Var : h().i()) {
-                    if (d2Var != null) {
+                for (e2 e2Var : h().i()) {
+                    if (e2Var != null) {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("thread_id", d2Var.g0());
-                        jSONObject.put("from_tab_id", d2Var.j1());
+                        jSONObject.put("thread_id", e2Var.g0());
+                        jSONObject.put("from_tab_id", e2Var.j1());
                         jSONObject.put("to_tab_id", i3);
                         jSONArray.put(jSONObject);
                     }
@@ -236,15 +236,15 @@ public class a {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f16064d = i2;
+            this.f15655d = i2;
         }
     }
 
     public void p(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f16062b = z;
-            x0 x0Var = this.f16067g;
+            this.f15653b = z;
+            x0 x0Var = this.f15658g;
             if (x0Var != null) {
                 x0Var.a(z, z2, 2);
             }
@@ -254,18 +254,18 @@ public class a {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f16063c = str;
+            this.f15654c = str;
         }
     }
 
     public void r(List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.f16065e = new ArrayList(list);
-            this.f16066f = new SparseArray<>();
-            for (FrsTabInfo frsTabInfo : this.f16065e) {
+            this.f15656e = new ArrayList(list);
+            this.f15657f = new SparseArray<>();
+            for (FrsTabInfo frsTabInfo : this.f15656e) {
                 if (frsTabInfo != null) {
-                    this.f16066f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                    this.f15657f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
                 }
             }
         }
@@ -274,7 +274,7 @@ public class a {
     public void s(x0 x0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, x0Var) == null) {
-            this.f16067g = x0Var;
+            this.f15658g = x0Var;
         }
     }
 
@@ -291,7 +291,7 @@ public class a {
                 return;
             }
         }
-        this.f16064d = -1;
+        this.f15655d = -1;
         this.a = new ArrayList();
     }
 }

@@ -21,18 +21,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8432c;
+    public static final boolean f8248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f8433d;
+    public static a f8249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f8434e;
+    public static a f8250e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8435b;
+    public long f8251b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class a {
                 return;
             }
         }
-        f8432c = k.a;
+        f8248c = k.a;
     }
 
     public a() {
@@ -69,10 +69,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f8433d == null) {
-                f8433d = d(e(str));
+            if (f8249d == null) {
+                f8249d = d(e(str));
             }
-            return f8433d;
+            return f8249d;
         }
         return (a) invokeL.objValue;
     }
@@ -95,10 +95,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (f8434e == null) {
-                f8434e = d(e(str));
+            if (f8250e == null) {
+                f8250e = d(e(str));
             }
-            return f8434e;
+            return f8250e;
         }
         return (a) invokeL.objValue;
     }
@@ -111,7 +111,7 @@ public class a {
             a aVar = new a();
             if (jSONObject != null) {
                 aVar.a = jSONObject.optString("extension-core-version-name");
-                aVar.f8435b = jSONObject.optLong("extension-core-version-code");
+                aVar.f8251b = jSONObject.optLong("extension-core-version-code");
             }
             return aVar;
         }
@@ -123,20 +123,20 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            boolean z = f8432c;
+            boolean z = f8248c;
             String D = d.D(AppRuntime.getAppContext(), str);
             if (TextUtils.isEmpty(D)) {
-                boolean z2 = f8432c;
+                boolean z2 = f8248c;
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject(D);
-                if (f8432c) {
+                if (f8248c) {
                     String str2 = "readPresetConfig end. config: " + jSONObject.toString();
                 }
                 return jSONObject;
             } catch (JSONException e2) {
-                if (f8432c) {
+                if (f8248c) {
                     throw new RuntimeException(e2);
                 }
                 return null;

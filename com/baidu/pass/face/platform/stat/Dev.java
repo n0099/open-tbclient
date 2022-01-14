@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.a;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +51,7 @@ public class Dev {
         this.brand = "";
         this.sysVersion = "";
         this.packagename = "";
-        this.sdkVersion = a.f34767k;
+        this.sdkVersion = a.k;
         this.firstRun = false;
     }
 
@@ -65,7 +66,7 @@ public class Dev {
             } catch (Exception unused) {
                 uuid = UUID.randomUUID().toString();
             }
-            String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
+            String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             if ("9774d56d682e549c".equals(string)) {
                 string = UUID.randomUUID().toString();
             }

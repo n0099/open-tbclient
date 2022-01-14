@@ -18,16 +18,16 @@ public class e implements a.j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f12872e;
+    public Bitmap f12563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f12873f;
+    public ImageView f12564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12874g;
+    public int f12565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListView f12875h;
+    public ListView f12566h;
 
     public e(ListView listView) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class e implements a.j {
                 return;
             }
         }
-        this.f12874g = -16777216;
-        this.f12875h = listView;
+        this.f12565g = -16777216;
+        this.f12566h = listView;
     }
 
     @Override // c.a.s0.g1.e.a.j
@@ -53,8 +53,8 @@ public class e implements a.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             ((ImageView) view).setImageDrawable(null);
-            this.f12872e.recycle();
-            this.f12872e = null;
+            this.f12563e.recycle();
+            this.f12563e = null;
         }
     }
 
@@ -63,23 +63,23 @@ public class e implements a.j {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            ListView listView = this.f12875h;
-            View childAt = listView.getChildAt((i2 + listView.getHeaderViewsCount()) - this.f12875h.getFirstVisiblePosition());
+            ListView listView = this.f12566h;
+            View childAt = listView.getChildAt((i2 + listView.getHeaderViewsCount()) - this.f12566h.getFirstVisiblePosition());
             if (childAt == null) {
                 return null;
             }
             childAt.setPressed(false);
             childAt.setDrawingCacheEnabled(true);
-            this.f12872e = Bitmap.createBitmap(childAt.getDrawingCache());
+            this.f12563e = Bitmap.createBitmap(childAt.getDrawingCache());
             childAt.setDrawingCacheEnabled(false);
-            if (this.f12873f == null) {
-                this.f12873f = new ImageView(this.f12875h.getContext());
+            if (this.f12564f == null) {
+                this.f12564f = new ImageView(this.f12566h.getContext());
             }
-            this.f12873f.setBackgroundColor(this.f12874g);
-            this.f12873f.setPadding(0, 0, 0, 0);
-            this.f12873f.setImageBitmap(this.f12872e);
-            this.f12873f.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-            return this.f12873f;
+            this.f12564f.setBackgroundColor(this.f12565g);
+            this.f12564f.setPadding(0, 0, 0, 0);
+            this.f12564f.setImageBitmap(this.f12563e);
+            this.f12564f.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            return this.f12564f;
         }
         return (View) invokeI.objValue;
     }
@@ -87,7 +87,7 @@ public class e implements a.j {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f12874g = i2;
+            this.f12565g = i2;
         }
     }
 }

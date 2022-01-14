@@ -18,16 +18,16 @@ public class c implements e {
     public c.a.t0.w0.a.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25352b;
+    public boolean f24642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25353c;
+    public boolean f24643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f25354d;
+    public b f24644d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25355e;
+    public boolean f24645e;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class c implements e {
                 return;
             }
         }
-        this.f25353c = false;
-        this.f25355e = false;
+        this.f24643c = false;
+        this.f24645e = false;
         this.a = new c.a.t0.w0.a.e.a();
-        this.f25355e = z;
+        this.f24645e = z;
     }
 
     @Override // c.a.t0.w0.a.f.e
@@ -59,7 +59,7 @@ public class c implements e {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || aVar == null) {
             return;
         }
-        if (this.f25352b) {
+        if (this.f24642b) {
             File file = new File(aVar.a);
             Bitmap decodeFile = BitmapFactory.decodeFile(aVar.a);
             if (file.exists() && decodeFile != null) {
@@ -83,11 +83,11 @@ public class c implements e {
             }
         }
         if ("default".equals(str)) {
-            if (this.f25353c || (bVar2 = this.f25354d) == null) {
+            if (this.f24643c || (bVar2 = this.f24644d) == null) {
                 return;
             }
             bVar2.onCoverPathCallBack(aVar.a);
-        } else if (!"manual".equals(str) || (bVar = this.f25354d) == null) {
+        } else if (!"manual".equals(str) || (bVar = this.f24644d) == null) {
         } else {
             bVar.onCoverPathCallBack(aVar.a);
         }
@@ -96,28 +96,28 @@ public class c implements e {
     public void b(c.a.t0.w0.a.g.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, str) == null) {
-            this.a.a(str, this.f25355e).a(bVar, this);
+            this.a.a(str, this.f24645e).a(bVar, this);
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f25353c = z;
+            this.f24643c = z;
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f25352b = z;
+            this.f24642b = z;
         }
     }
 
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f25354d = bVar;
+            this.f24644d = bVar;
         }
     }
 

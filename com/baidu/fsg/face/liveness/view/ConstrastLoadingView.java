@@ -23,7 +23,7 @@ public class ConstrastLoadingView extends LinearLayout {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f35537b;
+    public ImageView f34382b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context) {
@@ -51,7 +51,7 @@ public class ConstrastLoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
             this.a = (ImageView) findViewById(R.id.iv_recog_circle);
-            this.f35537b = (ImageView) findViewById(R.id.iv_recog_logo);
+            this.f34382b = (ImageView) findViewById(R.id.iv_recog_logo);
             a();
         }
     }

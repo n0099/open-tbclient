@@ -17,7 +17,7 @@ import c.a.d.c.g.a;
 import c.a.d.f.m.e;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.s0.s.s.a;
 import c.a.s0.w.c;
 import com.baidu.adp.framework.MessageManager;
@@ -632,11 +632,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                 return;
             }
         }
-        b j2 = b.j();
-        int k2 = j2.k("pay_dialog_error_key" + notifyPopup.popup_id, 0);
-        if (k2 < notifyPopup.popup_times.intValue()) {
-            b j3 = b.j();
-            j3.v("pay_dialog_error_key" + notifyPopup.popup_id, k2 + 1);
+        b k = b.k();
+        int l = k.l("pay_dialog_error_key" + notifyPopup.popup_id, 0);
+        if (l < notifyPopup.popup_times.intValue()) {
+            b k2 = b.k();
+            k2.w("pay_dialog_error_key" + notifyPopup.popup_id, l + 1);
             if (notifyPopup.popup_type.intValue() == 1) {
                 showSimplePayErrorDialog(notifyPopup);
                 return;

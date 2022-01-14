@@ -38,7 +38,7 @@ public class k extends c.a.t0.d1.k<l, ManagerApplyViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f15543e;
+        public final /* synthetic */ k f15155e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class k extends c.a.t0.d1.k<l, ManagerApplyViewHolder> {
                     return;
                 }
             }
-            this.f15543e = kVar;
+            this.f15155e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -64,9 +64,9 @@ public class k extends c.a.t0.d1.k<l, ManagerApplyViewHolder> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag(k.z);
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    this.f15543e.r0(TbadkCoreApplication.getCurrentAccountInfo());
+                    this.f15155e.r0(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) c.a.d.a.j.a(this.f15543e.f3299e), new String[]{tag.toString()});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) c.a.d.a.j.a(this.f15155e.f3258e), new String[]{tag.toString()});
                 }
             }
         }
@@ -131,7 +131,7 @@ public class k extends c.a.t0.d1.k<l, ManagerApplyViewHolder> {
     public ManagerApplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ManagerApplyViewHolder(LayoutInflater.from(this.f3299e).inflate(R.layout.frs_member_manager_apply, (ViewGroup) null)) : (ManagerApplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ManagerApplyViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.frs_member_manager_apply, (ViewGroup) null)) : (ManagerApplyViewHolder) invokeL.objValue;
     }
 
     public View q0(int i2, View view, ViewGroup viewGroup, l lVar, ManagerApplyViewHolder managerApplyViewHolder) {
@@ -151,13 +151,13 @@ public class k extends c.a.t0.d1.k<l, ManagerApplyViewHolder> {
                 }
                 int d2 = lVar.d();
                 if (d2 > 0) {
-                    managerApplyViewHolder.mAssistRemainNum.setText(String.format(this.f3299e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(d2)));
+                    managerApplyViewHolder.mAssistRemainNum.setText(String.format(this.f3258e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(d2)));
                     managerApplyViewHolder.mAssistApplyLayout.setTag(z, lVar.a());
                     managerApplyViewHolder.mAssistApplyLayout.setOnClickListener(this.y);
                     managerApplyViewHolder.mAssistApplyLayout.setEnabled(true);
                     managerApplyViewHolder.mAssistApplyLayout.setClickable(true);
                 } else {
-                    managerApplyViewHolder.mAssistRemainNum.setText(this.f3299e.getResources().getString(R.string.apply_no_left_tip));
+                    managerApplyViewHolder.mAssistRemainNum.setText(this.f3258e.getResources().getString(R.string.apply_no_left_tip));
                     managerApplyViewHolder.mAssistApplyLayout.setEnabled(false);
                     managerApplyViewHolder.mAssistApplyLayout.setClickable(false);
                 }
@@ -172,7 +172,7 @@ public class k extends c.a.t0.d1.k<l, ManagerApplyViewHolder> {
     public final void r0(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            c.a.d.a.f<?> a2 = c.a.d.a.j.a(this.f3299e);
+            c.a.d.a.f<?> a2 = c.a.d.a.j.a(this.f3258e);
             Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
             if (this.x == null) {
                 this.x = new c.a.s0.t.i.b(pageActivity);

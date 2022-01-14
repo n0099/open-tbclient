@@ -16,7 +16,7 @@ public class a extends c.a.k0.b.b.a<c.a.d.l.a> {
 
     /* renamed from: c.a.s0.k0.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0847a {
+    public static /* synthetic */ class C0857a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -50,7 +50,7 @@ public class a extends c.a.k0.b.b.a<c.a.d.l.a> {
             }
         }
 
-        public /* synthetic */ b(C0847a c0847a) {
+        public /* synthetic */ b(C0857a c0857a) {
             this();
         }
     }

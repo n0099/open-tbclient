@@ -26,23 +26,23 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.h2.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0408a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
+    public class C0417a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7169e;
+        public final /* synthetic */ CallbackHandler f7016e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7170f;
+        public final /* synthetic */ String f7017f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7171g;
+        public final /* synthetic */ String f7018g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f7172h;
+        public final /* synthetic */ a f7019h;
 
-        public C0408a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
+        public C0417a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,10 +57,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f7172h = aVar;
-            this.f7169e = callbackHandler;
-            this.f7170f = str;
-            this.f7171g = str2;
+            this.f7019h = aVar;
+            this.f7016e = callbackHandler;
+            this.f7017f = str;
+            this.f7018g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class a extends z {
         public void onCallback(c.a.r0.a.h2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f7172h.k(this.f7169e, this.f7170f, this.f7171g, iVar);
+                this.f7019h.k(this.f7016e, this.f7017f, this.f7018g, iVar);
             }
         }
     }
@@ -139,7 +139,7 @@ public class a extends z {
                 c.a.r0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
                 return false;
             }
-            eVar.d0().c(context, c2, false, new C0408a(this, callbackHandler, c2, optString));
+            eVar.d0().c(context, c2, false, new C0417a(this, callbackHandler, c2, optString));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -167,9 +167,9 @@ public class a extends z {
                         return;
                     }
                     jSONObject.put("code", iVar.a.a);
-                    jSONObject.put("errMsg", iVar.a.f7332b ? "authorize:ok" : "user deny");
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.a.f7332b ? 0 : 10003).toString());
-                    if (iVar.a.f7332b) {
+                    jSONObject.put("errMsg", iVar.a.f7174b ? "authorize:ok" : "user deny");
+                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.a.f7174b ? 0 : 10003).toString());
+                    if (iVar.a.f7174b) {
                         return;
                     }
                     c.a.r0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());

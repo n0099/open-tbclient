@@ -32,14 +32,14 @@ public class a extends c.a.d.n.e.a<c.a.t0.c2.h.e.a, SearchSuggestCommonViewHolde
 
     /* renamed from: c.a.t0.c2.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0977a implements w {
+    public class C0990a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f15783e;
+        public final /* synthetic */ Context f15385e;
 
-        public C0977a(a aVar, Context context) {
+        public C0990a(a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.c2.h.e.a, SearchSuggestCommonViewHolde
                     return;
                 }
             }
-            this.f15783e = context;
+            this.f15385e = context;
         }
 
         @Override // c.a.d.n.e.w
@@ -65,12 +65,12 @@ public class a extends c.a.d.n.e.a<c.a.t0.c2.h.e.a, SearchSuggestCommonViewHolde
                 String a = aVar.a();
                 String d2 = aVar.d();
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, d2);
-                Context context = this.f15783e;
+                Context context = this.f15385e;
                 if (context != null && (context instanceof BdBaseActivity)) {
                     customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                TiebaStatic.eventStat(this.f15783e, "search_bar_result_click", "click", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f15385e, "search_bar_result_click", "click", 1, new Object[0]);
                 TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i2 + 1).param("obj_param1", d2));
             }
         }
@@ -96,8 +96,8 @@ public class a extends c.a.d.n.e.a<c.a.t0.c2.h.e.a, SearchSuggestCommonViewHolde
             }
         }
         this.m = context;
-        this.f3302h = bdUniqueId;
-        V(new C0977a(this, context));
+        this.f3261h = bdUniqueId;
+        V(new C0990a(this, context));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */

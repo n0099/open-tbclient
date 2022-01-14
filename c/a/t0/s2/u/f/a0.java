@@ -56,7 +56,7 @@ public class a0 extends n<c.a.t0.s2.r.k, PbLoadMoreItemViewHolder> {
     public PbLoadMoreItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemViewHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.new_pb_list_more, viewGroup, false), this.s) : (PbLoadMoreItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemViewHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.new_pb_list_more, viewGroup, false), this.s) : (PbLoadMoreItemViewHolder) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, c.a.t0.s2.r.k kVar, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
@@ -64,10 +64,10 @@ public class a0 extends n<c.a.t0.s2.r.k, PbLoadMoreItemViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, pbLoadMoreItemViewHolder})) == null) {
             super.S(i2, view, viewGroup, kVar, pbLoadMoreItemViewHolder);
-            if (kVar.f23057f) {
-                pbLoadMoreItemViewHolder.setTextWithNoDataImg(kVar.f23056e);
+            if (kVar.f22422f) {
+                pbLoadMoreItemViewHolder.setTextWithNoDataImg(kVar.f22421e);
             } else {
-                pbLoadMoreItemViewHolder.setText(kVar.f23056e, this.u);
+                pbLoadMoreItemViewHolder.setText(kVar.f22421e, this.u);
             }
             pbLoadMoreItemViewHolder.setOnClickListener(this.t);
             pbLoadMoreItemViewHolder.onChangeSkinType();

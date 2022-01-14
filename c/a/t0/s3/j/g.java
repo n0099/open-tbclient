@@ -1,6 +1,6 @@
 package c.a.t0.s3.j;
 
-import c.a.s0.s.q.a2;
+import c.a.s0.s.q.b2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g implements c.a.s0.s.w.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a2 a;
+    public b2 a;
 
-    public g(a2 a2Var) {
+    public g(b2 b2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a2Var};
+            Object[] objArr = {b2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,7 +28,7 @@ public class g implements c.a.s0.s.w.b.a {
                 return;
             }
         }
-        this.a = a2Var;
+        this.a = b2Var;
     }
 
     @Override // c.a.s0.s.w.b.a
@@ -36,11 +36,11 @@ public class g implements c.a.s0.s.w.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a2 a2Var = this.a;
-            if (a2Var == null) {
+            b2 b2Var = this.a;
+            if (b2Var == null) {
                 return null;
             }
-            return a2Var.a();
+            return b2Var.a();
         }
         return (String) invokeV.objValue;
     }
@@ -50,11 +50,11 @@ public class g implements c.a.s0.s.w.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a2 a2Var = this.a;
-            if (a2Var == null) {
+            b2 b2Var = this.a;
+            if (b2Var == null) {
                 return null;
             }
-            return a2Var.b();
+            return b2Var.b();
         }
         return (String) invokeV.objValue;
     }
@@ -63,11 +63,11 @@ public class g implements c.a.s0.s.w.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a2 a2Var = this.a;
-            if (a2Var == null) {
+            b2 b2Var = this.a;
+            if (b2Var == null) {
                 return null;
             }
-            return a2Var.c();
+            return b2Var.c();
         }
         return (String) invokeV.objValue;
     }

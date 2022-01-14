@@ -11,7 +11,7 @@ public class b {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6602b;
+    public static final String f6461b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class b {
             }
         }
         a = "检测到白屏区域超过" + a(0.7d) + "；";
-        f6602b = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
+        f6461b = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
     }
 
     public static String a(double d2) {

@@ -16,46 +16,46 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f58536b;
+    public AdBaseFrameLayout f56327b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f58537c;
+    public JSONObject f56328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f58538d;
+    public ViewGroup f56329d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f58539e;
+    public WebView f56330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f58540f;
+    public b f56331f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public ac f58541g;
+    public ac f56332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58542h = true;
+    public boolean f56333h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f58543i = true;
+    public boolean f56334i = true;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<AdTemplate> f58544j = null;
+    public List<AdTemplate> f56335j = null;
 
     public AdTemplate a() {
-        List<AdTemplate> list = this.f58544j;
+        List<AdTemplate> list = this.f56335j;
         if (list == null || list.size() == 0) {
             return null;
         }
-        return this.f58544j.get(0);
+        return this.f56335j.get(0);
     }
 
     @Nullable
     public AdTemplate a(long j2) {
         List<AdTemplate> list;
-        if (j2 >= 0 && (list = this.f58544j) != null) {
+        if (j2 >= 0 && (list = this.f56335j) != null) {
             for (AdTemplate adTemplate : list) {
                 if (d.y(adTemplate) == j2) {
                     return adTemplate;
@@ -67,20 +67,20 @@ public class a {
 
     public void a(AdTemplate adTemplate) {
         ArrayList arrayList = new ArrayList();
-        this.f58544j = arrayList;
+        this.f56335j = arrayList;
         arrayList.add(adTemplate);
     }
 
     public void a(List<AdTemplate> list) {
-        this.f58544j = list;
+        this.f56335j = list;
     }
 
     public List<AdTemplate> b() {
-        return this.f58544j;
+        return this.f56335j;
     }
 
     public boolean c() {
-        List<AdTemplate> list = this.f58544j;
+        List<AdTemplate> list = this.f56335j;
         return list == null || list.size() == 0;
     }
 }

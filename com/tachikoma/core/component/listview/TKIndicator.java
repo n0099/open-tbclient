@@ -16,7 +16,7 @@ import com.tachikoma.core.component.anim.TimeFunctionConst;
 import com.tachikoma.core.component.listview.TKPagerIndicatorDecoration;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKIndicator extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

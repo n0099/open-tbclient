@@ -11,13 +11,13 @@ public class e {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f17485b;
+    public final int f17062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f17486c;
+    public final boolean f17063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f17487d;
+    public final String f17064d;
 
     public e(boolean z, int i2, boolean z2, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class e {
             }
         }
         this.a = z;
-        this.f17485b = i2;
-        this.f17486c = z2;
-        this.f17487d = str;
+        this.f17062b = i2;
+        this.f17063c = z2;
+        this.f17064d = str;
     }
 }

@@ -18,20 +18,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends CookieHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CookieManager a;
 
     /* renamed from: com.baidu.apollon.restnet.http.e$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;

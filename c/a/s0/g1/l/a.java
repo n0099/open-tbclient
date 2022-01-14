@@ -24,13 +24,13 @@ public class a extends NotificationHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, b> f12947b;
+    public static Map<String, b> f12635b;
     public transient /* synthetic */ FieldHolder $fh;
     public final SharedPreferences a;
 
     /* renamed from: c.a.s0.g1.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0832a {
+    public static /* synthetic */ class C0842a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -42,7 +42,7 @@ public class a extends NotificationHelper {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12948b;
+        public String f12636b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class a extends NotificationHelper {
             }
         }
 
-        public /* synthetic */ b(C0832a c0832a) {
+        public /* synthetic */ b(C0842a c0842a) {
             this();
         }
     }
@@ -86,7 +86,7 @@ public class a extends NotificationHelper {
         }
     }
 
-    public /* synthetic */ a(C0832a c0832a) {
+    public /* synthetic */ a(C0842a c0842a) {
         this();
     }
 
@@ -111,8 +111,8 @@ public class a extends NotificationHelper {
                 }
                 b bVar = new b(null);
                 bVar.a = b(str);
-                bVar.f12948b = str2;
-                f12947b.put(str, bVar);
+                bVar.f12636b = str2;
+                f12635b.put(str, bVar);
             }
         }
     }
@@ -122,7 +122,7 @@ public class a extends NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (g(str)) {
-                return f12947b.get(str).a;
+                return f12635b.get(str).a;
             }
             return str.hashCode();
         }
@@ -150,9 +150,9 @@ public class a extends NotificationHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048579, this, downloadData, z) == null) && downloadData.getId() != null && g(downloadData.getId())) {
             int length = z ? 100 : (int) ((((float) downloadData.getLength()) / ((float) downloadData.getSize())) * 100.0f);
-            b bVar = f12947b.get(downloadData.getId());
+            b bVar = f12635b.get(downloadData.getId());
             if (bVar != null) {
-                NotificationHelper.showProgressNotification(getContext(), bVar.a, "", length, "", bVar.f12948b, d(), false);
+                NotificationHelper.showProgressNotification(getContext(), bVar.a, "", length, "", bVar.f12636b, d(), false);
             }
             if (z) {
                 return;
@@ -181,14 +181,14 @@ public class a extends NotificationHelper {
     public final boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? f12947b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? f12635b.containsKey(str) : invokeL.booleanValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && g(str)) {
             NotificationHelper.cancelNotification(getContext(), b(str));
-            f12947b.remove(str);
+            f12635b.remove(str);
         }
     }
 
@@ -214,7 +214,7 @@ public class a extends NotificationHelper {
                 return;
             }
         }
-        f12947b = new HashMap();
+        f12635b = new HashMap();
         this.a = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
     }
 }

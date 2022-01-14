@@ -1,6 +1,6 @@
 package com.baidu.tieba.addresslist.relationship;
 
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import c.a.t0.x.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -62,8 +62,8 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             a aVar = new a();
             this.mAddressListData = aVar;
             if (aVar.c(getAddressListResIdl.data)) {
-                b j2 = b.j();
-                j2.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                b k = b.k();
+                k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             }
         }
         Error error = getAddressListResIdl.error;

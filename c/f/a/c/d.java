@@ -13,7 +13,7 @@ public final class d {
     public EventBus.Event a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f28974b;
+    public g f28086b;
 
     public d(EventBus.Event event, g gVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class d {
             }
         }
         this.a = event;
-        this.f28974b = gVar;
+        this.f28086b = gVar;
     }
 
     public static d a(g gVar, EventBus.Event event) {

@@ -41,21 +41,21 @@ public class e extends d {
                 }
                 return bundle;
             }
-            int i2 = cVar.f8272b;
+            int i2 = cVar.f8090b;
             if (i2 == 1) {
-                bundle.putInt("result_value", b2.getInt(cVar.f8273c, Integer.parseInt(cVar.f8274d)));
+                bundle.putInt("result_value", b2.getInt(cVar.f8091c, Integer.parseInt(cVar.f8092d)));
             } else if (i2 == 2) {
-                bundle.putLong("result_value", b2.getLong(cVar.f8273c, Long.parseLong(cVar.f8274d)));
+                bundle.putLong("result_value", b2.getLong(cVar.f8091c, Long.parseLong(cVar.f8092d)));
             } else if (i2 == 3) {
-                bundle.putBoolean("result_value", b2.getBoolean(cVar.f8273c, Boolean.parseBoolean(cVar.f8274d)));
+                bundle.putBoolean("result_value", b2.getBoolean(cVar.f8091c, Boolean.parseBoolean(cVar.f8092d)));
             } else if (i2 == 4) {
-                bundle.putString("result_value", b2.getString(cVar.f8273c, cVar.f8274d));
+                bundle.putString("result_value", b2.getString(cVar.f8091c, cVar.f8092d));
             } else if (i2 != 5) {
                 if (d.a) {
                     throw new IllegalArgumentException("wrong info params.");
                 }
             } else {
-                bundle.putFloat("result_value", b2.getFloat(cVar.f8273c, Float.parseFloat(cVar.f8274d)));
+                bundle.putFloat("result_value", b2.getFloat(cVar.f8091c, Float.parseFloat(cVar.f8092d)));
             }
             if (d.a) {
                 String str = "Get: " + cVar;

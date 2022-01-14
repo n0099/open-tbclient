@@ -15,7 +15,7 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22353b;
+    public String f21737b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class f {
             }
             try {
                 this.a = jSONObject.optString("banner_pic");
-                this.f22353b = jSONObject.optString("banner_url");
+                this.f21737b = jSONObject.optString("banner_url");
             } catch (Exception e2) {
                 BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e2.toString());
                 BdLog.e(e2.getMessage());

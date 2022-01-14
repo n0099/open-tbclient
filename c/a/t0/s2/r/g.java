@@ -60,16 +60,16 @@ public class g {
 
     public static void b(PostData postData, AbsPbActivity.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.N() == null || postData.N().y() == null || eVar == null || eVar.a == null || eVar.f48229b == null || postData.N().y().size() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.N() == null || postData.N().y() == null || eVar == null || eVar.a == null || eVar.f46431b == null || postData.N().y().size() == 0) {
             return;
         }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.f48237j);
+        String str = (String) ListUtils.getItem(eVar.a, eVar.f46439j);
         if (StringUtils.isNull(str)) {
             return;
         }
         eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f48229b;
-        eVar.f48229b = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f46431b;
+        eVar.f46431b = new ConcurrentHashMap<>();
         Iterator<TbRichTextData> it = postData.N().y().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
@@ -77,11 +77,11 @@ public class g {
                 String a = a(next);
                 if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null) {
                     eVar.a.add(a);
-                    eVar.f48229b.put(a, concurrentHashMap.get(a));
+                    eVar.f46431b.put(a, concurrentHashMap.get(a));
                 }
             }
         }
-        eVar.f48237j = ListUtils.getPosition(eVar.a, str);
+        eVar.f46439j = ListUtils.getPosition(eVar.a, str);
     }
 
     public static PostData c(f fVar, boolean z, int i2) {

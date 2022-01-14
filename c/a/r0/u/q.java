@@ -22,21 +22,21 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, String> f12175f;
+    public static final ConcurrentHashMap<String, String> f11892f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12176b;
+    public int f11893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12177c;
+    public String f11894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f12178d;
+    public JSONObject f11895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<g> f12179e;
+    public List<g> f11896e;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class q {
             }
         }
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f12175f = concurrentHashMap;
+        f11892f = concurrentHashMap;
         concurrentHashMap.put("1415", "66");
     }
 
@@ -71,21 +71,21 @@ public class q {
                 return;
             }
         }
-        this.f12179e = new ArrayList();
-        this.f12177c = str;
-        this.f12178d = jSONObject;
+        this.f11896e = new ArrayList();
+        this.f11894c = str;
+        this.f11895d = jSONObject;
     }
 
     public List<g> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12179e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11896e : (List) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12177c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11894c : (String) invokeV.objValue;
     }
 
     public int c() {
@@ -97,7 +97,7 @@ public class q {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12176b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11893b : invokeV.intValue;
     }
 
     @SuppressLint({"BDThrowableCheck"})
@@ -107,19 +107,19 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                JSONObject jSONObject = this.f12178d;
+                JSONObject jSONObject = this.f11895d;
                 this.a = jSONObject.getInt("threshold");
-                this.f12176b = jSONObject.getInt("timeup");
+                this.f11893b = jSONObject.getInt("timeup");
                 JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
                 int length = jSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                     String string = jSONObject2.getString("ubcid");
-                    if (TextUtils.isEmpty(string) || !f12175f.containsKey(string)) {
+                    if (TextUtils.isEmpty(string) || !f11892f.containsKey(string)) {
                         str = string;
                     } else {
                         String optString = jSONObject2.optString("bizid");
-                        f12175f.get(string);
+                        f11892f.get(string);
                         str = optString;
                     }
                     String string2 = jSONObject2.getString("switch");
@@ -130,27 +130,27 @@ public class q {
                     if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                         g gVar = new g(str, string2, string3, parseInt, string5, string4);
                         if (jSONObject2.has("rate")) {
-                            gVar.f12109g = Integer.parseInt(jSONObject2.getString("rate"));
+                            gVar.f11829g = Integer.parseInt(jSONObject2.getString("rate"));
                         }
                         if (jSONObject2.has("bizid")) {
                             jSONObject2.getString("bizid");
                         }
                         if (jSONObject2.has("c")) {
-                            gVar.f12110h = jSONObject2.getString("c");
+                            gVar.f11830h = jSONObject2.getString("c");
                         }
                         if (jSONObject2.has("limitUnit")) {
-                            gVar.f12111i = Integer.parseInt(jSONObject2.getString("limitUnit"));
+                            gVar.f11831i = Integer.parseInt(jSONObject2.getString("limitUnit"));
                         }
                         if (jSONObject2.has("limitCnt")) {
-                            gVar.f12112j = Integer.parseInt(jSONObject2.getString("limitCnt"));
+                            gVar.f11832j = Integer.parseInt(jSONObject2.getString("limitCnt"));
                         }
                         if (jSONObject2.has(Constant.ID_TYPE)) {
-                            gVar.f12113k = jSONObject2.getString(Constant.ID_TYPE);
+                            gVar.k = jSONObject2.getString(Constant.ID_TYPE);
                         }
                         if (jSONObject2.has("appblacklist")) {
                             jSONObject2.getString("appblacklist");
                         }
-                        this.f12179e.add(gVar);
+                        this.f11896e.add(gVar);
                     }
                 }
                 return true;

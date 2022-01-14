@@ -15,12 +15,12 @@ public class z extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f12550c;
+    public static final BdUniqueId f12256c;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.b.e f12551b;
+    public c.a.s0.b.e f12257b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class z extends a {
                 return;
             }
         }
-        f12550c = BdUniqueId.gen();
+        f12256c = BdUniqueId.gen();
     }
 
     public z() {
@@ -53,7 +53,7 @@ public class z extends a {
         }
         ArrayList<String> arrayList = new ArrayList<>();
         this.a = arrayList;
-        arrayList.add("12_3_staticopt_a");
+        arrayList.add("12_17_video_player_a");
     }
 
     @Override // c.a.s0.b.f.a
@@ -67,21 +67,21 @@ public class z extends a {
     public c.a.s0.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12551b : (c.a.s0.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12257b : (c.a.s0.b.e) invokeV.objValue;
     }
 
     @Override // c.a.s0.b.f.a
     public BdUniqueId c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12550c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12256c : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.s0.b.f.a
     public void f(c.a.s0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f12551b = eVar;
+            this.f12257b = eVar;
         }
     }
 }

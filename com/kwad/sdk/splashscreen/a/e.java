@@ -11,7 +11,7 @@ public class e extends Presenter {
     public void a() {
         super.a();
         this.a.setVisibility(0);
-        this.a.setAdTemplate(((com.kwad.sdk.splashscreen.g) p()).f60158d);
+        this.a.setAdTemplate(((com.kwad.sdk.splashscreen.g) p()).f57875d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

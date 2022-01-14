@@ -33,7 +33,7 @@ public class c extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             boolean z = bundle == null ? false : bundle.getBoolean("status");
-            for (c.a.r0.a.m.c cVar : SwanAppAllianceLoginHelper.f39956d.e()) {
+            for (c.a.r0.a.m.c cVar : SwanAppAllianceLoginHelper.f38633d.e()) {
                 if (cVar != null) {
                     cVar.a(z);
                 }

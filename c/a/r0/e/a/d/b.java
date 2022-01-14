@@ -16,34 +16,32 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10525b;
+    public int f10298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10526c;
+    public int f10299c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10527d;
+    public int f10300d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10528e;
+    public int f10301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10529f;
+    public int f10302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10530g;
+    public int f10303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f10531h;
+    public boolean f10304h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f10532i;
+    public a f10305i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f10533j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public a f10534k;
+    public a f10306j;
+    public a k;
     public a l;
 
     public b() {
@@ -60,32 +58,32 @@ public class b {
             }
         }
         this.a = -1;
-        this.f10525b = -1;
-        this.f10526c = -1;
-        this.f10527d = -1;
-        this.f10528e = -1;
-        this.f10529f = -1;
-        this.f10530g = -1;
+        this.f10298b = -1;
+        this.f10299c = -1;
+        this.f10300d = -1;
+        this.f10301e = -1;
+        this.f10302f = -1;
+        this.f10303g = -1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f10531h) {
+            if (!this.f10304h) {
                 return b(this.l);
             }
-            a aVar = this.f10534k;
+            a aVar = this.k;
             if (aVar != null) {
-                return aVar.f10524g;
+                return aVar.f10297g;
             }
-            a aVar2 = this.f10532i;
+            a aVar2 = this.f10305i;
             if (aVar2 != null) {
-                return aVar2.f10524g;
+                return aVar2.f10297g;
             }
-            a aVar3 = this.f10533j;
+            a aVar3 = this.f10306j;
             if (aVar3 != null) {
-                return aVar3.f10524g;
+                return aVar3.f10297g;
             }
             return -1;
         }
@@ -97,7 +95,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             if (aVar != null) {
-                return aVar.f10524g;
+                return aVar.f10297g;
             }
             return -1;
         }
@@ -109,7 +107,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
             if (aVar != null) {
-                return aVar.f10523f;
+                return aVar.f10296f;
             }
             return -1;
         }
@@ -119,7 +117,7 @@ public class b {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10530g != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10303g != -1 : invokeV.booleanValue;
     }
 
     @NonNull
@@ -130,21 +128,21 @@ public class b {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("cores", this.a);
-                jSONObject.put("is_biglittle", this.f10531h);
-                if (this.f10531h) {
-                    jSONObject.put("little_freq_min", c(this.f10533j));
-                    jSONObject.put("little_freq_max", b(this.f10533j));
-                    jSONObject.put("big_freq_min", c(this.f10532i));
-                    jSONObject.put("big_freq_max", b(this.f10532i));
-                    jSONObject.put("little_cores", this.f10525b);
-                    jSONObject.put("big_cores", this.f10527d);
-                    jSONObject.put("little_index", this.f10526c);
-                    jSONObject.put("big_index", this.f10528e);
-                    if (this.f10530g != -1) {
-                        jSONObject.put("super_freq_min", c(this.f10534k));
-                        jSONObject.put("super_freq_max", b(this.f10534k));
-                        jSONObject.put("super_cores", this.f10529f);
-                        jSONObject.put("super_index", this.f10530g);
+                jSONObject.put("is_biglittle", this.f10304h);
+                if (this.f10304h) {
+                    jSONObject.put("little_freq_min", c(this.f10306j));
+                    jSONObject.put("little_freq_max", b(this.f10306j));
+                    jSONObject.put("big_freq_min", c(this.f10305i));
+                    jSONObject.put("big_freq_max", b(this.f10305i));
+                    jSONObject.put("little_cores", this.f10298b);
+                    jSONObject.put("big_cores", this.f10300d);
+                    jSONObject.put("little_index", this.f10299c);
+                    jSONObject.put("big_index", this.f10301e);
+                    if (this.f10303g != -1) {
+                        jSONObject.put("super_freq_min", c(this.k));
+                        jSONObject.put("super_freq_max", b(this.k));
+                        jSONObject.put("super_cores", this.f10302f);
+                        jSONObject.put("super_index", this.f10303g);
                     }
                 } else {
                     jSONObject.put("freq_min", c(this.l));

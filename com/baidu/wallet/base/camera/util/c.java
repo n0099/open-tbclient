@@ -14,7 +14,7 @@ public final class c {
     public Thread[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f52529b;
+    public LinkedBlockingQueue<Runnable> f50504b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public final class c {
             }
         }
         this.a = null;
-        this.f52529b = null;
-        this.f52529b = new LinkedBlockingQueue<>();
+        this.f50504b = null;
+        this.f50504b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -57,7 +57,7 @@ public final class c {
             c cVar = new c();
             cVar.a = new Thread[a];
             for (int i3 = a - 1; i3 >= 0; i3 += -1) {
-                cVar.a[i3] = new Thread(new d(cVar.f52529b));
+                cVar.a[i3] = new Thread(new d(cVar.f50504b));
                 cVar.a[i3].setPriority(5);
                 cVar.a[i3].setName(str + " " + a + "." + (i3 + 1));
                 cVar.a[i3].start();
@@ -73,7 +73,7 @@ public final class c {
             return;
         }
         try {
-            this.f52529b.put(runnable);
+            this.f50504b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
@@ -83,10 +83,10 @@ public final class c {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f52529b.clear();
+            this.f50504b.clear();
             for (Thread thread : this.a) {
                 if (thread.isAlive()) {
-                    this.f52529b.offer(new b());
+                    this.f50504b.offer(new b());
                 }
             }
             for (Thread thread2 : this.a) {

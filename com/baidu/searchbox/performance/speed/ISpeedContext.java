@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ISpeedContext {
     public static final ISpeedContext EMPTY = new ISpeedContext() { // from class: com.baidu.searchbox.performance.speed.ISpeedContext.1
         public static /* synthetic */ Interceptable $ic;
@@ -37,20 +37,10 @@ public interface ISpeedContext {
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-        public boolean getNightModeSwitcherState() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.performance.speed.ISpeedContext
         public String getVersionName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return null;
             }
             return (String) invokeV.objValue;
@@ -58,6 +48,16 @@ public interface ISpeedContext {
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
         public boolean hasSkin() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.performance.speed.ISpeedContext
+        public boolean isAdShowing() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -133,11 +133,11 @@ public interface ISpeedContext {
 
     void checkSendStatisticData();
 
-    boolean getNightModeSwitcherState();
-
     String getVersionName();
 
     boolean hasSkin();
+
+    boolean isAdShowing();
 
     boolean isMainActivity(Activity activity);
 

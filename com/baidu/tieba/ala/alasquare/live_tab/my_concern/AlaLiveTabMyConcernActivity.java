@@ -185,7 +185,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaLiveTabMyConcernActivity f43499e;
+        public final /* synthetic */ AlaLiveTabMyConcernActivity f41932e;
 
         public d(AlaLiveTabMyConcernActivity alaLiveTabMyConcernActivity) {
             Interceptable interceptable = $ic;
@@ -202,14 +202,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
                     return;
                 }
             }
-            this.f43499e = alaLiveTabMyConcernActivity;
+            this.f41932e = alaLiveTabMyConcernActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43499e.refreshData();
+                this.f41932e.refreshData();
             }
         }
     }

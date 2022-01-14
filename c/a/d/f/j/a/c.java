@@ -28,21 +28,21 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f2811f = true;
+    public static boolean f2788f = true;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f2812b;
+    public b f2789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2813c;
+    public int f2790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2814d;
+    public long f2791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f2815e;
+    public boolean f2792e;
 
     static {
         InterceptResult invokeClinit;
@@ -74,9 +74,9 @@ public class c {
                 return;
             }
         }
-        this.f2813c = 0;
-        this.f2814d = 0L;
-        this.f2815e = true;
+        this.f2790c = 0;
+        this.f2791d = 0L;
+        this.f2792e = true;
         this.a = eVar;
     }
 
@@ -97,7 +97,7 @@ public class c {
     public void b() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f2812b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f2789b) == null) {
             return;
         }
         bVar.b();
@@ -152,20 +152,20 @@ public class c {
             int b5 = i4 <= 0 ? c.a.d.c.j.b.d().b().b() : i4;
             int b6 = i5 <= 0 ? c.a.d.c.j.b.d().c().b() : i5;
             b bVar = new b(this.a);
-            this.f2812b = bVar;
-            bVar.u(f2811f);
+            this.f2789b = bVar;
+            bVar.u(f2788f);
             int i9 = 0;
             boolean z3 = false;
             for (int a = i2 <= 0 ? c.a.d.c.j.b.d().a() : i2; i9 < a; a = i7) {
                 d dVar10 = new d();
-                this.a.c().f2836c = -1;
-                this.f2812b.s(i9);
+                this.a.c().f2812c = -1;
+                this.f2789b.s(i9);
                 int i10 = i9 + 1;
                 try {
                     try {
-                        dVar10.f2819e = i10;
+                        dVar10.f2796e = i10;
                         try {
-                            this.f2813c = i9;
+                            this.f2790c = i9;
                             a(i9);
                             str2 = str4;
                             i8 = i10;
@@ -271,14 +271,14 @@ public class c {
                     i7 = a;
                 }
                 try {
-                    z3 = this.f2812b.d(str, hVar, b5, b6, z, dVar10, z2);
+                    z3 = this.f2789b.d(str, hVar, b5, b6, z, dVar10, z2);
                     if (!z3 && this.a.c().a) {
-                        this.a.c().f2836c = -14;
+                        this.a.c().f2812c = -14;
                     }
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar10.f2822h), dVar10.l != null);
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar10.f2799h), dVar10.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar10.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar10.f2822h += "|netAvailable:" + l.A();
+                        dVar10.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar10.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar10);
                     a b7 = a.b();
@@ -292,19 +292,19 @@ public class c {
                     StringBuilder sb = new StringBuilder();
                     str3 = str2;
                     sb.append(str3);
-                    sb.append(String.valueOf(this.a.c().f2835b));
+                    sb.append(String.valueOf(this.a.c().f2811b));
                     sb.append("|retryCount:");
                     sb.append(i6);
                     sb.append("|");
                     sb.append(e.getClass().getName());
                     sb.append("|");
                     sb.append(e.getMessage());
-                    dVar5.f2822h = sb.toString();
-                    this.a.c().f2836c = -100;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar5.f2822h), dVar5.l != null);
+                    dVar5.f2799h = sb.toString();
+                    this.a.c().f2812c = -100;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar5.f2799h), dVar5.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar5.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar5.f2822h += "|netAvailable:" + l.A();
+                        dVar5.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar5.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar5);
                     b4 = a.b();
@@ -319,12 +319,12 @@ public class c {
                     e = e16;
                     dVar9 = dVar10;
                     str3 = str2;
-                    dVar9.f2822h = str3 + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                    this.a.c().f2836c = -19;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar9.f2822h), dVar9.l != null);
+                    dVar9.f2799h = str3 + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                    this.a.c().f2812c = -19;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar9.f2799h), dVar9.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar9.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar9.f2822h += "|netAvailable:" + l.A();
+                        dVar9.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar9.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar9);
                     b4 = a.b();
@@ -339,12 +339,12 @@ public class c {
                     e = e17;
                     dVar8 = dVar10;
                     str3 = str2;
-                    dVar8.f2822h = str3 + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().f2836c = -22;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar8.f2822h), dVar8.l != null);
+                    dVar8.f2799h = str3 + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().f2812c = -22;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar8.f2799h), dVar8.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar8.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar8.f2822h += "|netAvailable:" + l.A();
+                        dVar8.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar8.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar8);
                     b4 = a.b();
@@ -359,12 +359,12 @@ public class c {
                     e = e18;
                     dVar7 = dVar10;
                     str3 = str2;
-                    dVar7.f2822h = str3 + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().f2836c = -12;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar7.f2822h), dVar7.l != null);
+                    dVar7.f2799h = str3 + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().f2812c = -12;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar7.f2799h), dVar7.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar7.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar7.f2822h += "|netAvailable:" + l.A();
+                        dVar7.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar7.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar7);
                     b4 = a.b();
@@ -379,12 +379,12 @@ public class c {
                     e = e19;
                     dVar6 = dVar10;
                     str3 = str2;
-                    dVar6.f2822h = str3 + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().f2836c = -13;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar6.f2822h), dVar6.l != null);
+                    dVar6.f2799h = str3 + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().f2812c = -13;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar6.f2799h), dVar6.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar6.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar6.f2822h += "|netAvailable:" + l.A();
+                        dVar6.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar6.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar6);
                     b4 = a.b();
@@ -398,12 +398,12 @@ public class c {
                 } catch (UnknownHostException e20) {
                     e = e20;
                     dVar4 = dVar10;
-                    dVar4.f2822h = "errorCode:" + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().f2836c = -21;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar4.f2822h), dVar4.l != null);
+                    dVar4.f2799h = "errorCode:" + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().f2812c = -21;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar4.f2799h), dVar4.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar4.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar4.f2822h += "|netAvailable:" + l.A();
+                        dVar4.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar4.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar4);
                     b3 = a.b();
@@ -417,25 +417,25 @@ public class c {
                         }
                         BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
                     } else {
-                        dVar3.f2822h = "errorCode:" + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.a.c().f2836c = -20;
+                        dVar3.f2799h = "errorCode:" + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.a.c().f2812c = -20;
                     }
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar3.f2822h), dVar3.l != null);
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar3.f2799h), dVar3.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar3.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar3.f2822h += "|netAvailable:" + l.A();
+                        dVar3.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar3.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar3);
                     b3 = a.b();
                 } catch (IOException e22) {
                     e = e22;
                     dVar2 = dVar10;
-                    dVar2.f2822h = "errorCode:" + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                    this.a.c().f2836c = -19;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar2.f2822h), dVar2.l != null);
+                    dVar2.f2799h = "errorCode:" + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().f2812c = -19;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar2.f2799h), dVar2.l != null);
                     if (!z3 && i6 == i7 - 1) {
-                        dVar2.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar2.f2822h += "|netAvailable:" + l.A();
+                        dVar2.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar2.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar2);
                     b3 = a.b();
@@ -443,22 +443,22 @@ public class c {
                     e = e23;
                     dVar = dVar10;
                     try {
-                        dVar.f2822h = "errorCode:" + String.valueOf(this.a.c().f2835b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.a.c().f2836c = -10;
+                        dVar.f2799h = "errorCode:" + String.valueOf(this.a.c().f2811b) + "|retryCount:" + i6 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.a.c().f2812c = -10;
                         BdLog.e(e.getMessage());
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         if (!z3 && i6 == i7 - 1) {
-                            dVar.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                            dVar.f2822h += "|netAvailable:" + l.A();
+                            dVar.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                            dVar.f2799h += "|netAvailable:" + l.A();
                         }
                         this.a.e(dVar);
                         b3 = a.b();
                     } catch (Throwable th2) {
                         th = th2;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l == null);
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l == null);
                         if (!z3 && i6 == i7 - 1) {
-                            dVar.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                            dVar.f2822h += "|netAvailable:" + l.A();
+                            dVar.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                            dVar.f2799h += "|netAvailable:" + l.A();
                         }
                         this.a.e(dVar);
                         b2 = a.b();
@@ -470,10 +470,10 @@ public class c {
                 } catch (Throwable th3) {
                     th = th3;
                     dVar = dVar10;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l == null);
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l == null);
                     if (!z3) {
-                        dVar.f2822h += "|" + c.a.d.f.j.a.j.d.c();
-                        dVar.f2822h += "|netAvailable:" + l.A();
+                        dVar.f2799h += "|" + c.a.d.f.j.a.j.d.c();
+                        dVar.f2799h += "|netAvailable:" + l.A();
                     }
                     this.a.e(dVar);
                     b2 = a.b();
@@ -533,35 +533,35 @@ public class c {
                 try {
                     try {
                         try {
-                            this.f2813c = i7;
-                            dVar.f2819e = i7 + 1;
+                            this.f2790c = i7;
+                            dVar.f2796e = i7 + 1;
                             dVar.v = i8;
                             a(i7);
                             b bVar8 = new b(this.a);
-                            this.f2812b = bVar8;
+                            this.f2789b = bVar8;
                             bVar8.s(i7);
-                            this.f2812b.u(f2811f);
-                            this.f2812b.k(b4, b5, dVar);
+                            this.f2789b.u(f2788f);
+                            this.f2789b.k(b4, b5, dVar);
                         } catch (SocketTimeoutException e2) {
                             i5 = b4;
-                            dVar.f2822h = String.valueOf(this.a.c().f2835b) + "|retryCount:" + i7 + "|" + e2.getClass() + "|" + e2.getMessage();
-                            this.a.c().f2836c = -13;
-                            if (this.f2814d <= 0 && (bVar4 = this.f2812b) != null) {
-                                this.f2814d = bVar4.i();
+                            dVar.f2799h = String.valueOf(this.a.c().f2811b) + "|retryCount:" + i7 + "|" + e2.getClass() + "|" + e2.getMessage();
+                            this.a.c().f2812c = -13;
+                            if (this.f2791d <= 0 && (bVar4 = this.f2789b) != null) {
+                                this.f2791d = bVar4.i();
                             }
-                            dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                            dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                             this.a.f(dVar);
                             b2 = a.b();
                         } catch (Exception e3) {
-                            dVar.f2822h = String.valueOf(this.a.c().f2835b) + "|retryCount:" + i7 + "|" + e3.getClass() + "|" + e3.getMessage();
-                            this.a.c().f2836c = -10;
+                            dVar.f2799h = String.valueOf(this.a.c().f2811b) + "|retryCount:" + i7 + "|" + e3.getClass() + "|" + e3.getMessage();
+                            this.a.c().f2812c = -10;
                             BdLog.e(e3.getMessage());
-                            if (this.f2814d <= 0 && (bVar3 = this.f2812b) != null) {
-                                this.f2814d = bVar3.i();
+                            if (this.f2791d <= 0 && (bVar3 = this.f2789b) != null) {
+                                this.f2791d = bVar3.i();
                             }
-                            dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                            dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                             this.a.f(dVar);
                             b3 = a.b();
                             if (b3 == null) {
@@ -570,38 +570,38 @@ public class c {
                         }
                     } catch (SocketException e4) {
                         i5 = b4;
-                        dVar.f2822h = String.valueOf(this.a.c().f2835b) + "|retryCount:" + i7 + "|" + e4.getClass() + "|" + e4.getMessage();
-                        this.a.c().f2836c = -12;
-                        if (this.f2814d <= 0 && (bVar2 = this.f2812b) != null) {
-                            this.f2814d = bVar2.i();
+                        dVar.f2799h = String.valueOf(this.a.c().f2811b) + "|retryCount:" + i7 + "|" + e4.getClass() + "|" + e4.getMessage();
+                        this.a.c().f2812c = -12;
+                        if (this.f2791d <= 0 && (bVar2 = this.f2789b) != null) {
+                            this.f2791d = bVar2.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.f(dVar);
                         b2 = a.b();
                     } catch (IOException e5) {
-                        this.a.c().f2836c = -19;
-                        dVar.f2822h = "errorCode:" + String.valueOf(-19) + "|" + e5.getClass() + "|" + e5.getMessage() + "|getcontent_illegal_error";
-                        if (this.f2814d <= 0 && (bVar = this.f2812b) != null) {
-                            this.f2814d = bVar.i();
+                        this.a.c().f2812c = -19;
+                        dVar.f2799h = "errorCode:" + String.valueOf(-19) + "|" + e5.getClass() + "|" + e5.getMessage() + "|getcontent_illegal_error";
+                        if (this.f2791d <= 0 && (bVar = this.f2789b) != null) {
+                            this.f2791d = bVar.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
                         i5 = b4;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.f(dVar);
                         a b6 = a.b();
                         if (b6 != null) {
                             b6.c(this.a);
                         }
                     }
-                    if (this.a.c().f2835b != 200) {
-                        dVar.f2822h = String.valueOf(this.a.c().f2835b) + "|retryCount:" + i7;
-                        boolean m = m(this.a.c().f2835b);
-                        if (this.f2814d <= 0 && (bVar7 = this.f2812b) != null) {
-                            this.f2814d = bVar7.i();
+                    if (this.a.c().f2811b != 200) {
+                        dVar.f2799h = String.valueOf(this.a.c().f2811b) + "|retryCount:" + i7;
+                        boolean m = m(this.a.c().f2811b);
+                        if (this.f2791d <= 0 && (bVar7 = this.f2789b) != null) {
+                            this.f2791d = bVar7.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.f(dVar);
                         a b7 = a.b();
                         if (b7 != null) {
@@ -613,11 +613,11 @@ public class c {
                         b4 = i5;
                     } else {
                         this.a.f(dVar);
-                        if (this.f2814d <= 0 && (bVar6 = this.f2812b) != null) {
-                            this.f2814d = bVar6.i();
+                        if (this.f2791d <= 0 && (bVar6 = this.f2789b) != null) {
+                            this.f2791d = bVar6.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.f(dVar);
                         b3 = a.b();
                         if (b3 == null) {
@@ -627,11 +627,11 @@ public class c {
                         return;
                     }
                 } catch (Throwable th) {
-                    if (this.f2814d <= 0 && (bVar5 = this.f2812b) != null) {
-                        this.f2814d = bVar5.i();
+                    if (this.f2791d <= 0 && (bVar5 = this.f2789b) != null) {
+                        this.f2791d = bVar5.i();
                     }
-                    dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                    dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                     this.a.f(dVar);
                     a b8 = a.b();
                     if (b8 != null) {
@@ -647,7 +647,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            b bVar = this.f2812b;
+            b bVar = this.f2789b;
             if (bVar == null) {
                 return -1L;
             }
@@ -660,7 +660,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            b bVar = this.f2812b;
+            b bVar = this.f2789b;
             if (bVar == null) {
                 return -1L;
             }
@@ -673,11 +673,11 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j2 = this.f2814d;
+            long j2 = this.f2791d;
             if (j2 > 0) {
                 return j2;
             }
-            b bVar = this.f2812b;
+            b bVar = this.f2789b;
             if (bVar == null) {
                 return -1L;
             }
@@ -690,7 +690,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b bVar = this.f2812b;
+            b bVar = this.f2789b;
             if (bVar == null) {
                 return -1L;
             }
@@ -703,7 +703,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            b bVar = this.f2812b;
+            b bVar = this.f2789b;
             if (bVar == null) {
                 return -1L;
             }
@@ -715,7 +715,7 @@ public class c {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2813c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2790c : invokeV.intValue;
     }
 
     public boolean l() {
@@ -802,75 +802,75 @@ public class c {
             int i5 = 0;
             for (boolean z2 = true; !this.a.c().a && z == z2 && i5 < a; z2 = true) {
                 d dVar = new d();
-                this.f2813c = i5;
+                this.f2790c = i5;
                 int i6 = i5 + 1;
-                dVar.f2819e = i6;
+                dVar.f2796e = i6;
                 a(i5);
                 try {
                     try {
                         try {
                             b bVar8 = new b(this.a);
-                            this.f2812b = bVar8;
+                            this.f2789b = bVar8;
                             bVar8.s(i5);
-                            this.f2812b.u(f2811f);
-                            this.f2812b.t(this.f2815e);
-                            this.f2812b.r(b4, b5, dVar);
+                            this.f2789b.u(f2788f);
+                            this.f2789b.t(this.f2792e);
+                            this.f2789b.r(b4, b5, dVar);
                         } catch (SocketException e2) {
-                            this.a.c().f2836c = -12;
-                            dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                            this.a.c().f2812c = -12;
+                            dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                             BdLog.e(e2.getMessage());
                             this.a.e(dVar);
-                            if (this.f2814d <= 0 && (bVar5 = this.f2812b) != null) {
-                                this.f2814d = bVar5.i();
+                            if (this.f2791d <= 0 && (bVar5 = this.f2789b) != null) {
+                                this.f2791d = bVar5.i();
                             }
-                            dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                            dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                             this.a.e(dVar);
                             b3 = a.b();
                         }
                     } catch (UnsupportedOperationException unused) {
-                        this.a.c().f2836c = -14;
-                        dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        this.a.c().f2812c = -14;
+                        dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         this.a.e(dVar);
-                        if (this.f2814d <= 0 && (bVar3 = this.f2812b) != null) {
-                            this.f2814d = bVar3.i();
+                        if (this.f2791d <= 0 && (bVar3 = this.f2789b) != null) {
+                            this.f2791d = bVar3.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         b2 = a.b();
                     }
                 } catch (SocketTimeoutException e3) {
-                    this.a.c().f2836c = -13;
-                    dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.a.c().f2812c = -13;
+                    dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
                     this.a.e(dVar);
-                    if (this.f2814d <= 0 && (bVar2 = this.f2812b) != null) {
-                        this.f2814d = bVar2.i();
+                    if (this.f2791d <= 0 && (bVar2 = this.f2789b) != null) {
+                        this.f2791d = bVar2.i();
                     }
-                    dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                    dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                     this.a.e(dVar);
                     b3 = a.b();
                 } catch (Throwable th) {
                     try {
-                        this.a.c().f2836c = -10;
-                        dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        this.a.c().f2812c = -10;
+                        dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
                         this.a.e(dVar);
-                        if (this.f2814d <= 0 && (bVar = this.f2812b) != null) {
-                            this.f2814d = bVar.i();
+                        if (this.f2791d <= 0 && (bVar = this.f2789b) != null) {
+                            this.f2791d = bVar.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         b2 = a.b();
                     } catch (Throwable th2) {
-                        if (this.f2814d <= 0 && (bVar4 = this.f2812b) != null) {
-                            this.f2814d = bVar4.i();
+                        if (this.f2791d <= 0 && (bVar4 = this.f2789b) != null) {
+                            this.f2791d = bVar4.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         a b6 = a.b();
                         if (b6 != null) {
@@ -879,15 +879,15 @@ public class c {
                         throw th2;
                     }
                 }
-                if (this.a.c().f2835b != 200) {
-                    dVar.f2822h = String.valueOf(this.a.c().f2835b) + "|retryCount:" + i5;
-                    z = m(this.a.c().f2835b);
+                if (this.a.c().f2811b != 200) {
+                    dVar.f2799h = String.valueOf(this.a.c().f2811b) + "|retryCount:" + i5;
+                    z = m(this.a.c().f2811b);
                     this.a.e(dVar);
-                    if (this.f2814d <= 0 && (bVar7 = this.f2812b) != null) {
-                        this.f2814d = bVar7.i();
+                    if (this.f2791d <= 0 && (bVar7 = this.f2789b) != null) {
+                        this.f2791d = bVar7.i();
                     }
-                    dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                    dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                     this.a.e(dVar);
                     a b7 = a.b();
                     if (b7 != null) {
@@ -895,11 +895,11 @@ public class c {
                     }
                     i5 = i6;
                 } else {
-                    if (this.f2814d <= 0 && (bVar6 = this.f2812b) != null) {
-                        this.f2814d = bVar6.i();
+                    if (this.f2791d <= 0 && (bVar6 = this.f2789b) != null) {
+                        this.f2791d = bVar6.i();
                     }
-                    dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                    dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                    c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                     this.a.e(dVar);
                     a b8 = a.b();
                     if (b8 != null) {
@@ -945,31 +945,31 @@ public class c {
             for (boolean z2 = true; !this.a.c().a && z == z2 && i5 < a; z2 = true) {
                 d dVar = new d();
                 int i6 = i5 + 1;
-                dVar.f2819e = i6;
-                this.f2813c = i5;
+                dVar.f2796e = i6;
+                this.f2790c = i5;
                 a(i5);
                 try {
                     try {
                         try {
                             b bVar9 = new b(this.a);
-                            this.f2812b = bVar9;
+                            this.f2789b = bVar9;
                             bVar9.s(i5);
-                            this.f2812b.u(f2811f);
-                            this.f2812b.q(b3, b4, dVar);
+                            this.f2789b.u(f2788f);
+                            this.f2789b.q(b3, b4, dVar);
                         } catch (SocketTimeoutException e2) {
-                            this.a.c().f2836c = -13;
-                            dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                            this.a.c().f2812c = -13;
+                            dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                             BdLog.e(e2.getMessage());
                             this.a.e(dVar);
-                            if (this.f2814d <= 0 && (bVar4 = this.f2812b) != null) {
-                                this.f2814d = bVar4.i();
+                            if (this.f2791d <= 0 && (bVar4 = this.f2789b) != null) {
+                                this.f2791d = bVar4.i();
                             }
-                            dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                            dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                            c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                             this.a.e(dVar);
                             b2 = a.b();
                             if (b2 != null) {
-                                b bVar10 = this.f2812b;
+                                b bVar10 = this.f2789b;
                                 if (bVar10 != null) {
                                 }
                             }
@@ -977,64 +977,64 @@ public class c {
                             i5 = i6;
                         }
                     } catch (UnsupportedOperationException unused) {
-                        this.a.c().f2836c = -14;
-                        dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        this.a.c().f2812c = -14;
+                        dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         this.a.e(dVar);
-                        if (this.f2814d <= 0 && (bVar3 = this.f2812b) != null) {
-                            this.f2814d = bVar3.i();
+                        if (this.f2791d <= 0 && (bVar3 = this.f2789b) != null) {
+                            this.f2791d = bVar3.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         a b5 = a.b();
-                        if (b5 != null && (bVar2 = this.f2812b) != null && bVar2.p()) {
+                        if (b5 != null && (bVar2 = this.f2789b) != null && bVar2.p()) {
                             b5.c(this.a);
                         }
                         z = false;
                     } catch (SocketException e3) {
-                        this.a.c().f2836c = -12;
-                        dVar.f2822h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        this.a.c().f2812c = -12;
+                        dVar.f2799h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e3.getMessage());
                         this.a.e(dVar);
-                        if (this.f2814d <= 0 && (bVar = this.f2812b) != null) {
-                            this.f2814d = bVar.i();
+                        if (this.f2791d <= 0 && (bVar = this.f2789b) != null) {
+                            this.f2791d = bVar.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         b2 = a.b();
                         if (b2 != null) {
-                            b bVar11 = this.f2812b;
+                            b bVar11 = this.f2789b;
                             if (bVar11 != null) {
                             }
                         }
                         z = true;
                         i5 = i6;
                     }
-                    if (this.a.c().f2835b != 200) {
-                        dVar.f2822h = String.valueOf(this.a.c().f2835b) + "|retryCount:" + i5;
-                        z = m(this.a.c().f2835b);
+                    if (this.a.c().f2811b != 200) {
+                        dVar.f2799h = String.valueOf(this.a.c().f2811b) + "|retryCount:" + i5;
+                        z = m(this.a.c().f2811b);
                         this.a.e(dVar);
-                        if (this.f2814d <= 0 && (bVar8 = this.f2812b) != null) {
-                            this.f2814d = bVar8.i();
+                        if (this.f2791d <= 0 && (bVar8 = this.f2789b) != null) {
+                            this.f2791d = bVar8.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         a b6 = a.b();
-                        if (b6 != null && (bVar7 = this.f2812b) != null && bVar7.p()) {
+                        if (b6 != null && (bVar7 = this.f2789b) != null && bVar7.p()) {
                             b6.c(this.a);
                         }
                         i5 = i6;
                     } else {
-                        if (this.f2814d <= 0 && (bVar6 = this.f2812b) != null) {
-                            this.f2814d = bVar6.i();
+                        if (this.f2791d <= 0 && (bVar6 = this.f2789b) != null) {
+                            this.f2791d = bVar6.i();
                         }
-                        dVar.f2820f = System.currentTimeMillis() - currentTimeMillis;
-                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2822h), dVar.l != null);
+                        dVar.f2797f = System.currentTimeMillis() - currentTimeMillis;
+                        c.a.d.f.e.a.c().g(this.a.b().i(), this.a.b().g("Host"), TextUtils.isEmpty(dVar.f2799h), dVar.l != null);
                         this.a.e(dVar);
                         a b7 = a.b();
-                        if (b7 == null || (bVar5 = this.f2812b) == null || !bVar5.p()) {
+                        if (b7 == null || (bVar5 = this.f2789b) == null || !bVar5.p()) {
                             return;
                         }
                         b7.c(this.a);

@@ -15,7 +15,7 @@ public class b {
     public final LinkedHashMap<Long, StackTraceElement[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29393b;
+    public int f28499b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class b {
             }
         }
         this.a = new LinkedHashMap<>();
-        this.f29393b = 100;
+        this.f28499b = 100;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int size = this.a.size();
-            int i2 = this.f29393b;
+            int i2 = this.f28499b;
             if (size == i2 && i2 > 0) {
                 LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
                 linkedHashMap.remove(linkedHashMap.keySet().iterator().next());

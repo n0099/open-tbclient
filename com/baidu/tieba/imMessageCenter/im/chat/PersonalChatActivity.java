@@ -125,7 +125,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f46902e;
+        public final /* synthetic */ PersonalChatActivity f45165e;
 
         public b(PersonalChatActivity personalChatActivity) {
             Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     return;
                 }
             }
-            this.f46902e = personalChatActivity;
+            this.f45165e = personalChatActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46902e.sendAutoMessage();
+                this.f45165e.sendAutoMessage();
             }
         }
     }
@@ -204,7 +204,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f46903e;
+        public final /* synthetic */ PersonalChatActivity f45166e;
 
         public d(PersonalChatActivity personalChatActivity) {
             Interceptable interceptable = $ic;
@@ -221,16 +221,16 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     return;
                 }
             }
-            this.f46903e = personalChatActivity;
+            this.f45166e = personalChatActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46903e.mListView.refreshPersonalHeadFooter(this.f46903e.mUser.getName_show(), this.f46903e.mLbs);
-                if (this.f46903e.timeGrade != 0) {
-                    this.f46903e.mHandler.postDelayed(this.f46903e.mRefreshTitleRunnable, this.f46903e.timeGrade);
+                this.f45166e.mListView.refreshPersonalHeadFooter(this.f45166e.mUser.getName_show(), this.f45166e.mLbs);
+                if (this.f45166e.timeGrade != 0) {
+                    this.f45166e.mHandler.postDelayed(this.f45166e.mRefreshTitleRunnable, this.f45166e.timeGrade);
                 }
             }
         }
@@ -444,7 +444,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ UserData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f46904b;
+        public final /* synthetic */ PersonalChatActivity f45167b;
 
         public i(PersonalChatActivity personalChatActivity, UserData userData) {
             Interceptable interceptable = $ic;
@@ -461,7 +461,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     return;
                 }
             }
-            this.f46904b = personalChatActivity;
+            this.f45167b = personalChatActivity;
             this.a = userData;
         }
 
@@ -522,7 +522,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ UserData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f46905b;
+        public final /* synthetic */ PersonalChatActivity f45168b;
 
         public k(PersonalChatActivity personalChatActivity, UserData userData) {
             Interceptable interceptable = $ic;
@@ -539,7 +539,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     return;
                 }
             }
-            this.f46905b = personalChatActivity;
+            this.f45168b = personalChatActivity;
             this.a = userData;
         }
 
@@ -587,12 +587,12 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(this).areNotificationsEnabled();
-            boolean g2 = c.a.s0.s.g0.b.j().g("key_private_chat_show_notification", false);
-            if (areNotificationsEnabled || g2) {
+            boolean h2 = c.a.s0.s.h0.b.k().h("key_private_chat_show_notification", false);
+            if (areNotificationsEnabled || h2) {
                 return false;
             }
             c.a.s0.t.h.a.f(getPageContext(), new boolean[]{true, false}, 3);
-            c.a.s0.s.g0.b.j().t("key_private_chat_show_notification", true);
+            c.a.s0.s.h0.b.k().u("key_private_chat_show_notification", true);
             return true;
         }
         return invokeV.booleanValue;
@@ -772,7 +772,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             this.mListView = new PersonalChatView(this, this.mListModel.getIsAcceptNotify());
             this.mListView.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
             this.mCurrentView = (PersonalChatView) this.mListView;
-            long longValue = c.a.t0.s1.s.a.f22857i.longValue();
+            long longValue = c.a.t0.s1.s.a.f22227i.longValue();
             MsglistModel msglistModel = this.mListModel;
             if ((msglistModel instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) msglistModel).getUser()) != null) {
                 this.mUser = user;
@@ -864,7 +864,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         ChatMessage msg;
         String f2;
         ChatMessage msg2;
-        a.C1428a a2;
+        a.C1443a a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             super.onItemViewClick(view, i2, i3, j2);
@@ -878,10 +878,10 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 if (i2 != 14 || (msg2 = this.mListModel.getMsg(i3)) == null || msg2.getContent() == null || (a2 = c.a.t0.t1.a.e.a.a(msg2.getContent())) == null) {
                     return;
                 }
-                if (a2.f24389h == 1) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(a2.f24386e, a2.f24387f, null, false)));
+                if (a2.f23705h == 1) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(a2.f23702e, a2.f23703f, null, false)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(a2.f24386e, a2.f24387f, null)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(a2.f23702e, a2.f23703f, null)));
                 }
             } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i3)) != null && c.a.t0.s1.w.c.s(msg) && (f2 = c.a.t0.s1.w.c.f(msg.getContent(), true)) != null) {
                 MsglistModel msglistModel = this.mListModel;

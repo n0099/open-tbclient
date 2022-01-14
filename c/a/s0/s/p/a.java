@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import c.a.d.f.m.e;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntime;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.RomTypeUtil;
@@ -19,20 +19,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13585b;
+    public static a f13270b;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable a;
 
     /* renamed from: c.a.s0.s.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0868a implements Runnable {
+    public class RunnableC0881a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13586e;
+        public final /* synthetic */ a f13271e;
 
-        public RunnableC0868a(a aVar) {
+        public RunnableC0881a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,14 +47,14 @@ public class a {
                     return;
                 }
             }
-            this.f13586e = aVar;
+            this.f13271e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13586e.d(0);
+                this.f13271e.d(0);
             }
         }
     }
@@ -72,21 +72,21 @@ public class a {
                 return;
             }
         }
-        this.a = new RunnableC0868a(this);
+        this.a = new RunnableC0881a(this);
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f13585b == null) {
+            if (f13270b == null) {
                 synchronized (a.class) {
-                    if (f13585b == null) {
-                        f13585b = new a();
+                    if (f13270b == null) {
+                        f13270b = new a();
                     }
                 }
             }
-            return f13585b;
+            return f13270b;
         }
         return (a) invokeV.objValue;
     }
@@ -113,7 +113,7 @@ public class a {
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString("package", "com.baidu.tieba");
-                bundle.putString(DealIntentService.KEY_CLASS, SpeedRuntime.SPLASH_ACTIVITY_NAME);
+                bundle.putString(DealIntentService.KEY_CLASS, SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
                 bundle.putInt("badgenumber", i2);
                 TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
             } catch (Throwable th) {

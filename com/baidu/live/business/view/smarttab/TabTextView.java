@@ -23,25 +23,23 @@ public class TabTextView extends AppCompatTextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f36008e;
+    public final int f34836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f36009f;
+    public final int f34837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36010g;
+    public int f34838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36011h;
+    public int f34839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36012i;
+    public int f34840i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f36013j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public CharSequence f36014k;
+    public int f34841j;
+    public CharSequence k;
     public CharSequence l;
     public boolean m;
     public boolean n;
@@ -100,17 +98,17 @@ public class TabTextView extends AppCompatTextView {
                             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                             measure(makeMeasureSpec, makeMeasureSpec);
                         }
-                        this.s = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.f36008e, this.f36009f}, (float[]) null, Shader.TileMode.CLAMP);
+                        this.s = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.f34836e, this.f34837f}, (float[]) null, Shader.TileMode.CLAMP);
                     }
                     getPaint().setShader(this.s);
                     return;
                 }
-                int i2 = this.f36011h;
+                int i2 = this.f34839h;
                 if (i2 == 0 || this.m || !this.n) {
                     return;
                 }
                 setTextColor(i2);
-                int i3 = this.f36013j;
+                int i3 = this.f34841j;
                 if (i3 != 0) {
                     setBackgroundResource(i3);
                 }
@@ -121,19 +119,19 @@ public class TabTextView extends AppCompatTextView {
                 return;
             }
             getPaint().setShader(null);
-            int i4 = this.f36010g;
+            int i4 = this.f34838g;
             if (i4 == 0 || this.m || !this.n) {
                 return;
             }
             setTextColor(i4);
-            int i5 = this.f36012i;
+            int i5 = this.f34840i;
             if (i5 != 0) {
                 setBackgroundResource(i5);
             }
-            if (TextUtils.isEmpty(this.f36014k)) {
+            if (TextUtils.isEmpty(this.k)) {
                 return;
             }
-            setText(this.f36014k);
+            setText(this.k);
         }
     }
 
@@ -162,7 +160,7 @@ public class TabTextView extends AppCompatTextView {
             if (f2 != -1.0f) {
                 setTextSize(0, f2);
             }
-            int i2 = this.f36010g;
+            int i2 = this.f34838g;
             if (i2 != 0) {
                 setTextColor(i2);
             }
@@ -186,7 +184,7 @@ public class TabTextView extends AppCompatTextView {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f36008e == -1 || this.f36009f == -1 || !this.m) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f34836e == -1 || this.f34837f == -1 || !this.m) ? false : true : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -223,21 +221,21 @@ public class TabTextView extends AppCompatTextView {
     public void setNormalBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f36012i = i2;
+            this.f34840i = i2;
         }
     }
 
     public void setNormalText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, charSequence) == null) {
-            this.f36014k = charSequence;
+            this.k = charSequence;
         }
     }
 
     public void setSelectedBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f36013j = i2;
+            this.f34841j = i2;
         }
     }
 
@@ -251,7 +249,7 @@ public class TabTextView extends AppCompatTextView {
     public void setSelectedColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f36011h = i2;
+            this.f34839h = i2;
         }
     }
 
@@ -279,7 +277,7 @@ public class TabTextView extends AppCompatTextView {
     public void setUnSelectedColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f36010g = i2;
+            this.f34838g = i2;
         }
     }
 
@@ -333,10 +331,10 @@ public class TabTextView extends AppCompatTextView {
         this.m = true;
         this.n = false;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f.LiveFeedPageTabTextView);
-        this.f36008e = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_startTextColor, 0);
-        this.f36009f = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_endTextColor, 0);
-        this.f36011h = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_selectedTextColor, 0);
-        this.f36010g = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_normalTextColor, 0);
+        this.f34836e = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_startTextColor, 0);
+        this.f34837f = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_endTextColor, 0);
+        this.f34839h = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_selectedTextColor, 0);
+        this.f34838g = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_normalTextColor, 0);
         this.o = obtainStyledAttributes.getDimension(f.LiveFeedPageTabTextView_live_feed_page_defaultTextSize, -1.0f);
         this.p = obtainStyledAttributes.getDimension(f.LiveFeedPageTabTextView_live_feed_page_selectedTextSize, -1.0f);
         this.q = obtainStyledAttributes.getBoolean(f.LiveFeedPageTabTextView_live_feed_page_selectedBold, true);

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.s.q.c2;
+import c.a.s0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -91,8 +91,8 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t, v})) == null) {
             this.r = TbadkCoreApplication.getInst().getSkinType();
             this.q = (c.a.d.n.e.s) viewGroup;
-            if (t instanceof c2) {
-                ((c2) t).w.s4(2);
+            if (t instanceof d2) {
+                ((d2) t).w.s4(2);
                 return null;
             }
             return null;
@@ -137,11 +137,11 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f3299e = null;
+            this.f3258e = null;
             this.o = null;
             this.p = null;
-            this.f3300f = null;
-            this.f3301g = null;
+            this.f3259f = null;
+            this.f3260g = null;
             i iVar = this.s;
             if (iVar != null) {
                 iVar.a();
@@ -217,9 +217,9 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends c.a.d.n.e.a
         if (!(interceptable == null || interceptable.invokeLL(1048590, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f3299e = tbPageContext.getPageActivity();
+        this.f3258e = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f3303i = bdUniqueId;
+        this.f3262i = bdUniqueId;
     }
 
     public void setFrom(String str) {

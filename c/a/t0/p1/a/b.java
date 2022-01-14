@@ -46,12 +46,12 @@ public class b {
 
     /* renamed from: c.a.t0.p1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1319b extends a {
+    public static class C1310b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1319b(View view) {
+        public C1310b(View view) {
             super(view);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -105,7 +105,7 @@ public class b {
             if (Build.VERSION.SDK_INT >= 14) {
                 return new c.a.t0.p1.a.d.a(view);
             }
-            return new C1319b(view);
+            return new C1310b(view);
         }
         return (a) invokeL.objValue;
     }

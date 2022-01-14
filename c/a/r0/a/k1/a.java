@@ -32,29 +32,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7732e;
+    public static final boolean f7563e;
     public transient /* synthetic */ FieldHolder $fh;
     public n a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppMenuHeaderView f7733b;
+    public SwanAppMenuHeaderView f7564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.a.h0.g.d f7734c;
+    public c.a.r0.a.h0.g.d f7565c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f7735d;
+    public Context f7566d;
 
     /* renamed from: c.a.r0.a.k1.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0440a implements c.a.r0.n.e {
+    public class C0449a implements c.a.r0.n.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7736e;
+        public final /* synthetic */ a f7567e;
 
-        public C0440a(a aVar) {
+        public C0449a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,14 +69,14 @@ public class a {
                     return;
                 }
             }
-            this.f7736e = aVar;
+            this.f7567e = aVar;
         }
 
         @Override // c.a.r0.n.e
         public boolean b(View view, o oVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, oVar)) == null) ? this.f7736e.v(oVar) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, oVar)) == null) ? this.f7567e.v(oVar) : invokeLL.booleanValue;
         }
     }
 
@@ -212,7 +212,7 @@ public class a {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.f7735d, c.a.r0.a.h.swanapp_tip_net_unavailable);
+                c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.f7566d, c.a.r0.a.h.swanapp_tip_net_unavailable);
                 f2.l(2);
                 f2.G();
             }
@@ -222,7 +222,7 @@ public class a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.f7735d.getApplicationContext(), c.a.r0.a.h.aiapps_cancel_fav_success);
+                c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.f7566d.getApplicationContext(), c.a.r0.a.h.aiapps_cancel_fav_success);
                 f2.l(2);
                 f2.G();
                 this.a.C();
@@ -235,7 +235,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || z) {
                 return;
             }
-            c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.f7735d.getApplicationContext(), c.a.r0.a.h.aiapps_cancel_fav_fail);
+            c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.f7566d.getApplicationContext(), c.a.r0.a.h.aiapps_cancel_fav_fail);
             f2.l(2);
             f2.G();
         }
@@ -248,7 +248,7 @@ public class a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f7737b;
+        public final /* synthetic */ a f7568b;
 
         public f(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -265,7 +265,7 @@ public class a {
                     return;
                 }
             }
-            this.f7737b = aVar;
+            this.f7568b = aVar;
             this.a = str;
         }
 
@@ -273,7 +273,7 @@ public class a {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.f7737b.f7735d, c.a.r0.a.h.swanapp_tip_net_unavailable);
+                c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.f7568b.f7566d, c.a.r0.a.h.swanapp_tip_net_unavailable);
                 f2.l(2);
                 f2.G();
             }
@@ -285,7 +285,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z) {
                 return;
             }
-            c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.f7737b.f7735d.getApplicationContext(), c.a.r0.a.h.aiapps_fav_fail);
+            c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.f7568b.f7566d.getApplicationContext(), c.a.r0.a.h.aiapps_fav_fail);
             f2.l(2);
             f2.G();
         }
@@ -295,12 +295,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 c.a.r0.a.j0.b.a.t();
-                if (!a.k(this.f7737b.f7734c.getActivity())) {
-                    c.a.r0.a.c2.b.f.e g2 = c.a.r0.a.c2.b.f.e.g(this.f7737b.f7735d, c.a.r0.a.c1.a.l0().f(this.f7737b.f7735d));
+                if (!a.k(this.f7568b.f7565c.getActivity())) {
+                    c.a.r0.a.c2.b.f.e g2 = c.a.r0.a.c2.b.f.e.g(this.f7568b.f7566d, c.a.r0.a.c1.a.l0().f(this.f7568b.f7566d));
                     g2.l(2);
                     g2.q(2);
                     g2.G();
-                    this.f7737b.C();
+                    this.f7568b.C();
                     return;
                 }
                 a.p("addmyswan", this.a);
@@ -315,7 +315,7 @@ public class a {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f7738b;
+        public final /* synthetic */ h f7569b;
 
         public g(Activity activity, h hVar) {
             Interceptable interceptable = $ic;
@@ -333,7 +333,7 @@ public class a {
                 }
             }
             this.a = activity;
-            this.f7738b = hVar;
+            this.f7569b = hVar;
         }
 
         @Override // c.a.r0.a.q0.b.a
@@ -343,7 +343,7 @@ public class a {
                 c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.getApplicationContext(), c.a.r0.a.h.swanapp_tip_net_unavailable);
                 f2.l(2);
                 f2.G();
-                h hVar = this.f7738b;
+                h hVar = this.f7569b;
                 if (hVar != null) {
                     hVar.onFail();
                 }
@@ -359,7 +359,7 @@ public class a {
                     f2.l(2);
                     f2.G();
                 }
-                h hVar = this.f7738b;
+                h hVar = this.f7569b;
                 if (hVar != null) {
                     hVar.onFail();
                 }
@@ -372,7 +372,7 @@ public class a {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 c.a.r0.a.j0.b.a.t();
                 if (a.k(this.a)) {
-                    h hVar = this.f7738b;
+                    h hVar = this.f7569b;
                     if (hVar != null) {
                         hVar.onSuccess();
                         return;
@@ -384,7 +384,7 @@ public class a {
                 g2.l(2);
                 g2.q(2);
                 g2.G();
-                h hVar2 = this.f7738b;
+                h hVar2 = this.f7569b;
                 if (hVar2 != null) {
                     hVar2.onSuccess();
                 }
@@ -412,7 +412,7 @@ public class a {
                 return;
             }
         }
-        f7732e = k.a;
+        f7563e = k.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -456,7 +456,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65547, null, activity) == null) || activity == null) {
             return;
         }
-        boolean z = f7732e;
+        boolean z = f7563e;
         boolean a = c.a.r0.a.c1.a.M().a();
         c.a.r0.a.c1.a.M().e(!a);
         if (activity instanceof SwanAppActivity) {
@@ -511,13 +511,13 @@ public class a {
             return;
         }
         c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-        fVar.f8160e = str;
+        fVar.f7980e = str;
         if (!TextUtils.isEmpty(str2)) {
             fVar.a("page", str2);
-            fVar.f8162g = str2;
+            fVar.f7982g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            fVar.f8157b = str3;
+            fVar.f7977b = str3;
         }
         if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
             fVar.a(str4, str5);
@@ -541,14 +541,14 @@ public class a {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = f7732e;
+            boolean z = f7563e;
             c.a.r0.a.h0.g.g V = c.a.r0.a.g1.f.U().V();
             if (V == null) {
-                c.a.r0.a.c2.b.f.e.f(this.f7735d, c.a.r0.a.h.aiapps_open_fragment_failed_toast).G();
+                c.a.r0.a.c2.b.f.e.f(this.f7566d, c.a.r0.a.h.aiapps_open_fragment_failed_toast).G();
                 return;
             }
             g.b i2 = V.i("navigateTo");
-            i2.n(c.a.r0.a.h0.g.g.f6540g, c.a.r0.a.h0.g.g.f6542i);
+            i2.n(c.a.r0.a.h0.g.g.f6399g, c.a.r0.a.h0.g.g.f6401i);
             i2.k("about", null).a();
             o("about");
         }
@@ -557,14 +557,14 @@ public class a {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = f7732e;
-            c.a.r0.a.h0.g.g G1 = this.f7734c.G1();
+            boolean z = f7563e;
+            c.a.r0.a.h0.g.g G1 = this.f7565c.G1();
             if (G1 == null) {
-                c.a.r0.a.c2.b.f.e.f(this.f7735d, c.a.r0.a.h.aiapps_open_fragment_failed_toast).G();
+                c.a.r0.a.c2.b.f.e.f(this.f7566d, c.a.r0.a.h.aiapps_open_fragment_failed_toast).G();
                 return;
             }
             g.b i2 = G1.i("navigateTo");
-            i2.n(c.a.r0.a.h0.g.g.f6540g, c.a.r0.a.h0.g.g.f6542i);
+            i2.n(c.a.r0.a.h0.g.g.f6399g, c.a.r0.a.h0.g.g.f6401i);
             i2.k("authority", null).a();
             o("permission");
         }
@@ -573,7 +573,7 @@ public class a {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f7733b.setAttentionBtnStates(c.a.r0.a.j0.b.a.n(c.a.r0.a.d2.d.J().getAppId()));
+            this.f7564b.setAttentionBtnStates(c.a.r0.a.j0.b.a.n(c.a.r0.a.d2.d.J().getAppId()));
         }
     }
 
@@ -581,7 +581,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            r0.b(this.f7735d).c(c.a.r0.a.m1.b.b(q0.n()));
+            r0.b(this.f7566d).c(c.a.r0.a.m1.b.b(q0.n()));
             return true;
         }
         return invokeV.booleanValue;
@@ -592,17 +592,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (c.a.r0.a.x1.a.a.H()) {
-                boolean z = f7732e;
-                c.a.r0.a.c2.b.f.e.f(this.f7735d.getApplicationContext(), c.a.r0.a.h.aiapps_debug_forbid_shortcut).G();
+                boolean z = f7563e;
+                c.a.r0.a.c2.b.f.e.f(this.f7566d.getApplicationContext(), c.a.r0.a.h.aiapps_debug_forbid_shortcut).G();
                 return;
             }
-            boolean z2 = f7732e;
+            boolean z2 = f7563e;
             if (c.a.r0.a.d2.e.a0() != null) {
                 launchInfo = c.a.r0.a.d2.e.a0().V();
             } else {
-                launchInfo = ((SwanAppActivity) this.f7734c.getActivity()).getLaunchInfo();
+                launchInfo = ((SwanAppActivity) this.f7565c.getActivity()).getLaunchInfo();
             }
-            c.a.r0.a.i2.a.i(this.f7734c.getContext(), launchInfo);
+            c.a.r0.a.i2.a.i(this.f7565c.getContext(), launchInfo);
             o("addshortcut");
         }
     }
@@ -611,8 +611,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (c.a.r0.a.x1.a.a.H()) {
-                boolean z = f7732e;
-                c.a.r0.a.c2.b.f.e.f(this.f7735d.getApplicationContext(), c.a.r0.a.h.aiapps_debug_forbid_favor).G();
+                boolean z = f7563e;
+                c.a.r0.a.c2.b.f.e.f(this.f7566d.getApplicationContext(), c.a.r0.a.h.aiapps_debug_forbid_favor).G();
                 return;
             }
             String f2 = q0.n().f();
@@ -636,7 +636,7 @@ public class a {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f7734c.G2();
+            this.f7565c.G2();
             o("share");
         }
     }
@@ -644,13 +644,13 @@ public class a {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c.a.r0.a.h0.g.g G1 = this.f7734c.G1();
+            c.a.r0.a.h0.g.g G1 = this.f7565c.G1();
             if (G1 == null) {
-                c.a.r0.a.c2.b.f.e.f(this.f7735d, c.a.r0.a.h.aiapps_open_fragment_failed_toast).G();
+                c.a.r0.a.c2.b.f.e.f(this.f7566d, c.a.r0.a.h.aiapps_open_fragment_failed_toast).G();
                 return;
             }
             g.b i2 = G1.i("navigateTo");
-            i2.n(c.a.r0.a.h0.g.g.f6540g, c.a.r0.a.h0.g.g.f6542i);
+            i2.n(c.a.r0.a.h0.g.g.f6399g, c.a.r0.a.h0.g.g.f6401i);
             i2.k("settings", null).a();
             o("set");
         }
@@ -675,7 +675,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, oVar)) == null) {
-            if (this.f7734c == null || this.f7735d == null) {
+            if (this.f7565c == null || this.f7566d == null) {
                 return false;
             }
             int c2 = oVar.c();
@@ -683,7 +683,7 @@ public class a {
                 n();
                 return true;
             } else if (c2 == 5) {
-                j(this.f7734c.getActivity());
+                j(this.f7565c.getActivity());
                 return true;
             } else if (c2 == 35) {
                 i();
@@ -721,15 +721,15 @@ public class a {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f7734c == null || this.f7735d == null) {
+            if (this.f7565c == null || this.f7566d == null) {
                 return false;
             }
             if (D()) {
-                string = this.f7735d.getString(c.a.r0.a.h.swanapp_write_to_clipborad_succ);
+                string = this.f7566d.getString(c.a.r0.a.h.swanapp_write_to_clipborad_succ);
             } else {
-                string = this.f7735d.getString(c.a.r0.a.h.swanapp_write_to_clipborad_fail);
+                string = this.f7566d.getString(c.a.r0.a.h.swanapp_write_to_clipborad_fail);
             }
-            c.a.r0.a.c2.b.f.e g2 = c.a.r0.a.c2.b.f.e.g(this.f7735d, string);
+            c.a.r0.a.c2.b.f.e g2 = c.a.r0.a.c2.b.f.e.g(this.f7566d, string);
             g2.l(2);
             g2.G();
             return true;
@@ -749,8 +749,8 @@ public class a {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            boolean z = f7732e;
-            Context context = this.f7735d;
+            boolean z = f7563e;
+            Context context = this.f7566d;
             if (context == null) {
                 return;
             }
@@ -761,20 +761,20 @@ public class a {
     public void z() {
         c.a.r0.a.d2.e r;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.a == null || this.f7734c == null || this.f7735d == null || (r = c.a.r0.a.d2.d.J().r()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.a == null || this.f7565c == null || this.f7566d == null || (r = c.a.r0.a.d2.d.J().r()) == null) {
             return;
         }
         r.x();
-        this.a.r(new C0440a(this));
-        SwanAppMenuHeaderView swanAppMenuHeaderView = this.f7733b;
+        this.a.r(new C0449a(this));
+        SwanAppMenuHeaderView swanAppMenuHeaderView = this.f7564b;
         if (swanAppMenuHeaderView != null) {
             swanAppMenuHeaderView.setOnMenuHeaderClickListener(new b(this));
-            this.f7733b.setAttentionBtnShow(c.a.r0.a.c1.a.t().b());
-            this.f7733b.setOnAttentionBtnClickListener(new c(this));
+            this.f7564b.setAttentionBtnShow(c.a.r0.a.c1.a.t().b());
+            this.f7564b.setOnAttentionBtnClickListener(new c(this));
             if (r.v0()) {
                 return;
             }
-            this.f7733b.setOnMenuHeaderLongClickListener(new d(this));
+            this.f7564b.setOnMenuHeaderLongClickListener(new d(this));
         }
     }
 
@@ -794,10 +794,10 @@ public class a {
             }
         }
         this.a = nVar;
-        this.f7733b = swanAppMenuHeaderView;
-        this.f7734c = dVar;
+        this.f7564b = swanAppMenuHeaderView;
+        this.f7565c = dVar;
         if (dVar != null) {
-            this.f7735d = dVar.getContext();
+            this.f7566d = dVar.getContext();
         }
     }
 }

@@ -15,10 +15,10 @@ public class j {
     public static UserData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f16513b;
+    public static boolean f16195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f16514c;
+    public static String f16196c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static UserData a() {
@@ -41,7 +41,7 @@ public class j {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f16514c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f16196c : (String) invokeV.objValue;
     }
 
     public static boolean d(UserData userData) {
@@ -80,7 +80,7 @@ public class j {
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f16513b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f16195b : invokeV.booleanValue;
     }
 
     public static boolean h() {
@@ -108,8 +108,8 @@ public class j {
             return;
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
-            f16513b = frsViewData.getForum().isFrsMask();
-            f16514c = frsViewData.getForum().getId();
+            f16195b = frsViewData.getForum().isFrsMask();
+            f16196c = frsViewData.getForum().getId();
         }
         if (frsViewData != null && (d(b(frsViewData)) || h())) {
             aVar.a(4);
@@ -124,8 +124,8 @@ public class j {
             return;
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
-            f16513b = frsViewData.getForum().isFrsMask();
-            f16514c = frsViewData.getForum().getId();
+            f16195b = frsViewData.getForum().isFrsMask();
+            f16196c = frsViewData.getForum().getId();
         }
         if (frsViewData != null && d(b(frsViewData))) {
             threadCommentAndPraiseInfoLayout.setManageVisible(true);

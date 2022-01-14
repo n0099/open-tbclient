@@ -18,10 +18,10 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f18990b;
+    public final Context f18510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f18991c;
+    public final ViewGroup f18511c;
 
     public f(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class f {
             }
         }
         this.a = 0;
-        this.f18990b = context;
-        this.f18991c = viewGroup;
+        this.f18510b = context;
+        this.f18511c = viewGroup;
     }
 
     public final boolean a(String str, String str2) {
@@ -67,7 +67,7 @@ public class f {
                 return gVar2;
             }
             if (gVar2 == null || !a(str, gVar2.a)) {
-                ViewGroup viewGroup = this.f18991c;
+                ViewGroup viewGroup = this.f18511c;
                 if (viewGroup == null) {
                     return null;
                 }
@@ -75,17 +75,17 @@ public class f {
                 if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(gVar.a)) {
                     int i2 = this.a;
                     if (i2 == 1) {
-                        return new e(LayoutInflater.from(this.f18990b).inflate(R.layout.videolist_tail_frame_ad_jump, this.f18991c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new e(LayoutInflater.from(this.f18510b).inflate(R.layout.videolist_tail_frame_ad_jump, this.f18511c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
                     if (i2 == 2) {
-                        return new d(LayoutInflater.from(this.f18990b).inflate(R.layout.video_flow_tail_frame_jump, this.f18991c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new d(LayoutInflater.from(this.f18510b).inflate(R.layout.video_flow_tail_frame_jump, this.f18511c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                    return new b(LayoutInflater.from(this.f18990b).inflate(R.layout.tail_frame_ad_jump, this.f18991c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                    return new b(LayoutInflater.from(this.f18510b).inflate(R.layout.tail_frame_ad_jump, this.f18511c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                 } else if ("apk_download".equals(gVar.a)) {
                     if (this.a == 2) {
-                        return new c(LayoutInflater.from(this.f18990b).inflate(R.layout.video_flow_tail_frame_download, this.f18991c, true), "apk_download");
+                        return new c(LayoutInflater.from(this.f18510b).inflate(R.layout.video_flow_tail_frame_download, this.f18511c, true), "apk_download");
                     }
-                    return new a(LayoutInflater.from(this.f18990b).inflate(R.layout.tail_frame_ad_download, this.f18991c, true), "apk_download");
+                    return new a(LayoutInflater.from(this.f18510b).inflate(R.layout.tail_frame_ad_download, this.f18511c, true), "apk_download");
                 } else {
                     return null;
                 }

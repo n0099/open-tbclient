@@ -36,7 +36,7 @@ public class WebAuthResult extends SapiResult {
         public static final LoginType SHARE_V2_CHOICE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ LoginType[] f39419b;
+        public static final /* synthetic */ LoginType[] f38116b;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
@@ -61,7 +61,7 @@ public class WebAuthResult extends SapiResult {
             SHARE_V1_CHOICE = new LoginType("SHARE_V1_CHOICE", 5, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE);
             LoginType loginType = new LoginType("SHARE_V2_CHOICE", 6, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
             SHARE_V2_CHOICE = loginType;
-            f39419b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
+            f38116b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
         }
 
         public LoginType(String str, int i2, String str2) {
@@ -94,7 +94,7 @@ public class WebAuthResult extends SapiResult {
         public static LoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f39419b.clone() : (LoginType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f38116b.clone() : (LoginType[]) invokeV.objValue;
         }
 
         public String getLoginType() {

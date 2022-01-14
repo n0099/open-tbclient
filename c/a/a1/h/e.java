@@ -15,7 +15,7 @@ public class e {
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f1150b;
+    public int[] f1148b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(List<a> list) {
@@ -66,13 +66,13 @@ public class e {
     public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1150b : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1148b : (int[]) invokeV.objValue;
     }
 
     public void c(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
-            this.f1150b = iArr;
+            this.f1148b = iArr;
             if (h.e(this.a)) {
                 return;
             }

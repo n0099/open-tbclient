@@ -154,7 +154,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mView.E();
+            this.mView.F();
         }
     }
 
@@ -168,7 +168,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
             }
             addJsPromptInterface(this.mSupplementSignInterface);
-            this.mView.s(false);
+            this.mView.t(false);
             registerListener(this.mBuyMemberListener);
         }
     }

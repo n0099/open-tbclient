@@ -15,10 +15,10 @@ public class c0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13638b;
+    public String f13322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public y f13639c;
+    public y f13323c;
 
     public c0() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c0 {
             }
         }
         this.a = "";
-        this.f13638b = "";
+        this.f13322b = "";
     }
 
     public String a() {
@@ -54,17 +54,17 @@ public class c0 {
         forumHeadlineImgInfo.img_user_id.longValue();
         String str2 = forumHeadlineImgInfo.img_user_name;
         this.a = forumHeadlineImgInfo.img_url;
-        this.f13638b = forumHeadlineImgInfo.headline_url;
-        this.f13639c = new y();
+        this.f13322b = forumHeadlineImgInfo.headline_url;
+        this.f13323c = new y();
         ArrayList<b0> arrayList = new ArrayList<>();
         String str3 = this.a;
         if (str3 == null) {
             str3 = "";
         }
-        String str4 = this.f13638b;
+        String str4 = this.f13322b;
         b0 b0Var = new b0(str3, str4 != null ? str4 : "", null);
         b0Var.p(true);
         arrayList.add(b0Var);
-        this.f13639c.g(arrayList);
+        this.f13323c.g(arrayList);
     }
 }

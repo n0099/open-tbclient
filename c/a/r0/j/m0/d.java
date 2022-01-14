@@ -25,7 +25,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f11338e;
+        public final /* synthetic */ SwanAppActivity f11085e;
 
         public a(d dVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class d {
                     return;
                 }
             }
-            this.f11338e = swanAppActivity;
+            this.f11085e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e0.a(this.f11338e);
+                e0.a(this.f11085e);
             }
         }
     }

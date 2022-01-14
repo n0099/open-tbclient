@@ -14,26 +14,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f20600c;
+    public static final String[] f20051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f20601d;
+    public static final String[] f20052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f20602e;
+    public static final String[] f20053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f20603f;
+    public static final String[] f20054f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f20604b;
+    public volatile String f20055b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,10 +48,10 @@ public class a {
                 return;
             }
         }
-        f20600c = new String[]{"119.75.222.62", "119.75.222.63"};
-        f20601d = new String[]{"111.13.100.247", "117.185.16.61"};
-        f20602e = new String[]{"111.206.37.190"};
-        f20603f = new String[]{"115.239.211.146", "180.97.33.196"};
+        f20051c = new String[]{"119.75.222.62", "119.75.222.63"};
+        f20052d = new String[]{"111.13.100.247", "117.185.16.61"};
+        f20053e = new String[]{"111.206.37.190"};
+        f20054f = new String[]{"115.239.211.146", "180.97.33.196"};
     }
 
     public a() {
@@ -74,17 +74,17 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b();
             if (l.H()) {
-                return f20603f[new Random().nextInt(f20603f.length)];
+                return f20054f[new Random().nextInt(f20054f.length)];
             }
             if (l.x()) {
                 if (this.a == 1) {
-                    return f20600c[new Random().nextInt(f20600c.length)];
+                    return f20051c[new Random().nextInt(f20051c.length)];
                 }
                 if (this.a == 2) {
-                    return f20601d[new Random().nextInt(f20601d.length)];
+                    return f20052d[new Random().nextInt(f20052d.length)];
                 }
                 if (this.a == 3) {
-                    return f20602e[new Random().nextInt(f20602e.length)];
+                    return f20053e[new Random().nextInt(f20053e.length)];
                 }
             }
             return "119.75.222.62";
@@ -96,15 +96,15 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadPhoneState(TbadkCoreApplication.getInst().getContext())) {
             try {
-                this.f20604b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
+                this.f20055b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
             this.a = 0;
-            if (this.f20604b != null) {
-                if (!this.f20604b.startsWith("46000") && !this.f20604b.startsWith("46002") && !this.f20604b.startsWith("46007")) {
-                    if (!this.f20604b.startsWith("46001") && !this.f20604b.startsWith("46006")) {
-                        if (this.f20604b.startsWith("46003") || this.f20604b.startsWith("46005")) {
+            if (this.f20055b != null) {
+                if (!this.f20055b.startsWith("46000") && !this.f20055b.startsWith("46002") && !this.f20055b.startsWith("46007")) {
+                    if (!this.f20055b.startsWith("46001") && !this.f20055b.startsWith("46006")) {
+                        if (this.f20055b.startsWith("46003") || this.f20055b.startsWith("46005")) {
                             this.a = 3;
                             return;
                         }

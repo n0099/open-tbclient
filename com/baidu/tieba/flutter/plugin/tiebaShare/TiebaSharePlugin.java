@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.k0.h;
 import c.a.t0.z0.a.j.c;
 import com.baidu.adp.framework.MessageManager;
@@ -55,21 +55,21 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         }
     }
 
-    private String getShareImageUrl(d2 d2Var) {
+    private String getShareImageUrl(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, d2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, e2Var)) == null) {
             String str = null;
-            if (d2Var == null) {
+            if (e2Var == null) {
                 return null;
             }
-            if (d2Var.o1() != null && !TextUtils.isEmpty(d2Var.o1().cover)) {
-                return d2Var.o1().cover;
+            if (e2Var.o1() != null && !TextUtils.isEmpty(e2Var.o1().cover)) {
+                return e2Var.o1().cover;
             }
-            if (d2Var.F0() == null) {
+            if (e2Var.F0() == null) {
                 return null;
             }
-            ArrayList<MediaData> F0 = d2Var.F0();
+            ArrayList<MediaData> F0 = e2Var.F0();
             int size = F0.size();
             int i2 = 0;
             while (true) {
@@ -88,37 +88,37 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
                 }
                 i2++;
             }
-            return (str != null || d2Var.t1() == null || TextUtils.isEmpty(d2Var.t1().thumbnail_url)) ? str : d2Var.t1().thumbnail_url;
+            return (str != null || e2Var.t1() == null || TextUtils.isEmpty(e2Var.t1().thumbnail_url)) ? str : e2Var.t1().thumbnail_url;
         }
         return (String) invokeL.objValue;
     }
 
-    private int getShareObjParam2(d2 d2Var) {
+    private int getShareObjParam2(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, e2Var)) == null) {
+            if (e2Var == null) {
                 return 0;
             }
-            if (d2Var.I2()) {
+            if (e2Var.I2()) {
                 return 11;
             }
-            if (d2Var.P1()) {
+            if (e2Var.P1()) {
                 return 10;
             }
-            if (d2Var.S1()) {
+            if (e2Var.S1()) {
                 return 9;
             }
-            if (d2Var.R1()) {
+            if (e2Var.R1()) {
                 return 8;
             }
-            if (d2Var.Q1()) {
+            if (e2Var.Q1()) {
                 return 7;
             }
-            if (d2Var.B1) {
+            if (e2Var.A1) {
                 return 6;
             }
-            int i2 = d2Var.d0;
+            int i2 = e2Var.d0;
             if (i2 == 0) {
                 return 1;
             }
@@ -133,31 +133,31 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         return invokeL.intValue;
     }
 
-    private int getStateThreadType(d2 d2Var) {
+    private int getStateThreadType(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, d2Var)) == null) {
-            if (d2Var != null) {
-                if (d2Var.t2()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, e2Var)) == null) {
+            if (e2Var != null) {
+                if (e2Var.t2()) {
                     return 4;
                 }
-                if (d2Var.k0() == 1) {
+                if (e2Var.k0() == 1) {
                     return 3;
                 }
-                if (d2Var.P1()) {
+                if (e2Var.P1()) {
                     return 5;
                 }
-                if (d2Var.S1()) {
+                if (e2Var.S1()) {
                     return 6;
                 }
-                if (d2Var.Q1()) {
+                if (e2Var.Q1()) {
                     return 7;
                 }
-                if (d2Var.R1()) {
+                if (e2Var.R1()) {
                     return 8;
                 }
-                if (!d2Var.B1 || d2Var.A1 == null) {
-                    return d2Var.u2() ? 2 : 1;
+                if (!e2Var.A1 || e2Var.z1 == null) {
+                    return e2Var.u2() ? 2 : 1;
                 }
                 return 9;
             }
@@ -209,7 +209,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void showShareDialog(d2 d2Var) {
+    private void showShareDialog(e2 e2Var) {
         String v1;
         String str;
         boolean z;
@@ -217,48 +217,48 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         String o;
         String format;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, d2Var) == null) || d2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        String valueOf = String.valueOf(d2Var.U());
-        String a0 = d2Var.a0();
-        OriginalForumInfo originalForumInfo = d2Var.K1;
+        String valueOf = String.valueOf(e2Var.U());
+        String a0 = e2Var.a0();
+        OriginalForumInfo originalForumInfo = e2Var.J1;
         if (originalForumInfo != null) {
             valueOf = originalForumInfo.id;
             a0 = originalForumInfo.ori_fname;
         }
         String str2 = a0;
         String str3 = valueOf;
-        String title = d2Var.getTitle();
+        String title = e2Var.getTitle();
         if (TextUtils.isEmpty(title)) {
-            title = d2Var.o();
+            title = e2Var.o();
         }
         String str4 = title;
-        if (d2Var.G2()) {
-            v1 = d2Var.L().oriUgcTid;
-            str = "?share=9105&fr=dshare&dtype=" + d2Var.L().oriUgcType + "&dvid=" + d2Var.L().oriUgcVid + "&nid=" + d2Var.L().oriUgcNid;
+        if (e2Var.G2()) {
+            v1 = e2Var.L().oriUgcTid;
+            str = "?share=9105&fr=dshare&dtype=" + e2Var.L().oriUgcType + "&dvid=" + e2Var.L().oriUgcVid + "&nid=" + e2Var.L().oriUgcNid;
         } else {
-            v1 = d2Var.v1();
+            v1 = e2Var.v1();
             str = "?share=9105&fr=sharewise";
         }
         String str5 = str;
         String str6 = v1;
         String str7 = "http://tieba.baidu.com/p/" + str6 + str5;
         boolean z2 = false;
-        if (d2Var.o1() != null && d2Var.o1().user_info != null) {
+        if (e2Var.o1() != null && e2Var.o1().user_info != null) {
             try {
-                str7 = "https://tieba.baidu.com/ala/share?uname=" + URLEncoder.encode(d2Var.o1().user_info.user_name, "utf-8");
+                str7 = "https://tieba.baidu.com/ala/share?uname=" + URLEncoder.encode(e2Var.o1().user_info.user_name, "utf-8");
                 z = false;
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            String shareImageUrl = getShareImageUrl(d2Var);
+            String shareImageUrl = getShareImageUrl(e2Var);
             parse = shareImageUrl != null ? null : Uri.parse(shareImageUrl);
-            o = d2Var.o();
+            o = e2Var.o();
             String string = TbadkApplication.getInst().getResources().getString(R.string.share_content_tpl);
             String string2 = TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-            if (!d2Var.G2() && d2Var.J() != null) {
-                format = (TextUtils.isEmpty(d2Var.getTitle()) || TextUtils.isEmpty(o)) ? MessageFormat.format(string2, d2Var.J().getName_show(), TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix)) : o;
+            if (!e2Var.G2() && e2Var.J() != null) {
+                format = (TextUtils.isEmpty(e2Var.getTitle()) || TextUtils.isEmpty(o)) ? MessageFormat.format(string2, e2Var.J().getName_show(), TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl_suffix)) : o;
             } else {
                 format = MessageFormat.format(string, str4, o);
             }
@@ -267,44 +267,44 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             ShareItem shareItem = new ShareItem();
             shareItem.r = cutString;
             shareItem.s = cutString2;
-            int stateThreadType = getStateThreadType(d2Var);
-            if (!d2Var.G2()) {
+            int stateThreadType = getStateThreadType(e2Var);
+            if (!e2Var.G2()) {
                 shareItem.R = -1L;
                 shareItem.D = cutString2;
             } else {
-                if (stateThreadType == 2 && d2Var.t1() != null) {
-                    shareItem.R = d2Var.t1().play_count.intValue();
+                if (stateThreadType == 2 && e2Var.t1() != null) {
+                    shareItem.R = e2Var.t1().play_count.intValue();
                 } else if (stateThreadType == 1) {
-                    shareItem.R = d2Var.E1();
+                    shareItem.R = e2Var.E1();
                 }
                 shareItem.D = o;
             }
-            if (d2Var.G1() != null) {
-                shareItem.U = d2Var.G1().room_id.longValue();
+            if (e2Var.G1() != null) {
+                shareItem.U = e2Var.G1().room_id.longValue();
             }
             shareItem.t = str7;
             shareItem.q = str6;
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f42237f = true;
+            shareItem.f40766f = true;
             shareItem.o = 6;
             shareItem.E = 8;
             shareItem.M = stateThreadType;
             shareItem.F = 3;
-            shareItem.G = getShareObjParam2(d2Var);
+            shareItem.G = getShareObjParam2(e2Var);
             if (parse != null) {
                 shareItem.v = parse;
             }
-            if (d2Var.G2()) {
+            if (e2Var.G2()) {
                 z = false;
             }
             shareItem.m0 = z;
             if (z) {
-                shareItem.k0 = d2Var.b1();
+                shareItem.k0 = e2Var.b1();
             }
-            shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(d2Var);
-            shareItem.W = ShareItem.ForwardInfo.generateForwardInfo(d2Var);
+            shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(e2Var);
+            shareItem.W = ShareItem.ForwardInfo.generateForwardInfo(e2Var);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
             bundle.putInt("obj_param1", shareItem.F);
@@ -314,18 +314,18 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             bundle.putInt("obj_source", shareItem.o);
             shareItem.k(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
-            shareDialogConfig.setIsAlaLive((d2Var.r1() != 49 || d2Var.r1() == 60 || d2Var.r1() == 69) ? true : true);
+            shareDialogConfig.setIsAlaLive((e2Var.r1() != 49 || e2Var.r1() == 60 || e2Var.r1() == 69) ? true : true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
             h.c().l(shareDialogConfig);
         }
         z = true;
-        String shareImageUrl2 = getShareImageUrl(d2Var);
+        String shareImageUrl2 = getShareImageUrl(e2Var);
         if (shareImageUrl2 != null) {
         }
-        o = d2Var.o();
+        o = e2Var.o();
         String string3 = TbadkApplication.getInst().getResources().getString(R.string.share_content_tpl);
         String string22 = TbadkApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-        if (!d2Var.G2()) {
+        if (!e2Var.G2()) {
         }
         format = MessageFormat.format(string3, str4, o);
         String cutString3 = m.cutString(str4, 100);
@@ -333,31 +333,31 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         ShareItem shareItem2 = new ShareItem();
         shareItem2.r = cutString3;
         shareItem2.s = cutString22;
-        int stateThreadType2 = getStateThreadType(d2Var);
-        if (!d2Var.G2()) {
+        int stateThreadType2 = getStateThreadType(e2Var);
+        if (!e2Var.G2()) {
         }
-        if (d2Var.G1() != null) {
+        if (e2Var.G1() != null) {
         }
         shareItem2.t = str7;
         shareItem2.q = str6;
         shareItem2.J = str3;
         shareItem2.p = str2;
         shareItem2.K = str6;
-        shareItem2.f42237f = true;
+        shareItem2.f40766f = true;
         shareItem2.o = 6;
         shareItem2.E = 8;
         shareItem2.M = stateThreadType2;
         shareItem2.F = 3;
-        shareItem2.G = getShareObjParam2(d2Var);
+        shareItem2.G = getShareObjParam2(e2Var);
         if (parse != null) {
         }
-        if (d2Var.G2()) {
+        if (e2Var.G2()) {
         }
         shareItem2.m0 = z;
         if (z) {
         }
-        shareItem2.T = OriginalThreadInfo.ShareInfo.generateShareInfo(d2Var);
-        shareItem2.W = ShareItem.ForwardInfo.generateForwardInfo(d2Var);
+        shareItem2.T = OriginalThreadInfo.ShareInfo.generateShareInfo(e2Var);
+        shareItem2.W = ShareItem.ForwardInfo.generateForwardInfo(e2Var);
         TbadkCoreApplication.getInst().setShareItem(shareItem2);
         Bundle bundle2 = new Bundle();
         bundle2.putInt("obj_param1", shareItem2.F);
@@ -367,7 +367,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         bundle2.putInt("obj_source", shareItem2.o);
         shareItem2.k(bundle2);
         ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem2, true);
-        shareDialogConfig2.setIsAlaLive((d2Var.r1() != 49 || d2Var.r1() == 60 || d2Var.r1() == 69) ? true : true);
+        shareDialogConfig2.setIsAlaLive((e2Var.r1() != 49 || e2Var.r1() == 60 || e2Var.r1() == 69) ? true : true);
         shareDialogConfig2.setFrom(ShareDialogConfig.From.PersonPolymeric);
         h.c().l(shareDialogConfig2);
     }
@@ -406,9 +406,9 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         if (interceptable == null || interceptable.invokeL(1048579, this, shareThreadParam) == null) {
             try {
                 JSONObject optJSONObject = new JSONObject(shareThreadParam.getThreadInfo()).optJSONObject("item");
-                d2 d2Var = new d2();
-                d2Var.b3(optJSONObject);
-                showShareDialog(d2Var);
+                e2 e2Var = new e2();
+                e2Var.b3(optJSONObject);
+                showShareDialog(e2Var);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }

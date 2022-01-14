@@ -2,7 +2,7 @@ package com.baidu.tieba.tbean;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import c.a.s0.r0.c;
 import c.a.s0.r0.h;
 import com.baidu.adp.framework.MessageManager;
@@ -41,11 +41,11 @@ public class BuyTBeanActivityStatic {
 
         /* renamed from: com.baidu.tieba.tbean.BuyTBeanActivityStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1938a implements c {
+        public class C1955a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1938a(a aVar) {
+            public C1955a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,12 +103,12 @@ public class BuyTBeanActivityStatic {
                         return 3;
                     }
                     if (str.contains("tdoudiscount:")) {
-                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, w0.d(str, MemberPayStatistic.REFER_PAGE), w0.d(str, MemberPayStatistic.CLICK_ZONE), new C1938a(this));
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE), new C1955a(this));
                         return 0;
                     }
-                    Bundle i2 = w0.i(str);
+                    Bundle i2 = v0.i(str);
                     if (i2 != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i2.getString("path"))) {
-                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, w0.d(str, MemberPayStatistic.REFER_PAGE), w0.d(str, MemberPayStatistic.CLICK_ZONE));
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE));
                         return 0;
                     }
                 }

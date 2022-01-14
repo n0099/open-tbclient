@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int exo_controls_fastforward_description = 2131691309;
-    public static final int exo_controls_next_description = 2131691310;
-    public static final int exo_controls_pause_description = 2131691311;
-    public static final int exo_controls_play_description = 2131691312;
-    public static final int exo_controls_previous_description = 2131691313;
-    public static final int exo_controls_repeat_all_description = 2131691314;
-    public static final int exo_controls_repeat_off_description = 2131691315;
-    public static final int exo_controls_repeat_one_description = 2131691316;
-    public static final int exo_controls_rewind_description = 2131691317;
-    public static final int exo_controls_shuffle_description = 2131691318;
-    public static final int exo_controls_stop_description = 2131691319;
+    public static final int exo_controls_fastforward_description = 2131691350;
+    public static final int exo_controls_next_description = 2131691351;
+    public static final int exo_controls_pause_description = 2131691352;
+    public static final int exo_controls_play_description = 2131691353;
+    public static final int exo_controls_previous_description = 2131691354;
+    public static final int exo_controls_repeat_all_description = 2131691355;
+    public static final int exo_controls_repeat_off_description = 2131691356;
+    public static final int exo_controls_repeat_one_description = 2131691357;
+    public static final int exo_controls_rewind_description = 2131691358;
+    public static final int exo_controls_shuffle_description = 2131691359;
+    public static final int exo_controls_stop_description = 2131691360;
     public transient /* synthetic */ FieldHolder $fh;
 }

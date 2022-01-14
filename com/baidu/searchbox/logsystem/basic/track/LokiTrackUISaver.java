@@ -22,7 +22,7 @@ import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEPERATOR = "\t";

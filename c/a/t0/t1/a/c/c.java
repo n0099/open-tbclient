@@ -24,22 +24,22 @@ public class c extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbPageContextSupport f24351e;
+    public final TbPageContextSupport f23668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.s0.t.f.a> f24352f;
+    public List<c.a.s0.t.f.a> f23669f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCheckBox.b f24353g;
+    public TbCheckBox.b f23670g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f24354h;
+    public b f23671h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f24355i;
+    public ViewGroup f23672i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f24356j;
+    public boolean f23673j;
 
     /* loaded from: classes8.dex */
     public class a {
@@ -48,13 +48,13 @@ public class c extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f24357b;
+        public HeadImageView f23674b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f24358c;
+        public TextView f23675c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbCheckBox f24359d;
+        public TbCheckBox f23676d;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -93,10 +93,10 @@ public class c extends BaseAdapter {
                 return;
             }
         }
-        this.f24354h = null;
-        this.f24355i = null;
-        this.f24351e = tbPageContextSupport;
-        this.f24356j = z;
+        this.f23671h = null;
+        this.f23672i = null;
+        this.f23668e = tbPageContextSupport;
+        this.f23673j = z;
     }
 
     public final a a(Object obj, c.a.s0.t.f.a aVar) {
@@ -109,18 +109,18 @@ public class c extends BaseAdapter {
             } else {
                 aVar2 = (a) obj;
             }
-            b bVar = this.f24354h;
+            b bVar = this.f23671h;
             if (bVar != null) {
                 bVar.b(aVar2.a, aVar);
             }
             c(aVar, aVar2, aVar.h());
-            aVar2.f24358c.setText(aVar.g());
-            if (this.f24356j) {
-                aVar2.f24359d.setVisibility(8);
+            aVar2.f23675c.setText(aVar.g());
+            if (this.f23673j) {
+                aVar2.f23676d.setVisibility(8);
             } else {
-                aVar2.f24359d.setTagData(aVar);
+                aVar2.f23676d.setTagData(aVar);
             }
-            TbPageContextSupport tbPageContextSupport = this.f24351e;
+            TbPageContextSupport tbPageContextSupport = this.f23668e;
             if (tbPageContextSupport instanceof InviteFriendListActivity) {
                 ((InviteFriendListActivity) tbPageContextSupport).getLayoutMode().j(aVar2.a);
             }
@@ -134,15 +134,15 @@ public class c extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a aVar = new a(this);
-            View inflate = LayoutInflater.from(this.f24351e.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f23668e.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
             aVar.a = inflate;
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.photo);
-            aVar.f24357b = headImageView;
+            aVar.f23674b = headImageView;
             headImageView.setIsRound(false);
-            aVar.f24358c = (TextView) aVar.a.findViewById(R.id.txt_user_name);
+            aVar.f23675c = (TextView) aVar.a.findViewById(R.id.txt_user_name);
             TbCheckBox tbCheckBox = (TbCheckBox) aVar.a.findViewById(R.id.ckb_select);
-            aVar.f24359d = tbCheckBox;
-            TbCheckBox.b bVar = this.f24353g;
+            aVar.f23676d = tbCheckBox;
+            TbCheckBox.b bVar = this.f23670g;
             if (bVar != null) {
                 tbCheckBox.setStatedChangedListener(bVar);
             }
@@ -157,28 +157,28 @@ public class c extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, aVar, aVar2, str) == null) || aVar == null) {
             return;
         }
-        aVar2.f24357b.setTag(str);
-        aVar2.f24357b.startLoad(str, 12, false);
+        aVar2.f23674b.setTag(str);
+        aVar2.f23674b.startLoad(str, 12, false);
     }
 
     public void d(TbCheckBox.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f24353g = bVar;
+            this.f23670g = bVar;
         }
     }
 
     public void e(List<c.a.s0.t.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f24352f = list;
+            this.f23669f = list;
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f24354h = bVar;
+            this.f23671h = bVar;
         }
     }
 
@@ -187,7 +187,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<c.a.s0.t.f.a> list = this.f24352f;
+            List<c.a.s0.t.f.a> list = this.f23669f;
             if (list == null) {
                 return 0;
             }
@@ -201,7 +201,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<c.a.s0.t.f.a> list = this.f24352f;
+            List<c.a.s0.t.f.a> list = this.f23669f;
             if (list == null) {
                 return null;
             }
@@ -226,8 +226,8 @@ public class c extends BaseAdapter {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-            if (this.f24355i == null) {
-                this.f24355i = viewGroup;
+            if (this.f23672i == null) {
+                this.f23672i = viewGroup;
             }
             c.a.s0.t.f.a aVar2 = (c.a.s0.t.f.a) getItem(i2);
             if (aVar2 != null) {

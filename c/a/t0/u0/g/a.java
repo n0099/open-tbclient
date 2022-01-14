@@ -41,34 +41,34 @@ public class a {
     public RecentlyVisitedForumData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f24661b;
+    public boolean f23978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24662c;
+    public boolean f23979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24663d;
+    public boolean f23980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f24664e;
+    public f f23981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f24665f;
+    public CustomMessageListener f23982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f24666g;
+    public CustomMessageListener f23983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f24667h;
+    public c.a.d.c.g.a f23984h;
 
     /* renamed from: c.a.t0.u0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1442a extends k0<Object> {
+    public class C1457a extends k0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1442a(a aVar) {
+        public C1457a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +169,7 @@ public class a {
         public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentlyVisitedForumData) == null) {
-                this.a.f24661b = false;
+                this.a.f23978b = false;
                 if (recentlyVisitedForumData != null) {
                     this.a.x(recentlyVisitedForumData.y(), true);
                 }
@@ -285,7 +285,7 @@ public class a {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f24662c = false;
+                this.a.f23979c = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -330,7 +330,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C1442a c1442a) {
+    public /* synthetic */ a(C1457a c1457a) {
         this();
     }
 
@@ -381,7 +381,7 @@ public class a {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24661b = true;
+            this.f23978b = true;
             b bVar = new b(this);
             bVar.setPriority(3);
             bVar.execute(new Void[0]);
@@ -390,21 +390,21 @@ public class a {
 
     public void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f24662c) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f23979c) {
             return;
         }
         RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
         recentlyVisitedForumRequestMessage.setForumData(this.a.y());
-        this.f24662c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
+        this.f23979c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
     }
 
     public void o() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f24664e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f23981e) == null) {
             return;
         }
-        fVar.a(this.a.y(), this.f24663d);
+        fVar.a(this.a.y(), this.f23980d);
     }
 
     public final void p(VisitedForumData visitedForumData) {
@@ -413,7 +413,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, visitedForumData) == null) || visitedForumData == null || (x = this.a.x(visitedForumData)) < 0) {
             return;
         }
-        f fVar = this.f24664e;
+        f fVar = this.f23981e;
         if (fVar != null) {
             fVar.b(x);
         }
@@ -436,7 +436,7 @@ public class a {
     public void r() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (fVar = this.f24664e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (fVar = this.f23981e) == null) {
             return;
         }
         fVar.onNotify();
@@ -461,9 +461,9 @@ public class a {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            MessageManager.getInstance().registerListener(this.f24667h);
-            MessageManager.getInstance().registerListener(this.f24665f);
-            MessageManager.getInstance().registerListener(this.f24666g);
+            MessageManager.getInstance().registerListener(this.f23984h);
+            MessageManager.getInstance().registerListener(this.f23982f);
+            MessageManager.getInstance().registerListener(this.f23983g);
         }
     }
 
@@ -479,7 +479,7 @@ public class a {
     public void w(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) {
-            this.f24664e = fVar;
+            this.f23981e = fVar;
         }
     }
 
@@ -490,16 +490,16 @@ public class a {
         }
         this.a.B(linkedList);
         this.a.C(20);
-        this.f24663d = z;
+        this.f23980d = z;
         o();
     }
 
     public void y() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f24661b) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f23978b) {
             return;
         }
-        n0.b(new C1442a(this), null);
+        n0.b(new C1457a(this), null);
     }
 
     public a() {
@@ -515,11 +515,11 @@ public class a {
                 return;
             }
         }
-        this.f24661b = false;
-        this.f24662c = false;
-        this.f24665f = new c(this, 2016564);
-        this.f24666g = new d(this, 2005016);
-        this.f24667h = new e(this, CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
+        this.f23978b = false;
+        this.f23979c = false;
+        this.f23982f = new c(this, 2016564);
+        this.f23983g = new d(this, 2005016);
+        this.f23984h = new e(this, CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
         this.a = new RecentlyVisitedForumData();
         u();
         m();

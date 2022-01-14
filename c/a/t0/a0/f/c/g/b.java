@@ -25,28 +25,28 @@ public class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f14858b;
+    public g f14503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.a0.f.c.e.a f14859c;
+    public c.a.t0.a0.f.c.e.a f14504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.a0.f.c.e.d f14860d;
+    public c.a.t0.a0.f.c.e.d f14505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f14861e;
+    public j f14506e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f14862f;
+    public List<n> f14507f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f14863g;
+    public List<n> f14508g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<SdkLiveInfoData> f14864h;
+    public List<SdkLiveInfoData> f14509h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<n> f14865i;
+    public List<n> f14510i;
 
     public b(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         Interceptable interceptable = $ic;
@@ -64,12 +64,12 @@ public class b {
             }
         }
         this.a = false;
-        this.f14858b = alaTabLiveResponsedMessage.stageLiveInfo;
-        this.f14859c = alaTabLiveResponsedMessage.hotLiveInfo;
-        this.f14860d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
-        this.f14861e = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        this.f14864h = new ArrayList();
-        this.f14865i = new ArrayList();
+        this.f14503b = alaTabLiveResponsedMessage.stageLiveInfo;
+        this.f14504c = alaTabLiveResponsedMessage.hotLiveInfo;
+        this.f14505d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
+        this.f14506e = alaTabLiveResponsedMessage.tabAllLiveInfo;
+        this.f14509h = new ArrayList();
+        this.f14510i = new ArrayList();
         e();
     }
 
@@ -90,23 +90,23 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f14858b = null;
-            this.f14859c = null;
-            this.f14860d = null;
+            this.f14503b = null;
+            this.f14504c = null;
+            this.f14505d = null;
             this.a = false;
-            List<n> list = this.f14862f;
+            List<n> list = this.f14507f;
             if (list != null) {
                 list.clear();
             }
-            List<n> list2 = this.f14863g;
+            List<n> list2 = this.f14508g;
             if (list2 != null) {
                 list2.clear();
             }
-            List<SdkLiveInfoData> list3 = this.f14864h;
+            List<SdkLiveInfoData> list3 = this.f14509h;
             if (list3 != null) {
                 list3.clear();
             }
-            List<n> list4 = this.f14865i;
+            List<n> list4 = this.f14510i;
             if (list4 != null) {
                 list4.clear();
             }
@@ -122,17 +122,17 @@ public class b {
             for (int i2 = 0; i2 < size; i2 += 2) {
                 e eVar = new e();
                 c.a.t0.a0.f.a.a aVar = new c.a.t0.a0.f.a.a();
-                aVar.f14674e = list.get(i2);
-                aVar.f14679j = true;
-                eVar.f14782e = aVar;
+                aVar.f14327e = list.get(i2);
+                aVar.f14332j = true;
+                eVar.f14430e = aVar;
                 int i3 = i2 + 1;
                 if (i3 < size) {
                     c.a.t0.a0.f.a.a aVar2 = new c.a.t0.a0.f.a.a();
-                    aVar2.f14674e = list.get(i3);
-                    eVar.f14783f = aVar2;
-                    aVar2.f14680k = true;
+                    aVar2.f14327e = list.get(i3);
+                    eVar.f14431f = aVar2;
+                    aVar2.k = true;
                 } else {
-                    aVar.f14679j = false;
+                    aVar.f14332j = false;
                     aVar.l = true;
                 }
                 arrayList.add(eVar);
@@ -147,11 +147,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.f14863g)) {
-                arrayList.addAll(this.f14863g);
+            if (!ListUtils.isEmpty(this.f14508g)) {
+                arrayList.addAll(this.f14508g);
             }
-            if (!ListUtils.isEmpty(this.f14865i)) {
-                arrayList.addAll(this.f14865i);
+            if (!ListUtils.isEmpty(this.f14510i)) {
+                arrayList.addAll(this.f14510i);
             }
             return arrayList;
         }
@@ -161,27 +161,27 @@ public class b {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f14862f = new ArrayList();
-            g gVar = this.f14858b;
+            this.f14507f = new ArrayList();
+            g gVar = this.f14503b;
             if (gVar != null && gVar.a()) {
                 f fVar = new f();
-                fVar.f14785e = this.f14858b;
-                this.f14862f.add(fVar);
+                fVar.f14433e = this.f14503b;
+                this.f14507f.add(fVar);
             }
-            if (this.f14859c != null) {
+            if (this.f14504c != null) {
                 ArrayList<n> f2 = f();
                 if (!ListUtils.isEmpty(f2)) {
-                    this.f14862f.addAll(f2);
+                    this.f14507f.addAll(f2);
                 }
             }
-            c.a.t0.a0.f.c.e.d dVar = this.f14860d;
+            c.a.t0.a0.f.c.e.d dVar = this.f14505d;
             if (dVar != null && !ListUtils.isEmpty(dVar.a)) {
                 c.a.t0.a0.f.c.e.c cVar = new c.a.t0.a0.f.c.e.c();
-                cVar.f14779e = this.f14860d;
-                this.f14862f.add(cVar);
+                cVar.f14427e = this.f14505d;
+                this.f14507f.add(cVar);
             }
-            this.f14863g = new ArrayList(this.f14862f);
-            a(this.f14861e);
+            this.f14508g = new ArrayList(this.f14507f);
+            a(this.f14506e);
         }
     }
 
@@ -189,7 +189,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<SdkLiveInfoData> arrayList = this.f14859c.a;
+            ArrayList<SdkLiveInfoData> arrayList = this.f14504c.a;
             if (arrayList == null || arrayList.size() < 2) {
                 return null;
             }
@@ -214,7 +214,7 @@ public class b {
             if (jVar == null) {
                 return false;
             }
-            ArrayList<SdkLiveInfoData> arrayList = jVar.f14790b;
+            ArrayList<SdkLiveInfoData> arrayList = jVar.f14438b;
             if (ListUtils.isEmpty(arrayList)) {
                 return false;
             }
@@ -229,9 +229,9 @@ public class b {
             if (ListUtils.isEmpty(arrayList2)) {
                 return false;
             }
-            this.f14864h.addAll(arrayList2);
-            ArrayList<n> c2 = c(this.f14864h);
-            this.f14865i = c2;
+            this.f14509h.addAll(arrayList2);
+            ArrayList<n> c2 = c(this.f14509h);
+            this.f14510i = c2;
             return !ListUtils.isEmpty(c2);
         }
         return invokeL.booleanValue;

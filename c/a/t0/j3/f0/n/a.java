@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: c.a.t0.j3.f0.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1134a {
+    public static class C1148a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class a {
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1134a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1148a.a : (a) invokeV.objValue;
     }
 
     public final ContentValues a(b bVar) {
@@ -74,16 +74,16 @@ public class a {
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("download_key", bVar.a);
-            contentValues.put("package_name", bVar.f18794b);
-            contentValues.put("finish_download_time", String.valueOf(bVar.f18795c));
-            contentValues.put("show_times", String.valueOf(bVar.f18796d));
-            contentValues.put("last_show_time", String.valueOf(bVar.f18797e));
-            contentValues.put("ad_string", bVar.f18798f);
-            contentValues.put("cmatch", bVar.f18799g);
-            contentValues.put("install_status", Integer.valueOf(bVar.f18800h));
-            contentValues.put("ad_extension_info1", bVar.f18801i);
-            contentValues.put("ad_extension_info2", bVar.f18802j);
-            contentValues.put("ad_extension_info3", bVar.f18803k);
+            contentValues.put("package_name", bVar.f18326b);
+            contentValues.put("finish_download_time", String.valueOf(bVar.f18327c));
+            contentValues.put("show_times", String.valueOf(bVar.f18328d));
+            contentValues.put("last_show_time", String.valueOf(bVar.f18329e));
+            contentValues.put("ad_string", bVar.f18330f);
+            contentValues.put("cmatch", bVar.f18331g);
+            contentValues.put("install_status", Integer.valueOf(bVar.f18332h));
+            contentValues.put("ad_extension_info1", bVar.f18333i);
+            contentValues.put("ad_extension_info2", bVar.f18334j);
+            contentValues.put("ad_extension_info3", bVar.k);
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -97,16 +97,16 @@ public class a {
                 try {
                     b bVar = new b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("download_key"));
-                    bVar.f18794b = cursor.getString(cursor.getColumnIndex("package_name"));
-                    bVar.f18795c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
-                    bVar.f18796d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
-                    bVar.f18797e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
-                    bVar.f18798f = cursor.getString(cursor.getColumnIndex("ad_string"));
-                    bVar.f18799g = cursor.getString(cursor.getColumnIndex("cmatch"));
-                    bVar.f18800h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
-                    bVar.f18801i = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
-                    bVar.f18802j = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
-                    bVar.f18803k = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
+                    bVar.f18326b = cursor.getString(cursor.getColumnIndex("package_name"));
+                    bVar.f18327c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
+                    bVar.f18328d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
+                    bVar.f18329e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
+                    bVar.f18330f = cursor.getString(cursor.getColumnIndex("ad_string"));
+                    bVar.f18331g = cursor.getString(cursor.getColumnIndex("cmatch"));
+                    bVar.f18332h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
+                    bVar.f18333i = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
+                    bVar.f18334j = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
+                    bVar.k = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
                     return bVar;
                 } catch (Exception unused) {
                 }
@@ -176,7 +176,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             synchronized (this) {
                 if (bVar != null) {
-                    if (!TextUtils.isEmpty(bVar.a) && !TextUtils.isEmpty(bVar.f18794b)) {
+                    if (!TextUtils.isEmpty(bVar.a) && !TextUtils.isEmpty(bVar.f18326b)) {
                         SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
                         f2.beginTransaction();
                         f2.replace("ad_follow_up_info_table", null, a(bVar));

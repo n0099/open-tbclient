@@ -20,7 +20,7 @@ public class d extends DataOutputStream {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c.a.r0.a.b1.b<byte[], String> f5386e;
+    public static final c.a.r0.a.b1.b<byte[], String> f5273e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -111,7 +111,7 @@ public class d extends DataOutputStream {
                 return;
             }
         }
-        f5386e = new a();
+        f5273e = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -201,7 +201,7 @@ public class d extends DataOutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             try {
-                b(f5386e.call(str));
+                b(f5273e.call(str));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -211,14 +211,14 @@ public class d extends DataOutputStream {
     public void g(Collection<String> collection) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            d(collection, f5386e);
+            d(collection, f5273e);
         }
     }
 
     public void h(Map<String, String> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            e(map, f5386e);
+            e(map, f5273e);
         }
     }
 }

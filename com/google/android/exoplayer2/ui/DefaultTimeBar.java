@@ -60,25 +60,23 @@ public class DefaultTimeBar extends View implements h {
     public boolean[] N;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f56452e;
+    public final Rect f54311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f56453f;
+    public final Rect f54312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f56454g;
+    public final Rect f54313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Rect f56455h;
+    public final Rect f54314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Paint f56456i;
+    public final Paint f54315i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Paint f56457j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final Paint f56458k;
+    public final Paint f54316j;
+    public final Paint k;
     public final Paint l;
     public final Paint m;
     public final Paint n;
@@ -101,7 +99,7 @@ public class DefaultTimeBar extends View implements h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultTimeBar f56459e;
+        public final /* synthetic */ DefaultTimeBar f54317e;
 
         public a(DefaultTimeBar defaultTimeBar) {
             Interceptable interceptable = $ic;
@@ -118,14 +116,14 @@ public class DefaultTimeBar extends View implements h {
                     return;
                 }
             }
-            this.f56459e = defaultTimeBar;
+            this.f54317e = defaultTimeBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56459e.l(false);
+                this.f54317e.l(false);
             }
         }
     }
@@ -149,13 +147,13 @@ public class DefaultTimeBar extends View implements h {
                 return;
             }
         }
-        this.f56452e = new Rect();
-        this.f56453f = new Rect();
-        this.f56454g = new Rect();
-        this.f56455h = new Rect();
-        this.f56456i = new Paint();
-        this.f56457j = new Paint();
-        this.f56458k = new Paint();
+        this.f54311e = new Rect();
+        this.f54312f = new Rect();
+        this.f54313g = new Rect();
+        this.f54314h = new Rect();
+        this.f54315i = new Paint();
+        this.f54316j = new Paint();
+        this.k = new Paint();
         this.l = new Paint();
         this.m = new Paint();
         Paint paint = new Paint();
@@ -191,10 +189,10 @@ public class DefaultTimeBar extends View implements h {
                 int i7 = obtainStyledAttributes.getInt(f.DefaultTimeBar_unplayed_color, getDefaultUnplayedColor(i4));
                 int i8 = obtainStyledAttributes.getInt(f.DefaultTimeBar_ad_marker_color, DEFAULT_AD_MARKER_COLOR);
                 int i9 = obtainStyledAttributes.getInt(f.DefaultTimeBar_played_ad_marker_color, getDefaultPlayedAdMarkerColor(i8));
-                this.f56456i.setColor(i4);
+                this.f54315i.setColor(i4);
                 this.n.setColor(i5);
-                this.f56457j.setColor(i6);
-                this.f56458k.setColor(i7);
+                this.f54316j.setColor(i6);
+                this.k.setColor(i7);
                 this.l.setColor(i8);
                 this.m.setColor(i9);
             } finally {
@@ -207,10 +205,10 @@ public class DefaultTimeBar extends View implements h {
             this.s = b5;
             this.t = b6;
             this.u = b7;
-            this.f56456i.setColor(-1);
+            this.f54315i.setColor(-1);
             this.n.setColor(getDefaultScrubberColor(-1));
-            this.f56457j.setColor(getDefaultBufferedColor(-1));
-            this.f56458k.setColor(getDefaultUnplayedColor(-1));
+            this.f54316j.setColor(getDefaultBufferedColor(-1));
+            this.k.setColor(getDefaultUnplayedColor(-1));
             this.l.setColor(DEFAULT_AD_MARKER_COLOR);
             this.o = null;
         }
@@ -289,10 +287,10 @@ public class DefaultTimeBar extends View implements h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (this.f56453f.width() <= 0 || this.I == -9223372036854775807L) {
+            if (this.f54312f.width() <= 0 || this.I == -9223372036854775807L) {
                 return 0L;
             }
-            return (this.f56455h.width() * this.I) / this.f56453f.width();
+            return (this.f54314h.width() * this.I) / this.f54312f.width();
         }
         return invokeV.longValue;
     }
@@ -306,25 +304,25 @@ public class DefaultTimeBar extends View implements h {
     private void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.f56454g.set(this.f56453f);
-            this.f56455h.set(this.f56453f);
+            this.f54313g.set(this.f54312f);
+            this.f54314h.set(this.f54312f);
             long j2 = this.G ? this.H : this.J;
             if (this.I > 0) {
-                int width = (int) ((this.f56453f.width() * this.K) / this.I);
-                Rect rect = this.f56454g;
-                Rect rect2 = this.f56453f;
+                int width = (int) ((this.f54312f.width() * this.K) / this.I);
+                Rect rect = this.f54313g;
+                Rect rect2 = this.f54312f;
                 rect.right = Math.min(rect2.left + width, rect2.right);
-                int width2 = (int) ((this.f56453f.width() * j2) / this.I);
-                Rect rect3 = this.f56455h;
-                Rect rect4 = this.f56453f;
+                int width2 = (int) ((this.f54312f.width() * j2) / this.I);
+                Rect rect3 = this.f54314h;
+                Rect rect4 = this.f54312f;
                 rect3.right = Math.min(rect4.left + width2, rect4.right);
             } else {
-                Rect rect5 = this.f56454g;
-                int i2 = this.f56453f.left;
+                Rect rect5 = this.f54313g;
+                int i2 = this.f54312f.left;
                 rect5.right = i2;
-                this.f56455h.right = i2;
+                this.f54314h.right = i2;
             }
-            invalidate(this.f56452e);
+            invalidate(this.f54311e);
         }
     }
 
@@ -342,9 +340,9 @@ public class DefaultTimeBar extends View implements h {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.I <= 0) {
             return;
         }
-        Rect rect = this.f56455h;
-        int k2 = v.k(rect.right, rect.left, this.f56453f.right);
-        int centerY = this.f56455h.centerY();
+        Rect rect = this.f54314h;
+        int k = v.k(rect.right, rect.left, this.f54312f.right);
+        int centerY = this.f54314h.centerY();
         Drawable drawable = this.o;
         if (drawable == null) {
             if (!this.G && !isFocused()) {
@@ -352,47 +350,47 @@ public class DefaultTimeBar extends View implements h {
             } else {
                 i2 = this.u;
             }
-            canvas.drawCircle(k2, centerY, i2 / 2, this.n);
+            canvas.drawCircle(k, centerY, i2 / 2, this.n);
             return;
         }
         int intrinsicWidth = drawable.getIntrinsicWidth() / 2;
         int intrinsicHeight = this.o.getIntrinsicHeight() / 2;
-        this.o.setBounds(k2 - intrinsicWidth, centerY - intrinsicHeight, k2 + intrinsicWidth, centerY + intrinsicHeight);
+        this.o.setBounds(k - intrinsicWidth, centerY - intrinsicHeight, k + intrinsicWidth, centerY + intrinsicHeight);
         this.o.draw(canvas);
     }
 
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            int height = this.f56453f.height();
-            int centerY = this.f56453f.centerY() - (height / 2);
+            int height = this.f54312f.height();
+            int centerY = this.f54312f.centerY() - (height / 2);
             int i2 = height + centerY;
             if (this.I <= 0) {
-                Rect rect = this.f56453f;
-                canvas.drawRect(rect.left, centerY, rect.right, i2, this.f56458k);
+                Rect rect = this.f54312f;
+                canvas.drawRect(rect.left, centerY, rect.right, i2, this.k);
                 return;
             }
-            Rect rect2 = this.f56454g;
+            Rect rect2 = this.f54313g;
             int i3 = rect2.left;
             int i4 = rect2.right;
-            int max = Math.max(Math.max(this.f56453f.left, i4), this.f56455h.right);
-            int i5 = this.f56453f.right;
+            int max = Math.max(Math.max(this.f54312f.left, i4), this.f54314h.right);
+            int i5 = this.f54312f.right;
             if (max < i5) {
-                canvas.drawRect(max, centerY, i5, i2, this.f56458k);
+                canvas.drawRect(max, centerY, i5, i2, this.k);
             }
-            int max2 = Math.max(i3, this.f56455h.right);
+            int max2 = Math.max(i3, this.f54314h.right);
             if (i4 > max2) {
-                canvas.drawRect(max2, centerY, i4, i2, this.f56457j);
+                canvas.drawRect(max2, centerY, i4, i2, this.f54316j);
             }
-            if (this.f56455h.width() > 0) {
-                Rect rect3 = this.f56455h;
-                canvas.drawRect(rect3.left, centerY, rect3.right, i2, this.f56456i);
+            if (this.f54314h.width() > 0) {
+                Rect rect3 = this.f54314h;
+                canvas.drawRect(rect3.left, centerY, rect3.right, i2, this.f54315i);
             }
             int i6 = this.r / 2;
             for (int i7 = 0; i7 < this.L; i7++) {
                 long l = v.l(this.M[i7], 0L, this.I);
-                Rect rect4 = this.f56453f;
-                int min = rect4.left + Math.min(rect4.width() - this.r, Math.max(0, ((int) ((this.f56453f.width() * l) / this.I)) - i6));
+                Rect rect4 = this.f54312f;
+                int min = rect4.left + Math.min(rect4.width() - this.r, Math.max(0, ((int) ((this.f54312f.width() * l) / this.I)) - i6));
                 canvas.drawRect(min, centerY, min + this.r, i2, this.N[i7] ? this.m : this.l);
             }
         }
@@ -410,7 +408,7 @@ public class DefaultTimeBar extends View implements h {
     public final boolean e(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f56452e.contains((int) f2, (int) f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f54311e.contains((int) f2, (int) f3) : invokeCommon.booleanValue;
     }
 
     @TargetApi(16)
@@ -424,8 +422,8 @@ public class DefaultTimeBar extends View implements h {
     public final void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            Rect rect = this.f56455h;
-            Rect rect2 = this.f56453f;
+            Rect rect = this.f54314h;
+            Rect rect2 = this.f54312f;
             rect.right = v.k((int) f2, rect2.left, rect2.right);
         }
     }
@@ -616,9 +614,9 @@ public class DefaultTimeBar extends View implements h {
             int paddingRight = (i4 - i2) - getPaddingRight();
             int i7 = this.q;
             int i8 = ((i7 - this.p) / 2) + i6;
-            this.f56452e.set(paddingLeft, i6, paddingRight, i7 + i6);
-            Rect rect = this.f56453f;
-            Rect rect2 = this.f56452e;
+            this.f54311e.set(paddingLeft, i6, paddingRight, i7 + i6);
+            Rect rect = this.f54312f;
+            Rect rect2 = this.f54311e;
             int i9 = rect2.left;
             int i10 = this.v;
             rect.set(i9 + i10, i8, rect2.right - i10, this.p + i8);

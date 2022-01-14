@@ -45,7 +45,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f50402e;
+        public final /* synthetic */ UserTropicGiftBagActivity f48495e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -62,21 +62,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f50402e = userTropicGiftBagActivity;
+            this.f48495e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f50402e.getPageContext();
-                if (view.getId() == this.f50402e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f48495e.getPageContext();
+                if (view.getId() == this.f48495e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f50402e.sendStatisticLog(2);
-                    this.f50402e.finish();
+                    this.f48495e.sendStatisticLog(2);
+                    this.f48495e.finish();
                 }
-                if (view.getId() == this.f50402e.mClose.getId()) {
-                    this.f50402e.finish();
+                if (view.getId() == this.f48495e.mClose.getId()) {
+                    this.f48495e.finish();
                 }
             }
         }

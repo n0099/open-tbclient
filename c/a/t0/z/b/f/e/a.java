@@ -24,12 +24,12 @@ public class a extends ActivityDelegation {
 
     /* renamed from: c.a.t0.z.b.f.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1552a implements c.a.t0.z.b.f.d.a {
+    public class C1568a implements c.a.t0.z.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1552a(a aVar) {
+        public C1568a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,14 +110,14 @@ public class a extends ActivityDelegation {
             }
             boolean z2 = a;
             if (!e.c().g()) {
-                n.L(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
+                n.M(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
                 return false;
             } else if (getAgent() instanceof Activity) {
                 c.a.t0.z.b.f.a aVar = new c.a.t0.z.b.f.a();
                 aVar.mParams.putInt("type", 1);
                 aVar.mParams.putString("orderInfo", this.mParams.getString("order_info"));
                 aVar.b(getAgent());
-                aVar.c(new C1552a(this));
+                aVar.c(new C1568a(this));
                 aVar.onExec();
                 return false;
             } else {

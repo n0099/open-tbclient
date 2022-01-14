@@ -22,7 +22,7 @@ public class d extends c.a.d.n.e.a<e, CardViewHolder<c.a.t0.u0.k.d.d>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.f24791f);
+        super(tbPageContext.getPageActivity(), e.f24104f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class d extends c.a.d.n.e.a<e, CardViewHolder<c.a.t0.u0.k.d.d>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             c.a.t0.u0.k.d.d dVar = new c.a.t0.u0.k.d.d(this.m);
-            dVar.n(this.f3303i);
+            dVar.n(this.f3262i);
             return new CardViewHolder<>(dVar);
         }
         return (CardViewHolder) invokeL.objValue;

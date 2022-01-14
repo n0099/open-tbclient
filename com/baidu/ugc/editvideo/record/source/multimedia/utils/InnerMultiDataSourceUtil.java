@@ -221,7 +221,7 @@ public class InnerMultiDataSourceUtil {
 
     public static void applySuperpositionSegment(List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65542, null, list, map, list2, onInitMultiMediaListener, onReleaseMultiMediaListener) == null) || h.e(list) || h.e(list2) || list.get(0).mediaSegments.size() < c.f1707j) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65542, null, list, map, list2, onInitMultiMediaListener, onReleaseMultiMediaListener) == null) || h.e(list) || h.e(list2) || list.get(0).mediaSegments.size() < c.f1687j) {
             return;
         }
         MultiMediaData multiMediaData = list2.get(0).multiMediaDataSuperpositionHeader;
@@ -407,14 +407,14 @@ public class InnerMultiDataSourceUtil {
                 it = map.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, ShaderConfig> next2 = it.next();
-                    if (!TextUtils.equals(next2.getKey(), c.f1702e) && !TextUtils.equals(next2.getKey(), c.f1700c) && !next2.getKey().contains(c.f1701d)) {
+                    if (!TextUtils.equals(next2.getKey(), c.f1682e) && !TextUtils.equals(next2.getKey(), c.f1680c) && !next2.getKey().contains(c.f1681d)) {
                         next2.getValue().destroy();
                         it.remove();
                     }
                 }
                 if (mediaTrackConfig != null && (map2 = mediaTrackConfig.shaderConfigMapDebug) != null) {
                     for (Map.Entry<String, ShaderConfig> entry : map2.entrySet()) {
-                        if ((!TextUtils.equals(entry.getKey(), c.f1700c) && !TextUtils.equals(entry.getKey(), c.f1702e) && !entry.getKey().contains(c.f1701d)) || !map.containsKey(entry.getKey())) {
+                        if ((!TextUtils.equals(entry.getKey(), c.f1680c) && !TextUtils.equals(entry.getKey(), c.f1682e) && !entry.getKey().contains(c.f1681d)) || !map.containsKey(entry.getKey())) {
                             map.put(entry.getKey(), entry.getValue());
                         }
                     }
@@ -987,7 +987,7 @@ public class InnerMultiDataSourceUtil {
                 int size = mediaTrack.mediaSegments.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i2);
-                    if (mediaSegment != null && !TextUtils.isEmpty(mediaSegment.lutConfigKey) && !mediaSegment.lutConfigKey.contains(c.f1701d)) {
+                    if (mediaSegment != null && !TextUtils.isEmpty(mediaSegment.lutConfigKey) && !mediaSegment.lutConfigKey.contains(c.f1681d)) {
                         return i2;
                     }
                 }

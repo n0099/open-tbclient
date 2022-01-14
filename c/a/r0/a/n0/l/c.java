@@ -32,7 +32,7 @@ public final class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.C0462b f8004e;
+    public final b.C0471b f7827e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public final class c implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f8005e;
+        public final /* synthetic */ c f7828e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -57,24 +57,24 @@ public final class c implements b {
                     return;
                 }
             }
-            this.f8005e = cVar;
+            this.f7828e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8005e.f();
+                this.f7828e.f();
             }
         }
     }
 
-    public c(b.C0462b c0462b) {
+    public c(b.C0471b c0471b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0462b};
+            Object[] objArr = {c0471b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -84,7 +84,7 @@ public final class c implements b {
                 return;
             }
         }
-        this.f8004e = c0462b == null ? new b.C0462b() : c0462b;
+        this.f7827e = c0471b == null ? new b.C0471b() : c0471b;
     }
 
     public static boolean d(b.a aVar) {
@@ -99,20 +99,20 @@ public final class c implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? m(null) : (c) invokeV.objValue;
     }
 
-    public static c m(b.C0462b c0462b) {
+    public static c m(b.C0471b c0471b) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0462b)) == null) ? new c(c0462b) : (c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0471b)) == null) ? new c(c0471b) : (c) invokeL.objValue;
     }
 
     public c b(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (e() && !TextUtils.isEmpty(str) && !d(this.f8004e.a.get(str))) {
+            if (e() && !TextUtils.isEmpty(str) && !d(this.f7827e.a.get(str))) {
                 c.a.r0.a.n0.l.a query = c.a.r0.a.n0.l.a.query(str);
                 if (d(query)) {
-                    this.f8004e.a.put(query.a(), query);
+                    this.f7827e.a.put(query.a(), query);
                 }
             }
             return this;
@@ -124,9 +124,9 @@ public final class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b.C0462b c0462b = this.f8004e;
-            int i2 = c0462b.f8003d;
-            return i2 == 0 ? c0462b.f8002c : i2;
+            b.C0471b c0471b = this.f7827e;
+            int i2 = c0471b.f7826d;
+            return i2 == 0 ? c0471b.f7825c : i2;
         }
         return invokeV.intValue;
     }
@@ -136,8 +136,8 @@ public final class c implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f8004e) {
-                z = this.f8004e.f8001b;
+            synchronized (this.f7827e) {
+                z = this.f7827e.f7824b;
             }
             return z;
         }
@@ -149,16 +149,16 @@ public final class c implements b {
         b.a value;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.f8004e) {
+            synchronized (this.f7827e) {
                 if (e()) {
-                    this.f8004e.f8001b = false;
+                    this.f7827e.f7824b = false;
                     e eVar = new e();
                     eVar.a = "swan";
-                    eVar.f8158c = "NA";
+                    eVar.f7978c = "NA";
                     int c2 = c();
-                    eVar.f8157b = String.valueOf(c2);
+                    eVar.f7977b = String.valueOf(c2);
                     JSONArray jSONArray = new JSONArray();
-                    for (Map.Entry<String, b.a> entry : this.f8004e.a.entrySet()) {
+                    for (Map.Entry<String, b.a> entry : this.f7827e.a.entrySet()) {
                         if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                             jSONArray.put(value.b());
                         }
@@ -212,12 +212,12 @@ public final class c implements b {
             int a2 = k0.a();
             int i2 = c.a.r0.a.o2.b.i();
             int b2 = c.a.r0.a.o2.b.b();
-            int k2 = c.a.r0.a.o2.b.k();
+            int k = c.a.r0.a.o2.b.k();
             try {
                 jSONObject.put("device", a2);
                 jSONObject.put("swan_pkg", i2);
                 jSONObject.put("app_pkg", b2);
-                jSONObject.put("app_third", k2);
+                jSONObject.put("app_third", k);
             } catch (JSONException e2) {
                 if (b.m0) {
                     e2.printStackTrace();
@@ -267,12 +267,12 @@ public final class c implements b {
 
     public c i(int i2) {
         InterceptResult invokeI;
-        b.C0462b c0462b;
+        b.C0471b c0471b;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (e() && i2 != (i3 = (c0462b = this.f8004e).f8003d) && (i3 == 0 || i3 == c0462b.f8002c)) {
-                this.f8004e.f8003d = i2;
+            if (e() && i2 != (i3 = (c0471b = this.f7827e).f7826d) && (i3 == 0 || i3 == c0471b.f7825c)) {
+                this.f7827e.f7826d = i2;
             }
             return this;
         }
@@ -283,7 +283,7 @@ public final class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (b.m0) {
-                String str = "performReport: " + this.f8004e;
+                String str = "performReport: " + this.f7827e;
             }
             if (e()) {
                 ExecutorUtilsExt.postOnElastic(new a(this), "PurgerStatistic", 3);
@@ -291,10 +291,10 @@ public final class c implements b {
         }
     }
 
-    public b.C0462b k() {
+    public b.C0471b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8004e : (b.C0462b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7827e : (b.C0471b) invokeV.objValue;
     }
 
     public c n(int i2) {
@@ -302,7 +302,7 @@ public final class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             if (e()) {
-                this.f8004e.f8002c = i2;
+                this.f7827e.f7825c = i2;
             }
             return this;
         }

@@ -9,6 +9,7 @@ import android.os.StatFs;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +93,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream("/proc/meminfo"), Charset.forName("utf-8"));
+                inputStreamReader = new InputStreamReader(new FileInputStream(HardwareInfoUtils.MEM_INFO_FILE), Charset.forName("utf-8"));
                 try {
                     bufferedReader = new BufferedReader(inputStreamReader, 8192);
                     try {
@@ -355,7 +356,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f57502c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55319c).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, "utf-8");
@@ -383,7 +384,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f57501b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55318b).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, "utf-8");

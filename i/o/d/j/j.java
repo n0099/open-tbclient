@@ -44,8 +44,8 @@ public final class j<E> extends n<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f64484f;
-                long j2 = this.f64483e;
+                E[] eArr = this.f62064f;
+                long j2 = this.f62063e;
                 long h2 = h();
                 long a = a(h2);
                 if (e(eArr, a) != null) {
@@ -75,15 +75,15 @@ public final class j<E> extends n<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long l = l();
             do {
-                long k2 = k();
-                if (k2 >= l) {
+                long k = k();
+                if (k >= l) {
                     long h2 = h();
-                    if (k2 >= h2) {
+                    if (k >= h2) {
                         return null;
                     }
                     m(h2);
                 }
-                d2 = d(a(k2));
+                d2 = d(a(k));
             } while (d2 == null);
             return d2;
         }
@@ -93,22 +93,22 @@ public final class j<E> extends n<E> {
     @Override // java.util.Queue, i.o.d.j.h
     public E poll() {
         InterceptResult invokeV;
-        long k2;
+        long k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long l = l();
             do {
-                k2 = k();
-                if (k2 >= l) {
+                k = k();
+                if (k >= l) {
                     long h2 = h();
-                    if (k2 >= h2) {
+                    if (k >= h2) {
                         return null;
                     }
                     m(h2);
                 }
-            } while (!j(k2, 1 + k2));
-            long a = a(k2);
-            E[] eArr = this.f64484f;
+            } while (!j(k, 1 + k));
+            long a = a(k);
+            E[] eArr = this.f62064f;
             E c2 = c(eArr, a);
             f(eArr, a, null);
             return c2;
@@ -123,14 +123,14 @@ public final class j<E> extends n<E> {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
             return invokeV.intValue;
         }
-        long k2 = k();
+        long k = k();
         while (true) {
             long h2 = h();
-            long k3 = k();
-            if (k2 == k3) {
-                return (int) (h2 - k3);
+            long k2 = k();
+            if (k == k2) {
+                return (int) (h2 - k2);
             }
-            k2 = k3;
+            k = k2;
         }
     }
 }

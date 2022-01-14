@@ -14,7 +14,7 @@ public class h0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h0 f16430b;
+    public static final h0 f16125b;
     public transient /* synthetic */ FieldHolder $fh;
     public LongSparseArray<LinkedList<String>> a;
 
@@ -31,7 +31,7 @@ public class h0 {
                 return;
             }
         }
-        f16430b = new h0();
+        f16125b = new h0();
     }
 
     public h0() {
@@ -53,7 +53,7 @@ public class h0 {
     public static h0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f16430b : (h0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f16125b : (h0) invokeV.objValue;
     }
 
     public void b(long j2) {

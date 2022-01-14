@@ -23,16 +23,16 @@ public class d {
     public final TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DragImageView.h f18915b;
+    public final DragImageView.h f18442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f18916c;
+    public final boolean f18443c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<AdvertAppInfo, b> f18917d;
+    public Map<AdvertAppInfo, b> f18444d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18918e;
+    public b f18445e;
 
     /* loaded from: classes7.dex */
     public class a implements c.a.t0.x1.o.a {
@@ -99,9 +99,9 @@ public class d {
             }
         }
         this.a = tbPageContext;
-        this.f18916c = z;
-        this.f18915b = hVar;
-        this.f18917d = new HashMap();
+        this.f18443c = z;
+        this.f18442b = hVar;
+        this.f18444d = new HashMap();
     }
 
     public b a() {
@@ -111,8 +111,8 @@ public class d {
             b bVar = new b(this.a);
             bVar.b();
             bVar.setBusinessType(99);
-            bVar.setFromCDN(this.f18916c);
-            bVar.D(this.f18915b);
+            bVar.setFromCDN(this.f18443c);
+            bVar.D(this.f18442b);
             bVar.setAfterClickSchemeListener(new a(this, bVar));
             return bVar;
         }
@@ -126,13 +126,13 @@ public class d {
             if (advertAppInfo == null || !(advertAppInfo.n4 instanceof AdCard)) {
                 return null;
             }
-            b bVar = this.f18917d.get(advertAppInfo);
+            b bVar = this.f18444d.get(advertAppInfo);
             if (bVar == null) {
                 bVar = a();
-                this.f18917d.put(advertAppInfo, bVar);
+                this.f18444d.put(advertAppInfo, bVar);
             }
             bVar.c((AdCard) advertAppInfo.n4);
-            this.f18918e = bVar;
+            this.f18445e = bVar;
             if (z2) {
                 bVar.u();
             }
@@ -144,7 +144,7 @@ public class d {
     public void c() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f18918e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f18445e) == null) {
             return;
         }
         bVar.u();
@@ -153,7 +153,7 @@ public class d {
     public void d() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f18918e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f18445e) == null) {
             return;
         }
         bVar.z();
@@ -162,22 +162,22 @@ public class d {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (b bVar : this.f18917d.values()) {
+            for (b bVar : this.f18444d.values()) {
                 if (bVar != null) {
                     bVar.A();
                 }
             }
-            this.f18917d.clear();
+            this.f18444d.clear();
         }
     }
 
     public void f(AdvertAppInfo advertAppInfo) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) || advertAppInfo == null || (bVar = this.f18917d.get(advertAppInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) || advertAppInfo == null || (bVar = this.f18444d.get(advertAppInfo)) == null) {
             return;
         }
         bVar.A();
-        this.f18917d.remove(advertAppInfo);
+        this.f18444d.remove(advertAppInfo);
     }
 }

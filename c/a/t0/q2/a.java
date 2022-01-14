@@ -13,7 +13,7 @@ public class a {
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseResp f22273b;
+    public BaseResp f21662b;
 
     public a() {
         Interceptable interceptable = $ic;

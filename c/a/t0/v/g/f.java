@@ -27,22 +27,22 @@ public class f {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdDownloadData f25187b;
+    public AdDownloadData f24483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.v.g.c f25188c;
+    public c.a.t0.v.g.c f24484c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25189d;
+    public boolean f24485d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25190e;
+    public int f24486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f25191f;
+    public long f24487f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f25192g;
+    public e f24488g;
 
     /* loaded from: classes8.dex */
     public class a implements e {
@@ -71,8 +71,8 @@ public class f {
         @Override // c.a.t0.v.g.f.e
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f25187b != null && this.a.h()) {
-                this.a.j(BdBaseApplication.getInst().getApp().getApplicationContext(), this.a.f25187b);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f24483b != null && this.a.h()) {
+                this.a.j(BdBaseApplication.getInst().getApp().getApplicationContext(), this.a.f24483b);
             }
         }
     }
@@ -83,13 +83,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadData f25193e;
+        public final /* synthetic */ AdDownloadData f24489e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f25194f;
+        public final /* synthetic */ Context f24490f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f25195g;
+        public final /* synthetic */ f f24491g;
 
         public b(f fVar, AdDownloadData adDownloadData, Context context) {
             Interceptable interceptable = $ic;
@@ -106,9 +106,9 @@ public class f {
                     return;
                 }
             }
-            this.f25195g = fVar;
-            this.f25193e = adDownloadData;
-            this.f25194f = context;
+            this.f24491g = fVar;
+            this.f24489e = adDownloadData;
+            this.f24490f = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -116,12 +116,12 @@ public class f {
         public void call(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                if (this.f25195g.a.a()) {
-                    this.f25195g.i(this.f25194f, this.f25193e);
+                if (this.f24491g.a.a()) {
+                    this.f24491g.i(this.f24490f, this.f24489e);
                     return;
                 }
-                this.f25195g.f25187b = this.f25193e;
-                this.f25195g.f25191f = System.currentTimeMillis();
+                this.f24491g.f24483b = this.f24489e;
+                this.f24491g.f24487f = System.currentTimeMillis();
             }
         }
     }
@@ -167,7 +167,7 @@ public class f {
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f25190e == 0 || c.a.t0.j3.e.e(System.currentTimeMillis(), this.f25191f, this.f25190e)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f24486e == 0 || c.a.t0.j3.e.e(System.currentTimeMillis(), this.f24487f, this.f24486e)) ? false : true : invokeV.booleanValue;
     }
 
     public final void i(Context context, AdDownloadData adDownloadData) {
@@ -180,14 +180,14 @@ public class f {
                 z.y(adDownloadData.getPkgName());
                 i2 = -1;
             }
-            this.f25188c.a(i2, adDownloadData.pkgName(), adDownloadData.getExtInfo());
-            this.f25187b = null;
+            this.f24484c.a(i2, adDownloadData.pkgName(), adDownloadData.getExtInfo());
+            this.f24483b = null;
         }
     }
 
     public void j(Context context, AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, adDownloadData) == null) || context == null || adDownloadData == null || !this.f25189d) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, adDownloadData) == null) || context == null || adDownloadData == null || !this.f24485d) {
             return;
         }
         i.d.B(1000L, TimeUnit.MILLISECONDS).k(i.l.b.a.b()).w(new b(this, adDownloadData, context));
@@ -195,9 +195,9 @@ public class f {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f25189d) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f24485d) {
             TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.a);
-            this.a.b(this.f25192g);
+            this.a.b(this.f24488g);
         }
     }
 
@@ -215,11 +215,11 @@ public class f {
             }
         }
         this.a = new c(null);
-        this.f25187b = null;
-        this.f25188c = new c.a.t0.v.g.c();
-        this.f25189d = c.a.t0.a.h().w();
-        this.f25190e = c.a.t0.a.h().i();
-        this.f25192g = new a(this);
+        this.f24483b = null;
+        this.f24484c = new c.a.t0.v.g.c();
+        this.f24485d = c.a.t0.a.h().w();
+        this.f24486e = c.a.t0.a.h().i();
+        this.f24488g = new a(this);
     }
 
     /* loaded from: classes8.dex */
@@ -228,13 +228,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Activity> f25196e;
+        public WeakReference<Activity> f24492e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e f25197f;
+        public e f24493f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f25198g;
+        public boolean f24494g;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -249,17 +249,17 @@ public class f {
                     return;
                 }
             }
-            this.f25196e = null;
-            this.f25197f = null;
-            this.f25198g = true;
+            this.f24492e = null;
+            this.f24493f = null;
+            this.f24494g = true;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                WeakReference<Activity> weakReference = this.f25196e;
-                return (weakReference == null || weakReference.get() == null || !this.f25198g) ? false : true;
+                WeakReference<Activity> weakReference = this.f24492e;
+                return (weakReference == null || weakReference.get() == null || !this.f24494g) ? false : true;
             }
             return invokeV.booleanValue;
         }
@@ -267,7 +267,7 @@ public class f {
         public void b(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-                this.f25197f = eVar;
+                this.f24493f = eVar;
             }
         }
 
@@ -282,8 +282,8 @@ public class f {
         public void onActivityDestroyed(Activity activity) {
             WeakReference<Activity> weakReference;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (weakReference = this.f25196e) != null && weakReference.get() == activity) {
-                this.f25196e = null;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (weakReference = this.f24492e) != null && weakReference.get() == activity) {
+                this.f24492e = null;
             }
         }
 
@@ -299,11 +299,11 @@ public class f {
             e eVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                this.f25196e = new WeakReference<>(activity);
-                if (!this.f25198g && (eVar = this.f25197f) != null) {
+                this.f24492e = new WeakReference<>(activity);
+                if (!this.f24494g && (eVar = this.f24493f) != null) {
                     eVar.a();
                 }
-                this.f25198g = true;
+                this.f24494g = true;
             }
         }
 
@@ -325,8 +325,8 @@ public class f {
         public void onActivityStopped(Activity activity) {
             WeakReference<Activity> weakReference;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) && (weakReference = this.f25196e) != null && weakReference.get() == activity) {
-                this.f25198g = false;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) && (weakReference = this.f24492e) != null && weakReference.get() == activity) {
+                this.f24494g = false;
             }
         }
 

@@ -1,46 +1,49 @@
 package c.a.t0.d1.a3;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import c.a.s0.s.q.e2;
+import c.a.s0.s.q.x0;
+import c.a.t0.d1.d1;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.i1;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel;
-import com.baidu.tieba.frs.videomiddlepage.VideoMiddlePageFragment;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class i implements g {
+public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h a;
+    public NEGFeedBackView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoMiddleModel f16103b;
+    public TbPageContext f15758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f16104c;
+    public ViewGroup f15759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f16105d;
+    public BdUniqueId f15760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16106e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public VideoSerializeVideoThreadInfo f16107f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public VideoMiddleModel.b f16108g;
+    public NEGFeedBackView.b f15761e;
 
     /* loaded from: classes7.dex */
-    public class a implements VideoMiddleModel.b {
+    public class a implements NEGFeedBackView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -54,41 +57,48 @@ public class i implements g {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = iVar;
         }
 
-        @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
-        public void a(String str) {
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void onCheckedChanged(x0 x0Var, CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.a == null) {
-                return;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, x0Var, compoundButton, z) == null) {
             }
-            this.a.a.hideLoadingView();
-            this.a.a.showMsg(str);
-            this.a.a.onLoadFail();
         }
 
-        @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
-        public void b(List<BaseCardInfo> list, boolean z) {
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, x0 x0Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) || this.a.a == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, x0Var) == null) || arrayList == null || x0Var == null) {
                 return;
             }
-            this.a.a.hideLoadingView();
-            this.a.f16106e = z;
-            this.a.a.setData(list, z, false);
+            StringBuilder sb = new StringBuilder();
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                sb.append(arrayList.get(i2) + ",");
+            }
+            if (sb.length() > 0) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            TiebaStatic.log(new StatisticItem("c11974").param("obj_locate", sb.toString()).param("fid", x0Var.c()).param("tid", x0Var.f()).param("nid", x0Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("source", x0Var.l).param("weight", x0Var.k).param("ab_tag", x0Var.p).param("extra", x0Var.m).param("card_type", x0Var.o).param(TiebaStatic.Params.OBJ_FLOOR, x0Var.q));
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void onNEGFeedbackWindowShow(x0 x0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x0Var) == null) {
+                TiebaStatic.log(new StatisticItem("c11973").param("fid", x0Var.c()).param("tid", x0Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            }
         }
     }
 
-    public i(h hVar) {
+    public i(TbPageContext tbPageContext, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hVar};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -98,105 +108,85 @@ public class i implements g {
                 return;
             }
         }
-        this.f16108g = new a(this);
-        if (hVar instanceof VideoMiddlePageFragment) {
-            this.a = hVar;
-            hVar.setPresenter(this);
-            this.f16103b = new VideoMiddleModel(((VideoMiddlePageFragment) hVar).getPageContext(), this.f16108g);
-        }
+        this.f15761e = new a(this);
+        this.f15758b = tbPageContext;
+        this.f15759c = viewGroup;
     }
 
-    public void c() {
-        VideoMiddleModel videoMiddleModel;
+    public void a(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoMiddleModel = this.f16103b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, e2Var) == null) || e2Var == null || this.f15758b == null || this.f15759c == null) {
             return;
         }
-        videoMiddleModel.cancelLoadData();
+        int i2 = 0;
+        boolean z = (e2Var.J() == null || e2Var.J().getUserId() == null || !e2Var.J().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+        if (e2Var.A2() && e2Var.T() != null && !z) {
+            if (this.a == null) {
+                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f15758b);
+                this.a = nEGFeedBackView;
+                nEGFeedBackView.setUniqueId(this.f15760d);
+                this.a.setId(f1.negative_feedback_view);
+                this.a.setDefaultReasonArray(new String[]{this.f15758b.getString(i1.bad_quality), "", ""});
+                this.a.setEventCallback(this.f15761e);
+                this.a.attachToViewUpperRightConner(this.f15759c, c.a.d.f.p.n.f(this.f15758b.getPageActivity(), d1.tbds120), 0);
+                this.a.onChangeSkinType();
+            }
+            if (this.a.getVisibility() != 0) {
+                this.a.setVisibility(0);
+            }
+            x0 x0Var = new x0();
+            x0Var.o(e2Var.v1());
+            x0Var.k(e2Var.U());
+            x0Var.n(e2Var.G0());
+            x0Var.j(e2Var.T());
+            x0Var.f13531g = e2Var.m1;
+            this.a.setData(x0Var);
+        } else {
+            NEGFeedBackView nEGFeedBackView2 = this.a;
+            if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
+                this.a.setVisibility(8);
+            }
+            i2 = c.a.d.f.p.n.f(this.f15758b.getPageActivity(), d1.ds32);
+        }
+        if (this.f15759c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f15759c.getLayoutParams();
+            layoutParams.rightMargin = i2;
+            this.f15759c.setLayoutParams(layoutParams);
+        }
+        if (this.f15759c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f15759c.getLayoutParams();
+            layoutParams2.rightMargin = i2;
+            this.f15759c.setLayoutParams(layoutParams2);
+        }
+        NEGFeedBackView nEGFeedBackView3 = this.a;
+        if (nEGFeedBackView3 != null) {
+            nEGFeedBackView3.dismissPopupWindow();
+        }
     }
 
-    public int d() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            VideoMiddleModel videoMiddleModel = this.f16103b;
-            if (videoMiddleModel != null) {
-                return videoMiddleModel.A();
-            }
-            return 0;
+            NEGFeedBackView nEGFeedBackView = this.a;
+            return nEGFeedBackView != null && nEGFeedBackView.getVisibility() == 0;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public VideoSerializeVideoThreadInfo e() {
-        InterceptResult invokeV;
+    public void c() {
+        NEGFeedBackView nEGFeedBackView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16107f : (VideoSerializeVideoThreadInfo) invokeV.objValue;
-    }
-
-    public void f() {
-        VideoMiddleModel videoMiddleModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (videoMiddleModel = this.f16103b) != null && this.f16106e) {
-            videoMiddleModel.setFrom(this.f16105d);
-            this.f16103b.loadData();
-        }
-    }
-
-    public void g() {
-        VideoMiddleModel videoMiddleModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoMiddleModel = this.f16103b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (nEGFeedBackView = this.a) == null) {
             return;
         }
-        videoMiddleModel.setFrom(this.f16105d);
-        this.f16103b.loadData();
+        nEGFeedBackView.onChangeSkinType();
     }
 
-    public void h(String str) {
+    public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f16105d = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f16104c = str;
-            VideoMiddleModel videoMiddleModel = this.f16103b;
-            if (videoMiddleModel != null) {
-                videoMiddleModel.B(str);
-            }
-        }
-    }
-
-    public void j(String str) {
-        VideoMiddleModel videoMiddleModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (videoMiddleModel = this.f16103b) == null) {
-            return;
-        }
-        videoMiddleModel.C(str);
-    }
-
-    public void k(String str) {
-        VideoMiddleModel videoMiddleModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (videoMiddleModel = this.f16103b) == null) {
-            return;
-        }
-        videoMiddleModel.D(str);
-    }
-
-    public void l(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, videoSerializeVideoThreadInfo) == null) {
-            this.f16107f = videoSerializeVideoThreadInfo;
-            VideoMiddleModel videoMiddleModel = this.f16103b;
-            if (videoMiddleModel != null) {
-                videoMiddleModel.E(videoSerializeVideoThreadInfo);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.f15760d = bdUniqueId;
         }
     }
 }

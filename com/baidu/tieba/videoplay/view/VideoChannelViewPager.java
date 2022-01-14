@@ -25,25 +25,23 @@ public class VideoChannelViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f50933e;
+    public float f48994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f50934f;
+    public float f48995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50935g;
+    public int f48996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50936h;
+    public boolean f48997h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f50937i;
+    public boolean f48998i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b.InterfaceC0838b f50938j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public List<String> f50939k;
+    public b.InterfaceC0848b f48999j;
+    public List<String> k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoChannelViewPager(@NonNull Context context) {
@@ -63,15 +61,15 @@ public class VideoChannelViewPager extends ViewPager {
                 return;
             }
         }
-        this.f50936h = true;
-        this.f50939k = new ArrayList();
+        this.f48997h = true;
+        this.k = new ArrayList();
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f50935g = ViewConfiguration.get(context).getScaledPagingTouchSlop();
+            this.f48996g = ViewConfiguration.get(context).getScaledPagingTouchSlop();
         }
     }
 
@@ -81,7 +79,7 @@ public class VideoChannelViewPager extends ViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f50936h = ((float) getHeight()) - motionEvent.getY() > ((float) (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() + n.f(getContext(), d.tbds50)));
+                this.f48997h = ((float) getHeight()) - motionEvent.getY() > ((float) (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() + n.f(getContext(), d.tbds50)));
             }
             handleTouchEvent(motionEvent);
             return super.dispatchTouchEvent(motionEvent);
@@ -92,36 +90,36 @@ public class VideoChannelViewPager extends ViewPager {
     public void handleTouchEvent(MotionEvent motionEvent) {
         float f2;
         float f3;
-        b.InterfaceC0838b interfaceC0838b;
+        b.InterfaceC0848b interfaceC0848b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) && this.f50937i && this.f50936h) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) && this.f48998i && this.f48997h) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f50939k.clear();
-                this.f50933e = motionEvent.getX();
-                this.f50934f = motionEvent.getY();
+                this.k.clear();
+                this.f48994e = motionEvent.getX();
+                this.f48995f = motionEvent.getY();
             } else if (action != 1) {
                 if (action != 2) {
                     return;
                 }
-                this.f50939k.add(motionEvent.getX() + "&" + motionEvent.getY());
+                this.k.add(motionEvent.getX() + "&" + motionEvent.getY());
             } else if (getCurrentItem() != 1) {
             } else {
                 float x = motionEvent.getX();
-                float f4 = this.f50933e;
-                if (x >= f4 || f4 - motionEvent.getX() <= this.f50935g) {
+                float f4 = this.f48994e;
+                if (x >= f4 || f4 - motionEvent.getX() <= this.f48996g) {
                     return;
                 }
-                int size = this.f50939k.size() / 2;
-                if (this.f50939k.size() > size && this.f50939k.get(size) != null) {
-                    String[] split = this.f50939k.get(size).split("&");
+                int size = this.k.size() / 2;
+                if (this.k.size() > size && this.k.get(size) != null) {
+                    String[] split = this.k.get(size).split("&");
                     if (split.length > 1) {
-                        f3 = Math.abs(this.f50933e - Float.parseFloat(split[0]));
-                        f2 = Math.abs(this.f50934f - Float.parseFloat(split[1]));
-                        if (f3 != 0.0f || f2 / f3 > Math.tan(Math.toRadians(30.0d)) || (interfaceC0838b = this.f50938j) == null) {
+                        f3 = Math.abs(this.f48994e - Float.parseFloat(split[0]));
+                        f2 = Math.abs(this.f48995f - Float.parseFloat(split[1]));
+                        if (f3 != 0.0f || f2 / f3 > Math.tan(Math.toRadians(30.0d)) || (interfaceC0848b = this.f48999j) == null) {
                             return;
                         }
-                        interfaceC0838b.onViewDragToRight();
+                        interfaceC0848b.onViewDragToRight();
                         return;
                     }
                 }
@@ -138,7 +136,7 @@ public class VideoChannelViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.f50937i && this.f50936h) {
+            if (this.f48998i && this.f48997h) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -151,7 +149,7 @@ public class VideoChannelViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.f50937i && this.f50936h) {
+            if (this.f48998i && this.f48997h) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -159,17 +157,17 @@ public class VideoChannelViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
-    public void setListener(b.InterfaceC0838b interfaceC0838b) {
+    public void setListener(b.InterfaceC0848b interfaceC0848b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0838b) == null) {
-            this.f50938j = interfaceC0838b;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0848b) == null) {
+            this.f48999j = interfaceC0848b;
         }
     }
 
     public void setScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f50937i = z;
+            this.f48998i = z;
         }
     }
 
@@ -192,8 +190,8 @@ public class VideoChannelViewPager extends ViewPager {
                 return;
             }
         }
-        this.f50936h = true;
-        this.f50939k = new ArrayList();
+        this.f48997h = true;
+        this.k = new ArrayList();
         a(context);
     }
 }

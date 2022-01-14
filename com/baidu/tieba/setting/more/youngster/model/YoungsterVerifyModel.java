@@ -1,6 +1,7 @@
 package com.baidu.tieba.setting.more.youngster.model;
 
 import c.a.d.a.f;
+import c.a.t0.m3.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -12,7 +13,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.R;
 import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,13 +25,13 @@ public class YoungsterVerifyModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49717e;
+    public b f47849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f49718f;
+    public TbPageContext<?> f47850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f49719g;
+    public HttpMessageListener f47851g;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -73,16 +73,16 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (!StringUtils.isNull(this.a.mErrorString)) {
                 str = this.a.mErrorString;
             } else {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
+                str = TbadkCoreApplication.getInst().getResources().getString(g.neterror);
             }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.a.mErrorCode);
             errorData.setError_msg(str);
             YoungsterVerifyHttpResponsedMessage youngsterVerifyHttpResponsedMessage = httpResponsedMessage instanceof YoungsterVerifyHttpResponsedMessage ? (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage : null;
             if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().a) {
-                this.a.f49717e.onSuccess();
+                this.a.f47849e.onSuccess();
             } else {
-                this.a.f49717e.onError(errorData);
+                this.a.f47849e.onError(errorData);
             }
         }
     }
@@ -113,11 +113,11 @@ public class YoungsterVerifyModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
-        this.f49719g = aVar;
-        this.f49718f = tbPageContext;
+        this.f47851g = aVar;
+        this.f47850f = tbPageContext;
         aVar.setSelfListener(true);
-        registerListener(this.f49719g);
-        this.f49717e = bVar;
+        registerListener(this.f47851g);
+        this.f47849e = bVar;
     }
 
     public void B(String str) {
@@ -126,7 +126,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
             httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
             httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);
-            this.f49718f.sendMessage(httpMessage);
+            this.f47850f.sendMessage(httpMessage);
         }
     }
 

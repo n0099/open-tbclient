@@ -16,10 +16,10 @@ public class d {
     public volatile int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f25669b;
+    public volatile int f24951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile HashMap<Long, Integer> f25670c;
+    public volatile HashMap<Long, Integer> f24952c;
 
     public d(int i2) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class d {
                 return;
             }
         }
-        this.f25670c = new HashMap<>();
+        this.f24952c = new HashMap<>();
         this.a = 0;
-        this.f25669b = i2;
+        this.f24951b = i2;
     }
 
     public void a(String str) {
@@ -47,11 +47,11 @@ public class d {
             try {
                 Long valueOf = Long.valueOf(Long.parseLong(str));
                 synchronized (this) {
-                    if (this.f25670c.size() >= this.f25669b) {
+                    if (this.f24952c.size() >= this.f24951b) {
                         c();
                     }
                     this.a++;
-                    this.f25670c.put(valueOf, Integer.valueOf(this.a));
+                    this.f24952c.put(valueOf, Integer.valueOf(this.a));
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -64,7 +64,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                return this.f25670c.containsKey(Long.valueOf(Long.parseLong(str)));
+                return this.f24952c.containsKey(Long.valueOf(Long.parseLong(str)));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 return false;
@@ -79,7 +79,7 @@ public class d {
             synchronized (this) {
                 Long l = null;
                 int i2 = 134217727;
-                for (Map.Entry<Long, Integer> entry : this.f25670c.entrySet()) {
+                for (Map.Entry<Long, Integer> entry : this.f24952c.entrySet()) {
                     if (entry.getValue().intValue() < i2) {
                         int intValue = entry.getValue().intValue();
                         i2 = intValue;
@@ -87,9 +87,9 @@ public class d {
                     }
                 }
                 if (l != null) {
-                    this.f25670c.remove(l);
+                    this.f24952c.remove(l);
                 } else {
-                    this.f25670c.clear();
+                    this.f24952c.clear();
                 }
             }
         }
@@ -102,7 +102,7 @@ public class d {
             try {
                 Long valueOf = Long.valueOf(Long.parseLong(str));
                 synchronized (this) {
-                    return this.f25670c.get(valueOf) != null;
+                    return this.f24952c.get(valueOf) != null;
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

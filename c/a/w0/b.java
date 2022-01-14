@@ -18,10 +18,10 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f27359e;
+    public MethodChannel f26541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f27360f;
+    public Context f26542f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, flutterPluginBinding) == null) {
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "ubcflutter");
-            this.f27359e = methodChannel;
+            this.f26541e = methodChannel;
             methodChannel.setMethodCallHandler(this);
-            this.f27360f = flutterPluginBinding.getApplicationContext();
+            this.f26542f = flutterPluginBinding.getApplicationContext();
         }
     }
 
@@ -52,7 +52,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
-            this.f27359e.setMethodCallHandler(null);
+            this.f26541e.setMethodCallHandler(null);
         }
     }
 

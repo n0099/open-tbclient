@@ -21,10 +21,10 @@ public class VoiceButton extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f50116e;
+    public f f48228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f50117f;
+    public boolean f48229f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoiceButton(Context context, AttributeSet attributeSet) {
@@ -45,7 +45,7 @@ public class VoiceButton extends ImageView {
                 return;
             }
         }
-        this.f50117f = false;
+        this.f48229f = false;
     }
 
     public a getRecorderManager() {
@@ -88,14 +88,14 @@ public class VoiceButton extends ImageView {
                 if (recorderManager == null || !recorderManager.e()) {
                     return false;
                 }
-                this.f50117f = recorderManager.c(this.f50116e, -1);
+                this.f48229f = recorderManager.c(this.f48228e, -1);
                 setPressed(true);
             } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                 if (!isPressed()) {
                     setPressed(true);
                 }
             } else {
-                if (this.f50117f && recorderManager != null) {
+                if (this.f48229f && recorderManager != null) {
                     recorderManager.stopRecord();
                 }
                 setPressed(false);
@@ -108,7 +108,7 @@ public class VoiceButton extends ImageView {
     public void setRecorderView(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f50116e = fVar;
+            this.f48228e = fVar;
             a recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.d(fVar);

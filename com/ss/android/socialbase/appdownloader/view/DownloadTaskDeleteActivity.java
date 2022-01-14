@@ -24,11 +24,11 @@ public class DownloadTaskDeleteActivity extends Activity {
     public k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f62164b;
+    public Intent f59818b;
 
     private void b() {
         Intent intent;
-        if (this.a != null || (intent = this.f62164b) == null) {
+        if (this.a != null || (intent = this.f59818b) == null) {
             return;
         }
         try {
@@ -113,7 +113,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f62164b = getIntent();
+        this.f59818b = getIntent();
         b();
         k kVar = this.a;
         if (kVar != null && !kVar.b()) {

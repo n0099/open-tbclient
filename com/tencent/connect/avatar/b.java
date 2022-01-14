@@ -19,7 +19,7 @@ public class b extends View {
     public Rect a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f62783b;
+    public Paint f60415b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -45,7 +45,7 @@ public class b extends View {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f62783b = new Paint();
+            this.f60415b = new Paint();
         }
     }
 
@@ -75,17 +75,17 @@ public class b extends View {
             Rect a = a();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.f62783b.setStyle(Paint.Style.FILL);
-            this.f62783b.setColor(Color.argb(100, 0, 0, 0));
+            this.f60415b.setStyle(Paint.Style.FILL);
+            this.f60415b.setColor(Color.argb(100, 0, 0, 0));
             float f2 = measuredWidth;
-            canvas.drawRect(0.0f, 0.0f, f2, a.top, this.f62783b);
-            canvas.drawRect(0.0f, a.bottom, f2, measuredHeight, this.f62783b);
-            canvas.drawRect(0.0f, a.top, a.left, a.bottom, this.f62783b);
-            canvas.drawRect(a.right, a.top, f2, a.bottom, this.f62783b);
+            canvas.drawRect(0.0f, 0.0f, f2, a.top, this.f60415b);
+            canvas.drawRect(0.0f, a.bottom, f2, measuredHeight, this.f60415b);
+            canvas.drawRect(0.0f, a.top, a.left, a.bottom, this.f60415b);
+            canvas.drawRect(a.right, a.top, f2, a.bottom, this.f60415b);
             canvas.drawColor(Color.argb(100, 0, 0, 0));
-            this.f62783b.setStyle(Paint.Style.STROKE);
-            this.f62783b.setColor(-1);
-            canvas.drawRect(a.left, a.top, a.right - 1, a.bottom, this.f62783b);
+            this.f60415b.setStyle(Paint.Style.STROKE);
+            this.f60415b.setColor(-1);
+            canvas.drawRect(a.left, a.top, a.right - 1, a.bottom, this.f60415b);
         }
     }
 }

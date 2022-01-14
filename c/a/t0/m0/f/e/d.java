@@ -16,13 +16,13 @@ public final class d {
     public final List<c.a.t0.m0.e.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19772b;
+    public int f19259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19773c;
+    public int f19260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f19774d;
+    public boolean f19261d;
 
     public d(List<c.a.t0.m0.e.a> data, long j2, long j3, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class d {
         }
         Intrinsics.checkNotNullParameter(data, "data");
         this.a = data;
-        this.f19772b = i2;
-        this.f19773c = i3;
-        this.f19774d = z;
+        this.f19259b = i2;
+        this.f19260c = i3;
+        this.f19261d = z;
     }
 
     public final List<c.a.t0.m0.e.a> a() {
@@ -55,39 +55,39 @@ public final class d {
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19773c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19260c : invokeV.intValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19774d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19261d : invokeV.booleanValue;
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19772b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19259b : invokeV.intValue;
     }
 
     public final void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f19773c = i2;
+            this.f19260c = i2;
         }
     }
 
     public final void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f19774d = z;
+            this.f19261d = z;
         }
     }
 
     public final void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f19772b = i2;
+            this.f19259b = i2;
         }
     }
 

@@ -28,10 +28,10 @@ public class l extends com.kwad.sdk.h.e {
     public static l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f59574b;
+    public AdTemplate f57322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f59575c;
+    public a f57323c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -49,16 +49,16 @@ public class l extends com.kwad.sdk.h.e {
         public l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f59576b;
+        public a f57324b;
 
         public b(@Nullable l lVar, @Nullable a aVar) {
-            this.f59576b = aVar;
+            this.f57324b = aVar;
             this.a = lVar;
         }
 
         @Override // com.kwad.sdk.reward.l.a
         public void a() {
-            a aVar = this.f59576b;
+            a aVar = this.f57324b;
             if (aVar != null) {
                 aVar.a();
             }
@@ -67,7 +67,7 @@ public class l extends com.kwad.sdk.h.e {
         @Override // com.kwad.sdk.reward.l.a
         public void b() {
             e();
-            a aVar = this.f59576b;
+            a aVar = this.f57324b;
             if (aVar != null) {
                 aVar.b();
             }
@@ -75,7 +75,7 @@ public class l extends com.kwad.sdk.h.e {
 
         @Override // com.kwad.sdk.reward.l.a
         public void c() {
-            a aVar = this.f59576b;
+            a aVar = this.f57324b;
             if (aVar != null) {
                 aVar.c();
             }
@@ -84,7 +84,7 @@ public class l extends com.kwad.sdk.h.e {
         @Override // com.kwad.sdk.reward.l.a
         public void d() {
             e();
-            a aVar = this.f59576b;
+            a aVar = this.f57324b;
             if (aVar != null) {
                 aVar.d();
             }
@@ -103,68 +103,68 @@ public class l extends com.kwad.sdk.h.e {
         public ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f59577b;
+        public a f57325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ViewGroup f59578c;
+        public ViewGroup f57326c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f59579d;
+        public TextView f57327d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f59580e;
+        public TextView f57328e;
 
         /* renamed from: f  reason: collision with root package name */
-        public KSCornerImageView f59581f;
+        public KSCornerImageView f57329f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f59582g;
+        public TextView f57330g;
 
         /* renamed from: h  reason: collision with root package name */
-        public KsStyledTextButton f59583h;
+        public KsStyledTextButton f57331h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f59584i;
+        public View f57332i;
 
         /* renamed from: j  reason: collision with root package name */
-        public AdTemplate f59585j;
+        public AdTemplate f57333j;
 
         public c(ViewGroup viewGroup, AdTemplate adTemplate) {
             this.a = viewGroup;
-            this.f59585j = adTemplate;
+            this.f57333j = adTemplate;
             b();
         }
 
         private void a(e eVar) {
-            this.f59579d.setText(eVar.b());
+            this.f57327d.setText(eVar.b());
             SpannableString g2 = eVar.g();
             if (g2 != null) {
-                this.f59580e.setText(g2);
+                this.f57328e.setText(g2);
             }
-            this.f59582g.setText(eVar.c());
-            this.f59583h.setText(eVar.d());
-            KSImageLoader.loadImage(this.f59581f, eVar.a(), this.f59585j);
+            this.f57330g.setText(eVar.c());
+            this.f57331h.setText(eVar.d());
+            KSImageLoader.loadImage(this.f57329f, eVar.a(), this.f57333j);
         }
 
         private void b() {
-            this.f59578c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_follow_end_root);
-            this.f59579d = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_title);
-            this.f59580e = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_fans);
-            this.f59581f = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_end_icon);
-            this.f59582g = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_desc);
-            this.f59583h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_follow_end_btn_follow);
-            this.f59584i = this.a.findViewById(R.id.ksad_reward_follow_end_btn_close);
-            this.f59583h.setOnClickListener(this);
-            this.f59584i.setOnClickListener(this);
-            this.f59581f.setOnClickListener(this);
-            this.f59579d.setOnClickListener(this);
-            this.f59580e.setOnClickListener(this);
-            this.f59582g.setOnClickListener(this);
+            this.f57326c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_follow_end_root);
+            this.f57327d = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_title);
+            this.f57328e = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_fans);
+            this.f57329f = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_follow_end_icon);
+            this.f57330g = (TextView) this.a.findViewById(R.id.ksad_reward_follow_end_desc);
+            this.f57331h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_follow_end_btn_follow);
+            this.f57332i = this.a.findViewById(R.id.ksad_reward_follow_end_btn_close);
+            this.f57331h.setOnClickListener(this);
+            this.f57332i.setOnClickListener(this);
+            this.f57329f.setOnClickListener(this);
+            this.f57327d.setOnClickListener(this);
+            this.f57328e.setOnClickListener(this);
+            this.f57330g.setOnClickListener(this);
         }
 
         @Override // com.kwad.sdk.reward.d.d
         public ViewGroup a() {
-            return this.f59578c;
+            return this.f57326c;
         }
 
         @Override // com.kwad.sdk.reward.d.d
@@ -174,20 +174,20 @@ public class l extends com.kwad.sdk.h.e {
         }
 
         public void a(a aVar) {
-            this.f59577b = aVar;
+            this.f57325b = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f59577b == null) {
+            if (this.f57325b == null) {
                 return;
             }
-            if (view.equals(this.f59584i)) {
-                this.f59577b.b();
-            } else if (view.equals(this.f59583h)) {
-                this.f59577b.c();
-            } else if (view.equals(this.f59582g) || view.equals(this.f59579d) || view.equals(this.f59580e)) {
-                this.f59577b.d();
+            if (view.equals(this.f57332i)) {
+                this.f57325b.b();
+            } else if (view.equals(this.f57331h)) {
+                this.f57325b.c();
+            } else if (view.equals(this.f57330g) || view.equals(this.f57327d) || view.equals(this.f57328e)) {
+                this.f57325b.d();
             }
         }
     }
@@ -197,28 +197,28 @@ public class l extends com.kwad.sdk.h.e {
         public ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a f59586b;
+        public a f57334b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ViewGroup f59587c;
+        public ViewGroup f57335c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f59588d;
+        public TextView f57336d;
 
         /* renamed from: e  reason: collision with root package name */
-        public KSCornerImageView f59589e;
+        public KSCornerImageView f57337e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f59590f;
+        public TextView f57338f;
 
         /* renamed from: g  reason: collision with root package name */
-        public KsPriceView f59591g;
+        public KsPriceView f57339g;
 
         /* renamed from: h  reason: collision with root package name */
-        public KsStyledTextButton f59592h;
+        public KsStyledTextButton f57340h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f59593i;
+        public View f57341i;
 
         public d(ViewGroup viewGroup) {
             this.a = viewGroup;
@@ -226,31 +226,31 @@ public class l extends com.kwad.sdk.h.e {
         }
 
         private void a(e eVar, AdTemplate adTemplate) {
-            this.f59592h.setText(eVar.d());
-            this.f59588d.setText(eVar.b());
-            this.f59590f.setText(eVar.c());
-            this.f59591g.a(eVar.e(), eVar.f());
-            KSImageLoader.loadImage(this.f59589e, eVar.a(), adTemplate);
+            this.f57340h.setText(eVar.d());
+            this.f57336d.setText(eVar.b());
+            this.f57338f.setText(eVar.c());
+            this.f57339g.a(eVar.e(), eVar.f());
+            KSImageLoader.loadImage(this.f57337e, eVar.a(), adTemplate);
         }
 
         private void b() {
-            this.f59587c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_end_card_root);
-            this.f59588d = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_title);
-            this.f59589e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_end_icon);
-            this.f59590f = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_desc);
-            this.f59591g = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_end_price);
-            this.f59592h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_order_end_btn_buy);
-            this.f59593i = this.a.findViewById(R.id.ksad_reward_order_end_btn_close);
-            this.f59592h.setOnClickListener(this);
-            this.f59593i.setOnClickListener(this);
-            this.f59590f.setOnClickListener(this);
-            this.f59591g.setOnClickListener(this);
-            this.f59588d.setOnClickListener(this);
+            this.f57335c = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_end_card_root);
+            this.f57336d = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_title);
+            this.f57337e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_end_icon);
+            this.f57338f = (TextView) this.a.findViewById(R.id.ksad_reward_order_end_desc);
+            this.f57339g = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_end_price);
+            this.f57340h = (KsStyledTextButton) this.a.findViewById(R.id.ksad_reward_order_end_btn_buy);
+            this.f57341i = this.a.findViewById(R.id.ksad_reward_order_end_btn_close);
+            this.f57340h.setOnClickListener(this);
+            this.f57341i.setOnClickListener(this);
+            this.f57338f.setOnClickListener(this);
+            this.f57339g.setOnClickListener(this);
+            this.f57336d.setOnClickListener(this);
         }
 
         @Override // com.kwad.sdk.reward.d.d
         public ViewGroup a() {
-            return this.f59587c;
+            return this.f57335c;
         }
 
         @Override // com.kwad.sdk.reward.d.d
@@ -260,20 +260,20 @@ public class l extends com.kwad.sdk.h.e {
         }
 
         public void a(a aVar) {
-            this.f59586b = aVar;
+            this.f57334b = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.f59586b == null) {
+            if (this.f57334b == null) {
                 return;
             }
-            if (view.equals(this.f59593i)) {
-                this.f59586b.b();
-            } else if (view.equals(this.f59592h)) {
-                this.f59586b.c();
-            } else if (view.equals(this.f59590f) || view.equals(this.f59588d) || view.equals(this.f59591g)) {
-                this.f59586b.d();
+            if (view.equals(this.f57341i)) {
+                this.f57334b.b();
+            } else if (view.equals(this.f57340h)) {
+                this.f57334b.c();
+            } else if (view.equals(this.f57338f) || view.equals(this.f57336d) || view.equals(this.f57339g)) {
+                this.f57334b.d();
             }
         }
     }
@@ -283,22 +283,22 @@ public class l extends com.kwad.sdk.h.e {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59594b;
+        public String f57342b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59595c;
+        public String f57343c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59596d;
+        public String f57344d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59597e;
+        public String f57345e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f59598f;
+        public String f57346f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SpannableString f59599g;
+        public SpannableString f57347g;
 
         @Nullable
         public static e a(AdTemplate adTemplate) {
@@ -307,11 +307,11 @@ public class l extends com.kwad.sdk.h.e {
             }
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             e eVar = new e();
-            eVar.f59594b = com.kwad.sdk.core.response.a.a.aD(j2);
+            eVar.f57342b = com.kwad.sdk.core.response.a.a.aD(j2);
             eVar.a = com.kwad.sdk.core.response.a.a.aE(j2);
-            eVar.f59599g = com.kwad.sdk.core.response.a.a.a(j2, com.kwad.sdk.core.config.b.aJ());
-            eVar.f59595c = com.kwad.sdk.core.response.a.a.aC(j2);
-            eVar.f59596d = com.kwad.sdk.core.response.a.a.aA(j2) ? com.kwad.sdk.core.config.b.aD() : com.kwad.sdk.core.config.b.aG();
+            eVar.f57347g = com.kwad.sdk.core.response.a.a.a(j2, com.kwad.sdk.core.config.b.aJ());
+            eVar.f57343c = com.kwad.sdk.core.response.a.a.aC(j2);
+            eVar.f57344d = com.kwad.sdk.core.response.a.a.aA(j2) ? com.kwad.sdk.core.config.b.aD() : com.kwad.sdk.core.config.b.aG();
             return eVar;
         }
 
@@ -323,12 +323,12 @@ public class l extends com.kwad.sdk.h.e {
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(j2);
             e eVar = new e();
-            eVar.f59594b = aK.getName();
+            eVar.f57342b = aK.getName();
             eVar.a = aK.getIcon();
-            eVar.f59595c = com.kwad.sdk.core.response.a.a.s(j2);
-            eVar.f59596d = com.kwad.sdk.core.config.b.aE();
-            eVar.f59597e = aK.getPrice();
-            eVar.f59598f = aK.getOriginPrice();
+            eVar.f57343c = com.kwad.sdk.core.response.a.a.s(j2);
+            eVar.f57344d = com.kwad.sdk.core.config.b.aE();
+            eVar.f57345e = aK.getPrice();
+            eVar.f57346f = aK.getOriginPrice();
             return eVar;
         }
 
@@ -337,27 +337,27 @@ public class l extends com.kwad.sdk.h.e {
         }
 
         public String b() {
-            return this.f59594b;
+            return this.f57342b;
         }
 
         public String c() {
-            return this.f59595c;
+            return this.f57343c;
         }
 
         public String d() {
-            return this.f59596d;
+            return this.f57344d;
         }
 
         public String e() {
-            return this.f59597e;
+            return this.f57345e;
         }
 
         public String f() {
-            return this.f59598f;
+            return this.f57346f;
         }
 
         public SpannableString g() {
-            return this.f59599g;
+            return this.f57347g;
         }
     }
 
@@ -400,25 +400,25 @@ public class l extends com.kwad.sdk.h.e {
         try {
             String string = getArguments().getString("key_template_json");
             AdTemplate adTemplate = new AdTemplate();
-            this.f59574b = adTemplate;
+            this.f57322b = adTemplate;
             adTemplate.parseJson(new JSONObject(string));
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
-        if (a(this.f59574b) != 0) {
+        if (a(this.f57322b) != 0) {
             inflate = layoutInflater.inflate(R.layout.ksad_reward_order_end_dialog, viewGroup, false);
             d dVar = new d((ViewGroup) inflate);
-            dVar.a(new b(this, this.f59575c));
+            dVar.a(new b(this, this.f57323c));
             cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL());
             cVar2 = dVar;
         } else {
             inflate = layoutInflater.inflate(R.layout.ksad_reward_follow_end_dialog, viewGroup, false);
-            c cVar3 = new c((ViewGroup) inflate, this.f59574b);
-            cVar3.a(new b(this, this.f59575c));
+            c cVar3 = new c((ViewGroup) inflate, this.f57322b);
+            cVar3.a(new b(this, this.f57323c));
             cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aJ());
             cVar2 = cVar3;
         }
-        cVar2.a(this.f59574b);
+        cVar2.a(this.f57322b);
         w.a(cVar, cVar2.a());
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.kwad.sdk.reward.l.1
             @Override // android.content.DialogInterface.OnKeyListener
@@ -430,7 +430,7 @@ public class l extends com.kwad.sdk.h.e {
     }
 
     public void a(a aVar) {
-        this.f59575c = aVar;
+        this.f57323c = aVar;
     }
 
     @Override // android.app.DialogFragment, android.app.Fragment
@@ -443,7 +443,7 @@ public class l extends com.kwad.sdk.h.e {
         getDialog().setCanceledOnTouchOutside(false);
         window.setLayout(-1, -1);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        a aVar = this.f59575c;
+        a aVar = this.f57323c;
         if (aVar != null) {
             aVar.a();
         }

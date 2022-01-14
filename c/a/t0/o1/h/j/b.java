@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c.a.t0.g0.f0.i implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public CardForum f21098i;
+    public CardForum f20534i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class b extends c.a.t0.g0.f0.i implements q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.f21098i;
+            CardForum cardForum = this.f20534i;
             if (cardForum != null) {
                 return cardForum.position.intValue();
             }
@@ -90,7 +90,7 @@ public class b extends c.a.t0.g0.f0.i implements q {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, cardForum) == null) || cardForum == null) {
             return;
         }
-        this.f21098i = cardForum;
+        this.f20534i = cardForum;
         this.mGroupTitle = cardForum.card_title;
         if (cardForum.position != null) {
             p(k() + cardForum.position.intValue());
@@ -101,10 +101,10 @@ public class b extends c.a.t0.g0.f0.i implements q {
             for (PersonalForum personalForum : cardForum.forum_list) {
                 if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                     c.a.t0.g0.f0.g gVar = new c.a.t0.g0.f0.g();
-                    gVar.f18233b = personalForum.avatar;
-                    gVar.f18234c = personalForum.forum_name;
-                    gVar.f18235d = c.a.d.f.m.b.e("" + personalForum.forum_id, -1);
-                    gVar.f18236e = personalForum.is_like.intValue() == 1;
+                    gVar.f17788b = personalForum.avatar;
+                    gVar.f17789c = personalForum.forum_name;
+                    gVar.f17790d = c.a.d.f.m.b.e("" + personalForum.forum_id, -1);
+                    gVar.f17791e = personalForum.is_like.intValue() == 1;
                     g(gVar);
                 }
             }

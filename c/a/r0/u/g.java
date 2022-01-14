@@ -11,34 +11,32 @@ public class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12104b;
+    public String f11824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12105c;
+    public String f11825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12106d;
+    public int f11826d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12107e;
+    public String f11827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12108f;
+    public String f11828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12109g;
+    public int f11829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12110h;
+    public String f11830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12111i;
+    public int f11831i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12112j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f12113k;
+    public int f11832j;
+    public String k;
 
     public g(String str, String str2, String str3, int i2, String str4, String str5) {
         Interceptable interceptable = $ic;
@@ -56,10 +54,10 @@ public class g {
             }
         }
         this.a = str;
-        this.f12104b = str2;
-        this.f12105c = str3;
-        this.f12106d = i2;
-        this.f12107e = str4;
-        this.f12108f = str5;
+        this.f11824b = str2;
+        this.f11825c = str3;
+        this.f11826d = i2;
+        this.f11827e = str4;
+        this.f11828f = str5;
     }
 }

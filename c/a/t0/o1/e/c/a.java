@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.RecomVertical.SubClassItem;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20872b;
+    public String f20312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f20873c;
+    public String f20313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20874d;
+    public int f20314d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class a extends p {
             return;
         }
         this.a = subClassItem.sub_class_id.intValue();
-        this.f20872b = subClassItem.sub_class_name;
-        this.f20873c = subClassItem.sub_class_icon;
-        this.f20874d = subClassItem.enable.intValue();
+        this.f20312b = subClassItem.sub_class_name;
+        this.f20313c = subClassItem.sub_class_icon;
+        this.f20314d = subClassItem.enable.intValue();
     }
 
     @Override // c.a.s0.s.q.p
@@ -56,8 +56,8 @@ public class a extends p {
             return;
         }
         this.a = jSONObject.optInt("sub_class_id");
-        this.f20872b = jSONObject.optString("sub_class_name");
-        this.f20873c = jSONObject.optString("sub_class_icon");
-        this.f20874d = jSONObject.optInt(c.l);
+        this.f20312b = jSONObject.optString("sub_class_name");
+        this.f20313c = jSONObject.optString("sub_class_icon");
+        this.f20314d = jSONObject.optInt(c.l);
     }
 }

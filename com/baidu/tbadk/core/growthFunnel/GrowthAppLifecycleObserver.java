@@ -18,10 +18,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f41679e = true;
+    public static boolean f40248e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f41680f;
+    public static long f40249f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,8 +57,8 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.l();
-            a.o(null, true);
+            a.k();
+            a.n(null, true);
         }
     }
 
@@ -66,19 +66,20 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (f41679e) {
-                f41679e = false;
-                a.k("lifecycle-1st-create", false);
-                a.p();
+            if (f40248e) {
+                f40248e = false;
+                a.j("lifecycle-1st-create", false);
+                a.o();
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - f41680f;
+            a.f13676b = true;
+            long currentTimeMillis = System.currentTimeMillis() - f40249f;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            a.j(currentTimeMillis);
-            a.k("lifecycle", true);
-            a.p();
+            a.i(currentTimeMillis);
+            a.j("lifecycle", true);
+            a.o();
         }
     }
 
@@ -86,8 +87,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.o(null, true);
-            f41680f = System.currentTimeMillis();
+            a.n(null, true);
+            f40249f = System.currentTimeMillis();
+            a.f13676b = false;
         }
     }
 }

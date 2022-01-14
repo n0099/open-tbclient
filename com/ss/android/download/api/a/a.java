@@ -27,34 +27,34 @@ public class a implements k {
         if (bVar == null) {
             return null;
         }
-        AlertDialog show = new AlertDialog.Builder(bVar.a).setTitle(bVar.f61660b).setMessage(bVar.f61661c).setPositiveButton(bVar.f61662d, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.2
+        AlertDialog show = new AlertDialog.Builder(bVar.a).setTitle(bVar.f59324b).setMessage(bVar.f59325c).setPositiveButton(bVar.f59326d, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                b.InterfaceC2162b interfaceC2162b = com.ss.android.download.api.model.b.this.f61666h;
-                if (interfaceC2162b != null) {
-                    interfaceC2162b.a(dialogInterface);
+                b.InterfaceC2179b interfaceC2179b = com.ss.android.download.api.model.b.this.f59330h;
+                if (interfaceC2179b != null) {
+                    interfaceC2179b.a(dialogInterface);
                 }
             }
-        }).setNegativeButton(bVar.f61663e, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.1
+        }).setNegativeButton(bVar.f59327e, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
-                b.InterfaceC2162b interfaceC2162b = com.ss.android.download.api.model.b.this.f61666h;
-                if (interfaceC2162b != null) {
-                    interfaceC2162b.b(dialogInterface);
+                b.InterfaceC2179b interfaceC2179b = com.ss.android.download.api.model.b.this.f59330h;
+                if (interfaceC2179b != null) {
+                    interfaceC2179b.b(dialogInterface);
                 }
             }
         }).show();
-        show.setCanceledOnTouchOutside(bVar.f61664f);
+        show.setCanceledOnTouchOutside(bVar.f59328f);
         show.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.download.api.a.a.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                b.InterfaceC2162b interfaceC2162b = com.ss.android.download.api.model.b.this.f61666h;
-                if (interfaceC2162b != null) {
-                    interfaceC2162b.c(dialogInterface);
+                b.InterfaceC2179b interfaceC2179b = com.ss.android.download.api.model.b.this.f59330h;
+                if (interfaceC2179b != null) {
+                    interfaceC2179b.c(dialogInterface);
                 }
             }
         });
-        Drawable drawable = bVar.f61665g;
+        Drawable drawable = bVar.f59329g;
         if (drawable != null) {
             show.setIcon(drawable);
         }

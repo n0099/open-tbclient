@@ -15,22 +15,22 @@ public class j {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12992b;
+    public String f12677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12993c;
+    public int f12678c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12994d;
+    public String f12679d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12995e;
+    public int f12680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12996f;
+    public int f12681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12997g;
+    public int f12682g;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -49,31 +49,31 @@ public class j {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12994d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12679d : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12995e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12680e : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12997g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12682g : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12996f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12681f : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12992b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12677b : (String) invokeV.objValue;
     }
 
     public String f() {
@@ -85,7 +85,7 @@ public class j {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12993c == 15 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12678c == 15 : invokeV.booleanValue;
     }
 
     public void h(PbContent pbContent) {
@@ -94,20 +94,20 @@ public class j {
             return;
         }
         this.a = pbContent.link;
-        this.f12992b = pbContent.src;
+        this.f12677b = pbContent.src;
         pbContent.width.intValue();
         pbContent.height.intValue();
-        this.f12993c = pbContent.e_type.intValue();
-        this.f12994d = pbContent.text;
-        this.f12995e = pbContent.during_time.intValue();
-        this.f12996f = pbContent.count.intValue();
-        this.f12997g = pbContent.origin_size.intValue();
+        this.f12678c = pbContent.e_type.intValue();
+        this.f12679d = pbContent.text;
+        this.f12680e = pbContent.during_time.intValue();
+        this.f12681f = pbContent.count.intValue();
+        this.f12682g = pbContent.origin_size.intValue();
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f12996f = i2;
+            this.f12681f = i2;
         }
     }
 }

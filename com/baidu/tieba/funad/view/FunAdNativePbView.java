@@ -54,7 +54,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public View dividerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f45633e;
+    public FunAdButton f43963e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -87,8 +87,8 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
             ChannelNativeAds channelNativeAds = funNativeAd.getChannelNativeAds();
-            this.f45633e.setTag(oVar);
-            a aVar = new a(this.f45633e, oVar);
+            this.f43963e.setTag(oVar);
+            a aVar = new a(this.f43963e, oVar);
             if (channelNativeAds != null) {
                 Object obj = channelNativeAds.ksNative;
                 if (obj instanceof KsNativeAd) {
@@ -158,7 +158,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return c.a.t0.e1.a.b("pb", d.P() ? "1" : "0");
+            return c.a.t0.e1.a.b("pb", d.Q() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -286,7 +286,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.adButton.setVisibility(0);
-            this.f45633e = this.adButton;
+            this.f43963e = this.adButton;
         }
     }
 

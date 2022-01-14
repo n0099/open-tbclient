@@ -11,34 +11,32 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12663b;
+    public String f12366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12664c;
+    public int f12367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12665d;
+    public int f12368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f12666e;
+    public float f12369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f12667f;
+    public float f12370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12668g;
+    public String f12371g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12669h;
+    public int f12372h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12670i;
+    public int f12373i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f12671j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f12672k;
+    public boolean f12374j;
+    public boolean k;
     public String l;
     public String m;
 

@@ -2,7 +2,7 @@ package c.a.t0.g0.f0;
 
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,25 +50,23 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public int H;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f18222e;
+    public e2 f17778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18223f;
+    public String f17779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18224g;
+    public String f17780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18225h;
+    public int f17781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f18226i;
+    public String f17782i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18227j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f18228k;
+    public String f17783j;
+    public int k;
     public String l;
     public String m;
     public Integer n;
@@ -138,7 +136,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
                 return;
             }
         }
-        this.f18228k = 1;
+        this.k = 1;
         this.n = 0;
         this.o = 0;
         this.p = 0;
@@ -182,7 +180,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public String C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18227j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17783j : (String) invokeV.objValue;
     }
 
     public StatisticItem D() {
@@ -197,7 +195,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public String E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18223f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17779f : (String) invokeV.objValue;
     }
 
     public boolean F() {
@@ -218,7 +216,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public void H(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f18226i = str;
+            this.f17782i = str;
         }
     }
 
@@ -239,14 +237,14 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public void K(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f18225h = i2;
+            this.f17781h = i2;
         }
     }
 
     public void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f18224g = str;
+            this.f17780g = str;
         }
     }
 
@@ -260,21 +258,21 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f18227j = str;
+            this.f17783j = str;
         }
     }
 
     public void O(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f18223f = str;
+            this.f17779f = str;
         }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f18226i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f17782i : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
@@ -282,7 +280,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData != null) {
                 return threadData.getImages();
             }
@@ -305,8 +303,8 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
             x0Var.k(getThreadData().U());
             x0Var.n(getThreadData().G0());
             x0Var.j(this.feedBackReasonMap);
-            x0Var.f13849k = this.f18223f;
-            x0Var.l = this.f18224g;
+            x0Var.k = this.f17779f;
+            x0Var.l = this.f17780g;
             x0Var.m = this.m;
             x0Var.n = getThreadData().d0;
             return x0Var;
@@ -319,19 +317,19 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.f18224g + "#" + this.f18225h + "#" + this.f18226i;
+            return this.f17780g + "#" + this.f17781h + "#" + this.f17782i;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return null;
         }
-        return (d2) invokeV.objValue;
+        return (e2) invokeV.objValue;
     }
 
     public StatisticItem i(String str) {
@@ -376,13 +374,13 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f18225h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f17781h : invokeV.intValue;
     }
 
     public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f18224g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f17780g : (String) invokeV.objValue;
     }
 
     public StatisticItem w(String str) {
@@ -395,7 +393,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, str, i2)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData == null) {
                 return null;
             }
@@ -415,7 +413,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048605, this, str, z)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData == null || str.length() == 0) {
                 return null;
             }
@@ -423,7 +421,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
             if (!z) {
                 param.param("obj_type", z());
             } else {
-                if (threadData.y1 > 0) {
+                if (threadData.x1 > 0) {
                     param.param(TiebaStatic.Params.MID_PAGE_FLAG, 1);
                 } else {
                     param.param(TiebaStatic.Params.MID_PAGE_FLAG, 0);
@@ -442,7 +440,7 @@ public abstract class b extends c.a.s0.s.q.a implements PreLoadImageProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             int i2 = 0;
             if (threadData == null) {
                 return 0;

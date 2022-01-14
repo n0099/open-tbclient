@@ -12,22 +12,22 @@ public class b implements Comparable<b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20144e;
+    public int f19614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20145f;
+    public String f19615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20146g;
+    public String f19616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20147h;
+    public String f19617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20148i;
+    public int f19618i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f20149j;
+    public int f19619j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class b implements Comparable<b> {
             if (this == bVar) {
                 return 0;
             }
-            return (bVar == null || this.f20144e <= bVar.f20144e) ? -1 : 1;
+            return (bVar == null || this.f19614e <= bVar.f19614e) ? -1 : 1;
         }
         return invokeL.intValue;
     }

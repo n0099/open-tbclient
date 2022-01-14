@@ -52,28 +52,28 @@ public class g {
         public final /* synthetic */ c.a.r0.a.i1.c.h.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.o.b f11622b;
+        public final /* synthetic */ c.a.r0.m.o.b f11361b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f11623c;
+        public final /* synthetic */ List f11362c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Context f11624d;
+        public final /* synthetic */ Context f11363d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.o.c f11625e;
+        public final /* synthetic */ c.a.r0.m.o.c f11364e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f11626f;
+        public final /* synthetic */ List f11365f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ List f11627g;
+        public final /* synthetic */ List f11366g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f11628h;
+        public final /* synthetic */ AtomicInteger f11367h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f11629i;
+        public final /* synthetic */ int f11368i;
 
         public a(c.a.r0.a.i1.c.h.d dVar, c.a.r0.m.o.b bVar, List list, Context context, c.a.r0.m.o.c cVar, List list2, List list3, AtomicInteger atomicInteger, int i2) {
             Interceptable interceptable = $ic;
@@ -91,14 +91,14 @@ public class g {
                 }
             }
             this.a = dVar;
-            this.f11622b = bVar;
-            this.f11623c = list;
-            this.f11624d = context;
-            this.f11625e = cVar;
-            this.f11626f = list2;
-            this.f11627g = list3;
-            this.f11628h = atomicInteger;
-            this.f11629i = i2;
+            this.f11361b = bVar;
+            this.f11362c = list;
+            this.f11363d = context;
+            this.f11364e = cVar;
+            this.f11365f = list2;
+            this.f11366g = list3;
+            this.f11367h = atomicInteger;
+            this.f11368i = i2;
         }
 
         @Override // c.a.r0.a.z2.t.b
@@ -112,66 +112,66 @@ public class g {
                     bitmap = g.f();
                 }
                 Bitmap g2 = g.g(bitmap, this.a);
-                c.a.r0.a.i1.c.h.c cVar = this.a.f7377f;
-                LatLng latLng = new LatLng(cVar.f7374e, cVar.f7375f);
-                MarkerOptions zIndex = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(g2)).alpha((float) this.a.f7381j).title(this.a.f7378g).rotate((float) this.a.f7380i).zIndex(88);
+                c.a.r0.a.i1.c.h.c cVar = this.a.f7217f;
+                LatLng latLng = new LatLng(cVar.f7214e, cVar.f7215f);
+                MarkerOptions zIndex = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(g2)).alpha((float) this.a.f7221j).title(this.a.f7218g).rotate((float) this.a.f7220i).zIndex(88);
                 d.a aVar = this.a.o;
-                MarkerOptions anchor = zIndex.anchor((float) aVar.f7383e, (float) aVar.f7384f);
-                this.f11622b.a = this.a;
-                this.f11623c.add(anchor);
-                LinearLayout linearLayout = new LinearLayout(this.f11624d);
+                MarkerOptions anchor = zIndex.anchor((float) aVar.f7222e, (float) aVar.f7223f);
+                this.f11361b.a = this.a;
+                this.f11362c.add(anchor);
+                LinearLayout linearLayout = new LinearLayout(this.f11363d);
                 linearLayout.setOrientation(1);
                 linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
                 linearLayout.setGravity(17);
-                View view = new View(this.f11624d);
+                View view = new View(this.f11363d);
                 view.setLayoutParams(new ViewGroup.LayoutParams(g2.getWidth(), g2.getHeight()));
                 view.setVisibility(4);
                 linearLayout.addView(view);
-                this.f11622b.f11641e = linearLayout;
-                if (c.a.r0.m.o.b.f11637h.booleanValue()) {
+                this.f11361b.f11380e = linearLayout;
+                if (c.a.r0.m.o.b.f11376h.booleanValue()) {
                     d.b bVar = this.a.m;
-                    if (bVar != null && bVar.isValid() && TextUtils.equals(this.a.m.f7386k, "ALWAYS")) {
-                        View a = c.a.r0.m.l.f.a.a(this.f11625e, this.a);
+                    if (bVar != null && bVar.isValid() && TextUtils.equals(this.a.m.k, "ALWAYS")) {
+                        View a = c.a.r0.m.l.f.a.a(this.f11364e, this.a);
                         linearLayout.addView(a, 0);
-                        this.f11622b.f11640d = a;
+                        this.f11361b.f11379d = a;
                     }
                     d.c cVar2 = this.a.n;
                     if (cVar2 != null && cVar2.isValid()) {
-                        this.f11626f.add(c.a(this.f11625e, this.f11622b));
+                        this.f11365f.add(c.a(this.f11364e, this.f11361b));
                     }
                 }
                 linearLayout.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
                 MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                 builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
                 builder.position(latLng);
-                builder.yOffset((int) ((g2.getHeight() * (1.0d - this.a.o.f7384f)) + 0.0d));
-                this.f11625e.l.addView(linearLayout, builder.build());
+                builder.yOffset((int) ((g2.getHeight() * (1.0d - this.a.o.f7223f)) + 0.0d));
+                this.f11364e.l.addView(linearLayout, builder.build());
                 linearLayout.setAlpha(0.0f);
                 BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(linearLayout);
                 if (fromView == null) {
                     return;
                 }
                 Bitmap bitmap2 = fromView.getBitmap();
-                this.f11627g.add(new MarkerOptions().position(latLng).icon(fromView).anchor(((float) (((bitmap2.getWidth() - g2.getWidth()) / 2.0f) + (this.a.o.f7383e * g2.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - g2.getHeight())) + (this.a.o.f7384f * g2.getHeight()))) / bitmap2.getHeight()).zIndex(66));
+                this.f11366g.add(new MarkerOptions().position(latLng).icon(fromView).anchor(((float) (((bitmap2.getWidth() - g2.getWidth()) / 2.0f) + (this.a.o.f7222e * g2.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - g2.getHeight())) + (this.a.o.f7223f * g2.getHeight()))) / bitmap2.getHeight()).zIndex(66));
                 synchronized (e.a) {
-                    this.f11628h.getAndIncrement();
-                    this.f11625e.n.add(this.f11622b);
-                    int size = this.f11625e.n.size();
-                    if (this.f11629i == this.f11628h.get()) {
-                        List<Overlay> addOverlays = this.f11625e.l.getMap().addOverlays(this.f11626f);
+                    this.f11367h.getAndIncrement();
+                    this.f11364e.n.add(this.f11361b);
+                    int size = this.f11364e.n.size();
+                    if (this.f11368i == this.f11367h.get()) {
+                        List<Overlay> addOverlays = this.f11364e.l.getMap().addOverlays(this.f11365f);
                         int size2 = addOverlays.size();
                         for (int i2 = 0; i2 < size2 && i2 < size; i2++) {
-                            this.f11625e.n.get(i2).f11639c = (Marker) addOverlays.get(i2);
+                            this.f11364e.n.get(i2).f11378c = (Marker) addOverlays.get(i2);
                         }
-                        List<Overlay> addOverlays2 = this.f11625e.l.getMap().addOverlays(this.f11623c);
+                        List<Overlay> addOverlays2 = this.f11364e.l.getMap().addOverlays(this.f11362c);
                         int size3 = addOverlays2.size();
                         for (int i3 = 0; i3 < size3 && i3 < size; i3++) {
-                            this.f11625e.n.get(i3).f11638b = (Marker) addOverlays2.get(i3);
+                            this.f11364e.n.get(i3).f11377b = (Marker) addOverlays2.get(i3);
                         }
-                        List<Overlay> addOverlays3 = this.f11625e.l.getMap().addOverlays(this.f11627g);
+                        List<Overlay> addOverlays3 = this.f11364e.l.getMap().addOverlays(this.f11366g);
                         int size4 = addOverlays3.size();
                         for (int i4 = 0; i4 < size4 && i4 < size; i4++) {
-                            this.f11625e.n.get(i4).f11642f = (Marker) addOverlays3.get(i4);
+                            this.f11364e.n.get(i4).f11381f = (Marker) addOverlays3.get(i4);
                         }
                     }
                 }
@@ -202,7 +202,7 @@ public class g {
             if (list != null && list.size() > 0) {
                 for (c.a.r0.a.i1.c.h.b bVar2 : cVar.s) {
                     b.a(cVar2, bVar2, bVar);
-                    c.a.r0.a.e0.d.i("map", "initMapView createControl id " + bVar2.f7370e);
+                    c.a.r0.a.e0.d.i("map", "initMapView createControl id " + bVar2.f7210e);
                 }
             }
             ArrayList arrayList = new ArrayList();
@@ -212,14 +212,14 @@ public class g {
                     if (!fVar.isValid()) {
                         c.a.r0.a.e0.d.c("map", "polyline is invalid");
                     } else {
-                        ArrayList arrayList2 = new ArrayList(fVar.f7399e.size());
-                        Iterator<c.a.r0.a.i1.c.h.c> it = fVar.f7399e.iterator();
+                        ArrayList arrayList2 = new ArrayList(fVar.f7236e.size());
+                        Iterator<c.a.r0.a.i1.c.h.c> it = fVar.f7236e.iterator();
                         while (it.hasNext()) {
                             c.a.r0.a.i1.c.h.c next = it.next();
-                            arrayList2.add(new LatLng(next.f7374e, next.f7375f));
+                            arrayList2.add(new LatLng(next.f7214e, next.f7215f));
                         }
                         if (arrayList2.size() >= 2 && !arrayList2.contains(null)) {
-                            arrayList.add(new PolylineOptions().points(arrayList2).color(fVar.f7400f).width((int) fVar.f7401g).dottedLine(fVar.f7402h));
+                            arrayList.add(new PolylineOptions().points(arrayList2).color(fVar.f7237f).width((int) fVar.f7238g).dottedLine(fVar.f7239h));
                             c.a.r0.a.e0.d.i("map", "initMapView createPoly");
                         } else {
                             c.a.r0.a.e0.d.c("map", "polyline count can't less than 2 or your polyline points contains null");
@@ -233,14 +233,14 @@ public class g {
                     if (!eVar.isValid()) {
                         c.a.r0.a.e0.d.c("map", "polygon is invalid");
                     } else {
-                        ArrayList arrayList3 = new ArrayList(eVar.f7394e.size());
-                        Iterator<c.a.r0.a.i1.c.h.c> it2 = eVar.f7394e.iterator();
+                        ArrayList arrayList3 = new ArrayList(eVar.f7231e.size());
+                        Iterator<c.a.r0.a.i1.c.h.c> it2 = eVar.f7231e.iterator();
                         while (it2.hasNext()) {
                             c.a.r0.a.i1.c.h.c next2 = it2.next();
-                            arrayList3.add(new LatLng(next2.f7374e, next2.f7375f));
+                            arrayList3.add(new LatLng(next2.f7214e, next2.f7215f));
                         }
                         if (arrayList3.size() >= 3 && !arrayList3.contains(null)) {
-                            arrayList.add(new PolygonOptions().points(arrayList3).stroke(new Stroke(eVar.f7395f, eVar.f7396g)).fillColor(eVar.f7397h).zIndex(eVar.f7398i));
+                            arrayList.add(new PolygonOptions().points(arrayList3).stroke(new Stroke(eVar.f7232f, eVar.f7233g)).fillColor(eVar.f7234h).zIndex(eVar.f7235i));
                             c.a.r0.a.e0.d.i("map", "initMapView createPolygons");
                         } else {
                             c.a.r0.a.e0.d.c("map", "polygons count can't less than 3 or your polygons points contains null");
@@ -252,7 +252,7 @@ public class g {
             if (list4 != null && list4.size() > 0) {
                 LatLngBounds.Builder builder = new LatLngBounds.Builder();
                 for (c.a.r0.a.i1.c.h.c cVar3 : cVar.t) {
-                    builder.include(new LatLng(cVar3.f7374e, cVar3.f7375f));
+                    builder.include(new LatLng(cVar3.f7214e, cVar3.f7215f));
                 }
                 cVar2.l.getMap().setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
                 c.a.r0.a.e0.d.i("map", "initMapView includePoints");
@@ -262,8 +262,8 @@ public class g {
                 for (c.a.r0.a.i1.c.h.a aVar : cVar.r) {
                     if (aVar.isValid()) {
                         CircleOptions circleOptions = new CircleOptions();
-                        c.a.r0.a.i1.c.h.c cVar4 = aVar.f7365e;
-                        arrayList.add(circleOptions.center(new LatLng(cVar4.f7374e, cVar4.f7375f)).stroke(new Stroke((int) aVar.f7369i, aVar.f7366f)).fillColor(aVar.f7367g).radius(aVar.f7368h));
+                        c.a.r0.a.i1.c.h.c cVar4 = aVar.f7205e;
+                        arrayList.add(circleOptions.center(new LatLng(cVar4.f7214e, cVar4.f7215f)).stroke(new Stroke((int) aVar.f7209i, aVar.f7206f)).fillColor(aVar.f7207g).radius(aVar.f7208h));
                         c.a.r0.a.e0.d.i("map", "initMapView createCircle");
                     }
                 }
@@ -290,7 +290,7 @@ public class g {
             if (next.o == null) {
                 next.o = new d.a();
             }
-            String str = next.f7379h;
+            String str = next.f7219h;
             if (TextUtils.isEmpty(str)) {
                 str = ImageRequestBuilder.newBuilderWithResourceId(c.a.r0.m.e.pin_red).build().getSourceUri().toString();
             }
@@ -311,7 +311,7 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bitmap, dVar)) == null) {
-            int i2 = dVar.f7382k;
+            int i2 = dVar.k;
             if (i2 == -1) {
                 i2 = bitmap.getWidth();
             }

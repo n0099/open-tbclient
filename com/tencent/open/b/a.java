@@ -20,17 +20,17 @@ public class a extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f62899b;
+    public Rect f60525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62900c;
+    public boolean f60526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2238a f62901d;
+    public InterfaceC2255a f60527d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC2238a {
+    public interface InterfaceC2255a {
         void a();
 
         void a(int i2);
@@ -70,18 +70,18 @@ public class a extends RelativeLayout {
                 return;
             }
         }
-        this.f62899b = null;
-        this.f62900c = false;
-        this.f62901d = null;
+        this.f60525b = null;
+        this.f60526c = false;
+        this.f60527d = null;
         if (0 == 0) {
-            this.f62899b = new Rect();
+            this.f60525b = new Rect();
         }
     }
 
-    public void a(InterfaceC2238a interfaceC2238a) {
+    public void a(InterfaceC2255a interfaceC2255a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2238a) == null) {
-            this.f62901d = interfaceC2238a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2255a) == null) {
+            this.f60527d = interfaceC2255a;
         }
     }
 
@@ -91,14 +91,14 @@ public class a extends RelativeLayout {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f62899b);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f62899b.top) - size;
-            InterfaceC2238a interfaceC2238a = this.f62901d;
-            if (interfaceC2238a != null && size != 0) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f60525b);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f60525b.top) - size;
+            InterfaceC2255a interfaceC2255a = this.f60527d;
+            if (interfaceC2255a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC2238a.a((Math.abs(this.f62899b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC2255a.a((Math.abs(this.f60525b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
-                    interfaceC2238a.a();
+                    interfaceC2255a.a();
                 }
             }
             super.onMeasure(i2, i3);

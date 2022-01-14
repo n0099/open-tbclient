@@ -1,6 +1,6 @@
 package c.a.s0.f0;
 
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
@@ -31,7 +31,7 @@ public class a {
                 return;
             }
         }
-        boolean z = b.j().k("key_lcs_log_switch", 0) == 1;
+        boolean z = b.k().l("key_lcs_log_switch", 0) == 1;
         a = z;
         if (z) {
             a();

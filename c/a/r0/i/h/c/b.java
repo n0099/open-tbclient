@@ -22,7 +22,7 @@ public class b extends c.a.r0.i.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f11000c;
+    public static final boolean f10757c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class b extends c.a.r0.i.e.a {
                 return;
             }
         }
-        f11000c = k.a;
+        f10757c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,7 +76,7 @@ public class b extends c.a.r0.i.e.a {
                         intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
                         a0.x().startActivity(intent);
                     } catch (Exception e2) {
-                        if (f11000c) {
+                        if (f10757c) {
                             e2.printStackTrace();
                         }
                         a0.f(a0.x());
@@ -86,7 +86,7 @@ public class b extends c.a.r0.i.e.a {
                 }
                 bVar.a(null);
             } else {
-                boolean z = f11000c;
+                boolean z = f10757c;
             }
             return null;
         }

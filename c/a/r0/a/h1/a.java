@@ -23,7 +23,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7116b;
+    public static final boolean f6963b;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<c.a.r0.a.h1.c.a> a;
 
@@ -40,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f7116b = k.a;
+        f6963b = k.a;
     }
 
     public a() {
@@ -73,7 +73,7 @@ public class a {
             aVar.f(obj);
             c.a.r0.a.h1.c.b a = aVar.a();
             if (a == null) {
-                if (f7116b) {
+                if (f6963b) {
                     String str3 = "build branch(" + str + ") fail: " + aVar.d().getMessage();
                     return null;
                 }
@@ -95,7 +95,7 @@ public class a {
             aVar.b(obj);
             c a = aVar.a();
             if (a == null) {
-                if (f7116b) {
+                if (f6963b) {
                     String str2 = "build switch(" + str + ") fail: " + aVar.c().getMessage();
                 }
                 return null;
@@ -126,10 +126,10 @@ public class a {
             arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
             arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
             arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
-            a.C0403a c0403a = new a.C0403a();
-            c0403a.c(b2);
-            c0403a.a(arrayList);
-            c.a.r0.a.h1.c.a b3 = c0403a.b();
+            a.C0412a c0412a = new a.C0412a();
+            c0412a.c(b2);
+            c0412a.a(arrayList);
+            c.a.r0.a.h1.c.a b3 = c0412a.b();
             if (b3 == null) {
                 return false;
             }

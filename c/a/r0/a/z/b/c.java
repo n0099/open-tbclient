@@ -51,7 +51,7 @@ public class c extends a {
             if (aVar != null) {
                 c.a.r0.a.c0.b.c B = aVar.B();
                 if (!B.a()) {
-                    c.a.r0.a.e0.d.c("CameraRemoveAction", "remove camera fail: " + B.f5427b);
+                    c.a.r0.a.e0.d.c("CameraRemoveAction", "remove camera fail: " + B.f5313b);
                 }
                 k(unitedSchemeEntity, callbackHandler, true);
                 return true;

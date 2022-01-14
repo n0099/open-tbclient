@@ -14,7 +14,7 @@ public class l {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22170b;
+    public String f21565b;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class l {
         if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
             this.a = userInfo.user_id.longValue();
             String str = userInfo.user_name;
-            this.f22170b = userInfo.portrait;
+            this.f21565b = userInfo.portrait;
         }
     }
 

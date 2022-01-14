@@ -41,14 +41,14 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
 
     /* renamed from: c.a.t0.l2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1181a implements w {
+    public class C1195a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19619e;
+        public final /* synthetic */ a f19114e;
 
-        public C1181a(a aVar) {
+        public C1195a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
                     return;
                 }
             }
-            this.f19619e = aVar;
+            this.f19114e = aVar;
         }
 
         @Override // c.a.d.n.e.w
@@ -71,10 +71,10 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof i)) {
                 i iVar = (i) nVar;
-                String str = iVar.f14469e;
+                String str = iVar.f14132e;
                 boolean z = !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str);
-                c.h(i2 + 1, this.f19619e.n, 2, iVar.f14469e);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f19619e.m).createNormalConfig(c.a.d.f.m.b.g(str, 0L), z, false)));
+                c.h(i2 + 1, this.f19114e.n, 2, iVar.f14132e);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f19114e.m).createNormalConfig(c.a.d.f.m.b.g(str, 0L), z, false)));
             }
         }
     }
@@ -85,16 +85,16 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f19620e;
+        public final /* synthetic */ ViewGroup f19115e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f19621f;
+        public final /* synthetic */ i f19116f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f19622g;
+        public final /* synthetic */ int f19117g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f19623h;
+        public final /* synthetic */ a f19118h;
 
         public b(a aVar, ViewGroup viewGroup, i iVar, int i2) {
             Interceptable interceptable = $ic;
@@ -111,26 +111,26 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
                     return;
                 }
             }
-            this.f19623h = aVar;
-            this.f19620e = viewGroup;
-            this.f19621f = iVar;
-            this.f19622g = i2;
+            this.f19118h = aVar;
+            this.f19115e = viewGroup;
+            this.f19116f = iVar;
+            this.f19117g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f19623h.o) {
-                    PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.f19620e.getContext());
+                if (this.f19118h.o) {
+                    PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.f19115e.getContext());
                     personChangeActivityConfig.setIsCompleteLocalInfo(true);
                     personChangeActivityConfig.start();
                 } else {
-                    i iVar = this.f19621f;
-                    a aVar = this.f19623h;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new c.a.s0.x.v.e.a(iVar, aVar.d0(aVar.n))));
+                    i iVar = this.f19116f;
+                    a aVar = this.f19118h;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new c.a.s0.x.v.f.a(iVar, aVar.d0(aVar.n))));
                 }
-                c.h(this.f19622g + 1, this.f19623h.n, 1, this.f19621f.f14469e);
+                c.h(this.f19117g + 1, this.f19118h.n, 1, this.f19116f.f14132e);
             }
         }
     }
@@ -156,7 +156,7 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
         }
         this.m = context;
         this.n = i2;
-        V(new C1181a(this));
+        V(new C1195a(this));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -226,31 +226,31 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, iVar, nearbyForumFriendItemViewHolder) == null) {
-            nearbyForumFriendItemViewHolder.mForumFriendItemHeadImg.startLoad(iVar.f14471g, 25, false);
-            nearbyForumFriendItemViewHolder.mTvForumFriendItemNickname.setText(iVar.f14470f);
-            int i2 = iVar.f14472h;
+            nearbyForumFriendItemViewHolder.mForumFriendItemHeadImg.startLoad(iVar.f14134g, 25, false);
+            nearbyForumFriendItemViewHolder.mTvForumFriendItemNickname.setText(iVar.f14133f);
+            int i2 = iVar.f14135h;
             boolean z2 = true;
-            if ((i2 != 1 && i2 != 2) || iVar.f14473i <= 0) {
+            if ((i2 != 1 && i2 != 2) || iVar.f14136i <= 0) {
                 nearbyForumFriendItemViewHolder.mLayoutForumFriendItemSexAge.setVisibility(8);
                 z = false;
             } else {
                 nearbyForumFriendItemViewHolder.mLayoutForumFriendItemSexAge.setVisibility(0);
-                nearbyForumFriendItemViewHolder.mTvForumFriendItemAge.setText(String.valueOf(iVar.f14473i));
+                nearbyForumFriendItemViewHolder.mTvForumFriendItemAge.setText(String.valueOf(iVar.f14136i));
                 z = true;
             }
-            if (StringUtils.isNull(iVar.f14474j)) {
+            if (StringUtils.isNull(iVar.f14137j)) {
                 nearbyForumFriendItemViewHolder.mTvForumFriendItemSign.setVisibility(8);
             } else {
                 nearbyForumFriendItemViewHolder.mTvForumFriendItemSign.setVisibility(0);
-                nearbyForumFriendItemViewHolder.mTvForumFriendItemSign.setText(iVar.f14474j);
+                nearbyForumFriendItemViewHolder.mTvForumFriendItemSign.setText(iVar.f14137j);
                 z = true;
             }
-            if (StringUtils.isNull(iVar.f14475k)) {
+            if (StringUtils.isNull(iVar.k)) {
                 nearbyForumFriendItemViewHolder.mTvForumFriendItemDistance.setVisibility(8);
                 z2 = z;
             } else {
                 nearbyForumFriendItemViewHolder.mTvForumFriendItemDistance.setVisibility(0);
-                nearbyForumFriendItemViewHolder.mTvForumFriendItemDistance.setText(iVar.f14475k);
+                nearbyForumFriendItemViewHolder.mTvForumFriendItemDistance.setText(iVar.k);
             }
             g0(nearbyForumFriendItemViewHolder, iVar.o);
             if (z2 && nearbyForumFriendItemViewHolder.mTvForumFriendItemActiveStatus.getVisibility() == 0) {
@@ -287,7 +287,7 @@ public class a extends c.a.d.n.e.a<i, NearbyForumFriendItemViewHolder> {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar, nearbyForumFriendItemViewHolder) == null) {
             nearbyForumFriendItemViewHolder.mForumFriendItemHeadImg.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             c.a.s0.s.u.c.d(nearbyForumFriendItemViewHolder.mTvForumFriendItemNickname).v(R.color.CAM_X0105);
-            int i2 = iVar.f14472h;
+            int i2 = iVar.f14135h;
             if (i2 == 1) {
                 WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.mIvForumFriendItemSex, R.drawable.icon_mask_boy, R.color.CAM_X0330, null);
                 c.a.s0.s.u.c.d(nearbyForumFriendItemViewHolder.mTvForumFriendItemAge).v(R.color.CAM_X0330);

@@ -25,34 +25,32 @@ public class h {
     public static int a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2621b;
+    public static final int f2605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2622c;
+    public static final int f2606c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2623d;
+    public static final int f2607d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2624e;
+    public static final int f2608e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f2625f;
+    public static final int f2609f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f2626g;
+    public static final int f2610g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f2627h;
+    public static final int f2611h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f2628i;
+    public static final int f2612i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f2629j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final int f2630k;
+    public static final int f2613j;
+    public static final int k;
     public static final int l;
     public static final int m;
     public static final int n;
@@ -83,16 +81,16 @@ public class h {
                 return;
             }
         }
-        f2621b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
-        f2622c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
-        f2623d = (-100000000) - 213;
-        f2624e = (-100000000) - 214;
-        f2625f = (-100000000) - 221;
-        f2626g = (-100000000) - 230;
-        f2627h = (-100000000) - 232;
-        f2628i = (-100000000) - 233;
-        f2629j = (-100000000) - 234;
-        f2630k = (-100000000) - 235;
+        f2605b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
+        f2606c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
+        f2607d = (-100000000) - 213;
+        f2608e = (-100000000) - 214;
+        f2609f = (-100000000) - 221;
+        f2610g = (-100000000) - 230;
+        f2611h = (-100000000) - 232;
+        f2612i = (-100000000) - 233;
+        f2613j = (-100000000) - 234;
+        k = (-100000000) - 235;
         l = (-100000000) - 236;
         m = (-100000000) - 301;
         n = (-100000000) - 302;

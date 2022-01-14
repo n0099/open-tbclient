@@ -16,7 +16,7 @@ public class x extends c.a.t0.g0.f0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.t0.p1.b.c> f17079e;
+    public List<c.a.t0.p1.b.c> f16729e;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -31,20 +31,20 @@ public class x extends c.a.t0.g0.f0.a {
                 return;
             }
         }
-        this.f17079e = new ArrayList();
+        this.f16729e = new ArrayList();
     }
 
     public void g(k1 k1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, k1Var) == null) {
-            this.f17079e.add(k1Var);
+            this.f16729e.add(k1Var);
         }
     }
 
     public List<c.a.t0.p1.b.c> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17079e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16729e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

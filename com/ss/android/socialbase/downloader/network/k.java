@@ -7,22 +7,22 @@ public class k {
     public static final String a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f62637b;
+    public final d f60274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f62638c;
+    public volatile boolean f60275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<l> f62639d;
+    public final AtomicReference<l> f60276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicReference<l> f62640e;
+    public AtomicReference<l> f60277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<b> f62641f;
+    public final ArrayList<b> f60278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62642g;
+    public int f60279g;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
     /* loaded from: classes3.dex */
@@ -70,11 +70,11 @@ public class k {
     }
 
     private boolean c() {
-        if (this.f62637b == null) {
+        if (this.f60274b == null) {
             return false;
         }
         try {
-            int i2 = AnonymousClass1.a[this.f62639d.get().ordinal()];
+            int i2 = AnonymousClass1.a[this.f60276d.get().ordinal()];
             double d2 = 2000.0d;
             double d3 = 550.0d;
             if (i2 == 1) {
@@ -90,7 +90,7 @@ public class k {
                 d2 = 3.4028234663852886E38d;
                 d3 = 2000.0d;
             }
-            double a2 = this.f62637b.a();
+            double a2 = this.f60274b.a();
             if (a2 > d2) {
                 if (a2 > d2 * 1.25d) {
                     return true;
@@ -106,9 +106,9 @@ public class k {
 
     private void d() {
         try {
-            int size = this.f62641f.size();
+            int size = this.f60278f.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f62641f.get(i2).a(this.f62639d.get());
+                this.f60278f.get(i2).a(this.f60276d.get());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -116,17 +116,17 @@ public class k {
     }
 
     public synchronized l b() {
-        if (this.f62637b == null) {
+        if (this.f60274b == null) {
             return l.UNKNOWN;
         }
-        return a(this.f62637b.a());
+        return a(this.f60274b.a());
     }
 
     public k() {
-        this.f62637b = new d(0.05d);
-        this.f62638c = false;
-        this.f62639d = new AtomicReference<>(l.UNKNOWN);
-        this.f62641f = new ArrayList<>();
+        this.f60274b = new d(0.05d);
+        this.f60275c = false;
+        this.f60276d = new AtomicReference<>(l.UNKNOWN);
+        this.f60278f = new ArrayList<>();
     }
 
     public synchronized void a(long j2, long j3) {
@@ -136,27 +136,27 @@ public class k {
             return;
         }
         try {
-            this.f62637b.a(d2);
+            this.f60274b.a(d2);
             b2 = b();
         } catch (Throwable unused) {
         }
-        if (this.f62638c) {
-            this.f62642g++;
-            if (b2 != this.f62640e.get()) {
-                this.f62638c = false;
-                this.f62642g = 1;
+        if (this.f60275c) {
+            this.f60279g++;
+            if (b2 != this.f60277e.get()) {
+                this.f60275c = false;
+                this.f60279g = 1;
             }
-            if (this.f62642g >= 5.0d && c()) {
-                this.f62638c = false;
-                this.f62642g = 1;
-                this.f62639d.set(this.f62640e.get());
+            if (this.f60279g >= 5.0d && c()) {
+                this.f60275c = false;
+                this.f60279g = 1;
+                this.f60276d.set(this.f60277e.get());
                 d();
             }
             return;
         }
-        if (this.f62639d.get() != b2) {
-            this.f62638c = true;
-            this.f62640e = new AtomicReference<>(b2);
+        if (this.f60276d.get() != b2) {
+            this.f60275c = true;
+            this.f60277e = new AtomicReference<>(b2);
         }
     }
 

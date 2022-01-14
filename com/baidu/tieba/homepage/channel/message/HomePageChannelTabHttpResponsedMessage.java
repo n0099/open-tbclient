@@ -45,10 +45,10 @@ public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMes
                 if (orginalMessage instanceof HttpMessage) {
                     Object obj = ((HttpMessage) orginalMessage).getParams().get("tab_code");
                     if (obj instanceof String) {
-                        this.channelTabRespData.i((String) obj);
+                        this.channelTabRespData.h((String) obj);
                     }
                 }
-                this.channelTabRespData.h(jSONObject);
+                this.channelTabRespData.g(jSONObject);
             }
         }
     }

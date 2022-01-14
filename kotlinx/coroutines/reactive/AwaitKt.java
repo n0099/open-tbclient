@@ -146,18 +146,18 @@ public final class AwaitKt {
                         CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                         T t2 = this.value;
                         Result.Companion companion = Result.Companion;
-                        cancellableContinuation.resumeWith(Result.m702constructorimpl(t2));
+                        cancellableContinuation.resumeWith(Result.m714constructorimpl(t2));
                     }
                 } else if (mode == Mode.FIRST_OR_DEFAULT) {
                     CancellableContinuation cancellableContinuation2 = CancellableContinuation.this;
                     Object obj = t;
                     Result.Companion companion2 = Result.Companion;
-                    cancellableContinuation2.resumeWith(Result.m702constructorimpl(obj));
+                    cancellableContinuation2.resumeWith(Result.m714constructorimpl(obj));
                 } else if (CancellableContinuation.this.isActive()) {
                     CancellableContinuation cancellableContinuation3 = CancellableContinuation.this;
                     NoSuchElementException noSuchElementException = new NoSuchElementException("No value received via onNext for " + mode);
                     Result.Companion companion3 = Result.Companion;
-                    cancellableContinuation3.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(noSuchElementException)));
+                    cancellableContinuation3.resumeWith(Result.m714constructorimpl(ResultKt.createFailure(noSuchElementException)));
                 }
             }
 
@@ -165,7 +165,7 @@ public final class AwaitKt {
             public void onError(Throwable th) {
                 CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                 Result.Companion companion = Result.Companion;
-                cancellableContinuation.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(th)));
+                cancellableContinuation.resumeWith(Result.m714constructorimpl(ResultKt.createFailure(th)));
             }
 
             @Override // org.reactivestreams.Subscriber
@@ -183,7 +183,7 @@ public final class AwaitKt {
                     subscription.cancel();
                     CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                     Result.Companion companion = Result.Companion;
-                    cancellableContinuation.resumeWith(Result.m702constructorimpl(t2));
+                    cancellableContinuation.resumeWith(Result.m714constructorimpl(t2));
                 } else if (i2 == 3 || i2 == 4) {
                     if (mode == Mode.SINGLE && this.seenValue) {
                         Subscription subscription2 = this.subscription;
@@ -195,7 +195,7 @@ public final class AwaitKt {
                             CancellableContinuation cancellableContinuation2 = CancellableContinuation.this;
                             IllegalArgumentException illegalArgumentException = new IllegalArgumentException("More than one onNext value for " + mode);
                             Result.Companion companion2 = Result.Companion;
-                            cancellableContinuation2.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(illegalArgumentException)));
+                            cancellableContinuation2.resumeWith(Result.m714constructorimpl(ResultKt.createFailure(illegalArgumentException)));
                             return;
                         }
                         return;

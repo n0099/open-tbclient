@@ -18,37 +18,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f10142b;
+    public static int f9919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f10143c;
+    public static int f9920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f10144d;
+    public static int f9921d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f10145e;
+    public static int f9922e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f10146f;
+    public static int f9923f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f10147g;
+    public static boolean f9924g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10148e;
+        public final /* synthetic */ View f9925e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -65,48 +65,46 @@ public class e {
                     return;
                 }
             }
-            this.f10148e = view;
+            this.f9925e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.m(this.f10148e);
+                e.m(this.f9925e);
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void onSoftInputShowing(boolean z);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static class c implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.a.r0.a.z1.k.b f10149e;
+        public final c.a.r0.a.z1.k.b f9926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ViewGroup f10150f;
+        public final ViewGroup f9927f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b f10151g;
+        public final b f9928g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f10152h;
+        public int f9929h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f10153i;
+        public boolean f9930i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final Activity f10154j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public int f10155k;
+        public final Activity f9931j;
+        public int k;
 
         public c(Activity activity, ViewGroup viewGroup, c.a.r0.a.z1.k.b bVar, b bVar2) {
             Interceptable interceptable = $ic;
@@ -123,17 +121,17 @@ public class e {
                     return;
                 }
             }
-            this.f10152h = 0;
-            this.f10154j = activity;
-            this.f10151g = bVar2;
-            this.f10150f = viewGroup;
-            this.f10149e = bVar;
+            this.f9929h = 0;
+            this.f9931j = activity;
+            this.f9928g = bVar2;
+            this.f9927f = viewGroup;
+            this.f9926e = bVar;
         }
 
         private Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.f10150f.getContext() : (Context) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.f9927f.getContext() : (Context) invokeV.objValue;
         }
 
         public final void a(int i2) {
@@ -141,22 +139,22 @@ public class e {
             int j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.f10152h == 0) {
-                    this.f10152h = i2;
-                    this.f10149e.refreshHeight(e.j(getContext()));
+                if (this.f9929h == 0) {
+                    this.f9929h = i2;
+                    this.f9926e.refreshHeight(e.j(getContext()));
                 }
-                if (c.a.r0.a.z1.j.b.e(this.f10150f.getContext())) {
-                    abs = ((View) this.f10150f.getParent()).getHeight() - i2;
+                if (c.a.r0.a.z1.j.b.e(this.f9927f.getContext())) {
+                    abs = ((View) this.f9927f.getParent()).getHeight() - i2;
                 } else {
-                    abs = Math.abs(i2 - this.f10152h);
+                    abs = Math.abs(i2 - this.f9929h);
                 }
                 if (abs > e.g(getContext())) {
-                    if (!e.l(getContext(), abs) || this.f10149e.getHeight() == (j2 = e.j(getContext()))) {
+                    if (!e.l(getContext(), abs) || this.f9926e.getHeight() == (j2 = e.j(getContext()))) {
                         return;
                     }
-                    this.f10149e.refreshHeight(j2);
-                } else if (Math.abs(abs) == e.i(this.f10150f.getContext())) {
-                    this.f10152h -= abs;
+                    this.f9926e.refreshHeight(j2);
+                } else if (Math.abs(abs) == e.i(this.f9927f.getContext())) {
+                    this.f9929h -= abs;
                 }
             }
         }
@@ -164,28 +162,28 @@ public class e {
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                View view = (View) this.f10150f.getParent();
+                View view = (View) this.f9927f.getParent();
                 int height = view.getHeight() - view.getPaddingTop();
                 boolean z = true;
-                if (!c.a.r0.a.z1.j.b.e(this.f10150f.getContext())) {
-                    int i3 = this.f10155k;
+                if (!c.a.r0.a.z1.j.b.e(this.f9927f.getContext())) {
+                    int i3 = this.k;
                     if (i3 == 0) {
-                        z = this.f10153i;
+                        z = this.f9930i;
                     } else if (i2 >= i3 - e.g(getContext())) {
                         z = false;
                     }
-                    this.f10155k = Math.max(this.f10155k, height);
+                    this.k = Math.max(this.k, height);
                 } else if (height <= i2) {
                     z = false;
                 }
-                if (this.f10153i != z) {
-                    this.f10149e.onSoftInputShowing(z);
-                    b bVar = this.f10151g;
+                if (this.f9930i != z) {
+                    this.f9926e.onSoftInputShowing(z);
+                    b bVar = this.f9928g;
                     if (bVar != null) {
                         bVar.onSoftInputShowing(z);
                     }
                 }
-                this.f10153i = z;
+                this.f9930i = z;
             }
         }
 
@@ -194,11 +192,11 @@ public class e {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                View childAt = this.f10150f.getChildAt(0);
+                View childAt = this.f9927f.getChildAt(0);
                 Rect rect = new Rect();
                 if (childAt == null) {
                     i2 = -1;
-                } else if (!c.a.r0.a.z1.j.b.e(this.f10150f.getContext()) && (!g.e(this.f10154j) || !g.c(this.f10154j))) {
+                } else if (!c.a.r0.a.z1.j.b.e(this.f9927f.getContext()) && (!g.e(this.f9931j) || !g.c(this.f9931j))) {
                     i2 = childAt.getHeight();
                 } else {
                     childAt.getWindowVisibleDisplayFrame(rect);
@@ -246,10 +244,10 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) {
-            if (f10144d == 0) {
-                f10144d = resources.getDimensionPixelSize(c.a.r0.a.d.aiapps_max_panel_height);
+            if (f9921d == 0) {
+                f9921d = resources.getDimensionPixelSize(c.a.r0.a.d.aiapps_max_panel_height);
             }
-            return f10144d;
+            return f9921d;
         }
         return invokeL.intValue;
     }
@@ -258,10 +256,10 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (f10142b == 0) {
-                f10142b = context.getResources().getDimensionPixelSize(c.a.r0.a.d.aiapps_max_softinput_height);
+            if (f9919b == 0) {
+                f9919b = context.getResources().getDimensionPixelSize(c.a.r0.a.d.aiapps_max_softinput_height);
             }
-            return f10142b;
+            return f9919b;
         }
         return invokeL.intValue;
     }
@@ -270,10 +268,10 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resources)) == null) {
-            if (f10143c == 0) {
-                f10143c = resources.getDimensionPixelSize(c.a.r0.a.d.aiapps_min_panel_height);
+            if (f9920c == 0) {
+                f9920c = resources.getDimensionPixelSize(c.a.r0.a.d.aiapps_min_panel_height);
             }
-            return f10143c;
+            return f9920c;
         }
         return invokeL.intValue;
     }
@@ -294,10 +292,10 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (f10145e == 0) {
-                f10145e = c.a.r0.a.z1.h.e.a(context, f(context.getResources()));
+            if (f9922e == 0) {
+                f9922e = c.a.r0.a.z1.h.e.a(context, f(context.getResources()));
             }
-            return f10145e;
+            return f9922e;
         }
         return invokeL.intValue;
     }
@@ -309,11 +307,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             synchronized (e.class) {
-                if (!f10147g && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
-                    f10146f = context.getResources().getDimensionPixelSize(identifier);
-                    f10147g = true;
+                if (!f9924g && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
+                    f9923f = context.getResources().getDimensionPixelSize(identifier);
+                    f9924g = true;
                 }
-                i2 = f10146f;
+                i2 = f9923f;
             }
             return i2;
         }
@@ -339,8 +337,8 @@ public class e {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i2)) == null) {
-            if (f10145e != i2 && i2 >= 0) {
-                f10145e = i2;
+            if (f9922e != i2 && i2 >= 0) {
+                f9922e = i2;
                 return c.a.r0.a.z1.h.e.b(context, i2);
             }
             return false;

@@ -15,28 +15,28 @@ public final class c {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f12275b;
+    public final boolean f11989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f12276c;
+    public final boolean f11990c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f12277d;
+    public final boolean f11991d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f12278e;
+    public final boolean f11992e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12279f;
+    public boolean f11993f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12280g;
+    public boolean f11994g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12281h;
+    public boolean f11995h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12282i;
+    public boolean f11996i;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -51,16 +51,16 @@ public final class c {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f12283b;
+        public boolean f11997b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f12284c;
+        public boolean f11998c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f12285d;
+        public boolean f11999d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12286e;
+        public boolean f12000e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -76,10 +76,10 @@ public final class c {
                 }
             }
             this.a = false;
-            this.f12283b = true;
-            this.f12284c = true;
-            this.f12285d = true;
-            this.f12286e = true;
+            this.f11997b = true;
+            this.f11998c = true;
+            this.f11999d = true;
+            this.f12000e = true;
         }
 
         public c f() {
@@ -92,7 +92,7 @@ public final class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f12284c = z;
+                this.f11998c = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -102,7 +102,7 @@ public final class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f12285d = z;
+                this.f11999d = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -112,7 +112,7 @@ public final class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f12283b = z;
+                this.f11997b = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -122,7 +122,7 @@ public final class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f12286e = z;
+                this.f12000e = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -146,19 +146,19 @@ public final class c {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() && this.f12275b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() && this.f11989b : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() && f() && this.f12276c && !this.f12281h && !this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() && f() && this.f11990c && !this.f11995h && !this.a : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12280g && this.f12282i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11994g && this.f11996i : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -166,10 +166,10 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (f()) {
-                if (c() && this.f12278e && !this.f12281h) {
+                if (c() && this.f11992e && !this.f11995h) {
                     return true;
                 }
-            } else if (c() && this.f12278e) {
+            } else if (c() && this.f11992e) {
                 return true;
             }
             return false;
@@ -180,40 +180,40 @@ public final class c {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c() && !f() && this.f12277d && !this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c() && !f() && this.f11991d && !this.a : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12279f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11993f : invokeV.booleanValue;
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f12279f = z;
+            this.f11993f = z;
         }
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f12281h = z;
+            this.f11995h = z;
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f12280g = z;
+            this.f11994g = z;
         }
     }
 
     public void j(MediaTipStateLayer.TipState tipState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tipState) == null) {
-            this.f12282i = tipState == MediaTipStateLayer.TipState.NORMAL;
+            this.f11996i = tipState == MediaTipStateLayer.TipState.NORMAL;
         }
     }
 
@@ -232,11 +232,11 @@ public final class c {
                 return;
             }
         }
-        this.f12282i = false;
+        this.f11996i = false;
         this.a = bVar.a;
-        this.f12275b = bVar.f12283b;
-        this.f12277d = bVar.f12285d;
-        this.f12278e = bVar.f12286e;
-        this.f12276c = bVar.f12284c;
+        this.f11989b = bVar.f11997b;
+        this.f11991d = bVar.f11999d;
+        this.f11992e = bVar.f12000e;
+        this.f11990c = bVar.f11998c;
     }
 }

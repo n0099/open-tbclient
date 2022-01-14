@@ -61,26 +61,26 @@ public class d implements a.c {
                 h(h2);
             }
             Set<SwanAppProcessInfo> l = cVar.l();
-            Set<String> k2 = cVar.k();
+            Set<String> k = cVar.k();
             if (cVar.n()) {
                 Iterator<c> it = e.k().q().iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    boolean g2 = g(next, k2);
-                    if (l.contains(next.f9947f) || g2) {
+                    boolean g2 = g(next, k);
+                    if (l.contains(next.f9731f) || g2) {
                         next.f0(h2);
                         if (g2) {
-                            k2.remove(next.getAppId());
+                            k.remove(next.getAppId());
                         }
                     }
                 }
-                f(k2, h2);
+                f(k, h2);
                 return;
             }
             Iterator<c> it2 = e.k().q().iterator();
             while (it2.hasNext()) {
                 c next2 = it2.next();
-                if (next2 != null && next2.S() && (l.contains(next2.f9947f) || g(next2, k2))) {
+                if (next2 != null && next2.S() && (l.contains(next2.f9731f) || g(next2, k))) {
                     next2.f0(h2);
                 }
             }
@@ -148,7 +148,7 @@ public class d implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
             try {
-                e.k().f9959e.send(message);
+                e.k().f9742e.send(message);
             } catch (RemoteException e2) {
                 c.a.r0.a.y1.c.a.f(Log.getStackTraceString(e2));
             }

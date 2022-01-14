@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3430b;
+    public static a f3382b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
     public c.a.k0.a.b.c<IAlertManager> a;
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f3430b = new a();
+        f3382b = new a();
     }
 
     public a() {
@@ -57,7 +57,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3430b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3382b : (a) invokeV.objValue;
     }
 
     public void b() {

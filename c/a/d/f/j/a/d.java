@@ -12,34 +12,32 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2816b;
+    public long f2793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2817c;
+    public long f2794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2818d;
+    public long f2795d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2819e;
+    public int f2796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2820f;
+    public long f2797f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2821g;
+    public long f2798g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2822h;
+    public String f2799h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2823i;
+    public int f2800i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2824j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f2825k;
+    public int f2801j;
+    public String k;
     public String l;
     public BDHttpDnsResult.ResolveType m;
     public boolean n;
@@ -69,16 +67,16 @@ public class d {
             }
         }
         this.a = -1L;
-        this.f2816b = -1L;
-        this.f2817c = -1L;
-        this.f2818d = -1L;
-        this.f2819e = 0;
-        this.f2820f = -1L;
-        this.f2821g = -1L;
-        this.f2822h = "";
-        this.f2823i = -1;
-        this.f2824j = 0;
-        this.f2825k = null;
+        this.f2793b = -1L;
+        this.f2794c = -1L;
+        this.f2795d = -1L;
+        this.f2796e = 0;
+        this.f2797f = -1L;
+        this.f2798g = -1L;
+        this.f2799h = "";
+        this.f2800i = -1;
+        this.f2801j = 0;
+        this.k = null;
         this.l = null;
         this.m = null;
         this.o = null;

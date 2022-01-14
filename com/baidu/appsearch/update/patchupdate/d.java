@@ -2,7 +2,7 @@ package com.baidu.appsearch.update.patchupdate;
 
 import java.io.Closeable;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface d extends Closeable {
     int a(ByteBuffer byteBuffer);
 

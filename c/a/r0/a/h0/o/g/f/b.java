@@ -13,19 +13,19 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6918b;
+    public String f6769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f6919c;
+    public Map<String, String> f6770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6920d;
+    public String f6771d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6921e;
+    public String f6772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f6922f;
+    public InputStream f6773f;
 
     public b(int i2, String str, InputStream inputStream, Map<String, String> map, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class b {
             }
         }
         this.a = i2;
-        this.f6918b = str;
-        this.f6922f = inputStream;
-        this.f6919c = map;
-        this.f6920d = str2;
-        this.f6921e = str3;
+        this.f6769b = str;
+        this.f6773f = inputStream;
+        this.f6770c = map;
+        this.f6771d = str2;
+        this.f6772e = str3;
     }
 }

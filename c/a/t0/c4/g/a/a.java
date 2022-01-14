@@ -17,7 +17,7 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c.a.t0.c4.a> f16005b;
+    public ArrayList<c.a.t0.c4.a> f15598b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a {
     public ArrayList<c.a.t0.c4.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16005b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15598b : (ArrayList) invokeV.objValue;
     }
 
     public String b() {
@@ -55,12 +55,12 @@ public class a {
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f16005b = new ArrayList<>();
+        this.f15598b = new ArrayList<>();
         for (ThemeCardPropMain themeCardPropMain : list) {
             if (themeCardPropMain != null) {
                 c.a.t0.c4.a aVar = new c.a.t0.c4.a();
                 aVar.k(themeCardPropMain);
-                this.f16005b.add(aVar);
+                this.f15598b.add(aVar);
             }
         }
     }

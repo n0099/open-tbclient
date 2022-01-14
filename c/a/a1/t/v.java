@@ -14,13 +14,13 @@ public class v {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f1492b;
+    public static float f1480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f1493c;
+    public static int f1481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f1494d;
+    public static int f1482d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class v {
             if (!a) {
                 f();
             }
-            return (int) ((f2 * f1492b) + 0.5f);
+            return (int) ((f2 * f1480b) + 0.5f);
         }
         return invokeF.intValue;
     }
@@ -57,7 +57,7 @@ public class v {
             if (!a) {
                 f();
             }
-            return f1494d;
+            return f1482d;
         }
         return invokeV.intValue;
     }
@@ -69,7 +69,7 @@ public class v {
             if (!a) {
                 f();
             }
-            return f1493c;
+            return f1481c;
         }
         return invokeV.intValue;
     }
@@ -94,13 +94,13 @@ public class v {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
-                f1493c = displayMetrics.widthPixels;
-                f1494d = displayMetrics.heightPixels;
+                f1481c = displayMetrics.widthPixels;
+                f1482d = displayMetrics.heightPixels;
             } else {
-                f1493c = displayMetrics.heightPixels;
-                f1494d = displayMetrics.widthPixels;
+                f1481c = displayMetrics.heightPixels;
+                f1482d = displayMetrics.widthPixels;
             }
-            f1492b = displayMetrics.density;
+            f1480b = displayMetrics.density;
             a = true;
         }
     }

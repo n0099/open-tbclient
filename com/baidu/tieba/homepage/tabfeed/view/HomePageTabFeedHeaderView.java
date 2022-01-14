@@ -27,22 +27,22 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f46121e;
+    public TbPageContext<?> f44426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoBannerLayout f46122f;
+    public AutoBannerLayout f44427f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridIconLayout f46123g;
+    public GridIconLayout f44428g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f46124h;
+    public String f44429h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f46125i;
+    public f f44430i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.s.w.b.d<m> f46126j;
+    public c.a.s0.s.w.b.d<m> f44431j;
 
     /* loaded from: classes12.dex */
     public class a implements c.a.s0.n.c {
@@ -71,8 +71,8 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         @Override // c.a.s0.n.c
         public void a(View view, boolean z, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), obj}) == null) && z && this.a.f46122f != null) {
-                this.a.f46122f.checkAndStartMarqueen();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), obj}) == null) && z && this.a.f44427f != null) {
+                this.a.f44427f.checkAndStartMarqueen();
             }
         }
     }
@@ -105,7 +105,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void a(View view, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), obj}) == null) && z) {
-                c.a.t0.o1.j.c.c("c13751", this.a.f46124h);
+                c.a.t0.o1.j.c.c("c13751", this.a.f44429h);
             }
         }
     }
@@ -116,7 +116,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedHeaderView f46127e;
+        public final /* synthetic */ HomePageTabFeedHeaderView f44432e;
 
         public c(HomePageTabFeedHeaderView homePageTabFeedHeaderView) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     return;
                 }
             }
-            this.f46127e = homePageTabFeedHeaderView;
+            this.f44432e = homePageTabFeedHeaderView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,7 +151,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void a(View view, m mVar, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, mVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.a.t0.o1.j.c.a("c13751", mVar, i2 + 1, this.f46127e.f46124h);
+                c.a.t0.o1.j.c.a("c13751", mVar, i2 + 1, this.f44432e.f44429h);
             }
         }
     }
@@ -186,7 +186,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 m mVar = new m();
                 mVar.g(str);
-                c.a.t0.o1.j.c.a("c13750", mVar, i2, this.a.f46124h);
+                c.a.t0.o1.j.c.a("c13750", mVar, i2, this.a.f44429h);
             }
         }
 
@@ -198,7 +198,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, mVar) == null) || mVar == null) {
                 return;
             }
-            c.a.t0.o1.j.c.b("c13750", mVar, i2, this.a.f46124h);
+            c.a.t0.o1.j.c.b("c13750", mVar, i2, this.a.f44429h);
         }
     }
 
@@ -220,8 +220,8 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f46125i = new c(this);
-        this.f46126j = new d(this);
+        this.f44430i = new c(this);
+        this.f44431j = new d(this);
         init();
     }
 
@@ -230,20 +230,20 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setDescendantFocusability(262144);
-            this.f46121e = (TbPageContext) j.a(getContext());
+            this.f44426e = (TbPageContext) j.a(getContext());
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            AutoBannerLayout autoBannerLayout = this.f46122f;
+            AutoBannerLayout autoBannerLayout = this.f44427f;
             if (autoBannerLayout != null) {
-                autoBannerLayout.onChangeSkinType(this.f46121e, i2);
+                autoBannerLayout.onChangeSkinType(this.f44426e, i2);
             }
-            GridIconLayout gridIconLayout = this.f46123g;
+            GridIconLayout gridIconLayout = this.f44428g;
             if (gridIconLayout != null) {
-                gridIconLayout.onChangeSkinType(this.f46121e, i2);
+                gridIconLayout.onChangeSkinType(this.f44426e, i2);
             }
         }
     }
@@ -258,7 +258,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public void onDestroy() {
         GridIconLayout gridIconLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gridIconLayout = this.f46123g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gridIconLayout = this.f44428g) == null) {
             return;
         }
         gridIconLayout.onDestroy();
@@ -279,44 +279,44 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             return;
         }
         setPadding(0, n.f(getContext(), R.dimen.M_H_X003), 0, 0);
-        if (this.f46122f == null) {
+        if (this.f44427f == null) {
             AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
-            this.f46122f = autoBannerLayout;
+            this.f44427f = autoBannerLayout;
             autoBannerLayout.setFrom(YYLiveUtil.SOURCE_CHANNEL_BANNER);
-            this.f46122f.setMarqueenTime(3000L);
-            this.f46122f.setOnCoverViewCallback(this.f46126j);
-            this.f46122f.setBannerHeight(n.f(getContext(), R.dimen.tbds343));
-            addView(this.f46122f);
-            this.f46122f.setIWindowChangedListener(new a(this));
+            this.f44427f.setMarqueenTime(3000L);
+            this.f44427f.setOnCoverViewCallback(this.f44431j);
+            this.f44427f.setBannerHeight(n.f(getContext(), R.dimen.tbds343));
+            addView(this.f44427f);
+            this.f44427f.setIWindowChangedListener(new a(this));
         }
-        this.f46122f.onBindDataToView(dVar.f21206e);
-        if (this.f46123g == null) {
+        this.f44427f.onBindDataToView(dVar.f20646e);
+        if (this.f44428g == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
-            this.f46123g = gridIconLayout;
-            gridIconLayout.setOnItemCoverListener(this.f46125i);
+            this.f44428g = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.f44430i);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = n.f(this.f46121e.getPageActivity(), R.dimen.M_H_X003);
-            addView(this.f46123g, layoutParams);
-            int f2 = n.f(this.f46121e.getPageActivity(), R.dimen.M_H_X002);
-            int f3 = n.f(this.f46121e.getPageActivity(), R.dimen.tbds30);
-            l0 l0Var = dVar.f21207f;
-            int size = (l0Var == null || (list = l0Var.f13762e) == null) ? 0 : list.size();
+            layoutParams.topMargin = n.f(this.f44426e.getPageActivity(), R.dimen.M_H_X003);
+            addView(this.f44428g, layoutParams);
+            int f2 = n.f(this.f44426e.getPageActivity(), R.dimen.M_H_X002);
+            int f3 = n.f(this.f44426e.getPageActivity(), R.dimen.tbds30);
+            l0 l0Var = dVar.f20647f;
+            int size = (l0Var == null || (list = l0Var.f13450e) == null) ? 0 : list.size();
             if (size == 5 || size >= 9) {
-                this.f46123g.setPadding(0, f2, 0, f2);
+                this.f44428g.setPadding(0, f2, 0, f2);
             } else if (size >= 4 && size < 9) {
-                this.f46123g.setPadding(f3, f2, f3, f2);
+                this.f44428g.setPadding(f3, f2, f3, f2);
             }
-            this.f46123g.setIWindowChangedListener(new b(this));
-            this.f46123g.setMaxItem(10);
+            this.f44428g.setIWindowChangedListener(new b(this));
+            this.f44428g.setMaxItem(10);
         }
-        this.f46123g.onBindDataToView(dVar.f21207f);
-        this.f46123g.onChangeSkinType(this.f46121e, TbadkCoreApplication.getInst().getSkinType());
+        this.f44428g.onBindDataToView(dVar.f20647f);
+        this.f44428g.onChangeSkinType(this.f44426e, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setTabCode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f46124h = str;
+            this.f44429h = str;
         }
     }
 
@@ -339,8 +339,8 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f46125i = new c(this);
-        this.f46126j = new d(this);
+        this.f44430i = new c(this);
+        this.f44431j = new d(this);
         init();
     }
 
@@ -363,8 +363,8 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f46125i = new c(this);
-        this.f46126j = new d(this);
+        this.f44430i = new c(this);
+        this.f44431j = new d(this);
         init();
     }
 }

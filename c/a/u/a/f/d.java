@@ -23,7 +23,7 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.d f27077b;
+    public a.d f26274b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class d extends a {
                 return;
             }
         }
-        this.f27077b = null;
+        this.f26274b = null;
         this.a = context;
     }
 
     public void a(a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f27077b = dVar;
+            this.f26274b = dVar;
         }
     }
 
@@ -100,7 +100,7 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
             c.a.u.a.h.e.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i2 + ",errormsg:" + str);
             c.a.u.a.c.a.f(true);
-            c.a.u.a.c.a.c(this.a).b(e.S(this.a).x, this.f27077b);
+            c.a.u.a.c.a.c(this.a).b(e.S(this.a).x, this.f26274b);
         }
     }
 
@@ -125,23 +125,23 @@ public class d extends a {
                         arrayList.add(optJSONArray2.getString(0));
                     }
                     c.a.u.a.c.a.j(arrayList);
-                    if (this.f27077b == null || c.a.u.a.c.a.f27013c.size() <= 0) {
+                    if (this.f26274b == null || c.a.u.a.c.a.f26212c.size() <= 0) {
                         return;
                     }
-                    this.f27077b.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, c.a.u.a.c.a.f27013c.get(0));
-                    if (c.a.u.a.c.a.f27013c.size() > 1) {
-                        c.a.u.a.c.a.f27014d++;
+                    this.f26274b.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, c.a.u.a.c.a.f26212c.get(0));
+                    if (c.a.u.a.c.a.f26212c.size() > 1) {
+                        c.a.u.a.c.a.f26213d++;
                         return;
                     }
                     return;
                 }
                 c.a.u.a.h.e.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
                 c.a.u.a.c.a.f(true);
-                c.a.u.a.c.a.c(this.a).b(e.S(this.a).x, this.f27077b);
+                c.a.u.a.c.a.c(this.a).b(e.S(this.a).x, this.f26274b);
             } catch (Exception e2) {
                 c.a.u.a.h.e.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e2.getMessage());
                 c.a.u.a.c.a.f(true);
-                c.a.u.a.c.a.c(this.a).b(e.S(this.a).x, this.f27077b);
+                c.a.u.a.c.a.c(this.a).b(e.S(this.a).x, this.f26274b);
             }
         }
     }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends c.a.d.n.e.a<c.a.t0.o1.j.h.a, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements c.a.t0.o1.j.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.o1.j.h.a, AdapterViewHolder<HomeLocalC
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity(), c.a.t0.o1.j.h.a.f21193e);
+        super(tbPageContext.getPageActivity(), c.a.t0.o1.j.h.a.f20633e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

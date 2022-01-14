@@ -21,10 +21,10 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<e> f18475e;
+    public List<e> f18018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f18476f;
+    public Context f18019f;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -39,7 +39,7 @@ public class d extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f18477b;
+        public View f18020b;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f18476f = context;
+        this.f18019f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,10 +87,10 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f18475e == null || i2 < 0 || i2 >= getCount() - 1) {
+            if (this.f18018e == null || i2 < 0 || i2 >= getCount() - 1) {
                 return null;
             }
-            return this.f18475e.get(i2);
+            return this.f18018e.get(i2);
         }
         return (e) invokeI.objValue;
     }
@@ -98,7 +98,7 @@ public class d extends BaseAdapter {
     public void b(List<e> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f18475e = list;
+            this.f18018e = list;
             notifyDataSetChanged();
         }
     }
@@ -108,7 +108,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<e> list = this.f18475e;
+            List<e> list = this.f18018e;
             if (list == null) {
                 return 1;
             }
@@ -140,29 +140,29 @@ public class d extends BaseAdapter {
             if (view != null && view.getTag() != null) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f18476f).inflate(R.layout.gift_num_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f18019f).inflate(R.layout.gift_num_item, (ViewGroup) null);
                 bVar = new b(this, null);
                 bVar.a = (TextView) view.findViewById(R.id.text);
-                bVar.f18477b = view.findViewById(R.id.divider);
+                bVar.f18020b = view.findViewById(R.id.divider);
                 view.setTag(bVar);
             }
             SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
             SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.f18477b, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.f18020b, R.color.CAM_X0204);
             e item = getItem(i2);
             if (getItemViewType(i2) == 1) {
                 bVar.a.setText(R.string.custom_num);
-                bVar.f18477b.setVisibility(4);
+                bVar.f18020b.setVisibility(4);
             } else {
                 if (item != null) {
                     int b2 = item.b() > 0 ? item.b() : 1;
                     String a2 = item.a() != null ? item.a() : "";
                     TextView textView = bVar.a;
                     textView.setText(b2 + a2);
-                    bVar.f18477b.setVisibility(0);
+                    bVar.f18020b.setVisibility(0);
                 } else {
                     bVar.a.setText("");
-                    bVar.f18477b.setVisibility(0);
+                    bVar.f18020b.setVisibility(0);
                 }
             }
             return view;

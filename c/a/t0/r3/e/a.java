@@ -5,6 +5,7 @@ import c.a.s0.s0.l;
 import c.a.t0.r3.b.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
@@ -25,11 +26,11 @@ public class a implements c.a.s0.l.a {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f22489b;
+    public final c f21872b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f22490c;
+    public final b f21873c;
 
     public a(@NonNull c.a.t0.r3.b.b bVar, @NonNull c cVar, @NonNull b bVar2) {
         Interceptable interceptable = $ic;
@@ -47,38 +48,17 @@ public class a implements c.a.s0.l.a {
             }
         }
         this.a = bVar;
-        this.f22489b = cVar;
-        this.f22490c = bVar2;
+        this.f21872b = cVar;
+        this.f21873c = bVar2;
     }
 
     @Override // c.a.s0.l.a
-    public void a(boolean z, boolean z2, int i2, String str, String str2) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, str2}) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            SpeedStatsManager.getInstance().setStatsFlag(false);
-            this.a.f();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_CLICK);
-            this.a.getActivity().overridePendingTransition(0, 0);
-            statisticItem.param("obj_type", z2 ? 2 : 1).param("obj_source", i2);
-            if (str != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, str);
-            }
-            if (str2 != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            }
-            TiebaStatic.log(statisticItem);
-            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK);
-            statisticItem2.param("obj_source", i2).param("obj_type", "a030").param("obj_locate", 0);
-            TiebaStatic.log(statisticItem2);
-            StatisticItem statisticItem3 = new StatisticItem("common_click");
-            statisticItem3.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i2).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
-            if (z) {
-                statisticItem3.param("obj_type", z2 ? 4 : 3);
-            } else {
-                statisticItem3.param("obj_type", z2 ? 2 : 1);
-            }
-            c.a.t0.v3.c.g().c(this.a.getUniqueId(), statisticItem3);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            SpeedStatsManager.getInstance().setAdSource(str);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SDK_DO_SHOW_STAMP_KEY);
+            this.f21873c.l();
         }
     }
 
@@ -95,33 +75,76 @@ public class a implements c.a.s0.l.a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f22490c.n(true);
-            this.a.getRootView().removeView(this.f22490c.j());
-            this.f22490c.m();
-            this.f22489b.a();
-            l.b().k(System.currentTimeMillis() - this.f22490c.i());
+            this.f21873c.n(true);
+            this.a.getRootView().removeView(this.f21873c.j());
+            this.f21873c.m();
+            this.f21872b.a();
+            l.b().k(System.currentTimeMillis() - this.f21873c.i());
         }
     }
 
     @Override // c.a.s0.l.a
-    public void d() {
+    public void d(boolean z, boolean z2, int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SDK_DO_SHOW_STAMP_KEY);
-            this.f22490c.l();
-        }
-    }
-
-    @Override // c.a.s0.l.a
-    public void e(boolean z, boolean z2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
-            this.f22490c.n(true);
-            this.a.c(i2);
-            if (this.f22490c.k() > 0) {
-                c.a.s0.s.b0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "internal", Long.valueOf(System.currentTimeMillis() - this.f22490c.k()));
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, str2, str3}) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
+            SpeedStatsManager.getInstance().setStatsFlag(false);
+            this.a.f();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_CLICK);
+            this.a.getActivity().overridePendingTransition(0, 0);
+            statisticItem.param("obj_type", z2 ? 2 : 1).param("obj_source", i2);
+            if (str2 != null) {
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
             }
-            this.f22490c.m();
+            if (str3 != null) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str3);
+            }
+            TiebaStatic.log(statisticItem);
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK);
+            statisticItem2.param("obj_source", i2).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", this.a.j());
+            if (!StringUtils.isNull(str)) {
+                statisticItem2.param("nid", str);
+            }
+            if (!StringUtils.isNull(str2)) {
+                statisticItem2.param(TiebaStatic.Params.OBJ_TO, str2);
+            }
+            if (!StringUtils.isNull(str3)) {
+                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str3);
+            }
+            TiebaStatic.log(statisticItem2);
+            StatisticItem statisticItem3 = new StatisticItem("common_click");
+            statisticItem3.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i2).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
+            if (z) {
+                statisticItem3.param("obj_type", z2 ? 4 : 3);
+            } else {
+                statisticItem3.param("obj_type", z2 ? 2 : 1);
+            }
+            c.a.t0.v3.c.g().c(this.a.getUniqueId(), statisticItem3);
+        }
+    }
+
+    @Override // c.a.s0.l.a
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if ("5".equals(str)) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_XUZHANG_LOAD_END_STAMP_KEY);
+            } else if ("6".equals(str)) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_XIAOXIONG_LOAD_END_STAMP_KEY);
+            }
+        }
+    }
+
+    @Override // c.a.s0.l.a
+    public void f(boolean z, boolean z2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            this.f21873c.n(true);
+            this.a.c(i2);
+            if (this.f21873c.k() > 0) {
+                c.a.s0.s.b0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "internal", Long.valueOf(System.currentTimeMillis() - this.f21873c.k()));
+            }
+            this.f21873c.m();
             if (z2) {
                 this.a.getRootView().setBackgroundDrawable(null);
             }
@@ -139,7 +162,7 @@ public class a implements c.a.s0.l.a {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a.getActivity()));
             }
             l.b().m(System.currentTimeMillis());
-            l.b().k(System.currentTimeMillis() - this.f22490c.i());
+            l.b().k(System.currentTimeMillis() - this.f21873c.i());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
         }
     }
@@ -147,12 +170,12 @@ public class a implements c.a.s0.l.a {
     @Override // c.a.s0.l.a
     public void onAdDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
             this.a.f();
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, hashCode()).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.e())));
             if (this.a.e()) {
-                this.f22489b.a();
+                this.f21872b.a();
             }
         }
     }

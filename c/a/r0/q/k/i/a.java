@@ -16,16 +16,16 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11865b;
+    public int f11595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11866c;
+    public int f11596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11867d;
+    public int f11597d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11868e;
+    public int f11598e;
 
     public a(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class a {
             }
         }
         this.a = i2;
-        this.f11865b = i3;
-        this.f11866c = i4;
-        this.f11867d = i6;
-        this.f11868e = i5;
+        this.f11595b = i3;
+        this.f11596c = i4;
+        this.f11597d = i6;
+        this.f11598e = i5;
     }
 
     @NonNull

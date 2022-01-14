@@ -15,13 +15,13 @@ public class k implements c.a.s0.s.w.b.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25559b;
+    public String f24844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25560c;
+    public int f24845c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25561d;
+    public int f24846d;
 
     public k(Timgs timgs) {
         Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public class k implements c.a.s0.s.w.b.a {
             }
         }
         this.a = null;
-        this.f25559b = null;
-        this.f25560c = 1;
-        this.f25561d = 1;
+        this.f24844b = null;
+        this.f24845c = 1;
+        this.f24846d = 1;
         if (timgs == null) {
             return;
         }
         this.a = timgs.img_url;
         timgs.flag.intValue();
-        this.f25559b = timgs.url;
+        this.f24844b = timgs.url;
         String str = timgs.big_cdn_url;
         String str2 = timgs.des_main;
         String str3 = timgs.des_sub;
@@ -55,17 +55,17 @@ public class k implements c.a.s0.s.w.b.a {
         if (str4 != null) {
             try {
                 String[] split = str4.split(",");
-                this.f25560c = c.a.d.f.m.b.e(split[0], 1);
-                this.f25561d = c.a.d.f.m.b.e(split[1], 1);
+                this.f24845c = c.a.d.f.m.b.e(split[0], 1);
+                this.f24846d = c.a.d.f.m.b.e(split[1], 1);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f25560c <= 0) {
-            this.f25560c = 1;
+        if (this.f24845c <= 0) {
+            this.f24845c = 1;
         }
-        if (this.f25561d <= 0) {
-            this.f25561d = 1;
+        if (this.f24846d <= 0) {
+            this.f24846d = 1;
         }
     }
 
@@ -80,7 +80,7 @@ public class k implements c.a.s0.s.w.b.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25559b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24844b : (String) invokeV.objValue;
     }
 
     public String c() {

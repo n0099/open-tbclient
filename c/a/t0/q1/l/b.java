@@ -17,23 +17,23 @@ public class b implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f22123j;
+    public static final BdUniqueId f21522j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22124e;
+    public String f21523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f22125f;
+    public long f21524f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22126g;
+    public String f21525g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22127h;
+    public String f21526h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22128i;
+    public String f21527i;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class b implements c.a.d.n.e.n {
                 return;
             }
         }
-        f22123j = BdUniqueId.gen();
+        f21522j = BdUniqueId.gen();
     }
 
     public b() {
@@ -68,38 +68,38 @@ public class b implements c.a.d.n.e.n {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22125f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21524f : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22124e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21523e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22126g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21525g : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22127h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21526h : (String) invokeV.objValue;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f22123j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f21522j : (BdUniqueId) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22128i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21527i : (String) invokeV.objValue;
     }
 
     public void i(TopicList topicList) {
@@ -107,19 +107,19 @@ public class b implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, topicList) == null) || topicList == null) {
             return;
         }
-        this.f22125f = topicList.topic_id.longValue();
-        this.f22126g = topicList.topic_name;
+        this.f21524f = topicList.topic_id.longValue();
+        this.f21525g = topicList.topic_name;
         topicList.tag.intValue();
         topicList.discuss_num.longValue();
-        this.f22127h = topicList.topic_desc;
-        this.f22128i = topicList.topic_pic;
+        this.f21526h = topicList.topic_desc;
+        this.f21527i = topicList.topic_pic;
     }
 
     public void k(TopicListModule topicListModule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, topicListModule) == null) {
             try {
-                this.f22124e = topicListModule.module_title;
+                this.f21523e = topicListModule.module_title;
                 String str = topicListModule.tips;
                 String str2 = topicListModule.rule_jump_url;
             } catch (Exception e2) {

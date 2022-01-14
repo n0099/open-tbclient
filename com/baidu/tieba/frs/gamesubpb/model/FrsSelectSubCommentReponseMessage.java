@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.gamesubpb.model;
 
-import c.a.t0.d1.h2.d.c;
+import c.a.t0.d1.i2.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

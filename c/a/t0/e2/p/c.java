@@ -109,12 +109,12 @@ public class c implements LiveShowPlayerService {
 
     /* renamed from: c.a.t0.e2.p.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1073c implements TbLiveVideoView.a {
+    public class C1087c implements TbLiveVideoView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveShowPlayerStatusCallback a;
 
-        public C1073c(c cVar, LiveShowPlayerStatusCallback liveShowPlayerStatusCallback) {
+        public C1087c(c cVar, LiveShowPlayerStatusCallback liveShowPlayerStatusCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -472,7 +472,7 @@ public class c implements LiveShowPlayerService {
     public void setPlayerCallback(Object obj, LiveShowPlayerStatusCallback liveShowPlayerStatusCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048597, this, obj, liveShowPlayerStatusCallback) == null) && (obj instanceof TbLiveVideoView)) {
-            ((TbLiveVideoView) obj).setPlayerCallback(new C1073c(this, liveShowPlayerStatusCallback));
+            ((TbLiveVideoView) obj).setPlayerCallback(new C1087c(this, liveShowPlayerStatusCallback));
         }
     }
 }

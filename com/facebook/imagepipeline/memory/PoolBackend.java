@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.memory;
 
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface PoolBackend<T> {
     @Nullable
     T get(int i2);

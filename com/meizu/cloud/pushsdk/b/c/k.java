@@ -7,58 +7,58 @@ public class k {
     public final i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f60884b;
+    public final int f58577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f60885c;
+    public final String f58578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c f60886d;
+    public final c f58579d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final l f60887e;
+    public final l f58580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f60888f;
+    public k f58581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k f60889g;
+    public k f58582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final k f60890h;
+    public final k f58583h;
 
     /* loaded from: classes3.dex */
     public static class a {
         public i a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60892c;
+        public String f58585c;
 
         /* renamed from: e  reason: collision with root package name */
-        public l f60894e;
+        public l f58587e;
 
         /* renamed from: f  reason: collision with root package name */
-        public k f60895f;
+        public k f58588f;
 
         /* renamed from: g  reason: collision with root package name */
-        public k f60896g;
+        public k f58589g;
 
         /* renamed from: h  reason: collision with root package name */
-        public k f60897h;
+        public k f58590h;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f60891b = -1;
+        public int f58584b = -1;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a f60893d = new c.a();
+        public c.a f58586d = new c.a();
 
         public a a(int i2) {
-            this.f60891b = i2;
+            this.f58584b = i2;
             return this;
         }
 
         public a a(c cVar) {
-            this.f60893d = cVar.c();
+            this.f58586d = cVar.c();
             return this;
         }
 
@@ -68,21 +68,21 @@ public class k {
         }
 
         public a a(l lVar) {
-            this.f60894e = lVar;
+            this.f58587e = lVar;
             return this;
         }
 
         public a a(String str) {
-            this.f60892c = str;
+            this.f58585c = str;
             return this;
         }
 
         public k a() {
             if (this.a != null) {
-                if (this.f60891b >= 0) {
+                if (this.f58584b >= 0) {
                     return new k(this);
                 }
-                throw new IllegalStateException("code < 0: " + this.f60891b);
+                throw new IllegalStateException("code < 0: " + this.f58584b);
             }
             throw new IllegalStateException("request == null");
         }
@@ -90,24 +90,24 @@ public class k {
 
     public k(a aVar) {
         this.a = aVar.a;
-        this.f60884b = aVar.f60891b;
-        this.f60885c = aVar.f60892c;
-        this.f60886d = aVar.f60893d.a();
-        this.f60887e = aVar.f60894e;
-        this.f60888f = aVar.f60895f;
-        this.f60889g = aVar.f60896g;
-        this.f60890h = aVar.f60897h;
+        this.f58577b = aVar.f58584b;
+        this.f58578c = aVar.f58585c;
+        this.f58579d = aVar.f58586d.a();
+        this.f58580e = aVar.f58587e;
+        this.f58581f = aVar.f58588f;
+        this.f58582g = aVar.f58589g;
+        this.f58583h = aVar.f58590h;
     }
 
     public int a() {
-        return this.f60884b;
+        return this.f58577b;
     }
 
     public l b() {
-        return this.f60887e;
+        return this.f58580e;
     }
 
     public String toString() {
-        return "Response{protocol=, code=" + this.f60884b + ", message=" + this.f60885c + ", url=" + this.a.a() + ExtendedMessageFormat.END_FE;
+        return "Response{protocol=, code=" + this.f58577b + ", message=" + this.f58578c + ", url=" + this.a.a() + ExtendedMessageFormat.END_FE;
     }
 }

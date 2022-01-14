@@ -12,7 +12,7 @@ public class e0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c0> f16373b;
+    public List<c0> f16019b;
 
     public e0() {
         Interceptable interceptable = $ic;

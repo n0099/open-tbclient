@@ -16,18 +16,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f20526e;
+        public final /* synthetic */ f f19977e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class d {
                     return;
                 }
             }
-            this.f20526e = fVar;
+            this.f19977e = fVar;
         }
 
         @Override // c.a.t0.n4.m.c.d.f
         public void onFrameResult(int i2, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bitmap) == null) {
-                f fVar = this.f20526e;
+                f fVar = this.f19977e;
                 if (fVar != null) {
                     fVar.onFrameResult(i2, bitmap);
                 }
@@ -60,13 +60,13 @@ public class d {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f20527e;
+        public final /* synthetic */ f f19978e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class d {
                     return;
                 }
             }
-            this.f20527e = fVar;
+            this.f19978e = fVar;
         }
 
         @Override // c.a.t0.n4.m.c.d.f
         public void onFrameResult(int i2, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bitmap) == null) {
-                f fVar = this.f20527e;
+                f fVar = this.f19978e;
                 if (fVar != null) {
                     fVar.onFrameResult(i2, bitmap);
                 }
@@ -141,21 +141,21 @@ public class d {
         }
         o oVar = new o();
         oVar.a = vlogEditManager.getDuration();
-        oVar.f20563b = i2;
-        oVar.f20567f = vlogEditManager.getInputMultiMediaData();
+        oVar.f20014b = i2;
+        oVar.f20018f = vlogEditManager.getInputMultiMediaData();
         MediaTrack mediaTrack = (MediaTrack) c.a.a1.t.h.c(vlogEditManager.getUpdateMediaTracks(), 0);
         if (mediaTrack == null) {
             return;
         }
-        oVar.f20566e = mediaTrack.mediaSegments;
+        oVar.f20017e = mediaTrack.mediaSegments;
         if (i3 == 0) {
             i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
         }
-        oVar.f20564c = i3;
+        oVar.f20015c = i3;
         if (i4 == 0) {
             i4 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
         }
-        oVar.f20565d = i4;
+        oVar.f20016d = i4;
         i.f().i(oVar, new b(fVar));
     }
 
@@ -165,17 +165,17 @@ public class d {
             return;
         }
         p pVar = new p();
-        pVar.f20568b = i2;
+        pVar.f20019b = i2;
         pVar.a = multiMediaData.originalDuration;
-        pVar.f20571e = multiMediaData;
+        pVar.f20022e = multiMediaData;
         if (i3 == 0) {
             i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
         }
-        pVar.f20569c = i3;
+        pVar.f20020c = i3;
         if (i4 == 0) {
             i4 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
         }
-        pVar.f20570d = i4;
+        pVar.f20021d = i4;
         i.f().j(pVar, new a(fVar));
     }
 }

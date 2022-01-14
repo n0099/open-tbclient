@@ -21,12 +21,12 @@ public class a extends d {
 
     /* renamed from: c.a.r0.a.w1.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0600a implements c.a.r0.a.h0.j.b<c.a.r0.a.w1.d.c.a> {
+    public class C0609a implements c.a.r0.a.h0.j.b<c.a.r0.a.w1.d.c.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0600a(a aVar) {
+        public C0609a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +153,7 @@ public class a extends d {
             c.a.r0.a.w1.d.b.b B = B(str);
             if (B.b()) {
                 c.a.r0.a.w1.e.a.b(B.toString());
-                return B.f9732i;
+                return B.f9521i;
             }
             return new c.a.r0.a.w1.d.d.d().l(B, new c(this));
         }
@@ -166,14 +166,14 @@ public class a extends d {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             c.a.r0.a.w1.d.b.b bVar = new c.a.r0.a.w1.d.b.b();
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);
-            bVar.f9732i = (c.a.r0.a.u.h.b) s.first;
+            bVar.f9521i = (c.a.r0.a.u.h.b) s.first;
             JSONObject jSONObject = (JSONObject) s.second;
             if (jSONObject == null) {
                 return bVar;
             }
             String optString = jSONObject.optString("pluginProvider");
             if (TextUtils.isEmpty(optString)) {
-                bVar.f9732i = new c.a.r0.a.u.h.b(201, "pluginProvider is empty");
+                bVar.f9521i = new c.a.r0.a.u.h.b(201, "pluginProvider is empty");
                 return bVar;
             }
             i g2 = c.a.r0.a.w1.h.b.g(optString);
@@ -182,17 +182,17 @@ public class a extends d {
                 if (!TextUtils.isEmpty(str2)) {
                     String optString2 = jSONObject.optString("providerRootPath");
                     if (TextUtils.isEmpty(optString2)) {
-                        bVar.f9732i = new c.a.r0.a.u.h.b(201, "providerRootPath is empty");
+                        bVar.f9521i = new c.a.r0.a.u.h.b(201, "providerRootPath is empty");
                         return bVar;
                     }
                     String optString3 = jSONObject.optString("slaveId");
                     if (TextUtils.isEmpty(optString3)) {
-                        bVar.f9732i = new c.a.r0.a.u.h.b(201, "slaveId is empty");
+                        bVar.f9521i = new c.a.r0.a.u.h.b(201, "slaveId is empty");
                         return bVar;
                     }
                     String optString4 = jSONObject.optString("componentId");
                     if (TextUtils.isEmpty(optString4)) {
-                        bVar.f9732i = new c.a.r0.a.u.h.b(201, "componentId is empty");
+                        bVar.f9521i = new c.a.r0.a.u.h.b(201, "componentId is empty");
                         return bVar;
                     }
                     String optString5 = jSONObject.optString("pluginVersion", "release");
@@ -200,17 +200,17 @@ public class a extends d {
                     JSONObject optJSONObject = jSONObject.optJSONObject("args");
                     String optString6 = jSONObject.optString("cb");
                     bVar.a = str2;
-                    bVar.f9725b = optString;
-                    bVar.f9726c = optString2;
-                    bVar.f9727d = str3;
-                    bVar.f9728e = optString3;
-                    bVar.f9729f = optString4;
-                    bVar.f9730g = optJSONObject;
-                    bVar.f9731h = optString6;
+                    bVar.f9514b = optString;
+                    bVar.f9515c = optString2;
+                    bVar.f9516d = str3;
+                    bVar.f9517e = optString3;
+                    bVar.f9518f = optString4;
+                    bVar.f9519g = optJSONObject;
+                    bVar.f9520h = optString6;
                     return bVar;
                 }
             }
-            bVar.f9732i = new c.a.r0.a.u.h.b(201, "pluginProvider exchange for truth app key，but empty");
+            bVar.f9521i = new c.a.r0.a.u.h.b(201, "pluginProvider exchange for truth app key，but empty");
             return bVar;
         }
         return (c.a.r0.a.w1.d.b.b) invokeL.objValue;
@@ -246,7 +246,7 @@ public class a extends d {
             c.a.r0.a.w1.d.b.b B = B(str);
             if (B.b()) {
                 c.a.r0.a.w1.e.a.b(B.toString());
-                return B.f9732i;
+                return B.f9521i;
             }
             return new c.a.r0.a.w1.d.d.c().l(B, new b(this));
         }
@@ -260,9 +260,9 @@ public class a extends d {
             c.a.r0.a.w1.d.b.b B = B(str);
             if (B.b()) {
                 c.a.r0.a.w1.e.a.b(B.toString());
-                return B.f9732i;
+                return B.f9521i;
             }
-            return new e().l(B, new C0600a(this));
+            return new e().l(B, new C0609a(this));
         }
         return (c.a.r0.a.u.h.b) invokeL.objValue;
     }

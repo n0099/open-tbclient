@@ -16,19 +16,19 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f33809b;
+    public static final Class<?>[] f32735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33810c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
+    public static final String f32736c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f33811d;
+    public static final Pattern f32737d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public class Utils {
             }
         }
         a = new Object[0];
-        f33809b = new Class[0];
-        f33811d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        f32735b = new Class[0];
+        f32737d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
     }
 
     public Utils() {
@@ -98,8 +98,8 @@ public class Utils {
         return (List) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0048 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0049 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x004e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -149,7 +149,7 @@ public class Utils {
     public static boolean validateJavaIdentifier(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f33811d.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f32737d.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static Class<?>[] a(Object... objArr) {
@@ -160,7 +160,7 @@ public class Utils {
                 return null;
             }
             if (objArr.length == 0) {
-                return f33809b;
+                return f32735b;
             }
             Class<?>[] clsArr = new Class[objArr.length];
             for (int i2 = 0; i2 < objArr.length; i2++) {
@@ -174,7 +174,7 @@ public class Utils {
     public static Class<?>[] a(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f33809b : clsArr : (Class[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f32735b : clsArr : (Class[]) invokeL.objValue;
     }
 
     public static void a(Class<?> cls, HashSet<Class<?>> hashSet) {

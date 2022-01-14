@@ -18,7 +18,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.jvm.internal.ShortCompanionObject;
 /* loaded from: classes13.dex */
 public class WalletFacadeAOP implements NoProguard, InvocationHandler {
@@ -26,7 +25,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public static final String TAG = "WalletFacadeAOP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f52418b;
+    public static final List<String> f50396b;
     public transient /* synthetic */ FieldHolder $fh;
     public final IWalletFacade a;
 
@@ -145,7 +144,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        f52418b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
+        f50396b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
     }
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
@@ -176,7 +175,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            List<String> list = f52418b;
+            List<String> list = f50396b;
             if (list != null && list.contains(str)) {
                 if ("gotoWalletService".equals(str)) {
                     return EntranceService.SHARE;
@@ -262,7 +261,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                     return (char) 0;
                 }
                 if (cls == Byte.TYPE) {
-                    return Byte.valueOf((byte) ByteCompanionObject.MIN_VALUE);
+                    return Byte.MIN_VALUE;
                 }
                 if (cls == Short.TYPE) {
                     return Short.valueOf((short) ShortCompanionObject.MIN_VALUE);

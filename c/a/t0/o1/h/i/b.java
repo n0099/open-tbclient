@@ -12,7 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import c.a.d.n.e.c;
-import c.a.s0.s.i0.f;
+import c.a.s0.s.j0.f;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -30,13 +30,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageView.h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: k  reason: collision with root package name */
-    public TbImageView f21097k;
+    public TbImageView k;
     public LottieAnimationView l;
     public ImageView m;
     public TextView n;
@@ -46,11 +44,11 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
     public String r;
     public String s;
     public f.g t;
-    public f.InterfaceC0856f u;
+    public f.InterfaceC0869f u;
     public f.h v;
     public f.e w;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements TbImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +82,10 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         @Override // com.baidu.tbadk.widget.TbImageView.h
         public void b(TbImageView tbImageView, Canvas canvas) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || this.a.f21097k.getBdImage() != null || this.a.o == null || m.isEmpty(this.a.o.a)) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || this.a.k.getBdImage() != null || this.a.o == null || m.isEmpty(this.a.o.a)) {
                 return;
             }
-            this.a.f21097k.startLoad(this.a.o.a, 41, false);
+            this.a.k.startLoad(this.a.o.a, 41, false);
         }
     }
 
@@ -142,7 +140,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
             if (this.m.getBackground() != null || (aVar = this.o) == null) {
                 return;
             }
-            if (aVar.f13561c == 1) {
+            if (aVar.f13246c == 1) {
                 this.m.setBackgroundResource(R.drawable.bigday_text_mask_black);
             } else {
                 this.m.setBackgroundResource(R.drawable.bigday_text_mask_white);
@@ -156,7 +154,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
             if (aVar.a()) {
                 this.o = aVar;
             }
-            if (aVar.f13561c == 1) {
+            if (aVar.f13246c == 1) {
                 this.n.setTextColor(getContext().getResources().getColor(R.color.CAM_X0101));
                 this.m.setBackgroundResource(R.drawable.bigday_text_mask_black);
                 this.l.setAnimation(R.raw.lottie_refresh_light);
@@ -166,8 +164,8 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
                 this.l.setAnimation(R.raw.lottie_refresh_dark);
             }
             this.l.setFrame(0);
-            this.f21097k.startLoad(aVar.a, 41, false);
-            this.f21097k.setOnDrawListener(new a(this));
+            this.k.startLoad(aVar.a, 41, false);
+            this.k.setOnDrawListener(new a(this));
         }
     }
 
@@ -203,7 +201,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
             MessageManager messageManager = MessageManager.getInstance();
             Context context = getContext();
             c.a.s0.s.n.a aVar2 = this.o;
-            messageManager.sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(context, aVar2.a, aVar2.f13560b, aVar2.f13562d)));
+            messageManager.sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(context, aVar2.a, aVar2.f13245b, aVar2.f13247d)));
         }
     }
 
@@ -233,10 +231,10 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.h0
-    public void h(f.InterfaceC0856f interfaceC0856f) {
+    public void h(f.InterfaceC0869f interfaceC0869f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, interfaceC0856f) == null) {
-            this.u = interfaceC0856f;
+        if (interceptable == null || interceptable.invokeL(1048587, this, interfaceC0869f) == null) {
+            this.u = interfaceC0869f;
         }
     }
 
@@ -246,7 +244,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.bigday_pull_view, (ViewGroup) null, false);
-            this.f21097k = (TbImageView) inflate.findViewById(R.id.pull_image);
+            this.k = (TbImageView) inflate.findViewById(R.id.pull_image);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.bigday_close);
             this.l = (LottieAnimationView) inflate.findViewById(R.id.bigday_lotti);
             this.m = (ImageView) inflate.findViewById(R.id.text_mask);
@@ -254,7 +252,7 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
             if (UtilHelper.canUseStyleImmersiveSticky() && (imageView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds25));
             }
-            this.f21097k.setAutoChangeStyle(false);
+            this.k.setAutoChangeStyle(false);
             this.n.setText(this.p);
             return inflate;
         }
@@ -272,9 +270,9 @@ public class b extends c implements BigdaySwipeRefreshLayout.k, PersonalizePageV
             if (eVar != null) {
                 eVar.a();
             }
-            f.InterfaceC0856f interfaceC0856f = this.u;
-            if (interfaceC0856f != null) {
-                interfaceC0856f.a(getView(), z);
+            f.InterfaceC0869f interfaceC0869f = this.u;
+            if (interfaceC0869f != null) {
+                interfaceC0869f.a(getView(), z);
             }
             this.l.cancelAnimation();
         }

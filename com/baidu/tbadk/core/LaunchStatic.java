@@ -2,7 +2,6 @@ package com.baidu.tbadk.core;
 
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.h;
 import c.a.t0.s1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -27,8 +26,6 @@ import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
-import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
-import com.baidu.tbadk.switchs.SyncSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
@@ -179,10 +176,6 @@ public class LaunchStatic {
         b();
         d();
         c();
-        if (!LaunchUpSpeedSwitch.getIsOn()) {
-            h.a();
-            SyncSwitch.initSyncSwitch();
-        }
         c.a.t0.w3.o0.a.a();
         c.a.t0.s1.y.b.a();
         c.a.t0.s1.b.a();
@@ -246,7 +239,7 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            c.a.s0.a0.b.a().c();
+            c.a.s0.a0.b.d().f();
             c.a.t0.w3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.t0.w3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);

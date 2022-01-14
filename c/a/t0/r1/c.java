@@ -19,13 +19,13 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22430b;
+    public int f21811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f22431c;
+    public List<d> f21812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<f> f22432d;
+    public List<f> f21813d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class c {
                 return;
             }
         }
-        this.f22430b = -1;
-        this.f22431c = new ArrayList();
-        this.f22432d = new ArrayList();
+        this.f21811b = -1;
+        this.f21812c = new ArrayList();
+        this.f21813d = new ArrayList();
     }
 
     public String a() {
@@ -54,13 +54,13 @@ public class c {
     public List<d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22431c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21812c : (List) invokeV.objValue;
     }
 
     public List<f> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22432d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21813d : (List) invokeV.objValue;
     }
 
     public void d(TopicListModule topicListModule) {
@@ -80,8 +80,8 @@ public class c {
             if (topicList != null) {
                 dVar.c(topicList);
                 if (!m.isEmptyStringAfterTrim(dVar.b())) {
-                    this.f22431c.add(dVar);
-                    this.f22432d.add(new f(topicList));
+                    this.f21812c.add(dVar);
+                    this.f21813d.add(new f(topicList));
                 }
             }
         }
@@ -97,13 +97,13 @@ public class c {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f22430b = i2;
+            this.f21811b = i2;
         }
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22430b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21811b : invokeV.intValue;
     }
 }

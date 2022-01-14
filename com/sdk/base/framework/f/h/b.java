@@ -38,7 +38,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = f.f61569b;
+        boolean z = f.f59236b;
     }
 
     public b() {

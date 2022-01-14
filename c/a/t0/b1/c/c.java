@@ -43,7 +43,7 @@ public class c {
             String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
             c.a.d.f.d.l<byte[]> lVar = this.a;
             l.b<byte[]> h2 = lVar != null ? lVar.h(str2) : null;
-            if (h2 == null || (bArr = h2.f2749b) == null) {
+            if (h2 == null || (bArr = h2.f2728b) == null) {
                 return null;
             }
             return bArr;

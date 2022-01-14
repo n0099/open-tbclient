@@ -15,13 +15,13 @@ public class s implements TTNativeAd.AdInteractionListener {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29108b;
+    public boolean f28218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ TTNativeAd f29109c;
+    public final /* synthetic */ TTNativeAd f28219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ r f29110d;
+    public final /* synthetic */ r f28220d;
 
     public s(r rVar, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class s implements TTNativeAd.AdInteractionListener {
                 return;
             }
         }
-        this.f29110d = rVar;
-        this.f29109c = tTNativeAd;
+        this.f28220d = rVar;
+        this.f28219c = tTNativeAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
@@ -47,8 +47,8 @@ public class s implements TTNativeAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, tTNativeAd) == null) {
             LogPrinter.d();
-            this.f29110d.onAdClicked(this.f29108b);
-            this.f29108b = true;
+            this.f28220d.onAdClicked(this.f28218b);
+            this.f28218b = true;
         }
     }
 
@@ -57,8 +57,8 @@ public class s implements TTNativeAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, tTNativeAd) == null) {
             LogPrinter.d();
-            this.f29110d.onAdClicked(this.f29108b);
-            this.f29108b = true;
+            this.f28220d.onAdClicked(this.f28218b);
+            this.f28218b = true;
         }
     }
 
@@ -67,7 +67,7 @@ public class s implements TTNativeAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
             LogPrinter.d();
-            this.f29110d.onAdShow(this.f29109c, this.a);
+            this.f28220d.onAdShow(this.f28219c, this.a);
             this.a = true;
         }
     }

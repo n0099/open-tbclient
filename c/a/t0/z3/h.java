@@ -11,7 +11,7 @@ public abstract class h implements Comparable<h> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26949e;
+    public int f26148e;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class h implements Comparable<h> {
     public int compareTo(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) ? this.f26949e - hVar.f26949e : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) ? this.f26148e - hVar.f26148e : invokeL.intValue;
     }
 
     public abstract void b();

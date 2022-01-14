@@ -4,16 +4,16 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.j.e;
+import c.a.c0.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberVideoView;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.event.PlayerEventTrigger;
 import com.baidu.searchbox.player.kernel.AbsVideoKernel;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
-import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
 import com.baidu.searchbox.player.ubc.CoreStatPlugin;
+import com.baidu.searchbox.player.ubc.DurationStatPlugin;
 import com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ public class o extends UniversalPlayer implements f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IUbcPlayerStatusFetcher f26856b;
+    public IUbcPlayerStatusFetcher f26059b;
 
     /* loaded from: classes9.dex */
     public class a implements IUbcPlayerStatusFetcher {
@@ -129,23 +129,14 @@ public class o extends UniversalPlayer implements f {
                 return;
             }
         }
-        this.f26856b = new a(this);
+        this.f26059b = new a(this);
         this.mLayerContainer.setClickable(false);
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void addPlugin(@NonNull AbsPlugin absPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, absPlugin) == null) {
-            super.addPlugin(absPlugin);
-            addPlugin(new CoreStatPlugin());
-        }
     }
 
     public void f() {
         PlayerEventTrigger playerEventTrigger;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (playerEventTrigger = getPlayerEventTrigger()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (playerEventTrigger = getPlayerEventTrigger()) == null) {
             return;
         }
         playerEventTrigger.ignoreInfoEventFilter(true);
@@ -153,18 +144,18 @@ public class o extends UniversalPlayer implements f {
 
     public void g(r rVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rVar) == null) || rVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rVar) == null) || rVar == null) {
             return;
         }
-        this.a = rVar.f26867f;
-        updateStatisticsContent(new BDVideoPlayerUbcContent.Builder().extLog(rVar.a).url(rVar.f26863b).id(rVar.f26864c).from(rVar.f26865d).page(rVar.f26866e).playerStatusFetcher(this.f26856b).build());
+        this.a = rVar.f26070f;
+        updateStatisticsContent(new BDVideoPlayerUbcContent.Builder().extLog(rVar.a).url(rVar.f26066b).id(rVar.f26067c).from(rVar.f26068d).page(rVar.f26069e).playerStatusFetcher(this.f26059b).build());
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer
     public int getPlayerStageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 24;
         }
         return invokeV.intValue;
@@ -172,7 +163,7 @@ public class o extends UniversalPlayer implements f {
 
     public void h(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null && (baseKernelLayer.getContentView() instanceof CyberVideoView) && ((CyberVideoView) this.mKernelLayer.getContentView()).getCyberPlayer() != null) {
                 ((CyberVideoView) this.mKernelLayer.getContentView()).getCyberPlayer().setVolume(f2, f3);
@@ -186,7 +177,7 @@ public class o extends UniversalPlayer implements f {
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null && (baseKernelLayer.getContentView() instanceof CyberVideoView)) {
                 return ((CyberVideoView) this.mKernelLayer.getContentView()).isPlaying();
@@ -199,15 +190,25 @@ public class o extends UniversalPlayer implements f {
     @Override // com.baidu.searchbox.player.BDVideoPlayer
     public void onAudioFocusChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
     public void setupLayers(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.mKernelLayer.setAcceptVolumeChange(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer
+    public void setupPlugin(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            super.setupPlugin(context);
+            addPlugin(new CoreStatPlugin());
+            addPlugin(new DurationStatPlugin());
         }
     }
 

@@ -44,19 +44,19 @@ public class f {
     public ImageViewerActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f25025b;
+    public b f24327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f25026c;
+    public Runnable f24328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f25027d;
+    public View.OnClickListener f24329d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f25028e;
+    public final int f24330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f25029f;
+    public final int f24331f;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -64,7 +64,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f25030e;
+        public final /* synthetic */ f f24332e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -81,16 +81,16 @@ public class f {
                     return;
                 }
             }
-            this.f25030e = fVar;
+            this.f24332e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f25030e.f25025b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24332e.f24327b == null) {
                 return;
             }
-            this.f25030e.f25025b.dismiss();
+            this.f24332e.f24327b.dismiss();
         }
     }
 
@@ -100,25 +100,23 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Activity f25031e;
+        public Activity f24333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f25032f;
+        public View f24334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public EMTextView f25033g;
+        public EMTextView f24335g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f25034h;
+        public ImageView f24336h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ImageView f25035i;
+        public ImageView f24337i;
 
         /* renamed from: j  reason: collision with root package name */
-        public ImageView f25036j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public ImageView f25037k;
+        public ImageView f24338j;
+        public ImageView k;
         public ImageView l;
         public MultiImageView m;
         public c.a.s0.t.g.g n;
@@ -143,9 +141,9 @@ public class f {
                 }
             }
             this.o = fVar;
-            this.f25031e = activity;
+            this.f24333e = activity;
             this.n = new c.a.s0.t.g.g(activity, null);
-            setWidth(n.k(activity) - (fVar.f25029f * 2));
+            setWidth(n.k(activity) - (fVar.f24331f * 2));
             setHeight(-2);
             setFocusable(false);
             setTouchable(true);
@@ -158,30 +156,30 @@ public class f {
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View inflate = LayoutInflater.from(this.f25031e).inflate(R.layout.image_viewer_download_dialog, (ViewGroup) null);
-                this.f25032f = inflate;
-                this.f25033g = (EMTextView) inflate.findViewById(R.id.title);
-                ImageView imageView = (ImageView) this.f25032f.findViewById(R.id.qq_friend);
-                this.f25034h = imageView;
-                imageView.setImageDrawable(this.f25031e.getDrawable(R.drawable.icon_mask_share_qq40_svg));
-                this.f25034h.setOnClickListener(this);
-                ImageView imageView2 = (ImageView) this.f25032f.findViewById(R.id.qq_zone);
-                this.f25035i = imageView2;
-                imageView2.setImageDrawable(this.f25031e.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
-                this.f25035i.setOnClickListener(this);
-                ImageView imageView3 = (ImageView) this.f25032f.findViewById(R.id.wechat_friend);
-                this.f25036j = imageView3;
-                imageView3.setImageDrawable(this.f25031e.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
-                this.f25036j.setOnClickListener(this);
-                ImageView imageView4 = (ImageView) this.f25032f.findViewById(R.id.wechat_timeline);
-                this.f25037k = imageView4;
-                imageView4.setImageDrawable(this.f25031e.getDrawable(R.drawable.icon_mask_share_circle40_svg));
-                this.f25037k.setOnClickListener(this);
-                ImageView imageView5 = (ImageView) this.f25032f.findViewById(R.id.wechat_emotion);
+                View inflate = LayoutInflater.from(this.f24333e).inflate(R.layout.image_viewer_download_dialog, (ViewGroup) null);
+                this.f24334f = inflate;
+                this.f24335g = (EMTextView) inflate.findViewById(R.id.title);
+                ImageView imageView = (ImageView) this.f24334f.findViewById(R.id.qq_friend);
+                this.f24336h = imageView;
+                imageView.setImageDrawable(this.f24333e.getDrawable(R.drawable.icon_mask_share_qq40_svg));
+                this.f24336h.setOnClickListener(this);
+                ImageView imageView2 = (ImageView) this.f24334f.findViewById(R.id.qq_zone);
+                this.f24337i = imageView2;
+                imageView2.setImageDrawable(this.f24333e.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
+                this.f24337i.setOnClickListener(this);
+                ImageView imageView3 = (ImageView) this.f24334f.findViewById(R.id.wechat_friend);
+                this.f24338j = imageView3;
+                imageView3.setImageDrawable(this.f24333e.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
+                this.f24338j.setOnClickListener(this);
+                ImageView imageView4 = (ImageView) this.f24334f.findViewById(R.id.wechat_timeline);
+                this.k = imageView4;
+                imageView4.setImageDrawable(this.f24333e.getDrawable(R.drawable.icon_mask_share_circle40_svg));
+                this.k.setOnClickListener(this);
+                ImageView imageView5 = (ImageView) this.f24334f.findViewById(R.id.wechat_emotion);
                 this.l = imageView5;
-                imageView5.setImageDrawable(this.f25031e.getDrawable(R.drawable.icon_share_wechatexpression));
+                imageView5.setImageDrawable(this.f24333e.getDrawable(R.drawable.icon_share_wechatexpression));
                 this.l.setOnClickListener(this);
-                setContentView(this.f25032f);
+                setContentView(this.f24334f);
             }
         }
 
@@ -252,8 +250,8 @@ public class f {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SkinManager.setViewTextColor(this.f25033g, R.color.CAM_X0109);
-                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f25032f);
+                SkinManager.setViewTextColor(this.f24335g, R.color.CAM_X0109);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f24334f);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0204);
             }
@@ -263,7 +261,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.m = null;
-                this.f25031e = null;
+                this.f24333e = null;
                 this.n = null;
             }
         }
@@ -283,51 +281,51 @@ public class f {
                 return;
             }
             if (!l.z()) {
-                n.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-            } else if (view == this.f25034h) {
-                if (b0.b(this.f25031e, "com.tencent.mobileqq")) {
+                n.M(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+            } else if (view == this.f24336h) {
+                if (b0.b(this.f24333e, "com.tencent.mobileqq")) {
                     if (c(b2) && b2.a() != null && b2.a().contains(4)) {
-                        c.a.s0.t.g.a.e(b2, this.f25031e, 8, null);
+                        c.a.s0.t.g.a.e(b2, this.f24333e, 8, null);
                         return;
                     } else {
                         this.n.o(b2);
                         return;
                     }
                 }
-                Activity activity = this.f25031e;
+                Activity activity = this.f24333e;
                 BdToast.c(activity, activity.getText(R.string.share_qq_not_install)).q();
-            } else if (view == this.f25035i) {
-                if (b0.b(this.f25031e, "com.tencent.mobileqq")) {
+            } else if (view == this.f24337i) {
+                if (b0.b(this.f24333e, "com.tencent.mobileqq")) {
                     if (c(b2) && b2.a() != null && b2.a().contains(4)) {
-                        c.a.s0.t.g.a.e(b2, this.f25031e, 4, null);
+                        c.a.s0.t.g.a.e(b2, this.f24333e, 4, null);
                         return;
                     } else {
                         this.n.p(b2);
                         return;
                     }
                 }
-                Activity activity2 = this.f25031e;
+                Activity activity2 = this.f24333e;
                 BdToast.c(activity2, activity2.getText(R.string.share_qq_not_install)).q();
-            } else if (view == this.f25036j) {
+            } else if (view == this.f24338j) {
                 if (c(b2) && b2.a() != null && b2.a().contains(3)) {
-                    c.a.s0.t.g.a.e(b2, this.f25031e, 3, null);
+                    c.a.s0.t.g.a.e(b2, this.f24333e, 3, null);
                 } else if (b2.j0 != 1) {
                     this.n.t(b2);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_source", 22).param("tid", b2.K).param("fid", b2.J));
-            } else if (view == this.f25037k) {
+            } else if (view == this.k) {
                 if (c(b2) && b2.a() != null && b2.a().contains(2)) {
-                    c.a.s0.t.g.a.e(b2, this.f25031e, 2, null);
+                    c.a.s0.t.g.a.e(b2, this.f24333e, 2, null);
                 } else if (b2.j0 == 1) {
                 } else {
-                    if (b2.f42233b) {
+                    if (b2.f40762b) {
                         b2.s = "【" + b2.r + "】 " + b2.s;
                     }
                     this.n.u(b2);
                 }
-            } else if (view != this.l || this.o.f25027d == null) {
+            } else if (view != this.l || this.o.f24329d == null) {
             } else {
-                this.o.f25027d.onClick(view);
+                this.o.f24329d.onClick(view);
             }
         }
     }
@@ -347,11 +345,11 @@ public class f {
                 return;
             }
         }
-        this.f25028e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-        this.f25029f = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
+        this.f24330e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+        this.f24331f = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
         this.a = imageViewerActivity;
-        this.f25025b = new b(this, imageViewerActivity);
-        this.f25026c = new a(this);
+        this.f24327b = new b(this, imageViewerActivity);
+        this.f24328c = new a(this);
     }
 
     public final int e(String str) {
@@ -375,12 +373,12 @@ public class f {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.f25025b;
+            b bVar = this.f24327b;
             if (bVar != null) {
                 bVar.e();
             }
             this.a = null;
-            this.f25027d = null;
+            this.f24329d = null;
         }
     }
 
@@ -390,11 +388,11 @@ public class f {
         String str2;
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, multiImageView, i2, onClickListener) == null) || (bVar = this.f25025b) == null || multiImageView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, multiImageView, i2, onClickListener) == null) || (bVar = this.f24327b) == null || multiImageView == null) {
             return;
         }
         if (!bVar.isShowing()) {
-            c.a.d.f.m.g.m(this.f25025b, multiImageView, 81, 0, i2 + c.a.d.f.p.c.b(this.a) + this.f25028e);
+            c.a.d.f.m.g.m(this.f24327b, multiImageView, 81, 0, i2 + c.a.d.f.p.c.b(this.a) + this.f24330e);
             int i3 = 5;
             UrlDragImageView currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView();
             String str3 = "";
@@ -411,9 +409,9 @@ public class f {
             }
             TiebaStatic.log(new StatisticItem("c14045").param("post_id", str3).param("tid", str).param("fid", str2).param("obj_source", i3));
         }
-        this.f25025b.f(multiImageView);
-        this.f25027d = onClickListener;
-        c.a.d.f.m.e.a().removeCallbacks(this.f25026c);
-        c.a.d.f.m.e.a().postDelayed(this.f25026c, 5000L);
+        this.f24327b.f(multiImageView);
+        this.f24329d = onClickListener;
+        c.a.d.f.m.e.a().removeCallbacks(this.f24328c);
+        c.a.d.f.m.e.a().postDelayed(this.f24328c, 5000L);
     }
 }

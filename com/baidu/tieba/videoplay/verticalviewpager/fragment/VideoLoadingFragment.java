@@ -37,22 +37,22 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoItemModel f50901e;
+    public VideoItemModel f48963e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50902f;
+    public int f48964f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f50903g;
+    public View f48965g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50904h;
+    public int f48966h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f50905i;
+    public final CustomMessageListener f48967i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final CustomMessageListener f50906j;
+    public final CustomMessageListener f48968j;
 
     /* loaded from: classes12.dex */
     public static final class a extends CustomMessageListener {
@@ -133,7 +133,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
                         return;
                     }
                     VideoLoadingFragment videoLoadingFragment = this.a;
-                    videoLoadingFragment.hideLoadingView(videoLoadingFragment.f50903g);
+                    videoLoadingFragment.hideLoadingView(videoLoadingFragment.f48965g);
                     this.a.l();
                 }
             }
@@ -146,7 +146,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoLoadingFragment f50907e;
+        public final /* synthetic */ VideoLoadingFragment f48969e;
 
         public c(VideoLoadingFragment videoLoadingFragment) {
             Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
                     return;
                 }
             }
-            this.f50907e = videoLoadingFragment;
+            this.f48969e = videoLoadingFragment;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -177,7 +177,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
                     if (TbSingleton.getInstance().isFromFeedVideoClick()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
                     }
-                    View view = this.f50907e.f50903g;
+                    View view = this.f48969e.f48965g;
                     if (view == null) {
                         return true;
                     }
@@ -203,9 +203,9 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
                 return;
             }
         }
-        this.f50902f = -1;
-        this.f50905i = new b(this);
-        this.f50906j = new a(this);
+        this.f48964f = -1;
+        this.f48967i = new b(this);
+        this.f48968j = new a(this);
     }
 
     public static final boolean j(GestureDetectorCompat detectorCompat, View view, MotionEvent motionEvent) {
@@ -231,8 +231,8 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            int i2 = this$0.f50904h == 5 ? 0 : -1;
-            int i3 = this$0.f50904h;
+            int i2 = this$0.f48966h == 5 ? 0 : -1;
+            int i3 = this$0.f48966h;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921574, Integer.valueOf((i3 == 3 || i3 == 4) ? 1 : 1)));
         }
     }
@@ -241,20 +241,20 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
     public VideoItemModel getCurrentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50901e : (VideoItemModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48963e : (VideoItemModel) invokeV.objValue;
     }
 
     @Override // c.a.t0.m4.s.b.a
     public int getFragmentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50902f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48964f : invokeV.intValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View view = this.f50903g;
+            View view = this.f48965g;
             if (view != null) {
                 FrameLayout frameLayout = (FrameLayout) view;
                 h hVar = this.mRefreshView;
@@ -288,7 +288,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
             this.mRefreshView.n(string);
             this.mRefreshView.i(e.new_pic_emotion_08);
             this.mRefreshView.l(0);
-            this.mRefreshView.attachView(this.f50903g, true);
+            this.mRefreshView.attachView(this.f48965g, true);
         }
     }
 
@@ -297,7 +297,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            registerListener(this.f50906j);
+            registerListener(this.f48968j);
         }
     }
 
@@ -314,13 +314,13 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
                     String str = (String) obj;
                 }
                 Object obj2 = arguments.get("video_data");
-                this.f50901e = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
-                this.f50904h = arguments.getInt("current_type");
+                this.f48963e = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
+                this.f48966h = arguments.getInt("current_type");
             }
-            this.f50903g = inflater.inflate(g.video_loading_fragment, viewGroup, false);
-            registerListener(this.f50905i);
+            this.f48965g = inflater.inflate(g.video_loading_fragment, viewGroup, false);
+            registerListener(this.f48967i);
             final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new c(this));
-            View view = this.f50903g;
+            View view = this.f48965g;
             if (view != null) {
                 view.setOnTouchListener(new View.OnTouchListener() { // from class: c.a.t0.m4.s.a.c
                     public static /* synthetic */ Interceptable $ic;
@@ -334,11 +334,11 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
                     }
                 });
             }
-            View view2 = this.f50903g;
+            View view2 = this.f48965g;
             if (view2 != null) {
-                view2.setOnLongClickListener(c.a.t0.m4.s.a.b.f20090e);
+                view2.setOnLongClickListener(c.a.t0.m4.s.a.b.f19560e);
             }
-            return this.f50903g;
+            return this.f48965g;
         }
         return (View) invokeLLL.objValue;
     }
@@ -351,10 +351,10 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
             if (isPrimary()) {
                 if (l.z()) {
                     i();
-                    showLoadingView(this.f50903g, true);
+                    showLoadingView(this.f48965g, true);
                     return;
                 }
-                hideLoadingView(this.f50903g);
+                hideLoadingView(this.f48965g);
                 l();
             }
         }
@@ -364,7 +364,7 @@ public final class VideoLoadingFragment extends BaseFragment implements c.a.t0.m
     public void setFragmentIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f50902f = i2;
+            this.f48964f = i2;
         }
     }
 }

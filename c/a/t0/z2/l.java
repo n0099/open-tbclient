@@ -23,34 +23,32 @@ public class l {
     public WeakReference<Activity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorManager f26842b;
+    public SensorManager f26046b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f26843c;
+    public i f26047c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Sensor f26844d;
+    public Sensor f26048d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26845e;
+    public boolean f26049e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26846f;
+    public boolean f26050f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m f26847g;
+    public m f26051g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26848h;
+    public boolean f26052h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f26849i;
+    public boolean f26053i;
 
     /* renamed from: j  reason: collision with root package name */
-    public i.a f26850j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public m.a f26851k;
+    public i.a f26054j;
+    public m.a k;
 
     /* loaded from: classes9.dex */
     public class a implements i.a {
@@ -80,11 +78,11 @@ public class l {
         public void a(int i2) {
             Activity activity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.f26849i) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.f26053i) {
                 return;
             }
             int requestedOrientation = activity.getRequestedOrientation();
-            if (!this.a.f26848h) {
+            if (!this.a.f26052h) {
                 if (i2 > 225 && i2 < 315) {
                     if (requestedOrientation == 8) {
                         activity.setRequestedOrientation(0);
@@ -94,7 +92,7 @@ public class l {
                     activity.setRequestedOrientation(8);
                 }
             } else if ((i2 > 235 && i2 < 305) || (i2 > 55 && i2 < 125)) {
-                if (!this.a.f26846f) {
+                if (!this.a.f26050f) {
                     if (i2 <= 55 || i2 >= 125) {
                         if (requestedOrientation != 0) {
                             activity.setRequestedOrientation(0);
@@ -103,13 +101,13 @@ public class l {
                         activity.setRequestedOrientation(8);
                     }
                 }
-                this.a.f26845e = false;
+                this.a.f26049e = false;
             } else if ((i2 <= 325 || i2 >= 360) && (i2 < 0 || i2 >= 35)) {
             } else {
-                if (!this.a.f26845e && requestedOrientation != 1) {
+                if (!this.a.f26049e && requestedOrientation != 1) {
                     activity.setRequestedOrientation(1);
                 }
-                this.a.f26846f = false;
+                this.a.f26050f = false;
             }
         }
     }
@@ -142,7 +140,7 @@ public class l {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.f26848h = z;
+                this.a.f26052h = z;
             }
         }
     }
@@ -162,19 +160,19 @@ public class l {
                 return;
             }
         }
-        this.f26845e = false;
-        this.f26846f = false;
-        this.f26848h = false;
-        this.f26849i = false;
-        this.f26850j = new a(this);
-        this.f26851k = new b(this);
+        this.f26049e = false;
+        this.f26050f = false;
+        this.f26052h = false;
+        this.f26053i = false;
+        this.f26054j = new a(this);
+        this.k = new b(this);
         if (activity == null) {
             return;
         }
         this.a = new WeakReference<>(activity);
-        this.f26842b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
-        this.f26844d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        this.f26843c = new i(this.f26850j);
+        this.f26046b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
+        this.f26048d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        this.f26047c = new i(this.f26054j);
         if (activity.getClass().getName().contains(SwanAppActivity.TAG)) {
             activity.setRequestedOrientation(1);
         }
@@ -183,7 +181,7 @@ public class l {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f26849i = z;
+            this.f26053i = z;
         }
     }
 
@@ -191,18 +189,18 @@ public class l {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SensorManager sensorManager = this.f26842b;
+            SensorManager sensorManager = this.f26046b;
             if (sensorManager != null) {
-                sensorManager.registerListener(this.f26843c, this.f26844d, 2);
+                sensorManager.registerListener(this.f26047c, this.f26048d, 2);
             }
             WeakReference<Activity> weakReference = this.a;
             if (weakReference == null || (activity = weakReference.get()) == null) {
                 return;
             }
             m mVar = new m(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
-            this.f26847g = mVar;
-            mVar.b(this.f26851k);
-            activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.f26847g);
+            this.f26051g = mVar;
+            mVar.b(this.k);
+            activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.f26051g);
         }
     }
 
@@ -210,15 +208,15 @@ public class l {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SensorManager sensorManager = this.f26842b;
+            SensorManager sensorManager = this.f26046b;
             if (sensorManager != null) {
-                sensorManager.unregisterListener(this.f26843c);
+                sensorManager.unregisterListener(this.f26047c);
             }
             WeakReference<Activity> weakReference = this.a;
-            if (weakReference == null || this.f26847g == null || (activity = weakReference.get()) == null) {
+            if (weakReference == null || this.f26051g == null || (activity = weakReference.get()) == null) {
                 return;
             }
-            activity.getContentResolver().unregisterContentObserver(this.f26847g);
+            activity.getContentResolver().unregisterContentObserver(this.f26051g);
         }
     }
 
@@ -231,10 +229,10 @@ public class l {
         }
         if (activity.getRequestedOrientation() == 1) {
             activity.setRequestedOrientation(0);
-            this.f26845e = true;
+            this.f26049e = true;
             return;
         }
         activity.setRequestedOrientation(1);
-        this.f26846f = true;
+        this.f26050f = true;
     }
 }

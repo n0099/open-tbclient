@@ -18,19 +18,19 @@ public class q {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f26858b;
+    public ImageView f26061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoLoadingProgressView f26859c;
+    public VideoLoadingProgressView f26062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ObjectAnimator f26860d;
+    public ObjectAnimator f26063d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f26861e;
+    public ObjectAnimator f26064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ObjectAnimator f26862f;
+    public ObjectAnimator f26065f;
 
     public q(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -48,17 +48,17 @@ public class q {
             }
         }
         this.a = viewGroup;
-        this.f26858b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.f26859c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.f26061b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.f26062c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         d();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26860d.cancel();
-            this.f26861e.cancel();
-            this.f26862f.cancel();
+            this.f26063d.cancel();
+            this.f26064e.cancel();
+            this.f26065f.cancel();
         }
     }
 
@@ -67,7 +67,7 @@ public class q {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a();
             this.a.setVisibility(8);
-            this.f26859c.endLoading();
+            this.f26062c.endLoading();
         }
     }
 
@@ -75,20 +75,20 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a();
-            this.f26861e.start();
-            this.f26862f.start();
+            this.f26064e.start();
+            this.f26065f.start();
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f26860d = ObjectAnimator.ofFloat(this.f26858b, AnimationProperty.OPACITY, 1.0f, 0.5f);
-            this.f26861e = ObjectAnimator.ofFloat(this.f26858b, AnimationProperty.OPACITY, 0.5f, 0.0f);
-            this.f26862f = ObjectAnimator.ofFloat(this.f26859c, AnimationProperty.OPACITY, 1.0f, 0.0f);
-            this.f26860d.setDuration(50L);
-            this.f26861e.setDuration(50L);
-            this.f26862f.setDuration(50L);
+            this.f26063d = ObjectAnimator.ofFloat(this.f26061b, AnimationProperty.OPACITY, 1.0f, 0.5f);
+            this.f26064e = ObjectAnimator.ofFloat(this.f26061b, AnimationProperty.OPACITY, 0.5f, 0.0f);
+            this.f26065f = ObjectAnimator.ofFloat(this.f26062c, AnimationProperty.OPACITY, 1.0f, 0.0f);
+            this.f26063d.setDuration(50L);
+            this.f26064e.setDuration(50L);
+            this.f26065f.setDuration(50L);
         }
     }
 
@@ -96,14 +96,14 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a();
-            this.f26859c.loadingSuccess();
+            this.f26062c.loadingSuccess();
         }
     }
 
     public void f(VideoLoadingProgressView.c cVar) {
         VideoLoadingProgressView videoLoadingProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.f26859c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.f26062c) == null) {
             return;
         }
         videoLoadingProgressView.setLoadingAnimationListener(cVar);
@@ -113,11 +113,11 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a();
-            this.f26858b.setAlpha(1.0f);
-            this.f26859c.setAlpha(1.0f);
+            this.f26061b.setAlpha(1.0f);
+            this.f26062c.setAlpha(1.0f);
             this.a.setVisibility(0);
-            this.f26859c.startLoading();
-            this.f26860d.start();
+            this.f26062c.startLoading();
+            this.f26063d.start();
         }
     }
 }

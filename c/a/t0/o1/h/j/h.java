@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Personalized.LiveAnswer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f21106i;
+    public static final BdUniqueId f20542i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21107e;
+    public int f20543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21108f;
+    public int f20544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21109g;
+    public String f20545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21110h;
+    public String f20546h;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class h extends BaseCardInfo {
                 return;
             }
         }
-        f21106i = BdUniqueId.gen();
+        f20542i = BdUniqueId.gen();
     }
 
     public h() {
@@ -69,17 +69,17 @@ public class h extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, liveAnswer) == null) || liveAnswer == null) {
             return;
         }
-        this.f21109g = liveAnswer.banner_url;
-        this.f21107e = liveAnswer.banner_high.intValue();
-        this.f21108f = liveAnswer.banner_width.intValue();
-        this.f21110h = liveAnswer.jump_url;
+        this.f20545g = liveAnswer.banner_url;
+        this.f20543e = liveAnswer.banner_high.intValue();
+        this.f20544f = liveAnswer.banner_width.intValue();
+        this.f20546h = liveAnswer.jump_url;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f21106i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f20542i : (BdUniqueId) invokeV.objValue;
     }
 
     public String toString() {
@@ -88,10 +88,10 @@ public class h extends BaseCardInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("img_width", this.f21108f);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.f21109g);
-                jSONObject.put("img_height", this.f21107e);
-                jSONObject.put("jump_url", this.f21110h);
+                jSONObject.put("img_width", this.f20544f);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, this.f20545g);
+                jSONObject.put("img_height", this.f20543e);
+                jSONObject.put("jump_url", this.f20546h);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();

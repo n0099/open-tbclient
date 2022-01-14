@@ -33,25 +33,23 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46146e;
+    public int f44449e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46147f;
+    public View f44450f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46148g;
+    public TextView f44451g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f46149h;
+    public View f44452h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46150i;
+    public TextView f44453i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f46151j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public View f46152k;
+    public ImageView f44454j;
+    public View k;
     public LinearLayout l;
     public BdTypeRecyclerView m;
     public c.a.t0.l2.a.a n;
@@ -84,17 +82,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
             LayoutInflater.from(getContext()).inflate(R.layout.nearby_forum_friend_card, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f46148g = (TextView) findViewById(R.id.tv_nearby_title);
-            this.f46150i = (TextView) findViewById(R.id.tv_nearby_more_tip);
-            this.f46151j = (ImageView) findViewById(R.id.iv_nearby_more);
-            this.f46149h = findViewById(R.id.nearby_more_layout);
-            this.f46152k = findViewById(R.id.nearby_divider_line_top);
+            this.f44451g = (TextView) findViewById(R.id.tv_nearby_title);
+            this.f44453i = (TextView) findViewById(R.id.tv_nearby_more_tip);
+            this.f44454j = (ImageView) findViewById(R.id.iv_nearby_more);
+            this.f44452h = findViewById(R.id.nearby_more_layout);
+            this.k = findViewById(R.id.nearby_divider_line_top);
             this.l = (LinearLayout) findViewById(R.id.nearby_card_container);
-            this.f46147f = findViewById(R.id.layout_nearby_title);
+            this.f44450f = findViewById(R.id.layout_nearby_title);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.recyclerview_forum_friend);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-            this.f46149h.setOnClickListener(this);
+            this.f44452h.setOnClickListener(this);
             b(context);
         }
     }
@@ -112,20 +110,20 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) || this.f46146e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) || this.f44449e == i2) {
             return;
         }
-        b.j(this.f46152k);
-        c d2 = c.d(this.f46148g);
+        b.j(this.k);
+        c d2 = c.d(this.f44451g);
         d2.v(R.color.CAM_X0105);
         d2.z(R.dimen.T_X07);
         d2.A(R.string.F_X02);
-        c d3 = c.d(this.f46150i);
+        c d3 = c.d(this.f44453i);
         d3.v(R.color.CAM_X0109);
         d3.z(R.dimen.T_X08);
         d3.A(R.string.F_X01);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f46151j, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        this.f46146e = i2;
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f44454j, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        this.f44449e = i2;
         c d4 = c.d(this.l);
         d4.n(R.string.J_X06);
         d4.f(R.color.CAM_X0205);
@@ -137,7 +135,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || view.getId() != R.id.nearby_more_layout || getContext() == null || this.o == null) {
             return;
         }
-        new NearbyFriendsActivityConfig(getContext(), this.o.f19625e).start();
+        new NearbyFriendsActivityConfig(getContext(), this.o.f19120e).start();
         c.a.t0.o1.j.c.i();
     }
 
@@ -146,7 +144,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             a aVar = this.o;
             if (aVar != null) {
-                aVar.f19625e = z;
+                aVar.f19120e = z;
             }
             c.a.t0.l2.a.a aVar2 = this.n;
             if (aVar2 != null) {
@@ -184,15 +182,15 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
             this.o = aVar;
             c.a.t0.l2.a.a aVar2 = this.n;
             if (aVar2 != null) {
-                aVar2.i0(aVar.f19625e);
+                aVar2.i0(aVar.f19120e);
             }
-            this.m.setData(aVar.f19626f);
-            if (aVar.f19627g) {
-                this.f46149h.setVisibility(0);
+            this.m.setData(aVar.f19121f);
+            if (aVar.f19122g) {
+                this.f44452h.setVisibility(0);
                 c.a.t0.o1.j.c.o();
                 return;
             }
-            this.f46149h.setVisibility(4);
+            this.f44452h.setVisibility(4);
         }
     }
 
@@ -215,7 +213,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements q, p<a>, 
                 return;
             }
         }
-        this.f46146e = 3;
+        this.f44449e = 3;
         a(context);
     }
 }

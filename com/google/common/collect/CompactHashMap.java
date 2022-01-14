@@ -51,7 +51,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56719i;
+        public final /* synthetic */ CompactHashMap f54562i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CompactHashMap compactHashMap) {
@@ -72,14 +72,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56719i = compactHashMap;
+            this.f54562i = compactHashMap;
         }
 
         @Override // com.google.common.collect.CompactHashMap.e
         public K b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (K) this.f56719i.keys[i2] : (K) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (K) this.f54562i.keys[i2] : (K) invokeI.objValue;
         }
     }
 
@@ -89,7 +89,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56720i;
+        public final /* synthetic */ CompactHashMap f54563i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CompactHashMap compactHashMap) {
@@ -110,7 +110,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56720i = compactHashMap;
+            this.f54563i = compactHashMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public Map.Entry<K, V> b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new g(this.f56720i, i2) : (Map.Entry) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new g(this.f54563i, i2) : (Map.Entry) invokeI.objValue;
         }
     }
 
@@ -129,7 +129,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56721i;
+        public final /* synthetic */ CompactHashMap f54564i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(CompactHashMap compactHashMap) {
@@ -150,14 +150,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56721i = compactHashMap;
+            this.f54564i = compactHashMap;
         }
 
         @Override // com.google.common.collect.CompactHashMap.e
         public V b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (V) this.f56721i.values[i2] : (V) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (V) this.f54564i.values[i2] : (V) invokeI.objValue;
         }
     }
 
@@ -167,7 +167,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56722e;
+        public final /* synthetic */ CompactHashMap f54565e;
 
         public d(CompactHashMap compactHashMap) {
             Interceptable interceptable = $ic;
@@ -184,14 +184,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56722e = compactHashMap;
+            this.f54565e = compactHashMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56722e.clear();
+                this.f54565e.clear();
             }
         }
 
@@ -202,8 +202,8 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    int indexOf = this.f56722e.indexOf(entry.getKey());
-                    return indexOf != -1 && k.a(this.f56722e.values[indexOf], entry.getValue());
+                    int indexOf = this.f54565e.indexOf(entry.getKey());
+                    return indexOf != -1 && k.a(this.f54565e.values[indexOf], entry.getValue());
                 }
                 return false;
             }
@@ -214,7 +214,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56722e.entrySetIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54565e.entrySetIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -224,11 +224,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    int indexOf = this.f56722e.indexOf(entry.getKey());
-                    if (indexOf == -1 || !k.a(this.f56722e.values[indexOf], entry.getValue())) {
+                    int indexOf = this.f54565e.indexOf(entry.getKey());
+                    if (indexOf == -1 || !k.a(this.f54565e.values[indexOf], entry.getValue())) {
                         return false;
                     }
-                    this.f56722e.removeEntry(indexOf);
+                    this.f54565e.removeEntry(indexOf);
                     return true;
                 }
                 return false;
@@ -240,7 +240,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56722e.size : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54565e.size : invokeV.intValue;
         }
     }
 
@@ -250,7 +250,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56727e;
+        public final /* synthetic */ CompactHashMap f54570e;
 
         public f(CompactHashMap compactHashMap) {
             Interceptable interceptable = $ic;
@@ -267,14 +267,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56727e = compactHashMap;
+            this.f54570e = compactHashMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56727e.clear();
+                this.f54570e.clear();
             }
         }
 
@@ -282,14 +282,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f56727e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f54570e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56727e.keySetIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54570e.keySetIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -297,11 +297,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                int indexOf = this.f56727e.indexOf(obj);
+                int indexOf = this.f54570e.indexOf(obj);
                 if (indexOf == -1) {
                     return false;
                 }
-                this.f56727e.removeEntry(indexOf);
+                this.f54570e.removeEntry(indexOf);
                 return true;
             }
             return invokeL.booleanValue;
@@ -311,7 +311,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56727e.size : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54570e.size : invokeV.intValue;
         }
     }
 
@@ -321,13 +321,13 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f56728e;
+        public final K f54571e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56729f;
+        public int f54572f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56730g;
+        public final /* synthetic */ CompactHashMap f54573g;
 
         public g(CompactHashMap compactHashMap, int i2) {
             Interceptable interceptable = $ic;
@@ -344,17 +344,17 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56730g = compactHashMap;
-            this.f56728e = (K) compactHashMap.keys[i2];
-            this.f56729f = i2;
+            this.f54573g = compactHashMap;
+            this.f54571e = (K) compactHashMap.keys[i2];
+            this.f54572f = i2;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f56729f;
-                if (i2 == -1 || i2 >= this.f56730g.size() || !k.a(this.f56728e, this.f56730g.keys[this.f56729f])) {
-                    this.f56729f = this.f56730g.indexOf(this.f56728e);
+                int i2 = this.f54572f;
+                if (i2 == -1 || i2 >= this.f54573g.size() || !k.a(this.f54571e, this.f54573g.keys[this.f54572f])) {
+                    this.f54572f = this.f54573g.indexOf(this.f54571e);
                 }
             }
         }
@@ -363,7 +363,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56728e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54571e : (K) invokeV.objValue;
         }
 
         @Override // c.i.d.c.b, java.util.Map.Entry
@@ -372,11 +372,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
-                int i2 = this.f56729f;
+                int i2 = this.f54572f;
                 if (i2 == -1) {
                     return null;
                 }
-                return (V) this.f56730g.values[i2];
+                return (V) this.f54573g.values[i2];
             }
             return (V) invokeV.objValue;
         }
@@ -387,12 +387,12 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v)) == null) {
                 a();
-                int i2 = this.f56729f;
+                int i2 = this.f54572f;
                 if (i2 == -1) {
-                    this.f56730g.put(this.f56728e, v);
+                    this.f54573g.put(this.f54571e, v);
                     return null;
                 }
-                Object[] objArr = this.f56730g.values;
+                Object[] objArr = this.f54573g.values;
                 V v2 = (V) objArr[i2];
                 objArr[i2] = v;
                 return v2;
@@ -407,7 +407,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56731e;
+        public final /* synthetic */ CompactHashMap f54574e;
 
         public h(CompactHashMap compactHashMap) {
             Interceptable interceptable = $ic;
@@ -424,14 +424,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56731e = compactHashMap;
+            this.f54574e = compactHashMap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56731e.clear();
+                this.f54574e.clear();
             }
         }
 
@@ -439,14 +439,14 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56731e.valuesIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54574e.valuesIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56731e.size : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54574e.size : invokeV.intValue;
         }
     }
 
@@ -759,11 +759,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         }
     }
 
-    public void insertEntry(int i2, K k2, V v, int i3) {
+    public void insertEntry(int i2, K k, V v, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), k2, v, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), k, v, Integer.valueOf(i3)}) == null) {
             this.entries[i2] = (i3 << 32) | 4294967295L;
-            this.keys[i2] = k2;
+            this.keys[i2] = k;
             this.values[i2] = v;
         }
     }
@@ -844,17 +844,17 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public V put(K k2, V v) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, k2, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, k, v)) == null) {
             if (needsAllocArrays()) {
                 allocArrays();
             }
             long[] jArr = this.entries;
             Object[] objArr = this.keys;
             Object[] objArr2 = this.values;
-            int d2 = n0.d(k2);
+            int d2 = n0.d(k);
             int hashTableMask = hashTableMask() & d2;
             int i2 = this.size;
             int[] iArr = this.table;
@@ -864,7 +864,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             } else {
                 while (true) {
                     long j2 = jArr[i3];
-                    if (getHash(j2) == d2 && k.a(k2, objArr[i3])) {
+                    if (getHash(j2) == d2 && k.a(k, objArr[i3])) {
                         V v2 = (V) objArr2[i3];
                         objArr2[i3] = v;
                         accessEntry(i3);
@@ -881,7 +881,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             if (i2 != Integer.MAX_VALUE) {
                 int i4 = i2 + 1;
                 resizeMeMaybe(i4);
-                insertEntry(i2, k2, v, d2);
+                insertEntry(i2, k, v, d2);
                 this.size = i4;
                 int length = this.table.length;
                 if (n0.b(i2, length, 1.0d)) {
@@ -1026,16 +1026,16 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56723e;
+        public int f54566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56724f;
+        public int f54567f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f56725g;
+        public int f54568g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CompactHashMap f56726h;
+        public final /* synthetic */ CompactHashMap f54569h;
 
         public e(CompactHashMap compactHashMap) {
             Interceptable interceptable = $ic;
@@ -1052,16 +1052,16 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
                     return;
                 }
             }
-            this.f56726h = compactHashMap;
-            CompactHashMap compactHashMap2 = this.f56726h;
-            this.f56723e = compactHashMap2.modCount;
-            this.f56724f = compactHashMap2.firstEntryIndex();
-            this.f56725g = -1;
+            this.f54569h = compactHashMap;
+            CompactHashMap compactHashMap2 = this.f54569h;
+            this.f54566e = compactHashMap2.modCount;
+            this.f54567f = compactHashMap2.firstEntryIndex();
+            this.f54568g = -1;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56726h.modCount != this.f56723e) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54569h.modCount != this.f54566e) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -1072,7 +1072,7 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56724f >= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54567f >= 0 : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -1082,10 +1082,10 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 a();
                 if (hasNext()) {
-                    int i2 = this.f56724f;
-                    this.f56725g = i2;
+                    int i2 = this.f54567f;
+                    this.f54568g = i2;
                     T b2 = b(i2);
-                    this.f56724f = this.f56726h.getSuccessor(this.f56724f);
+                    this.f54567f = this.f54569h.getSuccessor(this.f54567f);
                     return b2;
                 }
                 throw new NoSuchElementException();
@@ -1098,11 +1098,11 @@ public class CompactHashMap<K, V> extends AbstractMap<K, V> implements Serializa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 a();
-                m.e(this.f56725g >= 0);
-                this.f56723e++;
-                this.f56726h.removeEntry(this.f56725g);
-                this.f56724f = this.f56726h.adjustAfterRemove(this.f56724f, this.f56725g);
-                this.f56725g = -1;
+                m.e(this.f54568g >= 0);
+                this.f54566e++;
+                this.f54569h.removeEntry(this.f54568g);
+                this.f54567f = this.f54569h.adjustAfterRemove(this.f54567f, this.f54568g);
+                this.f54568g = -1;
             }
         }
 

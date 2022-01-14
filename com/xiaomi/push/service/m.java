@@ -47,16 +47,16 @@ public class m {
                 String string6 = sharedPreferences.getString("package_name", null);
                 String string7 = sharedPreferences.getString("device_id", null);
                 int i2 = sharedPreferences.getInt("env_type", 1);
-                if (!TextUtils.isEmpty(string7) && com.xiaomi.push.i.m490a(string7)) {
+                if (!TextUtils.isEmpty(string7) && com.xiaomi.push.i.m502a(string7)) {
                     string7 = com.xiaomi.push.i.k(context);
                     sharedPreferences.edit().putString("device_id", string7).commit();
                 }
                 if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2) || TextUtils.isEmpty(string3)) {
                     return null;
                 }
-                String k2 = com.xiaomi.push.i.k(context);
-                if (!"com.xiaomi.xmsf".equals(context.getPackageName()) && !TextUtils.isEmpty(k2) && !TextUtils.isEmpty(string7) && !string7.equals(k2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m122a("read_phone_state permission changes.");
+                String k = com.xiaomi.push.i.k(context);
+                if (!"com.xiaomi.xmsf".equals(context.getPackageName()) && !TextUtils.isEmpty(k) && !TextUtils.isEmpty(string7) && !string7.equals(k)) {
+                    com.xiaomi.channel.commonutils.logger.b.m134a("read_phone_state permission changes.");
                 }
                 l lVar = new l(string, string2, string3, string4, string5, string6, i2);
                 a = lVar;
@@ -101,7 +101,7 @@ public class m {
             synchronized (m.class) {
                 TreeMap treeMap = new TreeMap();
                 String a5 = com.xiaomi.push.i.a(context, false);
-                com.xiaomi.channel.commonutils.logger.b.m122a("account register:" + a5 + " mim:" + com.xiaomi.push.ax.a(context).e());
+                com.xiaomi.channel.commonutils.logger.b.m134a("account register:" + a5 + " mim:" + com.xiaomi.push.ax.a(context).e());
                 treeMap.put("devid", a5);
                 if (a != null && !TextUtils.isEmpty(a.f967a)) {
                     treeMap.put("uuid", a.f967a);
@@ -117,15 +117,15 @@ public class m {
                         if (!TextUtils.isEmpty(a2)) {
                             treeMap.put(Config.GAID, a2);
                         }
-                        if (m684a(context)) {
+                        if (m696a(context)) {
                             str2 = "1000271";
                         }
                         String str5 = str2;
-                        if (m684a(context)) {
+                        if (m696a(context)) {
                             str3 = "420100086271";
                         }
                         String str6 = str3;
-                        if (m684a(context)) {
+                        if (m696a(context)) {
                             str = "com.xiaomi.xmsf";
                         }
                         String str7 = str;
@@ -156,9 +156,9 @@ public class m {
                             treeMap.put("space_id", Integer.toString(a3));
                         }
                         treeMap.put("brand", Build.BRAND + "");
-                        treeMap.put("ram", com.xiaomi.push.i.m487a());
-                        treeMap.put("rom", com.xiaomi.push.i.m491b());
-                        com.xiaomi.push.be a6 = com.xiaomi.push.bg.a(context, m682a(context), treeMap);
+                        treeMap.put("ram", com.xiaomi.push.i.m499a());
+                        treeMap.put("rom", com.xiaomi.push.i.m503b());
+                        com.xiaomi.push.be a6 = com.xiaomi.push.bg.a(context, m694a(context), treeMap);
                         a4 = a6 != null ? a6.a() : "";
                         if (!TextUtils.isEmpty(a4)) {
                             JSONObject jSONObject = new JSONObject(a4);
@@ -177,7 +177,7 @@ public class m {
                                 return lVar;
                             }
                             p.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
-                            com.xiaomi.channel.commonutils.logger.b.m122a(a4);
+                            com.xiaomi.channel.commonutils.logger.b.m134a(a4);
                         }
                         return null;
                     }
@@ -190,13 +190,13 @@ public class m {
                 a2 = com.xiaomi.push.i.a(context);
                 if (!TextUtils.isEmpty(a2)) {
                 }
-                if (m684a(context)) {
+                if (m696a(context)) {
                 }
                 String str52 = str2;
-                if (m684a(context)) {
+                if (m696a(context)) {
                 }
                 String str62 = str3;
-                if (m684a(context)) {
+                if (m696a(context)) {
                 }
                 String str72 = str;
                 treeMap.put("appid", str52);
@@ -214,9 +214,9 @@ public class m {
                 if (a3 >= 0) {
                 }
                 treeMap.put("brand", Build.BRAND + "");
-                treeMap.put("ram", com.xiaomi.push.i.m487a());
-                treeMap.put("rom", com.xiaomi.push.i.m491b());
-                com.xiaomi.push.be a62 = com.xiaomi.push.bg.a(context, m682a(context), treeMap);
+                treeMap.put("ram", com.xiaomi.push.i.m499a());
+                treeMap.put("rom", com.xiaomi.push.i.m503b());
+                com.xiaomi.push.be a62 = com.xiaomi.push.bg.a(context, m694a(context), treeMap);
                 if (a62 != null) {
                 }
                 if (!TextUtils.isEmpty(a4)) {
@@ -228,7 +228,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m682a(Context context) {
+    public static String m694a(Context context) {
         InterceptResult invokeL;
         StringBuilder sb;
         String str;
@@ -238,27 +238,27 @@ public class m {
             if (com.xiaomi.push.ab.b()) {
                 sb = new StringBuilder();
                 sb.append("http://");
-                sb.append(fm.f63465b);
+                sb.append(fm.f61082b);
                 str = ":9085";
             } else if (com.xiaomi.push.o.a.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://cn.register.xmpush.xiaomi.com";
-            } else if (com.xiaomi.push.o.f63797b.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61399b.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f63798c.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61400c.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://fr.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f63799d.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61401d.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://ru.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f63800e.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61402e.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://idmb.register.xmpush.global.xiaomi.com";
             } else {
                 sb = new StringBuilder();
                 sb.append("https://");
-                str = com.xiaomi.push.ab.m191a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com";
+                str = com.xiaomi.push.ab.m203a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com";
             }
             sb.append(str);
             sb.append("/pass/v2/register");
@@ -277,7 +277,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m683a(Context context) {
+    public static void m695a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
@@ -291,11 +291,11 @@ public class m {
         if (interceptable == null || interceptable.invokeLL(65541, null, context, lVar) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
             edit.putString("uuid", lVar.f967a);
-            edit.putString("security", lVar.f63856c);
-            edit.putString("token", lVar.f63855b);
-            edit.putString("app_id", lVar.f63857d);
-            edit.putString("package_name", lVar.f63859f);
-            edit.putString("app_token", lVar.f63858e);
+            edit.putString("security", lVar.f61457c);
+            edit.putString("token", lVar.f61456b);
+            edit.putString("app_id", lVar.f61458d);
+            edit.putString("package_name", lVar.f61460f);
+            edit.putString("app_token", lVar.f61459e);
             edit.putString("device_id", com.xiaomi.push.i.k(context));
             edit.putInt("env_type", lVar.a);
             edit.commit();
@@ -311,7 +311,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m684a(Context context) {
+    public static boolean m696a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? context.getPackageName().equals("com.xiaomi.xmsf") : invokeL.booleanValue;

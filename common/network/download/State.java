@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes4.dex */
 public final class State {
@@ -32,7 +33,7 @@ public final class State {
             }
         }
         PAUSED = new State("PAUSED", 0);
-        RUNNING = new State("RUNNING", 1);
+        RUNNING = new State(TornadoLiteRuntime.STATE_RUNNING, 1);
         FAILED = new State("FAILED", 2);
         State state = new State("COMPLETED", 3);
         COMPLETED = state;

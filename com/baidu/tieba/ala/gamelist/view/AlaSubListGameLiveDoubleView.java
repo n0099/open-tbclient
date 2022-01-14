@@ -78,7 +78,7 @@ public class AlaSubListGameLiveDoubleView extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.a(aVar.f15224e);
-        this.n.a(aVar.f15225f);
+        this.m.a(aVar.f14848e);
+        this.n.a(aVar.f14849f);
     }
 }

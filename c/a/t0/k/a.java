@@ -27,32 +27,32 @@ public class a {
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19051b;
+    public String f18569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f19052c;
+    public HttpMessageListener f18570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f19053d;
+    public BdUniqueId f18571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f19054e;
+    public BdUniqueId f18572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f19055f;
+    public CustomMessageListener f18573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f19056g;
+    public CustomMessageListener f18574g;
 
     /* renamed from: c.a.t0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1141a extends HttpMessageListener {
+    public class C1155a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1141a(a aVar, int i2) {
+        public C1155a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -115,7 +115,7 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.A() && this.a.a != null) {
                 a aVar = this.a;
-                aVar.i(aVar.a, this.a.f19054e);
+                aVar.i(aVar.a, this.a.f18572e);
             }
         }
     }
@@ -172,21 +172,21 @@ public class a {
                 return;
             }
         }
-        this.f19053d = BdUniqueId.gen();
-        this.f19054e = BdUniqueId.gen();
-        this.f19055f = new b(this, 2000994);
-        this.f19056g = new c(this, 2016488);
-        this.f19051b = str;
-        if (this.f19052c == null) {
-            this.f19052c = new C1141a(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
+        this.f18571d = BdUniqueId.gen();
+        this.f18572e = BdUniqueId.gen();
+        this.f18573f = new b(this, 2000994);
+        this.f18574g = new c(this, 2016488);
+        this.f18569b = str;
+        if (this.f18570c == null) {
+            this.f18570c = new C1155a(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
-        this.f19052c.setTag(this.f19054e);
-        MessageManager.getInstance().registerListener(this.f19052c);
-        MessageManager.getInstance().registerListener(this.f19055f);
-        this.f19056g.setTag(tbPageContext.getUniqueId());
-        this.f19056g.setSelfListener(true);
-        this.f19056g.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(this.f19056g);
+        this.f18570c.setTag(this.f18572e);
+        MessageManager.getInstance().registerListener(this.f18570c);
+        MessageManager.getInstance().registerListener(this.f18573f);
+        this.f18574g.setTag(tbPageContext.getUniqueId());
+        this.f18574g.setSelfListener(true);
+        this.f18574g.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(this.f18574g);
     }
 
     public final void f(JSONObject jSONObject) {
@@ -197,7 +197,7 @@ public class a {
         if (l.A()) {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(jSONObject);
-            i(jSONArray, this.f19053d);
+            i(jSONArray, this.f18571d);
             return;
         }
         if (this.a == null) {
@@ -212,7 +212,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            String str = this.f19051b;
+            String str = this.f18569b;
             try {
                 String optString = jSONArray.optJSONObject(0).optString("dislike_from");
                 return !TextUtils.isEmpty(optString) ? optString : str;
@@ -226,9 +226,9 @@ public class a {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f19052c);
-            MessageManager.getInstance().unRegisterListener(this.f19055f);
-            MessageManager.getInstance().unRegisterListener(this.f19056g);
+            MessageManager.getInstance().unRegisterListener(this.f18570c);
+            MessageManager.getInstance().unRegisterListener(this.f18573f);
+            MessageManager.getInstance().unRegisterListener(this.f18574g);
             this.a = null;
         }
     }

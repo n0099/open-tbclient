@@ -326,12 +326,12 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 }
                 List<f.a> list = this.ucCardData.a;
                 if (ListUtils.getCount(list) > 4) {
-                    list.get(4).f25123b = 8L;
+                    list.get(4).f24420b = 8L;
                     for (f.a aVar : list) {
-                        if (aVar.f25123b > c.a.d.f.m.b.g(h2.get(aVar.a), 0L)) {
-                            aVar.f25124c = true;
+                        if (aVar.f24420b > c.a.d.f.m.b.g(h2.get(aVar.a), 0L)) {
+                            aVar.f24421c = true;
                         } else {
-                            aVar.f25124c = false;
+                            aVar.f24421c = false;
                         }
                     }
                 }

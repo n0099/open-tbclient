@@ -29,17 +29,17 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f14294b;
+    public b f13965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.a.e f14295c;
+    public c.a.d.a.e f13966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14296d;
+    public boolean f13967d;
 
     /* renamed from: c.a.s0.t.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0878a {
+    public static /* synthetic */ class C0891a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,34 +51,32 @@ public class a {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f14297b;
+        public boolean f13968b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f14298c;
+        public String f13969c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f14299d;
+        public String f13970d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f14300e;
+        public boolean f13971e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f14301f;
+        public String f13972f;
 
         /* renamed from: g  reason: collision with root package name */
-        public BdUniqueId f14302g;
+        public BdUniqueId f13973g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f14303h;
+        public String f13974h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f14304i;
+        public String f13975i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f14305j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public String f14306k;
+        public boolean f13976j;
+        public String k;
         public String l;
         public final /* synthetic */ a m;
 
@@ -99,26 +97,26 @@ public class a {
             }
             this.m = aVar;
             this.a = null;
-            this.f14300e = false;
-            this.f14301f = "0";
-            this.f14303h = "0";
-            this.f14304i = null;
-            this.f14305j = false;
+            this.f13971e = false;
+            this.f13972f = "0";
+            this.f13974h = "0";
+            this.f13975i = null;
+            this.f13976j = false;
         }
 
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f14297b = z;
+                this.f13968b = z;
             }
         }
 
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f14304i = str;
+                this.f13975i = str;
                 if (str != null) {
-                    this.f14305j = true;
+                    this.f13976j = true;
                 }
             }
         }
@@ -133,12 +131,12 @@ public class a {
                     netWork.cancelNetConnect();
                     this.a = null;
                 }
-                if (this.m.f14294b != null) {
-                    this.m.f14294b.cancel();
-                    this.m.f14294b = null;
+                if (this.m.f13965b != null) {
+                    this.m.f13965b.cancel();
+                    this.m.f13965b = null;
                 }
-                if (this.m.f14295c != null) {
-                    this.m.f14295c.c(Boolean.FALSE);
+                if (this.m.f13966c != null) {
+                    this.m.f13966c.c(Boolean.FALSE);
                 }
             }
         }
@@ -146,35 +144,35 @@ public class a {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f14301f = str;
+                this.f13972f = str;
             }
         }
 
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.f14303h = str;
+                this.f13974h = str;
             }
         }
 
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f14300e = z;
+                this.f13971e = z;
             }
         }
 
         public void g(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-                this.f14302g = bdUniqueId;
+                this.f13973g = bdUniqueId;
             }
         }
 
         public void h(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                this.f14298c = str;
+                this.f13969c = str;
             }
         }
 
@@ -188,7 +186,7 @@ public class a {
         public void j(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                this.f14299d = str;
+                this.f13970d = str;
             }
         }
 
@@ -199,24 +197,24 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, numArr)) == null) {
                 try {
-                    if (this.f14298c != null) {
+                    if (this.f13969c != null) {
                         NetWork netWork = new NetWork();
                         this.a = netWork;
-                        if (this.f14297b) {
+                        if (this.f13968b) {
                             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
                             this.a.setNeedSig(true);
                         } else {
                             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
                         }
-                        this.a.addPostData("portrait", this.f14298c);
-                        if (!StringUtils.isNull(this.f14301f)) {
-                            this.a.addPostData("from_type", this.f14301f);
+                        this.a.addPostData("portrait", this.f13969c);
+                        if (!StringUtils.isNull(this.f13972f)) {
+                            this.a.addPostData("from_type", this.f13972f);
                         }
-                        if (!StringUtils.isNull(this.f14304i)) {
-                            this.a.addPostData("forum_id", this.f14304i);
+                        if (!StringUtils.isNull(this.f13975i)) {
+                            this.a.addPostData("forum_id", this.f13975i);
                         }
-                        this.a.addPostData("in_live", this.f14303h);
-                        this.a.addPostData("authsid", this.f14306k);
+                        this.a.addPostData("in_live", this.f13974h);
+                        this.a.addPostData("authsid", this.k);
                         this.a.addPostData("related_tid", this.l);
                         this.a.getNetContext().getRequest().mIsNeedTbs = true;
                         String postNetData = this.a.postNetData();
@@ -238,27 +236,27 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.m.f14294b = null;
+                this.m.f13965b = null;
                 if (this.a != null) {
                     UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                     aVar.a = this.a.getNetContext().getResponse().isRequestSuccess();
-                    aVar.f42212b = this.a.getErrorString();
-                    aVar.f42214d = this.f14297b;
-                    aVar.f42213c = this.f14299d;
-                    aVar.f42216f = this.f14300e;
-                    aVar.f42220j = this.m.f14296d;
-                    aVar.b(str, this.f14305j);
+                    aVar.f40742b = this.a.getErrorString();
+                    aVar.f40744d = this.f13968b;
+                    aVar.f40743c = this.f13970d;
+                    aVar.f40746f = this.f13971e;
+                    aVar.f40750j = this.m.f13967d;
+                    aVar.b(str, this.f13976j);
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
                         aVar.l = null;
                     }
                     int serverErrorCode = this.a.getServerErrorCode();
-                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.f42221k) || c.a.t0.g4.a.a(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
+                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.k) || c.a.t0.g4.a.a(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                    updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.f14302g));
+                    updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.f13973g));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
-                    if (this.f14297b && serverErrorCode == 0) {
+                    if (this.f13968b && serverErrorCode == 0) {
                         a aVar2 = this.m;
                         boolean[] h2 = aVar2.h(aVar2.a);
                         if (h2 != null) {
@@ -271,7 +269,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0878a c0878a) {
+        public /* synthetic */ b(a aVar, C0891a c0891a) {
             this(aVar);
         }
     }
@@ -297,7 +295,7 @@ public class a {
     public void g() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f14294b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f13965b) == null) {
             return;
         }
         bVar.cancel();
@@ -322,13 +320,13 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
             boolean[] zArr = null;
             String localClassName = (tbPageContext == null || tbPageContext.getPageActivity() == null) ? null : tbPageContext.getPageActivity().getLocalClassName();
-            if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && c.a.s0.s.g0.b.j().g("first_call_attention", true)) {
-                c.a.s0.s.g0.b.j().t("first_call_attention", false);
+            if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && c.a.s0.s.h0.b.k().h("first_call_attention", true)) {
+                c.a.s0.s.h0.b.k().u("first_call_attention", false);
                 zArr = new boolean[]{!NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled(), !c.a.s0.t.d.d.d().u()};
-                if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.f14296d) {
+                if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.f13967d) {
                     tbPageContext.showToast(R.string.attention_success);
                 }
-            } else if (tbPageContext != null && !this.f14296d) {
+            } else if (tbPageContext != null && !this.f13967d) {
                 tbPageContext.showToast(R.string.attention_success);
             }
             return zArr;
@@ -339,14 +337,14 @@ public class a {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f14296d = z;
+            this.f13967d = z;
         }
     }
 
     public void j(c.a.d.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f14295c = eVar;
+            this.f13966c = eVar;
         }
     }
 
@@ -366,20 +364,20 @@ public class a {
 
     public void m(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), str3, bdUniqueId, str4, str5, str6}) == null) && this.f14294b == null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), str3, bdUniqueId, str4, str5, str6}) == null) && this.f13965b == null) {
             b bVar = new b(this, null);
-            this.f14294b = bVar;
+            this.f13965b = bVar;
             bVar.setPriority(2);
-            this.f14294b.b(z);
-            this.f14294b.h(str);
-            this.f14294b.j(str2);
-            this.f14294b.f(z2);
-            this.f14294b.d(str3);
-            this.f14294b.g(bdUniqueId);
-            this.f14294b.c(str4);
-            this.f14294b.e(str5);
-            this.f14294b.i(str6);
-            this.f14294b.execute(new Integer[0]);
+            this.f13965b.b(z);
+            this.f13965b.h(str);
+            this.f13965b.j(str2);
+            this.f13965b.f(z2);
+            this.f13965b.d(str3);
+            this.f13965b.g(bdUniqueId);
+            this.f13965b.c(str4);
+            this.f13965b.e(str5);
+            this.f13965b.i(str6);
+            this.f13965b.execute(new Integer[0]);
         }
     }
 }

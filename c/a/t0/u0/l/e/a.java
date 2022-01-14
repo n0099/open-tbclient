@@ -51,34 +51,32 @@ public class a {
     public EnterForumTabFeedFragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.u0.l.b f24846b;
+    public c.a.t0.u0.l.b f24158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24847c;
+    public String f24159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f24848d;
+    public ViewGroup f24160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdSwipeRefreshLayout f24849e;
+    public BdSwipeRefreshLayout f24161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeRecyclerView f24850f;
+    public BdTypeRecyclerView f24162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f24851g;
+    public PbListView f24163g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.s0.s.i0.g f24852h;
+    public c.a.s0.s.j0.g f24164h;
 
     /* renamed from: i  reason: collision with root package name */
-    public n1 f24853i;
+    public n1 f24165i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SmartBubbleAnimatedView f24854j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.t0.u0.l.e.b f24855k;
+    public SmartBubbleAnimatedView f24166j;
+    public c.a.t0.u0.l.e.b k;
     public boolean l;
     public TextView m;
     public RecommendForumLayout n;
@@ -94,14 +92,14 @@ public class a {
 
     /* renamed from: c.a.t0.u0.l.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1452a implements BdListView.p {
+    public class C1467a implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24856e;
+        public final /* synthetic */ a f24167e;
 
-        public C1452a(a aVar) {
+        public C1467a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,33 +114,33 @@ public class a {
                     return;
                 }
             }
-            this.f24856e = aVar;
+            this.f24167e = aVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f24856e.f24850f != null) {
-                    this.f24856e.f24850f.stopScroll();
+                if (this.f24167e.f24162f != null) {
+                    this.f24167e.f24162f.stopScroll();
                 }
-                if (this.f24856e.f24851g == null || this.f24856e.f24846b == null) {
+                if (this.f24167e.f24163g == null || this.f24167e.f24158b == null) {
                     return;
                 }
                 if (l.z()) {
-                    this.f24856e.f24850f.setNextPage(this.f24856e.f24851g);
-                    this.f24856e.f24851g.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    this.f24856e.f24851g.C(null);
-                    if (this.f24856e.o) {
-                        this.f24856e.f24851g.O();
-                        this.f24856e.f24846b.callLoadMore();
+                    this.f24167e.f24162f.setNextPage(this.f24167e.f24163g);
+                    this.f24167e.f24163g.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    this.f24167e.f24163g.C(null);
+                    if (this.f24167e.o) {
+                        this.f24167e.f24163g.O();
+                        this.f24167e.f24158b.callLoadMore();
                         return;
                     }
-                    this.f24856e.f24851g.D(this.f24856e.a.getResources().getString(R.string.list_has_no_more));
-                    this.f24856e.f24851g.f();
+                    this.f24167e.f24163g.D(this.f24167e.a.getResources().getString(R.string.list_has_no_more));
+                    this.f24167e.f24163g.f();
                     return;
                 }
-                this.f24856e.f24850f.setNextPage(null);
+                this.f24167e.f24162f.setNextPage(null);
             }
         }
     }
@@ -154,7 +152,7 @@ public class a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f24857b;
+        public final /* synthetic */ a f24168b;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -171,17 +169,17 @@ public class a {
                     return;
                 }
             }
-            this.f24857b = aVar;
+            this.f24168b = aVar;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) && i2 == 0) {
-                if (this.f24857b.p != null) {
-                    this.f24857b.p.n(this.f24857b.f24850f.getFirstVisiblePosition(), this.f24857b.f24850f.getLastVisiblePosition(), this.a, true);
+                if (this.f24168b.p != null) {
+                    this.f24168b.p.n(this.f24168b.f24162f.getFirstVisiblePosition(), this.f24168b.f24162f.getLastVisiblePosition(), this.a, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(true ^ this.f24857b.k())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(true ^ this.f24168b.k())));
             }
         }
 
@@ -205,7 +203,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24858e;
+        public final /* synthetic */ a f24169e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -222,24 +220,24 @@ public class a {
                     return;
                 }
             }
-            this.f24858e = aVar;
+            this.f24169e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f24858e.f24850f != null) {
-                    this.f24858e.f24850f.stopScroll();
+                if (this.f24169e.f24162f != null) {
+                    this.f24169e.f24162f.stopScroll();
                 }
-                if (this.f24858e.f24851g == null || this.f24858e.f24846b == null || !l.z()) {
+                if (this.f24169e.f24163g == null || this.f24169e.f24158b == null || !l.z()) {
                     return;
                 }
-                this.f24858e.f24851g.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                this.f24858e.f24851g.C(null);
-                if (this.f24858e.o) {
-                    this.f24858e.f24851g.O();
-                    this.f24858e.f24846b.callLoadMore();
+                this.f24169e.f24163g.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.f24169e.f24163g.C(null);
+                if (this.f24169e.o) {
+                    this.f24169e.f24163g.O();
+                    this.f24169e.f24158b.callLoadMore();
                 }
             }
         }
@@ -251,7 +249,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24859e;
+        public final /* synthetic */ a f24170e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -268,7 +266,7 @@ public class a {
                     return;
                 }
             }
-            this.f24859e = aVar;
+            this.f24170e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,14 +280,14 @@ public class a {
             StatisticItem statisticItem = new StatisticItem("c13642");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("fid", q1Var.o());
-            if (this.f24859e.n.mFrom != 0) {
-                if (this.f24859e.n.mFrom == 1) {
+            if (this.f24170e.n.mFrom != 0) {
+                if (this.f24170e.n.mFrom == 1) {
                     statisticItem.param("obj_locate", 2);
-                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24859e.f24847c);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24170e.f24159c);
                 }
             } else {
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_type", this.f24859e.n.mHasLikeForum ? 3 : 1);
+                statisticItem.param("obj_type", this.f24170e.n.mHasLikeForum ? 3 : 1);
             }
             TiebaStatic.log(statisticItem);
         }
@@ -301,35 +299,35 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (q1Var == null) {
-                    c.a.t0.u0.b.a(this.f24859e.a.getPageContext(), this.f24859e.f24847c);
-                    if (this.f24859e.n == null) {
+                    c.a.t0.u0.b.a(this.f24170e.a.getPageContext(), this.f24170e.f24159c);
+                    if (this.f24170e.n == null) {
                         return;
                     }
                     StatisticItem statisticItem = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_MORE);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem.param("obj_locate", 1);
-                    statisticItem.param("obj_type", this.f24859e.n.mHasLikeForum ? 5 : 1);
+                    statisticItem.param("obj_type", this.f24170e.n.mHasLikeForum ? 5 : 1);
                     statisticItem.param("obj_source", 5);
                     TiebaStatic.log(statisticItem);
-                } else if (q1Var == null || this.f24859e.a == null) {
+                } else if (q1Var == null || this.f24170e.a == null) {
                 } else {
                     String p = q1Var.p();
                     if (m.isForumName(p)) {
-                        this.f24859e.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f24859e.a.getFragmentActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                        if (this.f24859e.n == null) {
+                        this.f24170e.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f24170e.a.getFragmentActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                        if (this.f24170e.n == null) {
                             return;
                         }
                         StatisticItem statisticItem2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM_SHOW);
                         statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
                         statisticItem2.param("fid", q1Var.o());
-                        if (this.f24859e.n.mFrom != 0) {
-                            if (this.f24859e.n.mFrom == 1) {
+                        if (this.f24170e.n.mFrom != 0) {
+                            if (this.f24170e.n.mFrom == 1) {
                                 statisticItem2.param("obj_locate", 2);
-                                statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, this.f24859e.f24847c);
+                                statisticItem2.param(TiebaStatic.Params.RESOURCE_ID, this.f24170e.f24159c);
                             }
                         } else {
                             statisticItem2.param("obj_locate", 1);
-                            statisticItem2.param("obj_type", this.f24859e.n.mHasLikeForum ? 4 : 1);
+                            statisticItem2.param("obj_type", this.f24170e.n.mHasLikeForum ? 4 : 1);
                         }
                         TiebaStatic.log(statisticItem2);
                     }
@@ -344,7 +342,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24860e;
+        public final /* synthetic */ a f24171e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -361,21 +359,21 @@ public class a {
                     return;
                 }
             }
-            this.f24860e = aVar;
+            this.f24171e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.t0.u0.b.a(this.f24860e.a.getPageContext(), this.f24860e.f24847c);
-                if (this.f24860e.n == null) {
+                c.a.t0.u0.b.a(this.f24171e.a.getPageContext(), this.f24171e.f24159c);
+                if (this.f24171e.n == null) {
                     return;
                 }
                 StatisticItem statisticItem = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_MORE);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_type", this.f24860e.n.mHasLikeForum ? 5 : 1);
+                statisticItem.param("obj_type", this.f24171e.n.mHasLikeForum ? 5 : 1);
                 statisticItem.param("obj_source", 2);
                 TiebaStatic.log(statisticItem);
             }
@@ -410,7 +408,7 @@ public class a {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.t0.u0.b.a(this.a.a.getPageContext(), this.a.f24847c);
+                c.a.t0.u0.b.a(this.a.a.getPageContext(), this.a.f24159c);
                 StatisticItem statisticItem = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_MORE);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_locate", 1);
@@ -471,61 +469,61 @@ public class a {
                 return;
             }
         }
-        this.r = new C1452a(this);
+        this.r = new C1467a(this);
         this.s = new b(this);
         this.t = new c(this);
         this.u = new d(this);
         this.v = new e(this);
         this.w = new f(this);
         this.a = enterForumTabFeedFragment;
-        this.f24846b = bVar;
-        this.f24847c = str;
+        this.f24158b = bVar;
+        this.f24159c = str;
         i(viewGroup);
-        this.q = new c.a.t0.u0.l.a(enterForumTabFeedFragment, this.f24850f);
+        this.q = new c.a.t0.u0.l.a(enterForumTabFeedFragment, this.f24162f);
         q(false);
     }
 
     public final void i(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
-            this.f24848d = viewGroup;
+            this.f24160d = viewGroup;
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.tab_feed_recycler_view);
-            this.f24850f = bdTypeRecyclerView;
+            this.f24162f = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
-            this.f24850f.setFadingEdgeLength(0);
-            this.f24850f.setOverScrollMode(2);
-            this.f24850f.setOnSrollToBottomListener(this.r);
-            this.f24850f.addOnScrollListener(this.s);
-            c.a.s0.s.i0.g gVar = new c.a.s0.s.i0.g(this.a.getPageContext());
-            this.f24852h = gVar;
-            gVar.a(this.f24846b);
-            this.f24850f.setRecyclerListener(new g(this));
+            this.f24162f.setFadingEdgeLength(0);
+            this.f24162f.setOverScrollMode(2);
+            this.f24162f.setOnSrollToBottomListener(this.r);
+            this.f24162f.addOnScrollListener(this.s);
+            c.a.s0.s.j0.g gVar = new c.a.s0.s.j0.g(this.a.getPageContext());
+            this.f24164h = gVar;
+            gVar.a(this.f24158b);
+            this.f24162f.setRecyclerListener(new g(this));
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
-            this.f24851g = pbListView;
+            this.f24163g = pbListView;
             pbListView.b();
-            this.f24851g.p(R.color.CAM_X0205);
-            this.f24851g.t(n.f(this.a.getPageContext().getPageActivity(), R.dimen.tbds182));
-            this.f24851g.y();
-            this.f24851g.H(R.dimen.tbfontsize33);
-            this.f24851g.F(SkinManager.getColor(R.color.CAM_X0107));
-            this.f24851g.B(R.color.CAM_X0110);
-            this.f24851g.s();
-            this.f24851g.C(this.t);
-            if (this.f24849e == null) {
+            this.f24163g.p(R.color.CAM_X0205);
+            this.f24163g.t(n.f(this.a.getPageContext().getPageActivity(), R.dimen.tbds182));
+            this.f24163g.y();
+            this.f24163g.H(R.dimen.tbfontsize33);
+            this.f24163g.F(SkinManager.getColor(R.color.CAM_X0107));
+            this.f24163g.B(R.color.CAM_X0110);
+            this.f24163g.s();
+            this.f24163g.C(this.t);
+            if (this.f24161e == null) {
                 BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.tab_feed_pull_refresh_layout);
-                this.f24849e = bdSwipeRefreshLayout;
-                bdSwipeRefreshLayout.setProgressView(this.f24852h);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f24849e.getLayoutParams();
+                this.f24161e = bdSwipeRefreshLayout;
+                bdSwipeRefreshLayout.setProgressView(this.f24164h);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f24161e.getLayoutParams();
                 marginLayoutParams.topMargin = UtilHelper.getStatusBarHeight() + n.f(this.a.getPageContext().getPageActivity(), R.dimen.tbds219);
-                this.f24849e.setLayoutParams(marginLayoutParams);
+                this.f24161e.setLayoutParams(marginLayoutParams);
             }
-            this.f24853i = new n1();
+            this.f24165i = new n1();
             SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(this.a.getContext());
-            this.f24854j = smartBubbleAnimatedView;
+            this.f24166j = smartBubbleAnimatedView;
             smartBubbleAnimatedView.setLayoutParams(new FrameLayout.LayoutParams(-1, n.f(this.a.getContext(), R.dimen.tbds83)));
             if (this.p == null) {
-                this.p = new k(this.a.getPageContext(), this.f24850f);
-                if (c.a.s0.b.d.o()) {
+                this.p = new k(this.a.getPageContext(), this.f24162f);
+                if (c.a.s0.b.d.l()) {
                     this.p.p(2);
                 } else {
                     this.p.p(1);
@@ -533,8 +531,8 @@ public class a {
                 this.p.u(this.a.getUniqueId());
             }
             c.a.t0.u0.l.e.b bVar = new c.a.t0.u0.l.e.b(this.a.getPageContext());
-            this.f24855k = bVar;
-            bVar.g(this.f24847c);
+            this.k = bVar;
+            bVar.g(this.f24159c);
         }
     }
 
@@ -547,8 +545,8 @@ public class a {
             this.m.setText(R.string.tab_feed_title);
             this.m.setTextSize(0, n.f(this.a.getContext(), R.dimen.tbds46));
             this.m.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f24850f.removeHeaderView(this.m);
-            this.f24850f.addHeaderView(this.m, 0);
+            this.f24162f.removeHeaderView(this.m);
+            this.f24162f.addHeaderView(this.m, 0);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0105);
         }
     }
@@ -557,8 +555,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f24850f;
-            return bdTypeRecyclerView == null || bdTypeRecyclerView.getChildCount() == 0 || this.f24850f.getChildAt(0).getTop() == 0;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f24162f;
+            return bdTypeRecyclerView == null || bdTypeRecyclerView.getChildCount() == 0 || this.f24162f.getChildAt(0).getTop() == 0;
         }
         return invokeV.booleanValue;
     }
@@ -566,14 +564,14 @@ public class a {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            c.a.s0.s.i0.g gVar = this.f24852h;
+            c.a.s0.s.j0.g gVar = this.f24164h;
             if (gVar != null) {
                 gVar.C(i2);
             }
-            PbListView pbListView = this.f24851g;
+            PbListView pbListView = this.f24163g;
             if (pbListView != null) {
                 pbListView.F(SkinManager.getColor(R.color.CAM_X0107));
-                this.f24851g.d(i2);
+                this.f24163g.d(i2);
             }
             c.a.t0.u0.l.a aVar = this.q;
             if (aVar != null) {
@@ -583,7 +581,7 @@ public class a {
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
             }
-            c.a.t0.u0.l.e.b bVar = this.f24855k;
+            c.a.t0.u0.l.e.b bVar = this.k;
             if (bVar != null) {
                 bVar.e();
             }
@@ -591,7 +589,7 @@ public class a {
             if (recommendForumLayout != null) {
                 recommendForumLayout.onChangeSkinType();
             }
-            SmartBubbleAnimatedView smartBubbleAnimatedView = this.f24854j;
+            SmartBubbleAnimatedView smartBubbleAnimatedView = this.f24166j;
             if (smartBubbleAnimatedView != null) {
                 smartBubbleAnimatedView.onChangeSkinType(i2);
             }
@@ -602,37 +600,37 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             if (bVar != null) {
-                this.o = bVar.f24838c;
+                this.o = bVar.f24150c;
             }
             q(false);
-            if (bVar == null || this.q == null || this.f24850f == null || this.f24851g == null) {
+            if (bVar == null || this.q == null || this.f24162f == null || this.f24163g == null) {
                 return;
             }
             j();
             u(bVar);
             v(bVar);
-            if (bVar.f24840e > 0) {
-                int firstVisiblePosition = this.f24850f.getFirstVisiblePosition();
-                View childAt = this.f24850f.getChildAt(0);
+            if (bVar.f24152e > 0) {
+                int firstVisiblePosition = this.f24162f.getFirstVisiblePosition();
+                View childAt = this.f24162f.getChildAt(0);
                 int top = childAt == null ? 0 : childAt.getTop();
-                RecyclerView.LayoutManager layoutManager = this.f24850f.getLayoutManager();
-                int i2 = firstVisiblePosition - bVar.f24840e;
+                RecyclerView.LayoutManager layoutManager = this.f24162f.getLayoutManager();
+                int i2 = firstVisiblePosition - bVar.f24152e;
                 if (layoutManager instanceof LinearLayoutManager) {
-                    this.f24850f.startInterceptLayout();
+                    this.f24162f.startInterceptLayout();
                     ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(i2, top);
-                    this.f24850f.stopIntercerceptLayout();
+                    this.f24162f.stopIntercerceptLayout();
                 }
-                bVar.f24840e = 0;
+                bVar.f24152e = 0;
             }
-            this.q.d(bVar.f24839d);
-            this.q.c(bVar.f24837b);
+            this.q.d(bVar.f24151d);
+            this.q.c(bVar.f24149b);
             this.q.b();
-            if (bVar.f24843h) {
-                s(bVar.f24841f);
+            if (bVar.f24155h) {
+                s(bVar.f24153f);
             }
             k kVar = this.p;
             if (kVar != null) {
-                kVar.n(this.f24850f.getFirstVisiblePosition(), this.f24850f.getLastVisiblePosition(), false, true);
+                kVar.n(this.f24162f.getFirstVisiblePosition(), this.f24162f.getLastVisiblePosition(), false, true);
             }
         }
     }
@@ -650,7 +648,7 @@ public class a {
     public void o(int i2, int i3) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) || (bdTypeRecyclerView = this.f24850f) == null || i2 >= i3) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) || (bdTypeRecyclerView = this.f24162f) == null || i2 >= i3) {
             return;
         }
         bdTypeRecyclerView.removeItemList(i2, i3);
@@ -663,16 +661,16 @@ public class a {
             return;
         }
         kVar.r(true);
-        BdTypeRecyclerView bdTypeRecyclerView = this.f24850f;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f24162f;
         if (bdTypeRecyclerView != null) {
-            this.p.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f24850f.getLastVisiblePosition(), false, true);
+            this.p.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f24162f.getLastVisiblePosition(), false, true);
         }
     }
 
     public void q(boolean z) {
         BdSwipeRefreshLayout bdSwipeRefreshLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (bdSwipeRefreshLayout = this.f24849e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (bdSwipeRefreshLayout = this.f24161e) == null) {
             return;
         }
         bdSwipeRefreshLayout.setRefreshing(z);
@@ -681,7 +679,7 @@ public class a {
     public void r(boolean z) {
         BdSwipeRefreshLayout bdSwipeRefreshLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (bdSwipeRefreshLayout = this.f24849e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (bdSwipeRefreshLayout = this.f24161e) == null) {
             return;
         }
         bdSwipeRefreshLayout.setVisibility(z ? 0 : 8);
@@ -693,7 +691,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 < 0) {
             return;
         }
-        this.f24853i.f();
+        this.f24165i.f();
         if (i2 > 0) {
             string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i2));
         } else {
@@ -702,24 +700,24 @@ public class a {
         if (TextUtils.isEmpty(string) || !l.z()) {
             return;
         }
-        SmartBubbleAnimatedView smartBubbleAnimatedView = this.f24854j;
+        SmartBubbleAnimatedView smartBubbleAnimatedView = this.f24166j;
         smartBubbleAnimatedView.tipText = string;
         smartBubbleAnimatedView.delayDuring = 2000L;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 49;
         layoutParams.topMargin = UtilHelper.getStatusBarHeight() + n.f(this.a.getPageContext().getPageActivity(), R.dimen.tbds228);
-        ViewGroup viewGroup = this.f24848d;
+        ViewGroup viewGroup = this.f24160d;
         if (viewGroup != null) {
-            viewGroup.removeView(this.f24854j);
-            this.f24848d.addView(this.f24854j, layoutParams);
-            this.f24854j.playExpansionAnimation();
+            viewGroup.removeView(this.f24166j);
+            this.f24160d.addView(this.f24166j, layoutParams);
+            this.f24166j.playExpansionAnimation();
         }
     }
 
     public void t() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bdTypeRecyclerView = this.f24850f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bdTypeRecyclerView = this.f24162f) == null) {
             return;
         }
         bdTypeRecyclerView.scrollToPosition(0);
@@ -729,35 +727,35 @@ public class a {
         List<ShortUserInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            c.a.t0.u0.l.d.c cVar = bVar.f24842g;
-            if (cVar != null && (list = cVar.a) != null && list.size() > 0 && !TextUtils.isEmpty(bVar.f24842g.f24844b)) {
-                this.f24855k.f(bVar.f24842g);
-                if (this.f24855k.d().getParent() != null || this.l) {
+            c.a.t0.u0.l.d.c cVar = bVar.f24154g;
+            if (cVar != null && (list = cVar.a) != null && list.size() > 0 && !TextUtils.isEmpty(bVar.f24154g.f24156b)) {
+                this.k.f(bVar.f24154g);
+                if (this.k.d().getParent() != null || this.l) {
                     return;
                 }
                 this.l = true;
-                this.f24850f.addHeaderView(this.f24855k.d(), 0);
+                this.f24162f.addHeaderView(this.k.d(), 0);
                 StatisticItem statisticItem = new StatisticItem("c13656");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24847c);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24159c);
                 TiebaStatic.log(statisticItem);
                 return;
             }
             this.l = false;
-            this.f24850f.removeHeaderView(this.f24855k.d());
+            this.f24162f.removeHeaderView(this.k.d());
         }
     }
 
     public final void v(c.a.t0.u0.l.d.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) || bVar == null || this.f24850f == null || this.a == null || !bVar.f24843h) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) || bVar == null || this.f24162f == null || this.a == null || !bVar.f24155h) {
             return;
         }
         r1 r1Var = bVar.a;
         if (!((r1Var == null || ListUtils.isEmpty(r1Var.k())) ? false : true)) {
             RecommendForumLayout recommendForumLayout = this.n;
             if (recommendForumLayout != null) {
-                this.f24850f.removeHeaderView(recommendForumLayout);
+                this.f24162f.removeHeaderView(recommendForumLayout);
                 return;
             }
             return;
@@ -767,19 +765,19 @@ public class a {
             this.n = recommendForumLayout2;
             recommendForumLayout2.setShowMore(true);
             this.n.setSquareEntranceAtStart(true);
-            this.n.setTabName(this.f24847c);
+            this.n.setTabName(this.f24159c);
             this.n.setFrom(1);
         }
         this.n.setOnClickRightArrowListener(this.v);
         this.n.setOnRullOkCallbackr(this.w);
         this.n.setOnItemCoverListener(this.u);
         this.n.bindData(bVar.a);
-        this.f24850f.removeHeaderView(this.n);
-        this.f24850f.addHeaderView(this.n, 0);
+        this.f24162f.removeHeaderView(this.n);
+        this.f24162f.addHeaderView(this.n, 0);
         StatisticItem statisticItem = new StatisticItem("c13641");
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_locate", 2);
-        statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24847c);
+        statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f24159c);
         TiebaStatic.log(statisticItem);
     }
 }

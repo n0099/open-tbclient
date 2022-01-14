@@ -103,7 +103,7 @@ public class b {
             if (hVar == null || TextUtils.isEmpty(hVar.o)) {
                 return false;
             }
-            return h(new File(hVar.a), new File(d.e.i(hVar.o, String.valueOf(hVar.f11763i)).getPath(), hVar.p));
+            return h(new File(hVar.a), new File(d.e.i(hVar.o, String.valueOf(hVar.f11496i)).getPath(), hVar.p));
         }
         return invokeL.booleanValue;
     }
@@ -126,7 +126,7 @@ public class b {
                     return false;
                 } else {
                     a.c j2 = c.a.r0.a.a1.g.a.j(file);
-                    int i2 = j2.f5278b;
+                    int i2 = j2.f5168b;
                     if (i2 != -1) {
                         U = c.a.r0.a.a1.g.a.d(j2.a, file2, i2).a;
                     } else {

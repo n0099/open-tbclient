@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.l.l0;
 import c.a.l.w0.a;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k extends c.a.d.n.e.a<c.a.t0.g0.f0.k, ThreadCardViewHolder<c.a.t0.g0.f0.k>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class k extends c.a.d.n.e.a<c.a.t0.g0.f0.k, ThreadCardViewHolder<c.a.t0.g
     public TbPageContext<?> n;
     public c.a.d.n.e.s o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements c.a.d.n.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.l.s f21062e;
+        public final /* synthetic */ c.a.l.s f20499e;
 
         public a(k kVar, c.a.l.s sVar) {
             Interceptable interceptable = $ic;
@@ -52,27 +52,27 @@ public class k extends c.a.d.n.e.a<c.a.t0.g0.f0.k, ThreadCardViewHolder<c.a.t0.g
                     return;
                 }
             }
-            this.f21062e = sVar;
+            this.f20499e = sVar;
         }
 
         @Override // c.a.d.n.e.w
         public void b(View view, c.a.d.n.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             c.a.t0.g0.f0.k kVar;
-            d2 d2Var;
+            e2 e2Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 boolean z = nVar instanceof c.a.t0.g0.f0.k;
-                if (z && (kVar = (c.a.t0.g0.f0.k) nVar) != null && kVar.z && (d2Var = kVar.f18222e) != null && d2Var.t0() != null) {
-                    int a = c.a.s0.s.i0.p.c.a(kVar.f18222e.t0().button_link_type.intValue(), kVar.f18222e.t0().apk_detail != null ? kVar.f18222e.t0().apk_detail.pkg_source.intValue() : 0);
+                if (z && (kVar = (c.a.t0.g0.f0.k) nVar) != null && kVar.z && (e2Var = kVar.f17778e) != null && e2Var.t0() != null) {
+                    int a = c.a.s0.s.j0.p.c.a(kVar.f17778e.t0().button_link_type.intValue(), kVar.f17778e.t0().apk_detail != null ? kVar.f17778e.t0().apk_detail.pkg_source.intValue() : 0);
                     ItemData itemData = new ItemData();
-                    itemData.parseProto(kVar.f18222e.t0());
-                    ItemCardHelper.q(this.f21062e.t(), kVar.f18222e.t0().item_id.longValue(), this.f21062e.s(itemData), kVar.f18222e.v1(), a, "", 2);
-                    ItemClickJumpUtil.itemClickJump(kVar.f18222e.t0().forum_name, String.valueOf(kVar.f18222e.t0().item_id), 1, 1);
+                    itemData.parseProto(kVar.f17778e.t0());
+                    ItemCardHelper.q(this.f20499e.t(), kVar.f17778e.t0().item_id.longValue(), this.f20499e.s(itemData), kVar.f17778e.v1(), a, "", 2);
+                    ItemClickJumpUtil.itemClickJump(kVar.f17778e.t0().forum_name, String.valueOf(kVar.f17778e.t0().item_id), 1, 1);
                 } else if (z && (view.getTag() instanceof ThreadCardViewHolder)) {
                     c.a.t0.g0.f0.k kVar2 = (c.a.t0.g0.f0.k) nVar;
-                    kVar2.f18228k = 1;
+                    kVar2.k = 1;
                     ThreadCardUtils.jumpToPB((c.a.s0.s.q.a) kVar2, view.getContext(), 4, false);
-                    ((ThreadCardViewHolder) view.getTag()).getCardView().o(new a.C0186a(1));
+                    ((ThreadCardViewHolder) view.getTag()).getCardView().o(new a.C0195a(1));
                 }
             }
         }
@@ -113,9 +113,9 @@ public class k extends c.a.d.n.e.a<c.a.t0.g0.f0.k, ThreadCardViewHolder<c.a.t0.g
             sVar.y(1);
             sVar.r();
             bVar.h(sVar);
-            l0 k2 = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.o);
-            k2.r(2);
-            ThreadCardViewHolder<c.a.t0.g0.f0.k> threadCardViewHolder = new ThreadCardViewHolder<>(k2);
+            l0 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.o);
+            k.r(2);
+            ThreadCardViewHolder<c.a.t0.g0.f0.k> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.setPageId(this.m);
             V(new a(this, sVar));
             return threadCardViewHolder;
@@ -130,11 +130,11 @@ public class k extends c.a.d.n.e.a<c.a.t0.g0.f0.k, ThreadCardViewHolder<c.a.t0.g
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f18222e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f17778e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);
-            kVar.f18222e.U1 = kVar.q();
+            kVar.f17778e.T1 = kVar.q();
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.onBindDataToView(kVar);
             threadCardViewHolder.getCardView().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());

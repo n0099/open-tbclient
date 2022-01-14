@@ -19,34 +19,32 @@ public class c {
     public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18946b;
+    public String f18472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18947c;
+    public int f18473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18948d;
+    public int f18474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18949e;
+    public int f18475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18950f;
+    public String f18476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18951g;
+    public long f18477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18952h;
+    public String f18478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18953i;
+    public int f18479i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18954j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f18955k;
+    public String f18480j;
+    public int k;
     public String l;
     public String m;
     public String n;
@@ -74,10 +72,10 @@ public class c {
                 return;
             }
         }
-        this.f18947c = -1;
-        this.f18948d = -1;
-        this.f18949e = -1;
-        this.f18951g = System.currentTimeMillis() / 1000;
+        this.f18473c = -1;
+        this.f18474d = -1;
+        this.f18475e = -1;
+        this.f18477g = System.currentTimeMillis() / 1000;
     }
 
     public void a(String str, String str2) {
@@ -99,22 +97,22 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f18948d != -1) {
-                    jSONObject.put("da_locate", this.f18948d);
+                if (this.f18474d != -1) {
+                    jSONObject.put("da_locate", this.f18474d);
                 }
-                if (this.f18947c != -1) {
-                    jSONObject.put("da_type", this.f18947c);
+                if (this.f18473c != -1) {
+                    jSONObject.put("da_type", this.f18473c);
                 }
-                jSONObject.put("extra_param", this.f18946b);
-                jSONObject.put("origin_time", this.f18951g);
-                if (this.f18949e != -1) {
-                    jSONObject.put("da_page_num", this.f18949e);
+                jSONObject.put("extra_param", this.f18472b);
+                jSONObject.put("origin_time", this.f18477g);
+                if (this.f18475e != -1) {
+                    jSONObject.put("da_page_num", this.f18475e);
                 }
-                jSONObject.put("da_price", this.f18952h);
+                jSONObject.put("da_price", this.f18478h);
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject.put("ext1", this.f18953i);
-                jSONObject.put("ext3", this.f18955k);
-                jSONObject.put("ext2", this.f18954j);
+                jSONObject.put("ext1", this.f18479i);
+                jSONObject.put("ext3", this.k);
+                jSONObject.put("ext2", this.f18480j);
                 jSONObject.put("da_ext1", this.l);
                 jSONObject.put("da_ext2", this.m);
                 jSONObject.put("da_ext3", this.n);
@@ -124,7 +122,7 @@ public class c {
                 jSONObject.put("da_menu2", this.t);
                 jSONObject.put("da_menu3", this.u);
                 jSONObject.put(BdVideoAd.AD_VIDEO_DAPAGE, this.v);
-                jSONObject.put("place_id", this.f18950f);
+                jSONObject.put("place_id", this.f18476f);
                 jSONObject.put("lego_extra", this.r);
                 if (this.q != null) {
                     jSONObject.put("da_range", this.q.getDa_range());
@@ -159,7 +157,7 @@ public class c {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f18948d = i2;
+            this.f18474d = i2;
         }
     }
 
@@ -194,7 +192,7 @@ public class c {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f18947c = i2;
+            this.f18473c = i2;
         }
     }
 
@@ -273,8 +271,8 @@ public class c {
         if (interceptable == null || interceptable.invokeL(1048595, this, downloadStaticsData) == null) {
             this.q = downloadStaticsData;
             if (downloadStaticsData != null) {
-                this.f18948d = c.a.d.f.m.b.e(downloadStaticsData.getAdPosition(), 0);
-                this.f18946b = downloadStaticsData.getExtensionInfo();
+                this.f18474d = c.a.d.f.m.b.e(downloadStaticsData.getAdPosition(), 0);
+                this.f18472b = downloadStaticsData.getExtensionInfo();
             }
         }
     }
@@ -288,7 +286,7 @@ public class c {
     public void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f18946b = str;
+            this.f18472b = str;
         }
     }
 
@@ -302,14 +300,14 @@ public class c {
     public void x(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f18949e = i2;
+            this.f18475e = i2;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.f18950f = str;
+            this.f18476f = str;
         }
     }
 

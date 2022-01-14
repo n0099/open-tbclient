@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e extends c.a.k0.b.b.a<c.a.i0.a.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements c.a.i0.a.b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f26416c;
+        public final /* synthetic */ e f25630c;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class e extends c.a.k0.b.b.a<c.a.i0.a.b.b> {
                     return;
                 }
             }
-            this.f26416c = eVar;
+            this.f25630c = eVar;
         }
 
         @Override // c.a.i0.a.b.b
@@ -74,10 +74,15 @@ public class e extends c.a.k0.b.b.a<c.a.i0.a.b.b> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f26416c.a == null) {
-                    this.f26416c.a = new JSONObject();
+                if (this.f25630c.a == null) {
+                    this.f25630c.a = new JSONObject();
+                    try {
+                        this.f25630c.a.put("query_response_thread", 1);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
                 }
-                return this.f26416c.a;
+                return this.f25630c.a;
             }
             return (JSONObject) invokeV.objValue;
         }

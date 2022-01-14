@@ -53,25 +53,23 @@ public class PopupWindow {
     public int S;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41310e;
+    public Context f39913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WindowManager f41311f;
+    public WindowManager f39914f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41312g;
+    public boolean f39915g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41313h;
+    public boolean f39916h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f41314i;
+    public View f39917i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f41315j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public boolean f41316k;
+    public View f39918j;
+    public boolean k;
     public int l;
     public int m;
     public boolean n;
@@ -117,10 +115,10 @@ public class PopupWindow {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View view = this.a.P != null ? (View) this.a.P.get() : null;
-                if (view == null || this.a.f41315j == null) {
+                if (view == null || this.a.f39918j == null) {
                     return;
                 }
-                WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.a.f41315j.getLayoutParams();
+                WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.a.f39918j.getLayoutParams();
                 PopupWindow popupWindow = this.a;
                 popupWindow.P(popupWindow.u(view, layoutParams, popupWindow.R, this.a.S));
                 this.a.update(layoutParams.x, layoutParams.y, -1, -1, true);
@@ -139,7 +137,7 @@ public class PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupWindow f41317e;
+        public final /* synthetic */ PopupWindow f39919e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PopupWindow popupWindow, Context context) {
@@ -159,7 +157,7 @@ public class PopupWindow {
                     return;
                 }
             }
-            this.f41317e = popupWindow;
+            this.f39919e = popupWindow;
         }
 
         @Override // android.view.ViewGroup, android.view.View
@@ -179,7 +177,7 @@ public class PopupWindow {
                         }
                         return true;
                     } else if (keyEvent.getAction() == 1 && (keyDispatcherState = getKeyDispatcherState()) != null && keyDispatcherState.isTracking(keyEvent) && !keyEvent.isCanceled()) {
-                        this.f41317e.r();
+                        this.f39919e.r();
                         return true;
                     } else {
                         return super.dispatchKeyEvent(keyEvent);
@@ -195,7 +193,7 @@ public class PopupWindow {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-                if (this.f41317e.w == null || !this.f41317e.w.onTouch(this, motionEvent)) {
+                if (this.f39919e.w == null || !this.f39919e.w.onTouch(this, motionEvent)) {
                     return super.dispatchTouchEvent(motionEvent);
                 }
                 return true;
@@ -208,7 +206,7 @@ public class PopupWindow {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (this.f41317e.K) {
+                if (this.f39919e.K) {
                     int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 1);
                     View.mergeDrawableStates(onCreateDrawableState, PopupWindow.T);
                     return onCreateDrawableState;
@@ -226,10 +224,10 @@ public class PopupWindow {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
                 if (motionEvent.getAction() == 0 && (x < 0 || x >= super.getWidth() || y < 0 || y >= super.getHeight())) {
-                    this.f41317e.r();
+                    this.f39919e.r();
                     return true;
                 } else if (motionEvent.getAction() == 4) {
-                    this.f41317e.r();
+                    this.f39919e.r();
                     return true;
                 } else {
                     return super.onTouchEvent(motionEvent);
@@ -242,8 +240,8 @@ public class PopupWindow {
         public void sendAccessibilityEvent(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                if (this.f41317e.f41314i != null) {
-                    this.f41317e.f41314i.sendAccessibilityEvent(i2);
+                if (this.f39919e.f39917i != null) {
+                    this.f39919e.f39917i.sendAccessibilityEvent(i2);
                 } else {
                     super.sendAccessibilityEvent(i2);
                 }
@@ -329,20 +327,20 @@ public class PopupWindow {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || x()) {
             return;
         }
-        this.f41314i = view;
-        if (this.f41310e == null && view != null) {
-            this.f41310e = view.getContext();
+        this.f39917i = view;
+        if (this.f39913e == null && view != null) {
+            this.f39913e = view.getContext();
         }
-        if (this.f41311f != null || (context = this.f41310e) == null) {
+        if (this.f39914f != null || (context = this.f39913e) == null) {
             return;
         }
-        this.f41311f = (WindowManager) context.getSystemService("window");
+        this.f39914f = (WindowManager) context.getSystemService("window");
     }
 
     public void F(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f41316k = z;
+            this.k = z;
         }
     }
 
@@ -423,11 +421,11 @@ public class PopupWindow {
         if (this.H != null) {
             Drawable drawable = this.I;
             if (drawable == null) {
-                this.f41315j.refreshDrawableState();
+                this.f39918j.refreshDrawableState();
             } else if (z) {
-                this.f41315j.setBackgroundDrawable(drawable);
+                this.f39918j.setBackgroundDrawable(drawable);
             } else {
-                this.f41315j.setBackgroundDrawable(this.J);
+                this.f39918j.setBackgroundDrawable(this.J);
             }
         }
     }
@@ -438,7 +436,7 @@ public class PopupWindow {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             int i2 = this.O;
             if (i2 == -1) {
-                if (this.f41313h) {
+                if (this.f39916h) {
                     return this.K ? l.PopupWindow_DropDownUp : l.PopupWindow_DropDownDown;
                 }
                 return 0;
@@ -468,7 +466,7 @@ public class PopupWindow {
             if (this.N) {
                 i3 |= 32768;
             }
-            if (!this.f41316k) {
+            if (!this.k) {
                 i3 |= 8;
             }
             if (!this.n) {
@@ -525,39 +523,39 @@ public class PopupWindow {
     public void r() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && x() && this.f41315j != null) {
-            this.f41312g = false;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && x() && this.f39918j != null) {
+            this.f39915g = false;
             O();
             try {
-                this.f41311f.removeView(this.f41315j);
-                View view = this.f41315j;
-                View view2 = this.f41314i;
+                this.f39914f.removeView(this.f39918j);
+                View view = this.f39918j;
+                View view2 = this.f39917i;
                 if (view != view2 && (view instanceof ViewGroup)) {
                     ((ViewGroup) view).removeView(view2);
                 }
-                this.f41315j = null;
+                this.f39918j = null;
                 bVar = this.M;
                 if (bVar == null) {
                     return;
                 }
             } catch (IllegalArgumentException unused) {
-                View view3 = this.f41315j;
-                View view4 = this.f41314i;
+                View view3 = this.f39918j;
+                View view4 = this.f39917i;
                 if (view3 != view4 && (view3 instanceof ViewGroup)) {
                     ((ViewGroup) view3).removeView(view4);
                 }
-                this.f41315j = null;
+                this.f39918j = null;
                 bVar = this.M;
                 if (bVar == null) {
                     return;
                 }
             } catch (Throwable th) {
-                View view5 = this.f41315j;
-                View view6 = this.f41314i;
+                View view5 = this.f39918j;
+                View view6 = this.f39917i;
                 if (view5 != view6 && (view5 instanceof ViewGroup)) {
                     ((ViewGroup) view5).removeView(view6);
                 }
-                this.f41315j = null;
+                this.f39918j = null;
                 b bVar2 = this.M;
                 if (bVar2 != null) {
                     bVar2.onDismiss();
@@ -570,12 +568,12 @@ public class PopupWindow {
 
     public void s(View view, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048596, this, view, i2, i3) == null) || x() || this.f41314i == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048596, this, view, i2, i3) == null) || x() || this.f39917i == null) {
             return;
         }
         A(view, i2, i3);
-        this.f41312g = true;
-        this.f41313h = true;
+        this.f39915g = true;
+        this.f39916h = true;
         WindowManager.LayoutParams q = q(view.getWindowToken());
         z(q);
         P(u(view, q, i2, i3));
@@ -595,12 +593,12 @@ public class PopupWindow {
 
     public void t(IBinder iBinder, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(1048597, this, iBinder, i2, i3, i4) == null) || iBinder == null || x() || this.f41314i == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(1048597, this, iBinder, i2, i3, i4) == null) || iBinder == null || x() || this.f39917i == null) {
             return;
         }
         O();
-        this.f41312g = true;
-        this.f41313h = false;
+        this.f39915g = true;
+        this.f39916h = false;
         WindowManager.LayoutParams q = q(iBinder);
         q.windowAnimations = o();
         z(q);
@@ -686,8 +684,8 @@ public class PopupWindow {
 
     public void update() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && x() && this.f41314i != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f41315j.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && x() && this.f39917i != null) {
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f39918j.getLayoutParams();
             boolean z = false;
             int o = o();
             boolean z2 = true;
@@ -702,7 +700,7 @@ public class PopupWindow {
                 z2 = z;
             }
             if (z2) {
-                this.f41311f.updateViewLayout(this.f41315j, layoutParams);
+                this.f39914f.updateViewLayout(this.f39918j, layoutParams);
             }
         }
     }
@@ -710,49 +708,49 @@ public class PopupWindow {
     public View v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f41314i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f39917i : (View) invokeV.objValue;
     }
 
     public final void w(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, layoutParams) == null) {
-            Context context = this.f41310e;
+            Context context = this.f39913e;
             if (context != null) {
                 layoutParams.packageName = context.getPackageName();
             }
-            this.f41311f.addView(this.f41315j, layoutParams);
+            this.f39914f.addView(this.f39918j, layoutParams);
         }
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f41312g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f39915g : invokeV.booleanValue;
     }
 
     public boolean y() {
         InterceptResult invokeV;
         Context context;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? (this.q >= 0 || (context = this.f41310e) == null) ? this.q == 1 : context.getApplicationInfo().targetSdkVersion >= 11 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? (this.q >= 0 || (context = this.f39913e) == null) ? this.q == 1 : context.getApplicationInfo().targetSdkVersion >= 11 : invokeV.booleanValue;
     }
 
     public final void z(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, layoutParams) == null) {
-            View view = this.f41314i;
-            if (view != null && this.f41310e != null && this.f41311f != null) {
+            View view = this.f39917i;
+            if (view != null && this.f39913e != null && this.f39914f != null) {
                 if (this.H != null) {
                     ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
                     int i2 = -2;
                     i2 = (layoutParams2 == null || layoutParams2.height != -2) ? -1 : -1;
-                    c cVar = new c(this, this.f41310e);
+                    c cVar = new c(this, this.f39913e);
                     FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i2);
                     cVar.setBackgroundDrawable(this.H);
-                    cVar.addView(this.f41314i, layoutParams3);
-                    this.f41315j = cVar;
+                    cVar.addView(this.f39917i, layoutParams3);
+                    this.f39918j = cVar;
                 } else {
-                    this.f41315j = view;
+                    this.f39918j = view;
                 }
                 this.D = layoutParams.width;
                 this.E = layoutParams.height;
@@ -834,8 +832,8 @@ public class PopupWindow {
         this.N = false;
         this.O = -1;
         this.Q = new a(this);
-        this.f41310e = context;
-        this.f41311f = (WindowManager) context.getSystemService("window");
+        this.f39913e = context;
+        this.f39914f = (WindowManager) context.getSystemService("window");
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, m.PopupWindow, i2, i3);
         this.H = obtainStyledAttributes.getDrawable(m.PopupWindow_popupBackground);
         int resourceId = obtainStyledAttributes.getResourceId(m.PopupWindow_popupAnimationStyle, -1);
@@ -846,7 +844,7 @@ public class PopupWindow {
     public void update(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f41315j.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f39918j.getLayoutParams();
             update(layoutParams.x, layoutParams.y, i2, i3, false);
         }
     }
@@ -869,10 +867,10 @@ public class PopupWindow {
                 this.C = i5;
                 G(i5);
             }
-            if (!x() || this.f41314i == null) {
+            if (!x() || this.f39917i == null) {
                 return;
             }
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f41315j.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f39918j.getLayoutParams();
             int i6 = this.x;
             if (i6 >= 0) {
                 i6 = this.z;
@@ -912,7 +910,7 @@ public class PopupWindow {
                 z2 = z;
             }
             if (z2) {
-                this.f41311f.updateViewLayout(this.f41315j, layoutParams);
+                this.f39914f.updateViewLayout(this.f39918j, layoutParams);
             }
         }
     }
@@ -989,8 +987,8 @@ public class PopupWindow {
         this.Q = new a(this);
         if (view != null) {
             Context context = view.getContext();
-            this.f41310e = context;
-            this.f41311f = (WindowManager) context.getSystemService("window");
+            this.f39913e = context;
+            this.f39914f = (WindowManager) context.getSystemService("window");
         }
         E(view);
         L(i2);
@@ -1017,19 +1015,19 @@ public class PopupWindow {
         if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int i6 = i4;
             int i7 = i5;
-            if (!x() || this.f41314i == null) {
+            if (!x() || this.f39917i == null) {
                 return;
             }
             WeakReference<View> weakReference = this.P;
             boolean z3 = false;
             boolean z4 = z && !(this.R == i2 && this.S == i3);
-            if (weakReference == null || weakReference.get() != view || (z4 && !this.f41313h)) {
+            if (weakReference == null || weakReference.get() != view || (z4 && !this.f39916h)) {
                 A(view, i2, i3);
             } else if (z4) {
                 this.R = i2;
                 this.S = i3;
             }
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f41315j.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f39918j.getLayoutParams();
             if (z2) {
                 if (i6 == -1) {
                     i6 = this.D;

@@ -154,7 +154,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            return a(new File(file, c.a.r0.a.x0.a.d.a.f9784h), c.a.r0.a.x0.a.d.a.a);
+            return a(new File(file, c.a.r0.a.x0.a.d.a.f9571h), c.a.r0.a.x0.a.d.a.a);
         }
         return invokeLL.booleanValue;
     }
@@ -166,7 +166,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            boolean a2 = a(new File(file, c.a.r0.a.x0.a.d.a.f9787k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "databases"));
+            boolean a2 = a(new File(file, c.a.r0.a.x0.a.d.a.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "databases"));
             SwanAppDbControl.f(AppRuntime.getAppContext()).p();
             c.a.r0.q.g.e.a.a().release();
             c.a.r0.a.c1.a.g0().F();
@@ -182,7 +182,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            return a(new File(file, c.a.r0.a.x0.a.d.a.f9785i), AppRuntime.getAppContext().getFilesDir());
+            return a(new File(file, c.a.r0.a.x0.a.d.a.f9572i), AppRuntime.getAppContext().getFilesDir());
         }
         return invokeLL.booleanValue;
     }
@@ -194,7 +194,7 @@ public class c {
             if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
                 return false;
             }
-            return b(new File(file, c.a.r0.a.x0.a.d.a.f9786j));
+            return b(new File(file, c.a.r0.a.x0.a.d.a.f9573j));
         }
         return invokeLL.booleanValue;
     }
@@ -218,7 +218,7 @@ public class c {
                 }
                 File a3 = c.a.r0.a.x0.a.b.a(d.G(file), a2);
                 if (a3 != null && a3.exists()) {
-                    File file2 = new File(c.a.r0.a.x0.a.d.a.f9780d);
+                    File file2 = new File(c.a.r0.a.x0.a.d.a.f9567d);
                     if (file2.exists()) {
                         d.L(file2);
                     }
@@ -226,13 +226,13 @@ public class c {
                         c.a.r0.a.x0.a.a.n().p("installSwanApp root cache dir create fail");
                         return false;
                     }
-                    boolean z = d.W(a3.getAbsolutePath(), c.a.r0.a.x0.a.d.a.f9780d) == null;
+                    boolean z = d.W(a3.getAbsolutePath(), c.a.r0.a.x0.a.d.a.f9567d) == null;
                     if (z) {
                         d.j(file);
                         d.j(a3);
                     }
                     c.a.r0.a.x0.a.a.n().p("unzip file status = " + z);
-                    File file3 = new File(c.a.r0.a.x0.a.d.a.f9780d);
+                    File file3 = new File(c.a.r0.a.x0.a.d.a.f9567d);
                     String[] list = file3.list();
                     if (list != null && list.length != 0) {
                         int length = list.length;
@@ -244,15 +244,15 @@ public class c {
                                 break;
                             }
                             String str4 = list[i2];
-                            if (!TextUtils.isEmpty(str4) && str4.startsWith(c.a.r0.a.x0.a.d.a.f9781e)) {
-                                str2 = str4.substring(c.a.r0.a.x0.a.d.a.f9781e.length());
+                            if (!TextUtils.isEmpty(str4) && str4.startsWith(c.a.r0.a.x0.a.d.a.f9568e)) {
+                                str2 = str4.substring(c.a.r0.a.x0.a.d.a.f9568e.length());
                                 str3 = str4;
                                 break;
                             }
                             i2++;
                         }
                         if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                            File file4 = new File(c.a.r0.a.x0.a.d.a.f9780d, str3);
+                            File file4 = new File(c.a.r0.a.x0.a.d.a.f9567d, str3);
                             boolean j2 = j(str, file4);
                             boolean e2 = e(str, file4);
                             boolean h2 = h(str, file4);
@@ -282,7 +282,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            return a(new File(file, c.a.r0.a.x0.a.d.a.f9783g), c.a.r0.a.x0.a.d.a.a);
+            return a(new File(file, c.a.r0.a.x0.a.d.a.f9570g), c.a.r0.a.x0.a.d.a.a);
         }
         return invokeLL.booleanValue;
     }

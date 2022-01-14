@@ -6,20 +6,20 @@ public final class c {
     public static final double a = Runtime.getRuntime().maxMemory();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f58746b = Pattern.compile("/data/user");
+    public static final Pattern f56532b = Pattern.compile("/data/user");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f58747c = Pattern.compile("/data");
+    public static final Pattern f56533c = Pattern.compile("/data");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f58748d = Pattern.compile("/data/data/(.*)/data/.*");
+    public static final Pattern f56534d = Pattern.compile("/data/data/(.*)/data/.*");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f58749e = Pattern.compile("/data/user/.*/(.*)/data/.*");
+    public static final Pattern f56535e = Pattern.compile("/data/user/.*/(.*)/data/.*");
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f58750f = 20;
+    public static int f56536f = 20;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f58751g = "sessionId";
+    public static String f56537g = "sessionId";
 }

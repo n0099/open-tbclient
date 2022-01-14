@@ -22,22 +22,22 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f50382e;
+    public long f48475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50383f;
+    public int f48476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50384g;
+    public boolean f48477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50385h;
+    public boolean f48478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f50386i;
+    public b f48479i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f50387j;
+    public c.a.d.c.g.a f48480j;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -71,7 +71,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f50385h = false;
+                this.a.f48478h = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -91,12 +91,12 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                         this.a.setCardId(setPersonalCardSocketResponse.getCardId());
                         this.a.setType(setPersonalCardSocketResponse.getType());
                     }
-                    if (this.a.f50386i != null) {
-                        int i2 = c.f15890b;
-                        if (responsedMessage.getError() == c.f15891c) {
+                    if (this.a.f48479i != null) {
+                        int i2 = c.f15485b;
+                        if (responsedMessage.getError() == c.f15486c) {
                             i2 = c.a;
                         }
-                        this.a.f50386i.a(this.a.f50384g, this.a.f50382e, this.a.f50383f, responsedMessage.getErrorString(), i2);
+                        this.a.f48479i.a(this.a.f48477g, this.a.f48475e, this.a.f48476f, responsedMessage.getErrorString(), i2);
                     }
                 }
             }
@@ -121,27 +121,27 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                 return;
             }
         }
-        this.f50384g = false;
-        this.f50385h = false;
-        this.f50387j = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
+        this.f48477g = false;
+        this.f48478h = false;
+        this.f48480j = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
         c.a.t0.w3.f0.a.h(309345, SetPersonalCardSocketResponse.class, false, false);
         c.a.t0.w3.f0.a.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
-        registerListener(this.f50387j);
+        registerListener(this.f48480j);
     }
 
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f50386i = bVar;
+            this.f48479i = bVar;
         }
     }
 
     public void C(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.f50385h) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.f48478h) {
             return;
         }
-        this.f50385h = true;
+        this.f48478h = true;
         SetPersonalCardRequest setPersonalCardRequest = new SetPersonalCardRequest();
         setPersonalCardRequest.setCardId(j2);
         setPersonalCardRequest.setType(i2);
@@ -151,7 +151,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f50384g = z;
+            this.f48477g = z;
         }
     }
 
@@ -168,7 +168,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50383f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48476f : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -184,21 +184,21 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f50387j);
+            MessageManager.getInstance().unRegisterListener(this.f48480j);
         }
     }
 
     public void setCardId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f50382e = j2;
+            this.f48475e = j2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f50383f = i2;
+            this.f48476f = i2;
         }
     }
 }

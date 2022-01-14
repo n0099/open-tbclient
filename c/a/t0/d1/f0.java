@@ -14,7 +14,7 @@ public class f0 extends SparseArray<p0> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f16374e;
+    public BdUniqueId f16085e;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class f0 extends SparseArray<p0> {
                 return;
             }
         }
-        this.f16374e = null;
+        this.f16085e = null;
     }
 
     public void a(int i2, p0 p0Var) {

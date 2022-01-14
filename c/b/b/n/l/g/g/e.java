@@ -13,19 +13,19 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector3 f28099b;
+    public Vector3 f27247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Quaternion f28100c;
+    public Quaternion f27248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Vector3 f28101d;
+    public Vector3 f27249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h[] f28102e;
+    public h[] f27250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e[] f28103f;
+    public e[] f27251f;
 
     public e() {
         Interceptable interceptable = $ic;

@@ -21,27 +21,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f19381c;
+    public static volatile a f18883c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DownloadData f19382b;
+    public DownloadData f18884b;
 
     /* renamed from: c.a.t0.k4.i.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1157a implements e {
+    public class C1171a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19383b;
+        public final /* synthetic */ String f18885b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f19384c;
+        public final /* synthetic */ a f18886c;
 
-        public C1157a(a aVar, b bVar, String str) {
+        public C1171a(a aVar, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,9 +56,9 @@ public class a {
                     return;
                 }
             }
-            this.f19384c = aVar;
+            this.f18886c = aVar;
             this.a = bVar;
-            this.f19383b = str;
+            this.f18885b = str;
         }
 
         @Override // c.a.s0.w.e
@@ -69,8 +69,8 @@ public class a {
                 if (file.exists()) {
                     file.delete();
                 }
-                if (this.f19384c.f19382b != null && downloadData.getUrl().equals(this.f19384c.f19382b.getUrl())) {
-                    this.f19384c.f19382b = null;
+                if (this.f18886c.f18884b != null && downloadData.getUrl().equals(this.f18886c.f18884b.getUrl())) {
+                    this.f18886c.f18884b = null;
                 }
                 b bVar = this.a;
                 if (bVar != null) {
@@ -85,12 +85,12 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
                 return;
             }
-            if (this.f19384c.f19382b != null && downloadData.getUrl().equals(this.f19384c.f19382b.getUrl())) {
-                this.f19384c.f19382b = null;
+            if (this.f18886c.f18884b != null && downloadData.getUrl().equals(this.f18886c.f18884b.getUrl())) {
+                this.f18886c.f18884b = null;
             }
             if (this.a != null) {
-                this.f19384c.a.put(downloadData.getPath().substring(c.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                this.a.c(this.f19383b, downloadData.getPath());
+                this.f18886c.a.put(downloadData.getPath().substring(c.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                this.a.c(this.f18885b, downloadData.getPath());
             }
         }
 
@@ -112,8 +112,8 @@ public class a {
                 if (file.exists()) {
                     file.delete();
                 }
-                if (this.f19384c.f19382b != null && downloadData.getUrl().equals(this.f19384c.f19382b.getUrl())) {
-                    this.f19384c.f19382b = null;
+                if (this.f18886c.f18884b != null && downloadData.getUrl().equals(this.f18886c.f18884b.getUrl())) {
+                    this.f18886c.f18884b = null;
                 }
                 b bVar = this.a;
                 if (bVar != null) {
@@ -160,14 +160,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f19381c == null) {
+            if (f18883c == null) {
                 synchronized (a.class) {
-                    if (f19381c == null) {
-                        f19381c = new a();
+                    if (f18883c == null) {
+                        f18883c = new a();
                     }
                 }
             }
-            return f19381c;
+            return f18883c;
         }
         return (a) invokeV.objValue;
     }
@@ -199,12 +199,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) == null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
             return;
         }
-        DownloadData downloadData = this.f19382b;
+        DownloadData downloadData = this.f18884b;
         if (downloadData != null) {
             if (str2.equals(downloadData.getUrl())) {
                 return;
             }
-            f.k().h(this.f19382b.getUrl(), true);
+            f.k().h(this.f18884b.getUrl(), true);
         }
         File file = new File(c.a);
         if (!file.exists()) {
@@ -215,8 +215,8 @@ public class a {
         downloadData2.setId(str);
         downloadData2.setUrl(str2);
         downloadData2.setPath(c.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData2.setCallback(new C1157a(this, bVar, str2));
-        this.f19382b = downloadData2;
+        downloadData2.setCallback(new C1171a(this, bVar, str2));
+        this.f18884b = downloadData2;
         f.k().l(downloadData2);
     }
 

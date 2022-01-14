@@ -79,10 +79,10 @@ public class CollectionsKt__CollectionsKt extends CollectionsKt__CollectionsJVMK
         return binarySearch(list, comparable, i2, i3);
     }
 
-    public static final <T, K extends Comparable<? super K>> int binarySearchBy(List<? extends T> binarySearchBy, K k2, int i2, int i3, Function1<? super T, ? extends K> selector) {
+    public static final <T, K extends Comparable<? super K>> int binarySearchBy(List<? extends T> binarySearchBy, K k, int i2, int i3, Function1<? super T, ? extends K> selector) {
         Intrinsics.checkNotNullParameter(binarySearchBy, "$this$binarySearchBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        return binarySearch(binarySearchBy, i2, i3, new CollectionsKt__CollectionsKt$binarySearchBy$1(selector, k2));
+        return binarySearch(binarySearchBy, i2, i3, new CollectionsKt__CollectionsKt$binarySearchBy$1(selector, k));
     }
 
     public static /* synthetic */ int binarySearchBy$default(List binarySearchBy, Comparable comparable, int i2, int i3, Function1 selector, int i4, Object obj) {

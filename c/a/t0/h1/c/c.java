@@ -17,8 +17,8 @@ import c.a.d.a.f;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
 import c.a.s0.g0.h;
-import c.a.s0.s.i0.f;
-import c.a.s0.s.i0.g;
+import c.a.s0.s.j0.f;
+import c.a.s0.s.j0.g;
 import c.a.t0.h1.c.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -56,34 +56,32 @@ public class c extends d<MyGiftListActivity> {
     public MyGiftListActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f18527b;
+    public NavigationBar f18066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NoNetworkView f18528c;
+    public NoNetworkView f18067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f18529d;
+    public h f18068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f18530e;
+    public BdListView f18069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18531f;
+    public View f18070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18532g;
+    public View f18071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18533h;
+    public View f18072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f18534i;
+    public View f18073i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f18535j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public g f18536k;
+    public View f18074j;
+    public g k;
     public BdListView.p l;
     public TextView m;
     public TextView n;
@@ -106,7 +104,7 @@ public class c extends d<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18537e;
+        public final /* synthetic */ c f18075e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -123,15 +121,15 @@ public class c extends d<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f18537e = cVar;
+            this.f18075e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18537e.m();
-                this.f18537e.u();
+                this.f18075e.m();
+                this.f18075e.u();
             }
         }
     }
@@ -142,7 +140,7 @@ public class c extends d<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18538e;
+        public final /* synthetic */ c f18076e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -159,36 +157,36 @@ public class c extends d<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f18538e = cVar;
+            this.f18076e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-            a.C1113a item;
+            a.C1127a item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f18538e.v.getItem(i2)) == null || item.a <= 0 || StringUtils.isNull(item.f18496b)) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f18076e.v.getItem(i2)) == null || item.a <= 0 || StringUtils.isNull(item.f18038b)) {
                 return;
             }
-            if (this.f18538e.w) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.f18538e.a.getPageContext().getPageActivity(), item.a, item.f18496b, item.f18505k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
+            if (this.f18076e.w) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.f18076e.a.getPageContext().getPageActivity(), item.a, item.f18038b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
             } else if (!l.z()) {
-                this.f18538e.a.showToast(R.string.neterror);
+                this.f18076e.a.showToast(R.string.neterror);
             } else {
-                this.f18538e.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.a), item.f18496b)));
+                this.f18076e.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.a), item.f18038b)));
             }
         }
     }
 
     /* renamed from: c.a.t0.h1.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1115c implements View.OnClickListener {
+    public class View$OnClickListenerC1129c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18539e;
+        public final /* synthetic */ c f18077e;
 
-        public View$OnClickListenerC1115c(c cVar) {
+        public View$OnClickListenerC1129c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,7 +201,7 @@ public class c extends d<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f18539e = cVar;
+            this.f18077e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -212,15 +210,15 @@ public class c extends d<MyGiftListActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view != this.f18539e.o) {
-                if (view != this.f18539e.s || StringUtils.isNull(this.f18539e.x)) {
+            if (view != this.f18077e.o) {
+                if (view != this.f18077e.s || StringUtils.isNull(this.f18077e.x)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f18539e.a.getPageContext(), new String[]{this.f18539e.x});
+                UrlManager.getInstance().dealOneLink(this.f18077e.a.getPageContext(), new String[]{this.f18077e.x});
             } else if (n.C()) {
-                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.f18539e.a.getPageContext().getPageActivity());
+                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.f18077e.a.getPageContext().getPageActivity());
             } else {
-                UtilHelper.showToast(this.f18539e.a.getPageContext().getPageActivity(), this.f18539e.a.getResources().getString(R.string.neterror));
+                UtilHelper.showToast(this.f18077e.a.getPageContext().getPageActivity(), this.f18077e.a.getResources().getString(R.string.neterror));
             }
         }
     }
@@ -243,9 +241,9 @@ public class c extends d<MyGiftListActivity> {
                 return;
             }
         }
-        this.f18536k = null;
+        this.k = null;
         this.C = new b(this);
-        this.D = new View$OnClickListenerC1115c(this);
+        this.D = new View$OnClickListenerC1129c(this);
         this.a = myGiftListActivity;
         this.w = z;
         this.l = pVar;
@@ -261,7 +259,7 @@ public class c extends d<MyGiftListActivity> {
     public void i(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f18528c.addNetworkChangeListener(bVar);
+            this.f18067c.addNetworkChangeListener(bVar);
         }
     }
 
@@ -297,25 +295,25 @@ public class c extends d<MyGiftListActivity> {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18530e.completePullRefreshPostDelayed(0L);
+            this.f18069e.completePullRefreshPostDelayed(0L);
         }
     }
 
     public View l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18535j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18074j : (View) invokeV.objValue;
     }
 
     public void m() {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hVar = this.f18529d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hVar = this.f18068d) == null) {
             return;
         }
-        hVar.dettachView(this.f18531f);
-        this.f18529d = null;
-        this.f18530e.setVisibility(0);
+        hVar.dettachView(this.f18070f);
+        this.f18068d = null;
+        this.f18069e.setVisibility(0);
     }
 
     public final void n() {
@@ -334,34 +332,34 @@ public class c extends d<MyGiftListActivity> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a.setContentView(R.layout.my_gift_list_activity);
             View findViewById = this.a.findViewById(R.id.root);
-            this.f18531f = findViewById;
-            this.f18530e = (BdListView) findViewById.findViewById(R.id.list_view);
-            NavigationBar navigationBar = (NavigationBar) this.f18531f.findViewById(R.id.navigation_bar);
-            this.f18527b = navigationBar;
+            this.f18070f = findViewById;
+            this.f18069e = (BdListView) findViewById.findViewById(R.id.list_view);
+            NavigationBar navigationBar = (NavigationBar) this.f18070f.findViewById(R.id.navigation_bar);
+            this.f18066b = navigationBar;
             MyGiftListActivity myGiftListActivity = this.a;
             if (myGiftListActivity.userType == 1) {
                 navigationBar.setCenterTextTitle(myGiftListActivity.getPageContext().getString(R.string.forum_gift_list));
             } else {
                 String format = String.format(this.a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
                 if (this.w) {
-                    this.f18527b.setCenterTextTitle(this.a.getPageContext().getString(R.string.my_gift_list));
+                    this.f18066b.setCenterTextTitle(this.a.getPageContext().getString(R.string.my_gift_list));
                 } else {
-                    this.f18527b.setTitleText(format);
+                    this.f18066b.setTitleText(format);
                 }
             }
-            this.f18527b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f18528c = (NoNetworkView) this.f18531f.findViewById(R.id.no_networkview);
+            this.f18066b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f18067c = (NoNetworkView) this.f18070f.findViewById(R.id.no_networkview);
             View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
-            this.f18533h = inflate;
+            this.f18072h = inflate;
             inflate.setVisibility(8);
             View inflate2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
-            this.f18532g = inflate2;
+            this.f18071g = inflate2;
             inflate2.setVisibility(8);
-            this.u = (LinearLayout) this.f18532g.findViewById(R.id.view_link_info);
-            this.m = (TextView) this.f18532g.findViewById(R.id.textview_gift_number);
-            this.n = (TextView) this.f18532g.findViewById(R.id.textview_tdou_number);
-            this.p = (TextView) this.f18532g.findViewById(R.id.textview_tdou_number_title);
-            this.o = (TextView) this.f18532g.findViewById(R.id.view_get_tdou);
+            this.u = (LinearLayout) this.f18071g.findViewById(R.id.view_link_info);
+            this.m = (TextView) this.f18071g.findViewById(R.id.textview_gift_number);
+            this.n = (TextView) this.f18071g.findViewById(R.id.textview_tdou_number);
+            this.p = (TextView) this.f18071g.findViewById(R.id.textview_tdou_number_title);
+            this.o = (TextView) this.f18071g.findViewById(R.id.view_get_tdou);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.my_ybean);
                 this.o.setText(R.string.get_ybean);
@@ -369,36 +367,36 @@ public class c extends d<MyGiftListActivity> {
                 this.p.setText(R.string.my_tdou);
                 this.o.setText(R.string.get_tdou);
             }
-            this.q = (TextView) this.f18532g.findViewById(R.id.textview_blue_number);
-            this.r = (TextView) this.f18532g.findViewById(R.id.tv_blue_name);
-            this.t = (TextView) this.f18532g.findViewById(R.id.textview_gift_name);
-            TextView textView = (TextView) this.f18532g.findViewById(R.id.view_get_blue);
+            this.q = (TextView) this.f18071g.findViewById(R.id.textview_blue_number);
+            this.r = (TextView) this.f18071g.findViewById(R.id.tv_blue_name);
+            this.t = (TextView) this.f18071g.findViewById(R.id.textview_gift_name);
+            TextView textView = (TextView) this.f18071g.findViewById(R.id.view_get_blue);
             this.s = textView;
             textView.setOnClickListener(this.D);
             this.o.setOnClickListener(this.D);
             View inflate3 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
-            this.f18534i = inflate3;
-            this.f18535j = inflate3.findViewById(R.id.gift_footer_lay);
+            this.f18073i = inflate3;
+            this.f18074j = inflate3.findViewById(R.id.gift_footer_lay);
             if (this.w) {
-                this.f18530e.addHeaderView(this.f18532g);
+                this.f18069e.addHeaderView(this.f18071g);
             } else {
                 if (this.a.userType == 1) {
-                    this.f18533h.setVisibility(0);
-                    this.f18530e.addHeaderView(this.f18533h);
+                    this.f18072h.setVisibility(0);
+                    this.f18069e.addHeaderView(this.f18072h);
                 }
                 if (TbadkApplication.getInst().isGiftSwitchOn()) {
-                    this.f18534i.setPadding(0, 0, 0, n.f(this.a.getPageContext().getPageActivity(), R.dimen.ds156));
+                    this.f18073i.setPadding(0, 0, 0, n.f(this.a.getPageContext().getPageActivity(), R.dimen.ds156));
                 }
             }
-            this.f18530e.addFooterView(this.f18534i);
+            this.f18069e.addFooterView(this.f18073i);
             c.a.t0.h1.c.b bVar = new c.a.t0.h1.c.b(this.a, this.w);
             this.v = bVar;
-            this.f18530e.setAdapter((ListAdapter) bVar);
+            this.f18069e.setAdapter((ListAdapter) bVar);
             g gVar = new g(this.a.getPageContext());
-            this.f18536k = gVar;
-            this.f18530e.setPullRefresh(gVar);
-            this.f18530e.setOnSrollToBottomListener(this.l);
-            this.f18530e.setOnItemClickListener(this.C);
+            this.k = gVar;
+            this.f18069e.setPullRefresh(gVar);
+            this.f18069e.setOnSrollToBottomListener(this.l);
+            this.f18069e.setOnItemClickListener(this.C);
         }
     }
 
@@ -406,13 +404,13 @@ public class c extends d<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             this.a.getLayoutMode().k(i2 == 1);
-            this.a.getLayoutMode().j(this.f18531f);
-            this.a.getLayoutMode().j(this.f18532g);
-            this.a.getLayoutMode().j(this.f18533h);
-            this.a.getLayoutMode().j(this.f18534i);
-            this.f18527b.onChangeSkinType(getPageContext(), i2);
-            this.f18528c.onChangeSkinType(this.a.getPageContext(), i2);
-            this.f18536k.C(i2);
+            this.a.getLayoutMode().j(this.f18070f);
+            this.a.getLayoutMode().j(this.f18071g);
+            this.a.getLayoutMode().j(this.f18072h);
+            this.a.getLayoutMode().j(this.f18073i);
+            this.f18066b.onChangeSkinType(getPageContext(), i2);
+            this.f18067c.onChangeSkinType(this.a.getPageContext(), i2);
+            this.k.C(i2);
             c.a.t0.h1.c.b bVar = this.v;
             if (bVar != null) {
                 bVar.notifyDataSetChanged();
@@ -429,7 +427,7 @@ public class c extends d<MyGiftListActivity> {
             c.a.s0.s.u.c.d(this.s).v(R.color.CAM_X0101);
             c.a.s0.s.u.c.d(this.o).v(R.color.CAM_X0101);
             c.a.s0.s.u.c.d(this.n).v(R.color.CAM_X0101);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f18532g);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f18071g);
             d2.e(R.string.A_X02);
             d2.f(R.color.CAM_X0310);
         }
@@ -440,20 +438,20 @@ public class c extends d<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             if (aVar != null && this.w) {
-                this.f18532g.setVisibility(0);
-                String str = aVar.d().f18508b;
+                this.f18071g.setVisibility(0);
+                String str = aVar.d().f18049b;
                 String str2 = aVar.d().a;
-                this.x = aVar.f18494g.f13757b;
+                this.x = aVar.f18036g.f13443b;
                 this.m.setText(j(R.drawable.icon_gift_my_gift, StringHelper.formatOverBaiwanNum(aVar.b()), 0));
-                if (CurrencySwitchUtil.isYyIsConvert(aVar.f18495h)) {
-                    formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(aVar.f18495h, aVar.e());
+                if (CurrencySwitchUtil.isYyIsConvert(aVar.f18037h)) {
+                    formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(aVar.f18037h, aVar.e());
                 } else {
                     formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(aVar.e());
                 }
-                this.q.setText(j(R.drawable.icon_gift_bluedrill, StringHelper.formatOverBaiwanNum(aVar.f18493f), 2));
-                this.s.setText(aVar.f18494g.a);
-                this.n.setText(j(CurrencySwitchUtil.getGiftMoneyIconResId(aVar.f18495h), formatOverBaiwanNum, 1));
-                if (CurrencySwitchUtil.isYyIsConvert(aVar.f18495h)) {
+                this.q.setText(j(R.drawable.icon_gift_bluedrill, StringHelper.formatOverBaiwanNum(aVar.f18035f), 2));
+                this.s.setText(aVar.f18036g.a);
+                this.n.setText(j(CurrencySwitchUtil.getGiftMoneyIconResId(aVar.f18037h), formatOverBaiwanNum, 1));
+                if (CurrencySwitchUtil.isYyIsConvert(aVar.f18037h)) {
                     this.p.setText(R.string.my_ybean);
                     this.o.setText(R.string.get_ybean);
                     return;
@@ -462,7 +460,7 @@ public class c extends d<MyGiftListActivity> {
                 this.o.setText(R.string.get_tdou);
                 return;
             }
-            this.f18532g.setVisibility(8);
+            this.f18071g.setVisibility(8);
         }
     }
 
@@ -471,16 +469,16 @@ public class c extends d<MyGiftListActivity> {
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             if (aVar != null && aVar.a() != null && aVar.a().size() > 0) {
                 if (aVar.c() != null) {
-                    if (aVar.c().f18506b == 1) {
-                        this.f18534i.setVisibility(0);
+                    if (aVar.c().f18047b == 1) {
+                        this.f18073i.setVisibility(0);
                     } else {
-                        this.f18534i.setVisibility(8);
+                        this.f18073i.setVisibility(8);
                     }
                 }
-                this.v.e(aVar.a(), aVar.f18495h);
+                this.v.e(aVar.a(), aVar.f18037h);
                 return;
             }
-            this.f18534i.setVisibility(8);
+            this.f18073i.setVisibility(8);
             this.y.setVisibility(8);
             this.v.e(null, -1);
         }
@@ -506,29 +504,29 @@ public class c extends d<MyGiftListActivity> {
     public void s(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, gVar) == null) {
-            this.f18536k.a(gVar);
+            this.k.a(gVar);
         }
     }
 
     public void t(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) {
-            if (this.f18529d == null) {
-                this.f18529d = new h(this.mContext.getContext(), new a(this));
+            if (this.f18068d == null) {
+                this.f18068d = new h(this.mContext.getContext(), new a(this));
             }
-            this.f18529d.k(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
-            this.f18529d.attachView(this.f18531f, z);
-            this.f18529d.p();
+            this.f18068d.k(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
+            this.f18068d.attachView(this.f18070f, z);
+            this.f18068d.p();
             this.y.setVisibility(8);
-            this.f18530e.setVisibility(8);
+            this.f18069e.setVisibility(8);
         }
     }
 
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f18530e.setVisibility(0);
-            this.f18530e.startPullRefresh();
+            this.f18069e.setVisibility(0);
+            this.f18069e.startPullRefresh();
         }
     }
 }

@@ -11,16 +11,16 @@ public class a implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f34791b;
+    public final /* synthetic */ Object f33669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f34792c;
+    public final /* synthetic */ String f33670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f34793d;
+    public final /* synthetic */ String f33671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f34794e;
+    public final /* synthetic */ BeanActivity f33672e;
 
     public a(BeanActivity beanActivity, int i2, Object obj, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f34794e = beanActivity;
+        this.f33672e = beanActivity;
         this.a = i2;
-        this.f34791b = obj;
-        this.f34792c = str;
-        this.f34793d = str2;
+        this.f33669b = obj;
+        this.f33670c = str;
+        this.f33671d = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f34794e;
+            BeanActivity beanActivity = this.f33672e;
             if (beanActivity.mAct != null) {
-                beanActivity.handleResponse(this.a, this.f34791b, this.f34792c);
-                this.f34794e.handleResponse(this.a, this.f34791b, this.f34792c, this.f34793d);
+                beanActivity.handleResponse(this.a, this.f33669b, this.f33670c);
+                this.f33672e.handleResponse(this.a, this.f33669b, this.f33670c, this.f33671d);
             }
         }
     }

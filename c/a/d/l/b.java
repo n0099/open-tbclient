@@ -36,7 +36,7 @@ public class b {
 
     /* renamed from: c.a.d.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0115b {
+    public static final class C0123b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,7 +158,7 @@ public class b {
                         if ((i2 == 25 && b() != 0) || i2 > 25) {
                             c.b(classLoader, file);
                         } else if (i2 >= 23) {
-                            C0115b.b(classLoader, file);
+                            C0123b.b(classLoader, file);
                         } else if (i2 >= 14) {
                             a.b(classLoader, file);
                         }

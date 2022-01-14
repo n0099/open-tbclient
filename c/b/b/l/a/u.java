@@ -18,14 +18,14 @@ public class u {
 
         /* renamed from: c.b.b.l.a.u$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC1596a implements Runnable {
+        public class RunnableC1612a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f27895e;
+            public final /* synthetic */ a f27057e;
 
-            public RunnableC1596a(a aVar) {
+            public RunnableC1612a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,14 +40,14 @@ public class u {
                         return;
                     }
                 }
-                this.f27895e = aVar;
+                this.f27057e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f27895e.a.useImmersiveMode(true);
+                    this.f27057e.a.useImmersiveMode(true);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class u {
         public void onSystemUiVisibilityChange(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.getHandler().post(new RunnableC1596a(this));
+                this.a.getHandler().post(new RunnableC1612a(this));
             }
         }
     }

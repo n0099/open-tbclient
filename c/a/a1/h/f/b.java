@@ -24,16 +24,14 @@ public class b extends c.a.a1.h.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1157h;
+    public int f1155h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1158i;
+    public int f1156i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f1159j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public c.a.a1.h.a f1160k;
+    public int f1157j;
+    public c.a.a1.h.a k;
     public long l;
     public boolean m;
     public boolean n;
@@ -49,7 +47,7 @@ public class b extends c.a.a1.h.f.a {
         public final /* synthetic */ StringBuilder a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f1161b;
+        public final /* synthetic */ b f1158b;
 
         public a(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -66,7 +64,7 @@ public class b extends c.a.a1.h.f.a {
                     return;
                 }
             }
-            this.f1161b = bVar;
+            this.f1158b = bVar;
             this.a = sb;
         }
 
@@ -74,8 +72,8 @@ public class b extends c.a.a1.h.f.a {
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f1161b) {
-                    this.f1161b.notifyAll();
+                synchronized (this.f1158b) {
+                    this.f1158b.notifyAll();
                 }
             }
         }
@@ -95,8 +93,8 @@ public class b extends c.a.a1.h.f.a {
                 String sb2 = sb.toString();
                 this.a.append(sb2);
                 c.a.a1.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f1161b) {
-                    this.f1161b.notifyAll();
+                synchronized (this.f1158b) {
+                    this.f1158b.notifyAll();
                 }
                 return false;
             }
@@ -112,8 +110,8 @@ public class b extends c.a.a1.h.f.a {
                     return false;
                 }
                 c.a.a1.t.c.j("FFmpegChain", " createMuteAudio 进度i1 = " + i3);
-                b bVar = this.f1161b;
-                bVar.i((int) (((float) bVar.f1158i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
+                b bVar = this.f1158b;
+                bVar.i((int) (((float) bVar.f1156i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -128,9 +126,171 @@ public class b extends c.a.a1.h.f.a {
         public final /* synthetic */ StringBuilder a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f1162b;
+        public final /* synthetic */ b f1159b;
 
         public C0012b(b bVar, StringBuilder sb) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, sb};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1159b = bVar;
+            this.a = sb;
+        }
+
+        @Override // c.a.a1.s.a.InterfaceC0029a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.f1159b) {
+                    this.f1159b.notifyAll();
+                }
+            }
+        }
+
+        @Override // c.a.a1.s.a.InterfaceC0029a
+        public boolean onError(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(",concatAudio ffmpegerror:");
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i3);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                c.a.a1.t.c.j("FFmpegChain", sb2);
+                synchronized (this.f1159b) {
+                    this.f1159b.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // c.a.a1.s.a.InterfaceC0029a
+        public boolean onInfo(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
+                c.a.a1.t.c.j("FFmpegChain", " concatMuteAudio 进度i1 = " + i3);
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements a.InterfaceC0029a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ c.a.a1.h.a f1160b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ b f1161c;
+
+        public c(b bVar, StringBuilder sb, c.a.a1.h.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, sb, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f1161c = bVar;
+            this.a = sb;
+            this.f1160b = aVar;
+        }
+
+        @Override // c.a.a1.s.a.InterfaceC0029a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.f1161c) {
+                    this.f1161c.notifyAll();
+                }
+            }
+        }
+
+        @Override // c.a.a1.s.a.InterfaceC0029a
+        public boolean onError(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(",dealAudioPlayData ffmpegerror:");
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i3);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                c.a.a1.h.a aVar = this.f1160b;
+                if (aVar != null && aVar.a() != null) {
+                    this.a.append(",audioformat:");
+                    this.a.append(this.f1160b.a().f());
+                    this.a.append(",audiopath:");
+                    this.a.append(this.f1160b.a().h());
+                }
+                c.a.a1.t.c.j("FFmpegChain", sb2);
+                synchronized (this.f1161c) {
+                    this.f1161c.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // c.a.a1.s.a.InterfaceC0029a
+        public boolean onInfo(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
+                if (i2 != 1001 || i3 < 0) {
+                    return false;
+                }
+                c.a.a1.t.c.j("FFmpegChain", " dealAudioPlayData 进度i1 = " + i3);
+                b bVar = this.f1161c;
+                bVar.i(bVar.f1156i + ((int) ((((((float) (this.f1161c.f1157j + (-1))) + ((((float) i3) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.f1161c.f1155h)) * 60.0f)));
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d implements a.InterfaceC0029a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ b f1162b;
+
+        public d(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +325,7 @@ public class b extends c.a.a1.h.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(",concatAudio ffmpegerror:");
+                sb.append("concatAudio ffmpegerror:");
                 sb.append(i2);
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(i3);
@@ -187,174 +347,12 @@ public class b extends c.a.a1.h.f.a {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-                c.a.a1.t.c.j("FFmpegChain", " concatMuteAudio 进度i1 = " + i3);
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c implements a.InterfaceC0029a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.a1.h.a f1163b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f1164c;
-
-        public c(b bVar, StringBuilder sb, c.a.a1.h.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, sb, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1164c = bVar;
-            this.a = sb;
-            this.f1163b = aVar;
-        }
-
-        @Override // c.a.a1.s.a.InterfaceC0029a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f1164c) {
-                    this.f1164c.notifyAll();
-                }
-            }
-        }
-
-        @Override // c.a.a1.s.a.InterfaceC0029a
-        public boolean onError(int i2, int i3, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",dealAudioPlayData ffmpegerror:");
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i3);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                c.a.a1.h.a aVar = this.f1163b;
-                if (aVar != null && aVar.a() != null) {
-                    this.a.append(",audioformat:");
-                    this.a.append(this.f1163b.a().f());
-                    this.a.append(",audiopath:");
-                    this.a.append(this.f1163b.a().h());
-                }
-                c.a.a1.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f1164c) {
-                    this.f1164c.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // c.a.a1.s.a.InterfaceC0029a
-        public boolean onInfo(int i2, int i3, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-                if (i2 != 1001 || i3 < 0) {
-                    return false;
-                }
-                c.a.a1.t.c.j("FFmpegChain", " dealAudioPlayData 进度i1 = " + i3);
-                b bVar = this.f1164c;
-                bVar.i(bVar.f1158i + ((int) ((((((float) (this.f1164c.f1159j + (-1))) + ((((float) i3) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.f1164c.f1157h)) * 60.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class d implements a.InterfaceC0029a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f1165b;
-
-        public d(b bVar, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1165b = bVar;
-            this.a = sb;
-        }
-
-        @Override // c.a.a1.s.a.InterfaceC0029a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f1165b) {
-                    this.f1165b.notifyAll();
-                }
-            }
-        }
-
-        @Override // c.a.a1.s.a.InterfaceC0029a
-        public boolean onError(int i2, int i3, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("concatAudio ffmpegerror:");
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i3);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                c.a.a1.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f1165b) {
-                    this.f1165b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // c.a.a1.s.a.InterfaceC0029a
-        public boolean onInfo(int i2, int i3, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
                 if (i2 != 1001 || i3 < 0) {
                     return false;
                 }
                 c.a.a1.t.c.j("FFmpegChain", " concatAudio 进度i1 = " + i3);
-                b bVar = this.f1165b;
-                bVar.i((int) (((float) bVar.f1158i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
+                b bVar = this.f1162b;
+                bVar.i((int) (((float) bVar.f1156i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -368,7 +366,7 @@ public class b extends c.a.a1.h.f.a {
         public final /* synthetic */ StringBuilder a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f1166b;
+        public final /* synthetic */ b f1163b;
 
         public e(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -385,7 +383,7 @@ public class b extends c.a.a1.h.f.a {
                     return;
                 }
             }
-            this.f1166b = bVar;
+            this.f1163b = bVar;
             this.a = sb;
         }
 
@@ -393,8 +391,8 @@ public class b extends c.a.a1.h.f.a {
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f1166b) {
-                    this.f1166b.notifyAll();
+                synchronized (this.f1163b) {
+                    this.f1163b.notifyAll();
                 }
             }
         }
@@ -414,8 +412,8 @@ public class b extends c.a.a1.h.f.a {
                 String sb2 = sb.toString();
                 this.a.append(sb2);
                 c.a.a1.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f1166b) {
-                    this.f1166b.notifyAll();
+                synchronized (this.f1163b) {
+                    this.f1163b.notifyAll();
                 }
                 return false;
             }
@@ -431,8 +429,8 @@ public class b extends c.a.a1.h.f.a {
                     return false;
                 }
                 c.a.a1.t.c.j("FFmpegChain", " mixAudio 进度i1 = " + i3);
-                b bVar = this.f1166b;
-                bVar.i((int) (((float) bVar.f1158i) + (((((float) i3) * 1.0f) / 100.0f) * 20.0f)));
+                b bVar = this.f1163b;
+                bVar.i((int) (((float) bVar.f1156i) + (((((float) i3) * 1.0f) / 100.0f) * 20.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -461,13 +459,13 @@ public class b extends c.a.a1.h.f.a {
         c.a.a1.h.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.a1.h.a aVar2 = this.f1160k;
+            c.a.a1.h.a aVar2 = this.k;
             boolean z = aVar2 != null && aVar2.c();
             if (!z && ((bVar2 = this.o) == null || !FileUtils.isExists(bVar2.h()))) {
                 g("nosource to create mute audio");
                 return;
             }
-            if (z && (bVar = this.o) != null && (aVar = this.f1160k) != null && !bVar.equals(aVar.a())) {
+            if (z && (bVar = this.o) != null && (aVar = this.k) != null && !bVar.equals(aVar.a())) {
                 z = false;
             }
             StringBuilder sb = new StringBuilder();
@@ -491,33 +489,33 @@ public class b extends c.a.a1.h.f.a {
                 }
                 if (FileUtils.isExists(a2) && TextUtils.isEmpty(sb.toString())) {
                     c.a.a1.t.c.j("FFmpegChain", "createconcatMuteAudio 生成成功");
-                    this.f1160k = new c.a.a1.h.a(new AudioPlayData(a2, 0, -1, 1.0f));
+                    this.k = new c.a.a1.h.a(new AudioPlayData(a2, 0, -1, 1.0f));
                     return;
                 }
                 g(sb.toString());
             }
-            c.a.a1.h.a aVar3 = this.f1160k;
+            c.a.a1.h.a aVar3 = this.k;
             str = aVar3 != null ? aVar3.a().h() : "";
-            i(this.f1158i + 10);
+            i(this.f1156i + 10);
             if (FileUtils.isExists(str) && TextUtils.isEmpty(sb.toString())) {
                 c.a.a1.t.c.j("FFmpegChain", "createMuteAudio 生成成功");
                 c.a.a1.h.a aVar4 = new c.a.a1.h.a(new AudioPlayData(str, 0, -1, 1.0f));
-                this.f1160k = aVar4;
-                if (aVar4.a() == null || this.f1160k.a().e() <= 0) {
+                this.k = aVar4;
+                if (aVar4.a() == null || this.k.a().e() <= 0) {
                     return;
                 }
-                long e3 = this.f1160k.a().e();
+                long e3 = this.k.a().e();
                 long j2 = this.l;
                 if (e3 >= j2) {
                     return;
                 }
-                int e4 = (int) ((j2 / this.f1160k.a().e()) + 1);
+                int e4 = (int) ((j2 / this.k.a().e()) + 1);
                 ArrayList arrayList = new ArrayList();
                 for (int i2 = 0; i2 < e4; i2++) {
                     arrayList.add(str);
                 }
                 a2 = a(str, "_concat.aac");
-                f.b(arrayList, a2, this.f1156g, new C0012b(this, sb), false, true);
+                f.b(arrayList, a2, this.f1154g, new C0012b(this, sb), false, true);
                 try {
                 } catch (InterruptedException e5) {
                     sb.append(e5.getMessage());
@@ -526,7 +524,7 @@ public class b extends c.a.a1.h.f.a {
                     wait();
                     if (FileUtils.isExists(a2)) {
                         c.a.a1.t.c.j("FFmpegChain", "createconcatMuteAudio 生成成功");
-                        this.f1160k = new c.a.a1.h.a(new AudioPlayData(a2, 0, -1, 1.0f));
+                        this.k = new c.a.a1.h.a(new AudioPlayData(a2, 0, -1, 1.0f));
                         return;
                     }
                 }
@@ -553,12 +551,12 @@ public class b extends c.a.a1.h.f.a {
                         }
                     }
                     if (!h.e(arrayList)) {
-                        String str = this.f1156g;
+                        String str = this.f1154g;
                         if (TextUtils.isEmpty(str)) {
                             str = FileUtils.getParentDir((String) arrayList.get(0));
                         }
                         String str2 = str + System.currentTimeMillis() + "_trackconcat.aac";
-                        f.b(arrayList, str2, this.f1156g, new d(this, sb), false, true);
+                        f.b(arrayList, str2, this.f1154g, new d(this, sb), false, true);
                         try {
                             synchronized (this) {
                                 wait();
@@ -599,7 +597,7 @@ public class b extends c.a.a1.h.f.a {
                     }
                 }
                 if (arrayList.size() >= 2) {
-                    String str2 = this.f1156g;
+                    String str2 = this.f1154g;
                     if (TextUtils.isEmpty(str2)) {
                         str2 = FileUtils.getParentDir((String) arrayList.get(0));
                     }
@@ -635,7 +633,7 @@ public class b extends c.a.a1.h.f.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f1155f = true;
+            this.f1153f = true;
             synchronized (this) {
                 notifyAll();
             }
@@ -660,35 +658,35 @@ public class b extends c.a.a1.h.f.a {
                 return;
             }
             String a2 = cVar.a();
-            this.f1156g = a2;
-            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.f1156g)) {
-                new File(this.f1156g).mkdir();
+            this.f1154g = a2;
+            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.f1154g)) {
+                new File(this.f1154g).mkdir();
             }
-            this.f1154e = false;
-            this.f1155f = false;
-            this.f1160k = cVar.b();
+            this.f1152e = false;
+            this.f1153f = false;
+            this.k = cVar.b();
             x(cVar);
             y(cVar);
-            this.f1158i = 0;
-            if (this.m && !this.f1155f && !this.f1154e) {
+            this.f1156i = 0;
+            if (this.m && !this.f1153f && !this.f1152e) {
                 A();
             }
-            if (this.n && !this.f1155f && !this.f1154e) {
-                this.f1158i = 10;
+            if (this.n && !this.f1153f && !this.f1152e) {
+                this.f1156i = 10;
                 i(10);
                 z(cVar);
             }
-            if (this.p && !this.f1155f && !this.f1154e) {
-                this.f1158i = 70;
+            if (this.p && !this.f1153f && !this.f1152e) {
+                this.f1156i = 70;
                 i(70);
                 B(this.r);
             }
-            if (this.q && !this.f1155f && !this.f1154e) {
-                this.f1158i = 80;
+            if (this.q && !this.f1153f && !this.f1152e) {
+                this.f1156i = 80;
                 i(80);
                 C(this.r);
             }
-            if (this.f1154e || this.f1155f) {
+            if (this.f1152e || this.f1153f) {
                 return;
             }
             l(this.r);
@@ -708,7 +706,7 @@ public class b extends c.a.a1.h.f.a {
         StringBuilder sb;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f1154e || this.f1155f) {
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f1152e || this.f1153f) {
             return;
         }
         AudioPlayData b2 = aVar.b();
@@ -716,9 +714,9 @@ public class b extends c.a.a1.h.f.a {
             sb = new StringBuilder();
             str = "dealAudioPlayData audioPlayData = null,trackIndx:";
         } else if (this.o != null) {
-            if (!aVar.c() && (aVar2 = this.f1160k) != null && aVar2.b() != null) {
-                b2.audioPath = this.f1160k.b().audioPath;
-                aVar.d(this.f1160k.a());
+            if (!aVar.c() && (aVar2 = this.k) != null && aVar2.b() != null) {
+                b2.audioPath = this.k.b().audioPath;
+                aVar.d(this.k.a());
             }
             StringBuilder sb2 = new StringBuilder();
             String str2 = b2.audioPath;
@@ -780,17 +778,17 @@ public class b extends c.a.a1.h.f.a {
 
     public final void s(c.a.a1.h.e eVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, i2) == null) || eVar == null || h.e(eVar.a()) || this.f1155f || this.f1154e) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, i2) == null) || eVar == null || h.e(eVar.a()) || this.f1153f || this.f1152e) {
             return;
         }
-        for (int i3 = 0; !this.f1154e && !this.f1155f && i3 < eVar.a().size(); i3++) {
+        for (int i3 = 0; !this.f1152e && !this.f1153f && i3 < eVar.a().size(); i3++) {
             c.a.a1.h.a aVar = eVar.a().get(i3);
-            this.f1159j++;
+            this.f1157j++;
             if (v(aVar)) {
                 q(aVar, i2);
             } else {
                 r(this.r, aVar, i2);
-                i(this.f1158i + ((int) (((this.f1159j * 1.0f) / this.f1157h) * 60.0f)));
+                i(this.f1156i + ((int) (((this.f1157j * 1.0f) / this.f1155h) * 60.0f)));
             }
         }
     }
@@ -833,7 +831,7 @@ public class b extends c.a.a1.h.f.a {
             int i2 = 0;
             for (int i3 = 0; i3 < c2.size(); i3++) {
                 if (!h.e(c2.get(i3).a())) {
-                    this.f1157h += h.b(c2.get(i3).a());
+                    this.f1155h += h.b(c2.get(i3).a());
                     List<c.a.a1.h.a> a2 = c2.get(i3).a();
                     if (!h.e(a2)) {
                         if (a2.size() > 1) {

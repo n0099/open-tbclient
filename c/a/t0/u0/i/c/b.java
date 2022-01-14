@@ -12,25 +12,25 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24745b;
+    public String f24058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24746c;
+    public String f24059c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24747d;
+    public String f24060d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24748e;
+    public String f24061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MetaData f24749f;
+    public MetaData f24062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f24750g;
+    public boolean f24063g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24751h;
+    public boolean f24064h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class b {
                 return;
             }
         }
-        this.f24750g = false;
-        this.f24751h = false;
+        this.f24063g = false;
+        this.f24064h = false;
     }
 }

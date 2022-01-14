@@ -27,7 +27,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9681e;
+        public final /* synthetic */ String f9471e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class d {
                     return;
                 }
             }
-            this.f9681e = str;
+            this.f9471e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.a().putString("swan_guide_toast", this.f9681e);
+                h.a().putString("swan_guide_toast", this.f9471e);
             }
         }
     }

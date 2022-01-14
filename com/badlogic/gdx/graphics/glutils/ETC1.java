@@ -24,7 +24,7 @@ public class ETC1 {
     public static int a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f32128b = 36196;
+    public static int f31118b = 36196;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,19 +64,19 @@ public class ETC1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, format)) == null) {
             if (aVar.f()) {
-                int widthPKM = getWidthPKM(aVar.f32131g, 0);
-                i2 = getHeightPKM(aVar.f32131g, 0);
+                int widthPKM = getWidthPKM(aVar.f31121g, 0);
+                i2 = getHeightPKM(aVar.f31121g, 0);
                 i3 = widthPKM;
                 i4 = 16;
             } else {
-                int i5 = aVar.f32129e;
-                i2 = aVar.f32130f;
+                int i5 = aVar.f31119e;
+                i2 = aVar.f31120f;
                 i3 = i5;
                 i4 = 0;
             }
             int b2 = b(format);
             Pixmap pixmap = new Pixmap(i3, i2, format);
-            decodeImage(aVar.f32131g, i4, pixmap.m(), 0, i3, i2, b2);
+            decodeImage(aVar.f31121g, i4, pixmap.m(), 0, i3, i2, b2);
             return pixmap;
         }
         return (Pixmap) invokeLL.objValue;
@@ -119,16 +119,16 @@ public class ETC1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f32129e;
+        public final int f31119e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f32130f;
+        public final int f31120f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final ByteBuffer f32131g;
+        public final ByteBuffer f31121g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f32132h;
+        public final int f31122h;
 
         public a(int i2, int i3, ByteBuffer byteBuffer, int i4) {
             Interceptable interceptable = $ic;
@@ -145,17 +145,17 @@ public class ETC1 {
                     return;
                 }
             }
-            this.f32129e = i2;
-            this.f32130f = i3;
-            this.f32131g = byteBuffer;
-            this.f32132h = i4;
+            this.f31119e = i2;
+            this.f31120f = i3;
+            this.f31121g = byteBuffer;
+            this.f31122h = i4;
             a();
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (d.g(this.f32129e) && d.g(this.f32130f)) {
+                if (d.g(this.f31119e) && d.g(this.f31120f)) {
                     return;
                 }
                 System.out.println("ETC1Data warning: non-power-of-two ETC1 textures may crash the driver of PowerVR GPUs");
@@ -166,14 +166,14 @@ public class ETC1 {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                BufferUtils.b(this.f32131g);
+                BufferUtils.b(this.f31121g);
             }
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32132h == 16 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31122h == 16 : invokeV.booleanValue;
         }
 
         public String toString() {
@@ -182,16 +182,16 @@ public class ETC1 {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (f()) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(ETC1.isValidPKM(this.f32131g, 0) ? "valid" : "invalid");
+                    sb.append(ETC1.isValidPKM(this.f31121g, 0) ? "valid" : "invalid");
                     sb.append(" pkm [");
-                    sb.append(ETC1.getWidthPKM(this.f32131g, 0));
+                    sb.append(ETC1.getWidthPKM(this.f31121g, 0));
                     sb.append("x");
-                    sb.append(ETC1.getHeightPKM(this.f32131g, 0));
+                    sb.append(ETC1.getHeightPKM(this.f31121g, 0));
                     sb.append("], compressed: ");
-                    sb.append(this.f32131g.capacity() - ETC1.a);
+                    sb.append(this.f31121g.capacity() - ETC1.a);
                     return sb.toString();
                 }
-                return "raw [" + this.f32129e + "x" + this.f32130f + "], compressed: " + (this.f32131g.capacity() - ETC1.a);
+                return "raw [" + this.f31119e + "x" + this.f31120f + "], compressed: " + (this.f31121g.capacity() - ETC1.a);
             }
             return (String) invokeV.objValue;
         }
@@ -224,20 +224,20 @@ public class ETC1 {
                 th = th;
             }
             try {
-                this.f32131g = BufferUtils.e(dataInputStream.readInt());
+                this.f31121g = BufferUtils.e(dataInputStream.readInt());
                 while (true) {
                     int read = dataInputStream.read(bArr);
                     if (read != -1) {
-                        this.f32131g.put(bArr, 0, read);
+                        this.f31121g.put(bArr, 0, read);
                     } else {
-                        this.f32131g.position(0);
-                        this.f32131g.limit(this.f32131g.capacity());
+                        this.f31121g.position(0);
+                        this.f31121g.limit(this.f31121g.capacity());
                         i0.a(dataInputStream);
-                        this.f32129e = ETC1.getWidthPKM(this.f32131g, 0);
-                        this.f32130f = ETC1.getHeightPKM(this.f32131g, 0);
+                        this.f31119e = ETC1.getWidthPKM(this.f31121g, 0);
+                        this.f31120f = ETC1.getHeightPKM(this.f31121g, 0);
                         int i4 = ETC1.a;
-                        this.f32132h = i4;
-                        this.f32131g.position(i4);
+                        this.f31122h = i4;
+                        this.f31121g.position(i4);
                         a();
                         return;
                     }

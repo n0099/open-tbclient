@@ -1,7 +1,7 @@
 package c.a.t0.z2.v;
 
 import android.view.View;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.z2.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -28,7 +28,7 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnPreparedLi
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 
-    void setData(d2 d2Var);
+    void setData(e2 e2Var);
 
     void setFrom(String str);
 

@@ -1,6 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityPreferenceAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,8 +38,8 @@ public class UtilityPreference implements TiebaUtilityPreferenceAuto.HostUtility
             HashMap hashMap = new HashMap();
             TiebaUtilityPreferenceAuto.KVResult kVResult = new TiebaUtilityPreferenceAuto.KVResult();
             for (int i2 = 0; i2 < keys.size(); i2++) {
-                if (b.j().s(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i2)))) {
-                    hashMap.put(keys.get(i2), Boolean.valueOf(b.j().g(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i2)), false)));
+                if (b.k().t(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i2)))) {
+                    hashMap.put(keys.get(i2), Boolean.valueOf(b.k().h(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i2)), false)));
                 }
             }
             kVResult.setResult(hashMap);
@@ -57,7 +57,7 @@ public class UtilityPreference implements TiebaUtilityPreferenceAuto.HostUtility
             if (keyValueMap != null && !keyValueMap.isEmpty()) {
                 for (Map.Entry entry : keyValueMap.entrySet()) {
                     if (entry.getValue() instanceof Boolean) {
-                        b.j().t(SharePrefNameTransform.getAndroidNameFromIos((String) entry.getKey()), ((Boolean) entry.getValue()).booleanValue());
+                        b.k().u(SharePrefNameTransform.getAndroidNameFromIos((String) entry.getKey()), ((Boolean) entry.getValue()).booleanValue());
                     }
                 }
             }

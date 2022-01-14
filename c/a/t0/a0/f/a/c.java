@@ -12,28 +12,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class c extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f14683k;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14684e;
+    public String f14335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14685f;
+    public String f14336f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14686g;
+    public int f14337g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14687h;
+    public int f14338h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14688i;
+    public String f14339i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14689j;
+    public String f14340j;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +46,7 @@ public class c extends BaseCardInfo {
                 return;
             }
         }
-        f14683k = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public c() {
@@ -69,6 +67,6 @@ public class c extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f14683k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
     }
 }

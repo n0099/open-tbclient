@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk.dumper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.face.platform.common.ConstantHelper;
-import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -329,9 +328,9 @@ public final class ZeusLogUploader {
         this.mUseHttps = z;
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(SearchJsBridge.CUID).put(str2);
+        jSONArray.put("CUID").put(str2);
         try {
-            jSONObject.put(SearchJsBridge.CUID, jSONArray);
+            jSONObject.put("CUID", jSONArray);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

@@ -1,30 +1,28 @@
 package c.a.c0.c0;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
-public final class a {
+public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final IAdDownloader a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1408684576, "Lc/a/c0/c0/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static <T> int a(T[] tArr, T t) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
+            if (tArr == null) {
+                return -1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1408684576, "Lc/a/c0/c0/a;");
-                return;
+            int length = tArr.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (tArr[i2] == t) {
+                    return i2;
+                }
             }
+            return -1;
         }
-        a = new c.a.c0.g.g.d.a();
+        return invokeLL.intValue;
     }
 }

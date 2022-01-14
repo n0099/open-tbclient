@@ -16,34 +16,32 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27448b;
+    public int f26626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27449c;
+    public int f26627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27450d;
+    public int f26628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27451e;
+    public int f26629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27452f;
+    public int f26630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27453g;
+    public int f26631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27454h;
+    public int f26632h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f27455i;
+    public float f26633i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f27456j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f27457k;
+    public float f26634j;
+    public int k;
     public int l;
     public int m;
     public int n;
@@ -58,7 +56,7 @@ public class a {
 
     /* renamed from: c.a.x.b.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1579a {
+    public static class C1595a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +97,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (w == null) {
-                w = C1579a.a;
+                w = C1595a.a;
             }
             return w;
         }
@@ -109,19 +107,19 @@ public class a {
     public void b(int i2, int i3, int i4, int i5, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f27451e = i2;
-            this.f27452f = i3;
-            this.f27453g = i4;
-            this.f27454h = i5;
-            this.f27455i = f2;
-            this.f27456j = f3;
+            this.f26629e = i2;
+            this.f26630f = i3;
+            this.f26631g = i4;
+            this.f26632h = i5;
+            this.f26633i = f2;
+            this.f26634j = f3;
         }
     }
 
     public void c(int i2, int i3, int i4, int i5, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f27457k = i2;
+            this.k = i2;
             this.l = i3;
             this.m = i4;
             this.n = i5;
@@ -146,9 +144,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             this.a = i2;
-            this.f27448b = i3;
-            this.f27449c = i4;
-            this.f27450d = i5;
+            this.f26626b = i3;
+            this.f26627c = i4;
+            this.f26628d = i5;
         }
     }
 }

@@ -29,19 +29,19 @@ public final class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27641b;
+    public String f26809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27642c;
+    public String f26810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27643d;
+    public boolean f26811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONArray f27644e;
+    public JSONArray f26812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, com.baidu.ubs.analytics.a.g> f27645f;
+    public Map<String, com.baidu.ubs.analytics.a.g> f26813f;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -70,7 +70,7 @@ public final class c {
     public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public C1589c a;
+        public C1605c a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public final class c {
                     return;
                 }
             }
-            this.a = new C1589c();
+            this.a = new C1605c();
         }
 
         public final List<com.baidu.ubs.analytics.a.a> a() {
@@ -111,12 +111,12 @@ public final class c {
 
     /* renamed from: c.a.y0.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public final class C1589c {
+    public final class C1605c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SQLiteDatabase a;
 
-        public C1589c() {
+        public C1605c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,15 +249,15 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static f f27646c;
+        public static f f26814c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static SQLiteOpenHelper f27647d;
+        public static SQLiteOpenHelper f26815d;
         public transient /* synthetic */ FieldHolder $fh;
         public AtomicInteger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SQLiteDatabase f27648b;
+        public SQLiteDatabase f26816b;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -281,10 +281,10 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 synchronized (f.class) {
-                    if (f27646c == null) {
+                    if (f26814c == null) {
                         b(c.h().getContext());
                     }
-                    fVar = f27646c;
+                    fVar = f26814c;
                 }
                 return fVar;
             }
@@ -295,9 +295,9 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
                 synchronized (f.class) {
-                    if (f27646c == null) {
-                        f27646c = new f();
-                        f27647d = new d(context);
+                    if (f26814c == null) {
+                        f26814c = new f();
+                        f26815d = new d(context);
                     }
                 }
             }
@@ -311,9 +311,9 @@ public final class c {
                 synchronized (this) {
                     if (this.a.incrementAndGet() == 1) {
                         c.a.y0.a.f.a.a("***************新建立了 一个数据库的实例****************");
-                        this.f27648b = f27647d.getWritableDatabase();
+                        this.f26816b = f26815d.getWritableDatabase();
                     }
-                    sQLiteDatabase = this.f27648b;
+                    sQLiteDatabase = this.f26816b;
                 }
                 return sQLiteDatabase;
             }
@@ -670,7 +670,7 @@ public final class c {
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f27641b = str;
+            this.f26809b = str;
         }
     }
 
@@ -678,10 +678,10 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             synchronized (this) {
-                this.f27645f = new HashMap();
+                this.f26813f = new HashMap();
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (list.get(i2) != null) {
-                        this.f27645f.put(list.get(i2).getId(), list.get(i2));
+                        this.f26813f.put(list.get(i2).getId(), list.get(i2));
                     }
                 }
             }
@@ -692,7 +692,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             synchronized (this) {
-                this.f27643d = z;
+                this.f26811d = z;
             }
         }
     }
@@ -700,7 +700,7 @@ public final class c {
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f27642c = str;
+            this.f26810c = str;
         }
     }
 
@@ -709,17 +709,17 @@ public final class c {
         Map<String, com.baidu.ubs.analytics.a.g> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.f27644e == null) {
-                if (str != null && (map = this.f27645f) != null) {
+            if (this.f26812e == null) {
+                if (str != null && (map = this.f26813f) != null) {
                     if (map.containsKey(str)) {
-                        return c.a.y0.a.f.h.a(this.f27645f.get(str).getGroup());
+                        return c.a.y0.a.f.h.a(this.f26813f.get(str).getGroup());
                     }
                     return SampleResult.OTHERE;
                 }
                 return SampleResult.OTHERE;
             }
-            for (int i2 = 0; i2 < this.f27644e.length(); i2++) {
-                JSONObject optJSONObject = this.f27644e.optJSONObject(i2);
+            for (int i2 = 0; i2 < this.f26812e.length(); i2++) {
+                JSONObject optJSONObject = this.f26812e.optJSONObject(i2);
                 if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                     return c.a.y0.a.f.h.a(optJSONObject.optString("group"));
                 }
@@ -732,7 +732,7 @@ public final class c {
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27643d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26811d : invokeV.booleanValue;
     }
 
     public final Context getContext() {
@@ -744,19 +744,19 @@ public final class c {
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27641b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26809b : (String) invokeV.objValue;
     }
 
     public final String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27642c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26810c : (String) invokeV.objValue;
     }
 
     public final Map<String, com.baidu.ubs.analytics.a.g> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27645f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26813f : (Map) invokeV.objValue;
     }
 
     public c() {
@@ -772,6 +772,6 @@ public final class c {
                 return;
             }
         }
-        this.f27643d = true;
+        this.f26811d = true;
     }
 }

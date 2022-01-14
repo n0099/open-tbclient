@@ -10,13 +10,16 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.y0.b;
-import c.a.t0.o4.g;
-import c.a.t0.o4.u.e;
+import c.a.t0.p4.g;
+import c.a.t0.p4.u.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -69,8 +72,10 @@ public class AlbumFloatActivity extends SuspendedActivity {
         }
         String str2 = hashMap.containsKey("videoTopicID") ? (String) hashMap.get("videoTopicID") : "";
         String str3 = hashMap.containsKey("videoTopic") ? (String) hashMap.get("videoTopic") : "";
+        String str4 = hashMap.containsKey("isVideo") ? (String) hashMap.get("isVideo") : "";
         getIntent().putExtra("topicId", str2);
         getIntent().putExtra("topic", str3);
+        getIntent().putExtra("is_video_topic", str4);
         getIntent().putExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, true);
         getIntent().putExtra(AlbumFloatActivityConfig.CAN_CHANGE_BAR_NAME, true);
         getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, 0);
@@ -80,6 +85,11 @@ public class AlbumFloatActivity extends SuspendedActivity {
         getIntent().putExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, 0);
         getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, true);
         getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, true);
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEMA_OPEN_WORKPUBLISH);
+        statisticItem.param("topic_id", str2);
+        statisticItem.param("obj_name", str3);
+        statisticItem.param("obj_type", str4);
+        TiebaStatic.log(statisticItem);
     }
 
     private boolean requestPermission() {

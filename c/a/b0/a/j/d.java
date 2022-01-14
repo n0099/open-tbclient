@@ -14,7 +14,7 @@ public abstract class d implements f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f.a f1634b;
+    public f.a f1616b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class d implements f {
     public void c(f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f1634b = aVar;
+            this.f1616b = aVar;
             if (aVar != null) {
                 aVar.a(a(), this);
             }
@@ -56,7 +56,7 @@ public abstract class d implements f {
             return;
         }
         this.a = i2;
-        f.a aVar = this.f1634b;
+        f.a aVar = this.f1616b;
         if (aVar != null) {
             aVar.a(i2, this);
         }

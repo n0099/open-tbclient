@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<n> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21129b;
+    public int f20564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21130c;
+    public int f20565c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d {
                 return;
             }
         }
-        this.f21129b = 0;
-        this.f21130c = 0;
+        this.f20564b = 0;
+        this.f20565c = 0;
     }
 }

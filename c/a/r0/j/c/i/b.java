@@ -16,21 +16,21 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11107f;
+    public static final boolean f10861f;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<a>> f11108b;
+    public HashMap<String, ArrayList<a>> f10862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11109c;
+    public String f10863c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.j.z.b f11110d;
+    public c.a.r0.j.z.b f10864d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f11111e;
+    public final Object f10865e;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class b implements a {
                 return;
             }
         }
-        f11107f = k.a;
+        f10861f = k.a;
     }
 
     public b(String str) {
@@ -64,9 +64,9 @@ public class b implements a {
             }
         }
         this.a = new HashMap<>();
-        this.f11108b = new HashMap<>();
-        this.f11111e = new Object();
-        this.f11109c = str;
+        this.f10862b = new HashMap<>();
+        this.f10865e = new Object();
+        this.f10863c = str;
     }
 
     @Override // c.a.r0.j.c.i.a
@@ -74,12 +74,12 @@ public class b implements a {
         ArrayList<a> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.f11111e) {
-                if (d(str) && (arrayList = this.f11108b.get(str)) != null) {
+            synchronized (this.f10865e) {
+                if (d(str) && (arrayList = this.f10862b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         arrayList.get(i2).a(str, str2);
-                        if (f11107f) {
+                        if (f10861f) {
                             String str3 = i2 + " load success url = " + str + " path = " + str2;
                         }
                     }
@@ -92,26 +92,26 @@ public class b implements a {
     public final void b(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            if (this.f11108b.containsKey(str)) {
-                this.f11108b.get(str).add(aVar);
+            if (this.f10862b.containsKey(str)) {
+                this.f10862b.get(str).add(aVar);
                 return;
             }
             ArrayList<a> arrayList = new ArrayList<>();
             arrayList.add(aVar);
-            this.f11108b.put(str, arrayList);
+            this.f10862b.put(str, arrayList);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f11107f) {
+            if (f10861f) {
                 String str2 = "AudioDownloader SwanGamePreloadManager url:" + str;
             }
-            if (this.f11110d == null) {
-                this.f11110d = c.a.r0.j.z.b.b();
+            if (this.f10864d == null) {
+                this.f10864d = c.a.r0.j.z.b.b();
             }
-            c cVar = new c(this.f11110d, this.f11109c, str, this);
+            c cVar = new c(this.f10864d, this.f10863c, str, this);
             this.a.put(str, cVar);
             cVar.e();
         }
@@ -126,13 +126,13 @@ public class b implements a {
     public void e(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, aVar) == null) {
-            synchronized (this.f11111e) {
+            synchronized (this.f10865e) {
                 if (!d(str)) {
-                    if (f11107f) {
+                    if (f10861f) {
                         String str2 = "start load url = " + str;
                     }
                     c(str);
-                } else if (f11107f) {
+                } else if (f10861f) {
                     String str3 = "re load url = " + str;
                 }
                 b(str, aVar);
@@ -145,8 +145,8 @@ public class b implements a {
         ArrayList<a> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
-            synchronized (this.f11111e) {
-                if (d(str) && (arrayList = this.f11108b.get(str)) != null) {
+            synchronized (this.f10865e) {
+                if (d(str) && (arrayList = this.f10862b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         arrayList.get(i3).fail(i2, str);

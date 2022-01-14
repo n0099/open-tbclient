@@ -25,28 +25,28 @@ public class KSNativeAdGroupImgH5OpenView extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f56253b;
+    public TextView f54120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f56254c;
+    public LinearLayout f54121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f56255d;
+    public ImageView f54122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f56256e;
+    public ImageView f54123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f56257f;
+    public ImageView f54124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56258g;
+    public ImageView f54125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56259h;
+    public TextView f54126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f56260i;
+    public Button f54127i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdGroupImgH5OpenView(Context context) {
@@ -123,21 +123,21 @@ public class KSNativeAdGroupImgH5OpenView extends x {
             if (imageList != null && imageList.size() >= 3) {
                 KsImage ksImage = imageList.get(0);
                 if (ksImage != null && ksImage.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.f56255d);
+                    GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.f54122d);
                 }
                 KsImage ksImage2 = imageList.get(1);
                 if (ksImage2 != null && ksImage2.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.f56256e);
+                    GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.f54123e);
                 }
                 KsImage ksImage3 = imageList.get(2);
                 if (ksImage3 != null && ksImage3.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f56257f);
+                    GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f54124f);
                 }
             }
-            this.f56258g.setImageBitmap(getSdkLogo());
-            this.f56253b.setText(ksNativeAd.getAdDescription());
-            this.f56259h.setText(ksNativeAd.getAdSource());
-            this.f56260i.setText(ksNativeAd.getActionDescription());
+            this.f54125g.setImageBitmap(getSdkLogo());
+            this.f54120b.setText(ksNativeAd.getAdDescription());
+            this.f54126h.setText(ksNativeAd.getAdSource());
+            this.f54127i.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -146,14 +146,14 @@ public class KSNativeAdGroupImgH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f56253b = (TextView) findViewById(R.id.ad_description);
-            this.f56254c = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f56255d = (ImageView) findViewById(R.id.ad_img_1);
-            this.f56256e = (ImageView) findViewById(R.id.ad_img_2);
-            this.f56257f = (ImageView) findViewById(R.id.ad_img_3);
-            this.f56258g = (ImageView) findViewById(R.id.ad_logo);
-            this.f56259h = (TextView) findViewById(R.id.ad_h5_description);
-            this.f56260i = (Button) findViewById(R.id.ad_h5_open);
+            this.f54120b = (TextView) findViewById(R.id.ad_description);
+            this.f54121c = (LinearLayout) findViewById(R.id.ad_img_container);
+            this.f54122d = (ImageView) findViewById(R.id.ad_img_1);
+            this.f54123e = (ImageView) findViewById(R.id.ad_img_2);
+            this.f54124f = (ImageView) findViewById(R.id.ad_img_3);
+            this.f54125g = (ImageView) findViewById(R.id.ad_logo);
+            this.f54126h = (TextView) findViewById(R.id.ad_h5_description);
+            this.f54127i = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -162,14 +162,14 @@ public class KSNativeAdGroupImgH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56254c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54121c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f56255d.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f56256e.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f56257f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f54122d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f54123e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f54124f.getLayoutParams();
             layoutParams.width = i6;
             layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-            this.f56254c.setLayoutParams(layoutParams);
+            this.f54121c.setLayoutParams(layoutParams);
         }
     }
 }

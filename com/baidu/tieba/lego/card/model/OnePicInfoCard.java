@@ -53,10 +53,10 @@ public class OnePicInfoCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f25938c = optJSONObject.optInt("type");
+                bVar.f25175c = optJSONObject.optInt("type");
                 bVar.a = optJSONObject.optString("url");
-                bVar.f25937b = optJSONObject.optString("urlNight");
-                bVar.f25939d = optJSONObject.optString("content", "");
+                bVar.f25174b = optJSONObject.optString("urlNight");
+                bVar.f25176d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

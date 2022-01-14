@@ -19,7 +19,7 @@ public final class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f8081e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7904e;
 
         public a(c.a.r0.a.n2.s.e eVar) {
             Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public final class h {
                     return;
                 }
             }
-            this.f8081e = eVar;
+            this.f7904e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.k("1719", this.f8081e.f());
+                b.k("1719", this.f7904e.f());
             }
         }
     }

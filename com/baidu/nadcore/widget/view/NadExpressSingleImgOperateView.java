@@ -5,12 +5,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
-import c.a.c0.b.c;
-import c.a.c0.b.e;
-import c.a.c0.b.g;
-import c.a.c0.d0.f;
-import c.a.c0.p.a;
-import c.a.c0.p.o;
+import c.a.c0.d.e;
+import c.a.c0.d.g;
+import c.a.c0.g0.f;
+import c.a.c0.s.a;
+import c.a.c0.s.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
@@ -22,13 +21,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public AdImageView f38648h;
+    public int f37399h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f38649i;
+    public int f37400i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f37401j;
+    public int k;
+    @Nullable
+    public AdImageView l;
+    public a m;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NadExpressSingleImgOperateView(Context context) {
@@ -60,8 +65,15 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
                 int a = oVar.a(AdBaseModel.STYLE.SMALL_IMAGE);
                 if (a != 0) {
                     i2 = a;
-                } else if (oVar.f2247b) {
+                } else if (oVar.f2253b) {
                     i2 = g.nad_single_image_for_img_right;
+                }
+                o.a aVar = oVar.f2259h;
+                if (aVar != null) {
+                    this.f37399h = aVar.a;
+                    this.f37400i = aVar.f2261b;
+                    this.f37401j = aVar.f2262c;
+                    this.k = aVar.f2263d;
                 }
             }
             layoutInflater.inflate(i2, this);
@@ -72,17 +84,16 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public void initLayout(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            setPadding(0, f.c.a(getContext(), 13.0f), 0, 0);
             AdImageView adImageView = (AdImageView) findViewById(e.nad_feed_template_single_image_id);
-            this.f38648h = adImageView;
+            this.l = adImageView;
             if (adImageView == null) {
                 return;
             }
-            int e2 = ((f.c.e(context) - (context.getResources().getDimensionPixelSize(c.NAD_F_M_W_X001) * 2)) - (f.c.a(getContext(), 6.0f) * 2)) / 3;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f38648h.getLayoutParams();
+            int e2 = (((((f.c.e(context) - f.c.a(getContext(), this.f37399h)) - f.c.a(getContext(), this.f37400i)) - f.c.a(getContext(), this.f37401j)) - f.c.a(getContext(), this.k)) - (f.c.a(getContext(), 6.0f) * 2)) / 3;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
             layoutParams.width = e2;
-            layoutParams.height = Math.round((e2 / getResources().getInteger(c.a.c0.b.f.nad_list_small_image_width)) * getResources().getInteger(c.a.c0.b.f.nad_list_small_image_height));
-            this.f38648h.setLayoutParams(layoutParams);
+            layoutParams.height = Math.round((e2 / getResources().getInteger(c.a.c0.d.f.nad_list_small_image_width)) * getResources().getInteger(c.a.c0.d.f.nad_list_small_image_height));
+            this.l.setLayoutParams(layoutParams);
         }
     }
 
@@ -98,8 +109,8 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof a)) {
             a aVar = (a) adBaseModel;
-            this.f38649i = aVar;
-            AdImageView adImageView = this.f38648h;
+            this.m = aVar;
+            AdImageView adImageView = this.l;
             if (adImageView != null) {
                 adImageView.displayImage(aVar.m.a);
             }
@@ -167,5 +178,9 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
                 return;
             }
         }
+        this.f37399h = 15;
+        this.f37400i = 15;
+        this.f37401j = 0;
+        this.k = 0;
     }
 }

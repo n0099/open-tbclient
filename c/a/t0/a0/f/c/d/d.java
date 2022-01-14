@@ -25,7 +25,7 @@ public class d extends c.a.d.n.e.a<e, SdkDoubleLiveViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext, int i2, boolean z) {
-        super(tbPageContext.getPageActivity(), z ? e.f14781h : e.f14780g);
+        super(tbPageContext.getPageActivity(), z ? e.f14429h : e.f14428g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

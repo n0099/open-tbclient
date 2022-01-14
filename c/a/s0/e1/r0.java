@@ -35,10 +35,10 @@ public class r0 {
         public final /* synthetic */ WXMediaMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IWXAPI f12725b;
+        public final /* synthetic */ IWXAPI f12426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SendMessageToWX.Req f12726c;
+        public final /* synthetic */ SendMessageToWX.Req f12427c;
 
         public a(WXMediaMessage wXMediaMessage, IWXAPI iwxapi, SendMessageToWX.Req req) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class r0 {
                 }
             }
             this.a = wXMediaMessage;
-            this.f12725b = iwxapi;
-            this.f12726c = req;
+            this.f12426b = iwxapi;
+            this.f12427c = req;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class r0 {
                     Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
                     this.a.thumbData = r0.a(cashBitmap);
                 }
-                this.f12725b.sendReq(this.f12726c);
+                this.f12426b.sendReq(this.f12427c);
             }
         }
     }

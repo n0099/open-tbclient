@@ -23,7 +23,7 @@ public class c extends DataInputStream {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c.a.r0.a.b1.b<String, byte[]> f5385e;
+    public static final c.a.r0.a.b1.b<String, byte[]> f5272e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -111,7 +111,7 @@ public class c extends DataInputStream {
                 return;
             }
         }
-        f5385e = new a();
+        f5272e = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -215,7 +215,7 @@ public class c extends DataInputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                return f5385e.call(c());
+                return f5272e.call(c());
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -227,7 +227,7 @@ public class c extends DataInputStream {
     public List<String> j() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e(f5385e) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e(f5272e) : (List) invokeV.objValue;
     }
 
     public List<String> k(List<String> list) throws IOException {
@@ -243,6 +243,6 @@ public class c extends DataInputStream {
     public Map<String, String> l() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f(f5385e) : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f(f5272e) : (Map) invokeV.objValue;
     }
 }

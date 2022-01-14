@@ -2,7 +2,7 @@ package c.a.t0.q1.m;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.d1.k;
 import c.a.t0.g0.a0;
 import c.a.t0.g0.d0;
@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class a extends k<d2, CardViewHolder<z>> implements a0 {
+public class a extends k<e2, CardViewHolder<z>> implements a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext x;
-    public d0<d2> y;
+    public d0<e2> y;
 
     /* renamed from: c.a.t0.q1.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1325a extends d0<d2> {
+    public class C1339a extends d0<e2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1325a(a aVar) {
+        public C1339a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,9 +48,9 @@ public class a extends k<d2, CardViewHolder<z>> implements a0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.t0.g0.d0
         /* renamed from: d */
-        public void b(View view, d2 d2Var, Object obj) {
+        public void b(View view, e2 e2Var, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var, obj) == null) {
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var, obj) == null) {
             }
         }
     }
@@ -74,7 +74,7 @@ public class a extends k<d2, CardViewHolder<z>> implements a0 {
                 return;
             }
         }
-        this.y = new C1325a(this);
+        this.y = new C1339a(this);
         this.x = tbPageContext;
     }
 
@@ -97,15 +97,15 @@ public class a extends k<d2, CardViewHolder<z>> implements a0 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.d1.k, c.a.d.n.e.a
     /* renamed from: n0 */
-    public View S(int i2, View view, ViewGroup viewGroup, d2 d2Var, CardViewHolder<z> cardViewHolder) {
+    public View S(int i2, View view, ViewGroup viewGroup, e2 e2Var, CardViewHolder<z> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, e2Var, cardViewHolder})) == null) {
             if (cardViewHolder == null || cardViewHolder.getCardView() == null) {
                 return null;
             }
             cardViewHolder.getCardView().m(this.y);
-            cardViewHolder.getCardView().k(d2Var);
+            cardViewHolder.getCardView().k(e2Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -117,9 +117,9 @@ public class a extends k<d2, CardViewHolder<z>> implements a0 {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f3299e = tbPageContext.getPageActivity();
+        this.f3258e = tbPageContext.getPageActivity();
         this.x = tbPageContext;
-        this.f3303i = bdUniqueId;
+        this.f3262i = bdUniqueId;
     }
 
     @Override // c.a.t0.d1.k

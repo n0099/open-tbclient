@@ -48,10 +48,10 @@ public class NpsPluginCenterActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f49217e;
+        public final /* synthetic */ BundleInfo f47366e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f49218f;
+        public final /* synthetic */ NpsPluginCenterActivity f47367f;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49218f = npsPluginCenterActivity;
-            this.f49217e = bundleInfo;
+            this.f47367f = npsPluginCenterActivity;
+            this.f47366e = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ToastUtil.show(this.f49217e.getPackageName());
+                ToastUtil.show(this.f47366e.getPackageName());
             }
         }
     }

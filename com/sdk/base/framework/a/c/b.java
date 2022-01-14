@@ -11,22 +11,22 @@ public final class b extends Enum<b> {
     public static final int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f61484b = 1;
+    public static int f59153b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f61485c = 2;
+    public static int f59154c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f61486d = 3;
+    public static int f59155d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f61487e = 5;
+    public static int f59156e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f61488f = 6;
+    public static int f59157f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f61489g = 7;
+    public static int f59158g = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

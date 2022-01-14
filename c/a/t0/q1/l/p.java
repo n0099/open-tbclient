@@ -13,28 +13,26 @@ import tbclient.TopicList.TabList;
 /* loaded from: classes8.dex */
 public class p implements c.a.d.n.e.n {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final BdUniqueId f22188k;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22189e;
+    public String f21581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22190f;
+    public String f21582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22191g;
+    public String f21583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22192h;
+    public String f21584h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22193i;
+    public String f21585i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22194j;
+    public String f21586j;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +47,7 @@ public class p implements c.a.d.n.e.n {
                 return;
             }
         }
-        f22188k = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public p() {
@@ -71,18 +69,18 @@ public class p implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, tabList) == null) || tabList == null) {
             return;
         }
-        this.f22189e = tabList.tab_name;
-        this.f22190f = tabList.tab_type;
-        this.f22191g = tabList.share_pic;
-        this.f22192h = tabList.share_title;
-        this.f22193i = tabList.share_desc;
-        this.f22194j = tabList.share_url;
+        this.f21581e = tabList.tab_name;
+        this.f21582f = tabList.tab_type;
+        this.f21583g = tabList.share_pic;
+        this.f21584h = tabList.share_title;
+        this.f21585i = tabList.share_desc;
+        this.f21586j = tabList.share_url;
     }
 
     @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f22188k : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? k : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -13,10 +13,10 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f18603b;
+    public boolean f18139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f18604c;
+    public boolean f18140c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class b {
                 return;
             }
         }
-        this.f18603b = false;
-        this.f18604c = false;
+        this.f18139b = false;
+        this.f18140c = false;
     }
 
     public String a() {
@@ -44,19 +44,19 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18604c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18140c : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18603b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18139b : invokeV.booleanValue;
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f18604c = z;
+            this.f18140c = z;
         }
     }
 
@@ -70,7 +70,7 @@ public class b {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f18603b = z;
+            this.f18139b = z;
         }
     }
 }

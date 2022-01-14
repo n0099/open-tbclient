@@ -17,22 +17,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AtomicInteger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f26517b;
+        public final /* synthetic */ List f25729b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f26518c;
+        public final /* synthetic */ c f25730c;
 
         public a(n nVar, AtomicInteger atomicInteger, List list, c cVar) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class n {
                 }
             }
             this.a = atomicInteger;
-            this.f26517b = list;
-            this.f26518c = cVar;
+            this.f25729b = list;
+            this.f25730c = cVar;
         }
 
         @Override // c.a.t0.y0.n.d
@@ -62,29 +62,29 @@ public class n {
             if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
                 this.a.decrementAndGet();
                 if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.f26517b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                    this.f25729b.add(imageUploadResult.picInfo.bigPic.picUrl);
                 }
                 if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.f26517b)) {
-                        this.f26518c.c(this.f26517b);
+                    if (!ListUtils.isEmpty(this.f25729b)) {
+                        this.f25730c.c(this.f25729b);
                     } else {
-                        this.f26518c.d();
+                        this.f25730c.d();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageFileInfo f26519e;
+        public final /* synthetic */ ImageFileInfo f25731e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f26520f;
+        public final /* synthetic */ d f25732f;
 
         public b(n nVar, ImageFileInfo imageFileInfo, d dVar) {
             Interceptable interceptable = $ic;
@@ -101,46 +101,46 @@ public class n {
                     return;
                 }
             }
-            this.f26519e = imageFileInfo;
-            this.f26520f = dVar;
+            this.f25731e = imageFileInfo;
+            this.f25732f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.f26519e.getFilePath();
+                String filePath = this.f25731e.getFilePath();
                 c.a.s0.d0.f fVar = new c.a.s0.d0.f("from_user_collect");
-                if (this.f26519e.isGif()) {
-                    this.f26520f.a(fVar.m(filePath, true, false));
+                if (this.f25731e.isGif()) {
+                    this.f25732f.a(fVar.m(filePath, true, false));
                     return;
                 }
-                Bitmap b2 = c.a.t0.n2.g.b.b(this.f26519e);
+                Bitmap b2 = c.a.t0.n2.g.b.b(this.f25731e);
                 if (b2 == null) {
-                    this.f26520f.a(null);
+                    this.f25732f.a(null);
                     return;
                 }
                 String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b2, 60);
                 b2.recycle();
                 if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.f26520f.a(null);
+                    this.f25732f.a(null);
                     return;
                 }
                 ImageUploadResult m = fVar.m(saveBitmapByAbsolutelyPath, false, false);
                 FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.f26520f.a(m);
+                this.f25732f.a(m);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void c(List<String> list);
 
         void d();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         void a(ImageUploadResult imageUploadResult);
     }

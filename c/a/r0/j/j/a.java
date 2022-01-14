@@ -19,10 +19,10 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f11286b;
+    public static long f11035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11287c;
+    public static String f11036c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class a {
             }
         }
         a = k.a;
-        f11286b = 86400000L;
-        f11287c = "duration_permission_list";
+        f11035b = 86400000L;
+        f11036c = "duration_permission_list";
     }
 
     public static void a(JsObject jsObject) {
@@ -77,7 +77,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-            String string = h.a().getString(f11287c, "");
+            String string = h.a().getString(f11036c, "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -119,7 +119,7 @@ public class a {
                 a2.putLong(f0 + "_Duration", j3 - j2);
             }
         } else {
-            a2.putLong(f0 + "_Duration", j3 % f11286b);
+            a2.putLong(f0 + "_Duration", j3 % f11035b);
         }
         a2.putLong(f0 + "_LastPause", System.currentTimeMillis());
     }

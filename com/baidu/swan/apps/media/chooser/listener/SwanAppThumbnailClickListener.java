@@ -18,7 +18,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
     public GestureDetectorCompat a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f40240b;
+    public RecyclerView f38910b;
 
     /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
@@ -32,7 +32,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppThumbnailClickListener f40241e;
+        public final /* synthetic */ SwanAppThumbnailClickListener f38911e;
 
         public b(SwanAppThumbnailClickListener swanAppThumbnailClickListener) {
             Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
                     return;
                 }
             }
-            this.f40241e = swanAppThumbnailClickListener;
+            this.f38911e = swanAppThumbnailClickListener;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
             View findChildViewUnder;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (findChildViewUnder = this.f40241e.f40240b.findChildViewUnder(motionEvent.getX(), motionEvent.getY())) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (findChildViewUnder = this.f38911e.f38910b.findChildViewUnder(motionEvent.getX(), motionEvent.getY())) == null) {
                 return;
             }
-            this.f40241e.onItemLongClick(this.f40241e.f40240b.getChildViewHolder(findChildViewUnder));
+            this.f38911e.onItemLongClick(this.f38911e.f38910b.getChildViewHolder(findChildViewUnder));
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -67,9 +67,9 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-                View findChildViewUnder = this.f40241e.f40240b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+                View findChildViewUnder = this.f38911e.f38910b.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
                 if (findChildViewUnder != null) {
-                    this.f40241e.onItemClick(this.f40241e.f40240b.getChildViewHolder(findChildViewUnder));
+                    this.f38911e.onItemClick(this.f38911e.f38910b.getChildViewHolder(findChildViewUnder));
                     return true;
                 }
                 return true;
@@ -97,7 +97,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
                 return;
             }
         }
-        this.f40240b = recyclerView;
+        this.f38910b = recyclerView;
         this.a = new GestureDetectorCompat(recyclerView.getContext(), new b(this, null));
     }
 

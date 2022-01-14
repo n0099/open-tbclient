@@ -12,7 +12,7 @@ public class b implements Runnable {
     public final /* synthetic */ WeakReference a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f36311b;
+    public final /* synthetic */ a f35121b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f36311b = aVar;
+        this.f35121b = aVar;
         this.a = weakReference;
     }
 
@@ -41,7 +41,7 @@ public class b implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.a.get()) == null) {
             return;
         }
-        i2 = aVar.f36310h;
+        i2 = aVar.f35120h;
         if (i2 == 3) {
             aVar.b();
         }

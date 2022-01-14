@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
-public class a extends c.a.k0.b.b.a<c.a.c0.d.g.c> {
+/* loaded from: classes9.dex */
+public class a extends c.a.k0.b.b.a<c.a.c0.f.h.c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.t0.y.a.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C1531a implements c.a.c0.d.g.c {
+    /* loaded from: classes9.dex */
+    public class C1547a implements c.a.c0.f.h.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1531a(a aVar) {
+        public C1547a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,27 +37,27 @@ public class a extends c.a.k0.b.b.a<c.a.c0.d.g.c> {
             }
         }
 
-        @Override // c.a.c0.d.g.c
-        public void a(String str, String str2, c.a.c0.d.h.a aVar) {
+        @Override // c.a.c0.f.h.c
+        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable c.a.c0.f.h.d dVar) {
+            InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) || aVar == null) {
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, dVar)) == null) {
+                String str2 = "host invoke command = " + str;
+                return false;
+            }
+            return invokeLLLL.booleanValue;
+        }
+
+        @Override // c.a.c0.f.h.c
+        public void b(String str, String str2, c.a.c0.f.i.a aVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, aVar) == null) || aVar == null) {
                 return;
             }
             aVar.onResult(true);
         }
 
-        @Override // c.a.c0.d.g.c
-        public boolean b(Context context, String str, @Nullable Map<String, Object> map) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, map)) == null) {
-                String str2 = "host invoke command = " + str;
-                return false;
-            }
-            return invokeLLL.booleanValue;
-        }
-
-        @Override // c.a.c0.d.g.c
+        @Override // c.a.c0.f.h.c
         public String[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class a extends c.a.k0.b.b.a<c.a.c0.d.g.c> {
             return (String[]) invokeV.objValue;
         }
 
-        @Override // c.a.c0.d.g.c
+        @Override // c.a.c0.f.h.c
         public boolean d(Context context, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -95,9 +95,9 @@ public class a extends c.a.k0.b.b.a<c.a.c0.d.g.c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.k0.b.b.a
     /* renamed from: a */
-    public c.a.c0.d.g.c createService() throws ServiceNotFoundException {
+    public c.a.c0.f.h.c createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1531a(this) : (c.a.c0.d.g.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1547a(this) : (c.a.c0.f.h.c) invokeV.objValue;
     }
 }

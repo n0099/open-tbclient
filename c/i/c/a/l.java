@@ -32,25 +32,25 @@ public class l {
     public final Queue<Runnable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f30964b;
+    public Context f29993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f30965c;
+    public volatile int f29994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.google.a.b.a.a.a.a f30966d;
+    public com.google.a.b.a.a.a.a f29995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f30967e;
+    public BroadcastReceiver f29996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f30968f;
+    public Context f29997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f30969g;
+    public final ServiceConnection f29998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final AtomicReference<c> f30970h;
+    public final AtomicReference<c> f29999h;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class l {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 p();
-                int i2 = this.f30965c - 1;
+                int i2 = this.f29994c - 1;
                 if (i2 == 1 || i2 == 2) {
-                    this.f30964b.unbindService(this.f30969g);
-                    this.f30964b = null;
-                    this.f30965c = s.a;
+                    this.f29993b.unbindService(this.f29998g);
+                    this.f29993b = null;
+                    this.f29994c = s.a;
                 }
-                if (this.f30967e != null) {
-                    this.f30968f.unregisterReceiver(this.f30967e);
+                if (this.f29996e != null) {
+                    this.f29997f.unregisterReceiver(this.f29996e);
                 }
             }
         }
@@ -127,15 +127,15 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, mVar) == null) {
             c cVar = new c(activity, mVar);
-            c andSet = this.f30970h.getAndSet(cVar);
+            c andSet = this.f29999h.getAndSet(cVar);
             if (andSet != null) {
                 andSet.a();
             }
             cVar.start();
-            if (this.f30967e == null) {
+            if (this.f29996e == null) {
                 p pVar = new p(this, mVar);
-                this.f30967e = pVar;
-                this.f30968f = activity;
+                this.f29996e = pVar;
+                this.f29997f = activity;
                 activity.registerReceiver(pVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
             }
             try {
@@ -150,14 +150,14 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             synchronized (this) {
-                this.f30964b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f30969g, 1)) {
-                    this.f30965c = s.f30982b;
+                this.f29993b = context;
+                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f29998g, 1)) {
+                    this.f29994c = s.f30011b;
                     return;
                 }
-                this.f30965c = s.a;
-                this.f30964b = null;
-                context.unbindService(this.f30969g);
+                this.f29994c = s.a;
+                this.f29993b = null;
+                context.unbindService(this.f29998g);
             }
         }
     }
@@ -179,8 +179,8 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
             synchronized (this) {
-                this.f30966d = com.google.a.b.a.a.a.b.a(iBinder);
-                this.f30965c = s.f30983c;
+                this.f29995d = com.google.a.b.a.a.a.b.a(iBinder);
+                this.f29994c = s.f30012c;
                 for (Runnable runnable : this.a) {
                     runnable.run();
                 }
@@ -192,7 +192,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
             synchronized (this) {
-                int i2 = this.f30965c - 1;
+                int i2 = this.f29994c - 1;
                 if (i2 == 0) {
                     throw new ab();
                 }
@@ -210,7 +210,7 @@ public class l {
     public final void p() {
         c andSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.f30970h.getAndSet(null)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.f29999h.getAndSet(null)) == null) {
             return;
         }
         andSet.a();
@@ -220,8 +220,8 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                this.f30965c = s.a;
-                this.f30966d = null;
+                this.f29994c = s.a;
+                this.f29995d = null;
                 p();
             }
         }
@@ -246,8 +246,8 @@ public class l {
             }
         }
         this.a = new ArrayDeque();
-        this.f30965c = s.a;
-        this.f30969g = new n(this);
-        this.f30970h = new AtomicReference<>();
+        this.f29994c = s.a;
+        this.f29998g = new n(this);
+        this.f29999h = new AtomicReference<>();
     }
 }

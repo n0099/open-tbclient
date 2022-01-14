@@ -26,10 +26,10 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public n a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f48900b;
+    public int f47067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f48901c;
+    public View.OnClickListener f47068c;
     public View coverView;
     public TbImageView imageView;
     public TextView tipTextView;
@@ -52,7 +52,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f48900b = 3;
+        this.f47067b = 3;
         TbImageView tbImageView = (TbImageView) view.findViewById(d.photo_image_view);
         this.imageView = tbImageView;
         tbImageView.setDefaultBgResource(a.CAM_X0205);
@@ -78,7 +78,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 this.tipTextView.setVisibility(8);
                 this.imageView.startLoad(qVar.d(), 10, false);
             }
-            getView().setOnClickListener(this.f48901c);
+            getView().setOnClickListener(this.f47068c);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -91,18 +91,18 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f48900b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f47067b == i2) {
             return;
         }
         SkinManager.setViewTextColor(this.tipTextView, a.CAM_X0111, 1);
         SkinManager.setBackgroundColor(this.tipTextView, a.black_alpha50);
-        this.f48900b = i2;
+        this.f47067b = i2;
     }
 
     public void setOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f48901c = onClickListener;
+            this.f47068c = onClickListener;
         }
     }
 }

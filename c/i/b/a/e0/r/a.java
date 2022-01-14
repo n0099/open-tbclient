@@ -23,12 +23,12 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f30478c;
+    public static final Pattern f29523c;
     public transient /* synthetic */ FieldHolder $fh;
     public final l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final StringBuilder f30479b;
+    public final StringBuilder f29524b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public final class a {
                 return;
             }
         }
-        f30478c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+        f29523c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
     }
 
     public a() {
@@ -60,7 +60,7 @@ public final class a {
             }
         }
         this.a = new l();
-        this.f30479b = new StringBuilder();
+        this.f29524b = new StringBuilder();
     }
 
     public static boolean b(l lVar) {
@@ -192,12 +192,12 @@ public final class a {
                     lVar.J(c2);
                     return "";
                 }
-                String k2 = "(".equals(f2) ? k(lVar) : null;
+                String k = "(".equals(f2) ? k(lVar) : null;
                 String f3 = f(lVar, sb);
                 if (!SmallTailInfo.EMOTION_SUFFIX.equals(f3) || f3 == null) {
                     return null;
                 }
-                return k2;
+                return k;
             }
             return null;
         }
@@ -295,7 +295,7 @@ public final class a {
         }
         int indexOf = str.indexOf(91);
         if (indexOf != -1) {
-            Matcher matcher = f30478c.matcher(str.substring(indexOf));
+            Matcher matcher = f29523c.matcher(str.substring(indexOf));
             if (matcher.matches()) {
                 dVar.v(matcher.group(1));
             }
@@ -319,13 +319,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            this.f30479b.setLength(0);
+            this.f29524b.setLength(0);
             int c2 = lVar.c();
             l(lVar);
             this.a.H(lVar.a, lVar.c());
             this.a.J(c2);
-            String h2 = h(this.a, this.f30479b);
-            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.a, this.f30479b))) {
+            String h2 = h(this.a, this.f29524b);
+            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.a, this.f29524b))) {
                 return null;
             }
             d dVar = new d();
@@ -334,11 +334,11 @@ public final class a {
             boolean z = false;
             while (!z) {
                 int c3 = this.a.c();
-                str = f(this.a, this.f30479b);
+                str = f(this.a, this.f29524b);
                 boolean z2 = str == null || "}".equals(str);
                 if (!z2) {
                     this.a.J(c3);
-                    i(this.a, dVar, this.f30479b);
+                    i(this.a, dVar, this.f29524b);
                 }
                 z = z2;
             }

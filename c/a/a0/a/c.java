@@ -11,7 +11,7 @@ public class c {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1089b;
+    public static String f1088b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a() {
@@ -23,7 +23,7 @@ public class c {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f1089b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f1088b : (String) invokeV.objValue;
     }
 
     public static String c() {
@@ -42,7 +42,7 @@ public class c {
                 throw new NullPointerException("clienID is null");
             }
             a = context.getApplicationContext();
-            f1089b = str;
+            f1088b = str;
             context.getPackageName();
         }
     }

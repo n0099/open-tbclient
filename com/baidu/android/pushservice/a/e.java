@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32677d;
+    public String f31639d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32678e;
+    public boolean f31640e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class e extends a {
                 return;
             }
         }
-        this.f32677d = "";
-        this.f32678e = false;
+        this.f31639d = "";
+        this.f31640e = false;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f32678e = z;
+            this.f31640e = z;
         }
     }
 
@@ -45,7 +45,7 @@ public class e extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "mPackageName: " + this.f32669b + ", mAppId: " + this.a + ", mUserId: " + this.f32677d + ", mPushSDKVersion: " + this.f32670c;
+            return "mPackageName: " + this.f31631b + ", mAppId: " + this.a + ", mUserId: " + this.f31639d + ", mPushSDKVersion: " + this.f31632c;
         }
         return (String) invokeV.objValue;
     }

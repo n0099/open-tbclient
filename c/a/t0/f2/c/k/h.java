@@ -14,13 +14,13 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17904b;
+    public String f17470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17905c;
+    public String f17471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17906d;
+    public String f17472d;
 
     public h(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class h {
             }
         }
         this.a = vipThemeItem.img_url;
-        this.f17904b = vipThemeItem.title;
+        this.f17470b = vipThemeItem.title;
         vipThemeItem.props_id.intValue();
         vipThemeItem.props_category.intValue();
-        this.f17905c = vipThemeItem.props_category_name;
+        this.f17471c = vipThemeItem.props_category_name;
         String str = vipThemeItem.desc;
         String str2 = vipThemeItem.link;
-        this.f17906d = vipThemeItem.tag_img_url;
+        this.f17472d = vipThemeItem.tag_img_url;
         String str3 = vipThemeItem.update_time;
         vipThemeItem.id.intValue();
         vipThemeItem.type.intValue();
@@ -59,18 +59,18 @@ public class h {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17905c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17471c : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17906d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17472d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17904b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17470b : (String) invokeV.objValue;
     }
 }

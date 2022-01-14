@@ -28,7 +28,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestConnectionDelegate implements IRequestDelegateInner {
     public static /* synthetic */ Interceptable $ic = null;
     public static String METHOD_GET = "GET";

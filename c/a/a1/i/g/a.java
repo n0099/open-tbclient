@@ -27,7 +27,7 @@ public class a extends c implements c.a.a1.l.d.j.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1196e;
+        public final /* synthetic */ a f1192e;
 
         public C0014a(a aVar) {
             Interceptable interceptable = $ic;
@@ -44,27 +44,27 @@ public class a extends c implements c.a.a1.l.d.j.b {
                     return;
                 }
             }
-            this.f1196e = aVar;
+            this.f1192e = aVar;
         }
 
         @Override // c.a.a1.l.d.j.c.a, c.a.a1.l.d.j.b
         public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f1196e.D == null || this.f1196e.p) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f1192e.D == null || this.f1192e.p) {
                 return;
             }
-            this.f1196e.D.onExceptionThrown(str);
+            this.f1192e.D.onExceptionThrown(str);
         }
 
         @Override // c.a.a1.l.d.j.c.a
         public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f1196e.o = true;
-                if (this.f1196e.D == null || this.f1196e.p) {
+                this.f1192e.o = true;
+                if (this.f1192e.D == null || this.f1192e.p) {
                     return;
                 }
-                this.f1196e.D.onFinishedWriting(z);
+                this.f1192e.D.onFinishedWriting(z);
             }
         }
     }
@@ -102,12 +102,12 @@ public class a extends c implements c.a.a1.l.d.j.b {
                 j3 = 0;
             }
             this.I = j3;
-            if (this.f1186i != null) {
-                if (j3 > this.f1186i.getDuration()) {
-                    j3 = this.f1186i.getDuration();
+            if (this.f1183i != null) {
+                if (j3 > this.f1183i.getDuration()) {
+                    j3 = this.f1183i.getDuration();
                 }
-                synchronized (this.f1184g) {
-                    this.f1186i.seek(j3);
+                synchronized (this.f1181g) {
+                    this.f1183i.seek(j3);
                 }
             }
         }
@@ -119,11 +119,11 @@ public class a extends c implements c.a.a1.l.d.j.b {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.o) {
             return;
         }
-        long currentPosition = this.f1186i.getCurrentPosition();
+        long currentPosition = this.f1183i.getCurrentPosition();
         long j2 = this.I;
         long j3 = currentPosition - j2;
         long j4 = this.J;
-        long duration = j4 > 0 ? j4 - j2 : this.f1186i.getDuration();
+        long duration = j4 > 0 ? j4 - j2 : this.f1183i.getDuration();
         double d2 = duration == 0 ? 0.0d : j3 / duration;
         double d3 = d2 >= 0.0d ? d2 : 0.0d;
         onProgressChanged(this.r, d3 > 1.0d ? 1.0d : d3, j3);
@@ -149,12 +149,12 @@ public class a extends c implements c.a.a1.l.d.j.b {
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             long j3 = j2 * 1000;
             this.J = j3;
-            if (this.f1186i != null) {
-                if (j3 > this.f1186i.getDuration()) {
-                    j3 = this.f1186i.getDuration();
+            if (this.f1183i != null) {
+                if (j3 > this.f1183i.getDuration()) {
+                    j3 = this.f1183i.getDuration();
                 }
-                synchronized (this.f1184g) {
-                    this.f1186i.h(j3);
+                synchronized (this.f1181g) {
+                    this.f1183i.h(j3);
                 }
             }
         }

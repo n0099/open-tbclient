@@ -34,10 +34,10 @@ public class d {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5603b;
+    public static String f5482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5604c;
+    public static String f5483c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -93,9 +93,9 @@ public class d {
             }
         }
         a = k.a;
-        String str = c.a.r0.a.z2.c1.a.f10174c;
-        f5603b = null;
-        f5604c = null;
+        String str = c.a.r0.a.z2.c1.a.f9950c;
+        f5482b = null;
+        f5483c = null;
     }
 
     public static boolean a() {
@@ -108,13 +108,13 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5603b == null) {
-                f5603b = f("ro.miui.ui.version.name");
+            if (f5482b == null) {
+                f5482b = f("ro.miui.ui.version.name");
             }
             if (a) {
-                String str = "OsName = " + f5603b;
+                String str = "OsName = " + f5482b;
             }
-            return !TextUtils.isEmpty(f5603b);
+            return !TextUtils.isEmpty(f5482b);
         }
         return invokeV.booleanValue;
     }
@@ -124,13 +124,13 @@ public class d {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f5604c == null) {
-                f5604c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+            if (f5483c == null) {
+                f5483c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
             }
             if (a) {
-                String str = "sMiuiVersion = " + f5604c;
+                String str = "sMiuiVersion = " + f5483c;
             }
-            if (!TextUtils.isEmpty(f5604c) && (split = f5604c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+            if (!TextUtils.isEmpty(f5483c) && (split = f5483c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
                 String substring = split[0].substring(1);
                 if (!TextUtils.isEmpty(substring)) {
                     try {

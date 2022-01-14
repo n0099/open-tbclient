@@ -34,34 +34,34 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int gdt_ic_back = 0x7f080646;
-        public static final int gdt_ic_browse = 0x7f080647;
-        public static final int gdt_ic_download = 0x7f080648;
-        public static final int gdt_ic_enter_fullscreen = 0x7f080649;
-        public static final int gdt_ic_exit_fullscreen = 0x7f08064a;
-        public static final int gdt_ic_express_back_to_port = 0x7f08064b;
-        public static final int gdt_ic_express_close = 0x7f08064c;
-        public static final int gdt_ic_express_enter_fullscreen = 0x7f08064d;
-        public static final int gdt_ic_express_pause = 0x7f08064e;
-        public static final int gdt_ic_express_play = 0x7f08064f;
-        public static final int gdt_ic_express_volume_off = 0x7f080650;
-        public static final int gdt_ic_express_volume_on = 0x7f080651;
-        public static final int gdt_ic_gesture_arrow_down = 0x7f080652;
-        public static final int gdt_ic_gesture_arrow_right = 0x7f080653;
-        public static final int gdt_ic_gesture_hand = 0x7f080654;
-        public static final int gdt_ic_native_back = 0x7f080655;
-        public static final int gdt_ic_native_download = 0x7f080656;
-        public static final int gdt_ic_native_volume_off = 0x7f080657;
-        public static final int gdt_ic_native_volume_on = 0x7f080658;
-        public static final int gdt_ic_pause = 0x7f080659;
-        public static final int gdt_ic_play = 0x7f08065a;
-        public static final int gdt_ic_progress_thumb_normal = 0x7f08065b;
-        public static final int gdt_ic_replay = 0x7f08065c;
-        public static final int gdt_ic_seekbar_background = 0x7f08065d;
-        public static final int gdt_ic_seekbar_progress = 0x7f08065e;
-        public static final int gdt_ic_video_detail_close = 0x7f08065f;
-        public static final int gdt_ic_volume_off = 0x7f080660;
-        public static final int gdt_ic_volume_on = 0x7f080661;
+        public static final int gdt_ic_back = 0x7f080648;
+        public static final int gdt_ic_browse = 0x7f080649;
+        public static final int gdt_ic_download = 0x7f08064a;
+        public static final int gdt_ic_enter_fullscreen = 0x7f08064b;
+        public static final int gdt_ic_exit_fullscreen = 0x7f08064c;
+        public static final int gdt_ic_express_back_to_port = 0x7f08064d;
+        public static final int gdt_ic_express_close = 0x7f08064e;
+        public static final int gdt_ic_express_enter_fullscreen = 0x7f08064f;
+        public static final int gdt_ic_express_pause = 0x7f080650;
+        public static final int gdt_ic_express_play = 0x7f080651;
+        public static final int gdt_ic_express_volume_off = 0x7f080652;
+        public static final int gdt_ic_express_volume_on = 0x7f080653;
+        public static final int gdt_ic_gesture_arrow_down = 0x7f080654;
+        public static final int gdt_ic_gesture_arrow_right = 0x7f080655;
+        public static final int gdt_ic_gesture_hand = 0x7f080656;
+        public static final int gdt_ic_native_back = 0x7f080657;
+        public static final int gdt_ic_native_download = 0x7f080658;
+        public static final int gdt_ic_native_volume_off = 0x7f080659;
+        public static final int gdt_ic_native_volume_on = 0x7f08065a;
+        public static final int gdt_ic_pause = 0x7f08065b;
+        public static final int gdt_ic_play = 0x7f08065c;
+        public static final int gdt_ic_progress_thumb_normal = 0x7f08065d;
+        public static final int gdt_ic_replay = 0x7f08065e;
+        public static final int gdt_ic_seekbar_background = 0x7f08065f;
+        public static final int gdt_ic_seekbar_progress = 0x7f080660;
+        public static final int gdt_ic_video_detail_close = 0x7f080661;
+        public static final int gdt_ic_volume_off = 0x7f080662;
+        public static final int gdt_ic_volume_on = 0x7f080663;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -126,7 +126,7 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class xml {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int gdt_file_path = 0x7f120004;
+        public static final int gdt_file_path = 0x7f130005;
         public transient /* synthetic */ FieldHolder $fh;
 
         public xml() {

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.a0.e;
 import c.a.t0.a0.g.b.c;
 import c.a.t0.g0.b;
@@ -108,13 +108,13 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     @Override // c.a.t0.g0.b
     /* renamed from: q */
     public void k(c cVar) {
-        d2 d2Var;
+        e2 e2Var;
         c.a.t0.a0.g.d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f15124e) == null || (bVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14756e) == null || (bVar = this.n) == null) {
             return;
         }
-        bVar.d(d2Var);
+        bVar.d(e2Var);
     }
 
     public void s(e eVar) {

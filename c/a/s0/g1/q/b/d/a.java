@@ -12,13 +12,13 @@ public final class a extends TimerTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13062e;
+    public float f12742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f13063f;
+    public final float f12743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WheelView f13064g;
+    public final WheelView f12744g;
 
     public a(WheelView wheelView, float f2) {
         Interceptable interceptable = $ic;
@@ -35,55 +35,55 @@ public final class a extends TimerTask {
                 return;
             }
         }
-        this.f13064g = wheelView;
-        this.f13063f = f2;
-        this.f13062e = 2.1474836E9f;
+        this.f12744g = wheelView;
+        this.f12743f = f2;
+        this.f12742e = 2.1474836E9f;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f13062e == 2.1474836E9f) {
-                if (Math.abs(this.f13063f) > 2000.0f) {
-                    this.f13062e = this.f13063f <= 0.0f ? -2000.0f : 2000.0f;
+            if (this.f12742e == 2.1474836E9f) {
+                if (Math.abs(this.f12743f) > 2000.0f) {
+                    this.f12742e = this.f12743f <= 0.0f ? -2000.0f : 2000.0f;
                 } else {
-                    this.f13062e = this.f13063f;
+                    this.f12742e = this.f12743f;
                 }
             }
-            if (Math.abs(this.f13062e) >= 0.0f && Math.abs(this.f13062e) <= 20.0f) {
-                this.f13064g.cancelFuture();
-                this.f13064g.getHandler().sendEmptyMessage(2000);
+            if (Math.abs(this.f12742e) >= 0.0f && Math.abs(this.f12742e) <= 20.0f) {
+                this.f12744g.cancelFuture();
+                this.f12744g.getHandler().sendEmptyMessage(2000);
                 return;
             }
-            WheelView wheelView = this.f13064g;
-            float f2 = (int) (this.f13062e / 100.0f);
+            WheelView wheelView = this.f12744g;
+            float f2 = (int) (this.f12742e / 100.0f);
             wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f2);
-            if (!this.f13064g.isLoop()) {
-                float itemHeight = this.f13064g.getItemHeight();
-                float f3 = (-this.f13064g.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.f13064g.getItemsCount() - 1) - this.f13064g.getInitPosition()) * itemHeight;
+            if (!this.f12744g.isLoop()) {
+                float itemHeight = this.f12744g.getItemHeight();
+                float f3 = (-this.f12744g.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.f12744g.getItemsCount() - 1) - this.f12744g.getInitPosition()) * itemHeight;
                 double d2 = itemHeight * 0.25d;
-                if (this.f13064g.getTotalScrollY() - d2 < f3) {
-                    f3 = this.f13064g.getTotalScrollY() + f2;
-                } else if (this.f13064g.getTotalScrollY() + d2 > itemsCount) {
-                    itemsCount = this.f13064g.getTotalScrollY() + f2;
+                if (this.f12744g.getTotalScrollY() - d2 < f3) {
+                    f3 = this.f12744g.getTotalScrollY() + f2;
+                } else if (this.f12744g.getTotalScrollY() + d2 > itemsCount) {
+                    itemsCount = this.f12744g.getTotalScrollY() + f2;
                 }
-                if (this.f13064g.getTotalScrollY() <= f3) {
-                    this.f13062e = 40.0f;
-                    this.f13064g.setTotalScrollY((int) f3);
-                } else if (this.f13064g.getTotalScrollY() >= itemsCount) {
-                    this.f13064g.setTotalScrollY((int) itemsCount);
-                    this.f13062e = -40.0f;
+                if (this.f12744g.getTotalScrollY() <= f3) {
+                    this.f12742e = 40.0f;
+                    this.f12744g.setTotalScrollY((int) f3);
+                } else if (this.f12744g.getTotalScrollY() >= itemsCount) {
+                    this.f12744g.setTotalScrollY((int) itemsCount);
+                    this.f12742e = -40.0f;
                 }
             }
-            float f4 = this.f13062e;
+            float f4 = this.f12742e;
             if (f4 < 0.0f) {
-                this.f13062e = f4 + 20.0f;
+                this.f12742e = f4 + 20.0f;
             } else {
-                this.f13062e = f4 - 20.0f;
+                this.f12742e = f4 - 20.0f;
             }
-            this.f13064g.getHandler().sendEmptyMessage(1000);
+            this.f12744g.getHandler().sendEmptyMessage(1000);
         }
     }
 }

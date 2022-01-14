@@ -33,13 +33,13 @@ public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20598e;
+        public final /* synthetic */ Context f20049e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public final class o {
                     return;
                 }
             }
-            this.f20598e = context;
+            this.f20049e = context;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -64,18 +64,18 @@ public final class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                c.a.s0.m.a.j(this.f20598e, "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
+                c.a.s0.m.a.j(this.f20049e, "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20599e;
+        public final /* synthetic */ Context f20050e;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public final class o {
                     return;
                 }
             }
-            this.f20599e = context;
+            this.f20050e = context;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -100,7 +100,7 @@ public final class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                c.a.s0.m.a.j(this.f20599e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+                c.a.s0.m.a.j(this.f20050e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
             }
         }
     }
@@ -138,7 +138,7 @@ public final class o {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.yesBtn);
             tBSpecificationBtn.setText(tbPageContext.getString(R.string.secret_hint_agree_and_go_on));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
-            c.a.s0.s.i0.n.b bVar = new c.a.s0.s.i0.n.b();
+            c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
             bVar.p(R.color.CAM_X0303, R.color.CAM_X0101);
             tBSpecificationBtn.setConfig(bVar);
             tBSpecificationBtn.setOnClickListener(listener);

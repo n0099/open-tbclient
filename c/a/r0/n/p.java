@@ -44,7 +44,7 @@ public class p extends PopupWindow implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f11710e;
+        public final /* synthetic */ p f11445e;
 
         public a(p pVar) {
             Interceptable interceptable = $ic;
@@ -61,19 +61,19 @@ public class p extends PopupWindow implements View.OnClickListener {
                     return;
                 }
             }
-            this.f11710e = pVar;
+            this.f11445e = pVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                Context context = this.f11710e.W;
+                Context context = this.f11445e.W;
                 if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                     return;
                 }
                 p.super.r();
-                p pVar = this.f11710e;
+                p pVar = this.f11445e;
                 BaseMenuView baseMenuView = pVar.V;
                 if (baseMenuView != pVar.Y) {
                     baseMenuView.setVisibility(8);

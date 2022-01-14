@@ -8,16 +8,16 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62043b = -1;
+    public int f59700b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62044c;
+    public String f59701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62045d;
+    public String f59702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62046e;
+    public String f59703e;
 
     public String a() {
         return b().toString();
@@ -35,10 +35,10 @@ public class a {
         }
         try {
             jSONObject.put("ah_plan_type", this.a);
-            jSONObject.put("error_code", String.valueOf(this.f62043b));
-            jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f62044c);
-            jSONObject.put("real_device_plan", this.f62045d);
-            jSONObject.put("device_plans", this.f62046e);
+            jSONObject.put("error_code", String.valueOf(this.f59700b));
+            jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f59701c);
+            jSONObject.put("real_device_plan", this.f59702d);
+            jSONObject.put("device_plans", this.f59703e);
         } catch (Throwable unused) {
         }
     }
@@ -50,15 +50,15 @@ public class a {
         a aVar = new a();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar.f62046e = jSONObject.optString("device_plans", null);
-            aVar.f62045d = jSONObject.optString("real_device_plan", null);
-            aVar.f62044c = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, null);
+            aVar.f59703e = jSONObject.optString("device_plans", null);
+            aVar.f59702d = jSONObject.optString("real_device_plan", null);
+            aVar.f59701c = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, null);
             aVar.a = jSONObject.optString("ah_plan_type", null);
             String optString = jSONObject.optString("error_code");
             if (TextUtils.isEmpty(optString)) {
-                aVar.f62043b = -1;
+                aVar.f59700b = -1;
             } else {
-                aVar.f62043b = Integer.parseInt(optString);
+                aVar.f59700b = Integer.parseInt(optString);
             }
         } catch (Throwable th) {
             th.printStackTrace();

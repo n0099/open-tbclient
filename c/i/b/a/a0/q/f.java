@@ -24,34 +24,32 @@ public final class f {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f29602b;
+    public static final int f28699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f29603c;
+    public static final int f28700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f29604d;
+    public static final int f28701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f29605e;
+    public static final int f28702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f29606f;
+    public static final int f28703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f29607g;
+    public static final int f28704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f29608h;
+    public static final int f28705h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f29609i;
+    public static final int f28706i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f29610j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final int f29611k;
+    public static final int f28707j;
+    public static final int k;
     public static final int l;
     public static final int m;
     public static final int n;
@@ -83,16 +81,16 @@ public final class f {
             }
         }
         a = v.q("nam");
-        f29602b = v.q("trk");
-        f29603c = v.q("cmt");
-        f29604d = v.q("day");
-        f29605e = v.q("ART");
-        f29606f = v.q("too");
-        f29607g = v.q("alb");
-        f29608h = v.q("com");
-        f29609i = v.q("wrt");
-        f29610j = v.q("lyr");
-        f29611k = v.q("gen");
+        f28699b = v.q("trk");
+        f28700c = v.q("cmt");
+        f28701d = v.q("day");
+        f28702e = v.q("ART");
+        f28703f = v.q("too");
+        f28704g = v.q("alb");
+        f28705h = v.q("com");
+        f28706i = v.q("wrt");
+        f28707j = v.q("lyr");
+        k = v.q("gen");
         l = v.q("covr");
         m = v.q(GenreBox.TYPE);
         n = v.q("grp");
@@ -215,27 +213,27 @@ public final class f {
                     }
                 } else {
                     int i4 = 16777215 & i2;
-                    if (i4 == f29603c) {
+                    if (i4 == f28700c) {
                         return a(i2, lVar);
                     }
-                    if (i4 != a && i4 != f29602b) {
-                        if (i4 != f29608h && i4 != f29609i) {
-                            if (i4 == f29604d) {
+                    if (i4 != a && i4 != f28699b) {
+                        if (i4 != f28705h && i4 != f28706i) {
+                            if (i4 == f28701d) {
                                 return g(i2, "TDRC", lVar);
                             }
-                            if (i4 == f29605e) {
+                            if (i4 == f28702e) {
                                 return g(i2, "TPE1", lVar);
                             }
-                            if (i4 == f29606f) {
+                            if (i4 == f28703f) {
                                 return g(i2, "TSSE", lVar);
                             }
-                            if (i4 == f29607g) {
+                            if (i4 == f28704g) {
                                 return g(i2, "TALB", lVar);
                             }
-                            if (i4 == f29610j) {
+                            if (i4 == f28707j) {
                                 return g(i2, "USLT", lVar);
                             }
-                            if (i4 == f29611k) {
+                            if (i4 == k) {
                                 return g(i2, "TCON", lVar);
                             }
                             if (i4 == n) {

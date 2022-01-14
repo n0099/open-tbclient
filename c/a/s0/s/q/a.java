@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
+public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIG_IMG = 2;
     public static final int CONTENT = 1;
@@ -81,13 +81,13 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
         return (String) invokeV.objValue;
     }
 
-    public abstract d2 getThreadData();
+    public abstract e2 getThreadData();
 
     public boolean isFromFrs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData == null) {
                 return false;
             }
@@ -102,7 +102,7 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ThreadCardUtils.isSelf(getThreadData()) : invokeV.booleanValue;
     }
 
-    @Override // c.a.s0.b.f.o
+    @Override // c.a.s0.b.f.n
     public void setABTest(BdUniqueId bdUniqueId, c.a.s0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, bdUniqueId, eVar) == null) || bdUniqueId == null) {
@@ -115,11 +115,11 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData == null) {
                 return false;
             }
-            return threadData.b2 || threadData.c2 || threadData.f2 || threadData.d2 || threadData.g2 || threadData.e2;
+            return threadData.a2 || threadData.b2 || threadData.e2 || threadData.c2 || threadData.f2 || threadData.d2;
         }
         return invokeV.booleanValue;
     }
@@ -128,11 +128,11 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData == null) {
                 return false;
             }
-            return threadData.c2 || threadData.f2 || threadData.M2();
+            return threadData.b2 || threadData.e2 || threadData.M2();
         }
         return invokeV.booleanValue;
     }
@@ -141,11 +141,11 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            d2 threadData = getThreadData();
+            e2 threadData = getThreadData();
             if (threadData == null) {
                 return false;
             }
-            return threadData.c2 || threadData.f2 || threadData.b2;
+            return threadData.b2 || threadData.e2 || threadData.a2;
         }
         return invokeV.booleanValue;
     }
@@ -154,13 +154,13 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            d2 threadData = getThreadData();
-            if (threadData == null || threadData.J() == null || threadData.j2 || ThreadCardUtils.isSelf(threadData)) {
+            e2 threadData = getThreadData();
+            if (threadData == null || threadData.J() == null || threadData.i2 || ThreadCardUtils.isSelf(threadData)) {
                 return false;
             }
             boolean z = threadData.U1() || threadData.P1() || threadData.S1();
-            if ((!threadData.b2 || (!z && !threadData.M2())) && ((!threadData.d2 || (!z && !threadData.M2())) && (!threadData.isFromFrs() || (!z && !threadData.M2())))) {
-                if (!threadData.e2) {
+            if ((!threadData.a2 || (!z && !threadData.M2())) && ((!threadData.c2 || (!z && !threadData.M2())) && (!threadData.isFromFrs() || (!z && !threadData.M2())))) {
+                if (!threadData.d2) {
                     return false;
                 }
                 if (!z && !threadData.M2()) {
@@ -175,13 +175,13 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
     public boolean showNewPicCut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.m.f12526c), "11_7_index_b") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.l.f12230c), "11_7_index_b") : invokeV.booleanValue;
     }
 
     public boolean showNewUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.m.f12526c), "11_7_index_a") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.l.f12230c), "11_7_index_a") : invokeV.booleanValue;
     }
 
     public boolean showNoName() {
@@ -196,7 +196,7 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
     public boolean showNoReadState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.m.f12526c), "11_7_index_e") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.l.f12230c), "11_7_index_e") : invokeV.booleanValue;
     }
 
     public boolean showWeakenName() {

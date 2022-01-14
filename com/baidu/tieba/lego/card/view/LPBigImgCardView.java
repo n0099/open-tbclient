@@ -26,22 +26,20 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f47322f;
+    public RelativeLayout f45569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47323g;
+    public TbImageView f45570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f47324h;
+    public TbImageView f45571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47325i;
+    public TextView f45572i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47326j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public final int f47327k;
+    public int f45573j;
+    public final int k;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -49,10 +47,10 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f47328e;
+        public final /* synthetic */ LPBigImgCard f45574e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCardView f47329f;
+        public final /* synthetic */ LPBigImgCardView f45575f;
 
         public a(LPBigImgCardView lPBigImgCardView, LPBigImgCard lPBigImgCard) {
             Interceptable interceptable = $ic;
@@ -69,16 +67,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                     return;
                 }
             }
-            this.f47329f = lPBigImgCardView;
-            this.f47328e = lPBigImgCard;
+            this.f45575f = lPBigImgCardView;
+            this.f45574e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f47329f.mContext, new String[]{this.f47328e.getBtnLink()});
-                y.q().l().c(this.f47328e.getsExtras(), this.f47329f.mFrom);
+                UrlManager.getInstance().dealOneLink(this.f45575f.mContext, new String[]{this.f45574e.getBtnLink()});
+                y.q().l().c(this.f45574e.getsExtras(), this.f45575f.mFrom);
             }
         }
     }
@@ -89,10 +87,10 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f47330e;
+        public final /* synthetic */ LPBigImgCard f45576e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCardView f47331f;
+        public final /* synthetic */ LPBigImgCardView f45577f;
 
         public b(LPBigImgCardView lPBigImgCardView, LPBigImgCard lPBigImgCard) {
             Interceptable interceptable = $ic;
@@ -109,16 +107,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                     return;
                 }
             }
-            this.f47331f = lPBigImgCardView;
-            this.f47330e = lPBigImgCard;
+            this.f45577f = lPBigImgCardView;
+            this.f45576e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f47331f.mContext, new String[]{this.f47330e.getBtnLink()});
-                y.q().l().c(this.f47330e.getsExtras(), this.f47331f.mFrom);
+                UrlManager.getInstance().dealOneLink(this.f45577f.mContext, new String[]{this.f45576e.getBtnLink()});
+                y.q().l().c(this.f45576e.getsExtras(), this.f45577f.mFrom);
             }
         }
     }
@@ -141,7 +139,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                 return;
             }
         }
-        this.f47327k = n.k(getContext());
+        this.k = n.k(getContext());
     }
 
     public final int c(int i2) {
@@ -154,7 +152,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-            layoutParams.width = this.f47327k;
+            layoutParams.width = this.k;
             layoutParams.height = i2;
             view.setLayoutParams(layoutParams);
         }
@@ -176,11 +174,11 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_bigimg, (ViewGroup) null);
-            this.f47322f = relativeLayout;
-            this.f47323g = (TbImageView) findViewById(relativeLayout, R.id.tb_img_background);
-            this.f47324h = (TbImageView) findViewById(this.f47322f, R.id.tb_img_button);
-            this.f47325i = (TextView) findViewById(this.f47322f, R.id.tv_button);
-            return this.f47322f;
+            this.f45569f = relativeLayout;
+            this.f45570g = (TbImageView) findViewById(relativeLayout, R.id.tb_img_background);
+            this.f45571h = (TbImageView) findViewById(this.f45569f, R.id.tb_img_button);
+            this.f45572i = (TextView) findViewById(this.f45569f, R.id.tv_button);
+            return this.f45569f;
         }
         return (View) invokeV.objValue;
     }
@@ -200,19 +198,19 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lPBigImgCard) == null) || lPBigImgCard.getPicWidth() <= 0 || lPBigImgCard.getPicHeight() <= 0) {
             return;
         }
-        int picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.f47327k);
-        this.f47326j = picHeight;
-        d(this.f47323g, picHeight);
+        int picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.k);
+        this.f45573j = picHeight;
+        d(this.f45570g, picHeight);
         if (!TextUtils.isEmpty(lPBigImgCard.getPicUrl())) {
-            this.f47323g.startLoad(lPBigImgCard.getPicUrl(), 17, this.f47327k, this.f47326j, false);
+            this.f45570g.startLoad(lPBigImgCard.getPicUrl(), 17, this.k, this.f45573j, false);
         } else {
-            setBackgroundColor(this.f47323g, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
+            setBackgroundColor(this.f45570g, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
         }
-        int i2 = this.f47326j;
+        int i2 = this.f45573j;
         if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
             int btnHeight = lPBigImgCard.getBtnHeight();
-            e(this.f47324h, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-            this.f47324h.startLoad(lPBigImgCard.getBtnImgUrl(), 17, false);
+            e(this.f45571h, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+            this.f45571h.startLoad(lPBigImgCard.getBtnImgUrl(), 17, false);
             int btnPosRatio = (int) ((i2 * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
             if (btnPosRatio < 0) {
                 btnPosRatio = 0;
@@ -222,15 +220,15 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                     btnPosRatio = i3;
                 }
             }
-            ((RelativeLayout.LayoutParams) this.f47324h.getLayoutParams()).topMargin = btnPosRatio;
-            this.f47324h.setOnClickListener(new a(this, lPBigImgCard));
-            this.f47324h.setVisibility(0);
-            this.f47325i.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.f45571h.getLayoutParams()).topMargin = btnPosRatio;
+            this.f45571h.setOnClickListener(new a(this, lPBigImgCard));
+            this.f45571h.setVisibility(0);
+            this.f45572i.setVisibility(8);
         } else if (!TextUtils.isEmpty(lPBigImgCard.getBtnText()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
             int btnHeight2 = lPBigImgCard.getBtnHeight();
-            this.f47325i.setText(lPBigImgCard.getBtnText());
-            e(this.f47325i, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-            setTextColor(this.f47325i, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
+            this.f45572i.setText(lPBigImgCard.getBtnText());
+            e(this.f45572i, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+            setTextColor(this.f45572i, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
             int btnPosRatio2 = (int) ((i2 * lPBigImgCard.getBtnPosRatio()) - (btnHeight2 * 0.5d));
             if (btnPosRatio2 < 0) {
                 btnPosRatio2 = 0;
@@ -240,13 +238,13 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                     btnPosRatio2 = i4;
                 }
             }
-            ((RelativeLayout.LayoutParams) this.f47325i.getLayoutParams()).topMargin = btnPosRatio2;
-            this.f47325i.setOnClickListener(new b(this, lPBigImgCard));
-            this.f47325i.setVisibility(0);
-            this.f47324h.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.f45572i.getLayoutParams()).topMargin = btnPosRatio2;
+            this.f45572i.setOnClickListener(new b(this, lPBigImgCard));
+            this.f45572i.setVisibility(0);
+            this.f45571h.setVisibility(8);
         } else {
-            this.f47325i.setVisibility(8);
-            this.f47324h.setVisibility(8);
+            this.f45572i.setVisibility(8);
+            this.f45571h.setVisibility(8);
         }
         if (lPBigImgCard.mHasShown) {
             return;

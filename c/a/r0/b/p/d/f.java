@@ -110,7 +110,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.b.p.d.c f10411c;
+        public final /* synthetic */ c.a.r0.b.p.d.c f10186c;
 
         public b(c.a.r0.b.p.d.c cVar) {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class f {
                     return;
                 }
             }
-            this.f10411c = cVar;
+            this.f10186c = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,15 +137,15 @@ public class f {
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 Bundle a = bVar.a();
                 if (a == null) {
-                    this.f10411c.a(null);
+                    this.f10186c.a(null);
                     return;
                 }
                 a.setClassLoader(QuickLoginInfo.class.getClassLoader());
                 QuickLoginInfo quickLoginInfo = (QuickLoginInfo) a.getParcelable("quick_login_info_result");
                 if (quickLoginInfo == null) {
-                    this.f10411c.a(null);
+                    this.f10186c.a(null);
                 } else {
-                    this.f10411c.a(quickLoginInfo);
+                    this.f10186c.a(quickLoginInfo);
                 }
             }
         }
@@ -158,7 +158,7 @@ public class f {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f10412b;
+        public final /* synthetic */ e f10187b;
 
         public c(Activity activity, e eVar) {
             Interceptable interceptable = $ic;
@@ -176,14 +176,14 @@ public class f {
                 }
             }
             this.a = activity;
-            this.f10412b = eVar;
+            this.f10187b = eVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void available(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                v.a().m(this.a, oneKeyLoginResult.sign, this.f10412b);
+                v.a().m(this.a, oneKeyLoginResult.sign, this.f10187b);
             }
         }
 
@@ -191,7 +191,7 @@ public class f {
         public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                this.f10412b.onResult(-1);
+                this.f10187b.onResult(-1);
             }
         }
     }

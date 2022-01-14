@@ -40,7 +40,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f50985e;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f49042e;
 
         public a(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f50985e = defaultNavigationBarCoverTip;
+            this.f49042e = defaultNavigationBarCoverTip;
         }
 
         @Override // android.view.View.OnClickListener
@@ -65,11 +65,11 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TbPageContext<?> tbPageContext;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50985e.hideTip();
-                if (this.f50985e.l == null || TextUtils.isEmpty(this.f50985e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f50985e.l)) == null) {
+                this.f49042e.hideTip();
+                if (this.f49042e.l == null || TextUtils.isEmpty(this.f49042e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f49042e.l)) == null) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f50985e.n});
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f49042e.n});
             }
         }
     }
@@ -80,7 +80,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f50986e;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f49043e;
 
         public b(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -97,15 +97,15 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f50986e = defaultNavigationBarCoverTip;
+            this.f49043e = defaultNavigationBarCoverTip;
         }
 
         @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f50986e.l) {
-                this.f50986e.setCoverTipListener(null);
-                this.f50986e.l();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f49043e.l) {
+                this.f49043e.setCoverTipListener(null);
+                this.f49043e.l();
             }
         }
     }
@@ -208,7 +208,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.m.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            c.a.s0.s.i0.n.c cVar = new c.a.s0.s.i0.n.c();
+            c.a.s0.s.j0.n.c cVar = new c.a.s0.s.j0.n.c();
             cVar.s();
             tBSpecificationBtn.setConfig(cVar);
             textView.setSingleLine();

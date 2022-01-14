@@ -23,7 +23,7 @@ public class b {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.c.g.a f12356b;
+    public c.a.d.c.g.a f12068b;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -68,8 +68,8 @@ public class b {
             if (aVar == null || !aVar.a) {
                 return;
             }
-            c.a.s0.s.g0.b.j().w(c.a.s0.s.g0.b.n("pref_key_last_request_mission"), System.currentTimeMillis());
-            c.a.s0.s.f0.a.e().i();
+            c.a.s0.s.h0.b.k().x(c.a.s0.s.h0.b.o("pref_key_last_request_mission"), System.currentTimeMillis());
+            c.a.s0.s.g0.a.e().i();
         }
     }
 
@@ -88,17 +88,17 @@ public class b {
                 return;
             }
         }
-        this.f12356b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
+        this.f12068b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
         this.a = bdUniqueId;
         c();
-        this.f12356b.setTag(this.a);
-        MessageManager.getInstance().registerListener(this.f12356b);
+        this.f12068b.setTag(this.a);
+        MessageManager.getInstance().registerListener(this.f12068b);
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(c.a.s0.s.g0.b.j().l(c.a.s0.s.g0.b.n("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(c.a.s0.s.h0.b.k().m(c.a.s0.s.h0.b.o("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
     public BdUniqueId b() {

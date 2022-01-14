@@ -22,16 +22,16 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8920b;
+    public String f8725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8921c;
+    public int f8726c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8922d;
+    public int f8727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8923e;
+    public int f8728e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public class b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? WifiManager.calculateSignalLevel(this.f8922d, 100) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? WifiManager.calculateSignalLevel(this.f8727d, 100) : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f8920b;
+            String str = this.f8725b;
             return str != null ? str : "02:00:00:00:00:00";
         }
         return (String) invokeV.objValue;
@@ -68,7 +68,7 @@ public class b {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8923e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8728e : invokeV.intValue;
     }
 
     public String d() {
@@ -84,7 +84,7 @@ public class b {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8921c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8726c : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -95,7 +95,7 @@ public class b {
                 return super.equals(obj);
             }
             b bVar = (b) obj;
-            return bVar.a.equals(this.a) && bVar.f8920b.equals(this.f8920b);
+            return bVar.a.equals(this.a) && bVar.f8725b.equals(this.f8725b);
         }
         return invokeL.booleanValue;
     }
@@ -104,10 +104,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a = "<unknown ssid>";
-            this.f8920b = "02:00:00:00:00:00";
-            this.f8921c = -1;
-            this.f8922d = 0;
-            this.f8923e = 0;
+            this.f8725b = "02:00:00:00:00:00";
+            this.f8726c = -1;
+            this.f8727d = 0;
+            this.f8728e = 0;
         }
     }
 
@@ -123,41 +123,41 @@ public class b {
             if (str == null) {
                 str = "02:00:00:00:00:00";
             }
-            this.f8920b = str;
+            this.f8725b = str;
         }
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.hashCode() + this.f8920b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.hashCode() + this.f8725b.hashCode() : invokeV.intValue;
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f8923e = i2;
+            this.f8728e = i2;
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f8922d = i2;
+            this.f8727d = i2;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f8921c = i2;
+            this.f8726c = i2;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f8921c = c.a.r0.a.r2.l.e.b.c(str);
+            this.f8726c = c.a.r0.a.r2.l.e.b.c(str);
         }
     }
 

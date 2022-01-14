@@ -19,10 +19,10 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.s1.t.a f22892e;
+    public c.a.t0.s1.t.a f22262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22893f;
+    public int f22263f;
 
     public a(c.a.t0.s1.t.a aVar, int i2) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
                 return;
             }
         }
-        this.f22892e = aVar;
-        this.f22893f = i2;
+        this.f22262e = aVar;
+        this.f22263f = i2;
     }
 
     public final LoadDraftResponsedMessage a(int i2) {
@@ -59,12 +59,12 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.f22893f);
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.f22263f);
             if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
                 LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
                 String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
                 LoadDraftMessage.a data = loadDraftMessage.getData();
-                ChatSetting a = this.f22892e.a(id, data.a);
+                ChatSetting a = this.f22262e.a(id, data.a);
                 if (a == null) {
                     return a(loadDraftMessage.getCmd());
                 }
@@ -73,13 +73,13 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
                 aVar.a = draft;
                 String str = data.a;
                 try {
-                    loadDraftResponsedMessage.decodeInBackGround(this.f22893f, aVar);
+                    loadDraftResponsedMessage.decodeInBackGround(this.f22263f, aVar);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
                 return loadDraftResponsedMessage;
             }
-            return a(this.f22893f);
+            return a(this.f22263f);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

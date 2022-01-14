@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +20,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<d2> liveList;
+    public List<e2> liveList;
     public List<String> sortType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 for (int i3 = 0; i3 < length; i3++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                     if (optJSONObject != null) {
-                        d2 d2Var = new d2();
-                        d2Var.b3(optJSONObject);
-                        this.liveList.add(d2Var);
+                        e2 e2Var = new e2();
+                        e2Var.b3(optJSONObject);
+                        this.liveList.add(e2Var);
                     }
                 }
             } else {
@@ -87,7 +87,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
     }
 
-    public List<d2> getLiveList() {
+    public List<e2> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;

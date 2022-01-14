@@ -30,7 +30,7 @@ import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
 /* loaded from: classes3.dex */
-public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> implements b.InterfaceC2116b {
+public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> implements b.InterfaceC2133b {
     public static final String KEY_REWARD_TYPE = "key_template_reward_type";
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -232,7 +232,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
         this.mPageDismissCalled = true;
         if (z) {
             adTemplate = this.mAdTemplate;
-            jSONObject = this.mCallerContext.f59453e;
+            jSONObject = this.mCallerContext.f57205e;
         } else {
             adTemplate = this.mAdTemplate;
             i2 = 6;
@@ -358,19 +358,19 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
     @Override // com.kwad.sdk.core.e.a
     public a onCreateCallerContext() {
         a aVar = new a();
-        aVar.f59456h = getActivity();
-        aVar.f59457i = this.mContext;
-        aVar.f59450b = this.mAdOpenInteractionListener;
-        aVar.f59451c = this.mAdRewardStepListener;
-        aVar.f59454f = this.mScreenOrientation;
+        aVar.f57208h = getActivity();
+        aVar.f57209i = this.mContext;
+        aVar.f57202b = this.mAdOpenInteractionListener;
+        aVar.f57203c = this.mAdRewardStepListener;
+        aVar.f57206f = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f59452d = ksVideoPlayConfig;
-        aVar.f59453e = this.mReportExtData;
-        aVar.f59458j = this.mRootContainer;
+        aVar.f57204d = ksVideoPlayConfig;
+        aVar.f57205e = this.mReportExtData;
+        aVar.f57210j = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f59455g = adTemplate;
+        aVar.f57207g = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig, this.rewardType == 2);
-        aVar.f59459k = aVar2;
+        aVar.k = aVar2;
         aVar.a.add(aVar2);
         if (com.kwad.sdk.core.response.a.a.B(this.mAdInfo)) {
             aVar.l = new com.kwad.sdk.core.download.a.b(this.mAdTemplate, this.mReportExtData);
@@ -477,7 +477,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
         h.a().b();
     }
 
-    @Override // com.kwad.sdk.reward.b.InterfaceC2116b
+    @Override // com.kwad.sdk.reward.b.InterfaceC2133b
     public void onPageClose() {
         finish();
     }

@@ -16,22 +16,22 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18343b;
+    public String f17892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18344c;
+    public String f17893c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18345d;
+    public String f17894d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18346e;
+    public String f17895e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18347f;
+    public String f17896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18348g;
+    public String f17897g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,37 +50,37 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18344c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17893c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18347f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17896f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18348g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17897g : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18343b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17892b : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18345d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17894d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18346e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17895e : (String) invokeV.objValue;
     }
 
     public String g() {
@@ -95,27 +95,27 @@ public class a {
             return;
         }
         this.a = esportRank.title;
-        this.f18343b = String.valueOf(esportRank.rank);
-        this.f18344c = esportRank.text;
-        this.f18348g = esportRank.url;
+        this.f17892b = String.valueOf(esportRank.rank);
+        this.f17893c = esportRank.text;
+        this.f17897g = esportRank.url;
         EsportUser esportUser = esportRank.user;
         if (esportUser != null) {
-            this.f18345d = esportUser.steam_name;
-            this.f18346e = esportUser.steam_portrait;
+            this.f17894d = esportUser.steam_name;
+            this.f17895e = esportUser.steam_portrait;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f18347f = str;
+            this.f17896f = str;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f18348g = str;
+            this.f17897g = str;
         }
     }
 }

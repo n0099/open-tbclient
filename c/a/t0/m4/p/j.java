@@ -12,7 +12,7 @@ public final /* synthetic */ class j implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ j f20077e = new j();
+    public static final /* synthetic */ j f19548e = new j();
     public transient /* synthetic */ FieldHolder $fh;
 
     private /* synthetic */ j() {

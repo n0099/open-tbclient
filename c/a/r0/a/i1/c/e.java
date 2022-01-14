@@ -71,6 +71,6 @@ public class e extends c {
         InterceptResult invokeV;
         c.a.r0.a.i1.c.h.c cVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f5422g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f5309g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true : invokeV.booleanValue;
     }
 }

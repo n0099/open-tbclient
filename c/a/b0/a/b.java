@@ -19,28 +19,28 @@ public final class b {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f1516b = null;
+    public static c f1503b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.b0.a.g.b f1517c = null;
+    public static c.a.b0.a.g.b f1504c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f1518d = null;
+    public static Context f1505d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static byte[] f1519e = null;
+    public static byte[] f1506e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static JSONObject f1520f = null;
+    public static JSONObject f1507f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static JSONObject f1521g = null;
+    public static JSONObject f1508g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f1522h = true;
+    public static boolean f1509h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f1523i = "live";
+    public static String f1510i = "live";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -75,13 +75,13 @@ public final class b {
     public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1519e : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1506e : (byte[]) invokeV.objValue;
     }
 
     public static c.a.b0.a.g.b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f1517c : (c.a.b0.a.g.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f1504c : (c.a.b0.a.g.b) invokeV.objValue;
     }
 
     public static DefaultParams d(EGLContext eGLContext) {
@@ -94,19 +94,19 @@ public final class b {
             }
             DefaultParams defaultParams = new DefaultParams();
             defaultParams.setFaceAlgoModelPath(g2);
-            JSONObject jSONObject = f1520f;
+            JSONObject jSONObject = f1507f;
             if (jSONObject != null && jSONObject.length() > 0) {
-                defaultParams.setGradingConfig(f1520f);
+                defaultParams.setGradingConfig(f1507f);
             }
             if (eGLContext != null) {
                 defaultParams.setUseTextureIO(true);
                 defaultParams.setShareContext(eGLContext);
             }
-            JSONObject jSONObject2 = f1520f;
+            JSONObject jSONObject2 = f1507f;
             if (jSONObject2 != null && jSONObject2.length() > 0) {
-                defaultParams.setGradingConfig(f1520f);
+                defaultParams.setGradingConfig(f1507f);
                 if (m()) {
-                    a("getDuMixDefaultParams  " + f1520f.toString());
+                    a("getDuMixDefaultParams  " + f1507f.toString());
                 }
             }
             return defaultParams;
@@ -117,7 +117,7 @@ public final class b {
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f1523i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f1510i : (String) invokeV.objValue;
     }
 
     public static synchronized c.a.b0.a.f.b f() {
@@ -125,10 +125,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (b.class) {
-                if (f1521g == null || f1521g.length() <= 0) {
+                if (f1508g == null || f1508g.length() <= 0) {
                     return null;
                 }
-                return c.a.b0.a.f.b.b(f1521g);
+                return c.a.b0.a.f.b.b(f1508g);
             }
         }
         return (c.a.b0.a.f.b) invokeV.objValue;
@@ -137,13 +137,13 @@ public final class b {
     public static c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f1516b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f1503b : (c) invokeV.objValue;
     }
 
     public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f1518d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f1505d : (Context) invokeV.objValue;
     }
 
     public static int h() {
@@ -179,11 +179,11 @@ public final class b {
             if (m()) {
                 a("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
             }
-            f1518d = context.getApplicationContext();
+            f1505d = context.getApplicationContext();
             DuMixARConfig.setAppId(str);
             DuMixARConfig.setAPIKey(str2);
             DuMixARConfig.setSecretKey(str3);
-            c.a.b0.a.h.d.d().i(f1518d);
+            c.a.b0.a.h.d.d().i(f1505d);
             s(cVar);
         }
     }
@@ -203,7 +203,7 @@ public final class b {
     public static boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f1522h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f1509h : invokeV.booleanValue;
     }
 
     public static void p(a aVar) {
@@ -216,14 +216,14 @@ public final class b {
     public static void q(c.a.b0.a.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, bVar) == null) {
-            f1517c = bVar;
+            f1504c = bVar;
         }
     }
 
     public static void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            f1523i = str;
+            f1510i = str;
         }
     }
 
@@ -231,11 +231,11 @@ public final class b {
         File f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, cVar) == null) {
-            f1516b = cVar;
+            f1503b = cVar;
             if (cVar != null || (f2 = g.e().f()) == null) {
                 return;
             }
-            f1516b = new c(f2.getAbsolutePath());
+            f1503b = new c(f2.getAbsolutePath());
         }
     }
 
@@ -244,7 +244,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(65557, null, file) == null) || file == null) {
             return;
         }
-        c cVar = f1516b;
+        c cVar = f1503b;
         if (cVar == null) {
             cVar = new c(file.getAbsolutePath());
         }
@@ -254,7 +254,7 @@ public final class b {
     public static void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
-            f1522h = z;
+            f1509h = z;
             t(g.e().f());
         }
     }

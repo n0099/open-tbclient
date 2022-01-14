@@ -16,13 +16,13 @@ public final class RemovalNotification<K, V> extends AbstractMap.SimpleImmutable
     public final RemovalCause cause;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RemovalNotification(K k2, V v, RemovalCause removalCause) {
-        super(k2, v);
+    public RemovalNotification(K k, V v, RemovalCause removalCause) {
+        super(k, v);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k2, v, removalCause};
+            Object[] objArr = {k, v, removalCause};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,10 +38,10 @@ public final class RemovalNotification<K, V> extends AbstractMap.SimpleImmutable
         this.cause = removalCause;
     }
 
-    public static <K, V> RemovalNotification<K, V> create(K k2, V v, RemovalCause removalCause) {
+    public static <K, V> RemovalNotification<K, V> create(K k, V v, RemovalCause removalCause) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, k2, v, removalCause)) == null) ? new RemovalNotification<>(k2, v, removalCause) : (RemovalNotification) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, k, v, removalCause)) == null) ? new RemovalNotification<>(k, v, removalCause) : (RemovalNotification) invokeLLL.objValue;
     }
 
     public RemovalCause getCause() {

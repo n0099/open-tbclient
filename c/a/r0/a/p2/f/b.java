@@ -14,10 +14,10 @@ public class b {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f8555b;
+    public static final Pattern f8371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f8556c;
+    public static final Pattern f8372c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class b {
             }
         }
         a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
-        f8555b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
-        f8556c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
+        f8371b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+        f8372c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
     }
 
     public static boolean a(String str) {
@@ -94,7 +94,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return f8556c.matcher(str).matches();
+            return f8372c.matcher(str).matches();
         }
         return invokeL.booleanValue;
     }
@@ -106,7 +106,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return f8555b.matcher(str).matches();
+            return f8371b.matcher(str).matches();
         }
         return invokeL.booleanValue;
     }

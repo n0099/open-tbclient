@@ -19,6 +19,7 @@ import com.google.zxing.common.detector.WhiteRectangleDetector;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import kotlin.text.Typography;
 /* loaded from: classes3.dex */
 public final class Detector {
@@ -178,7 +179,7 @@ public final class Detector {
                     return;
                 }
                 this.nbLayers = (correctedParameterData >> 11) + 1;
-                this.nbDataBlocks = (correctedParameterData & 2047) + 1;
+                this.nbDataBlocks = (correctedParameterData & RevenueServerConst.GetUserCouponStoreResponse) + 1;
                 return;
             }
             throw NotFoundException.getNotFoundInstance();

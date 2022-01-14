@@ -13,7 +13,7 @@ public class m0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static m0 f31355b;
+    public static m0 f30374b;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentHashMap a;
 
@@ -37,14 +37,14 @@ public class m0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31355b == null) {
+            if (f30374b == null) {
                 synchronized (m0.class) {
-                    if (f31355b == null) {
-                        f31355b = new m0();
+                    if (f30374b == null) {
+                        f30374b = new m0();
                     }
                 }
             }
-            return f31355b;
+            return f30374b;
         }
         return (m0) invokeV.objValue;
     }

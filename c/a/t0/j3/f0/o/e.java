@@ -11,34 +11,32 @@ public class e {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f18822b;
+    public long f18353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f18823c;
+    public long f18354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f18824d;
+    public long f18355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18825e;
+    public long f18356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18826f;
+    public String f18357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18827g;
+    public int f18358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18828h;
+    public int f18359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f18829i;
+    public String f18360i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18830j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f18831k;
+    public String f18361j;
+    public String k;
     public String l;
 
     public e() {
@@ -54,9 +52,9 @@ public class e {
                 return;
             }
         }
-        this.f18822b = -1L;
-        this.f18825e = -1L;
-        this.f18826f = "";
-        this.f18829i = null;
+        this.f18353b = -1L;
+        this.f18356e = -1L;
+        this.f18357f = "";
+        this.f18360i = null;
     }
 }

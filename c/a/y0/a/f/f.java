@@ -17,10 +17,10 @@ public final class f {
     public static String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f27685b;
+    public static File f26853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static RandomAccessFile f27686c;
+    public static RandomAccessFile f26854c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             File file = new File(str);
-            f27685b = file;
+            f26853b = file;
             return file.exists();
         }
         return invokeL.booleanValue;
@@ -55,7 +55,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             File file = new File(str);
-            f27685b = file;
+            f26853b = file;
             return file.delete();
         }
         return invokeL.booleanValue;
@@ -81,12 +81,12 @@ public final class f {
             synchronized (f.class) {
                 if (c() && f(str2, str3)) {
                     try {
-                        f27685b = new File(str2 + str3);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(f27685b, "rwd");
-                        f27686c = randomAccessFile;
-                        randomAccessFile.seek(f27685b.length());
-                        f27686c.write((str + "\r\n").getBytes("UTF-8"));
-                        f27686c.close();
+                        f26853b = new File(str2 + str3);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(f26853b, "rwd");
+                        f26854c = randomAccessFile;
+                        randomAccessFile.seek(f26853b.length());
+                        f26854c.write((str + "\r\n").getBytes("UTF-8"));
+                        f26854c.close();
                         return true;
                     } catch (Exception e2) {
                         i.e(e2);
@@ -107,11 +107,11 @@ public final class f {
                 if (c()) {
                     if (a(str + str2)) {
                         try {
-                            f27685b = new File(str + str2);
-                            f27686c = new RandomAccessFile(f27685b, "r");
+                            f26853b = new File(str + str2);
+                            f26854c = new RandomAccessFile(f26853b, "r");
                             StringBuffer stringBuffer = new StringBuffer();
                             while (true) {
-                                String readLine = f27686c.readLine();
+                                String readLine = f26854c.readLine();
                                 if (readLine == null) {
                                     break;
                                 }
@@ -120,7 +120,7 @@ public final class f {
                             }
                             String stringBuffer2 = stringBuffer.toString();
                             try {
-                                f27686c.close();
+                                f26854c.close();
                             } catch (IOException e2) {
                                 e2.printStackTrace();
                             }
@@ -128,7 +128,7 @@ public final class f {
                         } catch (Exception e3) {
                             e3.printStackTrace();
                             try {
-                                f27686c.close();
+                                f26854c.close();
                             } catch (IOException e4) {
                                 e4.printStackTrace();
                             }
@@ -147,20 +147,20 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             try {
-                f27685b = new File(str);
+                f26853b = new File(str);
                 if (!a(str)) {
-                    f27685b.mkdirs();
+                    f26853b.mkdirs();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             try {
                 File file = new File(str + str2);
-                f27685b = file;
+                f26853b = file;
                 if (file.exists()) {
                     return true;
                 }
-                return f27685b.createNewFile();
+                return f26853b.createNewFile();
             } catch (Exception e3) {
                 e3.printStackTrace();
                 return false;

@@ -19,7 +19,7 @@ public class b extends a<CouponList.Coupon> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f54632c;
+    public Context f52549c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(ListView listView, Context context) {
@@ -39,14 +39,14 @@ public class b extends a<CouponList.Coupon> {
                 return;
             }
         }
-        this.f54632c = context;
+        this.f52549c = context;
     }
 
     @Override // com.baidu.wallet.personal.a.a
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f54632c, "wallet_personal_coupon_group_item") : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f52549c, "wallet_personal_coupon_group_item") : invokeI.intValue;
     }
 
     @Override // com.baidu.wallet.personal.a.a

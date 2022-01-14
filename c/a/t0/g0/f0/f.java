@@ -1,6 +1,6 @@
 package c.a.t0.g0.f0;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,12 +32,12 @@ public class f extends k {
         U0 = BdUniqueId.gen();
     }
 
-    public f(d2 d2Var) {
+    public f(e2 e2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d2Var};
+            Object[] objArr = {e2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,26 +47,26 @@ public class f extends k {
                 return;
             }
         }
-        this.f18222e = d2Var;
+        this.f17778e = e2Var;
     }
 
-    public static boolean b0(d2 d2Var) {
+    public static boolean b0(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) {
-            if (d2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) {
+            if (e2Var == null) {
                 return false;
             }
-            return d2Var.Q1();
+            return e2Var.Q1();
         }
         return invokeL.booleanValue;
     }
 
     @Override // c.a.t0.g0.f0.k, c.a.t0.g0.f0.b, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18222e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17778e : (e2) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

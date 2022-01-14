@@ -113,7 +113,7 @@ public class e {
                 arrayList.add(new BasicNameValuePair("cert_id", a[0]));
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("bduss", bVar.a);
-                jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.f13537b);
+                jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.f13222b);
                 jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
                 jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
                 arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new c.a.s0.s.l.d().b(a[1], jSONObject.toString())));
@@ -132,7 +132,7 @@ public class e {
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     a.b bVar2 = new a.b();
                     bVar2.a = jSONObject2.optString("bduss");
-                    bVar2.f13537b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    bVar2.f13222b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
                     jSONObject2.optString("uname");
                     return bVar2;
                 }

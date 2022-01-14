@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.a.s0.s.g0.b;
+import c.a.s0.s.h0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushMessageReceiver;
@@ -48,7 +48,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i2), str, str2, str3, str4}) == null) {
             String str5 = "onBind errorCode=" + i2;
             if (i2 == 0) {
-                b.j().t(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                b.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }

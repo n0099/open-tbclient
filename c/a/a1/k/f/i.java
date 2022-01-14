@@ -13,13 +13,13 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1275b;
+    public long f1270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1276c;
+    public long f1271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1277d;
+    public long f1272d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(int i2, String str, String str2, long j2) {
@@ -45,19 +45,19 @@ public class i {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1276c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1271c : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1277d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1272d : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1275b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1270b : invokeV.longValue;
     }
 
     public String d() {
@@ -69,7 +69,7 @@ public class i {
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f1277d = j2;
+            this.f1272d = j2;
         }
     }
 
@@ -89,8 +89,8 @@ public class i {
             }
         }
         this.a = str2;
-        this.f1275b = j2;
-        this.f1276c = j3;
-        this.f1277d = j4;
+        this.f1270b = j2;
+        this.f1271c = j3;
+        this.f1272d = j4;
     }
 }

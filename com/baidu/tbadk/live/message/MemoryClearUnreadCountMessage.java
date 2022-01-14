@@ -17,7 +17,7 @@ public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42516b;
+        public int f41025b;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
                 }
             }
             this.a = str;
-            this.f42516b = i2;
+            this.f41025b = i2;
         }
     }
 

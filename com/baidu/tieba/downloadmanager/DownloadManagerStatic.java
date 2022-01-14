@@ -49,7 +49,7 @@ public class DownloadManagerStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.t0.p0.c.a.e().c(customMessage.getData());
+                c.a.t0.p0.b.a.e().c(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -57,7 +57,7 @@ public class DownloadManagerStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<c.a.t0.p0.b.b> {
+    public static class b implements CustomMessageTask.CustomRunnable<c.a.t0.p0.a.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,12 +76,12 @@ public class DownloadManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.t0.p0.b.b> run(CustomMessage<c.a.t0.p0.b.b> customMessage) {
+        public CustomResponsedMessage<c.a.t0.p0.a.b> run(CustomMessage<c.a.t0.p0.a.b> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.t0.p0.c.a.e().g(customMessage.getData());
-                c.a.t0.p0.g.a.a(customMessage.getData());
+                c.a.t0.p0.b.a.e().g(customMessage.getData());
+                c.a.t0.p0.f.a.a(customMessage.getData());
                 return new CustomResponsedMessage<>(2921627, customMessage.getData());
             }
             return (CustomResponsedMessage) invokeL.objValue;

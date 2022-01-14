@@ -19,31 +19,31 @@ public final class m {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f3992b;
+    public volatile int f3930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f3993c;
+    public Integer f3931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f3994d;
+    public Integer f3932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f3995e;
+    public Integer f3933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Integer f3996f;
+    public Integer f3934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f3997g;
+    public byte[] f3935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f3998h;
+    public byte[] f3936h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3999i;
+    public long f3937i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f4000j;
+    public byte[] f3938j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public m() {
@@ -79,14 +79,14 @@ public final class m {
                 return;
             }
         }
-        this.f3993c = num;
-        this.f3994d = num2;
-        this.f3995e = num3;
-        this.f3996f = num4;
-        this.f3997g = bArr;
-        this.f3998h = bArr2;
-        this.f3999i = j2;
-        this.f4000j = bArr3;
+        this.f3931c = num;
+        this.f3932d = num2;
+        this.f3933e = num3;
+        this.f3934f = num4;
+        this.f3935g = bArr;
+        this.f3936h = bArr2;
+        this.f3937i = j2;
+        this.f3938j = bArr3;
     }
 
     public final int a() {
@@ -105,21 +105,21 @@ public final class m {
     public final void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f3999i = j2;
+            this.f3937i = j2;
         }
     }
 
     public final void d(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, num) == null) {
-            this.f3993c = num;
+            this.f3931c = num;
         }
     }
 
     public final void e(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            this.f3997g = bArr;
+            this.f3935g = bArr;
         }
     }
 
@@ -130,8 +130,8 @@ public final class m {
             if (this != obj) {
                 if (obj instanceof m) {
                     m mVar = (m) obj;
-                    if (Intrinsics.areEqual(this.f3993c, mVar.f3993c) && Intrinsics.areEqual(this.f3994d, mVar.f3994d) && Intrinsics.areEqual(this.f3995e, mVar.f3995e) && Intrinsics.areEqual(this.f3996f, mVar.f3996f) && Intrinsics.areEqual(this.f3997g, mVar.f3997g) && Intrinsics.areEqual(this.f3998h, mVar.f3998h)) {
-                        if (!(this.f3999i == mVar.f3999i) || !Intrinsics.areEqual(this.f4000j, mVar.f4000j)) {
+                    if (Intrinsics.areEqual(this.f3931c, mVar.f3931c) && Intrinsics.areEqual(this.f3932d, mVar.f3932d) && Intrinsics.areEqual(this.f3933e, mVar.f3933e) && Intrinsics.areEqual(this.f3934f, mVar.f3934f) && Intrinsics.areEqual(this.f3935g, mVar.f3935g) && Intrinsics.areEqual(this.f3936h, mVar.f3936h)) {
+                        if (!(this.f3937i == mVar.f3937i) || !Intrinsics.areEqual(this.f3938j, mVar.f3938j)) {
                         }
                     }
                 }
@@ -146,22 +146,22 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("Recovery: add recoveryCount: " + this.f3992b);
-            this.f3992b = this.f3992b + 1;
+            debugTrace.a("Recovery: add recoveryCount: " + this.f3930b);
+            this.f3930b = this.f3930b + 1;
         }
     }
 
     public final void g(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
-            this.f3994d = num;
+            this.f3932d = num;
         }
     }
 
     public final void h(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr) == null) {
-            this.f3998h = bArr;
+            this.f3936h = bArr;
         }
     }
 
@@ -169,21 +169,21 @@ public final class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Integer num = this.f3993c;
+            Integer num = this.f3931c;
             int hashCode = (num != null ? num.hashCode() : 0) * 31;
-            Integer num2 = this.f3994d;
+            Integer num2 = this.f3932d;
             int hashCode2 = (hashCode + (num2 != null ? num2.hashCode() : 0)) * 31;
-            Integer num3 = this.f3995e;
+            Integer num3 = this.f3933e;
             int hashCode3 = (hashCode2 + (num3 != null ? num3.hashCode() : 0)) * 31;
-            Integer num4 = this.f3996f;
+            Integer num4 = this.f3934f;
             int hashCode4 = (hashCode3 + (num4 != null ? num4.hashCode() : 0)) * 31;
-            byte[] bArr = this.f3997g;
+            byte[] bArr = this.f3935g;
             int hashCode5 = (hashCode4 + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
-            byte[] bArr2 = this.f3998h;
+            byte[] bArr2 = this.f3936h;
             int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-            long j2 = this.f3999i;
+            long j2 = this.f3937i;
             int i2 = (((hashCode5 + hashCode6) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
-            byte[] bArr3 = this.f4000j;
+            byte[] bArr3 = this.f3938j;
             return i2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
         }
         return invokeV.intValue;
@@ -192,14 +192,14 @@ public final class m {
     public final void i(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, num) == null) {
-            this.f3995e = num;
+            this.f3933e = num;
         }
     }
 
     public final void j(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
-            this.f4000j = bArr;
+            this.f3938j = bArr;
         }
     }
 
@@ -211,11 +211,11 @@ public final class m {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 z = false;
-                if (this.f3997g != null && this.f3998h != null && this.f3999i > currentTimeMillis && this.a == 1) {
+                if (this.f3935g != null && this.f3936h != null && this.f3937i > currentTimeMillis && this.a == 1) {
                     z = true;
                 }
                 DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("isSessionEnable " + this.f3997g + ' ' + this.f3998h + ' ' + this.f3999i + ' ' + this.a);
+                debugTrace.a("isSessionEnable " + this.f3935g + ' ' + this.f3936h + ' ' + this.f3937i + ' ' + this.a);
             }
             return z;
         }
@@ -225,54 +225,54 @@ public final class m {
     public final void l(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, num) == null) {
-            this.f3996f = num;
+            this.f3934f = num;
         }
     }
 
     public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f3992b < 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f3930b < 3 : invokeV.booleanValue;
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("Downgrade: reset downgrade count " + this.f3992b);
-            this.f3992b = 0;
+            debugTrace.a("Downgrade: reset downgrade count " + this.f3930b);
+            this.f3930b = 0;
         }
     }
 
     public final Integer o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f3993c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f3931c : (Integer) invokeV.objValue;
     }
 
     public final Integer p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f3994d : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f3932d : (Integer) invokeV.objValue;
     }
 
     public final byte[] q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f3997g : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f3935g : (byte[]) invokeV.objValue;
     }
 
     public final byte[] r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f3998h : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f3936h : (byte[]) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "SessionParams(dhGroupId=" + this.f3993c + ", dhSecretKey=" + this.f3994d + ", dhPublicKey=" + this.f3995e + ", dhServerPublicKey=" + this.f3996f + ", aesSecretKey=" + Arrays.toString(this.f3997g) + ", sessionTicket=" + Arrays.toString(this.f3998h) + ", expireTime=" + this.f3999i + ", entryType=" + Arrays.toString(this.f4000j) + SmallTailInfo.EMOTION_SUFFIX;
+            return "SessionParams(dhGroupId=" + this.f3931c + ", dhSecretKey=" + this.f3932d + ", dhPublicKey=" + this.f3933e + ", dhServerPublicKey=" + this.f3934f + ", aesSecretKey=" + Arrays.toString(this.f3935g) + ", sessionTicket=" + Arrays.toString(this.f3936h) + ", expireTime=" + this.f3937i + ", entryType=" + Arrays.toString(this.f3938j) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

@@ -22,13 +22,13 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f18834b;
+    public Map<String, String> f18364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<BasicNameValuePair> f18835c;
+    public LinkedList<BasicNameValuePair> f18365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, byte[]> f18836d;
+    public HashMap<String, byte[]> f18366d;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class h {
             }
         }
         this.a = "";
-        this.f18834b = new HashMap();
-        this.f18835c = new LinkedList<>();
-        this.f18836d = new HashMap<>();
+        this.f18364b = new HashMap();
+        this.f18365c = new LinkedList<>();
+        this.f18366d = new HashMap<>();
     }
 
     public void a(String str, String str2) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f18834b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f18364b) == null) {
             return;
         }
         map.put(str, str2);
@@ -61,7 +61,7 @@ public class h {
     public void b(BasicNameValuePair basicNameValuePair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, basicNameValuePair) == null) {
-            this.f18835c.add(basicNameValuePair);
+            this.f18365c.add(basicNameValuePair);
         }
     }
 
@@ -69,7 +69,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
-            if (this.f18835c.size() == 0) {
+            if (this.f18365c.size() == 0) {
                 if (eVar != null) {
                     eVar.a = this.a.length();
                 }
@@ -82,13 +82,13 @@ public class h {
             } else if (!this.a.endsWith("?") && !this.a.endsWith("&")) {
                 sb.append("&");
             }
-            for (int i2 = 0; i2 < this.f18835c.size(); i2++) {
+            for (int i2 = 0; i2 < this.f18365c.size(); i2++) {
                 if (i2 != 0) {
                     sb.append("&");
                 }
-                sb.append(this.f18835c.get(i2).getName());
+                sb.append(this.f18365c.get(i2).getName());
                 sb.append("=");
-                sb.append(m.getUrlEncode(this.f18835c.get(i2).getValue()));
+                sb.append(m.getUrlEncode(this.f18365c.get(i2).getValue()));
             }
             if (eVar != null) {
                 eVar.a = sb.length();
@@ -102,7 +102,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Map<String, String> map = this.f18834b;
+            Map<String, String> map = this.f18364b;
             if (map != null) {
                 return map.get(str);
             }
@@ -121,7 +121,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap<String, byte[]> hashMap = this.f18836d;
+            HashMap<String, byte[]> hashMap = this.f18366d;
             return hashMap != null && hashMap.size() > 0;
         }
         return invokeV.booleanValue;
@@ -132,7 +132,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder(1024);
-            LinkedList<BasicNameValuePair> linkedList = this.f18835c;
+            LinkedList<BasicNameValuePair> linkedList = this.f18365c;
             if (linkedList != null) {
                 int i2 = 0;
                 Iterator<BasicNameValuePair> it = linkedList.iterator();
@@ -175,7 +175,7 @@ public class h {
     public void j(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f18834b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f18364b) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -216,8 +216,8 @@ public class h {
             if (httpURLConnection != null) {
                 DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                 try {
-                    if (this.f18835c != null) {
-                        Iterator<BasicNameValuePair> it = this.f18835c.iterator();
+                    if (this.f18365c != null) {
+                        Iterator<BasicNameValuePair> it = this.f18365c.iterator();
                         while (it.hasNext()) {
                             BasicNameValuePair next = it.next();
                             if (next != null) {
@@ -234,8 +234,8 @@ public class h {
                             }
                         }
                     }
-                    if (this.f18836d != null) {
-                        for (Map.Entry<String, byte[]> entry : this.f18836d.entrySet()) {
+                    if (this.f18366d != null) {
+                        for (Map.Entry<String, byte[]> entry : this.f18366d.entrySet()) {
                             String key = entry.getKey();
                             byte[] value2 = entry.getValue();
                             if (value2 != null) {

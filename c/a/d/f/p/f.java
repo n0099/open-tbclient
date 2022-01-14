@@ -20,12 +20,12 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f3018c;
+    public static f f2987c;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile SparseArray<Bitmap> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f3019b;
+    public Context f2988b;
 
     static {
         InterceptResult invokeClinit;
@@ -65,10 +65,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f3018c == null) {
-                    f3018c = new f();
+                if (f2987c == null) {
+                    f2987c = new f();
                 }
-                fVar = f3018c;
+                fVar = f2987c;
             }
             return fVar;
         }
@@ -118,7 +118,7 @@ public class f {
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f3019b = context;
+            this.f2988b = context;
         }
     }
 

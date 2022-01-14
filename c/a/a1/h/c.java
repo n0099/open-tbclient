@@ -14,10 +14,10 @@ public class c {
     public List<e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f1142b;
+    public a f1140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1143c;
+    public String f1141c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(List<e> list) {
@@ -61,13 +61,13 @@ public class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1143c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1141c : (String) invokeV.objValue;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1142b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1140b : (a) invokeV.objValue;
     }
 
     public List<e> c() {
@@ -79,14 +79,14 @@ public class c {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f1143c = str;
+            this.f1141c = str;
         }
     }
 
     public void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f1142b = aVar;
+            this.f1140b = aVar;
         }
     }
 }

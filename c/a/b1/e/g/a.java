@@ -25,10 +25,10 @@ public class a extends d {
         public final /* synthetic */ AtomicBoolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f1737b;
+        public final /* synthetic */ Object f1717b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f1738c;
+        public final /* synthetic */ a f1718c;
 
         public C0038a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
             Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class a extends d {
                     return;
                 }
             }
-            this.f1738c = aVar;
+            this.f1718c = aVar;
             this.a = atomicBoolean;
-            this.f1737b = obj;
+            this.f1717b = obj;
         }
 
         @Override // c.l.a.a.c
         public void a(int i2, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, exc) == null) {
-                this.f1738c.f1736g = i2;
+                this.f1718c.f1716g = i2;
                 this.a.set(true);
-                synchronized (this.f1737b) {
-                    this.f1737b.notifyAll();
+                synchronized (this.f1717b) {
+                    this.f1717b.notifyAll();
                 }
             }
         }
@@ -66,13 +66,13 @@ public class a extends d {
         public void b(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.f1738c.f1733d = str;
-                this.f1738c.f1731b = z;
-                this.f1738c.f1732c = true;
-                this.f1738c.f1736g = 0;
+                this.f1718c.f1713d = str;
+                this.f1718c.f1711b = z;
+                this.f1718c.f1712c = true;
+                this.f1718c.f1716g = 0;
                 this.a.set(true);
-                synchronized (this.f1737b) {
-                    this.f1737b.notifyAll();
+                synchronized (this.f1717b) {
+                    this.f1717b.notifyAll();
                 }
             }
         }
@@ -96,10 +96,10 @@ public class a extends d {
                 return;
             }
         }
-        this.f1733d = "";
-        this.f1731b = false;
-        this.f1732c = false;
-        this.f1736g = DeepLinkCode.ERROR_LINK_NOT_MATCH;
+        this.f1713d = "";
+        this.f1711b = false;
+        this.f1712c = false;
+        this.f1716g = DeepLinkCode.ERROR_LINK_NOT_MATCH;
     }
 
     @Override // c.a.b1.e.f.c

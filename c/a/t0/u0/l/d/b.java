@@ -14,25 +14,25 @@ public class b {
     public r1 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f24837b;
+    public ArrayList<n> f24149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24838c;
+    public boolean f24150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24839d;
+    public boolean f24151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24840e;
+    public int f24152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24841f;
+    public int f24153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f24842g;
+    public c f24154g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24843h;
+    public boolean f24155h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public class b {
                 return;
             }
         }
-        this.f24838c = true;
-        this.f24839d = true;
-        this.f24840e = 0;
-        this.f24841f = 0;
-        this.f24843h = true;
-        this.f24837b = new ArrayList<>();
+        this.f24150c = true;
+        this.f24151d = true;
+        this.f24152e = 0;
+        this.f24153f = 0;
+        this.f24155h = true;
+        this.f24149b = new ArrayList<>();
         this.a = new r1();
     }
 }

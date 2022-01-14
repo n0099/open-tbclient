@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GZIP {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

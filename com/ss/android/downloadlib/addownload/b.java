@@ -11,7 +11,7 @@ public class b {
     public static volatile b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f61772b = null;
+    public Handler f59432b = null;
 
     public static b a() {
         if (a == null) {
@@ -38,12 +38,12 @@ public class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (this.f61772b == null) {
-                this.f61772b = new Handler(Looper.getMainLooper());
+            if (this.f59432b == null) {
+                this.f59432b = new Handler(Looper.getMainLooper());
             }
             final String url = downloadInfo.getUrl();
             Downloader.getInstance(context).clearDownloadData(downloadInfo.getId());
-            this.f61772b.post(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.1
+            this.f59432b.post(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     j.c().a(3, j.getContext(), null, "下载失败，请重试！", null, 0);

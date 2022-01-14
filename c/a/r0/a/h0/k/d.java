@@ -36,11 +36,11 @@ public class d extends c.a.r0.a.l0.a {
 
         /* renamed from: c.a.r0.a.h0.k.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0367a implements Runnable {
+        public class RunnableC0376a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0367a(a aVar) {
+            public RunnableC0376a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public class d extends c.a.r0.a.l0.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 c.a.r0.a.e0.d.k("SwanAppV8DaemonEngine", "reload");
-                q0.a0(new RunnableC0367a(this));
+                q0.a0(new RunnableC0376a(this));
             }
         }
 
@@ -255,7 +255,7 @@ public class d extends c.a.r0.a.l0.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.f7760f.getInitBasePath());
+            a aVar = new a(this, this.f7591f.getInitBasePath());
             aVar.env.config = c.a.r0.a.q2.c.a.b();
             return aVar;
         }

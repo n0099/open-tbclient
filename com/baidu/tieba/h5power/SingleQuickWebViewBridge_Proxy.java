@@ -298,7 +298,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("router/jumpToVideo")) {
                 cVar2.r(true);
-                c jumpToVideo = this.mJsBridge.jumpToVideo(e2.optString("videoTopic"), e2.optString("videoTopicID"));
+                c jumpToVideo = this.mJsBridge.jumpToVideo(e2.optString("videoTopic"), e2.optString("videoTopicID"), e2.optString("isVideo"));
                 if (jumpToVideo != null) {
                     cVar2.x(jumpToVideo.f());
                     cVar2.t(jumpToVideo.b());

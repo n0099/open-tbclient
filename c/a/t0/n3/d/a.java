@@ -39,29 +39,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements c.a.t0.n3.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f20289e;
+    public static String f19753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f20290f;
+    public static String f19754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f20291g;
+    public static String f19755g;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f20292b;
+    public Context f19756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f20293c;
+    public String f19757c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f20294d;
+    public String f19758d;
 
     static {
         InterceptResult invokeClinit;
@@ -76,9 +76,9 @@ public abstract class a implements c.a.t0.n3.e.a {
                 return;
             }
         }
-        f20289e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
-        f20290f = "temp_video_thumb.png";
-        f20291g = "_temp_share_pic.png";
+        f19753e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
+        f19754f = "temp_video_thumb.png";
+        f19755g = "_temp_share_pic.png";
     }
 
     public a(Context context) {
@@ -96,7 +96,7 @@ public abstract class a implements c.a.t0.n3.e.a {
                 return;
             }
         }
-        this.f20292b = context;
+        this.f19756b = context;
     }
 
     public void b(int i2, int i3) {
@@ -104,9 +104,9 @@ public abstract class a implements c.a.t0.n3.e.a {
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             ShareEvent shareEvent = new ShareEvent();
             shareEvent.status = i2;
-            shareEvent.tid = this.f20293c;
+            shareEvent.tid = this.f19757c;
             shareEvent.channel = i3;
-            shareEvent.extLiveInfo = this.f20294d;
+            shareEvent.extLiveInfo = this.f19758d;
             h.i(shareEvent);
         }
     }
@@ -147,7 +147,7 @@ public abstract class a implements c.a.t0.n3.e.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             BdUniqueId bdUniqueId = this.a;
-            return (bdUniqueId == null && (c2 = j.c(this.f20292b)) != null) ? c2.getUniqueId() : bdUniqueId;
+            return (bdUniqueId == null && (c2 = j.c(this.f19756b)) != null) ? c2.getUniqueId() : bdUniqueId;
         }
         return (BdUniqueId) invokeV.objValue;
     }
@@ -262,11 +262,11 @@ public abstract class a implements c.a.t0.n3.e.a {
             if (bitmap == null) {
                 return null;
             }
-            Bitmap i2 = i(bitmap, (n.f(this.f20292b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
+            Bitmap i2 = i(bitmap, (n.f(this.f19756b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
             Bitmap createBitmap = Bitmap.createBitmap(i2.getWidth(), i2.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawBitmap(i2, 0.0f, 0.0f, (Paint) null);
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i2.getHeight(), this.f20292b.getResources().getColor(R.color.CAM_X0601), this.f20292b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i2.getHeight(), this.f19756b.getResources().getColor(R.color.CAM_X0601), this.f19756b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
             Paint paint = new Paint();
             paint.setShader(linearGradient);
             canvas.drawRect(0.0f, 0.0f, i2.getWidth(), i2.getHeight(), paint);
@@ -279,7 +279,7 @@ public abstract class a implements c.a.t0.n3.e.a {
                 pureDrawable.draw(canvas);
             }
             if (z) {
-                String saveFileAsPNG = FileHelper.saveFileAsPNG(f20289e, f20290f, createBitmap, 100);
+                String saveFileAsPNG = FileHelper.saveFileAsPNG(f19753e, f19754f, createBitmap, 100);
                 if (!StringUtils.isNull(saveFileAsPNG)) {
                     shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
                 }
@@ -292,14 +292,14 @@ public abstract class a implements c.a.t0.n3.e.a {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f20294d = str;
+            this.f19758d = str;
         }
     }
 
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f20293c = str;
+            this.f19757c = str;
         }
     }
 
@@ -343,9 +343,9 @@ public abstract class a implements c.a.t0.n3.e.a {
                 }
                 u(str);
             }
-            if (!TextUtils.isEmpty(this.f20293c)) {
+            if (!TextUtils.isEmpty(this.f19757c)) {
                 b(i2, i3);
-            } else if (StringUtils.isNull(this.f20294d)) {
+            } else if (StringUtils.isNull(this.f19758d)) {
             } else {
                 b(i2, i3);
             }

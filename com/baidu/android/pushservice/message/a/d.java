@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.d$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -101,7 +101,7 @@ public class d extends c {
             String h2 = kVar.h();
             int i3 = kVar.i();
             int b2 = kVar.b();
-            byte[] k2 = kVar.k();
+            byte[] k = kVar.k();
             String f2 = kVar.f();
             PublicMsg a = i.a(this.a, h2, e2, bArr);
             if (a == null || TextUtils.isEmpty(a.mDescription)) {
@@ -123,7 +123,7 @@ public class d extends c {
                             if (TextUtils.isEmpty(a.mTitle)) {
                                 a.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                             }
-                            e.a(this.a, a, h2, e2, i3, k2, bArr, b2, kVar.c());
+                            e.a(this.a, a, h2, e2, i3, k, bArr, b2, kVar.c());
                             String str = h2 + " is showing Notification!";
                         } catch (PackageManager.NameNotFoundException e3) {
                             new b.c(this.a).a(Log.getStackTraceString(e3)).a();

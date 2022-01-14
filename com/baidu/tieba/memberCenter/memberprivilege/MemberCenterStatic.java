@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.w0;
+import c.a.s0.e1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -106,7 +106,7 @@ public class MemberCenterStatic {
                         if (!c.a.d.f.p.l.z()) {
                             BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).q();
                         } else if (ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                            Bundle i2 = w0.i(str4);
+                            Bundle i2 = v0.i(str4);
                             str = "";
                             if (i2 != null) {
                                 String string = !c.a.d.f.p.m.isEmpty(i2.getString(CardBoxMemberPayActivityConfig.PACKET_ID)) ? i2.getString(CardBoxMemberPayActivityConfig.PACKET_ID) : "";
@@ -161,10 +161,10 @@ public class MemberCenterStatic {
                             BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).q();
                         } else if (ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
                             String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
-                            String d2 = w0.d(str, MemberExchangeActivityConfig.MEMBER_NAME);
-                            String d3 = w0.d(str, MemberExchangeActivityConfig.MEMBER_LEVEL_IMAGE);
-                            String d4 = w0.d(str, MemberExchangeActivityConfig.DUE_DATE);
-                            String d5 = w0.d(str, MemberExchangeActivityConfig.DESC_STR);
+                            String d2 = v0.d(str, MemberExchangeActivityConfig.MEMBER_NAME);
+                            String d3 = v0.d(str, MemberExchangeActivityConfig.MEMBER_LEVEL_IMAGE);
+                            String d4 = v0.d(str, MemberExchangeActivityConfig.DUE_DATE);
+                            String d5 = v0.d(str, MemberExchangeActivityConfig.DESC_STR);
                             if (tbPageContext != null) {
                                 tbPageContext.sendMessage(new CustomMessage(2002001, new MemberExchangeActivityConfig(tbPageContext.getPageActivity(), currentPortrait, d2, d3, d4, d5)));
                             }
@@ -523,7 +523,7 @@ public class MemberCenterStatic {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
-                    if (!StringUtils.isNull(str) && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.PAY_MEMBER_PAGE) && (i2 = w0.i(str)) != null && tbPageContext.getPageActivity() != null) {
+                    if (!StringUtils.isNull(str) && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.PAY_MEMBER_PAGE) && (i2 = v0.i(str)) != null && tbPageContext.getPageActivity() != null) {
                         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                         int vipStatus = (currentAccountInfo == null || currentAccountInfo.getVipInfo() == null) ? 0 : currentAccountInfo.getVipInfo().getVipStatus();
                         String string = i2.getString("fromtype");
@@ -580,8 +580,8 @@ public class MemberCenterStatic {
                 if (strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if ((str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY_ASSIST)) && tbPageContext != null) {
-                        String d2 = w0.d(str, MemberPayStatistic.REFER_PAGE);
-                        String d3 = w0.d(str, MemberPayStatistic.CLICK_ZONE);
+                        String d2 = v0.d(str, MemberPayStatistic.REFER_PAGE);
+                        String d3 = v0.d(str, MemberPayStatistic.CLICK_ZONE);
                         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), 0);
                         memberPayActivityConfig.setReferPageClickZone(d2, d3);
                         tbPageContext.sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -708,7 +708,7 @@ public class MemberCenterStatic {
                 UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                 return;
             } else {
-                c.a.d.f.p.n.L(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
+                c.a.d.f.p.n.M(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
                 return;
             }
         }
@@ -725,7 +725,7 @@ public class MemberCenterStatic {
             tbPageContext.sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(tbPageContext.getPageActivity())));
             return;
         }
-        c.a.d.f.p.n.L(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
+        c.a.d.f.p.n.M(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
     }
 
     public static void c() {

@@ -6,7 +6,7 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -123,7 +123,7 @@ public class AntiHelper {
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.s0.s.g0.b.j().t("anti_vcode_no_longer_tip", true);
+                c.a.s0.s.h0.b.k().u("anti_vcode_no_longer_tip", true);
                 aVar.dismiss();
             }
         }
@@ -135,13 +135,13 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f50086e;
+        public final /* synthetic */ k f48201e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f50087f;
+        public final /* synthetic */ Context f48202f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f50088g;
+        public final /* synthetic */ BlockPopInfoData f48203g;
 
         public b(k kVar, Context context, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
@@ -158,21 +158,21 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f50086e = kVar;
-            this.f50087f = context;
-            this.f50088g = blockPopInfoData;
+            this.f48201e = kVar;
+            this.f48202f = context;
+            this.f48203g = blockPopInfoData;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                k kVar = this.f50086e;
+                k kVar = this.f48201e;
                 if (kVar != null) {
                     kVar.onPositiveButtonClick(aVar);
                 }
                 aVar.dismiss();
-                c.a.s0.m.a.m(this.f50087f, this.f50088g.ahead_url);
+                c.a.s0.m.a.m(this.f48202f, this.f48203g.ahead_url);
             }
         }
     }
@@ -183,7 +183,7 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f50089e;
+        public final /* synthetic */ k f48204e;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -200,14 +200,14 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f50089e = kVar;
+            this.f48204e = kVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                k kVar = this.f50089e;
+                k kVar = this.f48204e;
                 if (kVar != null) {
                     kVar.onNavigationButtonClick(aVar);
                 }
@@ -222,7 +222,7 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f50090e;
+        public final /* synthetic */ Context f48205e;
 
         public d(Context context) {
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f50090e = context;
+            this.f48205e = context;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -247,7 +247,7 @@ public class AntiHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.s0.m.a.m(this.f50090e, "http://tieba.baidu.com/mo/q/userappeal");
+                c.a.s0.m.a.m(this.f48205e, "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
@@ -286,7 +286,7 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f50091e;
+        public final /* synthetic */ Context f48206e;
 
         public f(Context context) {
             Interceptable interceptable = $ic;
@@ -303,7 +303,7 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f50091e = context;
+            this.f48206e = context;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -311,7 +311,7 @@ public class AntiHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.s0.m.a.m(this.f50091e, "http://tieba.baidu.com/mo/q/userappeal");
+                c.a.s0.m.a.m(this.f48206e, "http://tieba.baidu.com/mo/q/userappeal");
             }
         }
     }
@@ -378,10 +378,10 @@ public class AntiHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f50092e;
+        public final /* synthetic */ Context f48207e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PageType f50093f;
+        public final /* synthetic */ PageType f48208f;
 
         public i(Context context, PageType pageType) {
             Interceptable interceptable = $ic;
@@ -398,8 +398,8 @@ public class AntiHelper {
                     return;
                 }
             }
-            this.f50092e = context;
-            this.f50093f = pageType;
+            this.f48207e = context;
+            this.f48208f = pageType;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -407,7 +407,7 @@ public class AntiHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f50092e, this.f50093f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.f48207e, this.f48208f)));
             }
         }
     }
@@ -490,14 +490,14 @@ public class AntiHelper {
         return invokeLIL.booleanValue;
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext, d2 d2Var) {
+    public static boolean b(TbPageContext<?> tbPageContext, e2 e2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, d2Var)) == null) {
-            if (tbPageContext == null || !j(d2Var)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, e2Var)) == null) {
+            if (tbPageContext == null || !j(e2Var)) {
                 return false;
             }
-            n.M(tbPageContext.getPageActivity(), StringUtils.isNull(d2Var.p2) ? tbPageContext.getString(R.string.forbiden_comment_text) : d2Var.p2);
+            n.N(tbPageContext.getPageActivity(), StringUtils.isNull(e2Var.o2) ? tbPageContext.getString(R.string.forbiden_comment_text) : e2Var.o2);
             return true;
         }
         return invokeLL.booleanValue;
@@ -510,7 +510,7 @@ public class AntiHelper {
             if (tbPageContext == null || !k(videoItemData)) {
                 return false;
             }
-            n.M(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : videoItemData.noCommetStr);
+            n.N(tbPageContext.getPageActivity(), StringUtils.isNull(videoItemData.noCommetStr) ? tbPageContext.getString(R.string.forbiden_comment_text) : videoItemData.noCommetStr);
             return true;
         }
         return invokeLL.booleanValue;
@@ -525,14 +525,14 @@ public class AntiHelper {
         return invokeLL.booleanValue;
     }
 
-    public static boolean e(Context context, d2 d2Var) {
+    public static boolean e(Context context, e2 e2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, d2Var)) == null) {
-            if (context == null || !o(d2Var)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, e2Var)) == null) {
+            if (context == null || !o(e2Var)) {
                 return false;
             }
-            n.L(context, R.string.feed_thread_state_under_review_text);
+            n.M(context, R.string.feed_thread_state_under_review_text);
             return true;
         }
         return invokeLL.booleanValue;
@@ -562,10 +562,10 @@ public class AntiHelper {
         return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? i2 == 3250012 : invokeI.booleanValue;
     }
 
-    public static boolean j(d2 d2Var) {
+    public static boolean j(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, d2Var)) == null) ? d2Var != null && d2Var.G2() && d2Var.o2 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, e2Var)) == null) ? e2Var != null && e2Var.G2() && e2Var.n2 : invokeL.booleanValue;
     }
 
     public static boolean k(VideoItemData videoItemData) {
@@ -602,10 +602,10 @@ public class AntiHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, antiData)) == null) ? antiData != null && antiData.getBlock_stat() == 2 : invokeL.booleanValue;
     }
 
-    public static boolean o(d2 d2Var) {
+    public static boolean o(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, d2Var)) == null) ? d2Var != null && d2Var.v1 && d2Var.G2() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, e2Var)) == null) ? e2Var != null && e2Var.u1 && e2Var.G2() : invokeL.booleanValue;
     }
 
     public static void p(Context context, String str) {
@@ -622,13 +622,13 @@ public class AntiHelper {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            c.a.s0.s.g0.b.j().C("anti_vcode_no_longer_tip");
+            c.a.s0.s.h0.b.k().D("anti_vcode_no_longer_tip");
         }
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65554, null, context, antiData, pageType) == null) || c.a.s0.s.g0.b.j().g("anti_vcode_no_longer_tip", false)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65554, null, context, antiData, pageType) == null) || c.a.s0.s.h0.b.k().h("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();

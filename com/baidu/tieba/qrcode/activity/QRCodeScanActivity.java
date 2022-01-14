@@ -65,10 +65,10 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f49310e;
+        public final /* synthetic */ String f47459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49311f;
+        public final /* synthetic */ QRCodeScanActivity f47460f;
 
         public a(QRCodeScanActivity qRCodeScanActivity, String str) {
             Interceptable interceptable = $ic;
@@ -85,8 +85,8 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49311f = qRCodeScanActivity;
-            this.f49310e = str;
+            this.f47460f = qRCodeScanActivity;
+            this.f47459e = str;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -94,7 +94,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f49311f.mQRCodeScanPresenter.j(this.f49310e);
+                this.f47460f.mQRCodeScanPresenter.j(this.f47459e);
             }
         }
     }
@@ -105,7 +105,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49312e;
+        public final /* synthetic */ QRCodeScanActivity f47461e;
 
         public b(QRCodeScanActivity qRCodeScanActivity) {
             Interceptable interceptable = $ic;
@@ -122,14 +122,14 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49312e = qRCodeScanActivity;
+            this.f47461e = qRCodeScanActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f49312e.mQRCodeView.startSpot();
+                this.f47461e.mQRCodeView.startSpot();
                 aVar.dismiss();
             }
         }
@@ -141,7 +141,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49313e;
+        public final /* synthetic */ QRCodeScanActivity f47462e;
 
         public c(QRCodeScanActivity qRCodeScanActivity) {
             Interceptable interceptable = $ic;
@@ -158,14 +158,14 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49313e = qRCodeScanActivity;
+            this.f47462e = qRCodeScanActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f49313e.mQRCodeView.startSpot();
+                this.f47462e.mQRCodeView.startSpot();
                 aVar.dismiss();
             }
         }
@@ -178,7 +178,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public final /* synthetic */ AlbumActivityConfig a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49314b;
+        public final /* synthetic */ QRCodeScanActivity f47463b;
 
         public d(QRCodeScanActivity qRCodeScanActivity, AlbumActivityConfig albumActivityConfig) {
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49314b = qRCodeScanActivity;
+            this.f47463b = qRCodeScanActivity;
             this.a = albumActivityConfig;
         }
 
@@ -214,7 +214,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49315e;
+        public final /* synthetic */ QRCodeScanActivity f47464e;
 
         public e(QRCodeScanActivity qRCodeScanActivity) {
             Interceptable interceptable = $ic;
@@ -231,18 +231,18 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49315e = qRCodeScanActivity;
+            this.f47464e = qRCodeScanActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49315e.isFinishing() || this.f49315e.mQRCodeView.getScanBoxView() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47464e.isFinishing() || this.f47464e.mQRCodeView.getScanBoxView() == null) {
                 return;
             }
-            this.f49315e.mQRCodeView.getScanBoxView().setQRCodeTipText(this.f49315e.getResources().getString(R.string.qr_code_scan_tip));
-            this.f49315e.mQRCodeView.getScanBoxView().setTipTextColor(this.f49315e.getResources().getColor(R.color.CAM_X0201));
-            this.f49315e.mQRCodeView.getScanBoxView().refreshTipText();
+            this.f47464e.mQRCodeView.getScanBoxView().setQRCodeTipText(this.f47464e.getResources().getString(R.string.qr_code_scan_tip));
+            this.f47464e.mQRCodeView.getScanBoxView().setTipTextColor(this.f47464e.getResources().getColor(R.color.CAM_X0201));
+            this.f47464e.mQRCodeView.getScanBoxView().refreshTipText();
         }
     }
 
@@ -252,10 +252,10 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f49316e;
+        public final /* synthetic */ String f47465e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49317f;
+        public final /* synthetic */ QRCodeScanActivity f47466f;
 
         public f(QRCodeScanActivity qRCodeScanActivity, String str) {
             Interceptable interceptable = $ic;
@@ -272,17 +272,17 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49317f = qRCodeScanActivity;
-            this.f49316e = str;
+            this.f47466f = qRCodeScanActivity;
+            this.f47465e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.d.f.m.g.d(this.f49317f.mGalleryTipPopupWindow, this.f49317f);
-                if (this.f49317f.mQRCodeScanPresenter != null) {
-                    this.f49317f.mQRCodeScanPresenter.b(this.f49316e);
+                c.a.d.f.m.g.d(this.f47466f.mGalleryTipPopupWindow, this.f47466f);
+                if (this.f47466f.mQRCodeScanPresenter != null) {
+                    this.f47466f.mQRCodeScanPresenter.b(this.f47465e);
                 }
             }
         }
@@ -294,13 +294,13 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f49318e;
+        public final /* synthetic */ View f47467e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrowView f49319f;
+        public final /* synthetic */ ArrowView f47468f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ QRCodeScanActivity f49320g;
+        public final /* synthetic */ QRCodeScanActivity f47469g;
 
         /* loaded from: classes12.dex */
         public class a implements Runnable {
@@ -308,7 +308,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f49321e;
+            public final /* synthetic */ g f47470e;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -325,14 +325,14 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                         return;
                     }
                 }
-                this.f49321e = gVar;
+                this.f47470e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f49321e.f49320g.mGalleryTipPopupWindow != null && this.f49321e.f49320g.mGalleryTipPopupWindow.isShowing()) {
-                    c.a.d.f.m.g.d(this.f49321e.f49320g.mGalleryTipPopupWindow, this.f49321e.f49320g);
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f47470e.f47469g.mGalleryTipPopupWindow != null && this.f47470e.f47469g.mGalleryTipPopupWindow.isShowing()) {
+                    c.a.d.f.m.g.d(this.f47470e.f47469g.mGalleryTipPopupWindow, this.f47470e.f47469g);
                 }
             }
         }
@@ -352,9 +352,9 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                     return;
                 }
             }
-            this.f49320g = qRCodeScanActivity;
-            this.f49318e = view;
-            this.f49319f = arrowView;
+            this.f47469g = qRCodeScanActivity;
+            this.f47467e = view;
+            this.f47468f = arrowView;
         }
 
         @Override // java.lang.Runnable
@@ -362,19 +362,19 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int[] iArr = new int[2];
-                this.f49318e.getLocationOnScreen(iArr);
+                this.f47467e.getLocationOnScreen(iArr);
                 int i2 = iArr[0];
-                int measuredHeight = (iArr[1] + this.f49318e.getMeasuredHeight()) - n.f(this.f49320g, R.dimen.tbds12);
-                int k2 = n.k(this.f49320g);
-                if (i2 <= 0 || k2 <= 0 || k2 <= i2 || !(this.f49318e.getParent() instanceof View)) {
+                int measuredHeight = (iArr[1] + this.f47467e.getMeasuredHeight()) - n.f(this.f47469g, R.dimen.tbds12);
+                int k = n.k(this.f47469g);
+                if (i2 <= 0 || k <= 0 || k <= i2 || !(this.f47467e.getParent() instanceof View)) {
                     return;
                 }
-                int abs = (((k2 - Math.abs(((View) this.f49318e.getParent()).getLeft())) - (this.f49318e.getMeasuredWidth() / 2)) - n.f(this.f49320g, R.dimen.tbds17)) - (n.f(this.f49320g, R.dimen.tbds26) / 2);
-                if (this.f49319f.getLayoutParams() == null || !(this.f49319f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+                int abs = (((k - Math.abs(((View) this.f47467e.getParent()).getLeft())) - (this.f47467e.getMeasuredWidth() / 2)) - n.f(this.f47469g, R.dimen.tbds17)) - (n.f(this.f47469g, R.dimen.tbds26) / 2);
+                if (this.f47468f.getLayoutParams() == null || !(this.f47468f.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                     return;
                 }
-                ((ViewGroup.MarginLayoutParams) this.f49319f.getLayoutParams()).rightMargin = abs;
-                c.a.d.f.m.g.m(this.f49320g.mGalleryTipPopupWindow, this.f49318e, 0, i2, measuredHeight);
+                ((ViewGroup.MarginLayoutParams) this.f47468f.getLayoutParams()).rightMargin = abs;
+                c.a.d.f.m.g.m(this.f47469g.mGalleryTipPopupWindow, this.f47467e, 0, i2, measuredHeight);
                 c.a.d.f.m.e.a().postDelayed(new a(this), 3000L);
             }
         }

@@ -34,10 +34,10 @@ public abstract class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<? extends ChatMessage> f22665b;
+    public Class<? extends ChatMessage> f22044b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f22666c;
+    public List<String> f22045c;
 
     public a(String str, Class<? extends ChatMessage> cls) {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f22666c = null;
+        this.f22045c = null;
         this.a = str;
-        this.f22665b = cls;
+        this.f22044b = cls;
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0071: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:38:0x0071 */
@@ -160,19 +160,19 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (this.f22666c == null) {
-                this.f22666c = h();
+            if (this.f22045c == null) {
+                this.f22045c = h();
             }
-            List<String> list = this.f22666c;
+            List<String> list = this.f22045c;
             if (list != null && list.contains(str)) {
-                Iterator<String> it = this.f22666c.iterator();
+                Iterator<String> it = this.f22045c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String next = it.next();
                     if (next.equals(str)) {
-                        this.f22666c.remove(next);
+                        this.f22045c.remove(next);
                         break;
                     }
                 }
@@ -190,19 +190,19 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (this.f22666c == null) {
-                this.f22666c = h();
+            if (this.f22045c == null) {
+                this.f22045c = h();
             }
-            List<String> list = this.f22666c;
+            List<String> list = this.f22045c;
             if (list != null && list.contains(str)) {
-                Iterator<String> it = this.f22666c.iterator();
+                Iterator<String> it = this.f22045c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String next = it.next();
                     if (next.equals(str)) {
-                        this.f22666c.remove(next);
+                        this.f22045c.remove(next);
                         break;
                     }
                 }
@@ -320,8 +320,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.f22665b.newInstance();
-                            newInstance.setGroupId(String.valueOf(c.a.t0.s1.s.a.f22857i));
+                            ChatMessage newInstance = this.f22044b.newInstance();
+                            newInstance.setGroupId(String.valueOf(c.a.t0.s1.s.a.f22227i));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -544,7 +544,7 @@ public abstract class a {
                     cursor = h.d().e(sb.toString(), new String[]{String.valueOf(i2)});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
-                            ChatMessage newInstance = this.f22665b.newInstance();
+                            ChatMessage newInstance = this.f22044b.newInstance();
                             newInstance.setObjContent(map.get(cursor.getString(cursor.getColumnIndex("uid"))));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
@@ -639,12 +639,12 @@ public abstract class a {
         }
         String valueOf = String.valueOf(j2);
         String str6 = this.a + valueOf;
-        if (this.f22666c == null) {
-            this.f22666c = h();
+        if (this.f22045c == null) {
+            this.f22045c = h();
         }
-        if (!this.f22666c.contains(valueOf)) {
+        if (!this.f22045c.contains(valueOf)) {
             b(valueOf);
-            this.f22666c.add(valueOf);
+            this.f22045c.add(valueOf);
         }
         try {
             StringBuilder sb = new StringBuilder();
@@ -892,7 +892,7 @@ public abstract class a {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f22666c = null;
+            this.f22045c = null;
         }
     }
 

@@ -117,7 +117,7 @@ public class w {
                 return "5";
             }
             if (!uri2.contains("tbpb") && !uri2.contains("unidispatch/pb")) {
-                return (uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) ? "2" : uri2.contains("tbwebview") ? "9" : (uri2.contains("tbusercenter") || uri2.contains("unidispatch/usercenter") || uri2.contains("usercenter")) ? "4" : (uri2.contains("tbtopicdetail") || uri2.contains("unidispatch/topicdetail")) ? "3" : uri2.contains("unidispatch/hotuserrank") ? "7" : g.f12412c.equals(uri.getPath()) ? "5" : uri2.contains("unidispatch/searchResultPage") ? !TextUtils.isEmpty(uri.getQueryParameter(g.Y)) ? "11" : "5" : "10";
+                return (uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) ? "2" : uri2.contains("tbwebview") ? "9" : (uri2.contains("tbusercenter") || uri2.contains("unidispatch/usercenter") || uri2.contains("usercenter")) ? "4" : (uri2.contains("tbtopicdetail") || uri2.contains("unidispatch/topicdetail")) ? "3" : uri2.contains("unidispatch/hotuserrank") ? "7" : g.f12121c.equals(uri.getPath()) ? "5" : uri2.contains("unidispatch/searchResultPage") ? !TextUtils.isEmpty(uri.getQueryParameter(g.Y)) ? "11" : "5" : "10";
             } else if ("tbpb://tieba.baidu.com".equals(uri2)) {
                 return "5";
             } else {

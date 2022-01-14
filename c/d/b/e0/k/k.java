@@ -15,7 +15,7 @@ public final class k {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f28780b;
+    public final int[] f27897b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -30,21 +30,21 @@ public final class k {
                 return;
             }
         }
-        this.f28780b = new int[10];
+        this.f27897b = new int[10];
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;
-            Arrays.fill(this.f28780b, 0);
+            Arrays.fill(this.f27897b, 0);
         }
     }
 
     public int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f28780b[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f27897b[i2] : invokeI.intValue;
     }
 
     public int c() {
@@ -52,7 +52,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if ((this.a & 2) != 0) {
-                return this.f28780b[1];
+                return this.f27897b[1];
             }
             return -1;
         }
@@ -64,7 +64,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if ((this.a & 128) != 0) {
-                return this.f28780b[7];
+                return this.f27897b[7];
             }
             return 65535;
         }
@@ -74,13 +74,13 @@ public final class k {
     public int e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (this.a & 16) != 0 ? this.f28780b[4] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (this.a & 16) != 0 ? this.f27897b[4] : i2 : invokeI.intValue;
     }
 
     public int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (this.a & 32) != 0 ? this.f28780b[5] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (this.a & 32) != 0 ? this.f27897b[5] : i2 : invokeI.intValue;
     }
 
     public boolean g(int i2) {
@@ -105,7 +105,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
             if (i2 >= 0) {
-                int[] iArr = this.f28780b;
+                int[] iArr = this.f27897b;
                 if (i2 < iArr.length) {
                     this.a = (1 << i2) | this.a;
                     iArr[i2] = i3;

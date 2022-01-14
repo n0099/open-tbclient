@@ -13,7 +13,7 @@ public abstract class g<T> extends o1<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f31014e;
+    public T f30043e;
 
     public g(T t) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class g<T> extends o1<T> {
                 return;
             }
         }
-        this.f31014e = t;
+        this.f30043e = t;
     }
 
     public abstract T a(T t);
@@ -39,7 +39,7 @@ public abstract class g<T> extends o1<T> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31014e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30043e != null : invokeV.booleanValue;
     }
 
     @Override // java.util.Iterator
@@ -49,9 +49,9 @@ public abstract class g<T> extends o1<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (hasNext()) {
                 try {
-                    return this.f31014e;
+                    return this.f30043e;
                 } finally {
-                    this.f31014e = a(this.f31014e);
+                    this.f30043e = a(this.f30043e);
                 }
             }
             throw new NoSuchElementException();

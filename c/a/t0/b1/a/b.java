@@ -16,13 +16,13 @@ public class b implements i {
     public ArrayList<BawuRoleInfoPub> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15484b;
+    public boolean f15098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15485c;
+    public boolean f15099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15486d;
+    public String f15100d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class b implements i {
             }
         }
         this.a = new ArrayList<>();
-        this.f15484b = false;
-        this.f15485c = false;
+        this.f15098b = false;
+        this.f15099c = false;
     }
 
     @Override // c.a.t0.b1.a.i
@@ -55,7 +55,7 @@ public class b implements i {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15485c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15099c : invokeV.booleanValue;
     }
 
     public ArrayList<BawuRoleInfoPub> c() {
@@ -67,26 +67,26 @@ public class b implements i {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15486d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15100d : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15484b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15098b : invokeV.booleanValue;
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f15485c = z;
+            this.f15099c = z;
         }
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f15484b = z;
+            this.f15098b = z;
         }
     }
 
@@ -100,7 +100,7 @@ public class b implements i {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f15486d = str;
+            this.f15100d = str;
         }
     }
 }

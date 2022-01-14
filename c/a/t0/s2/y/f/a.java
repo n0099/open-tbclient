@@ -5,8 +5,8 @@ import android.util.SparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.n.e.n;
-import c.a.s0.s.q.c2;
 import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.t0.s2.r.k;
 import c.a.t0.s2.r.q;
 import c.a.t0.s2.r.r;
@@ -50,34 +50,32 @@ public abstract class a extends c.a.t0.s2.y.h.a {
     public final BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DetailInfoAndReplyFragment f23947b;
+    public DetailInfoAndReplyFragment f23281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f23948c;
+    public BdTypeRecyclerView f23282c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.s2.r.f f23949d;
+    public c.a.t0.s2.r.f f23283d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<c.a.d.n.e.a> f23950e;
+    public final List<c.a.d.n.e.a> f23284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23951f;
+    public boolean f23285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<n> f23952g;
+    public ArrayList<n> f23286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f23953h;
+    public String f23287h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f23954i;
+    public boolean f23288i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f23955j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f23956k;
+    public boolean f23289j;
+    public int k;
     public int l;
 
     public a(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -96,15 +94,15 @@ public abstract class a extends c.a.t0.s2.y.h.a {
             }
         }
         this.a = BdUniqueId.gen();
-        this.f23950e = new ArrayList();
-        this.f23951f = true;
-        this.f23953h = null;
-        this.f23954i = true;
-        this.f23955j = false;
-        this.f23956k = -1;
+        this.f23284e = new ArrayList();
+        this.f23285f = true;
+        this.f23287h = null;
+        this.f23288i = true;
+        this.f23289j = false;
+        this.k = -1;
         this.l = -1;
-        this.f23947b = detailInfoAndReplyFragment;
-        this.f23948c = bdTypeRecyclerView;
+        this.f23281b = detailInfoAndReplyFragment;
+        this.f23282c = bdTypeRecyclerView;
     }
 
     public abstract void A(View.OnClickListener onClickListener);
@@ -126,11 +124,11 @@ public abstract class a extends c.a.t0.s2.y.h.a {
         p pVar;
         p pVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f23949d) == null || fVar.a0 || fVar.b0 == 2) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f23283d) == null || fVar.a0 || fVar.b0 == 2) {
             return;
         }
         ArrayList<PostData> F = fVar.F();
-        ArrayList<p> e2 = this.f23949d.e();
+        ArrayList<p> e2 = this.f23283d.e();
         if (e2 == null || e2.isEmpty() || F == null || F.isEmpty()) {
             return;
         }
@@ -189,24 +187,24 @@ public abstract class a extends c.a.t0.s2.y.h.a {
         Collections.sort(arrayList);
         for (int i4 = 0; i4 < arrayList.size(); i4++) {
             p pVar4 = (p) sparseArray.get(((Integer) arrayList.get(i4)).intValue());
-            if (this.f23949d.l() != null) {
-                pVar4.K0 = this.f23949d.l().getId();
+            if (this.f23283d.l() != null) {
+                pVar4.K0 = this.f23283d.l().getId();
             }
-            if (this.f23949d.O() != null) {
-                pVar4.N0 = c.a.d.f.m.b.g(this.f23949d.O().g0(), 0L);
+            if (this.f23283d.O() != null) {
+                pVar4.N0 = c.a.d.f.m.b.g(this.f23283d.O().g0(), 0L);
             }
-            c.a.t0.s2.r.f fVar2 = this.f23949d;
+            c.a.t0.s2.r.f fVar2 = this.f23283d;
             if (fVar2 != null && fVar2.y() != null) {
-                pVar4.O0 = this.f23949d.y().a();
+                pVar4.O0 = this.f23283d.y().a();
             }
             b(pVar4);
-            int position = pVar4.getPosition() + this.f23949d.Z;
+            int position = pVar4.getPosition() + this.f23283d.Z;
             if (position >= F.size()) {
                 pVar4.Q0 = position;
                 c.a.t0.j3.l0.d.l(pVar4, 2, position + i4, F.size());
                 return;
             }
-            if (!this.f23951f) {
+            if (!this.f23285f) {
                 position--;
                 pVar4.Q0 = position;
             }
@@ -216,7 +214,7 @@ public abstract class a extends c.a.t0.s2.y.h.a {
                 c.a.t0.j3.l0.d.k(pVar4, 1);
             } else {
                 F.add(position, pVar4);
-                TiebaStatic.eventStat(this.f23947b.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", pVar4.getAdvertAppInfo().x4);
+                TiebaStatic.eventStat(this.f23281b.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", pVar4.getAdvertAppInfo().x4);
             }
         }
     }
@@ -225,31 +223,31 @@ public abstract class a extends c.a.t0.s2.y.h.a {
     public ArrayList<n> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23952g : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23286g : (ArrayList) invokeV.objValue;
     }
 
     public final void b(p pVar) {
         ForumData l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) || pVar == null || this.f23949d == null || pVar.getAdvertAppInfo() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) || pVar == null || this.f23283d == null || pVar.getAdvertAppInfo() == null) {
             return;
         }
         pVar.getAdvertAppInfo().o4 = new c.a.s0.s.q.e();
-        if (this.f23949d.y() != null) {
-            pVar.getAdvertAppInfo().o4.f13665b = this.f23949d.y().a();
+        if (this.f23283d.y() != null) {
+            pVar.getAdvertAppInfo().o4.f13350b = this.f23283d.y().a();
         }
         pVar.getAdvertAppInfo().o4.a = pVar.L0();
-        if (this.f23949d.l() != null && (l = this.f23949d.l()) != null) {
-            pVar.getAdvertAppInfo().o4.f13667d = l.getId();
-            pVar.getAdvertAppInfo().o4.f13668e = l.getFirst_class();
-            pVar.getAdvertAppInfo().o4.f13669f = l.getSecond_class();
+        if (this.f23283d.l() != null && (l = this.f23283d.l()) != null) {
+            pVar.getAdvertAppInfo().o4.f13352d = l.getId();
+            pVar.getAdvertAppInfo().o4.f13353e = l.getFirst_class();
+            pVar.getAdvertAppInfo().o4.f13354f = l.getSecond_class();
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            pVar.getAdvertAppInfo().o4.f13670g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+            pVar.getAdvertAppInfo().o4.f13355g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
         }
-        pVar.getAdvertAppInfo().o4.f13671h = pVar.getAdvertAppInfo().m4;
-        pVar.getAdvertAppInfo().o4.f13672i = false;
+        pVar.getAdvertAppInfo().o4.f13356h = pVar.getAdvertAppInfo().m4;
+        pVar.getAdvertAppInfo().o4.f13357i = false;
     }
 
     public int c() {
@@ -261,7 +259,7 @@ public abstract class a extends c.a.t0.s2.y.h.a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23956k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public abstract m0 e();
@@ -287,15 +285,15 @@ public abstract class a extends c.a.t0.s2.y.h.a {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f23955j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f23289j : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.f23947b.getPbModel() != null) {
-                return this.f23947b.getPbModel().v0();
+            if (this.f23281b.getPbModel() != null) {
+                return this.f23281b.getPbModel().v0();
             }
             return false;
         }
@@ -304,8 +302,8 @@ public abstract class a extends c.a.t0.s2.y.h.a {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (this.f23948c.getAdapter() instanceof BdRecyclerAdapter)) {
-            this.f23948c.getAdapter().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (this.f23282c.getAdapter() instanceof BdRecyclerAdapter)) {
+            this.f23282c.getAdapter().notifyDataSetChanged();
         }
     }
 
@@ -318,10 +316,10 @@ public abstract class a extends c.a.t0.s2.y.h.a {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             boolean z = false;
             boolean z2 = false;
-            for (int i2 = 0; i2 < this.f23952g.size(); i2++) {
-                n nVar = this.f23952g.get(i2);
+            for (int i2 = 0; i2 < this.f23286g.size(); i2++) {
+                n nVar = this.f23286g.get(i2);
                 if (nVar instanceof q) {
-                    this.f23956k = i2;
+                    this.k = i2;
                     z = true;
                 } else if ((nVar instanceof c.a.t0.s2.r.e) && ((c.a.t0.s2.r.e) nVar).a() == this.a) {
                     this.l = i2;
@@ -329,7 +327,7 @@ public abstract class a extends c.a.t0.s2.y.h.a {
                 }
             }
             if (!z) {
-                this.f23956k = -1;
+                this.k = -1;
             }
             if (z2) {
                 return;
@@ -358,14 +356,14 @@ public abstract class a extends c.a.t0.s2.y.h.a {
         if (!(interceptable == null || interceptable.invokeLZ(1048599, this, fVar, z) == null) || fVar == null) {
             return;
         }
-        this.f23949d = fVar;
+        this.f23283d = fVar;
         if (fVar != null && fVar.O() != null && fVar.O().J() != null) {
-            this.f23953h = fVar.O().J().getUserId();
+            this.f23287h = fVar.O().J().getUserId();
         }
-        if (this.f23952g == null) {
-            this.f23952g = new ArrayList<>();
+        if (this.f23286g == null) {
+            this.f23286g = new ArrayList<>();
         }
-        this.f23952g.clear();
+        this.f23286g.clear();
         Iterator<PostData> it = fVar.F().iterator();
         while (true) {
             pVar = null;
@@ -385,16 +383,16 @@ public abstract class a extends c.a.t0.s2.y.h.a {
             postData = fVar.j();
         }
         if (postData != null) {
-            this.f23952g.add(postData);
+            this.f23286g.add(postData);
         }
         D(fVar);
-        E(this.f23953h);
+        E(this.f23287h);
         if (c.a.s0.h1.b.c.d()) {
-            if (this.f23948c != null) {
-                ArrayList<n> arrayList = this.f23952g;
+            if (this.f23282c != null) {
+                ArrayList<n> arrayList = this.f23286g;
                 ListUtils.removeSubList(arrayList, 1, arrayList.size());
             }
-            this.f23948c.setData(this.f23952g);
+            this.f23282c.setData(this.f23286g);
             return;
         }
         int i2 = 0;
@@ -403,56 +401,56 @@ public abstract class a extends c.a.t0.s2.y.h.a {
             fVar.O().f4(fVar.F().get(0).I());
         }
         if (fVar.O() != null && fVar.O().Q0() != null) {
-            c2 c2Var = new c2();
-            c2Var.w = fVar.O();
-            c2Var.r = true;
-            this.f23952g.add(c2Var);
+            d2 d2Var = new d2();
+            d2Var.w = fVar.O();
+            d2Var.r = true;
+            this.f23286g.add(d2Var);
         }
         r rVar = new r(fVar.O(), fVar.d());
         rVar.k(false);
-        rVar.f23081f = false;
-        this.f23952g.add(rVar);
-        if (postData == null || postData.s0 == null || (fVar.l() != null && TextUtils.equals(fVar.l().getName(), this.f23947b.getPbModel().r0()) && this.f23947b.getPbModel().x0())) {
+        rVar.f22445f = false;
+        this.f23286g.add(rVar);
+        if (postData == null || postData.s0 == null || (fVar.l() != null && TextUtils.equals(fVar.l().getName(), this.f23281b.getPbModel().r0()) && this.f23281b.getPbModel().x0())) {
             z2 = false;
         } else {
             c.a.t0.s2.r.i iVar = new c.a.t0.s2.r.i(postData.s0);
-            iVar.f23053f = this.f23947b.getPbModel().h1();
-            this.f23952g.add(iVar);
+            iVar.f22418f = this.f23281b.getPbModel().h1();
+            this.f23286g.add(iVar);
             z2 = true;
         }
-        if (!z2 && fVar.l() != null && !StringUtils.isNull(fVar.l().getName()) && (!TextUtils.equals(fVar.l().getName(), this.f23947b.getPbModel().r0()) || !this.f23947b.getPbModel().x0())) {
+        if (!z2 && fVar.l() != null && !StringUtils.isNull(fVar.l().getName()) && (!TextUtils.equals(fVar.l().getName(), this.f23281b.getPbModel().r0()) || !this.f23281b.getPbModel().x0())) {
             c.a.t0.s2.r.h hVar = new c.a.t0.s2.r.h(fVar.l());
-            hVar.f23050k = this.f23947b.getPbModel().h1();
-            hVar.f23048i = false;
-            this.f23952g.add(hVar);
+            hVar.k = this.f23281b.getPbModel().h1();
+            hVar.f22414i = false;
+            this.f23286g.add(hVar);
             rVar.k(false);
-            rVar.f23081f = false;
+            rVar.f22445f = false;
         }
         if (fVar.O() != null && !StringUtils.isNull(fVar.O().a0())) {
             x xVar = new x();
-            xVar.f23104e = fVar.O();
-            this.f23952g.add(xVar);
+            xVar.f22467e = fVar.O();
+            this.f23286g.add(xVar);
         } else if (fVar.O() != null && !StringUtils.isNull(fVar.n())) {
             fVar.O().M3(fVar.n());
             x xVar2 = new x();
-            xVar2.f23104e = fVar.O();
-            this.f23952g.add(xVar2);
+            xVar2.f22467e = fVar.O();
+            this.f23286g.add(xVar2);
         }
         q qVar = new q(q.l);
-        d2 O = fVar.O();
+        e2 O = fVar.O();
         if (O != null) {
             O.V0();
         }
-        this.f23947b.getPbModel().f1();
-        qVar.f23075h = j();
-        qVar.f23074g = fVar.f23039g;
+        this.f23281b.getPbModel().f1();
+        qVar.f22440h = j();
+        qVar.f22439g = fVar.f22406g;
         fVar.c();
-        qVar.f23076i = fVar.g0();
-        qVar.f23078k = fVar.f23038f;
+        qVar.f22441i = fVar.g0();
+        qVar.k = fVar.f22405f;
         B(fVar);
-        this.f23952g.add(qVar);
+        this.f23286g.add(qVar);
         if (fVar.L() == 4) {
-            this.f23952g.add(new c.a.t0.s2.r.p());
+            this.f23286g.add(new c.a.t0.s2.r.p());
         }
         F();
         o(i());
@@ -461,35 +459,35 @@ public abstract class a extends c.a.t0.s2.y.h.a {
         while (it2.hasNext()) {
             PostData next2 = it2.next();
             if ((next2 instanceof PostData) && next2.A() != 1) {
-                this.f23952g.add(next2);
+                this.f23286g.add(next2);
                 z3 = true;
             }
         }
-        if (!z3 && ((!z || !c.a.d.f.p.l.z()) && ((fVar2 = this.f23949d) == null || !fVar2.t()))) {
+        if (!z3 && ((!z || !c.a.d.f.p.l.z()) && ((fVar2 = this.f23283d) == null || !fVar2.t()))) {
             c.a.t0.s2.r.n nVar = new c.a.t0.s2.r.n();
             nVar.J0 = TbadkCoreApplication.getInst().getContext().getString(c.a.t0.s2.l.mention_replyme_nodata);
             nVar.I0 = c.a.t0.s2.h.new_pic_emotion_03;
             nVar.K0 = -2;
-            nVar.L0 = c.a.d.f.p.n.f(this.f23947b.getContext(), c.a.t0.s2.g.tbds74);
-            this.f23952g.add(nVar);
+            nVar.L0 = c.a.d.f.p.n.f(this.f23281b.getContext(), c.a.t0.s2.g.tbds74);
+            this.f23286g.add(nVar);
         }
-        p(fVar, this.f23955j, this.f23953h, this.f23954i);
+        p(fVar, this.f23289j, this.f23287h, this.f23288i);
         if (fVar.y().b() == 0) {
-            c.a.t0.s2.r.f fVar3 = this.f23949d;
+            c.a.t0.s2.r.f fVar3 = this.f23283d;
             if (fVar3 != null && fVar3.t()) {
-                A(this.f23947b.getVideoPbFragment().getListener());
-                this.f23952g.add(new c.a.t0.s2.r.l());
+                A(this.f23281b.getVideoPbFragment().getListener());
+                this.f23286g.add(new c.a.t0.s2.r.l());
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", this.f23949d.m());
-                statisticItem.param("fname", this.f23949d.n());
-                statisticItem.param("tid", this.f23949d.Q());
+                statisticItem.param("fid", this.f23283d.m());
+                statisticItem.param("fname", this.f23283d.n());
+                statisticItem.param("tid", this.f23283d.Q());
                 TiebaStatic.log(statisticItem);
             } else if (z3) {
-                z(this.f23947b.getVideoPbFragment().getListener());
+                z(this.f23281b.getVideoPbFragment().getListener());
                 k kVar = new k();
-                kVar.f23056e = TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.list_has_no_more);
-                this.f23952g.add(kVar);
+                kVar.f22421e = TbadkCoreApplication.getInst().getResources().getString(c.a.t0.s2.l.list_has_no_more);
+                this.f23286g.add(kVar);
             }
             List<p> Y = fVar.Y();
             int i3 = -1;
@@ -501,13 +499,13 @@ public abstract class a extends c.a.t0.s2.y.h.a {
                 c.a.t0.s2.r.e eVar = new c.a.t0.s2.r.e();
                 eVar.g(TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.related_recommendation));
                 eVar.e(this.a);
-                this.f23952g.add(eVar);
+                this.f23286g.add(eVar);
                 int i4 = 1;
                 for (c.a.s0.s.q.q qVar2 : fVar.f()) {
                     if (Y != null && i4 == i3) {
                         if (pVar != null) {
                             b(pVar);
-                            this.f23952g.add(pVar);
+                            this.f23286g.add(pVar);
                             i2++;
                             if (pVar.getType() != AdvertAppInfo.B4) {
                                 i4++;
@@ -519,18 +517,18 @@ public abstract class a extends c.a.t0.s2.y.h.a {
                             i3 = pVar2.getPosition();
                         }
                     }
-                    this.f23952g.add(qVar2);
+                    this.f23286g.add(qVar2);
                     i4++;
                     if (i4 == 4 && fVar.C() != null) {
-                        this.f23952g.add(fVar.C());
+                        this.f23286g.add(fVar.C());
                         i4++;
                     }
                 }
             }
         }
-        BdTypeRecyclerView bdTypeRecyclerView = this.f23948c;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f23282c;
         if (bdTypeRecyclerView != null) {
-            bdTypeRecyclerView.setData(this.f23952g);
+            bdTypeRecyclerView.setData(this.f23286g);
         }
         n();
     }
@@ -538,14 +536,14 @@ public abstract class a extends c.a.t0.s2.y.h.a {
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f23955j = z;
+            this.f23289j = z;
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.f23951f = z;
+            this.f23285f = z;
         }
     }
 

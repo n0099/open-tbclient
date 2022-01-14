@@ -25,13 +25,11 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40466i;
+    public int f39122i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40467j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public int f40468k;
+    public int f39123j;
+    public int k;
     public int l;
     public View m;
     public RefreshingAnimView n;
@@ -43,7 +41,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonHeaderLoadingLayout f40469e;
+        public final /* synthetic */ CommonHeaderLoadingLayout f39124e;
 
         public a(CommonHeaderLoadingLayout commonHeaderLoadingLayout) {
             Interceptable interceptable = $ic;
@@ -60,14 +58,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f40469e = commonHeaderLoadingLayout;
+            this.f39124e = commonHeaderLoadingLayout;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f40469e.o.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f39124e.o.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
     }
@@ -78,10 +76,10 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f40470e;
+        public final /* synthetic */ Runnable f39125e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonHeaderLoadingLayout f40471f;
+        public final /* synthetic */ CommonHeaderLoadingLayout f39126f;
 
         public b(CommonHeaderLoadingLayout commonHeaderLoadingLayout, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -98,8 +96,8 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f40471f = commonHeaderLoadingLayout;
-            this.f40470e = runnable;
+            this.f39126f = commonHeaderLoadingLayout;
+            this.f39125e = runnable;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -113,7 +111,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f40471f.postDelayed(this.f40470e, 800L);
+                this.f39126f.postDelayed(this.f39125e, 800L);
             }
         }
 
@@ -128,8 +126,8 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f40471f.o.setTranslationY(0.0f);
-                this.f40471f.o.setVisibility(0);
+                this.f39126f.o.setTranslationY(0.0f);
+                this.f39126f.o.setVisibility(0);
             }
         }
     }
@@ -152,14 +150,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f40466i = 0;
+        this.f39122i = 0;
         this.n = (RefreshingAnimView) findViewById(f.refreshing_anim_view);
         int f2 = n0.f(getContext(), 29.0f);
-        this.f40466i = f2;
-        this.f40467j = (int) (f2 * 2.4f);
+        this.f39122i = f2;
+        this.f39123j = (int) (f2 * 2.4f);
         int i4 = (int) (f2 * 1.5f);
         this.l = i4;
-        this.f40468k = i4;
+        this.k = i4;
         HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(f.refresh_over_tip);
         this.o = headerRefreshIndicator;
         headerRefreshIndicator.initIfNeed();
@@ -170,9 +168,9 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = this.f40467j;
+            int i3 = this.f39123j;
             if (i2 < i3) {
-                int i4 = this.f40466i;
+                int i4 = this.f39122i;
                 f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
             } else {
                 f2 = 1.0f;
@@ -202,7 +200,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public int getCanRefreshPullLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40467j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39123j : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -233,7 +231,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
                 this.n.setAnimPercent(calculateOffsetAnimPercent(i2));
             }
-            int i3 = this.f40468k;
+            int i3 = this.k;
             if (i2 > i3) {
                 setTranslationY((i3 - i2) / 2);
             }

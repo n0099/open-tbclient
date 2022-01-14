@@ -18,7 +18,7 @@ public class a implements i {
 
     /* renamed from: c.a.r0.j.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0742a {
+    public static class C0751a {
         public static /* synthetic */ Interceptable $ic;
         public static String a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class a implements i {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C0742a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C0751a.a() : (String) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.l0.i

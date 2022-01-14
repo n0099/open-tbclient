@@ -1,190 +1,51 @@
 package c.a.c0.g0;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes.dex */
-public final class i {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int abc_action_bar_home_description = 2131689528;
-    public static final int abc_action_bar_up_description = 2131689529;
-    public static final int abc_action_menu_overflow_description = 2131689530;
-    public static final int abc_action_mode_done = 2131689531;
-    public static final int abc_activity_chooser_view_see_all = 2131689532;
-    public static final int abc_activitychooserview_choose_application = 2131689533;
-    public static final int abc_capital_off = 2131689534;
-    public static final int abc_capital_on = 2131689535;
-    public static final int abc_menu_alt_shortcut_label = 2131689536;
-    public static final int abc_menu_ctrl_shortcut_label = 2131689537;
-    public static final int abc_menu_delete_shortcut_label = 2131689538;
-    public static final int abc_menu_enter_shortcut_label = 2131689539;
-    public static final int abc_menu_function_shortcut_label = 2131689540;
-    public static final int abc_menu_meta_shortcut_label = 2131689541;
-    public static final int abc_menu_shift_shortcut_label = 2131689542;
-    public static final int abc_menu_space_shortcut_label = 2131689543;
-    public static final int abc_menu_sym_shortcut_label = 2131689544;
-    public static final int abc_prepend_shortcut_label = 2131689545;
-    public static final int abc_search_hint = 2131689546;
-    public static final int abc_searchview_description_clear = 2131689547;
-    public static final int abc_searchview_description_query = 2131689548;
-    public static final int abc_searchview_description_search = 2131689549;
-    public static final int abc_searchview_description_submit = 2131689550;
-    public static final int abc_searchview_description_voice = 2131689551;
-    public static final int abc_shareactionprovider_share_with = 2131689552;
-    public static final int abc_shareactionprovider_share_with_application = 2131689553;
-    public static final int abc_toolbar_collapse_description = 2131689554;
-    public static final int app_name = 2131690142;
-    public static final int nad_activity_not_found = 2131692774;
-    public static final int nad_androidn_multiwindow_user_toast = 2131692776;
-    public static final int nad_app_name = 2131692779;
-    public static final int nad_bd_video_switch_fullscreen_tip = 2131692783;
-    public static final int nad_bdvideoplayer_btn_net_error_retry = 2131692784;
-    public static final int nad_bdvideoplayer_tip_kernel_error = 2131692785;
-    public static final int nad_bdvideoplayer_tip_net_error = 2131692786;
-    public static final int nad_clarity_sd = 2131692795;
-    public static final int nad_click_free_play = 2131692796;
-    public static final int nad_click_traffic_setting = 2131692797;
-    public static final int nad_command_btn_text = 2131692799;
-    public static final int nad_comment_text = 2131692800;
-    public static final int nad_common_name = 2131692801;
-    public static final int nad_continue_bar_next_text = 2131692802;
-    public static final int nad_continue_bar_stop = 2131692803;
-    public static final int nad_continue_bar_text = 2131692804;
-    public static final int nad_continue_play = 2131692805;
-    public static final int nad_dialog_nagtive_button_text = 2131692806;
-    public static final int nad_dialog_negative_title_cancel = 2131692807;
-    public static final int nad_dialog_positive_button_text = 2131692808;
-    public static final int nad_dialog_positive_title_ok = 2131692809;
-    public static final int nad_dialog_translate_alert_cancel = 2131692810;
-    public static final int nad_dialog_translate_alert_message = 2131692811;
-    public static final int nad_dialog_translate_alert_settings = 2131692812;
-    public static final int nad_dialog_translate_alert_title = 2131692813;
-    public static final int nad_dialog_translate_chinese = 2131692814;
-    public static final int nad_dialog_translate_failed_toast = 2131692815;
-    public static final int nad_dialog_translate_network_error = 2131692816;
-    public static final int nad_dialog_translate_normal = 2131692817;
-    public static final int nad_dialog_translate_not_ready_toast = 2131692818;
-    public static final int nad_dialog_translate_translated = 2131692819;
-    public static final int nad_dialog_webcall_common_title = 2131692820;
-    public static final int nad_dislike_dislike = 2131692821;
-    public static final int nad_dislike_done = 2131692822;
-    public static final int nad_dislike_reduce_recommend = 2131692823;
-    public static final int nad_dislike_reduce_repeat = 2131692824;
-    public static final int nad_dislike_reward_title = 2131692825;
-    public static final int nad_dislike_title = 2131692826;
-    public static final int nad_dislike_why_show_ad = 2131692827;
-    public static final int nad_expires_on = 2131692844;
-    public static final int nad_feature_find_btn_cancel = 2131692845;
-    public static final int nad_feature_find_et_hint = 2131692846;
-    public static final int nad_geolocation_permissions_prompt_dont_share = 2131692847;
-    public static final int nad_geolocation_permissions_prompt_message = 2131692848;
-    public static final int nad_geolocation_permissions_prompt_remember = 2131692849;
-    public static final int nad_geolocation_permissions_prompt_share = 2131692850;
-    public static final int nad_geolocation_permissions_prompt_title = 2131692851;
-    public static final int nad_geolocation_permissions_prompt_toast_allowed = 2131692852;
-    public static final int nad_geolocation_permissions_prompt_toast_disallowed = 2131692853;
-    public static final int nad_http_authentication_cancel = 2131692854;
-    public static final int nad_http_authentication_login = 2131692855;
-    public static final int nad_http_authentication_password = 2131692856;
-    public static final int nad_http_authentication_username = 2131692857;
-    public static final int nad_input_file_no_permission_note_text = 2131692858;
-    public static final int nad_issued_by = 2131692859;
-    public static final int nad_issued_on = 2131692860;
-    public static final int nad_issued_to = 2131692861;
-    public static final int nad_load_more_label = 2131692862;
-    public static final int nad_loading = 2131692863;
-    public static final int nad_mini_video_detail_ad_replay = 2131692864;
-    public static final int nad_net_error = 2131692865;
-    public static final int nad_net_error_retry_bt = 2131692866;
-    public static final int nad_ng_copy = 2131692867;
-    public static final int nad_ng_error_word_report = 2131692868;
-    public static final int nad_ng_search = 2131692869;
-    public static final int nad_ng_text_selection_ok_tip = 2131692870;
-    public static final int nad_ng_text_selection_tip = 2131692871;
-    public static final int nad_no_network = 2131692872;
-    public static final int nad_not_wifi_tips = 2131692873;
-    public static final int nad_org_name = 2131692879;
-    public static final int nad_org_unit = 2131692880;
-    public static final int nad_play_error_tip = 2131692881;
-    public static final int nad_player_brightness = 2131692882;
-    public static final int nad_player_common_replay = 2131692883;
-    public static final int nad_player_common_share = 2131692884;
-    public static final int nad_player_message_network_3g = 2131692885;
-    public static final int nad_player_message_network_down = 2131692886;
-    public static final int nad_player_message_network_wifi = 2131692887;
-    public static final int nad_player_screen_adjust_disable = 2131692888;
-    public static final int nad_player_screen_adjust_enable = 2131692889;
-    public static final int nad_player_unlock = 2131692890;
-    public static final int nad_player_zeus_baywin_playing_tip = 2131692891;
-    public static final int nad_player_zeus_error = 2131692892;
-    public static final int nad_praise_text = 2131692893;
-    public static final int nad_reward_stay_cancel = 2131692894;
-    public static final int nad_reward_stay_confirm = 2131692895;
-    public static final int nad_reward_stay_title = 2131692896;
-    public static final int nad_security_warning = 2131692897;
-    public static final int nad_share_text = 2131692899;
-    public static final int nad_sign_in_to = 2131692900;
-    public static final int nad_ssl_certificate = 2131692901;
-    public static final int nad_ssl_certificate_is_valid = 2131692902;
-    public static final int nad_ssl_continue = 2131692903;
-    public static final int nad_ssl_copy_error = 2131692904;
-    public static final int nad_ssl_date_invalid = 2131692905;
-    public static final int nad_ssl_expired = 2131692906;
-    public static final int nad_ssl_go_back = 2131692907;
-    public static final int nad_ssl_got_it = 2131692908;
-    public static final int nad_ssl_invalid = 2131692909;
-    public static final int nad_ssl_mismatch = 2131692910;
-    public static final int nad_ssl_not_yet_valid = 2131692911;
-    public static final int nad_ssl_unknown = 2131692912;
-    public static final int nad_ssl_untrusted = 2131692913;
-    public static final int nad_ssl_warnings_header = 2131692914;
-    public static final int nad_time_liveshow_teletext_time_day_before = 2131692916;
-    public static final int nad_time_liveshow_teletext_time_hour_before = 2131692917;
-    public static final int nad_time_liveshow_teletext_time_min_before = 2131692918;
-    public static final int nad_time_liveshow_teletext_time_sec_before = 2131692919;
-    public static final int nad_try_free_play = 2131692920;
-    public static final int nad_validity_period = 2131692921;
-    public static final int nad_video_net_tip_duration = 2131692922;
-    public static final int nad_video_net_tip_not_wifi = 2131692923;
-    public static final int nad_video_net_tip_one_week = 2131692924;
-    public static final int nad_video_net_tip_rest_size = 2131692925;
-    public static final int nad_video_net_tip_size = 2131692926;
-    public static final int nad_video_net_tip_size_no_unit = 2131692927;
-    public static final int nad_video_net_tip_size_toast = 2131692928;
-    public static final int nad_video_size = 2131692929;
-    public static final int nad_videoplayer_after_ad_play_next_tip = 2131692930;
-    public static final int nad_videoplayer_bd_video_mute_btn_tip = 2131692931;
-    public static final int nad_videoplayer_clarity_text_1080p = 2131692932;
-    public static final int nad_videoplayer_clarity_text_auto = 2131692933;
-    public static final int nad_videoplayer_clarity_text_hd = 2131692934;
-    public static final int nad_videoplayer_clarity_text_sc = 2131692935;
-    public static final int nad_videoplayer_clarity_text_sd = 2131692936;
-    public static final int nad_videoplayer_continue_bar_close = 2131692937;
-    public static final int nad_videoplayer_continue_bar_open = 2131692938;
-    public static final int nad_videoplayer_float_play_error = 2131692939;
-    public static final int nad_videoplayer_float_replay = 2131692940;
-    public static final int nad_videoplayer_full_after_ad_play_next_tip = 2131692941;
-    public static final int nad_videoplayer_half_video_next_tip = 2131692942;
-    public static final int nad_videoplayer_offline_txt = 2131692943;
-    public static final int nad_videoplayer_recover_tip = 2131692944;
-    public static final int nad_videoplayer_video_next_tip = 2131692945;
-    public static final int nad_videoplayer_view_changed_tip = 2131692946;
-    public static final int nad_videoplayer_view_recover_tip = 2131692947;
-    public static final int nad_view_certificate = 2131692948;
-    public static final int nad_weak_network_reload_txt = 2131692949;
-    public static final int nad_weak_network_tip_text_loading = 2131692950;
-    public static final int nad_weak_network_tip_text_loading_cant_ping = 2131692951;
-    public static final int nad_weak_network_tip_text_weak_network = 2131692952;
-    public static final int nad_web_save_not_supporting_translate = 2131692953;
-    public static final int nad_web_translate_text = 2131692954;
-    public static final int nad_webview_block_btn_text = 2131692955;
-    public static final int nad_webview_block_content_text = 2131692956;
-    public static final int nad_webview_block_desc_title_text = 2131692957;
-    public static final int nad_webview_block_title_text = 2131692958;
-    public static final int nad_webview_error_desc_sub_text = 2131692959;
-    public static final int nad_widget_blankview_desc = 2131692960;
-    public static final int nad_widget_errorview_clickreload = 2131692961;
-    public static final int nad_widget_errorview_desc = 2131692962;
-    public static final int search_menu_title = 2131694319;
-    public static final int status_bar_notification_info_overflow = 2131694613;
+public class i {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest(), "", z);
+            } catch (Exception unused) {
+                return String.valueOf(str.hashCode());
+            }
+        }
+        return (String) invokeLZ.objValue;
+    }
 }

@@ -16,10 +16,10 @@ public class b {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5729b;
+    public static final String f5603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5730c;
+    public static final String f5604c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class b {
             }
         }
         a = "__localDebug__" + File.separator + "master.js";
-        f5729b = "__localDebug__" + File.separator + "main.js";
-        f5730c = "__localDebug__" + File.separator + "slave.js";
+        f5603b = "__localDebug__" + File.separator + "main.js";
+        f5604c = "__localDebug__" + File.separator + "slave.js";
     }
 
     public static d.g a(c.a.r0.a.f1.e.b bVar) {
@@ -52,7 +52,7 @@ public class b {
             File file = new File(d2, "app.json");
             SwanAppConfigData b2 = c.a.r0.a.d2.n.d.b(d2.getAbsolutePath());
             gVar.a = d2.getPath() + File.separator;
-            gVar.f5251b = b2;
+            gVar.f5142b = b2;
             c.a.r0.a.e0.d.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
             return gVar;
         }
@@ -104,7 +104,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + f5730c;
+            return d() + File.separator + f5604c;
         }
         return (String) invokeV.objValue;
     }

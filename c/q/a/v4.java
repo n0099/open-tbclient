@@ -17,13 +17,13 @@ public class v4 {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f31490b;
+    public ByteBuffer f30500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public r4 f31491c;
+    public r4 f30501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31492d;
+    public int f30502d;
 
     public v4() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class v4 {
             }
         }
         this.a = new byte[256];
-        this.f31492d = 0;
+        this.f30502d = 0;
     }
 
     public v4 a(byte[] bArr) {
@@ -48,17 +48,17 @@ public class v4 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             if (bArr != null) {
                 ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                this.f31490b = null;
+                this.f30500b = null;
                 Arrays.fill(this.a, (byte) 0);
-                this.f31491c = new r4();
-                this.f31492d = 0;
+                this.f30501c = new r4();
+                this.f30502d = 0;
                 ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-                this.f31490b = asReadOnlyBuffer;
+                this.f30500b = asReadOnlyBuffer;
                 asReadOnlyBuffer.position(0);
-                this.f31490b.order(ByteOrder.LITTLE_ENDIAN);
+                this.f30500b.order(ByteOrder.LITTLE_ENDIAN);
             } else {
-                this.f31490b = null;
-                this.f31491c.f31411b = 2;
+                this.f30500b = null;
+                this.f30501c.f30425b = 2;
             }
             return this;
         }
@@ -68,7 +68,7 @@ public class v4 {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31491c.f31411b != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30501c.f30425b != 0 : invokeV.booleanValue;
     }
 
     public final int[] c(int i2) {
@@ -78,7 +78,7 @@ public class v4 {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             byte[] bArr = new byte[i2 * 3];
             try {
-                this.f31490b.get(bArr);
+                this.f30500b.get(bArr);
                 iArr = new int[256];
                 int i3 = 0;
                 int i4 = 0;
@@ -92,7 +92,7 @@ public class v4 {
                         i4 = i7;
                         i3 = i8;
                     } catch (BufferUnderflowException unused) {
-                        this.f31491c.f31411b = 1;
+                        this.f30501c.f30425b = 1;
                         return iArr;
                     }
                 }
@@ -109,9 +109,9 @@ public class v4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return this.f31490b.get() & 255;
+                return this.f30500b.get() & 255;
             } catch (Exception unused) {
-                this.f31491c.f31411b = 1;
+                this.f30501c.f30425b = 1;
                 return 0;
             }
         }
@@ -123,16 +123,16 @@ public class v4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int d2 = d();
-            this.f31492d = d2;
+            this.f30502d = d2;
             int i2 = 0;
             if (d2 > 0) {
-                while (i2 < this.f31492d) {
+                while (i2 < this.f30502d) {
                     try {
-                        int i3 = this.f31492d - i2;
-                        this.f31490b.get(this.a, i2, i3);
+                        int i3 = this.f30502d - i2;
+                        this.f30500b.get(this.a, i2, i3);
                         i2 += i3;
                     } catch (Exception unused) {
-                        this.f31491c.f31411b = 1;
+                        this.f30501c.f30425b = 1;
                     }
                 }
             }
@@ -148,7 +148,7 @@ public class v4 {
             do {
                 try {
                     d2 = d();
-                    this.f31490b.position(this.f31490b.position() + d2);
+                    this.f30500b.position(this.f30500b.position() + d2);
                 } catch (IllegalArgumentException unused) {
                     return;
                 }

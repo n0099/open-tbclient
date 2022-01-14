@@ -131,7 +131,7 @@ public class p extends PostData {
             if (!c.a.s0.s.k.c().g() && (advertAppInfo = this.I0) != null && (iLegoAdvert = advertAppInfo.n4) != null && !iLegoAdvert.isNoPicAd()) {
                 return AdvertAppInfo.B4;
             }
-            if (c.a.s0.b.d.P() && this.J0) {
+            if (c.a.s0.b.d.Q() && this.J0) {
                 return AdvertAppInfo.B4;
             }
             AdvertAppInfo advertAppInfo2 = this.I0;

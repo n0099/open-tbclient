@@ -11,7 +11,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginAdpBaseFragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntime;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
@@ -36,7 +36,10 @@ public class j implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Stack<WeakReference<Activity>> f13502e;
+    public Stack<WeakReference<Activity>> f13059e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f13060f;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -51,7 +54,8 @@ public class j implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f13502e = new Stack<>();
+        this.f13059e = new Stack<>();
+        this.f13060f = true;
     }
 
     public String a() {
@@ -59,8 +63,8 @@ public class j implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = null;
-            for (int size = this.f13502e.size() - 1; size >= 0; size--) {
-                WeakReference<Activity> weakReference = this.f13502e.get(size);
+            for (int size = this.f13059e.size() - 1; size >= 0; size--) {
+                WeakReference<Activity> weakReference = this.f13059e.get(size);
                 if (weakReference != null && weakReference.get() != null) {
                     Activity activity = weakReference.get();
                     if (activity instanceof c.a.s0.s.c0.a) {
@@ -83,8 +87,8 @@ public class j implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = null;
-            for (int size = this.f13502e.size() - 1; size >= 0; size--) {
-                WeakReference<Activity> weakReference = this.f13502e.get(size);
+            for (int size = this.f13059e.size() - 1; size >= 0; size--) {
+                WeakReference<Activity> weakReference = this.f13059e.get(size);
                 if (weakReference != null && weakReference.get() != null) {
                     Activity activity = weakReference.get();
                     if (activity instanceof c.a.s0.s.c0.a) {
@@ -126,49 +130,56 @@ public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, bundle) == null) {
-            String name = activity.getClass().getName();
-            if (SpeedRuntime.MAIN_ACTIVITY_NAME.equals(name)) {
-                c.a.d.e.a.c().d();
-            }
-            if (!SpeedRuntime.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntime.MAIN_ACTIVITY_NAME.equals(name)) {
-                c.a.d.e.a.c().e();
-            }
-            this.f13502e.push(new WeakReference<>(activity));
-            if (!PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && !activity.getClass().getSimpleName().equals("NewLogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && TbadkCoreApplication.getInst().isMainProcess(false) && !TbSingleton.getInstance().isBrowseMode()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, activity, bundle) == null) || activity == null) {
+            return;
+        }
+        if (c.a.s0.s.f0.a.q().u() && activity != null && TbadkCoreApplication.getInst().isMainProcess(false) && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
+            if (this.f13060f && c.a.s0.s.f0.a.q().o() >= c.a.s0.s.f0.a.q().r()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(activity, activity.getIntent())));
                 activity.finish();
+                return;
             }
-            if (c.a.s0.j0.g.c.b().e(name)) {
-                c.a.s0.j0.g.c.b().a();
-            } else if (c.a.s0.j0.g.c.b().h(activity)) {
-                c.a.s0.j0.g.c.b().c();
-                if (c.a.s0.j0.g.c.b().g(name)) {
-                    c.a.s0.j0.g.c.b().l(true);
-                }
-            } else if (c.a.s0.j0.g.c.b().f(name)) {
-                c.a.s0.j0.g.c.b().o();
-                if (!c.a.s0.j0.g.c.b().g(name)) {
-                    c.a.s0.j0.g.c.b().l(false);
-                } else {
-                    c.a.s0.j0.g.c.b().l(true);
-                }
+            c.a.s0.s.f0.a.q().x();
+        }
+        String name = activity.getClass().getName();
+        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
+            c.a.d.e.a.b().d();
+        }
+        this.f13059e.push(new WeakReference<>(activity));
+        if (!PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && !activity.getClass().getSimpleName().equals("NewLogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && TbadkCoreApplication.getInst().isMainProcess(false) && !TbSingleton.getInstance().isBrowseMode()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(activity, activity.getIntent())));
+            activity.finish();
+        }
+        if (c.a.s0.j0.g.c.b().e(name)) {
+            c.a.s0.j0.g.c.b().a();
+        } else if (c.a.s0.j0.g.c.b().h(activity)) {
+            c.a.s0.j0.g.c.b().c();
+            if (c.a.s0.j0.g.c.b().g(name)) {
+                c.a.s0.j0.g.c.b().l(true);
+            }
+        } else if (c.a.s0.j0.g.c.b().f(name)) {
+            c.a.s0.j0.g.c.b().o();
+            if (!c.a.s0.j0.g.c.b().g(name)) {
+                c.a.s0.j0.g.c.b().l(false);
+            } else {
+                c.a.s0.j0.g.c.b().l(true);
             }
         }
+        this.f13060f = false;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            int size = this.f13502e.size() - 1;
+            int size = this.f13059e.size() - 1;
             while (true) {
                 if (size < 0) {
                     break;
                 }
-                WeakReference<Activity> weakReference = this.f13502e.get(size);
+                WeakReference<Activity> weakReference = this.f13059e.get(size);
                 if (weakReference != null && weakReference.get() != null && weakReference.get() == activity) {
-                    this.f13502e.remove(weakReference);
+                    this.f13059e.remove(weakReference);
                     break;
                 }
                 size--;
@@ -233,6 +244,9 @@ public class j implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
             TbadkCoreApplication.getInst().setStartType(1);
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && this.f13059e.size() == 1) {
+                c.a.s0.s.f0.a.q().g();
+            }
         }
     }
 }

@@ -16,18 +16,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ArrayList<a> f21974e;
+    public static ArrayList<a> f20945e;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21975b;
+    public int f20946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21976c;
+    public int f20947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21977d;
+    public int f20948d;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f21974e = new ArrayList<>(5);
+        f20945e = new ArrayList<>(5);
     }
 
     public a() {
@@ -63,9 +63,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f21974e) {
-                if (f21974e.size() > 0) {
-                    a remove = f21974e.remove(0);
+            synchronized (f20945e) {
+                if (f20945e.size() > 0) {
+                    a remove = f20945e.remove(0);
                     remove.h();
                     return remove;
                 }
@@ -80,10 +80,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i2, i3, i4, i5)) == null) {
             a b2 = b();
-            b2.f21977d = i2;
+            b2.f20948d = i2;
             b2.a = i3;
-            b2.f21975b = i4;
-            b2.f21976c = i5;
+            b2.f20946b = i4;
+            b2.f20947c = i5;
             return b2;
         }
         return (a) invokeIIII.objValue;
@@ -111,10 +111,10 @@ public class a {
             a b2 = b();
             b2.a = ExpandableListView.getPackedPositionGroup(j2);
             if (ExpandableListView.getPackedPositionType(j2) == 1) {
-                b2.f21977d = 1;
-                b2.f21975b = ExpandableListView.getPackedPositionChild(j2);
+                b2.f20948d = 1;
+                b2.f20946b = ExpandableListView.getPackedPositionChild(j2);
             } else {
-                b2.f21977d = 2;
+                b2.f20948d = 2;
             }
             return b2;
         }
@@ -124,15 +124,15 @@ public class a {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21977d == 1 ? ExpandableListView.getPackedPositionForChild(this.a, this.f21975b) : ExpandableListView.getPackedPositionForGroup(this.a) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20948d == 1 ? ExpandableListView.getPackedPositionForChild(this.a, this.f20946b) : ExpandableListView.getPackedPositionForGroup(this.a) : invokeV.longValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f21974e) {
-                if (f21974e.size() < 5) {
-                    f21974e.add(this);
+            synchronized (f20945e) {
+                if (f20945e.size() < 5) {
+                    f20945e.add(this);
                 }
             }
         }
@@ -142,9 +142,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 0;
-            this.f21975b = 0;
-            this.f21976c = 0;
-            this.f21977d = 0;
+            this.f20946b = 0;
+            this.f20947c = 0;
+            this.f20948d = 0;
         }
     }
 }

@@ -20,7 +20,7 @@ public class e extends b.a implements i {
     public final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WeakReference<FileDownloadServiceProxy> f60647b;
+    public final WeakReference<FileDownloadServiceProxy> f58351b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -44,7 +44,7 @@ public class e extends b.a implements i {
                 return;
             }
         }
-        this.f60647b = weakReference;
+        this.f58351b = weakReference;
         this.a = gVar;
     }
 
@@ -70,10 +70,10 @@ public class e extends b.a implements i {
     public void a(int i2, Notification notification) {
         WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, notification) == null) || (weakReference = this.f60647b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, notification) == null) || (weakReference = this.f58351b) == null || weakReference.get() == null) {
             return;
         }
-        this.f60647b.get().context.startForeground(i2, notification);
+        this.f58351b.get().context.startForeground(i2, notification);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -103,10 +103,10 @@ public class e extends b.a implements i {
     public void a(boolean z) {
         WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (weakReference = this.f60647b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (weakReference = this.f58351b) == null || weakReference.get() == null) {
             return;
         }
-        this.f60647b.get().context.stopForeground(z);
+        this.f58351b.get().context.stopForeground(z);
     }
 
     @Override // com.kwai.filedownloader.b.b

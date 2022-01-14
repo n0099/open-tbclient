@@ -17,7 +17,7 @@ public class q {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<User> f26236b;
+    public List<User> f25457b;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             v1 v1Var = new v1();
-            v1Var.f13827h = false;
-            v1Var.i(this.f26236b);
+            v1Var.f13514h = false;
+            v1Var.i(this.f25457b);
             return v1Var;
         }
         return (v1) invokeV.objValue;
@@ -50,7 +50,7 @@ public class q {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f26236b = dataRes.recom_user_list;
+        this.f25457b = dataRes.recom_user_list;
         dataRes.has_more.intValue();
         this.a = dataRes.current_page.intValue();
     }

@@ -36,7 +36,7 @@ public class g implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             l.b().l(System.currentTimeMillis());
-            c.a.t0.r3.c.a.e(this.a).a();
+            c.a.t0.r3.c.a.g(this.a).b();
         }
     }
 }

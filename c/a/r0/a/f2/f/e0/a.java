@@ -27,24 +27,24 @@ public class a extends b {
 
     /* renamed from: c.a.r0.a.f2.f.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0313a implements c.a.r0.a.q0.b.a {
+    public class C0322a implements c.a.r0.a.q0.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6000b;
+        public final /* synthetic */ CallbackHandler f5869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6001c;
+        public final /* synthetic */ UnitedSchemeEntity f5870c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f6002d;
+        public final /* synthetic */ String f5871d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6003e;
+        public final /* synthetic */ a f5872e;
 
-        public C0313a(a aVar, c.a.r0.a.d2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+        public C0322a(a aVar, c.a.r0.a.d2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,23 +59,23 @@ public class a extends b {
                     return;
                 }
             }
-            this.f6003e = aVar;
+            this.f5872e = aVar;
             this.a = eVar;
-            this.f6000b = callbackHandler;
-            this.f6001c = unitedSchemeEntity;
-            this.f6002d = str;
+            this.f5869b = callbackHandler;
+            this.f5870c = unitedSchemeEntity;
+            this.f5871d = str;
         }
 
         @Override // c.a.r0.a.q0.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f6003e.f6005d) {
+                if (this.f5872e.f5874d) {
                     c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.getApplicationContext(), h.swanapp_tip_net_unavailable);
                     f2.l(2);
                     f2.G();
                 }
-                this.f6003e.n(this.f6001c, this.f6000b, this.f6002d);
+                this.f5872e.n(this.f5870c, this.f5869b, this.f5871d);
             }
         }
 
@@ -83,12 +83,12 @@ public class a extends b {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.f6003e.f6005d && !z) {
+                if (this.f5872e.f5874d && !z) {
                     c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(this.a.getApplicationContext(), h.aiapps_fav_fail);
                     f2.l(2);
                     f2.G();
                 }
-                this.f6003e.n(this.f6001c, this.f6000b, this.f6002d);
+                this.f5872e.n(this.f5870c, this.f5869b, this.f5871d);
             }
         }
 
@@ -104,7 +104,7 @@ public class a extends b {
                         e2.printStackTrace();
                     }
                 }
-                if (this.f6003e.f6005d) {
+                if (this.f5872e.f5874d) {
                     b.m("1", "btn", "success");
                     c.a.r0.a.j0.b.a.t();
                     if (c.a.r0.a.k1.a.k(this.a.x())) {
@@ -117,7 +117,7 @@ public class a extends b {
                         g2.G();
                     }
                 }
-                UnitedSchemeUtility.safeCallback(this.f6000b, this.f6001c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f6002d);
+                UnitedSchemeUtility.safeCallback(this.f5869b, this.f5870c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f5871d);
             }
         }
     }
@@ -153,8 +153,8 @@ public class a extends b {
                 return false;
             }
             try {
-                String N = this.f6005d ? eVar.N() : new JSONObject(param).optString("appid");
-                this.f6004c = N;
+                String N = this.f5874d ? eVar.N() : new JSONObject(param).optString("appid");
+                this.f5873c = N;
                 return !TextUtils.isEmpty(N);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -168,14 +168,14 @@ public class a extends b {
     public void k(c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) {
-            PMSAppInfo u = c.a.r0.q.g.a.i().u(this.f6004c);
+            PMSAppInfo u = c.a.r0.q.g.a.i().u(this.f5873c);
             if (u != null && !TextUtils.isEmpty(u.appId)) {
-                if (this.f6005d) {
+                if (this.f5874d) {
                     b.m("1", "btn", "invoke");
                 } else {
                     b.m("1", RetrieveTaskManager.KEY, "invoke");
                 }
-                SwanFavorDataManager.h().b(this.f6004c, new C0313a(this, eVar, callbackHandler, unitedSchemeEntity, str));
+                SwanFavorDataManager.h().b(this.f5873c, new C0322a(this, eVar, callbackHandler, unitedSchemeEntity, str));
                 return;
             }
             n(unitedSchemeEntity, callbackHandler, str);
@@ -186,7 +186,7 @@ public class a extends b {
     public void l(c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         f0 l0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) && this.f6005d && (l0 = c.a.r0.a.c1.a.l0()) != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) && this.f5874d && (l0 = c.a.r0.a.c1.a.l0()) != null) {
             l0.g(eVar);
         }
     }

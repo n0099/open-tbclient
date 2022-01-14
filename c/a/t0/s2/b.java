@@ -21,7 +21,7 @@ public class b {
         public static String a = "c12585";
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f22926b = "c12586";
+        public static String f22296b = "c12586";
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

@@ -36,40 +36,38 @@ public class a extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f11545i;
+    public static final boolean f11286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Set<String> f11546j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static final Set<String> f11547k;
+    public static final Set<String> f11287j;
+    public static final Set<String> k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11548e;
+    public int f11288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.y.b.a f11549f;
+    public c.a.r0.a.y.b.a f11289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11550g;
+    public String f11290g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.a.l0.c f11551h;
+    public c.a.r0.a.l0.c f11291h;
 
     /* renamed from: c.a.r0.j.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0771a implements Runnable {
+    public class RunnableC0780a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSEvent f11552e;
+        public final /* synthetic */ JSEvent f11292e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11553f;
+        public final /* synthetic */ a f11293f;
 
-        public RunnableC0771a(a aVar, JSEvent jSEvent) {
+        public RunnableC0780a(a aVar, JSEvent jSEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,15 +82,15 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11553f = aVar;
-            this.f11552e = jSEvent;
+            this.f11293f = aVar;
+            this.f11292e = jSEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.super.dispatchEvent(this.f11552e);
+                a.super.dispatchEvent(this.f11292e);
             }
         }
     }
@@ -103,10 +101,10 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f11554e;
+        public final /* synthetic */ Object f11294e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11555f;
+        public final /* synthetic */ a f11295f;
 
         public b(a aVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -123,15 +121,15 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11555f = aVar;
-            this.f11554e = obj;
+            this.f11295f = aVar;
+            this.f11294e = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.j.n0.c.call(this.f11555f.f11549f, true, this.f11554e);
+                c.a.r0.j.n0.c.call(this.f11295f.f11289f, true, this.f11294e);
             }
         }
     }
@@ -142,13 +140,13 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11556e;
+        public final /* synthetic */ String f11296e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f11557f;
+        public final /* synthetic */ int f11297f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f11558g;
+        public final /* synthetic */ a f11298g;
 
         public c(a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -165,9 +163,9 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11558g = aVar;
-            this.f11556e = str;
-            this.f11557f = i2;
+            this.f11298g = aVar;
+            this.f11296e = str;
+            this.f11297f = i2;
         }
 
         @Override // java.lang.Runnable
@@ -175,9 +173,9 @@ public class a extends EventTargetImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.j.z.f.b bVar = new c.a.r0.j.z.f.b();
-                bVar.errMsg = this.f11556e;
-                bVar.statusCode = this.f11557f;
-                c.a.r0.j.n0.c.call(this.f11558g.f11549f, false, bVar);
+                bVar.errMsg = this.f11296e;
+                bVar.statusCode = this.f11297f;
+                c.a.r0.j.n0.c.call(this.f11298g.f11289f, false, bVar);
             }
         }
     }
@@ -195,9 +193,9 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        f11545i = k.a;
-        f11546j = Sets.newHashSet("REFERER", "USER-AGENT");
-        f11547k = Sets.newHashSet("localhost", "127.0.0.1");
+        f11286i = k.a;
+        f11287j = Sets.newHashSet("REFERER", "USER-AGENT");
+        k = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -218,10 +216,10 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        this.f11548e = 0;
-        this.f11551h = cVar;
-        this.f11550g = y();
-        this.f11549f = aVar;
+        this.f11288e = 0;
+        this.f11291h = cVar;
+        this.f11290g = y();
+        this.f11289f = aVar;
     }
 
     public static void F(@NonNull Request.Builder builder, c.a.r0.a.y.b.a aVar, Map<String, String> map) {
@@ -230,7 +228,7 @@ public class a extends EventTargetImpl {
             return;
         }
         for (String str : aVar.j()) {
-            if (!TextUtils.isEmpty(str) && !f11546j.contains(str.toUpperCase(Locale.US))) {
+            if (!TextUtils.isEmpty(str) && !f11287j.contains(str.toUpperCase(Locale.US))) {
                 String f2 = q0.f(aVar.H(str));
                 if (!TextUtils.isEmpty(f2)) {
                     if (map != null) {
@@ -245,7 +243,7 @@ public class a extends EventTargetImpl {
     public boolean A(@Nullable HttpUrl httpUrl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) ? (httpUrl == null || f11547k.contains(httpUrl.host().toLowerCase(Locale.US))) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) ? (httpUrl == null || k.contains(httpUrl.host().toLowerCase(Locale.US))) ? false : true : invokeL.booleanValue;
     }
 
     public String B() {
@@ -261,14 +259,14 @@ public class a extends EventTargetImpl {
     public void C(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i2, str2) == null) {
-            this.f11551h.postOnJSThread(new c(this, str2, i2));
+            this.f11291h.postOnJSThread(new c(this, str2, i2));
         }
     }
 
     public void D(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.f11551h.postOnJSThread(new b(this, obj));
+            this.f11291h.postOnJSThread(new b(this, obj));
         }
     }
 
@@ -282,7 +280,7 @@ public class a extends EventTargetImpl {
                     return parse;
                 }
                 return null;
-            } else if ((f11545i && c.a.r0.a.x1.a.a.o()) || A(parse)) {
+            } else if ((f11286i && c.a.r0.a.x1.a.a.o()) || A(parse)) {
                 return parse;
             } else {
                 return null;
@@ -304,12 +302,12 @@ public class a extends EventTargetImpl {
     public void H(c.a.r0.a.y.b.a aVar) {
         c.a.r0.a.y.b.a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || (aVar2 = this.f11549f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || (aVar2 = this.f11289f) == null) {
             return;
         }
         aVar2.G("success", aVar.u("success"));
-        this.f11549f.G(com.baidu.pass.biometrics.face.liveness.b.a.g0, aVar.u(com.baidu.pass.biometrics.face.liveness.b.a.g0));
-        this.f11549f.G(TaskProcessData.keyComplete, aVar.u(TaskProcessData.keyComplete));
+        this.f11289f.G(com.baidu.pass.biometrics.face.liveness.b.a.g0, aVar.u(com.baidu.pass.biometrics.face.liveness.b.a.g0));
+        this.f11289f.G(TaskProcessData.keyComplete, aVar.u(TaskProcessData.keyComplete));
     }
 
     public JSONObject I(Headers headers) throws JSONException {
@@ -343,10 +341,10 @@ public class a extends EventTargetImpl {
     @JavascriptInterface
     public void abort() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11549f == null || e.L() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11289f == null || e.L() == null) {
             return;
         }
-        e.L().h0().cancelTag(this.f11550g);
+        e.L().h0().cancelTag(this.f11290g);
     }
 
     @Override // com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
@@ -354,7 +352,7 @@ public class a extends EventTargetImpl {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSEvent)) == null) {
-            this.f11551h.postOnJSThread(new RunnableC0771a(this, jSEvent));
+            this.f11291h.postOnJSThread(new RunnableC0780a(this, jSEvent));
             return true;
         }
         return invokeL.booleanValue;
@@ -377,8 +375,8 @@ public class a extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String B = this.f11549f.B("url");
-            if (this.f11549f != null && !TextUtils.isEmpty(this.f11550g)) {
+            String B = this.f11289f.B("url");
+            if (this.f11289f != null && !TextUtils.isEmpty(this.f11290g)) {
                 if (TextUtils.isEmpty(B)) {
                     C("", -1, "request:url is invalid");
                     return null;

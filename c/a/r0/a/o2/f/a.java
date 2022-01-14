@@ -19,12 +19,12 @@ public abstract class a implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReadWriteLock f8242c;
+    public static final ReadWriteLock f8060c;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f8243b;
+    public final long f8061b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public abstract class a implements e {
                 return;
             }
         }
-        f8242c = new ReentrantReadWriteLock();
+        f8060c = new ReentrantReadWriteLock();
     }
 
     public a() {
@@ -56,7 +56,7 @@ public abstract class a implements e {
             }
         }
         this.a = d();
-        this.f8243b = getMaxSize();
+        this.f8061b = getMaxSize();
     }
 
     @Override // c.a.r0.a.o2.f.e
@@ -64,11 +64,11 @@ public abstract class a implements e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            f8242c.readLock().lock();
+            f8060c.readLock().lock();
             try {
-                return e() + j2 > this.f8243b;
+                return e() + j2 > this.f8061b;
             } finally {
-                f8242c.readLock().unlock();
+                f8060c.readLock().unlock();
             }
         }
         return invokeJ.booleanValue;
@@ -78,7 +78,7 @@ public abstract class a implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            f8242c.writeLock().lock();
+            f8060c.writeLock().lock();
             try {
                 try {
                     if (this.a == null) {
@@ -95,7 +95,7 @@ public abstract class a implements e {
                     }
                 }
             } finally {
-                f8242c.writeLock().unlock();
+                f8060c.writeLock().unlock();
             }
         }
     }

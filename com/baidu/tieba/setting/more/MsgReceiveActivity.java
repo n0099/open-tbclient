@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more;
 import android.os.Bundle;
 import android.view.View;
 import c.a.s0.t.d.d;
-import c.a.t0.m3.c.f;
+import c.a.t0.m3.l.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;

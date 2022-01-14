@@ -19,7 +19,7 @@ public final class f<State extends c<State>, SelectedState, AT extends a> {
     public final e<State, AT> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b<SelectedState> f34054b;
+    public final b<SelectedState> f32968b;
 
     public f(e<State, AT> eVar, e<SelectedState, AT> eVar2, b<SelectedState> bVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class f<State extends c<State>, SelectedState, AT extends a> {
             }
         }
         this.a = eVar;
-        this.f34054b = bVar;
+        this.f32968b = bVar;
         SubscriptionBox$forwardFromOriginalSubscription$1 subscriptionBox$forwardFromOriginalSubscription$1 = new SubscriptionBox$forwardFromOriginalSubscription$1(this);
         if (eVar2 != null) {
             eVar2.c(new SubscriptionBox$$special$$inlined$let$lambda$1(this));
@@ -62,6 +62,6 @@ public final class f<State extends c<State>, SelectedState, AT extends a> {
     public final b<SelectedState> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34054b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32968b : (b) invokeV.objValue;
     }
 }

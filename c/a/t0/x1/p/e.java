@@ -14,21 +14,21 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final HashMap<String, e> f26020f;
+    public static final HashMap<String, e> f25252f;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26021b;
+    public String f25253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26022c;
+    public String f25254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26023d;
+    public int f25255d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26024e;
+    public String f25256e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class e {
                 return;
             }
         }
-        f26020f = new HashMap<>();
+        f25252f = new HashMap<>();
     }
 
     public e() {
@@ -59,7 +59,7 @@ public class e {
                 return;
             }
         }
-        this.f26021b = "";
+        this.f25253b = "";
     }
 
     public static e a(long j2, String str) {
@@ -73,7 +73,7 @@ public class e {
                 str = "";
             }
             sb.append(str);
-            return f26020f.get(sb.toString());
+            return f25252f.get(sb.toString());
         }
         return (e) invokeJL.objValue;
     }
@@ -84,8 +84,8 @@ public class e {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("_");
-            sb.append(TextUtils.isEmpty(this.f26021b) ? "" : this.f26021b);
-            f26020f.put(sb.toString(), this);
+            sb.append(TextUtils.isEmpty(this.f25253b) ? "" : this.f25253b);
+            f25252f.put(sb.toString(), this);
         }
     }
 }

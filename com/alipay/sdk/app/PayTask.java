@@ -42,36 +42,34 @@ public class PayTask {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Object f31762h;
+    public static final Object f30769h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f31763i = 0;
+    public static long f30770i = 0;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final long f31764j = 3000;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static long f31765k = -1;
+    public static final long f30771j = 3000;
+    public static long k = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f31766b;
+    public com.alipay.sdk.widget.a f30772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31767c;
+    public final String f30773c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f31768d;
+    public final String f30774d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f31769e;
+    public final String f30775e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f31770f;
+    public final String f30776f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, c> f31771g;
+    public Map<String, c> f30777g;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -80,13 +78,13 @@ public class PayTask {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f31772b;
+        public final /* synthetic */ boolean f30778b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ H5PayCallback f31773c;
+        public final /* synthetic */ H5PayCallback f30779c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PayTask f31774d;
+        public final /* synthetic */ PayTask f30780d;
 
         public a(PayTask payTask, String str, boolean z, H5PayCallback h5PayCallback) {
             Interceptable interceptable = $ic;
@@ -103,19 +101,19 @@ public class PayTask {
                     return;
                 }
             }
-            this.f31774d = payTask;
+            this.f30780d = payTask;
             this.a = str;
-            this.f31772b = z;
-            this.f31773c = h5PayCallback;
+            this.f30778b = z;
+            this.f30779c = h5PayCallback;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                H5PayResultModel h5Pay = this.f31774d.h5Pay(new com.alipay.sdk.sys.a(this.f31774d.a, this.a, "payInterceptorWithUrl"), this.a, this.f31772b);
+                H5PayResultModel h5Pay = this.f30780d.h5Pay(new com.alipay.sdk.sys.a(this.f30780d.a, this.a, "payInterceptorWithUrl"), this.a, this.f30778b);
                 com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "inc finished: " + h5Pay.getResultCode());
-                this.f31773c.onPayResult(h5Pay);
+                this.f30779c.onPayResult(h5Pay);
             }
         }
     }
@@ -167,16 +165,16 @@ public class PayTask {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31775b;
+        public String f30781b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f31776c;
+        public String f30782c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f31777d;
+        public String f30783d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayTask f31778e;
+        public final /* synthetic */ PayTask f30784e;
 
         public c(PayTask payTask) {
             Interceptable interceptable = $ic;
@@ -193,17 +191,17 @@ public class PayTask {
                     return;
                 }
             }
-            this.f31778e = payTask;
+            this.f30784e = payTask;
             this.a = "";
-            this.f31775b = "";
-            this.f31776c = "";
-            this.f31777d = "";
+            this.f30781b = "";
+            this.f30782c = "";
+            this.f30783d = "";
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31776c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30782c : (String) invokeV.objValue;
         }
 
         public String b() {
@@ -215,19 +213,19 @@ public class PayTask {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31775b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30781b : (String) invokeV.objValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31777d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30783d : (String) invokeV.objValue;
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f31776c = str;
+                this.f30782c = str;
             }
         }
 
@@ -241,14 +239,14 @@ public class PayTask {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                this.f31775b = str;
+                this.f30781b = str;
             }
         }
 
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-                this.f31777d = str;
+                this.f30783d = str;
             }
         }
 
@@ -270,7 +268,7 @@ public class PayTask {
                 return;
             }
         }
-        f31762h = f.class;
+        f30769h = f.class;
     }
 
     public PayTask(Activity activity) {
@@ -288,14 +286,14 @@ public class PayTask {
                 return;
             }
         }
-        this.f31767c = "wappaygw.alipay.com/service/rest.htm";
-        this.f31768d = "mclient.alipay.com/service/rest.htm";
-        this.f31769e = "mclient.alipay.com/home/exterfaceAssign.htm";
-        this.f31770f = "mclient.alipay.com/cashier/mobilepay.htm";
-        this.f31771g = new HashMap();
+        this.f30773c = "wappaygw.alipay.com/service/rest.htm";
+        this.f30774d = "mclient.alipay.com/service/rest.htm";
+        this.f30775e = "mclient.alipay.com/home/exterfaceAssign.htm";
+        this.f30776f = "mclient.alipay.com/cashier/mobilepay.htm";
+        this.f30777g = new HashMap();
         this.a = activity;
         com.alipay.sdk.sys.b.d().a(this.a);
-        this.f31766b = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f31961j);
+        this.f30772b = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f30957j);
     }
 
     public static boolean b() {
@@ -303,8 +301,8 @@ public class PayTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (elapsedRealtime - f31765k >= 3000) {
-                f31765k = elapsedRealtime;
+            if (elapsedRealtime - k >= 3000) {
+                k = elapsedRealtime;
                 return false;
             }
             return true;
@@ -320,10 +318,10 @@ public class PayTask {
                 try {
                     com.alipay.sdk.sys.b.d().a(context);
                     long elapsedRealtime = SystemClock.elapsedRealtime() / 1000;
-                    if (elapsedRealtime - f31763i < com.alipay.sdk.data.a.u().c()) {
+                    if (elapsedRealtime - f30770i < com.alipay.sdk.data.a.u().c()) {
                         return false;
                     }
-                    f31763i = elapsedRealtime;
+                    f30770i = elapsedRealtime;
                     com.alipay.sdk.data.a.u().a(com.alipay.sdk.sys.a.e(), context.getApplicationContext());
                     return true;
                 } catch (Exception e2) {
@@ -338,11 +336,11 @@ public class PayTask {
     public void dismissLoading() {
         com.alipay.sdk.widget.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f31766b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f30772b) == null) {
             return;
         }
         aVar.a();
-        this.f31766b = null;
+        this.f30772b = null;
     }
 
     public synchronized String fetchOrderInfoFromH5PayUrl(String str) {
@@ -401,7 +399,7 @@ public class PayTask {
                                         cVar.a(a5.get("pay_order_id"));
                                         com.alipay.sdk.sys.a aVar4 = new com.alipay.sdk.sys.a(this.a, "", "");
                                         String str3 = sb.toString() + "&bizcontext=\"" + aVar4.a("sc", "h5tonative") + "\"";
-                                        this.f31771g.put(str3, cVar);
+                                        this.f30777g.put(str3, cVar);
                                         return str3;
                                     }
                                     return "";
@@ -431,7 +429,7 @@ public class PayTask {
                                     cVar2.c(queryParameter2);
                                     cVar2.a(queryParameter3);
                                     cVar2.d(a6);
-                                    this.f31771g.put(format, cVar2);
+                                    this.f30777g.put(format, cVar2);
                                     return format;
                                 }
                             }
@@ -547,7 +545,7 @@ public class PayTask {
     public void showLoading() {
         com.alipay.sdk.widget.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aVar = this.f31766b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aVar = this.f30772b) == null) {
             return;
         }
         aVar.d();
@@ -595,7 +593,7 @@ public class PayTask {
                     com.alipay.sdk.data.a.u().a(aVar, this.a.getApplicationContext());
                 }
                 dismissLoading();
-                com.alipay.sdk.app.statistic.a.b(this.a.getApplicationContext(), aVar, str, aVar.f31899d);
+                com.alipay.sdk.app.statistic.a.b(this.a.getApplicationContext(), aVar, str, aVar.f30898d);
                 com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "pay returning: " + a2);
                 return a2;
             }
@@ -665,7 +663,7 @@ public class PayTask {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, map)) == null) {
             boolean equals = Result.RESULT_SUCCESS.equals(map.get("resultStatus"));
             String str2 = map.get("result");
-            c remove = this.f31771g.remove(str);
+            c remove = this.f30777g.remove(str);
             String[] strArr = new String[2];
             strArr[0] = remove != null ? remove.a() : "";
             strArr[1] = remove != null ? remove.d() : "";
@@ -715,8 +713,8 @@ public class PayTask {
                 return a(aVar, a2);
             }
             List<a.b> k2 = com.alipay.sdk.data.a.u().k();
-            if (!com.alipay.sdk.data.a.u().f31840g || k2 == null) {
-                k2 = com.alipay.sdk.app.a.f31781d;
+            if (!com.alipay.sdk.data.a.u().f30842g || k2 == null) {
+                k2 = com.alipay.sdk.app.a.f30787d;
             }
             if (l.b(aVar, this.a, k2)) {
                 f fVar = new f(this.a, aVar, a());
@@ -724,11 +722,11 @@ public class PayTask {
                 String a3 = fVar.a(a2);
                 com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "pay inner raw result: " + a3);
                 fVar.a();
-                if (!TextUtils.equals(a3, f.f31931j) && !TextUtils.equals(a3, f.f31932k)) {
+                if (!TextUtils.equals(a3, f.f30928j) && !TextUtils.equals(a3, f.k)) {
                     if (TextUtils.isEmpty(a3)) {
                         return com.alipay.sdk.app.b.a();
                     }
-                    if (a3.contains(PayResultActivity.f31753b)) {
+                    if (a3.contains(PayResultActivity.f30760b)) {
                         com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.o0);
                         return a(aVar, a2, k2, a3, this.a);
                     }
@@ -748,28 +746,28 @@ public class PayTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, aVar, str, list, str2, activity)) == null) {
             l.b a2 = l.a(aVar, activity, list);
-            if (a2 == null || a2.a(aVar) || a2.a() || !TextUtils.equals(a2.a.packageName, PayResultActivity.f31755d)) {
+            if (a2 == null || a2.a(aVar) || a2.a() || !TextUtils.equals(a2.a.packageName, PayResultActivity.f30762d)) {
                 return str2;
             }
             com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "PayTask not_login");
             String valueOf = String.valueOf(str.hashCode());
-            PayResultActivity.f31754c.put(valueOf, new Object());
+            PayResultActivity.f30761c.put(valueOf, new Object());
             Intent intent = new Intent(activity, PayResultActivity.class);
-            intent.putExtra(PayResultActivity.f31757f, str);
-            intent.putExtra(PayResultActivity.f31758g, activity.getPackageName());
-            intent.putExtra(PayResultActivity.f31756e, valueOf);
-            a.C1686a.a(aVar, intent);
+            intent.putExtra(PayResultActivity.f30764f, str);
+            intent.putExtra(PayResultActivity.f30765g, activity.getPackageName());
+            intent.putExtra(PayResultActivity.f30763e, valueOf);
+            a.C1702a.a(aVar, intent);
             activity.startActivity(intent);
-            synchronized (PayResultActivity.f31754c.get(valueOf)) {
+            synchronized (PayResultActivity.f30761c.get(valueOf)) {
                 try {
                     com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "PayTask wait");
-                    PayResultActivity.f31754c.get(valueOf).wait();
+                    PayResultActivity.f30761c.get(valueOf).wait();
                 } catch (InterruptedException unused) {
                     com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "PayTask interrupted");
                     return com.alipay.sdk.app.b.a();
                 }
             }
-            String str3 = PayResultActivity.b.f31761b;
+            String str3 = PayResultActivity.b.f30768b;
             com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "PayTask ret: " + str3);
             return str3;
         }
@@ -786,40 +784,40 @@ public class PayTask {
                 try {
                     JSONObject c2 = new com.alipay.sdk.packet.impl.f().a(aVar, this.a.getApplicationContext(), str).c();
                     String optString = c2.optString("end_code", null);
-                    List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(c2.optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f31827d));
+                    List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(c2.optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f30830d));
                     for (int i2 = 0; i2 < a2.size(); i2++) {
-                        if (a2.get(i2).a() == com.alipay.sdk.protocol.a.f31888d) {
+                        if (a2.get(i2).a() == com.alipay.sdk.protocol.a.f30888d) {
                             com.alipay.sdk.protocol.b.a(a2.get(i2));
                         }
                     }
                     a(aVar, c2);
                     dismissLoading();
-                    com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f31899d);
+                    com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f30898d);
                     for (int i3 = 0; i3 < a2.size(); i3++) {
                         com.alipay.sdk.protocol.b bVar = a2.get(i3);
-                        if (bVar.a() == com.alipay.sdk.protocol.a.f31887c) {
+                        if (bVar.a() == com.alipay.sdk.protocol.a.f30887c) {
                             String a3 = a(aVar, bVar);
                             dismissLoading();
-                            com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f31899d);
+                            com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f30898d);
                             return a3;
-                        } else if (bVar.a() == com.alipay.sdk.protocol.a.f31889e) {
+                        } else if (bVar.a() == com.alipay.sdk.protocol.a.f30889e) {
                             String a4 = a(aVar, bVar, optString);
                             dismissLoading();
-                            com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f31899d);
+                            com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f30898d);
                             return a4;
                         }
                     }
                     dismissLoading();
-                    com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f31899d);
+                    com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f30898d);
                 } catch (IOException e2) {
-                    com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f31786f.b());
+                    com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f30792f.b());
                     com.alipay.sdk.app.statistic.a.a(aVar, "net", e2);
                     dismissLoading();
-                    com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f31899d);
+                    com.alipay.sdk.app.statistic.a.a(this.a, aVar, str, aVar.f30898d);
                     cVar = b2;
                 }
                 if (cVar == null) {
-                    cVar = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f31784d.b());
+                    cVar = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f30790d.b());
                 }
                 return com.alipay.sdk.app.b.a(cVar.b(), cVar.a(), "");
             }
@@ -832,7 +830,7 @@ public class PayTask {
         if (interceptable == null || interceptable.invokeLL(65549, this, aVar, jSONObject) == null) {
             try {
                 String optString = jSONObject.optString("tid");
-                String optString2 = jSONObject.optString(com.alipay.sdk.tid.a.f31911j);
+                String optString2 = jSONObject.optString(com.alipay.sdk.tid.a.f30910j);
                 if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
                     return;
                 }
@@ -843,7 +841,7 @@ public class PayTask {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0095, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0099, code lost:
         r0 = r6.c();
         r11 = com.alipay.sdk.app.b.a(java.lang.Integer.valueOf(r0[1]).intValue(), r0[0], com.alipay.sdk.util.l.e(r10, r0[2]));
      */
@@ -866,11 +864,11 @@ public class PayTask {
                 intent.putExtra("method", f2.optString("method", "POST"));
                 com.alipay.sdk.app.b.a(false);
                 com.alipay.sdk.app.b.a((String) null);
-                a.C1686a.a(aVar, intent);
+                a.C1702a.a(aVar, intent);
                 this.a.startActivity(intent);
-                synchronized (f31762h) {
+                synchronized (f30769h) {
                     try {
-                        f31762h.wait();
+                        f30769h.wait();
                         c2 = com.alipay.sdk.app.b.c();
                         d2 = com.alipay.sdk.app.b.d();
                         com.alipay.sdk.app.b.a(false);
@@ -890,7 +888,7 @@ public class PayTask {
                                 break;
                             }
                             com.alipay.sdk.protocol.b bVar2 = a2.get(i2);
-                            if (bVar2.a() == com.alipay.sdk.protocol.a.f31890f) {
+                            if (bVar2.a() == com.alipay.sdk.protocol.a.f30890f) {
                                 break;
                             }
                             i2++;
@@ -930,11 +928,11 @@ public class PayTask {
                 bundle.putString("cookie", c2[1]);
             }
             intent.putExtras(bundle);
-            a.C1686a.a(aVar, intent);
+            a.C1702a.a(aVar, intent);
             this.a.startActivity(intent);
-            synchronized (f31762h) {
+            synchronized (f30769h) {
                 try {
-                    f31762h.wait();
+                    f30769h.wait();
                 } catch (InterruptedException e2) {
                     com.alipay.sdk.util.c.a(e2);
                     return com.alipay.sdk.app.b.a();

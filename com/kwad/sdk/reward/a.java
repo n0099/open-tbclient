@@ -22,41 +22,39 @@ public class a extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f59450b;
+    public com.kwad.sdk.reward.a.b f57202b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.d f59451c;
+    public com.kwad.sdk.reward.a.d f57203c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public KsVideoPlayConfig f59452d;
+    public KsVideoPlayConfig f57204d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f59453e;
+    public JSONObject f57205e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f59454f;
+    public int f57206f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f59455g;
+    public AdTemplate f57207g;
     @Deprecated
 
     /* renamed from: h  reason: collision with root package name */
-    public Activity f59456h;
+    public Activity f57208h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f59457i;
+    public Context f57209i;
     @NonNull
 
     /* renamed from: j  reason: collision with root package name */
-    public AdBaseFrameLayout f59458j;
+    public AdBaseFrameLayout f57210j;
     @NonNull
-
-    /* renamed from: k  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f59459k;
+    public com.kwad.sdk.reward.c.a k;
     @Nullable
     public com.kwad.sdk.core.download.a.b l;
     @Nullable
@@ -85,8 +83,8 @@ public class a extends com.kwad.sdk.core.e.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        com.kwad.sdk.core.report.a.a(this.f59455g, i2, this.f59458j.getTouchCoords(), this.f59453e);
-        this.f59450b.a();
+        com.kwad.sdk.core.report.a.a(this.f57207g, i2, this.f57210j.getTouchCoords(), this.f57205e);
+        this.f57202b.a();
     }
 
     private boolean c() {
@@ -103,7 +101,7 @@ public class a extends com.kwad.sdk.core.e.b {
     public void a() {
         this.a.clear();
         this.A.clear();
-        com.kwad.sdk.reward.c.a aVar = this.f59459k;
+        com.kwad.sdk.reward.c.a aVar = this.k;
         if (aVar != null) {
             aVar.e();
         }
@@ -128,7 +126,7 @@ public class a extends com.kwad.sdk.core.e.b {
     }
 
     public void a(Context context, final int i2, int i3) {
-        com.kwad.sdk.core.download.a.a.a(new a.C2083a(context).a(this.f59455g).a(this.l).a(false).a(i3).a(new a.b() { // from class: com.kwad.sdk.reward.a.2
+        com.kwad.sdk.core.download.a.a.a(new a.C2100a(context).a(this.f57207g).a(this.l).a(false).a(i3).a(new a.b() { // from class: com.kwad.sdk.reward.a.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 a.this.a(i2);

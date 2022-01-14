@@ -8,6 +8,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +30,7 @@ public class h5 {
     public static HashMap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31316b;
+    public static boolean f30337b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +47,7 @@ public class h5 {
             }
         }
         a = new HashMap();
-        f31316b = false;
+        f30337b = false;
     }
 
     public static String a(Map map) {
@@ -135,7 +136,7 @@ public class h5 {
         String str8;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f31316b) {
+            if (f30337b) {
                 hashMap = a;
             } else {
                 a.put("app", r0.w(context));
@@ -206,7 +207,7 @@ public class h5 {
                     if (Build.VERSION.SDK_INT < 23) {
                         deviceId = telephonyManager.getDeviceId();
                         str8 = "";
-                    } else if (context.checkSelfPermission(com.kuaishou.weapon.un.s.f57419c) == 0) {
+                    } else if (context.checkSelfPermission(com.kuaishou.weapon.un.s.f55242c) == 0) {
                         deviceId = telephonyManager.getDeviceId(1);
                         str8 = telephonyManager.getDeviceId(2);
                     } else {
@@ -242,7 +243,7 @@ public class h5 {
                 hashMap5.put("opcode", str4);
             }
             try {
-                str5 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                str5 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Exception unused8) {
                 str5 = "NO";
             }
@@ -333,7 +334,7 @@ public class h5 {
                                         str7 = stringBuffer.toString().toUpperCase();
                                         if (!TextUtils.isEmpty(str7)) {
                                         }
-                                        d2 = u1.f31469c.a;
+                                        d2 = u1.f30480c.a;
                                         if (d2 > 0.0d) {
                                         }
                                         c2 = g2.a(context).c();
@@ -373,7 +374,7 @@ public class h5 {
                         }
                         hashMap5.put("wm", str7);
                     }
-                    d2 = u1.f31469c.a;
+                    d2 = u1.f30480c.a;
                     if (d2 > 0.0d) {
                         String valueOf = String.valueOf(d2);
                         try {
@@ -381,7 +382,7 @@ public class h5 {
                         } catch (Exception unused12) {
                         }
                         hashMap5.put("lau", valueOf);
-                        String valueOf2 = String.valueOf(u1.f31469c.f31470b);
+                        String valueOf2 = String.valueOf(u1.f30480c.f30481b);
                         try {
                             valueOf2 = r0.g(valueOf2);
                         } catch (Exception unused13) {
@@ -421,7 +422,7 @@ public class h5 {
                 str7 = stringBuffer22.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = u1.f31469c.a;
+                d2 = u1.f30480c.a;
                 if (d2 > 0.0d) {
                 }
                 c2 = g2.a(context).c();
@@ -452,7 +453,7 @@ public class h5 {
                 str7 = stringBuffer222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = u1.f31469c.a;
+                d2 = u1.f30480c.a;
                 if (d2 > 0.0d) {
                 }
                 c2 = g2.a(context).c();
@@ -473,7 +474,7 @@ public class h5 {
             str7 = stringBuffer2222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f31469c.a;
+            d2 = u1.f30480c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -497,7 +498,7 @@ public class h5 {
             }
             hashMap6.put(BaseStatisContent.IMSI, str3);
         }
-        f31316b = true;
+        f30337b = true;
         hashMap = a;
         HashMap hashMap52 = new HashMap();
         if (hashMap != null) {
@@ -510,7 +511,7 @@ public class h5 {
         str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str4)) {
         }
-        str5 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+        str5 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
         if (!TextUtils.isEmpty(str5)) {
         }
         a2 = i1.a(context);
@@ -538,7 +539,7 @@ public class h5 {
                 str7 = stringBuffer22222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = u1.f31469c.a;
+                d2 = u1.f30480c.a;
                 if (d2 > 0.0d) {
                 }
                 c2 = g2.a(context).c();
@@ -559,7 +560,7 @@ public class h5 {
             str7 = stringBuffer222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f31469c.a;
+            d2 = u1.f30480c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -590,7 +591,7 @@ public class h5 {
             str7 = stringBuffer2222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f31469c.a;
+            d2 = u1.f30480c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -611,7 +612,7 @@ public class h5 {
         str7 = stringBuffer22222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = u1.f31469c.a;
+        d2 = u1.f30480c.a;
         if (d2 > 0.0d) {
         }
         c2 = g2.a(context).c();
@@ -625,7 +626,7 @@ public class h5 {
         }
         return hashMap52;
         hashMap6.put(BaseStatisContent.IMSI, str3);
-        f31316b = true;
+        f30337b = true;
         hashMap = a;
         HashMap hashMap522 = new HashMap();
         if (hashMap != null) {
@@ -638,7 +639,7 @@ public class h5 {
         str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str4)) {
         }
-        str5 = Settings.Secure.getString(context.getContentResolver(), "android_id");
+        str5 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
         if (!TextUtils.isEmpty(str5)) {
         }
         a2 = i1.a(context);
@@ -666,7 +667,7 @@ public class h5 {
             str7 = stringBuffer222222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = u1.f31469c.a;
+            d2 = u1.f30480c.a;
             if (d2 > 0.0d) {
             }
             c2 = g2.a(context).c();
@@ -687,7 +688,7 @@ public class h5 {
         str7 = stringBuffer2222222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = u1.f31469c.a;
+        d2 = u1.f30480c.a;
         if (d2 > 0.0d) {
         }
         c2 = g2.a(context).c();

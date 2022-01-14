@@ -977,7 +977,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f52946b;
+                    public final /* synthetic */ BaseActivity f50905b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -994,7 +994,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f52946b = this;
+                        this.f50905b = this;
                         this.a = promptDialog3;
                     }
 
@@ -1004,8 +1004,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             this.a.dismiss();
                             try {
-                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f52946b.getActivity());
-                                PhoneUtils.showInstalledAppOrDetails(this.f52946b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f50905b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f50905b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                             } catch (Throwable unused) {
                             }
                         }
@@ -1017,7 +1017,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f52947b;
+                    public final /* synthetic */ BaseActivity f50906b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1034,7 +1034,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f52947b = this;
+                        this.f50906b = this;
                         this.a = promptDialog3;
                     }
 

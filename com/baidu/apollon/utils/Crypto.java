@@ -20,28 +20,28 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33767b = 8;
+    public static final int f32695b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33768c = 128;
+    public static final int f32696c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f33769d = 64;
+    public static final int f32697d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33770e = 8;
+    public static final int f32698e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f33771f = 1000;
+    public static final int f32699f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f33772g;
+    public static SecureRandom f32700g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,7 +57,7 @@ public class Crypto {
                 return;
             }
         }
-        f33772g = new SecureRandom();
+        f32700g = new SecureRandom();
     }
 
     public Crypto() {
@@ -79,7 +79,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f33772g.nextBytes(bArr);
+            f32700g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;

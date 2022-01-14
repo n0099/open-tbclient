@@ -10,6 +10,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.lightapp.ability.NativeAbilityInvoker;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
 /* loaded from: classes13.dex */
 public class InvokeNativeAbilityAction implements RouterAction {
@@ -34,7 +35,7 @@ public class InvokeNativeAbilityAction implements RouterAction {
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, hashMap, routerCallback) == null) {
-            NativeAbilityInvoker.a().a((Activity) hashMap.get("activity"), (String) hashMap.get("source"), (String) hashMap.get("options"), (ILightappInvokerCallback) hashMap.get("callback"));
+            NativeAbilityInvoker.a().a((Activity) hashMap.get("activity"), (String) hashMap.get("source"), (String) hashMap.get("options"), (ILightappInvokerCallback) hashMap.get(WebChromeClient.KEY_ARG_CALLBACK));
         }
     }
 }

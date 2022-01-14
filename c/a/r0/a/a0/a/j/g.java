@@ -31,8 +31,8 @@ public class g extends a {
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            bVar.f5184k = true;
-            canvas.clipPath(bVar.f5183j, Region.Op.INTERSECT);
+            bVar.k = true;
+            canvas.clipPath(bVar.f5075j, Region.Op.INTERSECT);
         }
     }
 

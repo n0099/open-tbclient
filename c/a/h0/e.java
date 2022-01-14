@@ -34,10 +34,10 @@ public final class e {
     public static final int pay_loading_icon_size = 2131166844;
     public static final int pay_money_layout_height = 2131166845;
     public static final int real_pay_money_size = 2131166875;
-    public static final int text_size_open_channel_list_flod = 2131167936;
-    public static final int title_height = 2131167937;
-    public static final int title_size = 2131167938;
-    public static final int title_top_margin = 2131167939;
-    public static final int total_pay_money_size = 2131167948;
+    public static final int text_size_open_channel_list_flod = 2131167937;
+    public static final int title_height = 2131167938;
+    public static final int title_size = 2131167939;
+    public static final int title_top_margin = 2131167940;
+    public static final int total_pay_money_size = 2131167949;
     public transient /* synthetic */ FieldHolder $fh;
 }

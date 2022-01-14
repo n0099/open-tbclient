@@ -18,16 +18,16 @@ public class b {
     public static final Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f7964b;
+    public static final Set<String> f7789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f7965c;
+    public static final Set<String> f7790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, a> f7966d;
+    public static final Map<String, a> f7791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f7967e;
+    public static boolean f7792e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,10 +44,10 @@ public class b {
             }
         }
         a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        f7964b = new HashSet(a);
-        f7965c = new HashSet(f7964b);
-        f7966d = new HashMap();
-        f7967e = false;
+        f7789b = new HashSet(a);
+        f7790c = new HashSet(f7789b);
+        f7791d = new HashMap();
+        f7792e = false;
     }
 
     public static a a(String str) {
@@ -55,7 +55,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             c();
-            return f7966d.get(str);
+            return f7791d.get(str);
         }
         return (a) invokeL.objValue;
     }
@@ -76,14 +76,14 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!f7967e) {
-                for (String str : f7965c) {
+            if (!f7792e) {
+                for (String str : f7790c) {
                     if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        f7966d.put(str, b());
+                        f7791d.put(str, b());
                     }
                 }
             }
-            f7967e = true;
+            f7792e = true;
         }
     }
 }

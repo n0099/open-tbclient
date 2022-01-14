@@ -23,10 +23,10 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f18026e;
+    public List<d> f17589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LayoutInflater f18027f;
+    public LayoutInflater f17590f;
 
     /* loaded from: classes7.dex */
     public class a {
@@ -35,7 +35,7 @@ public class e extends BaseAdapter {
         public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f18028b;
+        public TextView f17591b;
 
         public a(e eVar, View view) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class e extends BaseAdapter {
                 }
             }
             this.a = (ImageView) view.findViewById(R.id.member_privilege_pic);
-            this.f18028b = (TextView) view.findViewById(R.id.member_privilege_name);
+            this.f17591b = (TextView) view.findViewById(R.id.member_privilege_name);
         }
     }
 
@@ -72,7 +72,7 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f18027f = LayoutInflater.from(context);
+        this.f17590f = LayoutInflater.from(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +82,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<d> list = this.f18026e;
+            List<d> list = this.f17589e;
             if (list == null) {
                 return null;
             }
@@ -96,15 +96,15 @@ public class e extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, aVar) == null) || dVar == null) {
             return;
         }
-        aVar.f18028b.setText(dVar.f18025b);
-        SkinManager.setViewTextColor(aVar.f18028b, R.color.CAM_X0106);
+        aVar.f17591b.setText(dVar.f17588b);
+        SkinManager.setViewTextColor(aVar.f17591b, R.color.CAM_X0106);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(aVar.a, dVar.a, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void c(List<d> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f18026e = list;
+            this.f17589e = list;
         }
     }
 
@@ -113,7 +113,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<d> list = this.f18026e;
+            List<d> list = this.f17589e;
             if (list == null) {
                 return 0;
             }
@@ -127,7 +127,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (this.f18026e == null) {
+            if (this.f17589e == null) {
                 return 0L;
             }
             return i2;
@@ -141,7 +141,7 @@ public class e extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = this.f18027f.inflate(R.layout.member_pay_privilege_list_item, (ViewGroup) null);
+                view = this.f17590f.inflate(R.layout.member_pay_privilege_list_item, (ViewGroup) null);
                 view.setTag(new a(this, view));
             }
             b(getItem(i2), (a) view.getTag());

@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s extends c.a.d.n.e.a<c.a.t0.o1.c.f.a, ThreadCardViewHolder<c.a.t0.o1.c.f.a>> implements c.a.t0.t.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class s extends c.a.d.n.e.a<c.a.t0.o1.c.f.a, ThreadCardViewHolder<c.a.t0.
     public String p;
     public NEGFeedBackView.b q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements NEGFeedBackView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class s extends c.a.d.n.e.a<c.a.t0.o1.c.f.a, ThreadCardViewHolder<c.a.t0.
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends BdAsyncTask<Integer, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,9 +209,9 @@ public class s extends c.a.d.n.e.a<c.a.t0.o1.c.f.a, ThreadCardViewHolder<c.a.t0.
             b0 showNEGFeedBackView = threadCardViewHolder.showNEGFeedBackView(false);
             showNEGFeedBackView.t(this.q);
             showNEGFeedBackView.r(false);
-            showNEGFeedBackView.s(this.f3299e.getString(R.string.concern_recommend_dialog_title));
+            showNEGFeedBackView.s(this.f3258e.getString(R.string.concern_recommend_dialog_title));
             showNEGFeedBackView.v(true);
-            showNEGFeedBackView.f4220k = true;
+            showNEGFeedBackView.k = true;
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;

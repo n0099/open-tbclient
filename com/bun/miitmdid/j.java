@@ -19,10 +19,8 @@ public class j extends l implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f54994j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f54995k;
+    public Context f52905j;
+    public String k;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -39,31 +37,31 @@ public class j extends l implements ServiceConnection {
                 return;
             }
         }
-        this.f54994j = context;
+        this.f52905j = context;
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context a = a(this.f54994j);
-            this.f54994j = a;
-            this.f54995k = a.getPackageName();
+            Context a = a(this.f52905j);
+            this.f52905j = a;
+            this.k = a.getPackageName();
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.coolpad.deviceidsupport", "com.coolpad.deviceidsupport.DeviceIdService"));
             try {
                 c();
-                if (this.f54994j.bindService(intent, this, 1)) {
+                if (this.f52905j.bindService(intent, this, 1)) {
                     b();
                 } else {
                     e0.a("CoolpadProvider", "DeviceIDManager service bind failed");
                     a();
-                    a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
+                    a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
                 }
             } catch (SecurityException unused) {
                 e0.a("CoolpadProvider", "DeviceIDManager service bind failed");
                 a();
-                a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
+                a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
             }
         }
     }
@@ -78,32 +76,32 @@ public class j extends l implements ServiceConnection {
         l = a;
         try {
             if (a != null) {
-                this.f55001f = a.isCoolOs();
-                this.f55002g = false;
-                String oaid = l.getOAID(this.f54995k);
-                String vaid = l.getVAID(this.f54995k);
-                String aaid = l.getAAID(this.f54995k);
+                this.f52910f = a.isCoolOs();
+                this.f52911g = false;
+                String oaid = l.getOAID(this.k);
+                String vaid = l.getVAID(this.k);
+                String aaid = l.getAAID(this.k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f54998c = oaid;
+                this.f52907c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f54999d = vaid;
+                this.f52908d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f55000e = aaid;
+                this.f52909e = aaid;
             } else {
                 e0.a("CoolpadProvider", "DeviceIdManager Null");
                 a();
             }
-            a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
+            a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
         } catch (RemoteException unused) {
             e0.a("CoolpadProvider", "DeviceIdManager RemoteException");
             a();
-            a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
+            a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
         }
     }
 
@@ -121,7 +119,7 @@ public class j extends l implements ServiceConnection {
     public void shutDown() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (context = this.f54994j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (context = this.f52905j) == null) {
             return;
         }
         context.unbindService(this);

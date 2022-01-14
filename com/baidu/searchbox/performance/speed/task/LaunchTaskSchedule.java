@@ -3,23 +3,30 @@ package com.baidu.searchbox.performance.speed.task;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.d.e.a;
+import c.a.s0.s.h0.b;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.AsyncTaskAssistant;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @MainThread
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LaunchTaskSchedule {
     public static /* synthetic */ Interceptable $ic;
     public static LaunchTaskSchedule sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<Integer> historyLifecycle;
+    public final HashSet<String> mChangeToSyncTaskSet;
     public int mProcessType;
     public BaseTaskPool mTaskPool;
 
@@ -37,12 +44,13 @@ public class LaunchTaskSchedule {
             }
         }
         this.historyLifecycle = new HashSet();
+        this.mChangeToSyncTaskSet = new HashSet<>();
     }
 
     private boolean checkStartBefore(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
             if (this.historyLifecycle.contains(Integer.valueOf(i2))) {
                 return true;
             }
@@ -55,7 +63,7 @@ public class LaunchTaskSchedule {
     public static LaunchTaskSchedule getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sInstance == null) {
                 sInstance = new LaunchTaskSchedule();
             }
@@ -65,54 +73,81 @@ public class LaunchTaskSchedule {
     }
 
     private void startAsyncTask(int i2) {
+        List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
-            AsyncTaskAssistant.executeOnThreadPool(new Runnable(this, i2) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ LaunchTaskSchedule this$0;
-                public final /* synthetic */ int val$lifeCycle;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$lifeCycle = i2;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    List<LaunchTask> taskList;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (taskList = this.this$0.mTaskPool.getTaskList(this.val$lifeCycle, true)) == null) {
-                        return;
-                    }
-                    for (LaunchTask launchTask : taskList) {
-                        if ((launchTask.getProcess() & this.this$0.mProcessType) != 0) {
-                            AsyncTaskAssistant.executeOnThreadPool(launchTask, launchTask.getName());
-                        }
+        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, 2)) == null) {
+            return;
+        }
+        try {
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && !this.mChangeToSyncTaskSet.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (LaunchTask launchTask : taskList) {
+                    if (launchTask.getName() != null && this.mChangeToSyncTaskSet.contains(launchTask.getName()) && (launchTask.getProcess() & this.mProcessType) != 0) {
+                        launchTask.run();
+                    } else {
+                        arrayList.add(launchTask);
                     }
                 }
-            }, "startAsync");
+                taskList = arrayList;
+            }
+        } catch (Exception unused) {
+        }
+        for (LaunchTask launchTask2 : taskList) {
+            if ((launchTask2.getProcess() & this.mProcessType) != 0) {
+                AsyncTaskAssistant.executeOnThreadPool(launchTask2, launchTask2.getName());
+            }
+        }
+    }
+
+    private void startIdleTask(int i2) {
+        List<LaunchTask> taskList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, 3)) == null) {
+            return;
+        }
+        for (LaunchTask launchTask : taskList) {
+            if ((launchTask.getProcess() & this.mProcessType) != 0) {
+                a.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LaunchTaskSchedule this$0;
+                    public final /* synthetic */ LaunchTask val$task;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, launchTask};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$task = launchTask;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.val$task.run();
+                        }
+                    }
+                });
+            }
         }
     }
 
     private void startSyncTask(int i2) {
         List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65542, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, false)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, 1)) == null) {
             return;
         }
         for (LaunchTask launchTask : taskList) {
@@ -123,10 +158,18 @@ public class LaunchTaskSchedule {
     }
 
     public void init(int i2, @NonNull BaseTaskPool baseTaskPool) {
+        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, baseTaskPool) == null) {
             this.mProcessType = i2;
             this.mTaskPool = baseTaskPool;
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                String q = b.k().q("key_sync_task_switch", "");
+                if (StringUtils.isNull(q) || (split = q.split("_")) == null || split.length <= 0) {
+                    return;
+                }
+                Collections.addAll(this.mChangeToSyncTaskSet, split);
+            }
         }
     }
 
@@ -137,5 +180,30 @@ public class LaunchTaskSchedule {
         }
         startAsyncTask(i2);
         startSyncTask(i2);
+        startIdleTask(i2);
+    }
+
+    public void startTask(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            List<LaunchTask> taskList = this.mTaskPool.getTaskList(i2, 2);
+            if (taskList != null) {
+                for (LaunchTask launchTask : taskList) {
+                    launchTask.run();
+                }
+            }
+            List<LaunchTask> taskList2 = this.mTaskPool.getTaskList(i2, 1);
+            if (taskList2 != null) {
+                for (LaunchTask launchTask2 : taskList2) {
+                    launchTask2.run();
+                }
+            }
+            List<LaunchTask> taskList3 = this.mTaskPool.getTaskList(i2, 3);
+            if (taskList3 != null) {
+                for (LaunchTask launchTask3 : taskList3) {
+                    launchTask3.run();
+                }
+            }
+        }
     }
 }

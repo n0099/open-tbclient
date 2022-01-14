@@ -55,13 +55,13 @@ public class b implements a {
             return;
         }
         String i2 = com.baidu.wallet.paysdk.banksign.a.a.a().i();
-        byte[] k2 = com.baidu.wallet.paysdk.banksign.a.a.a().k();
+        byte[] k = com.baidu.wallet.paysdk.banksign.a.a.a().k();
         String j2 = com.baidu.wallet.paysdk.banksign.a.a.a().j();
         if (TextUtils.isEmpty(j2)) {
             j2 = ResUtils.getString(context, "dxmpay_banksign_web_title");
         }
         StatisticManager.onEvent("enterBankSign");
-        PostWebviewActivity.startPostWebview(context, i2, k2, j2);
+        PostWebviewActivity.startPostWebview(context, i2, k, j2);
     }
 
     @Override // com.baidu.wallet.paysdk.banksign.a

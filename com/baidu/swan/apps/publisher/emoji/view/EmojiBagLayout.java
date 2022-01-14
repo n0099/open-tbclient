@@ -38,16 +38,16 @@ public class EmojiBagLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewPager f40354e;
+    public ViewPager f39019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CircleIndicator f40355f;
+    public CircleIndicator f39020f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f40356g;
+    public List<String> f39021g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<GridView> f40357h;
+    public List<GridView> f39022h;
 
     /* loaded from: classes11.dex */
     public class a implements Runnable {
@@ -55,10 +55,10 @@ public class EmojiBagLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f40358e;
+        public final /* synthetic */ b f39023e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmojiBagLayout f40359f;
+        public final /* synthetic */ EmojiBagLayout f39024f;
 
         public a(EmojiBagLayout emojiBagLayout, b bVar) {
             Interceptable interceptable = $ic;
@@ -75,15 +75,15 @@ public class EmojiBagLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f40359f = emojiBagLayout;
-            this.f40358e = bVar;
+            this.f39024f = emojiBagLayout;
+            this.f39023e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f40358e.notifyDataSetChanged();
+                this.f39023e.notifyDataSetChanged();
             }
         }
     }
@@ -94,16 +94,16 @@ public class EmojiBagLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<String> f40360e;
+        public List<String> f39025e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LayoutInflater f40361f;
+        public LayoutInflater f39026f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Context f40362g;
+        public Context f39027g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ EmojiBagLayout f40363h;
+        public final /* synthetic */ EmojiBagLayout f39028h;
 
         public b(EmojiBagLayout emojiBagLayout, Context context, List<String> list) {
             Interceptable interceptable = $ic;
@@ -120,10 +120,10 @@ public class EmojiBagLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f40363h = emojiBagLayout;
-            this.f40360e = list;
-            this.f40361f = LayoutInflater.from(context);
-            this.f40362g = context;
+            this.f39028h = emojiBagLayout;
+            this.f39025e = list;
+            this.f39026f = LayoutInflater.from(context);
+            this.f39027g = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,8 +133,8 @@ public class EmojiBagLayout extends LinearLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (i2 < this.f40360e.size()) {
-                    return this.f40360e.get(i2);
+                if (i2 < this.f39025e.size()) {
+                    return this.f39025e.get(i2);
                 }
                 return null;
             }
@@ -165,9 +165,9 @@ public class EmojiBagLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    linearLayout = (LinearLayout) this.f40361f.inflate(g.swanapp_emotion_grid_item, viewGroup, false);
+                    linearLayout = (LinearLayout) this.f39026f.inflate(g.swanapp_emotion_grid_item, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
-                    layoutParams.height = this.f40363h.getResources().getDimensionPixelSize(d.aiapps_emoji_row_height);
+                    layoutParams.height = this.f39028h.getResources().getDimensionPixelSize(d.aiapps_emoji_row_height);
                     linearLayout.setLayoutParams(layoutParams);
                 } else {
                     linearLayout = (LinearLayout) view;
@@ -175,8 +175,8 @@ public class EmojiBagLayout extends LinearLayout {
                 ImageView imageView = (ImageView) linearLayout.findViewById(f.img_item);
                 if (i2 == getCount() - 1) {
                     imageView.setImageResource(e.swanapp_publisher_delete);
-                } else if (i2 < this.f40360e.size()) {
-                    imageView.setImageBitmap(c.a.r0.a.z1.h.b.c().a(this.f40360e.get(i2)));
+                } else if (i2 < this.f39025e.size()) {
+                    imageView.setImageBitmap(c.a.r0.a.z1.h.b.c().a(this.f39025e.get(i2)));
                 }
                 return linearLayout;
             }
@@ -191,7 +191,7 @@ public class EmojiBagLayout extends LinearLayout {
         public List<GridView> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EmojiBagLayout f40364b;
+        public final /* synthetic */ EmojiBagLayout f39029b;
 
         public c(EmojiBagLayout emojiBagLayout, List<GridView> list) {
             Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class EmojiBagLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f40364b = emojiBagLayout;
+            this.f39029b = emojiBagLayout;
             this.a = list;
         }
 
@@ -272,10 +272,10 @@ public class EmojiBagLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             int i3 = i2 * 20;
-            int min = Math.min(i3 + 20, this.f40356g.size());
+            int min = Math.min(i3 + 20, this.f39021g.size());
             ArrayList arrayList = new ArrayList();
             while (i3 < min) {
-                arrayList.add(this.f40356g.get(i3));
+                arrayList.add(this.f39021g.get(i3));
                 i3++;
             }
             return arrayList;
@@ -288,26 +288,26 @@ public class EmojiBagLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setBackgroundColor(-1);
             setOrientation(1);
-            this.f40354e = new ViewPager(context);
-            this.f40355f = new CircleIndicator(context);
+            this.f39019e = new ViewPager(context);
+            this.f39020f = new CircleIndicator(context);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
             layoutParams.weight = 1.0f;
-            this.f40354e.setLayoutParams(layoutParams);
+            this.f39019e.setLayoutParams(layoutParams);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(d.aiapps_emoji_indicator_height));
             layoutParams2.weight = 0.0f;
-            this.f40355f.setLayoutParams(layoutParams2);
-            this.f40354e.setOverScrollMode(2);
-            addView(this.f40354e);
-            addView(this.f40355f);
+            this.f39020f.setLayoutParams(layoutParams2);
+            this.f39019e.setOverScrollMode(2);
+            addView(this.f39019e);
+            addView(this.f39020f);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int size = this.f40357h.size();
+            int size = this.f39022h.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f40357h.get(i2).setAdapter((ListAdapter) new b(this, getContext(), a(i2)));
+                this.f39022h.get(i2).setAdapter((ListAdapter) new b(this, getContext(), a(i2)));
             }
         }
     }
@@ -322,15 +322,15 @@ public class EmojiBagLayout extends LinearLayout {
             int measuredHeight = getChildAt(0).getMeasuredHeight() - (resources.getDimensionPixelSize(d.aiapps_emoji_row_height) * 3);
             int g2 = (measuredHeight / 4) + n0.g(8.0f);
             int i6 = (measuredHeight - (g2 * 2)) / 2;
-            int size = this.f40357h.size();
+            int size = this.f39022h.size();
             for (int i7 = 0; i7 < size; i7++) {
-                GridView gridView = this.f40357h.get(i7);
+                GridView gridView = this.f39022h.get(i7);
                 int dimensionPixelSize = resources.getDimensionPixelSize(d.aiapps_emoji_left_right_padding);
                 gridView.setPadding(dimensionPixelSize, g2, dimensionPixelSize, g2);
                 gridView.setVerticalSpacing(i6);
                 gridView.setHorizontalSpacing(resources.getDimensionPixelSize(d.aiapps_emoji_grid_space));
                 b bVar = (b) gridView.getAdapter();
-                if (bVar != null && (viewPager = this.f40354e) != null) {
+                if (bVar != null && (viewPager = this.f39019e) != null) {
                     viewPager.post(new a(this, bVar));
                 }
             }
@@ -340,11 +340,11 @@ public class EmojiBagLayout extends LinearLayout {
     public void setEmotionList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f40356g = list;
+            this.f39021g = list;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            int size = this.f40356g.size();
+            int size = this.f39021g.size();
             int i2 = size % 20;
             int i3 = size / 20;
             if (i2 != 0) {
@@ -362,11 +362,11 @@ public class EmojiBagLayout extends LinearLayout {
                 noScrollGridView.setOnItemLongClickListener(g2.i());
                 noScrollGridView.setOnTouchListener(g2.j());
                 noScrollGridView.setSelector(new ColorDrawable(0));
-                this.f40357h.add(noScrollGridView);
+                this.f39022h.add(noScrollGridView);
             }
             c();
-            this.f40354e.setAdapter(new c(this, this.f40357h));
-            this.f40355f.setViewPager(this.f40354e);
+            this.f39019e.setAdapter(new c(this, this.f39022h));
+            this.f39020f.setViewPager(this.f39019e);
         }
     }
 
@@ -410,7 +410,7 @@ public class EmojiBagLayout extends LinearLayout {
                 return;
             }
         }
-        this.f40357h = new ArrayList();
+        this.f39022h = new ArrayList();
         b(context);
     }
 }

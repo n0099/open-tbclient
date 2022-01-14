@@ -51,23 +51,23 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.r0.a.c0
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
-            c.a.r0.a.c0.f.b k2 = super.k(m, m2);
+            c.a.r0.a.c0.f.b k = super.k(m, m2);
             if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.x)) {
-                k2.b(6);
+                k.b(6);
             }
             if (m.H != m2.H) {
-                k2.b(10);
+                k.b(10);
             }
             if (m.J != m2.J) {
-                k2.b(11);
+                k.b(11);
             }
             if (m.K != m2.K || m.L != m2.L) {
-                k2.b(12);
+                k.b(12);
             }
             if (!TextUtils.equals(m.M, m2.M)) {
-                k2.b(13);
+                k.b(13);
             }
-            return k2;
+            return k;
         }
         return (c.a.r0.a.c0.f.b) invokeLL.objValue;
     }
@@ -100,7 +100,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.r0.a.c0
     public void Q(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             v.setBackgroundColor(0);
         }
     }
@@ -109,7 +109,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.r0.a.c0
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
-            if (c.a.r0.a.c0.b.a.f5409h) {
+            if (c.a.r0.a.c0.b.a.f5296h) {
                 String str = "renderConfirmType:" + m.M;
             }
             String str2 = m.M;
@@ -167,7 +167,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.r0.a.c0
     public void d0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             Editable text = v.getText();
             int length = text != null ? text.length() : 0;
             int i2 = m.J;
@@ -181,7 +181,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.r0.a.c0
     public final void e0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             if (m.H >= 0) {
                 v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.H)});
             }
@@ -192,7 +192,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.r0.a.c0
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
-            boolean z = c.a.r0.a.c0.b.a.f5409h;
+            boolean z = c.a.r0.a.c0.b.a.f5296h;
             Editable text = v.getText();
             int length = text != null ? text.length() : 0;
             int i3 = m.L;

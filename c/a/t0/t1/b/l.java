@@ -20,13 +20,13 @@ public class l implements c.a.s0.l0.b.g, c.a.s0.l0.b.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24457e;
+    public int f23770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24458f;
+    public int f23771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f24459g;
+    public String f23772g;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -41,21 +41,21 @@ public class l implements c.a.s0.l0.b.g, c.a.s0.l0.b.d {
                 return;
             }
         }
-        this.f24458f = 1;
+        this.f23771f = 1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24457e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23770e : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24458f = 1;
-            this.f24457e = 1;
-            this.f24459g = null;
+            this.f23771f = 1;
+            this.f23770e = 1;
+            this.f23772g = null;
         }
     }
 
@@ -64,14 +64,14 @@ public class l implements c.a.s0.l0.b.g, c.a.s0.l0.b.d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feedData) == null) || feedData == null) {
             return;
         }
-        this.f24459g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+        this.f23772g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24458f++;
-            this.f24457e = 4;
+            this.f23771f++;
+            this.f23770e = 4;
         }
     }
 
@@ -82,8 +82,8 @@ public class l implements c.a.s0.l0.b.g, c.a.s0.l0.b.d {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.pn = Integer.valueOf(this.f24458f);
-                builder.ids = this.f24459g;
+                builder.pn = Integer.valueOf(this.f23771f);
+                builder.ids = this.f23772g;
                 builder.q_type = Integer.valueOf(c.a.s0.s.k.c().e());
                 builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
                 builder.scr_h = Integer.valueOf(c.a.d.f.p.n.i(TbadkCoreApplication.getInst().getApp()));
@@ -133,13 +133,13 @@ public class l implements c.a.s0.l0.b.g, c.a.s0.l0.b.d {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-            hashMap.put("pn", String.valueOf(this.f24458f));
+            hashMap.put("pn", String.valueOf(this.f23771f));
             hashMap.put("q_type", Integer.valueOf(c.a.s0.s.k.c().e()));
             hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
             hashMap.put("scr_h", Integer.valueOf(c.a.d.f.p.n.i(TbadkCoreApplication.getInst().getApp())));
             hashMap.put("scr_w", Integer.valueOf(c.a.d.f.p.n.k(TbadkCoreApplication.getInst().getApp())));
-            if (this.f24457e == 4 && !TextUtils.isEmpty(this.f24459g)) {
-                hashMap.put("ids", this.f24459g);
+            if (this.f23770e == 4 && !TextUtils.isEmpty(this.f23772g)) {
+                hashMap.put("ids", this.f23772g);
             }
             return hashMap;
         }

@@ -22,10 +22,10 @@ public class c extends c.a.t0.a0.f.g.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f15005f;
+    public ViewGroup f14644f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f15006g;
+    public TbImageView f14645g;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -33,7 +33,7 @@ public class c extends c.a.t0.a0.f.g.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f15007e;
+        public final /* synthetic */ c f14646e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -50,19 +50,19 @@ public class c extends c.a.t0.a0.f.g.f.a {
                     return;
                 }
             }
-            this.f15007e = cVar;
+            this.f14646e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f15007e.f15001d.f14961b)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f14646e.f14640d.f14601b)) {
                 return;
             }
             UrlManager urlManager = UrlManager.getInstance();
-            c cVar = this.f15007e;
-            urlManager.dealOneLink(cVar.f15000c, new String[]{cVar.f15001d.f14961b}, true);
-            c.a.t0.a0.f.e.a.c().f("c12909", this.f15007e.f15001d.f14964e, 3, "-1", 0L, null, null);
+            c cVar = this.f14646e;
+            urlManager.dealOneLink(cVar.f14639c, new String[]{cVar.f14640d.f14601b}, true);
+            c.a.t0.a0.f.e.a.c().f("c12909", this.f14646e.f14640d.f14604e, 3, "-1", 0L, null, null);
         }
     }
 
@@ -92,8 +92,8 @@ public class c extends c.a.t0.a0.f.g.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.b(aVar);
-            this.f15006g.startLoad(aVar.a, 10, false);
-            c.a.t0.a0.f.e.a.c().f("c12908", this.f15001d.f14964e, 3, "-1", 0L, null, null);
+            this.f14645g.startLoad(aVar.a, 10, false);
+            c.a.t0.a0.f.e.a.c().f("c12908", this.f14640d.f14604e, 3, "-1", 0L, null, null);
         }
     }
 
@@ -101,22 +101,22 @@ public class c extends c.a.t0.a0.f.g.f.a {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15005f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14644f : (View) invokeV.objValue;
     }
 
     @Override // c.a.t0.a0.f.g.f.a
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f15005f = new FrameLayout(this.f15000c.getPageActivity());
-            this.f15006g = new TbImageView(this.f15000c.getPageActivity());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.f14999b);
-            this.f15006g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f15006g.setLayoutParams(layoutParams);
-            this.f15005f.addView(this.f15006g);
-            this.f15002e.setVisibility(8);
-            this.f15005f.addView(this.f15002e);
-            this.f15006g.setOnClickListener(new a(this));
+            this.f14644f = new FrameLayout(this.f14639c.getPageActivity());
+            this.f14645g = new TbImageView(this.f14639c.getPageActivity());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.f14638b);
+            this.f14645g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f14645g.setLayoutParams(layoutParams);
+            this.f14644f.addView(this.f14645g);
+            this.f14641e.setVisibility(8);
+            this.f14644f.addView(this.f14641e);
+            this.f14645g.setOnClickListener(new a(this));
             i(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -125,7 +125,7 @@ public class c extends c.a.t0.a0.f.g.f.a {
     public boolean f(c.a.t0.a0.f.g.c.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || 3 != aVar.f14963d || TextUtils.isEmpty(aVar.a)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || 3 != aVar.f14603d || TextUtils.isEmpty(aVar.a)) ? false : true : invokeL.booleanValue;
     }
 
     @Override // c.a.t0.a0.f.g.f.a
@@ -140,12 +140,12 @@ public class c extends c.a.t0.a0.f.g.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.h();
-            TbImageView tbImageView = this.f15006g;
+            TbImageView tbImageView = this.f14645g;
             if (tbImageView != null) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
                 layoutParams.width = this.a;
-                layoutParams.height = this.f14999b;
-                this.f15006g.setLayoutParams(layoutParams);
+                layoutParams.height = this.f14638b;
+                this.f14645g.setLayoutParams(layoutParams);
             }
         }
     }
@@ -155,9 +155,9 @@ public class c extends c.a.t0.a0.f.g.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             if (1 == i2) {
-                this.f15002e.setVisibility(0);
+                this.f14641e.setVisibility(0);
             } else {
-                this.f15002e.setVisibility(8);
+                this.f14641e.setVisibility(8);
             }
         }
     }
@@ -166,7 +166,7 @@ public class c extends c.a.t0.a0.f.g.f.a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15006g = null;
+            this.f14645g = null;
         }
     }
 

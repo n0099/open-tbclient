@@ -56,8 +56,8 @@ public class RelationshipStatic {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null || socketResponsedMessage.getCmd() != 1001 || socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseOnlineMessage) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-            if (j2.g("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
+            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            if (k.h("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
             }
         }
@@ -94,8 +94,8 @@ public class RelationshipStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                 c.a.t0.x.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-                j2.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
+                c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
                 new i(addressListData).execute(new Void[0]);
             }
         }

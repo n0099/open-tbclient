@@ -23,16 +23,16 @@ public class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f8532b;
+    public static final int f8348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f8533c;
+    public static final int f8349c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f8534d;
+    public static final Set<String> f8350d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f8535e;
+    public static final String[] f8351e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,11 +49,11 @@ public class c {
             }
         }
         a = k.a;
-        f8532b = 6;
-        f8533c = 8;
-        f8534d = Sets.newHashSet("https", "http", "wss");
+        f8348b = 6;
+        f8349c = 8;
+        f8350d = Sets.newHashSet("https", "http", "wss");
         String[] strArr = {"ac", "co", "com", "ed", "edu", ReturnKeyType.GO, "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        f8535e = strArr;
+        f8351e = strArr;
         Arrays.sort(strArr);
     }
 
@@ -64,7 +64,7 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (String str2 : f8534d) {
+            for (String str2 : f8350d) {
                 if (str.startsWith(str2)) {
                     return true;
                 }
@@ -96,10 +96,10 @@ public class c {
                         sb.append(';');
                         sb.append(' ');
                     }
-                    sb.append(aVar.f8517c);
-                    if (aVar.f8518d != null) {
-                        sb.append(com.alipay.sdk.encrypt.a.f31864h);
-                        sb.append(aVar.f8518d);
+                    sb.append(aVar.f8333c);
+                    if (aVar.f8334d != null) {
+                        sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                        sb.append(aVar.f8334d);
                     }
                 }
             }
@@ -180,20 +180,20 @@ public class c {
                     return i2 + 1;
                 } else {
                     int i4 = i3 - i2;
-                    int i5 = f8532b;
+                    int i5 = f8348b;
                     if (i4 >= i5 && str.substring(i2, i5 + i2).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
-                        int i6 = f8532b + i2;
+                        int i6 = f8348b + i2;
                         if (i6 == i3) {
-                            aVar.f8520f = true;
+                            aVar.f8336f = true;
                             return i6;
                         } else if (str.charAt(i6) == ';' || str.charAt(i6) == '=' || str.charAt(i6) == ',') {
-                            aVar.f8520f = true;
+                            aVar.f8336f = true;
                             i2 = c(str, i6, i3);
                         }
                     }
-                    int i7 = f8533c;
+                    int i7 = f8349c;
                     if (i4 >= i7 && str.substring(i2, i7 + i2).equalsIgnoreCase("httponly")) {
-                        int i8 = f8533c + i2;
+                        int i8 = f8349c + i2;
                         if (i8 == i3) {
                             return i8;
                         }
@@ -238,7 +238,7 @@ public class c {
                     } else {
                         a aVar = new a(str, str2);
                         i2 = f(aVar, str3, h(aVar, str3, i2, length), length, str);
-                        if (!TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f8517c) && aVar.f8518d != null) {
+                        if (!TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f8333c) && aVar.f8334d != null) {
                             arrayList.add(aVar);
                             if (a) {
                                 String str5 = "parseCookies result: " + aVar.toString();
@@ -260,7 +260,7 @@ public class c {
                 int indexOf = str.indexOf(59, i2);
                 int indexOf2 = str.indexOf(61, i2);
                 if (indexOf > indexOf2 && indexOf2 != -1) {
-                    aVar.f8517c = str.substring(i2, indexOf2);
+                    aVar.f8333c = str.substring(i2, indexOf2);
                     int i4 = indexOf2 + 1;
                     if (str.charAt(i4) == '\"' && (i2 = str.indexOf(34, indexOf2 + 2)) == -1) {
                         aVar.a = null;
@@ -271,17 +271,17 @@ public class c {
                         i3 = indexOf3;
                     }
                     if (i4 != i3 && i3 >= indexOf2) {
-                        aVar.f8518d = str.substring(i4, i3);
+                        aVar.f8334d = str.substring(i4, i3);
                     } else {
-                        aVar.f8518d = "";
+                        aVar.f8334d = "";
                     }
                     return i3;
                 }
                 if (indexOf != -1) {
                     i3 = indexOf;
                 }
-                aVar.f8517c = str.substring(i2, i3);
-                aVar.f8518d = null;
+                aVar.f8333c = str.substring(i2, i3);
+                aVar.f8334d = null;
             }
             return i3;
         }
@@ -362,7 +362,7 @@ public class c {
             return;
         }
         if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
-            if (Arrays.binarySearch(f8535e, lowerCase.substring(1, lastIndexOf)) >= 0) {
+            if (Arrays.binarySearch(f8351e, lowerCase.substring(1, lastIndexOf)) >= 0) {
                 aVar.a = null;
                 return;
             }
@@ -376,7 +376,7 @@ public class c {
             if (a) {
                 String str2 = "setExpires value: " + str;
             }
-            if (aVar.f8519e != -1) {
+            if (aVar.f8335e != -1) {
                 return;
             }
             long e2 = c.a.r0.a.p2.f.a.e(str);
@@ -384,7 +384,7 @@ public class c {
                 String str3 = "setExpires result: " + e2;
             }
             if (e2 != -1) {
-                aVar.f8519e = e2;
+                aVar.f8335e = e2;
             }
         }
     }
@@ -396,7 +396,7 @@ public class c {
                 long currentTimeMillis = System.currentTimeMillis();
                 long parseLong = Long.parseLong(str);
                 Long.signum(parseLong);
-                aVar.f8519e = currentTimeMillis + (parseLong * 1000);
+                aVar.f8335e = currentTimeMillis + (parseLong * 1000);
             } catch (NumberFormatException unused) {
                 if (a) {
                     String str2 = "illegal max-age: " + str;
@@ -408,7 +408,7 @@ public class c {
     public static void m(@NonNull a aVar, @NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65549, null, aVar, str) == null) && !TextUtils.isEmpty(str) && str.charAt(0) == '/') {
-            aVar.f8516b = str;
+            aVar.f8332b = str;
         }
     }
 

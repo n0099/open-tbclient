@@ -18,34 +18,32 @@ public class h extends g {
     public HashMap<String, String> E;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14070b;
+    public boolean f13742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14071c;
+    public long f13743c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f14072d;
+    public long f13744d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f14073e;
+    public long f13745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f14074f;
+    public long f13746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f14075g;
+    public long f13747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f14076h;
+    public long f13748h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f14077i;
+    public long f13749i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f14078j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f14079k;
+    public long f13750j;
+    public long k;
     public long l;
     public long m;
     public long n;
@@ -75,8 +73,8 @@ public class h extends g {
                 return;
             }
         }
-        this.f14077i = 0L;
-        this.f14078j = 0L;
+        this.f13749i = 0L;
+        this.f13750j = 0L;
         this.n = 0L;
         this.p = 0L;
         this.q = 0L;
@@ -137,8 +135,8 @@ public class h extends g {
                 return;
             }
         }
-        this.f14077i = 0L;
-        this.f14078j = 0L;
+        this.f13749i = 0L;
+        this.f13750j = 0L;
         this.n = 0L;
         this.p = 0L;
         this.q = 0L;
@@ -157,29 +155,29 @@ public class h extends g {
             this.A = responsedMessage.getOrginalMessage().getClientLogID();
             this.z = responsedMessage.getOrginalMessage().getSquencedId();
             c.a.d.c.i.a aVar = responsedMessage.performanceData;
-            this.w = aVar.f2673k;
+            this.w = aVar.k;
             this.x = aVar.l;
-            this.t = aVar.f2671i;
-            this.u = aVar.f2672j;
+            this.t = aVar.f2653i;
+            this.u = aVar.f2654j;
         } else {
             this.q = responsedMessage.getDownSize();
             this.z = responsedMessage.getOrginalMessage().getSquencedId();
         }
-        this.f14071c = j2;
-        this.f14072d = j5;
-        this.f14073e = j3;
+        this.f13743c = j2;
+        this.f13744d = j5;
+        this.f13745e = j3;
         this.o = j4;
         this.m = j6;
-        this.f14070b = !responsedMessage.hasError();
+        this.f13742b = !responsedMessage.hasError();
         c.a.d.c.i.a aVar2 = responsedMessage.performanceData;
-        this.f14074f = aVar2.a;
-        this.f14075g = aVar2.f2664b;
-        this.f14076h = aVar2.f2665c;
-        this.f14077i = aVar2.f2666d;
-        this.f14078j = aVar2.f2667e;
-        this.f14079k = aVar2.f2668f;
-        this.l = aVar2.f2669g;
-        long j8 = aVar2.f2670h;
+        this.f13746f = aVar2.a;
+        this.f13747g = aVar2.f2646b;
+        this.f13748h = aVar2.f2647c;
+        this.f13749i = aVar2.f2648d;
+        this.f13750j = aVar2.f2649e;
+        this.k = aVar2.f2650f;
+        this.l = aVar2.f2651g;
+        long j8 = aVar2.f2652h;
         this.n = j8;
         this.n = j8 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
         this.v = responsedMessage.getError();

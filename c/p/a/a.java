@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +41,7 @@ public class a {
 
     /* renamed from: c.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1676a {
+    public static /* synthetic */ class C1692a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,7 +52,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
-        public /* synthetic */ b(Context context, C1676a c1676a) {
+        public /* synthetic */ b(Context context, C1692a c1692a) {
             this(context);
         }
 
@@ -121,9 +122,9 @@ public class a {
                 if (!TextUtils.isEmpty(j2)) {
                     jSONObject.put(BaseStatisContent.IMSI, j2);
                 }
-                String k2 = k(context);
-                if (!TextUtils.isEmpty(k2)) {
-                    jSONObject.put(BaseStatisContent.MAC, k2);
+                String k = k(context);
+                if (!TextUtils.isEmpty(k)) {
+                    jSONObject.put("mac", k);
                 }
                 String h2 = h(context);
                 if (!TextUtils.isEmpty(h2)) {
@@ -225,7 +226,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                return Settings.Secure.getString(context.getContentResolver(), "android_id");
+                return Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Exception unused) {
                 return "";
             }

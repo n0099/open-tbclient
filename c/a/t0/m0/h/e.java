@@ -22,7 +22,7 @@ public final class e extends a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((c.a.t0.m0.h.i.a) objArr[0], (a.InterfaceC1192a) objArr[1]);
+                super((c.a.t0.m0.h.i.a) objArr[0], (a.InterfaceC1206a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

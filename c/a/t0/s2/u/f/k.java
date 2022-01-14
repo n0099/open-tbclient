@@ -50,7 +50,7 @@ public class k extends n<c.a.t0.s2.r.e, PbChildTitleViewHolder> {
     public PbChildTitleViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.f3299e).inflate(c.a.t0.s2.j.pb_child_title, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.f3258e).inflate(c.a.t0.s2.j.pb_child_title, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
     }
 
     public View c0(int i2, View view, ViewGroup viewGroup, c.a.t0.s2.r.e eVar, PbChildTitleViewHolder pbChildTitleViewHolder) {

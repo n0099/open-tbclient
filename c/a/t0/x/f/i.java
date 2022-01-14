@@ -41,8 +41,8 @@ public class i extends BdAsyncTask<Void, Void, Void> {
             if (f.f().b(this.a)) {
                 return null;
             }
-            c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
-            j2.t("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }
         return (Void) invokeL.objValue;

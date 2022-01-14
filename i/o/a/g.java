@@ -13,10 +13,10 @@ public final class g<T, R> implements d.a<R> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.d<T> f64237e;
+    public final i.d<T> f61830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.f<? super T, ? extends R> f64238f;
+    public final i.n.f<? super T, ? extends R> f61831f;
 
     /* loaded from: classes4.dex */
     public static final class a<T, R> extends i.j<T> {
@@ -24,13 +24,11 @@ public final class g<T, R> implements d.a<R> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super R> f64239i;
+        public final i.j<? super R> f61832i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.n.f<? super T, ? extends R> f64240j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public boolean f64241k;
+        public final i.n.f<? super T, ? extends R> f61833j;
+        public boolean k;
 
         public a(i.j<? super R> jVar, i.n.f<? super T, ? extends R> fVar) {
             Interceptable interceptable = $ic;
@@ -47,37 +45,37 @@ public final class g<T, R> implements d.a<R> {
                     return;
                 }
             }
-            this.f64239i = jVar;
-            this.f64240j = fVar;
+            this.f61832i = jVar;
+            this.f61833j = fVar;
         }
 
         @Override // i.j
         public void f(i.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.f64239i.f(fVar);
+                this.f61832i.f(fVar);
             }
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f64241k) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
                 return;
             }
-            this.f64239i.onCompleted();
+            this.f61832i.onCompleted();
         }
 
         @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.f64241k) {
+                if (this.k) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f64241k = true;
-                this.f64239i.onError(th);
+                this.k = true;
+                this.f61832i.onError(th);
             }
         }
 
@@ -86,7 +84,7 @@ public final class g<T, R> implements d.a<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 try {
-                    this.f64239i.onNext(this.f64240j.call(t));
+                    this.f61832i.onNext(this.f61833j.call(t));
                 } catch (Throwable th) {
                     i.m.a.e(th);
                     unsubscribe();
@@ -111,8 +109,8 @@ public final class g<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.f64237e = dVar;
-        this.f64238f = fVar;
+        this.f61830e = dVar;
+        this.f61831f = fVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -123,9 +121,9 @@ public final class g<T, R> implements d.a<R> {
     public void call(i.j<? super R> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            a aVar = new a(jVar, this.f64238f);
+            a aVar = new a(jVar, this.f61831f);
             jVar.b(aVar);
-            this.f64237e.D(aVar);
+            this.f61830e.D(aVar);
         }
     }
 }

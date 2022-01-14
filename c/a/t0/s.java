@@ -32,16 +32,16 @@ public class s {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String p = c.a.s0.s.g0.b.j().p("version_name", "");
+                String q = c.a.s0.s.h0.b.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
-                if (versionName.equals(p)) {
-                    return c.a.s0.s.g0.b.j().p("apk_md5", "");
+                if (versionName.equals(q)) {
+                    return c.a.s0.s.h0.b.k().q("apk_md5", "");
                 }
-                c.a.s0.s.g0.b.j().x("version_name", versionName);
+                c.a.s0.s.h0.b.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                c.a.s0.s.g0.b.j().x("apk_md5", aPKMd5);
+                c.a.s0.s.h0.b.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e2) {
                 BdLog.detailException(e2);

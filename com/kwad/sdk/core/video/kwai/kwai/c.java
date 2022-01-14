@@ -10,27 +10,27 @@ import org.json.JSONObject;
 public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58442b;
+    public String f56236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58443c;
+    public String f56237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f58444d;
+    public long f56238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58445e;
+    public String f56239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f58446f;
+    public long f56240f;
 
     public c(String str, String str2) {
         this.a = UUID.randomUUID().toString();
-        this.f58444d = System.currentTimeMillis();
-        this.f58445e = n.b();
-        this.f58446f = n.d();
-        this.f58442b = str;
-        this.f58443c = str2;
+        this.f56238d = System.currentTimeMillis();
+        this.f56239e = n.b();
+        this.f56240f = n.d();
+        this.f56236b = str;
+        this.f56237c = str2;
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
@@ -40,19 +40,19 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
             return;
         }
         try {
-            this.f58444d = jSONObject.optLong("timestamp");
+            this.f56238d = jSONObject.optLong("timestamp");
             if (jSONObject.has("actionId")) {
                 this.a = jSONObject.optString("actionId");
             }
             if (jSONObject.has("sessionId")) {
-                this.f58445e = jSONObject.optString("sessionId");
+                this.f56239e = jSONObject.optString("sessionId");
             }
-            this.f58446f = jSONObject.optLong("seq");
+            this.f56240f = jSONObject.optLong("seq");
             if (jSONObject.has("mediaPlayerAction")) {
-                this.f58442b = jSONObject.optString("mediaPlayerAction");
+                this.f56236b = jSONObject.optString("mediaPlayerAction");
             }
             if (jSONObject.has("mediaPlayerMsg")) {
-                this.f58443c = jSONObject.optString("mediaPlayerMsg");
+                this.f56237c = jSONObject.optString("mediaPlayerMsg");
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
@@ -63,15 +63,15 @@ public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
         t.a(json, "actionId", this.a);
-        t.a(json, "timestamp", this.f58444d);
-        t.a(json, "sessionId", this.f58445e);
-        t.a(json, "seq", this.f58446f);
-        t.a(json, "mediaPlayerAction", this.f58442b);
-        t.a(json, "mediaPlayerMsg", this.f58443c);
+        t.a(json, "timestamp", this.f56238d);
+        t.a(json, "sessionId", this.f56239e);
+        t.a(json, "seq", this.f56240f);
+        t.a(json, "mediaPlayerAction", this.f56236b);
+        t.a(json, "mediaPlayerMsg", this.f56237c);
         return json;
     }
 
     public String toString() {
-        return "MediaPlayerReportAction{actionId='" + this.a + ExtendedMessageFormat.QUOTE + ", timestamp=" + this.f58444d + ", sessionId='" + this.f58445e + ExtendedMessageFormat.QUOTE + ", seq=" + this.f58446f + ", mediaPlayerAction='" + this.f58442b + ExtendedMessageFormat.QUOTE + ", mediaPlayerMsg='" + this.f58443c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "MediaPlayerReportAction{actionId='" + this.a + ExtendedMessageFormat.QUOTE + ", timestamp=" + this.f56238d + ", sessionId='" + this.f56239e + ExtendedMessageFormat.QUOTE + ", seq=" + this.f56240f + ", mediaPlayerAction='" + this.f56236b + ExtendedMessageFormat.QUOTE + ", mediaPlayerMsg='" + this.f56237c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

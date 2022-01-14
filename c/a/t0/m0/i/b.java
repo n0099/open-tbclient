@@ -19,22 +19,22 @@ public final class b implements z.a {
     public c.a.t0.m0.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.m0.c.a f19789b;
+    public c.a.t0.m0.c.a f19276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PointF f19790c;
+    public PointF f19277c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f19791d;
+    public RectF f19278d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f19792e;
+    public Matrix f19279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f19793f;
+    public float f19280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19794g;
+    public boolean f19281g;
 
     public b(c.a.t0.m0.e.a item, c.a.t0.m0.c.a drawingCache, PointF position, RectF rect, Matrix transform) {
         Interceptable interceptable = $ic;
@@ -57,29 +57,29 @@ public final class b implements z.a {
         Intrinsics.checkNotNullParameter(rect, "rect");
         Intrinsics.checkNotNullParameter(transform, "transform");
         this.a = item;
-        this.f19789b = drawingCache;
-        this.f19790c = position;
-        this.f19791d = rect;
-        this.f19792e = transform;
-        this.f19793f = 1.0f;
+        this.f19276b = drawingCache;
+        this.f19277c = position;
+        this.f19278d = rect;
+        this.f19279e = transform;
+        this.f19280f = 1.0f;
     }
 
     public final float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19793f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19280f : invokeV.floatValue;
     }
 
     public final c.a.t0.m0.c.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19789b : (c.a.t0.m0.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19276b : (c.a.t0.m0.c.a) invokeV.objValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19794g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19281g : invokeV.booleanValue;
     }
 
     public final c.a.t0.m0.e.a d() {
@@ -91,25 +91,25 @@ public final class b implements z.a {
     public final PointF e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19790c : (PointF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19277c : (PointF) invokeV.objValue;
     }
 
     public final RectF f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19791d : (RectF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19278d : (RectF) invokeV.objValue;
     }
 
     public final Matrix g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19792e : (Matrix) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19279e : (Matrix) invokeV.objValue;
     }
 
     public final void h(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f19793f = f2;
+            this.f19280f = f2;
         }
     }
 
@@ -117,14 +117,14 @@ public final class b implements z.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             Intrinsics.checkNotNullParameter(aVar, "<set-?>");
-            this.f19789b = aVar;
+            this.f19276b = aVar;
         }
     }
 
     public final void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f19794g = z;
+            this.f19281g = z;
         }
     }
 

@@ -8,60 +8,58 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61012d;
+    public String f58703d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61013e;
+    public String f58704e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61014f;
+    public String f58705f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61015g;
+    public String f58706g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61016h;
+    public String f58707h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61017i;
+    public String f58708i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f61018j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public String f61019k;
+    public String f58709j;
+    public String k;
     public int l;
 
     /* loaded from: classes3.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC2152a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC2169a<T> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61020b;
+        public String f58710b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61021c;
+        public String f58711c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61022d;
+        public String f58712d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61023e;
+        public String f58713e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f61024f;
+        public String f58714f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f61025g;
+        public String f58715g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f61026h;
+        public String f58716h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f61027i = 0;
+        public int f58717i = 0;
 
         public T a(int i2) {
-            this.f61027i = i2;
+            this.f58717i = i2;
             return (T) a();
         }
 
@@ -71,7 +69,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T b(String str) {
-            this.f61020b = str;
+            this.f58710b = str;
             return (T) a();
         }
 
@@ -80,77 +78,77 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T c(String str) {
-            this.f61021c = str;
+            this.f58711c = str;
             return (T) a();
         }
 
         public T d(String str) {
-            this.f61022d = str;
+            this.f58712d = str;
             return (T) a();
         }
 
         public T e(String str) {
-            this.f61023e = str;
+            this.f58713e = str;
             return (T) a();
         }
 
         public T f(String str) {
-            this.f61024f = str;
+            this.f58714f = str;
             return (T) a();
         }
 
         public T g(String str) {
-            this.f61025g = str;
+            this.f58715g = str;
             return (T) a();
         }
 
         public T h(String str) {
-            this.f61026h = str;
+            this.f58716h = str;
             return (T) a();
         }
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2153b extends a<C2153b> {
-        public C2153b() {
+    public static class C2170b extends a<C2170b> {
+        public C2170b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC2152a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC2169a
         /* renamed from: c */
-        public C2153b a() {
+        public C2170b a() {
             return this;
         }
     }
 
     public b(a<?> aVar) {
         super(aVar);
-        this.f61013e = aVar.f61020b;
-        this.f61014f = aVar.f61021c;
-        this.f61012d = aVar.a;
-        this.f61015g = aVar.f61022d;
-        this.f61016h = aVar.f61023e;
-        this.f61017i = aVar.f61024f;
-        this.f61018j = aVar.f61025g;
-        this.f61019k = aVar.f61026h;
-        this.l = aVar.f61027i;
+        this.f58704e = aVar.f58710b;
+        this.f58705f = aVar.f58711c;
+        this.f58703d = aVar.a;
+        this.f58706g = aVar.f58712d;
+        this.f58707h = aVar.f58713e;
+        this.f58708i = aVar.f58714f;
+        this.f58709j = aVar.f58715g;
+        this.k = aVar.f58716h;
+        this.l = aVar.f58717i;
     }
 
     public static a<?> d() {
-        return new C2153b();
+        return new C2170b();
     }
 
     public c e() {
         c cVar = new c();
-        cVar.a(h.a, this.f61012d);
-        cVar.a("ti", this.f61013e);
-        cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f61014f);
-        cVar.a("pv", this.f61015g);
-        cVar.a("pn", this.f61016h);
-        cVar.a("si", this.f61017i);
-        cVar.a("ms", this.f61018j);
-        cVar.a("ect", this.f61019k);
+        cVar.a(h.a, this.f58703d);
+        cVar.a("ti", this.f58704e);
+        cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f58705f);
+        cVar.a("pv", this.f58706g);
+        cVar.a("pn", this.f58707h);
+        cVar.a("si", this.f58708i);
+        cVar.a("ms", this.f58709j);
+        cVar.a("ect", this.k);
         cVar.a("br", Integer.valueOf(this.l));
         return a(cVar);
     }

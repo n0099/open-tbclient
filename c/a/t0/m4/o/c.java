@@ -38,7 +38,7 @@ public class c extends m {
         this.m = false;
         this.l = 3;
         VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
-        this.f14538k = videoPlayInputContainer;
+        this.k = videoPlayInputContainer;
         this.r = videoPlayInputContainer.getInputView();
         this.n = new int[]{4, 24, 3, 9, 6};
     }
@@ -52,6 +52,6 @@ public class c extends m {
     public VideoPlayInputContainer g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (VideoPlayInputContainer) this.f14538k : (VideoPlayInputContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (VideoPlayInputContainer) this.k : (VideoPlayInputContainer) invokeV.objValue;
     }
 }

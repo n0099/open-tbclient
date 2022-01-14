@@ -28,10 +28,10 @@ public abstract class b extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6004c;
+    public String f5873c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6005d;
+    public boolean f5874d;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<i<b.e>> {
@@ -39,19 +39,19 @@ public abstract class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6006e;
+        public final /* synthetic */ CallbackHandler f5875e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6007f;
+        public final /* synthetic */ String f5876f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f6008g;
+        public final /* synthetic */ c.a.r0.a.d2.e f5877g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6009h;
+        public final /* synthetic */ UnitedSchemeEntity f5878h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f6010i;
+        public final /* synthetic */ b f5879i;
 
         public a(b bVar, CallbackHandler callbackHandler, String str, c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -68,11 +68,11 @@ public abstract class b extends z {
                     return;
                 }
             }
-            this.f6010i = bVar;
-            this.f6006e = callbackHandler;
-            this.f6007f = str;
-            this.f6008g = eVar;
-            this.f6009h = unitedSchemeEntity;
+            this.f5879i = bVar;
+            this.f5875e = callbackHandler;
+            this.f5876f = str;
+            this.f5877g = eVar;
+            this.f5878h = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,11 +82,11 @@ public abstract class b extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f6006e, this.f6007f);
-                    this.f6010i.l(this.f6008g, this.f6009h, this.f6006e, this.f6007f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f5875e, this.f5876f);
+                    this.f5879i.l(this.f5877g, this.f5878h, this.f5875e, this.f5876f);
                     return;
                 }
-                this.f6010i.k(this.f6008g, this.f6009h, this.f6006e, this.f6007f);
+                this.f5879i.k(this.f5877g, this.f5878h, this.f5875e, this.f5876f);
             }
         }
     }
@@ -110,8 +110,8 @@ public abstract class b extends z {
                 return;
             }
         }
-        this.f6004c = null;
-        this.f6005d = false;
+        this.f5873c = null;
+        this.f5874d = false;
     }
 
     public static void m(String str, String str2, String str3) {
@@ -123,9 +123,9 @@ public abstract class b extends z {
         c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
         b.a V = a0.V();
         eVar.a = n.n(V.G());
-        eVar.f8160e = str3;
-        eVar.f8157b = DI.BD.FAVOR;
-        eVar.f8161f = a0.N();
+        eVar.f7980e = str3;
+        eVar.f7977b = DI.BD.FAVOR;
+        eVar.f7981f = a0.N();
         SwanCoreVersion j0 = V.j0();
         String Y = a0.Y();
         String str4 = j0 != null ? j0.swanCoreVersionName : "";
@@ -144,18 +144,18 @@ public abstract class b extends z {
             if (eVar == null) {
                 c.a.r0.a.e0.d.c("favorite", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6340b;
+                boolean z = z.f6201b;
                 return false;
             }
             JSONObject d2 = w.d(unitedSchemeEntity.getParam("params"));
             String optString = d2.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 c.a.r0.a.e0.d.c("favorite", "none cb");
-                boolean z2 = z.f6340b;
+                boolean z2 = z.f6201b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            this.f6005d = d2.optBoolean("isFavorButton", false);
+            this.f5874d = d2.optBoolean("isFavorButton", false);
             if (!j(eVar, unitedSchemeEntity)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
                 return false;
@@ -165,7 +165,7 @@ public abstract class b extends z {
             if (TextUtils.equals(optString2, c.a.r0.a.g1.f.U().C()) && (TextUtils.equals(T, "pages/swan-news-showcase/index") || TextUtils.equals(T, "pages/swan-operate-news/index"))) {
                 k(eVar, unitedSchemeEntity, callbackHandler, optString);
             } else if (!o(unitedSchemeEntity)) {
-                eVar.d0().g(context, this.f6005d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, eVar, unitedSchemeEntity));
+                eVar.d0().g(context, this.f5874d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, eVar, unitedSchemeEntity));
             } else {
                 k(eVar, unitedSchemeEntity, callbackHandler, optString);
             }

@@ -16,13 +16,13 @@ public class b implements h {
     public c.a.a1.g.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1191b;
+    public int f1187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1192c;
+    public int f1188c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1193d;
+    public boolean f1189d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b implements h {
                 return;
             }
         }
-        this.f1193d = true;
+        this.f1189d = true;
     }
 
     @Override // c.a.a1.i.h
@@ -49,9 +49,9 @@ public class b implements h {
             if (bVar == null || bArr == null) {
                 return 0;
             }
-            this.f1191b += bArr.length;
+            this.f1187b += bArr.length;
             bVar.putBytes(bArr, i2);
-            return this.f1191b;
+            return this.f1187b;
         }
         return invokeLI.intValue;
     }
@@ -60,7 +60,7 @@ public class b implements h {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f1193d && this.a.available() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f1189d && this.a.available() : invokeV.booleanValue;
     }
 
     @Override // c.a.a1.i.h
@@ -91,7 +91,7 @@ public class b implements h {
             }
             byte[] bArr = new byte[4096];
             int bytes = this.a.getBytes(bArr, 4096);
-            this.f1192c += bytes;
+            this.f1188c += bytes;
             if (bytes == 0) {
                 return null;
             }

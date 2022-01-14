@@ -147,20 +147,20 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 Collection entrySet = this.a.entrySet();
-                Comparator<? super K> comparator = this.f56786b;
+                Comparator<? super K> comparator = this.f54629b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f56787c);
+                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f54630c);
             }
             return (ImmutableSetMultimap) invokeV.objValue;
         }
 
-        public a<K, V> g(K k2, V v) {
+        public a<K, V> g(K k, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k2, v)) == null) {
-                super.c(k2, v);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
+                super.c(k, v);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -336,7 +336,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                 }
                 try {
                     ImmutableMultimap.d.a.b(this, builder.a());
-                    ImmutableMultimap.d.f56788b.a(this, i2);
+                    ImmutableMultimap.d.f54631b.a(this, i2);
                     b.a.b(this, emptySet(comparator));
                     return;
                 } catch (IllegalArgumentException e2) {
@@ -421,12 +421,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return (ImmutableSetMultimap) invokeLL.objValue;
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k2, V v) {
+    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, k2, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, k, v)) == null) {
             a builder = builder();
-            builder.g(k2, v);
+            builder.g(k, v);
             return builder.f();
         }
         return (ImmutableSetMultimap) invokeLL.objValue;
@@ -497,10 +497,10 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     }
 
     @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
-    public ImmutableSet<V> get(K k2) {
+    public ImmutableSet<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k2)) == null) ? (ImmutableSet) j.a((ImmutableSet) this.map.get(k2), this.emptySet) : (ImmutableSet) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) ? (ImmutableSet) j.a((ImmutableSet) this.map.get(k), this.emptySet) : (ImmutableSet) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -517,22 +517,22 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
-    public ImmutableSet<V> replaceValues(K k2, Iterable<? extends V> iterable) {
+    public ImmutableSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k2, iterable)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, k, iterable)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSet) invokeLL.objValue;
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k2, V v, K k3, V v2) {
+    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, k2, v, k3, v2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, k, v, k2, v2)) == null) {
             a builder = builder();
-            builder.g(k2, v);
-            builder.g(k3, v2);
+            builder.g(k, v);
+            builder.g(k2, v2);
             return builder.f();
         }
         return (ImmutableSetMultimap) invokeLLLL.objValue;
@@ -549,43 +549,43 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return (ImmutableSetMultimap) invokeL.objValue;
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3) {
+    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{k2, v, k3, v2, k4, v3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{k, v, k2, v2, k3, v3})) == null) {
             a builder = builder();
-            builder.g(k2, v);
-            builder.g(k3, v2);
-            builder.g(k4, v3);
+            builder.g(k, v);
+            builder.g(k2, v2);
+            builder.g(k3, v3);
             return builder.f();
         }
         return (ImmutableSetMultimap) invokeCommon.objValue;
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4) {
+    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4})) == null) {
             a builder = builder();
-            builder.g(k2, v);
-            builder.g(k3, v2);
-            builder.g(k4, v3);
-            builder.g(k5, v4);
+            builder.g(k, v);
+            builder.g(k2, v2);
+            builder.g(k3, v3);
+            builder.g(k4, v4);
             return builder.f();
         }
         return (ImmutableSetMultimap) invokeCommon.objValue;
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4, K k6, V v5) {
+    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4, k6, v5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5})) == null) {
             a builder = builder();
-            builder.g(k2, v);
-            builder.g(k3, v2);
-            builder.g(k4, v3);
-            builder.g(k5, v4);
-            builder.g(k6, v5);
+            builder.g(k, v);
+            builder.g(k2, v2);
+            builder.g(k3, v3);
+            builder.g(k4, v4);
+            builder.g(k5, v5);
             return builder.f();
         }
         return (ImmutableSetMultimap) invokeCommon.objValue;

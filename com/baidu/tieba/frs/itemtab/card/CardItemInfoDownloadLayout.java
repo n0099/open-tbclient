@@ -52,25 +52,23 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f45222e;
+    public ViewGroup f43577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f45223f;
+    public LinearLayout f43578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f45224g;
+    public LinearLayout f43579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f45225h;
+    public LinearLayout f43580h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f45226i;
+    public EMTextView f43581i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f45227j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public EMTextView f45228k;
+    public ImageView f43582j;
+    public EMTextView k;
     public EMTextView l;
     public RankStarView m;
     public Ranking n;
@@ -87,7 +85,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoDownloadLayout f45229e;
+        public final /* synthetic */ CardItemInfoDownloadLayout f43583e;
 
         public a(CardItemInfoDownloadLayout cardItemInfoDownloadLayout) {
             Interceptable interceptable = $ic;
@@ -104,7 +102,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
                     return;
                 }
             }
-            this.f45229e = cardItemInfoDownloadLayout;
+            this.f43583e = cardItemInfoDownloadLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -112,13 +110,13 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("rank_code", String.valueOf(this.f45229e.p));
-                hashMap.put("rank_type", String.valueOf(this.f45229e.o));
-                hashMap.put("home_tab_name", this.f45229e.s);
-                hashMap.put("tab_id", String.valueOf(this.f45229e.r));
-                hashMap.put("sort_type", this.f45229e.q);
+                hashMap.put("rank_code", String.valueOf(this.f43583e.p));
+                hashMap.put("rank_type", String.valueOf(this.f43583e.o));
+                hashMap.put("home_tab_name", this.f43583e.s);
+                hashMap.put("tab_id", String.valueOf(this.f43583e.r));
+                hashMap.put("sort_type", this.f43583e.q);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(TbadkApplication.getInst().getApplicationContext(), "ItemRecommendList", hashMap)));
-                this.f45229e.o(2);
+                this.f43583e.o(2);
             }
         }
     }
@@ -129,7 +127,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoDownloadLayout f45230e;
+        public final /* synthetic */ CardItemInfoDownloadLayout f43584e;
 
         public b(CardItemInfoDownloadLayout cardItemInfoDownloadLayout) {
             Interceptable interceptable = $ic;
@@ -146,7 +144,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
                     return;
                 }
             }
-            this.f45230e = cardItemInfoDownloadLayout;
+            this.f43584e = cardItemInfoDownloadLayout;
         }
 
         @Override // java.lang.Runnable
@@ -154,14 +152,14 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int width = this.f45230e.f45225h.getWidth() <= 0 ? 0 : this.f45230e.f45225h.getWidth();
+                int width = this.f43584e.f43580h.getWidth() <= 0 ? 0 : this.f43584e.f43580h.getWidth();
                 if (width == 0) {
-                    this.f45230e.f45222e.setPadding(CardItemInfoDownloadLayout.u, 0, CardItemInfoDownloadLayout.u, 0);
+                    this.f43584e.f43577e.setPadding(CardItemInfoDownloadLayout.u, 0, CardItemInfoDownloadLayout.u, 0);
                     i2 = CardItemInfoDownloadLayout.u * 2;
                 } else {
                     i2 = width + CardItemInfoDownloadLayout.u;
                 }
-                this.f45230e.f45228k.setWidth(this.f45230e.f45222e.getWidth() - i2);
+                this.f43584e.k.setWidth(this.f43584e.f43577e.getWidth() - i2);
             }
         }
     }
@@ -210,7 +208,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Ranking ranking = this.n;
             if (ranking != null && !StringUtils.isNull(ranking.name) && this.n.rank_num.intValue() > 0) {
-                EMTextView eMTextView = this.f45226i;
+                EMTextView eMTextView = this.f43581i;
                 Ranking ranking2 = this.n;
                 eMTextView.setText(String.format("%s NO.%d", ranking2.name, ranking2.rank_num));
                 o(1);
@@ -250,7 +248,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f45225h.post(new b(this));
+            this.f43580h.post(new b(this));
         }
     }
 
@@ -258,20 +256,20 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(g1.frs_item_download_view, (ViewGroup) null);
-            this.f45222e = viewGroup;
+            this.f43577e = viewGroup;
             viewGroup.setPadding(u, 0, 0, 0);
-            this.f45223f = (LinearLayout) this.f45222e.findViewById(f1.title_area);
-            this.f45228k = (EMTextView) this.f45222e.findViewById(f1.item_name);
-            this.f45224g = (LinearLayout) this.f45222e.findViewById(f1.abstract_area);
-            this.l = (EMTextView) this.f45222e.findViewById(f1.item_score);
-            RankStarView rankStarView = (RankStarView) this.f45222e.findViewById(f1.item_rank_star);
+            this.f43578f = (LinearLayout) this.f43577e.findViewById(f1.title_area);
+            this.k = (EMTextView) this.f43577e.findViewById(f1.item_name);
+            this.f43579g = (LinearLayout) this.f43577e.findViewById(f1.abstract_area);
+            this.l = (EMTextView) this.f43577e.findViewById(f1.item_score);
+            RankStarView rankStarView = (RankStarView) this.f43577e.findViewById(f1.item_rank_star);
             this.m = rankStarView;
             rankStarView.setStarSpacing(c.a.d.f.p.n.f(getContext(), d1.M_W_X001));
-            this.f45225h = (LinearLayout) this.f45222e.findViewById(f1.hot_ranking_area);
-            this.f45226i = (EMTextView) this.f45222e.findViewById(f1.item_hot_ranking);
-            this.f45227j = (ImageView) this.f45222e.findViewById(f1.item_ranking_icon);
-            this.f45225h.setOnClickListener(this.t);
-            addView(this.f45222e, new FrameLayout.LayoutParams(-1, -2));
+            this.f43580h = (LinearLayout) this.f43577e.findViewById(f1.hot_ranking_area);
+            this.f43581i = (EMTextView) this.f43577e.findViewById(f1.item_hot_ranking);
+            this.f43582j = (ImageView) this.f43577e.findViewById(f1.item_ranking_icon);
+            this.f43580h.setOnClickListener(this.t);
+            addView(this.f43577e, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
             marginLayoutParams.topMargin = c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), d1.M_H_X003);
             setLayoutParams(marginLayoutParams);
@@ -281,7 +279,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public final void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            c.a.s0.s.i0.p.b bVar = new c.a.s0.s.i0.p.b(6);
+            c.a.s0.s.j0.p.b bVar = new c.a.s0.s.j0.p.b(6);
             bVar.o(i2);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bVar));
         }
@@ -291,17 +289,17 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            c d2 = c.d(this.f45222e);
+            c d2 = c.d(this.f43577e);
             d2.m(1);
             d2.n(i1.J_X06);
             d2.f(c1.CAM_X0201);
-            c d3 = c.d(this.f45228k);
+            c d3 = c.d(this.k);
             d3.A(i1.F_X02);
             d3.v(c1.CAM_X0105);
             c.d(this.l).v(c1.CAM_X0305);
-            c.d(this.f45226i).v(c1.CAM_X0311);
-            WebPManager.setPureDrawable(this.f45227j, e1.icon_pure_gamellist_right, c1.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
-            SkinManager.setBackgroundResource(this.f45225h, e1.pic_bg_gamelistl);
+            c.d(this.f43581i).v(c1.CAM_X0311);
+            WebPManager.setPureDrawable(this.f43582j, e1.icon_pure_gamellist_right, c1.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setBackgroundResource(this.f43580h, e1.pic_bg_gamelistl);
             this.m.onChangeSkinType(i2);
         }
     }
@@ -320,7 +318,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
             this.q = rankingParam.sort_type;
             this.r = rankingParam.tab_id.intValue();
         }
-        this.f45228k.setText(itemInfo.name);
+        this.k.setText(itemInfo.name);
         this.s = itemInfo.template_name;
         l(itemInfo);
         k();
@@ -331,9 +329,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.f45225h.setVisibility(0);
+                this.f43580h.setVisibility(0);
             } else {
-                this.f45225h.setVisibility(8);
+                this.f43580h.setVisibility(8);
             }
         }
     }

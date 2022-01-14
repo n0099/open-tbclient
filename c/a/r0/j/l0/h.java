@@ -32,7 +32,7 @@ public class h implements o {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j.f11318c.f();
+            j.f11065c.f();
         }
     }
 }

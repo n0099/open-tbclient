@@ -41,24 +41,24 @@ public final class DefaultRenderer implements c.a.t0.m0.i.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f50777f;
+    public static final a f48850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Map<Float, Float> f50778g;
+    public static final Map<Float, Float> f48851g;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f50779b;
+    public final int f48852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextPaint f50780c;
+    public final TextPaint f48853c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TextPaint f50781d;
+    public final TextPaint f48854d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f50782e;
+    public final Paint f48855e;
 
     /* loaded from: classes12.dex */
     public static final class a {
@@ -88,11 +88,11 @@ public final class DefaultRenderer implements c.a.t0.m0.i.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, paint)) == null) {
                 float textSize = paint.getTextSize();
-                Float f2 = (Float) DefaultRenderer.f50778g.get(Float.valueOf(textSize));
+                Float f2 = (Float) DefaultRenderer.f48851g.get(Float.valueOf(textSize));
                 if (f2 == null) {
                     Paint.FontMetrics fontMetrics = paint.getFontMetrics();
                     float f3 = (fontMetrics.descent - fontMetrics.ascent) + fontMetrics.leading;
-                    DefaultRenderer.f50778g.put(Float.valueOf(textSize), Float.valueOf(f3));
+                    DefaultRenderer.f48851g.put(Float.valueOf(textSize), Float.valueOf(f3));
                     return f3;
                 }
                 return f2.floatValue();
@@ -114,9 +114,9 @@ public final class DefaultRenderer implements c.a.t0.m0.i.a {
                 return;
             }
         }
-        f50777f = new a(null);
+        f48850f = new a(null);
         Color.argb(255, 34, 34, 34);
-        f50778g = new HashMap();
+        f48851g = new HashMap();
     }
 
     public DefaultRenderer() {
@@ -133,28 +133,28 @@ public final class DefaultRenderer implements c.a.t0.m0.i.a {
             }
         }
         this.a = UtilHelper.getDimenPixelSize(R.dimen.M_H_X001);
-        this.f50779b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
+        this.f48852b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
         TextPaint textPaint = new TextPaint();
         textPaint.setColor(-1);
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setAntiAlias(true);
         Unit unit = Unit.INSTANCE;
-        this.f50780c = textPaint;
+        this.f48853c = textPaint;
         TextPaint textPaint2 = new TextPaint();
-        textPaint2.setTextSize(this.f50780c.getTextSize());
+        textPaint2.setTextSize(this.f48853c.getTextSize());
         textPaint2.setColor(-16777216);
         textPaint2.setStrokeWidth(UtilHelper.getDimenPixelSize(R.dimen.L_X03));
         textPaint2.setStyle(Paint.Style.FILL_AND_STROKE);
         textPaint2.setAntiAlias(true);
         Unit unit2 = Unit.INSTANCE;
-        this.f50781d = textPaint2;
+        this.f48854d = textPaint2;
         Paint paint = new Paint();
         paint.setColor(-1);
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
         paint.setStrokeWidth(UtilHelper.getDimenPixelSize(R.dimen.L_X02));
         Unit unit3 = Unit.INSTANCE;
-        this.f50782e = paint;
+        this.f48855e = paint;
     }
 
     @Override // c.a.t0.m0.i.a
@@ -168,18 +168,18 @@ public final class DefaultRenderer implements c.a.t0.m0.i.a {
             i(item, displayer, config);
             c.a.t0.m0.e.b e2 = item.e();
             int b2 = c.a.t0.x0.a.b(e2.c());
-            float textSize = b2 * (this.f50780c.getTextSize() + UtilHelper.getDimenPixelSize(R.dimen.tbds6));
+            float textSize = b2 * (this.f48853c.getTextSize() + UtilHelper.getDimenPixelSize(R.dimen.tbds6));
             String replace = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").replace(e2.c(), "");
             if (TextUtils.isEmpty(replace)) {
                 item.e().q(UtilHelper.getDimenPixelSize(R.dimen.tbds4));
             } else if (b2 > 0) {
                 item.e().q(-UtilHelper.getDimenPixelSize(R.dimen.tbds6));
             }
-            float measureText = this.f50780c.measureText(replace, 0, replace.length()) + textSize + e2.h();
+            float measureText = this.f48853c.measureText(replace, 0, replace.length()) + textSize + e2.h();
             if (e2.g() == 8) {
-                measureText += this.f50779b * 2;
+                measureText += this.f48852b * 2;
             }
-            return new g(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f50777f.b(this.f50780c)) + MathKt__MathJVMKt.roundToInt(34.86f));
+            return new g(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f48850f.b(this.f48853c)) + MathKt__MathJVMKt.roundToInt(34.86f));
         }
         return (g) invokeLLL.objValue;
     }
@@ -231,12 +231,12 @@ public final class DefaultRenderer implements c.a.t0.m0.i.a {
             Intrinsics.checkNotNullParameter(config, "config");
             c.a.t0.m0.e.b e2 = item.e();
             float clamp = MathUtils.clamp(e2.n(), 12.0f, 25.0f) * (displayer.b() - 0.6f);
-            this.f50780c.setColor(e2.m() | Color.argb(255, 0, 0, 0));
-            this.f50780c.setTextSize(clamp * config.v());
-            this.f50780c.setTypeface(config.g() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            this.f50781d.setTextSize(this.f50780c.getTextSize());
-            this.f50781d.setTypeface(this.f50780c.getTypeface());
-            this.f50781d.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0608));
+            this.f48853c.setColor(e2.m() | Color.argb(255, 0, 0, 0));
+            this.f48853c.setTextSize(clamp * config.v());
+            this.f48853c.setTypeface(config.g() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            this.f48854d.setTextSize(this.f48853c.getTextSize());
+            this.f48854d.setTypeface(this.f48853c.getTypeface());
+            this.f48854d.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0608));
         }
     }
 }

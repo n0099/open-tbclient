@@ -12,7 +12,7 @@ public final class k {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58099b = "";
+    public static String f55902b = "";
 
     public static String a() {
         if (TextUtils.isEmpty(a)) {
@@ -48,25 +48,25 @@ public final class k {
 
     public static String d() {
         String f2;
-        if (TextUtils.isEmpty(f58099b)) {
+        if (TextUtils.isEmpty(f55902b)) {
             Context context = KsAdSDKImpl.get().getContext();
             if (context == null) {
                 return "";
             }
             try {
                 f2 = as.f(context);
-                f58099b = f2;
+                f55902b = f2;
             } catch (Exception unused) {
             }
             if (TextUtils.isEmpty(f2)) {
-                f58099b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
-                String encode = URLEncoder.encode(f58099b, "UTF-8");
-                f58099b = encode;
+                f55902b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
+                String encode = URLEncoder.encode(f55902b, "UTF-8");
+                f55902b = encode;
                 as.j(context, encode);
-                return f58099b;
+                return f55902b;
             }
-            return f58099b;
+            return f55902b;
         }
-        return f58099b;
+        return f55902b;
     }
 }

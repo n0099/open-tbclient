@@ -15,10 +15,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15347b;
+    public String f14967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<b> f15348c;
+    public ArrayList<b> f14968c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,32 +33,32 @@ public class a {
                 return;
             }
         }
-        this.f15348c = new ArrayList<>();
+        this.f14968c = new ArrayList<>();
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f15348c.add(bVar);
+            this.f14968c.add(bVar);
         }
     }
 
     public b b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (b) ListUtils.getItem(this.f15348c, i2) : (b) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (b) ListUtils.getItem(this.f14968c, i2) : (b) invokeI.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15347b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14967b : (String) invokeV.objValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f15347b = str;
+            this.f14967b = str;
         }
     }
 

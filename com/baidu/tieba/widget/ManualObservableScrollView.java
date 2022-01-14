@@ -16,10 +16,10 @@ public class ManualObservableScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51551e;
+    public boolean f49565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f51552f;
+    public a f49566f;
 
     /* loaded from: classes13.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class ManualObservableScrollView extends ScrollView {
     public a getScrollChangedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51552f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49566f : (a) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -58,7 +58,7 @@ public class ManualObservableScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            if (!this.f51551e || (aVar = this.f51552f) == null) {
+            if (!this.f49565e || (aVar = this.f49566f) == null) {
                 return;
             }
             aVar.onScrollChanged(i2, i3, i4, i5);
@@ -82,10 +82,10 @@ public class ManualObservableScrollView extends ScrollView {
                     if (action != 2) {
                     }
                 }
-                this.f51551e = false;
+                this.f49565e = false;
                 return super.onTouchEvent(motionEvent);
             }
-            this.f51551e = true;
+            this.f49565e = true;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -94,7 +94,7 @@ public class ManualObservableScrollView extends ScrollView {
     public void setScrollChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f51552f = aVar;
+            this.f49566f = aVar;
         }
     }
 

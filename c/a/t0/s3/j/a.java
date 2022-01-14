@@ -31,24 +31,24 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f24197e;
+    public Activity f23520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d> f24198f;
+    public ArrayList<d> f23521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f24199g;
+    public View.OnClickListener f23522g;
 
     /* renamed from: c.a.t0.s3.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1421a implements View.OnClickListener {
+    public class View$OnClickListenerC1436a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24200e;
+        public final /* synthetic */ a f23523e;
 
-        public View$OnClickListenerC1421a(a aVar) {
+        public View$OnClickListenerC1436a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f24200e = aVar;
+            this.f23523e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,11 +72,11 @@ public class a extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
-                if ((tag instanceof b) && (dVar = ((b) tag).f24203d) != null) {
+                if ((tag instanceof b) && (dVar = ((b) tag).f23526d) != null) {
                     if (dVar.a == null) {
-                        BarFolderFirstDirActivity.k(this.f24200e.getContext(), null);
+                        BarFolderFirstDirActivity.k(this.f23523e.getContext(), null);
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.f24200e.getContext(), dVar.f24206b, dVar.a, dVar.f24207c)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.f23523e.getContext(), dVar.f23529b, dVar.a, dVar.f23530c)));
                     }
                 }
             }
@@ -90,13 +90,13 @@ public class a extends BaseAdapter {
         public BarImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f24201b;
+        public TextView f23524b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BestStringsFitTextView f24202c;
+        public BestStringsFitTextView f23525c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f24203d;
+        public d f23526d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -128,9 +128,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f24199g = new View$OnClickListenerC1421a(this);
-        this.f24197e = activity;
-        this.f24198f = bVar.h();
+        this.f23522g = new View$OnClickListenerC1436a(this);
+        this.f23520e = activity;
+        this.f23521f = bVar.h();
     }
 
     public final View a(ViewGroup viewGroup, int i2) {
@@ -138,17 +138,17 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) {
             if (i2 == 3) {
-                return LayoutInflater.from(this.f24197e).inflate(R.layout.bar_home_list_line, viewGroup, false);
+                return LayoutInflater.from(this.f23520e).inflate(R.layout.bar_home_list_line, viewGroup, false);
             }
             if (i2 == 2) {
-                return LayoutInflater.from(this.f24197e).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+                return LayoutInflater.from(this.f23520e).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
             }
-            View inflate = LayoutInflater.from(this.f24197e).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-            inflate.setOnClickListener(this.f24199g);
+            View inflate = LayoutInflater.from(this.f23520e).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+            inflate.setOnClickListener(this.f23522g);
             b bVar = new b();
             bVar.a = (BarImageView) inflate.findViewById(R.id.portrait);
-            bVar.f24201b = (TextView) inflate.findViewById(R.id.name);
-            bVar.f24202c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+            bVar.f23524b = (TextView) inflate.findViewById(R.id.name);
+            bVar.f23525c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
             inflate.setTag(bVar);
             return inflate;
         }
@@ -158,23 +158,23 @@ public class a extends BaseAdapter {
     public final void b(ViewGroup viewGroup, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, bVar, i2) == null) {
-            d dVar = this.f24198f.get(i2 / 2);
-            bVar.f24203d = dVar;
-            bVar.f24201b.setText(dVar.f24206b);
-            if (dVar.f24209e != null) {
-                bVar.f24202c.setVisibility(0);
-                String[] strArr = new String[dVar.f24209e.size()];
-                for (int i3 = 0; i3 < dVar.f24209e.size(); i3++) {
-                    strArr[i3] = dVar.f24209e.get(i3).f24206b;
+            d dVar = this.f23521f.get(i2 / 2);
+            bVar.f23526d = dVar;
+            bVar.f23524b.setText(dVar.f23529b);
+            if (dVar.f23532e != null) {
+                bVar.f23525c.setVisibility(0);
+                String[] strArr = new String[dVar.f23532e.size()];
+                for (int i3 = 0; i3 < dVar.f23532e.size(); i3++) {
+                    strArr[i3] = dVar.f23532e.get(i3).f23529b;
                 }
-                bVar.f24202c.setTextArray(strArr);
+                bVar.f23525c.setTextArray(strArr);
             } else {
-                bVar.f24202c.setVisibility(8);
+                bVar.f23525c.setVisibility(8);
             }
-            if (dVar.f24208d != null) {
-                int d2 = n.d(this.f24197e, 45.0f);
-                bVar.a.setTag(dVar.f24208d);
-                bVar.a.startLoad(dVar.f24208d, 10, d2, d2, false);
+            if (dVar.f23531d != null) {
+                int d2 = n.d(this.f23520e, 45.0f);
+                bVar.a.setTag(dVar.f23531d);
+                bVar.a.startLoad(dVar.f23531d, 10, d2, d2, false);
             }
         }
     }
@@ -182,20 +182,20 @@ public class a extends BaseAdapter {
     public ArrayList<d> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24198f : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23521f : (ArrayList) invokeV.objValue;
     }
 
     public void d(ArrayList<d> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f24198f = arrayList;
+            this.f23521f = arrayList;
         }
     }
 
     public Activity getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24197e : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23520e : (Activity) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -203,7 +203,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<d> arrayList = this.f24198f;
+            ArrayList<d> arrayList = this.f23521f;
             if (arrayList == null) {
                 return 0;
             }

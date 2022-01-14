@@ -92,19 +92,19 @@ public interface IYYPayWayView extends j.a.a.e.q.a {
         public List<PayWayInfo> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f65380b;
+        public c f62940b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f65381c;
+        public AppCustomExpand f62941c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f65382d;
+        public boolean f62942d;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f65383e;
+        public AbsViewEventHandler f62943e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PayFlowType f65384f;
+        public PayFlowType f62944f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public interface IYYPayWayView extends j.a.a.e.q.a {
                     return;
                 }
             }
-            this.f65382d = false;
+            this.f62942d = false;
         }
     }
 

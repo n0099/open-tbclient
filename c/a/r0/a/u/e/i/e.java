@@ -26,10 +26,10 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f9300b;
+    public static int f9098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f9301c;
+    public static boolean f9099c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -40,14 +40,14 @@ public class e {
 
         /* renamed from: c.a.r0.a.u.e.i.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0570a implements Runnable {
+        public class RunnableC0579a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f9302e;
+            public final /* synthetic */ a f9100e;
 
-            public RunnableC0570a(a aVar) {
+            public RunnableC0579a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public class e {
                         return;
                     }
                 }
-                this.f9302e = aVar;
+                this.f9100e = aVar;
             }
 
             @Override // java.lang.Runnable
@@ -78,12 +78,12 @@ public class e {
                     netRequest.setRedirectInterceptor(new k());
                     netRequest.addObserver(new f());
                     netRequest.setNetRequestSettings(netRequestSettings);
-                    int javaNetRequest = this.f9302e.a.setJavaNetRequest(netRequest);
-                    boolean unused = e.f9301c = javaNetRequest == 0;
-                    if (e.f9301c) {
+                    int javaNetRequest = this.f9100e.a.setJavaNetRequest(netRequest);
+                    boolean unused = e.f9099c = javaNetRequest == 0;
+                    if (e.f9099c) {
                         return;
                     }
-                    int unused2 = e.f9300b = 0;
+                    int unused2 = e.f9098b = 0;
                     e.g(javaNetRequest);
                     c.a.r0.a.e0.d.c("ChromeNetManager", "setJavaNetRequest fail, code=" + javaNetRequest);
                 }
@@ -114,7 +114,7 @@ public class e {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0570a(this));
+                this.a.runOnJSThread(new RunnableC0579a(this));
             }
         }
     }
@@ -125,7 +125,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9303e;
+        public final /* synthetic */ int f9101e;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class e {
                     return;
                 }
             }
-            this.f9303e = i2;
+            this.f9101e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -150,7 +150,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.b bVar = new c.b(10016);
-                bVar.l(String.valueOf(this.f9303e));
+                bVar.l(String.valueOf(this.f9101e));
                 bVar.h(c.a.r0.a.d2.d.J().getAppId());
                 bVar.m();
             }
@@ -171,8 +171,8 @@ public class e {
             }
         }
         a = c.a.r0.a.k.a;
-        f9300b = -1;
-        f9301c = false;
+        f9098b = -1;
+        f9099c = false;
     }
 
     public static boolean d() {
@@ -209,10 +209,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f9300b == -1) {
-                f9300b = (!j() || l0.f("3.300.0")) ? 0 : 1;
+            if (f9098b == -1) {
+                f9098b = (!j() || l0.f("3.300.0")) ? 0 : 1;
             }
-            return f9300b == 1;
+            return f9098b == 1;
         }
         return invokeV.booleanValue;
     }
@@ -220,7 +220,7 @@ public class e {
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f9301c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f9099c : invokeV.booleanValue;
     }
 
     public static boolean j() {
@@ -236,7 +236,7 @@ public class e {
         NetRequest p0;
         NetRequestSettings netRequestSettings;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, swanAppConfigData) == null) || !d() || swanAppConfigData == null || (aVar = swanAppConfigData.f40709h) == null || (i2 = aVar.f5694b) <= 0 || (W = c.a.r0.a.h0.u.g.U().W()) == null || !(W.g() instanceof c.a.r0.a.l0.a) || (p0 = ((c.a.r0.a.l0.a) W.g()).p0()) == null || (netRequestSettings = p0.getNetRequestSettings()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, swanAppConfigData) == null) || !d() || swanAppConfigData == null || (aVar = swanAppConfigData.f39346h) == null || (i2 = aVar.f5569b) <= 0 || (W = c.a.r0.a.h0.u.g.U().W()) == null || !(W.g() instanceof c.a.r0.a.l0.a) || (p0 = ((c.a.r0.a.l0.a) W.g()).p0()) == null || (netRequestSettings = p0.getNetRequestSettings()) == null) {
             return;
         }
         netRequestSettings.mTimeout = i2;

@@ -16,7 +16,7 @@ public final class p extends r {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55176b;
+    public int f53079b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(X509Certificate x509Certificate, byte[] bArr) {
@@ -36,7 +36,7 @@ public final class p extends r {
                 return;
             }
         }
-        this.f55176b = -1;
+        this.f53079b = -1;
         this.a = bArr;
     }
 
@@ -72,14 +72,14 @@ public final class p extends r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f55176b == -1) {
+            if (this.f53079b == -1) {
                 try {
-                    this.f55176b = Arrays.hashCode(getEncoded());
+                    this.f53079b = Arrays.hashCode(getEncoded());
                 } catch (CertificateEncodingException unused) {
-                    this.f55176b = 0;
+                    this.f53079b = 0;
                 }
             }
-            return this.f55176b;
+            return this.f53079b;
         }
         return invokeV.intValue;
     }

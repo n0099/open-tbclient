@@ -26,30 +26,30 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f24516i = "c.a.t0.t1.b.q.a";
+    public static final String f23826i = "c.a.t0.t1.b.q.a";
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f24517b;
+    public HeadImageView f23827b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24518c;
+    public TextView f23828c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24519d;
+    public TextView f23829d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbRichTextView f24520e;
+    public TbRichTextView f23830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f24521f;
+    public View f23831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f24522g;
+    public TbPageContext f23832g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24523h;
+    public int f23833h;
 
     static {
         InterceptResult invokeClinit;
@@ -81,28 +81,28 @@ public class a {
                 return;
             }
         }
-        this.f24523h = 3;
-        this.f24522g = tbPageContext;
+        this.f23833h = 3;
+        this.f23832g = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.official_notification_text_item, viewGroup, false);
         this.a = inflate;
         HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.iv_head);
-        this.f24517b = headImageView;
+        this.f23827b = headImageView;
         headImageView.setIsRound(true);
-        this.f24517b.setOnClickListener(onClickListener);
-        this.f24517b.setPlaceHolder(1);
+        this.f23827b.setOnClickListener(onClickListener);
+        this.f23827b.setPlaceHolder(1);
         TextView textView = (TextView) this.a.findViewById(R.id.tv_user_name);
-        this.f24518c = textView;
+        this.f23828c = textView;
         textView.setOnClickListener(onClickListener);
-        this.f24519d = (TextView) this.a.findViewById(R.id.tv_date);
+        this.f23829d = (TextView) this.a.findViewById(R.id.tv_date);
         TbRichTextView tbRichTextView = (TbRichTextView) this.a.findViewById(R.id.tv_content);
-        this.f24520e = tbRichTextView;
+        this.f23830e = tbRichTextView;
         tbRichTextView.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
-        c.a.s0.g1.n.a layoutStrategy = this.f24520e.getLayoutStrategy();
+        c.a.s0.g1.n.a layoutStrategy = this.f23830e.getLayoutStrategy();
         layoutStrategy.o(tbPageContext.getResources().getDimension(R.dimen.tbds12), 1.0f);
-        this.f24520e.setLayoutStrategy(layoutStrategy);
-        this.f24520e.setClickable(true);
-        this.f24520e.setFocusable(true);
-        this.f24521f = this.a.findViewById(R.id.bottom_line);
+        this.f23830e.setLayoutStrategy(layoutStrategy);
+        this.f23830e.setClickable(true);
+        this.f23830e.setFocusable(true);
+        this.f23831f = this.a.findViewById(R.id.bottom_line);
         b();
     }
 
@@ -114,16 +114,16 @@ public class a {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f24523h == TbadkCoreApplication.getInst().getSkinType()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f23833h == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
         SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f24518c, R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.f24519d, R.color.CAM_X0109);
-        this.f24520e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f24520e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-        SkinManager.setBackgroundColor(this.f24521f, R.color.CAM_X0204);
-        this.f24523h = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setViewTextColor(this.f23828c, R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.f23829d, R.color.CAM_X0109);
+        this.f23830e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f23830e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        SkinManager.setBackgroundColor(this.f23831f, R.color.CAM_X0204);
+        this.f23833h = TbadkCoreApplication.getInst().getSkinType();
     }
 
     public void c(ChatMessage chatMessage) {
@@ -132,13 +132,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) || chatMessage.getUserInfo() == null) {
             return;
         }
-        this.f24517b.setUserId(chatMessage.getUserInfo().getUserId());
-        this.f24517b.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
-        this.f24519d.setText(StringHelper.getFormatTimeShort(chatMessage.getTime() * 1000));
-        if (this.f24522g == null || (tbRichTextView = this.f24520e) == null) {
+        this.f23827b.setUserId(chatMessage.getUserInfo().getUserId());
+        this.f23827b.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
+        this.f23829d.setText(StringHelper.getFormatTimeShort(chatMessage.getTime() * 1000));
+        if (this.f23832g == null || (tbRichTextView = this.f23830e) == null) {
             return;
         }
-        h.e(tbRichTextView, chatMessage, f24516i, 0);
+        h.e(tbRichTextView, chatMessage, f23826i, 0);
         if (chatMessage == null || chatMessage.getContent() == null) {
             return;
         }
@@ -147,7 +147,7 @@ public class a {
         for (String str : split) {
             stringBuffer.append(str);
         }
-        this.f24520e.setContentDescription(stringBuffer.toString());
-        this.f24520e.getTextView().setContentDescription(stringBuffer.toString());
+        this.f23830e.setContentDescription(stringBuffer.toString());
+        this.f23830e.getTextView().setContentDescription(stringBuffer.toString());
     }
 }

@@ -18,16 +18,16 @@ public class VideoContainerLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48693e;
+    public int f46876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48694f;
+    public int f46877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48695g;
+    public int f46878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48696h;
+    public int f46879h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoContainerLayout(Context context) {
@@ -47,25 +47,25 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f48696h = n.k(context) / 10;
+        this.f46879h = n.k(context) / 10;
     }
 
     public int getMaxHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48694f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46877f : invokeV.intValue;
     }
 
     public int getMinHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48693e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46876e : invokeV.intValue;
     }
 
     public int getOriginHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48695g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46878g : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup
@@ -73,7 +73,7 @@ public class VideoContainerLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f48696h && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+            if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f46879h && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                 ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -84,21 +84,21 @@ public class VideoContainerLayout extends FrameLayout {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f48694f = i2;
+            this.f46877f = i2;
         }
     }
 
     public void setMinHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f48693e = i2;
+            this.f46876e = i2;
         }
     }
 
     public void setOriginHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f48695g = i2;
+            this.f46878g = i2;
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f48696h = n.k(context) / 10;
+        this.f46879h = n.k(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -143,6 +143,6 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f48696h = n.k(context) / 10;
+        this.f46879h = n.k(context) / 10;
     }
 }

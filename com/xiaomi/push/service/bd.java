@@ -11,7 +11,7 @@ public abstract class bd {
     public static String a = "com.xiaomi.xmsf.push.UNINSTALL";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63839b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
+    public static String f61440b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

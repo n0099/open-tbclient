@@ -23,13 +23,13 @@ public class FunImageView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f42286e;
+    public ViewGroup f40810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42287f;
+    public int f40811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42288g;
+    public String f40812g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunImageView(@NonNull Context context) {
@@ -57,13 +57,13 @@ public class FunImageView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
             ViewGroup h2 = a.i().h(context);
-            this.f42286e = h2;
+            this.f40810e = h2;
             if (h2 != null) {
                 SkinManager.setBackgroundColor(h2, R.color.CAM_X0101, 0);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.k(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
-                addView(this.f42286e, layoutParams);
+                addView(this.f40810e, layoutParams);
             }
         }
     }
@@ -71,25 +71,25 @@ public class FunImageView extends RelativeLayout {
     public int getCurIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42287f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40811f : invokeV.intValue;
     }
 
     public String getCurUrlTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42288g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40812g : (String) invokeV.objValue;
     }
 
     public ViewGroup getFunAdView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42286e : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40810e : (ViewGroup) invokeV.objValue;
     }
 
     public void resetFunAdView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = this.f42286e;
+            ViewGroup viewGroup = this.f40810e;
             if (viewGroup != null) {
                 viewGroup.removeAllViews();
             }
@@ -103,15 +103,15 @@ public class FunImageView extends RelativeLayout {
     public void setCurUrlTagAndIndex(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-            this.f42288g = str;
-            this.f42287f = i2;
+            this.f40812g = str;
+            this.f40811f = i2;
         }
     }
 
     public void setFunAdViewVisible(int i2) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (viewGroup = this.f42286e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (viewGroup = this.f40810e) == null) {
             return;
         }
         viewGroup.setVisibility(i2);

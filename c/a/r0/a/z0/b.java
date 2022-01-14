@@ -17,12 +17,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f10052c;
+    public static volatile b f9829c;
     public transient /* synthetic */ FieldHolder $fh;
     public TextWatcher a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanEditText f10053b;
+    public SwanEditText f9830b;
 
     static {
         InterceptResult invokeClinit;
@@ -58,14 +58,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f10052c == null) {
+            if (f9829c == null) {
                 synchronized (b.class) {
-                    if (f10052c == null) {
-                        f10052c = new b();
+                    if (f9829c == null) {
+                        f9829c = new b();
                     }
                 }
             }
-            return f10052c;
+            return f9829c;
         }
         return (b) invokeV.objValue;
     }
@@ -75,7 +75,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             SwanEditText swanEditText = new SwanEditText(context);
-            this.f10053b = swanEditText;
+            this.f9830b = swanEditText;
             return swanEditText;
         }
         return (SwanEditText) invokeL.objValue;
@@ -84,14 +84,14 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f10053b = null;
+            this.f9830b = null;
         }
     }
 
     public SwanEditText c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10053b : (SwanEditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9830b : (SwanEditText) invokeV.objValue;
     }
 
     public TextWatcher e() {

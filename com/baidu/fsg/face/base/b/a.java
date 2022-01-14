@@ -21,7 +21,7 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1791a f35108b;
+    public C1807a f33974b;
 
     /* renamed from: com.baidu.fsg.face.base.b.a$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -32,46 +32,44 @@ public class a {
 
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C1791a {
+    public class C1807a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f35109b = "load_so_zip_version";
+        public static final String f33975b = "load_so_zip_version";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f35110c = "load_so_modle_name";
+        public static final String f33976c = "load_so_modle_name";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f35111d = "load_default_so";
+        public static final String f33977d = "load_default_so";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f35112e = "load_so_success";
+        public static final String f33978e = "load_so_success";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f35113f = "load_download_so_suc";
+        public static final String f33979f = "load_download_so_suc";
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f35114g = "load_so_exception_info";
+        public static final String f33980g = "load_so_exception_info";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f35115h = "load_so_execption_zip_version";
+        public static final String f33981h = "load_so_execption_zip_version";
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f35116i;
+        public String f33982i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f35117j;
-
-        /* renamed from: k  reason: collision with root package name */
-        public boolean f35118k;
+        public String f33983j;
+        public boolean k;
         public boolean l;
         public boolean m;
         public String n;
         public String o;
 
-        public C1791a(a aVar) {
+        public C1807a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +89,7 @@ public class a {
             this.m = true;
         }
 
-        public /* synthetic */ C1791a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1807a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -100,13 +98,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(f35109b, this.f35116i);
-                hashMap.put(f35110c, this.f35117j);
-                hashMap.put(f35111d, this.l ? "1" : "-1");
-                hashMap.put(f35112e, this.f35118k ? "1" : "-1");
-                hashMap.put(f35113f, this.m ? "1" : "-1");
-                hashMap.put(f35114g, this.n);
-                hashMap.put(f35115h, this.o);
+                hashMap.put(f33975b, this.f33982i);
+                hashMap.put(f33976c, this.f33983j);
+                hashMap.put(f33977d, this.l ? "1" : "-1");
+                hashMap.put(f33978e, this.k ? "1" : "-1");
+                hashMap.put(f33979f, this.m ? "1" : "-1");
+                hashMap.put(f33980g, this.n);
+                hashMap.put(f33981h, this.o);
                 return hashMap;
             }
             return (Map) invokeV.objValue;
@@ -143,37 +141,37 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, bundle)) == null) {
             this.a = context;
-            this.f35108b = new C1791a(this, null);
+            this.f33974b = new C1807a(this, null);
             b.a a = b.a(i2);
             c a2 = b.a(context).a(context.getApplicationContext(), a.a);
-            this.f35108b.f35117j = a.a;
+            this.f33974b.f33983j = a.a;
             try {
                 if (a2.q && a2.r) {
                     if (a2.p) {
-                        if (a.f35128b.compareTo(a2.n) > 0) {
-                            this.f35108b.f35116i = a.f35128b;
-                            a(a.f35130d, a);
+                        if (a.f33993b.compareTo(a2.n) > 0) {
+                            this.f33974b.f33982i = a.f33993b;
+                            a(a.f33995d, a);
                         } else {
-                            a(a, a2, a.f35130d);
+                            a(a, a2, a.f33995d);
                         }
                     } else {
-                        a(a, a2, a.f35130d);
+                        a(a, a2, a.f33995d);
                     }
-                    this.f35108b.f35118k = true;
+                    this.f33974b.k = true;
                     return true;
                 }
-                this.f35108b.f35116i = a.f35128b;
-                this.f35108b.f35118k = true;
-                a(a.f35130d, a);
+                this.f33974b.f33982i = a.f33993b;
+                this.f33974b.k = true;
+                a(a.f33995d, a);
                 return true;
             } catch (Throwable th) {
                 try {
-                    this.f35108b.n = Log.getStackTraceString(th);
-                    this.f35108b.o = this.f35108b.f35116i;
-                    this.f35108b.f35118k = false;
+                    this.f33974b.n = Log.getStackTraceString(th);
+                    this.f33974b.o = this.f33974b.f33982i;
+                    this.f33974b.k = false;
                     return false;
                 } finally {
-                    this.f35108b.b();
+                    this.f33974b.b();
                 }
             }
         }
@@ -190,7 +188,7 @@ public class a {
                 }
                 System.loadLibrary(str);
             }
-            this.f35108b.l = true;
+            this.f33974b.l = true;
         }
     }
 
@@ -202,13 +200,13 @@ public class a {
                 for (String str : strArr) {
                     System.load(b.b(this.a, aVar) + "/lib" + str + ".so");
                 }
-                this.f35108b.f35116i = cVar.n;
+                this.f33974b.f33982i = cVar.n;
                 z = true;
             } catch (Throwable th) {
-                this.f35108b.m = false;
-                this.f35108b.f35116i = aVar.f35128b;
-                this.f35108b.n = Log.getStackTraceString(th);
-                this.f35108b.o = cVar.n;
+                this.f33974b.m = false;
+                this.f33974b.f33982i = aVar.f33993b;
+                this.f33974b.n = Log.getStackTraceString(th);
+                this.f33974b.o = cVar.n;
             }
             if (z) {
                 return;

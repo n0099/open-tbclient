@@ -41,7 +41,7 @@ public class SyncLoginService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f49623e;
+        public final /* synthetic */ SyncLoginService f47756e;
 
         public a(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f49623e = syncLoginService;
+            this.f47756e = syncLoginService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49623e.checkPassV6Switch();
+                this.f47756e.checkPassV6Switch();
             }
         }
     }
@@ -163,7 +163,7 @@ public class SyncLoginService extends BdBaseService {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f49624b;
+        public final /* synthetic */ SyncLoginService f47757b;
 
         public b(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f49624b = syncLoginService;
+            this.f47757b = syncLoginService;
             this.a = null;
         }
 
@@ -266,7 +266,7 @@ public class SyncLoginService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 super.onPostExecute(dVar);
-                this.f49624b.mSyncTask = null;
+                this.f47757b.mSyncTask = null;
             }
         }
 
@@ -274,7 +274,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f49624b.mSyncTask = null;
+                this.f47757b.mSyncTask = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();

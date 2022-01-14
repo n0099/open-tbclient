@@ -4,6 +4,7 @@ import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ public class c {
     public static final String a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31617b = "";
+    public static String f30625b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,16 +71,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f31617b)) {
+            if (TextUtils.isEmpty(f30625b)) {
                 String b2 = b(context);
-                f31617b = b2;
+                f30625b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f31617b = c2;
+                    f30625b = c2;
                     a(context, c2);
                 }
             }
-            return f31617b;
+            return f30625b;
         }
         return (String) invokeL.objValue;
     }
@@ -129,7 +130,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
+                String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 String lowerCase = !TextUtils.isEmpty(string) ? string.toLowerCase() : UUID.randomUUID().toString();
                 return TextUtils.isEmpty(lowerCase) ? "default" : a(lowerCase + "default");
             }

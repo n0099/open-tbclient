@@ -195,15 +195,15 @@ public class i {
                 if (i2 == 2) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f63261c;
+                    afVar = af.f60880c;
                 } else if (i2 == 3) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f63262d;
+                    afVar = af.f60881d;
                 } else if (i2 == 4) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f63263e;
+                    afVar = af.f60882e;
                 }
                 sb.append(afVar.name());
                 sb.append(Constants.WAVE_SEPARATOR);
@@ -230,13 +230,13 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m182a(Context context) {
+    public static void m194a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             String a2 = a(e.a);
-            String a3 = a(e.f63279b);
+            String a3 = a(e.f60898b);
             if (!TextUtils.isEmpty(sharedPreferences.getString(a2, "")) && TextUtils.isEmpty(sharedPreferences.getString(a3, ""))) {
                 z = true;
             }
@@ -247,7 +247,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m183a(Context context, e eVar) {
+    public static void m195a(Context context, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, eVar) == null) {
             String a2 = a(eVar);
@@ -266,15 +266,15 @@ public class i {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a2 = a(eVar);
         if (TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return;
         }
         String string = sharedPreferences.getString(a2, "");
         if (!TextUtils.isEmpty(string) && str.equals(string)) {
-            com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : send token upload");
+        com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : send token upload");
         a(eVar, str);
         at a3 = l.a(eVar);
         if (a3 == null) {
@@ -298,9 +298,9 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 } else if (TextUtils.isEmpty(str)) {
-                    com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : token is null");
+                    com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : token is null");
                 } else {
                     a.put(a2, str);
                 }
@@ -316,7 +316,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m184a(Context context) {
+    public static boolean m196a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -329,12 +329,12 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m185a(Context context, e eVar) {
+    public static boolean m197a(Context context, e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, eVar)) == null) {
-            if (l.m187a(eVar) != null) {
-                return com.xiaomi.push.service.aq.a(context).a(l.m187a(eVar).a(), true);
+            if (l.m199a(eVar) != null) {
+                return com.xiaomi.push.service.aq.a(context).a(l.m199a(eVar).a(), true);
             }
             return false;
         }
@@ -390,11 +390,11 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                     return;
                 }
                 com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, str));
-                com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

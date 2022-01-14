@@ -9,14 +9,14 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1126b;
+    public String f1124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1127c;
+    public String f1125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1128d;
+    public String f1126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1129e;
+    public String f1127e;
 }

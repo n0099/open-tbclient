@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33570b = -1;
+    public static final int f32505b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33571c = -2;
+    public static final int f32506c = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface a {
     }
 

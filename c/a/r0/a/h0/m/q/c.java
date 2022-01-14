@@ -18,7 +18,7 @@ public class c extends a implements g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f6858f;
+    public static boolean f6710f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class c extends a implements g {
             }
         }
         c.a.r0.a.c1.a.g0().getSwitch("swan_pms_http_request_retry_use_default_net_lib", false);
-        f6858f = false;
+        f6710f = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,7 +62,7 @@ public class c extends a implements g {
     public static c.a.r0.q.j.j.b J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6858f ? c.a.r0.a.c1.a.r0() : new c.a.r0.q.j.j.d() : (c.a.r0.q.j.j.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6710f ? c.a.r0.a.c1.a.r0() : new c.a.r0.q.j.j.d() : (c.a.r0.q.j.j.b) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.h0.m.q.a, c.a.r0.q.j.g

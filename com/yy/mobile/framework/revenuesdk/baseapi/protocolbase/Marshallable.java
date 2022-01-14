@@ -159,19 +159,19 @@ public class Marshallable extends PacketBase {
         return (V) invokeLL.objValue;
     }
 
-    private <K> void pushKey(K k2) {
+    private <K> void pushKey(K k) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, k2) == null) {
-            if (k2 instanceof Byte) {
-                pushInt8(((Byte) k2).byteValue());
-            } else if (k2 instanceof Short) {
-                pushInt16(((Short) k2).shortValue());
-            } else if (k2 instanceof Integer) {
-                pushInt32(((Integer) k2).intValue());
-            } else if (k2 instanceof String) {
-                pushString16((String) k2);
+        if (interceptable == null || interceptable.invokeL(65539, this, k) == null) {
+            if (k instanceof Byte) {
+                pushInt8(((Byte) k).byteValue());
+            } else if (k instanceof Short) {
+                pushInt16(((Short) k).shortValue());
+            } else if (k instanceof Integer) {
+                pushInt32(((Integer) k).intValue());
+            } else if (k instanceof String) {
+                pushString16((String) k);
             } else {
-                throw new IllegalStateException("unknow map value type: " + k2.getClass().getName());
+                throw new IllegalStateException("unknow map value type: " + k.getClass().getName());
             }
         }
     }

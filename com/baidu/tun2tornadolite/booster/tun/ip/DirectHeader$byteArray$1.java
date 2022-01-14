@@ -1,0 +1,57 @@
+package com.baidu.tun2tornadolite.booster.tun.ip;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.Metadata;
+import kotlin.collections.ArraysKt___ArraysKt;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Lambda;
+import kotlin.ranges.IntRange;
+@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010 \n\u0002\u0010\u0005\n\u0000\n\u0002\u0010\b\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\n"}, d2 = {"<anonymous>", "", "", "index", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes13.dex */
+public final class DirectHeader$byteArray$1 extends Lambda implements Function1<Integer, List<? extends Byte>> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ int $length;
+    public final /* synthetic */ DirectHeader this$0;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DirectHeader$byteArray$1(DirectHeader directHeader, int i2) {
+        super(1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {directHeader, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.this$0 = directHeader;
+        this.$length = i2;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // kotlin.jvm.functions.Function1
+    public /* bridge */ /* synthetic */ List<? extends Byte> invoke(Integer num) {
+        return invoke(num.intValue());
+    }
+
+    public final List<Byte> invoke(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? ArraysKt___ArraysKt.slice(this.this$0.getBuffer(), new IntRange(i2, this.$length - 1)) : (List) invokeI.objValue;
+    }
+}

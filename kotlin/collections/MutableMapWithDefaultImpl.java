@@ -69,10 +69,10 @@ public final class MutableMapWithDefaultImpl<K, V> implements MutableMapWithDefa
     }
 
     @Override // kotlin.collections.MapWithDefault
-    public V getOrImplicitDefault(K k2) {
+    public V getOrImplicitDefault(K k) {
         Map<K, V> map = getMap();
-        V v = map.get(k2);
-        return (v != null || map.containsKey(k2)) ? v : this.f999default.invoke(k2);
+        V v = map.get(k);
+        return (v != null || map.containsKey(k)) ? v : this.f999default.invoke(k);
     }
 
     public int getSize() {
@@ -99,8 +99,8 @@ public final class MutableMapWithDefaultImpl<K, V> implements MutableMapWithDefa
     }
 
     @Override // java.util.Map
-    public V put(K k2, V v) {
-        return getMap().put(k2, v);
+    public V put(K k, V v) {
+        return getMap().put(k, v);
     }
 
     @Override // java.util.Map

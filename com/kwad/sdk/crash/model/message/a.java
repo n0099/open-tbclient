@@ -16,7 +16,7 @@ public class a {
     }
 
     public void a(String str) {
-        a(c.f58751g, (Object) str);
+        a(c.f56537g, (Object) str);
     }
 
     public void a(String str, int i2) {

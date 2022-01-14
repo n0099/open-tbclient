@@ -20,7 +20,7 @@ public class BaiduTraffic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Object> f53057b;
+    public final Map<Integer, Object> f51014b;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -119,7 +119,7 @@ public class BaiduTraffic {
                 return;
             }
         }
-        this.f53057b = new HashMap();
+        this.f51014b = new HashMap();
     }
 
     public boolean a(String str) {

@@ -32,12 +32,12 @@ public class HomeDataCacheManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f53152c;
+    public static String f51106c;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f53153b;
+    public final String f51107b;
 
     /* renamed from: com.baidu.wallet.home.storage.HomeDataCacheManager$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -182,10 +182,10 @@ public class HomeDataCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             synchronized (this) {
-                if (TextUtils.isEmpty(f53152c)) {
-                    f53152c = PayPreferenceManager.getNewPpKey(context);
+                if (TextUtils.isEmpty(f51106c)) {
+                    f51106c = PayPreferenceManager.getNewPpKey(context);
                 }
-                str = f53152c;
+                str = f51106c;
             }
             return str;
         }
@@ -455,7 +455,7 @@ public class HomeDataCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             synchronized (this) {
-                f53152c = PayPreferenceManager.getNewPpKey(context);
+                f51106c = PayPreferenceManager.getNewPpKey(context);
             }
         }
     }
@@ -474,6 +474,6 @@ public class HomeDataCacheManager {
             }
         }
         this.a = "wallet_home_";
-        this.f53153b = StringUtil.NULL_STRING;
+        this.f51107b = StringUtil.NULL_STRING;
     }
 }

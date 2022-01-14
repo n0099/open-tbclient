@@ -1,6 +1,6 @@
 package c.a.t0.a0.f.g.c;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,16 +16,16 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14961b;
+    public String f14601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d2> f14962c;
+    public List<e2> f14602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14963d;
+    public int f14603d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14964e;
+    public int f14604e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,20 +48,20 @@ public class a {
         }
         this.a = jSONObject.optString("head_pic");
         jSONObject.optString("url_type");
-        this.f14961b = jSONObject.optString("url");
-        this.f14963d = jSONObject.optInt("head_type", 0);
-        this.f14964e = jSONObject.optInt("is_set", -1);
+        this.f14601b = jSONObject.optString("url");
+        this.f14603d = jSONObject.optInt("head_type", 0);
+        this.f14604e = jSONObject.optInt("is_set", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f14962c = new ArrayList(optJSONArray.length());
+        this.f14602c = new ArrayList(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
             if (jSONObject2 != null) {
-                d2 d2Var = new d2();
-                d2Var.b3(jSONObject2);
-                this.f14962c.add(d2Var);
+                e2 e2Var = new e2();
+                e2Var.b3(jSONObject2);
+                this.f14602c.add(e2Var);
             }
         }
     }

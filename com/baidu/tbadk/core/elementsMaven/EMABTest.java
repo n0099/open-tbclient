@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.elementsMaven;
 
 import android.text.TextUtils;
 import c.a.s0.s.u.a;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,16 +47,10 @@ public class EMABTest {
         return invokeIL.intValue;
     }
 
-    public static boolean isAbNightColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? TbSingleton.getInstance().isAbNightModeColor() : invokeV.booleanValue;
-    }
-
     private boolean testMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

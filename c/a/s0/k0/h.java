@@ -32,27 +32,27 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f13158h;
+    public static h f12836h;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Class<? extends c.a.s0.k0.a>, c.a.s0.k0.b> f13159b;
+    public final Map<Class<? extends c.a.s0.k0.a>, c.a.s0.k0.b> f12837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Class<? extends c.a.s0.k0.a>, LinkedList<i>> f13160c;
+    public final Map<Class<? extends c.a.s0.k0.a>, LinkedList<i>> f12838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f13161d;
+    public final Handler f12839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f13162e;
+    public d f12840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.s0.k0.c f13163f;
+    public final c.a.s0.k0.c f12841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.s0.n.g f13164g;
+    public final c.a.s0.n.g f12842g;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.s0.k0.c {
@@ -93,10 +93,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.k0.a f13165e;
+        public final /* synthetic */ c.a.s0.k0.a f12843e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f13166f;
+        public final /* synthetic */ h f12844f;
 
         public b(h hVar, c.a.s0.k0.a aVar) {
             Interceptable interceptable = $ic;
@@ -113,15 +113,15 @@ public class h {
                     return;
                 }
             }
-            this.f13166f = hVar;
-            this.f13165e = aVar;
+            this.f12844f = hVar;
+            this.f12843e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13166f.c(this.f13165e);
+                this.f12844f.c(this.f12843e);
             }
         }
     }
@@ -132,7 +132,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f13167e;
+        public final /* synthetic */ h f12845e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -149,14 +149,14 @@ public class h {
                     return;
                 }
             }
-            this.f13167e = hVar;
+            this.f12845e = hVar;
         }
 
         @Override // c.a.s0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
-                this.f13167e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
+                this.f12845e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
             }
         }
     }
@@ -190,25 +190,25 @@ public class h {
             }
         }
         this.a = false;
-        this.f13161d = new Handler(Looper.getMainLooper());
-        this.f13163f = new a(this);
-        this.f13164g = new c(this);
-        this.f13159b = new HashMap();
-        this.f13160c = new HashMap();
+        this.f12839d = new Handler(Looper.getMainLooper());
+        this.f12841f = new a(this);
+        this.f12842g = new c(this);
+        this.f12837b = new HashMap();
+        this.f12838c = new HashMap();
     }
 
     public static h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13158h == null) {
+            if (f12836h == null) {
                 synchronized (h.class) {
-                    if (f13158h == null) {
-                        f13158h = new h();
+                    if (f12836h == null) {
+                        f12836h = new h();
                     }
                 }
             }
-            return f13158h;
+            return f12836h;
         }
         return (h) invokeV.objValue;
     }
@@ -227,7 +227,7 @@ public class h {
         }
         Class<?> cls = aVar.getClass();
         try {
-            c.a.s0.k0.b bVar = this.f13159b.get(cls);
+            c.a.s0.k0.b bVar = this.f12837b.get(cls);
             if (bVar != null) {
                 bVar.onEvent(aVar);
             }
@@ -235,7 +235,7 @@ public class h {
             BdLog.detailException(cls.getName(), e2);
         }
         try {
-            LinkedList<i> linkedList = this.f13160c.get(cls);
+            LinkedList<i> linkedList = this.f12838c.get(cls);
             if (ListUtils.isEmpty(linkedList)) {
                 return;
             }
@@ -260,7 +260,7 @@ public class h {
             if (n.B()) {
                 c(aVar);
             } else {
-                this.f13161d.post(new b(this, aVar));
+                this.f12839d.post(new b(this, aVar));
             }
         }
     }
@@ -287,9 +287,9 @@ public class h {
         f.g();
         k(application);
         e eVar = new e(application);
-        this.f13162e = eVar;
-        eVar.b(this.f13163f);
-        this.f13162e.startService();
+        this.f12840e = eVar;
+        eVar.b(this.f12841f);
+        this.f12840e.startService();
         this.a = true;
     }
 
@@ -314,7 +314,7 @@ public class h {
     public final void j(c.a.s0.k0.a aVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f13162e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f12840e) == null) {
             return;
         }
         dVar.a(aVar);
@@ -324,7 +324,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, application) == null) {
             try {
-                application.registerActivityLifecycleCallbacks(this.f13164g);
+                application.registerActivityLifecycleCallbacks(this.f12842g);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -334,21 +334,21 @@ public class h {
     public void l(@NonNull Class<? extends c.a.s0.k0.a> cls, @NonNull c.a.s0.k0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, cls, bVar) == null) {
-            if (this.f13159b.containsKey(cls)) {
+            if (this.f12837b.containsKey(cls)) {
                 BdLog.e(cls + " has existed, Please unRegister old listener first！");
                 return;
             }
-            this.f13159b.put(cls, bVar);
+            this.f12837b.put(cls, bVar);
         }
     }
 
     public void m(@NonNull Class<? extends c.a.s0.k0.a> cls, @NonNull i iVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, iVar, bdUniqueId) == null) {
-            LinkedList<i> linkedList = this.f13160c.get(cls);
+            LinkedList<i> linkedList = this.f12838c.get(cls);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.f13160c.put(cls, linkedList);
+                this.f12838c.put(cls, linkedList);
             }
             if (linkedList.contains(iVar)) {
                 BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -365,7 +365,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        for (Map.Entry<Class<? extends c.a.s0.k0.a>, LinkedList<i>> entry : this.f13160c.entrySet()) {
+        for (Map.Entry<Class<? extends c.a.s0.k0.a>, LinkedList<i>> entry : this.f12838c.entrySet()) {
             LinkedList<i> value = entry.getValue();
             if (!ListUtils.isEmpty(value)) {
                 Iterator<i> it = value.iterator();

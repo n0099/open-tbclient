@@ -26,14 +26,14 @@ public class a extends c.a.d.n.e.a<c.a.t0.m2.e.b, b> {
 
     /* renamed from: c.a.t0.m2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1194a implements f<c.a.t0.m2.e.b> {
+    public class C1208a implements f<c.a.t0.m2.e.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19821e;
+        public final /* synthetic */ a f19307e;
 
-        public C1194a(a aVar) {
+        public C1208a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.m2.e.b, b> {
                     return;
                 }
             }
-            this.f19821e = aVar;
+            this.f19307e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,10 +65,10 @@ public class a extends c.a.d.n.e.a<c.a.t0.m2.e.b, b> {
         /* renamed from: d */
         public void a(View view, c.a.t0.m2.e.b bVar, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, bVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || bVar == null || this.f19821e.m == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, bVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || bVar == null || this.f19307e.m == null) {
                 return;
             }
-            c.a("c13820", bVar, i2, ((HotTopicDetailActivity) this.f19821e.m.getOrignalPage()).getTopicId());
+            c.a("c13820", bVar, i2, ((HotTopicDetailActivity) this.f19307e.m.getOrignalPage()).getTopicId());
         }
     }
 
@@ -148,7 +148,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.m2.e.b, b> {
                 return;
             }
         }
-        this.n = new C1194a(this);
+        this.n = new C1208a(this);
         this.m = tbPageContext;
     }
 

@@ -12,22 +12,22 @@ public class f implements Comparable<f> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3242e;
+    public int f3204e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3243f;
+    public int f3205f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3244g;
+    public int f3206g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3245h;
+    public int f3207h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3246i;
+    public int f3208i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3247j;
+    public int f3209j;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -50,48 +50,48 @@ public class f implements Comparable<f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            int i2 = this.f3242e;
-            int i3 = fVar.f3242e;
+            int i2 = this.f3204e;
+            int i3 = fVar.f3204e;
             if (i2 - i3 > 0) {
                 return 1;
             }
             if (i2 - i3 < 0) {
                 return -1;
             }
-            int i4 = this.f3243f;
-            int i5 = fVar.f3243f;
+            int i4 = this.f3205f;
+            int i5 = fVar.f3205f;
             if (i4 - i5 > 0) {
                 return 1;
             }
             if (i4 - i5 < 0) {
                 return -1;
             }
-            int i6 = this.f3244g;
-            int i7 = fVar.f3244g;
+            int i6 = this.f3206g;
+            int i7 = fVar.f3206g;
             if (i6 - i7 > 0) {
                 return 1;
             }
             if (i6 - i7 < 0) {
                 return -1;
             }
-            int i8 = this.f3245h;
-            int i9 = fVar.f3245h;
+            int i8 = this.f3207h;
+            int i9 = fVar.f3207h;
             if (i8 - i9 > 0) {
                 return 1;
             }
             if (i8 - i9 < 0) {
                 return -1;
             }
-            int i10 = this.f3246i;
-            int i11 = fVar.f3246i;
+            int i10 = this.f3208i;
+            int i11 = fVar.f3208i;
             if (i10 - i11 > 0) {
                 return 1;
             }
             if (i10 - i11 < 0) {
                 return -1;
             }
-            int i12 = this.f3247j;
-            int i13 = fVar.f3247j;
+            int i12 = this.f3209j;
+            int i13 = fVar.f3209j;
             if (i12 - i13 > 0) {
                 return 1;
             }
@@ -103,12 +103,12 @@ public class f implements Comparable<f> {
     public final void b(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f3242e = i2;
-            this.f3243f = i3;
-            this.f3244g = i4;
-            this.f3245h = i5;
-            this.f3246i = i6;
-            this.f3247j = i7;
+            this.f3204e = i2;
+            this.f3205f = i3;
+            this.f3206g = i4;
+            this.f3207h = i5;
+            this.f3208i = i6;
+            this.f3209j = i7;
         }
     }
 
@@ -122,7 +122,7 @@ public class f implements Comparable<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f3242e + "-" + this.f3243f + "-" + this.f3244g + " " + this.f3245h + ":" + this.f3246i + ":" + this.f3247j;
+            return this.f3204e + "-" + this.f3205f + "-" + this.f3206g + " " + this.f3207h + ":" + this.f3208i + ":" + this.f3209j;
         }
         return (String) invokeV.objValue;
     }

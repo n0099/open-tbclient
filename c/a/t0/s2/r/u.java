@@ -11,16 +11,16 @@ public class u {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f23096b;
+    public float f22459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23097c;
+    public int f22460c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23098d;
+    public float f22461d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23099e;
+    public boolean f22462e;
 
     public u(float f2, float f3, int i2, float f4, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class u {
             }
         }
         this.a = f2;
-        this.f23096b = f3;
-        this.f23097c = i2;
-        this.f23098d = f4;
-        this.f23099e = z;
+        this.f22459b = f3;
+        this.f22460c = i2;
+        this.f22461d = f4;
+        this.f22462e = z;
     }
 }

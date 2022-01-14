@@ -1,6 +1,6 @@
 package c.a.t0.o1.k.c.c;
 
-import c.a.s0.s.q.d2;
+import c.a.s0.s.q.e2;
 import c.a.s0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.PkModule;
 import tbclient.TopicModule;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a.t0.g0.f0.b {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId h0;
@@ -31,7 +31,7 @@ public class a extends c.a.t0.g0.f0.b {
     public PostData d0;
     public int e0;
     public String f0;
-    public d2 g0;
+    public e2 g0;
 
     static {
         InterceptResult invokeClinit;
@@ -66,10 +66,10 @@ public class a extends c.a.t0.g0.f0.b {
         this.e0 = 0;
     }
 
-    public static boolean P(d2 d2Var) {
+    public static boolean P(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) ? d2Var != null && d2Var.getType() == d2.x3 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) ? e2Var != null && e2Var.getType() == e2.x3 : invokeL.booleanValue;
     }
 
     public void Q(NewTopicList newTopicList) {
@@ -87,7 +87,7 @@ public class a extends c.a.t0.g0.f0.b {
             b bVar = new b();
             this.c0 = bVar;
             bVar.a = this.X;
-            bVar.f21287f = 1;
+            bVar.f20724f = 1;
             bVar.b(newTopicList.pk_module);
         }
         if (newTopicList.top_agree_post != null) {
@@ -114,14 +114,14 @@ public class a extends c.a.t0.g0.f0.b {
         b bVar = new b();
         this.c0 = bVar;
         bVar.a = this.X;
-        bVar.f21287f = 3;
+        bVar.f20724f = 3;
         bVar.c(topicModule.pk_module);
     }
 
-    public void S(d2 d2Var) {
+    public void S(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.g0 = d2Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) {
+            this.g0 = e2Var;
         }
     }
 
@@ -140,10 +140,10 @@ public class a extends c.a.t0.g0.f0.b {
     }
 
     @Override // c.a.t0.g0.f0.b, c.a.s0.s.q.a
-    public d2 getThreadData() {
+    public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g0 : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g0 : (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

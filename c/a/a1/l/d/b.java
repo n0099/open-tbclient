@@ -91,9 +91,9 @@ public class b extends c {
             }
             c.a.a1.t.c.b("mediaFormat " + mediaFormat);
             c.b bVar = new c.b();
-            int i3 = c0018f3.f1317b;
+            int i3 = c0018f3.f1312b;
             int i4 = c0018f3.a;
-            int i5 = c0018f3.f1318c;
+            int i5 = c0018f3.f1313c;
             bVar.a = str;
             FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
             MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
@@ -165,9 +165,9 @@ public class b extends c {
                                             bArr = null;
                                             bArr2 = null;
                                         } else {
-                                            bArr2 = c0018f2.a() ? f.c(c0018f3.f1318c / 8, c0018f.f1318c / 8, bArr3) : null;
+                                            bArr2 = c0018f2.a() ? f.c(c0018f3.f1313c / 8, c0018f.f1313c / 8, bArr3) : null;
                                             if (c0018f2.b()) {
-                                                bArr = f.d(c0018f3.f1317b, c0018f.f1317b, c0018f.f1318c / 8, bArr2 == null ? bArr3 : bArr2);
+                                                bArr = f.d(c0018f3.f1312b, c0018f.f1312b, c0018f.f1313c / 8, bArr2 == null ? bArr3 : bArr2);
                                             } else {
                                                 bArr = null;
                                             }
@@ -176,8 +176,8 @@ public class b extends c {
                                             bArr = bArr2 == null ? bArr3 : bArr2;
                                         }
                                         fileOutputStream.write(bArr);
-                                        if (this.f1299b != null) {
-                                            this.f1299b.a(bArr3, bufferInfo.presentationTimeUs / d2);
+                                        if (this.f1294b != null) {
+                                            this.f1294b.a(bArr3, bufferInfo.presentationTimeUs / d2);
                                         }
                                         c.a.a1.t.c.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     }
@@ -222,8 +222,8 @@ public class b extends c {
                 currentTimeMillis = j7;
             }
             long j8 = currentTimeMillis;
-            if (this.f1299b != null) {
-                this.f1299b.a(null, 1.0d);
+            if (this.f1294b != null) {
+                this.f1294b.a(null, 1.0d);
             }
             c.a.a1.t.c.b("decode " + str + " cost " + (System.currentTimeMillis() - j8) + " milliseconds !");
             return bVar;

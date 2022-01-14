@@ -30,25 +30,25 @@ public class a implements c.a.r0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Set<String> f9627e;
+    public static final Set<String> f9418e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, SwanAppConfigData> f9628c;
+    public ConcurrentHashMap<String, SwanAppConfigData> f9419c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9629d;
+    public boolean f9420d;
 
     /* renamed from: c.a.r0.a.u1.l.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0590a implements Runnable {
+    public class RunnableC0599a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9630e;
+        public final /* synthetic */ a f9421e;
 
-        public RunnableC0590a(a aVar) {
+        public RunnableC0599a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a implements c.a.r0.a.f1.f.a {
                     return;
                 }
             }
-            this.f9630e = aVar;
+            this.f9421e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -71,7 +71,7 @@ public class a implements c.a.r0.a.f1.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f9630e.b();
+                this.f9421e.b();
                 long currentTimeMillis2 = System.currentTimeMillis();
                 if (c.a.r0.a.f1.f.a.a) {
                     String str = "async batch parse app.json cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms";
@@ -125,7 +125,7 @@ public class a implements c.a.r0.a.f1.f.a {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) ? file.lastModified() : invokeL.longValue;
         }
 
-        public /* synthetic */ b(a aVar, RunnableC0590a runnableC0590a) {
+        public /* synthetic */ b(a aVar, RunnableC0599a runnableC0599a) {
             this(aVar);
         }
     }
@@ -166,10 +166,10 @@ public class a implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        f9627e = new HashSet();
+        f9418e = new HashSet();
     }
 
-    public /* synthetic */ a(RunnableC0590a runnableC0590a) {
+    public /* synthetic */ a(RunnableC0599a runnableC0599a) {
         this();
     }
 
@@ -187,7 +187,7 @@ public class a implements c.a.r0.a.f1.f.a {
             if (!g2.exists() || (listFiles = g2.listFiles()) == null || listFiles.length == 0) {
                 return;
             }
-            for (String str : f9627e) {
+            for (String str : f9418e) {
                 c(new File(g2, str));
             }
         }
@@ -200,7 +200,7 @@ public class a implements c.a.r0.a.f1.f.a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) || file == null || !file.exists() || !file.isDirectory() || (d2 = d(file)) == null || (a = c.a.r0.a.f1.c.a.a(d2)) == null) {
             return;
         }
-        this.f9628c.put(d2.getAbsolutePath(), a);
+        this.f9419c.put(d2.getAbsolutePath(), a);
     }
 
     public final File d(File file) {
@@ -231,11 +231,11 @@ public class a implements c.a.r0.a.f1.f.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.f9628c;
+            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.f9419c;
             if (concurrentHashMap != null && !concurrentHashMap.isEmpty()) {
-                this.f9628c.clear();
+                this.f9419c.clear();
             }
-            this.f9629d = false;
+            this.f9420d = false;
             boolean z = c.a.r0.a.f1.f.a.a;
         }
     }
@@ -243,10 +243,10 @@ public class a implements c.a.r0.a.f1.f.a {
     public void g(String str) {
         ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f9628c) == null || concurrentHashMap.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f9419c) == null || concurrentHashMap.isEmpty()) {
             return;
         }
-        Iterator<Map.Entry<String, SwanAppConfigData>> it = this.f9628c.entrySet().iterator();
+        Iterator<Map.Entry<String, SwanAppConfigData>> it = this.f9419c.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -255,7 +255,7 @@ public class a implements c.a.r0.a.f1.f.a {
             if (next != null) {
                 String key = next.getKey();
                 if (!TextUtils.isEmpty(key) && key.contains(str)) {
-                    this.f9628c.remove(key);
+                    this.f9419c.remove(key);
                     break;
                 }
             }
@@ -268,11 +268,11 @@ public class a implements c.a.r0.a.f1.f.a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f9627e.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
-            f9627e.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
-            f9627e.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
-            f9627e.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
-            f9627e.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
+            f9418e.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
+            f9418e.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
+            f9418e.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
+            f9418e.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
+            f9418e.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
         }
     }
 
@@ -280,16 +280,16 @@ public class a implements c.a.r0.a.f1.f.a {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f9629d) {
+            if (this.f9420d) {
                 if (c.a.r0.a.f1.f.a.a) {
-                    String str = "has batch parse app.json, size = " + this.f9628c.size();
+                    String str = "has batch parse app.json, size = " + this.f9419c.size();
                     return;
                 }
                 return;
             }
-            this.f9629d = true;
+            this.f9420d = true;
             try {
-                q.k(new RunnableC0590a(this), "startAsyncBatchParseAppJson");
+                q.k(new RunnableC0599a(this), "startAsyncBatchParseAppJson");
             } catch (Throwable th) {
                 if (c.a.r0.a.f1.f.a.a) {
                     th.printStackTrace();
@@ -309,7 +309,7 @@ public class a implements c.a.r0.a.f1.f.a {
             if (TextUtils.isEmpty(absolutePath)) {
                 return null;
             }
-            SwanAppConfigData swanAppConfigData = this.f9628c.get(absolutePath);
+            SwanAppConfigData swanAppConfigData = this.f9419c.get(absolutePath);
             if (c.a.r0.a.f1.f.a.a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("try obtain config data success = ");
@@ -334,8 +334,8 @@ public class a implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        this.f9628c = new ConcurrentHashMap<>();
-        this.f9629d = false;
+        this.f9419c = new ConcurrentHashMap<>();
+        this.f9420d = false;
         h();
     }
 }

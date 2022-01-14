@@ -30,16 +30,16 @@ public class j extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<RelateForumItemData> f22062e;
+    public ArrayList<RelateForumItemData> f21462e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22063f;
+    public String f21463f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelateTopicForumActivity f22064g;
+    public RelateTopicForumActivity f21464g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f22065h;
+    public View.OnClickListener f21465h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -47,7 +47,7 @@ public class j extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f22066e;
+        public final /* synthetic */ j f21466e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -64,20 +64,20 @@ public class j extends BaseAdapter {
                     return;
                 }
             }
-            this.f22066e = jVar;
+            this.f21466e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f22066e.f22064g != null && this.f22066e.f22064g.checkUpIsLogin() && view.getId() == c.a.t0.q1.e.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
-                RelateForumItemData relateForumItemData = (RelateForumItemData) this.f22066e.f22062e.get(intValue);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f21466e.f21464g != null && this.f21466e.f21464g.checkUpIsLogin() && view.getId() == c.a.t0.q1.e.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+                RelateForumItemData relateForumItemData = (RelateForumItemData) this.f21466e.f21462e.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new StatisticItem("c10371").param("fid", String.valueOf(relateForumItemData.forumId)).param("obj_type", c.a.t0.q1.l.k.f22169b).param("topic_id", this.f22066e.f22063f));
+                    TiebaStatic.log(new StatisticItem("c10371").param("fid", String.valueOf(relateForumItemData.forumId)).param("obj_type", c.a.t0.q1.l.k.f21564b).param("topic_id", this.f21466e.f21463f));
                 }
                 if (m.isForumName(relateForumItemData.forumName)) {
-                    this.f22066e.f22064g.likeModel.L(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                    this.f21466e.f21464g.likeModel.L(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }
@@ -98,17 +98,17 @@ public class j extends BaseAdapter {
                 return;
             }
         }
-        this.f22062e = new ArrayList<>();
-        this.f22065h = new a(this);
-        this.f22064g = relateTopicForumActivity;
+        this.f21462e = new ArrayList<>();
+        this.f21465h = new a(this);
+        this.f21464g = relateTopicForumActivity;
     }
 
     public void d(List<RelateForumItemData> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, str) == null) {
-            this.f22062e.clear();
-            this.f22062e.addAll(list);
-            this.f22063f = str;
+            this.f21462e.clear();
+            this.f21462e.addAll(list);
+            this.f21463f = str;
             notifyDataSetChanged();
         }
     }
@@ -144,14 +144,14 @@ public class j extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22062e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21462e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f22062e.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f21462e.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -168,15 +168,15 @@ public class j extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f22064g.getPageContext().getContext()).inflate(c.a.t0.q1.f.hot_topic_list_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f21464g.getPageContext().getContext()).inflate(c.a.t0.q1.f.hot_topic_list_item, (ViewGroup) null);
                 relateTopicForumItemHolder = new RelateTopicForumItemHolder(view);
                 view.setTag(relateTopicForumItemHolder);
-                relateTopicForumItemHolder.forumAddLove.setOnClickListener(this.f22065h);
+                relateTopicForumItemHolder.forumAddLove.setOnClickListener(this.f21465h);
             } else {
                 relateTopicForumItemHolder = (RelateTopicForumItemHolder) view.getTag();
             }
             relateTopicForumItemHolder.forumAddLove.setTag(Integer.valueOf(i2));
-            ArrayList<RelateForumItemData> arrayList = this.f22062e;
+            ArrayList<RelateForumItemData> arrayList = this.f21462e;
             if (arrayList != null && arrayList.get(i2) != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (relateTopicForumItemHolder.skinType != skinType) {
@@ -191,15 +191,15 @@ public class j extends BaseAdapter {
                     SkinManager.setBackgroundResource(view, c.a.t0.q1.d.list_item_selector);
                     relateTopicForumItemHolder.skinType = skinType;
                 }
-                relateTopicForumItemHolder.forumName.setText(this.f22062e.get(i2).forumName);
-                if (!StringUtils.isNULL(this.f22062e.get(i2).forumAvatar)) {
-                    relateTopicForumItemHolder.forumAvatar.startLoad(this.f22062e.get(i2).forumAvatar, 10, false);
+                relateTopicForumItemHolder.forumName.setText(this.f21462e.get(i2).forumName);
+                if (!StringUtils.isNULL(this.f21462e.get(i2).forumAvatar)) {
+                    relateTopicForumItemHolder.forumAvatar.startLoad(this.f21462e.get(i2).forumAvatar, 10, false);
                 }
-                relateTopicForumItemHolder.postNum.setText(StringHelper.numberUniformFormat(this.f22062e.get(i2).postNum));
-                relateTopicForumItemHolder.memberNum.setText(StringHelper.numberUniformFormat(this.f22062e.get(i2).followNum));
-                relateTopicForumItemHolder.content.setText(StringHelper.forceLToR(this.f22062e.get(i2).forumAbstract));
-                f(relateTopicForumItemHolder.forumAddLove, this.f22062e.get(i2).isLiked);
-                if (i2 == this.f22062e.size() - 1) {
+                relateTopicForumItemHolder.postNum.setText(StringHelper.numberUniformFormat(this.f21462e.get(i2).postNum));
+                relateTopicForumItemHolder.memberNum.setText(StringHelper.numberUniformFormat(this.f21462e.get(i2).followNum));
+                relateTopicForumItemHolder.content.setText(StringHelper.forceLToR(this.f21462e.get(i2).forumAbstract));
+                f(relateTopicForumItemHolder.forumAddLove, this.f21462e.get(i2).isLiked);
+                if (i2 == this.f21462e.size() - 1) {
                     e(relateTopicForumItemHolder.line);
                 }
             }

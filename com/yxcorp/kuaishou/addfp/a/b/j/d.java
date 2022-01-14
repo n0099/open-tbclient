@@ -20,16 +20,16 @@ public final class d {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f63929b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f61530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f63930c;
+    public Context f61531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f63931d;
+    public CountDownLatch f61532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f63932e;
+    public ServiceConnection f61533e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public final class d {
             }
         }
         this.a = null;
-        this.f63931d = new CountDownLatch(1);
-        this.f63932e = new e(this);
+        this.f61532d = new CountDownLatch(1);
+        this.f61533e = new e(this);
     }
 
     private void a(boolean z) {
@@ -56,7 +56,7 @@ public final class d {
                 try {
                     String a = this.a.a();
                     if (!TextUtils.isEmpty(a)) {
-                        this.f63929b.a(a);
+                        this.f61530b.a(a);
                         return;
                     }
                 } catch (Throwable th) {
@@ -64,7 +64,7 @@ public final class d {
                     return;
                 }
             }
-            this.f63929b.e();
+            this.f61530b.e();
         }
     }
 
@@ -86,10 +86,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                if (this.f63932e == null || context == null) {
+                if (this.f61533e == null || context == null) {
                     return;
                 }
-                context.unbindService(this.f63932e);
+                context.unbindService(this.f61533e);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -100,8 +100,8 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f63929b = bVar;
-                this.f63930c = context;
+                this.f61530b = bVar;
+                this.f61531c = context;
                 if (b(context)) {
                     String packageName = context.getPackageName();
                     Intent intent = new Intent();
@@ -115,11 +115,11 @@ public final class d {
                 intent2.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent2.setAction("com.bun.msa.action.bindto.service");
                 intent2.putExtra("com.bun.msa.param.pkgname", context.getPackageName());
-                if (!context.bindService(intent2, this.f63932e, 1)) {
+                if (!context.bindService(intent2, this.f61533e, 1)) {
                     a(false);
                     return;
                 }
-                this.f63931d.await(10L, TimeUnit.SECONDS);
+                this.f61532d.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {
@@ -137,7 +137,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return this.f63930c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
+                return this.f61531c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
             } catch (Throwable unused) {
                 return false;
             }
